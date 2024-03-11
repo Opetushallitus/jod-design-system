@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshot testing > Base button 1`] = `
+<button
+  class="jod-button m-2 px-4 py-2 font-bold bg-jod-base text-jod-white"
+  type="button"
+>
+  Base button
+</button>
+`;
+
+exports[`Snapshot testing > Outlined button 1`] = `
+<button
+  class="jod-button m-2 px-4 py-2 font-bold border border-jod-black text-jod-black"
+  type="button"
+>
+  Outlined button
+</button>
+`;
+
+exports[`Snapshot testing > Primary button 1`] = `
+<button
+  class="jod-button m-2 px-4 py-2 font-bold bg-jod-primary text-jod-white"
+  type="button"
+>
+  Primary button
+</button>
+`;
+
+exports[`Snapshot testing > Text button 1`] = `
+<button
+  class="jod-button m-2 px-4 py-2 font-bold text-jod-black"
+  type="button"
+>
+  Text button
+</button>
+`;
