@@ -17,7 +17,7 @@
     "test:unit": "vitest --run",
     "preview": "vite preview",
     "storybook": "BROWSER=none storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build:storybook": "storybook build",
     "prepare": "husky"
   },
   "peerDependencies": {
