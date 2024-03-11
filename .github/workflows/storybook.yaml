@@ -25,4 +25,4 @@ jobs:
         with:
           path: storybook-static
           checkout: false
-          build_command: build:storybook
+          build_command: npm run build:storybook
