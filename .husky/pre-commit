@@ -1,0 +1,1 @@
+npx lint-staged || (echo '\n (⊙＿⊙) Your forgot to use prettier and fix eslint errors!\n'; false)

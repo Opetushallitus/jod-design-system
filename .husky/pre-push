@@ -1,0 +1,1 @@
+npm run test:unit || (echo '\n (⊙＿⊙) Your forgot to run unit tests!\n'; false)
