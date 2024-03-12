@@ -18,7 +18,7 @@
     "preview": "vite preview",
     "storybook": "BROWSER=none storybook dev -p 6006",
     "build:storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky && npm run build"
   },
   "peerDependencies": {
     "classnames": "^2.5.1",
