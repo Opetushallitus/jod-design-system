@@ -7,15 +7,13 @@ import classNames from 'classnames';
 export type ButtonVariant = 'base' | 'primary' | 'outlined' | 'text';
 
 export interface ButtonProps {
-  /* Text shown on the button*/
+  /** Text shown on the button */
   label: string;
-  /* Callback fired on tap/click of the button */
+  /** Callback fired on tap/click of the button */
   onClick: () => void;
-  /** 
-   Variant of the button 
-   */
+  /** Variant of the button */
   variant?: ButtonVariant;
-  /* Button disabled for any actions */
+  /** Button disabled for any actions */
   disabled?: boolean;
 }
 
