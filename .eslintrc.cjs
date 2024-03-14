@@ -13,7 +13,7 @@ module.exports = {
     'plugin:sonarjs/recommended',
     'prettier', // must be last, override other configs
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'storybook-static'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json', './tsconfig.node.json'],
