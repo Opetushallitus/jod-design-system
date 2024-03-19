@@ -1,7 +1,6 @@
 {
   "name": "@jod/design-system",
   "version": "0.0.0",
-  "license": "EUPL-1.2",
   "private": true,
   "type": "module",
   "main": "dist/main.js",
@@ -9,21 +8,24 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": "^20.0.0"
+  },
+  "license": "EUPL-1.2",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build -w",
     "build": "tsc && vite build",
     "format": "prettier . --write",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test:unit": "vitest --run",
-    "preview": "vite preview",
     "storybook": "BROWSER=none storybook dev -p 6006",
     "build:storybook": "storybook build",
     "prepare": "husky && npm run build"
   },
   "peerDependencies": {
-    "classnames": "^2.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "classnames": "^2",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.0.0-rc.3",
