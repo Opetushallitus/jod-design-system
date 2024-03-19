@@ -28,6 +28,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@storybook/addon-designs": "^8.0.0",
     "@storybook/addon-essentials": "^8.0.1",
     "@storybook/addon-interactions": "^8.0.1",
     "@storybook/addon-links": "^8.0.1",
