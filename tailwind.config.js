@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./lib/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'selector',
   theme: {
+    screens: {
+      lg: '1440px',
+    },
     extend: {
       colors: {
         'jod-base': '#444bac',
