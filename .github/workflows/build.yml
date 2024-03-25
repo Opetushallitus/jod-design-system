@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -31,19 +34,33 @@ jobs:
       - name: Run ESLint
         run: npx eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0
 
-      - name: Prettier
+      - name: Run Prettier
         run: npx prettier . --check
 
-      - name: Unit tests
-        run: npx vitest --run
+      - name: Run Vitest unit tests
+        run: npx vitest --coverage.enabled true
+
+      - name: Upload Vitest report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 30
 
       - name: Run build
-        run: npm run build:storybook
+        run: npm run storybook:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: storybook-static/
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     name: Deploy
