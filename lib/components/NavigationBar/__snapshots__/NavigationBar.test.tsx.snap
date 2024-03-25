@@ -1,0 +1,165 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavigationBar > renders navigation items and user 1`] = `
+<div
+  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+>
+  <nav
+    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+  >
+    <div
+      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+    >
+      <div
+        class="h-8 w-8 bg-[#808080]"
+      />
+      JOD
+    </div>
+    <ul
+      class="inline-flex items-center gap-4"
+    >
+      <li>
+        <a
+          aria-current="location"
+          class="block rounded-lg px-4 py-2 bg-[#697077] text-white"
+          href="/home"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          href="/contact"
+        >
+          Contact
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Profile"
+          class="block h-[40px] w-[40px] rounded-full"
+          href="/profile"
+        >
+          <img
+            alt="Jane Doe"
+            class="rounded-full"
+            src="user.jpg"
+          />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`NavigationBar > renders no navigation items and no user 1`] = `
+<div
+  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+>
+  <nav
+    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+  >
+    <div
+      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+    >
+      <div
+        class="h-8 w-8 bg-[#808080]"
+      />
+      JOD
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`NavigationBar > renders only navigation items 1`] = `
+<div
+  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+>
+  <nav
+    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+  >
+    <div
+      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+    >
+      <div
+        class="h-8 w-8 bg-[#808080]"
+      />
+      JOD
+    </div>
+    <ul
+      class="inline-flex items-center gap-4"
+    >
+      <li>
+        <a
+          aria-current="location"
+          class="block rounded-lg px-4 py-2 bg-[#697077] text-white"
+          href="/home"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          href="/contact"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`NavigationBar > renders only user 1`] = `
+<div
+  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+>
+  <nav
+    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+  >
+    <div
+      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+    >
+      <div
+        class="h-8 w-8 bg-[#808080]"
+      />
+      JOD
+    </div>
+    <ul
+      class="inline-flex items-center gap-4"
+    >
+      <li>
+        <a
+          aria-label="Profile"
+          class="block h-[40px] w-[40px] rounded-full"
+          href="/profile"
+        >
+          <img
+            alt="Jane Doe"
+            class="rounded-full"
+            src="user.jpg"
+          />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
