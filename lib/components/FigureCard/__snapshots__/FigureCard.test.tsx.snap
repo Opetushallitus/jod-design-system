@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FigureCard > renders the content and the caption 1`] = `
+<figure
+  class="flex w-min flex-col-reverse items-center rounded-[10px] bg-jod-light px-[40px] py-[15px] font-bold"
+>
+  <figcaption
+    class="text-[24px] leading-[26.4px] text-[#4D5358]"
+  >
+    Dolor sit amet
+  </figcaption>
+  <span
+    class="text-[80px] leading-[88px] text-jod-black"
+  >
+    Lorem ipsum
+  </span>
+</figure>
+`;
