@@ -1,10 +1,8 @@
-import classNames from 'classnames';
-/**
- * base = default button to be used
- * primary = should be only appear once in a page
- * text = for less-pronounced actions
- */
-export type ButtonVariant = 'base' | 'primary' | 'outlined' | 'text';
+export type ButtonVariant =
+  | 'base' // default button to be used
+  | 'primary' // should be only appear once in a page
+  | 'outlined'
+  | 'text'; // for less-pronounced actions
 
 export interface ButtonProps {
   /** Text shown on the button */
@@ -18,19 +16,17 @@ export interface ButtonProps {
 }
 
 export const Button = ({ label, onClick, variant = 'base', disabled = false }: ButtonProps) => {
+  const className = `m-2 px-4 py-2 font-bold
+      ${variant === 'base' ? 'bg-jod-base text-jod-white' : ''}
+      ${variant === 'primary' ? 'bg-jod-primary text-jod-white' : ''}
+      ${variant === 'outlined' ? 'border border-jod-black text-jod-black' : ''}
+      ${variant === 'text' ? 'text-jod-black' : ''}
+      ${disabled ? 'cursor-not-allowed opacity-50' : ''}`
+    .replace(/\s+/g, ' ')
+    .trim();
+
   return (
-    <button
-      disabled={disabled}
-      type="button"
-      onClick={onClick}
-      className={classNames('jod-button', 'm-2 px-4 py-2 font-bold', {
-        'bg-jod-base text-jod-white': variant === 'base',
-        'bg-jod-primary text-jod-white': variant === 'primary',
-        'border border-jod-black text-jod-black': variant === 'outlined',
-        'text-jod-black': variant === 'text',
-        'cursor-not-allowed opacity-50': disabled,
-      })}
-    >
+    <button disabled={disabled} type="button" onClick={onClick} className={className}>
       {label}
     </button>
   );

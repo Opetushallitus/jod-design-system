@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 
 import { Button } from './Button';
 
@@ -16,9 +17,7 @@ export const Base: Story = {
   args: {
     label: 'Base Button',
     variant: 'base',
-    onClick: () => {
-      // Do nothing
-    },
+    onClick: fn(),
   },
 };
 
@@ -26,9 +25,7 @@ export const Primary: Story = {
   args: {
     label: 'Primary Button',
     variant: 'primary',
-    onClick: () => {
-      // Do nothing
-    },
+    onClick: fn(),
   },
 };
 
@@ -36,9 +33,7 @@ export const Outlined: Story = {
   args: {
     label: 'Outlined Button',
     variant: 'outlined',
-    onClick: () => {
-      // Do nothing
-    },
+    onClick: fn(),
   },
 };
 
@@ -46,8 +41,6 @@ export const Text: Story = {
   args: {
     label: 'Text Button',
     variant: 'text',
-    onClick: () => {
-      // Do nothing
-    },
+    onClick: fn(),
   },
 };

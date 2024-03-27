@@ -91,8 +91,8 @@ describe('label', () => {
 });
 
 describe('hideLabel', () => {
-  it('should add correct CSS class to label', () => {
+  it('should add aria-label when label is hidden', () => {
     render(<DropdownMenu label="Non-visible label" options={[]} hideLabel={true} />);
-    expect(screen.getByText('Non-visible label').classList).toContain('sr-only');
+    expect(screen.getByRole('combobox', { name: 'Non-visible label' })).not.toBeNull();
   });
 });

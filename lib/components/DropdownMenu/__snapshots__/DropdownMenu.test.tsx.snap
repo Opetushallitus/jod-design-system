@@ -4,12 +4,9 @@ exports[`Snapshot testing > should not show label 1`] = `
 <div
   class="flex flex-row"
 >
-  <label
-    class="mr-2 self-center font-bold text-jod-black sr-only"
-    for=":r1:"
-  />
   <select
-    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500"
+    aria-label=""
+    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
     id=":r1:"
   />
 </div>
@@ -40,7 +37,7 @@ exports[`Snapshot testing > should render with defaults 1`] = `
     for=":r0:"
   />
   <select
-    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500"
+    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
     id=":r0:"
   />
 </div>
