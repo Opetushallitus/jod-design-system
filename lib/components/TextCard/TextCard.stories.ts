@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { FigureCard } from './FigureCard';
+import { TextCard } from './TextCard';
 
 const meta = {
-  title: 'Primitives/Cards/FigureCard',
-  component: FigureCard,
+  title: 'Primitives/Cards/TextCard',
+  component: TextCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof FigureCard>;
+} satisfies Meta<typeof TextCard>;
 
 export default meta;
 
@@ -20,13 +20,13 @@ export const Default: Story = {
     },
     docs: {
       description: {
-        story: 'This is a card component for displaying a text figure with a caption.',
+        story: 'This is a card component for displaying a text with a label.',
       },
     },
   },
   args: {
-    content: 734,
-    caption: 'ammatteja',
+    text: 734,
+    label: 'ammatteja',
   },
 };
 
@@ -38,12 +38,12 @@ export const Longer: Story = {
     },
     docs: {
       description: {
-        story: 'This is a card component for displaying a longer text figure with a caption.',
+        story: 'This is a card component for displaying a longer text with a label.',
       },
     },
   },
   args: {
-    content: 2336,
-    caption: 'koulutuksia',
+    text: 2336,
+    label: 'koulutuksia',
   },
 };

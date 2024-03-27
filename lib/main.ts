@@ -2,7 +2,7 @@ import './index.css';
 
 export { Button } from './components/Button/Button';
 export { DropdownMenu } from './components/DropdownMenu/DropdownMenu';
-export { FigureCard } from './components/FigureCard/FigureCard';
+export { TextCard } from './components/TextCard/TextCard';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { RadioButton } from './components/RadioButton/RadioButton';
 export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
