@@ -1,5 +1,4 @@
 import { useId } from 'react';
-import classNames from 'classnames';
 
 export interface DropdownMenuOptionsData<T extends string = string> {
   value: T;
@@ -37,23 +36,16 @@ export const DropdownMenu = <
   const labelId = useId();
   return (
     <div className="flex flex-row">
-      <label
-        htmlFor={labelId}
-        className={classNames('mr-2 self-center font-bold text-jod-black', {
-          'sr-only': hideLabel,
-        })}
-      >
-        {label}
-      </label>
+      {!hideLabel && (
+        <label htmlFor={labelId} className="mr-2 self-center font-bold text-jod-black">
+          {label}
+        </label>
+      )}
       <select
         disabled={disabled}
         id={labelId}
-        className={classNames(
-          'min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500',
-          {
-            'disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200': disabled,
-          },
-        )}
+        aria-label={hideLabel ? label : undefined}
+        className="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
         onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
           if (propOnChange) {
             propOnChange(event.target.value as U);
