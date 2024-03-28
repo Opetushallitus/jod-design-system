@@ -8,45 +8,45 @@ afterEach(() => {
   cleanup();
 });
 
+const options = [
+  { value: 'fi', label: 'Suomi' },
+  { value: 'sv', label: 'Svenska' },
+  { value: 'en', label: 'English' },
+];
+
 describe('Snapshot testing', () => {
   it('should render with defaults', () => {
-    const { container } = render(<DropdownMenu label="" options={[]} />);
+    const { container } = render(<DropdownMenu label="Label" options={options} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should not show label', () => {
-    const { container } = render(<DropdownMenu hideLabel={true} label="" options={[]} />);
+    const { container } = render(<DropdownMenu hideLabel={true} label="Label" options={options} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render as disabled', () => {
-    const { container } = render(<DropdownMenu disabled={true} label="" options={[]} />);
+    const { container } = render(<DropdownMenu disabled={true} label="Label" options={options} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
 
 describe('defaultValue', () => {
-  const options = [
-    { value: 'fi', label: 'Suomi' },
-    { value: 'sv', label: 'Svenska' },
-    { value: 'en', label: 'English' },
-  ];
-
   it('should select first by default', () => {
-    render(<DropdownMenu label="" options={options} />);
+    render(<DropdownMenu label="Label" options={options} />);
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     expect((screen.getByRole('option', { name: 'Suomi' }) as HTMLOptionElement).selected).toBe(true);
   });
 
   it('should select the wanted one', () => {
-    render(<DropdownMenu label="" options={options} defaultValue="sv" />);
+    render(<DropdownMenu label="Label" options={options} defaultValue="sv" />);
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     expect((screen.getByRole('option', { name: 'Svenska' }) as HTMLOptionElement).selected).toBe(true);
     //
   });
 
   it('should still allow user to another', async () => {
-    render(<DropdownMenu label="" options={options} defaultValue="fi" />);
+    render(<DropdownMenu label="Label" options={options} defaultValue="fi" />);
     const user = userEvent.setup();
     await user.selectOptions(screen.getByRole('combobox'), 'English');
 
@@ -66,7 +66,7 @@ describe('onChange', () => {
     const mockCallback = vi.fn();
     const user = userEvent.setup();
 
-    render(<DropdownMenu label="" options={options} onChange={mockCallback} />);
+    render(<DropdownMenu label="Label" options={options} onChange={mockCallback} />);
 
     await user.selectOptions(screen.getByRole('combobox'), 'English');
     expect(mockCallback).toHaveBeenCalledTimes(1);
@@ -76,7 +76,7 @@ describe('onChange', () => {
     const mockCallback = vi.fn();
     const user = userEvent.setup();
 
-    render(<DropdownMenu label="" options={options} onChange={mockCallback} disabled={true} />);
+    render(<DropdownMenu label="Label" options={options} onChange={mockCallback} disabled={true} />);
 
     await user.selectOptions(screen.getByRole('combobox'), 'English');
     expect(mockCallback).toHaveBeenCalledTimes(0);
