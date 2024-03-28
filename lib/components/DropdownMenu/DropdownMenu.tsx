@@ -43,7 +43,7 @@ export const DropdownMenu = <
       )}
       <select
         disabled={disabled}
-        id={labelId}
+        id={hideLabel ? undefined : labelId}
         aria-label={hideLabel ? label : undefined}
         className="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
         onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
