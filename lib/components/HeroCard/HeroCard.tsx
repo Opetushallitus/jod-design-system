@@ -1,4 +1,4 @@
-export interface ColorCardProps {
+export interface HeroCardProps {
   /** Title text shown on the card */
   title: string;
   /** Content text shown on the card */
@@ -11,7 +11,7 @@ export interface ColorCardProps {
   href?: string;
 }
 
-export const ColorCard = ({ title, content, actionContent, backgroundColor = '#444BACF2', href }: ColorCardProps) => (
+export const HeroCard = ({ title, content, actionContent, backgroundColor = '#444BACF2', href }: HeroCardProps) => (
   <>
     {actionContent ? (
       <BaseCard
@@ -29,7 +29,7 @@ export const ColorCard = ({ title, content, actionContent, backgroundColor = '#4
   </>
 );
 
-const BaseCard = ({ title, content, actionContent, backgroundColor, href }: ColorCardProps) => {
+const BaseCard = ({ title, content, actionContent, backgroundColor, href }: HeroCardProps) => {
   const Heading = actionContent ? 'h1' : 'h2';
   return (
     <div

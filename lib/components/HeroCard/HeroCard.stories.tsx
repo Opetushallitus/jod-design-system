@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ColorCard } from './ColorCard';
+import { HeroCard } from './HeroCard';
 
 const meta = {
-  title: 'Primitives/Cards/ColorCard',
-  component: ColorCard,
+  title: 'Cards/HeroCard',
+  component: HeroCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof ColorCard>;
+} satisfies Meta<typeof HeroCard>;
 
 export default meta;
 
@@ -25,7 +25,7 @@ export const Primary: Story = {
     },
     docs: {
       description: {
-        story: 'This is a primary color card component.',
+        story: 'This is a primary hero card component.',
       },
     },
     backgrounds: {
@@ -56,7 +56,7 @@ export const Secondary: Story = {
     },
     docs: {
       description: {
-        story: 'This is a secondary color card component.',
+        story: 'This is a secondary hero card component.',
       },
     },
   },
@@ -80,7 +80,7 @@ export const MultipleSecondary: Story = {
     },
     docs: {
       description: {
-        story: 'Multiple color card components.',
+        story: 'Multiple hero card components.',
       },
     },
   },
@@ -106,7 +106,7 @@ export const Hero: Story = {
     },
     docs: {
       description: {
-        story: 'This is a hero component with multiple color card components.',
+        story: 'This is a hero component with multiple hero card components.',
       },
     },
     backgrounds: {

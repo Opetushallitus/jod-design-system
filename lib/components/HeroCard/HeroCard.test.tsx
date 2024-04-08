@@ -2,21 +2,21 @@ import { afterEach, describe, it, expect } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { ColorCard } from './ColorCard';
+import { HeroCard } from './HeroCard';
 
 afterEach(() => {
   cleanup();
 });
 
-describe('ColorCard', () => {
+describe('HeroCard', () => {
   const title = 'Test Title';
   const content = 'Test Content';
   const actionContent = 'Test Action Content';
   const backgroundColor = '#444BACF2';
 
-  it('renders ColorCard with actionContent', () => {
+  it('renders HeroCard with actionContent', () => {
     render(
-      <ColorCard title={title} content={content} actionContent={actionContent} backgroundColor={backgroundColor} />,
+      <HeroCard title={title} content={content} actionContent={actionContent} backgroundColor={backgroundColor} />,
     );
 
     // Assert title, content, and actionContent are rendered
@@ -25,9 +25,9 @@ describe('ColorCard', () => {
     expect(screen.getByText(actionContent)).toBeInTheDocument();
   });
 
-  it('renders ColorCard with a link when actionContent is provided', () => {
+  it('renders HeroCard with a link when actionContent is provided', () => {
     render(
-      <ColorCard
+      <HeroCard
         title={title}
         content={content}
         actionContent={actionContent}
@@ -36,13 +36,13 @@ describe('ColorCard', () => {
       />,
     );
 
-    // Assert ColorCard is wrapped in a link
+    // Assert HeroCard is wrapped in a link
     const linkElement = screen.getByRole('link');
     expect(linkElement).toBeInTheDocument();
   });
 
-  it('renders ColorCard without actionContent', () => {
-    render(<ColorCard title={title} content={content} backgroundColor={backgroundColor} />);
+  it('renders HeroCard without actionContent', () => {
+    render(<HeroCard title={title} content={content} backgroundColor={backgroundColor} />);
 
     // Assert title and content are rendered
     expect(screen.getByText(title)).toBeInTheDocument();
@@ -52,10 +52,10 @@ describe('ColorCard', () => {
     expect(screen.queryByText(actionContent)).toBeNull();
   });
 
-  it('renders ColorCard with a link when actionContent is not provided', () => {
-    render(<ColorCard title={title} content={content} backgroundColor={backgroundColor} href="/" />);
+  it('renders HeroCard with a link when actionContent is not provided', () => {
+    render(<HeroCard title={title} content={content} backgroundColor={backgroundColor} href="/" />);
 
-    // Assert ColorCard is wrapped in a link
+    // Assert HeroCard is wrapped in a link
     const linkElement = screen.getByRole('link');
     expect(linkElement).toBeInTheDocument();
   });
