@@ -1,5 +1,7 @@
 export interface NavigationBarLinkProps {
   className?: string;
+  role?: string;
+  title?: string;
   children: React.ReactNode;
 }
 
@@ -15,7 +17,6 @@ export interface NavigationBarProps {
   /** Navigation avatar */
   user?: {
     name: string;
-    src: string;
     component?: NavigationBarLink;
   };
 }
@@ -23,37 +24,57 @@ export interface NavigationBarProps {
 /**
  * This component is a navigation bar that displays a logo, navigation items, and an avatar.
  */
-export const NavigationBar = ({ items, user }: NavigationBarProps) => (
-  <div className="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]">
-    <nav className="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container">
-      <div className="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]">
-        <div className="h-8 w-8 bg-[#808080]"></div>JOD
-      </div>
-      {(items ?? user) && (
-        <ul className="inline-flex items-center gap-4">
-          {items?.map((item, index) => (
-            <li key={index}>
-              <item.component
-                aria-current={item.active ? 'location' : undefined}
-                className={`block rounded-lg px-4 py-2 ${item.active ? 'bg-[#697077] text-white' : 'hover:bg-[#edeff0] focus:bg-[#edeff0]'}`}
-              >
-                {item.text}
-              </item.component>
-            </li>
-          ))}
-          {user && (
-            <li>
-              {user.component ? (
-                <user.component className="block h-[40px] w-[40px] rounded-full">
-                  <img className="rounded-full" src={user.src} alt={user.name} />
-                </user.component>
-              ) : (
-                <img className="block h-[40px] w-[40px] rounded-full" src={user.src} alt={user.name} />
-              )}
-            </li>
-          )}
-        </ul>
-      )}
-    </nav>
-  </div>
-);
+export const NavigationBar = ({ items, user }: NavigationBarProps) => {
+  const initials = user?.name
+    .split(' ')
+    .map((part) => part[0])
+    .splice(0, 2)
+    .join('')
+    .toUpperCase();
+
+  return (
+    <div className="min-w-min border-b-[4px] border-inactive-gray bg-[#FFFFFFE5]">
+      <nav className="mx-auto flex h-[68px] items-center justify-between gap-4 px-[72px] py-[14px] font-semibold lg:container">
+        <div className="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent">
+          <div className="h-8 w-8 bg-accent"></div>JOD
+        </div>
+        {(items ?? user) && (
+          <ul className="inline-flex items-center gap-6">
+            {items?.map((item, index) => (
+              <li key={index}>
+                <item.component
+                  aria-current={item.active ? 'location' : undefined}
+                  className={`flex items-center gap-3 rounded-lg px-5 py-2 ${item.active ? 'text-accent' : 'text-primary-gray'}`}
+                >
+                  {item.active && <div className="h-5 w-5 rounded-full bg-accent" />}
+                  {item.text}
+                </item.component>
+              </li>
+            ))}
+            {user && (
+              <li className="ml-6">
+                {user.component ? (
+                  <user.component
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white"
+                    role="img"
+                    title={user.name}
+                  >
+                    {initials}
+                  </user.component>
+                ) : (
+                  <div
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white"
+                    role="img"
+                    title={user.name}
+                  >
+                    {initials}
+                  </div>
+                )}
+              </li>
+            )}
+          </ul>
+        )}
+      </nav>
+    </div>
+  );
+};

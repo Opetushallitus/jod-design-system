@@ -2,34 +2,37 @@
 
 exports[`NavigationBar > renders navigation items and user 1`] = `
 <div
-  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+  class="min-w-min border-b-[4px] border-inactive-gray bg-[#FFFFFFE5]"
 >
   <nav
-    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+    class="mx-auto flex h-[68px] items-center justify-between gap-4 px-[72px] py-[14px] font-semibold lg:container"
   >
     <div
-      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+      class="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent"
     >
       <div
-        class="h-8 w-8 bg-[#808080]"
+        class="h-8 w-8 bg-accent"
       />
       JOD
     </div>
     <ul
-      class="inline-flex items-center gap-4"
+      class="inline-flex items-center gap-6"
     >
       <li>
         <a
           aria-current="location"
-          class="block rounded-lg px-4 py-2 bg-[#697077] text-white"
+          class="flex items-center gap-3 rounded-lg px-5 py-2 text-accent"
           href="/home"
         >
+          <div
+            class="h-5 w-5 rounded-full bg-accent"
+          />
           Home
         </a>
       </li>
       <li>
         <a
-          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          class="flex items-center gap-3 rounded-lg px-5 py-2 text-primary-gray"
           href="/about"
         >
           About
@@ -37,23 +40,23 @@ exports[`NavigationBar > renders navigation items and user 1`] = `
       </li>
       <li>
         <a
-          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          class="flex items-center gap-3 rounded-lg px-5 py-2 text-primary-gray"
           href="/contact"
         >
           Contact
         </a>
       </li>
-      <li>
+      <li
+        class="ml-6"
+      >
         <a
           aria-label="Profile"
-          class="block h-[40px] w-[40px] rounded-full"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white"
           href="/profile"
+          role="img"
+          title="Jane Doe"
         >
-          <img
-            alt="Jane Doe"
-            class="rounded-full"
-            src="user.jpg"
-          />
+          JD
         </a>
       </li>
     </ul>
@@ -63,16 +66,16 @@ exports[`NavigationBar > renders navigation items and user 1`] = `
 
 exports[`NavigationBar > renders no navigation items and no user 1`] = `
 <div
-  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+  class="min-w-min border-b-[4px] border-inactive-gray bg-[#FFFFFFE5]"
 >
   <nav
-    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+    class="mx-auto flex h-[68px] items-center justify-between gap-4 px-[72px] py-[14px] font-semibold lg:container"
   >
     <div
-      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+      class="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent"
     >
       <div
-        class="h-8 w-8 bg-[#808080]"
+        class="h-8 w-8 bg-accent"
       />
       JOD
     </div>
@@ -82,34 +85,37 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
 
 exports[`NavigationBar > renders only navigation items 1`] = `
 <div
-  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+  class="min-w-min border-b-[4px] border-inactive-gray bg-[#FFFFFFE5]"
 >
   <nav
-    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+    class="mx-auto flex h-[68px] items-center justify-between gap-4 px-[72px] py-[14px] font-semibold lg:container"
   >
     <div
-      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+      class="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent"
     >
       <div
-        class="h-8 w-8 bg-[#808080]"
+        class="h-8 w-8 bg-accent"
       />
       JOD
     </div>
     <ul
-      class="inline-flex items-center gap-4"
+      class="inline-flex items-center gap-6"
     >
       <li>
         <a
           aria-current="location"
-          class="block rounded-lg px-4 py-2 bg-[#697077] text-white"
+          class="flex items-center gap-3 rounded-lg px-5 py-2 text-accent"
           href="/home"
         >
+          <div
+            class="h-5 w-5 rounded-full bg-accent"
+          />
           Home
         </a>
       </li>
       <li>
         <a
-          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          class="flex items-center gap-3 rounded-lg px-5 py-2 text-primary-gray"
           href="/about"
         >
           About
@@ -117,7 +123,7 @@ exports[`NavigationBar > renders only navigation items 1`] = `
       </li>
       <li>
         <a
-          class="block rounded-lg px-4 py-2 hover:bg-[#edeff0] focus:bg-[#edeff0]"
+          class="flex items-center gap-3 rounded-lg px-5 py-2 text-primary-gray"
           href="/contact"
         >
           Contact
@@ -130,33 +136,33 @@ exports[`NavigationBar > renders only navigation items 1`] = `
 
 exports[`NavigationBar > renders only user 1`] = `
 <div
-  class="min-w-min border-b-2 border-[#808080] bg-[#FFFFFFE5]"
+  class="min-w-min border-b-[4px] border-inactive-gray bg-[#FFFFFFE5]"
 >
   <nav
-    class="mx-auto flex h-[72px] items-center justify-between gap-4 p-4 font-semibold lg:container"
+    class="mx-auto flex h-[68px] items-center justify-between gap-4 px-[72px] py-[14px] font-semibold lg:container"
   >
     <div
-      class="inline-flex select-none items-center gap-2 text-[24px] leading-[140%] text-[#888]"
+      class="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent"
     >
       <div
-        class="h-8 w-8 bg-[#808080]"
+        class="h-8 w-8 bg-accent"
       />
       JOD
     </div>
     <ul
-      class="inline-flex items-center gap-4"
+      class="inline-flex items-center gap-6"
     >
-      <li>
+      <li
+        class="ml-6"
+      >
         <a
           aria-label="Profile"
-          class="block h-[40px] w-[40px] rounded-full"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white"
           href="/profile"
+          role="img"
+          title="Jane Doe"
         >
-          <img
-            alt="Jane Doe"
-            class="rounded-full"
-            src="user.jpg"
-          />
+          JD
         </a>
       </li>
     </ul>

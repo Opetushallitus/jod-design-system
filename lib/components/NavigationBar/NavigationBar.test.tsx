@@ -38,7 +38,6 @@ describe('NavigationBar', () => {
 
   const user = {
     name: 'Jane Doe',
-    src: 'user.jpg',
     component: ({ children, ...rootProps }: NavigationBarLinkProps) => (
       <a href="/profile" aria-label="Profile" {...rootProps}>
         {children}
@@ -60,9 +59,8 @@ describe('NavigationBar', () => {
     });
 
     // Assert user
-    const userImage = screen.getByAltText(user.name);
-    expect(userImage).toBeInTheDocument();
-    expect(userImage).toHaveAttribute('src', user.src);
+    const userAvatar = screen.queryByTitle(user.name);
+    expect(userAvatar).toBeInTheDocument();
   });
 
   it('renders only navigation items', () => {
@@ -79,8 +77,8 @@ describe('NavigationBar', () => {
     });
 
     // Assert user is not rendered
-    const userImage = screen.queryByAltText(user.name);
-    expect(userImage).toBeNull();
+    const userAvatar = screen.queryByTitle(user.name);
+    expect(userAvatar).toBeNull();
   });
 
   it('renders only user', () => {
@@ -90,9 +88,8 @@ describe('NavigationBar', () => {
     expect(container.firstChild).toMatchSnapshot();
 
     // Assert user
-    const userImage = screen.getByAltText(user.name);
-    expect(userImage).toBeInTheDocument();
-    expect(userImage).toHaveAttribute('src', user.src);
+    const userAvatar = screen.queryByTitle(user.name);
+    expect(userAvatar).toBeInTheDocument();
 
     // Assert navigation items are not rendered
     items.forEach((item) => {
@@ -114,7 +111,7 @@ describe('NavigationBar', () => {
     });
 
     // Assert user is not rendered
-    const userImage = screen.queryByAltText(user.name);
-    expect(userImage).toBeNull();
+    const userAvatar = screen.queryByTitle(user.name);
+    expect(userAvatar).toBeNull();
   });
 });
