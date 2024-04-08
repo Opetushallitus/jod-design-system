@@ -5,7 +5,7 @@ exports[`Snapshot testing > Default 1`] = `
   class="flex flex-col items-center justify-center px-1"
 >
   <div
-    class="size-[72px] rounded-full border border-transparent no-underline hover:ring hover:ring-purple-500 bg-[#f5f5f5]"
+    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#f5f5f5]"
   >
     <a
       href="/#"
@@ -14,7 +14,7 @@ exports[`Snapshot testing > Default 1`] = `
     </a>
   </div>
   <span
-    class="flex justify-center text-sm font-normal"
+    class="text-sm flex justify-center font-normal"
     id=":r0:"
   >
     Default
@@ -27,7 +27,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
   class="flex flex-col items-center justify-center px-1"
 >
   <div
-    class="size-[72px] rounded-full border border-transparent no-underline hover:ring hover:ring-purple-500 bg-[#f5f5f5]"
+    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#f5f5f5]"
   >
     <a
       href="/#"
@@ -36,7 +36,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
     </a>
   </div>
   <span
-    class="flex justify-center text-sm font-normal"
+    class="text-sm flex justify-center font-normal"
     id=":r3:"
   >
     Disabled, nonselected
@@ -49,7 +49,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
   class="flex flex-col items-center justify-center px-1"
 >
   <div
-    class="size-[72px] rounded-full border border-transparent no-underline hover:ring hover:ring-purple-500 bg-[#697077]"
+    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#697077]"
   >
     <a
       href="/#"
@@ -58,7 +58,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
     </a>
   </div>
   <span
-    class="flex justify-center text-sm font-normal"
+    class="text-sm flex justify-center font-normal"
     id=":r2:"
   >
     Disabled, nonselected
@@ -71,7 +71,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
   class="flex flex-col items-center justify-center px-1"
 >
   <div
-    class="size-[72px] rounded-full border border-transparent no-underline hover:ring hover:ring-purple-500 bg-[#697077]"
+    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#697077]"
   >
     <a
       href="/#"
@@ -80,7 +80,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
     </a>
   </div>
   <span
-    class="flex justify-center text-sm font-normal"
+    class="text-sm flex justify-center font-normal"
     id=":r4:"
   >
     Disabled, nonselected
@@ -93,7 +93,7 @@ exports[`Snapshot testing > selected 1`] = `
   class="flex flex-col items-center justify-center px-1"
 >
   <div
-    class="size-[72px] rounded-full border border-transparent no-underline hover:ring hover:ring-purple-500 bg-[#697077]"
+    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#697077]"
   >
     <a
       href="/#"
@@ -102,7 +102,7 @@ exports[`Snapshot testing > selected 1`] = `
     </a>
   </div>
   <span
-    class="flex justify-center text-sm font-normal"
+    class="text-sm flex justify-center font-normal"
     id=":r1:"
   >
     Selected
