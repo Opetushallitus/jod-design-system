@@ -7,21 +7,29 @@ export interface ColorCardProps {
   actionContent?: string;
   /** Background color of the card */
   backgroundColor?: string;
+  /** Link to page */
+  href?: string;
 }
 
-export const ColorCard = ({ title, content, actionContent, backgroundColor = '#444BACF2' }: ColorCardProps) => (
+export const ColorCard = ({ title, content, actionContent, backgroundColor = '#444BACF2', href }: ColorCardProps) => (
   <>
     {actionContent ? (
-      <BaseCard title={title} content={content} actionContent={actionContent} backgroundColor={backgroundColor} />
+      <BaseCard
+        title={title}
+        content={content}
+        actionContent={actionContent}
+        backgroundColor={backgroundColor}
+        href={href}
+      />
     ) : (
-      <a href="/" className="flex rounded-[28px] outline-none transition-transform hover:scale-105 focus:scale-105">
-        <BaseCard title={title} content={content} actionContent={actionContent} backgroundColor={backgroundColor} />
+      <a href={href} className="flex rounded-[28px] outline-none transition-transform hover:scale-105 focus:scale-105">
+        <BaseCard title={title} content={content} backgroundColor={backgroundColor} />
       </a>
     )}
   </>
 );
 
-const BaseCard = ({ title, content, actionContent, backgroundColor }: ColorCardProps) => {
+const BaseCard = ({ title, content, actionContent, backgroundColor, href }: ColorCardProps) => {
   const Heading = actionContent ? 'h1' : 'h2';
   return (
     <div
@@ -32,7 +40,7 @@ const BaseCard = ({ title, content, actionContent, backgroundColor }: ColorCardP
       {content && <p>{content}</p>}
       {actionContent ? (
         <a
-          href="/"
+          href={href}
           className="absolute bottom-0 right-[32px] translate-y-2/4 rounded-[40px] outline-none transition-transform hover:scale-105 focus:scale-105"
         >
           <div
