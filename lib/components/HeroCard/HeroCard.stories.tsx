@@ -15,6 +15,7 @@ type Story = StoryObj<typeof meta>;
 const secondaryCardArgs = {
   title: 'Tunnista osaamistasi ja tutki mahdollisuuksia',
   backgroundColor: '#00A8B3F2',
+  href: '/',
 };
 
 export const Primary: Story = {
@@ -38,6 +39,7 @@ export const Primary: Story = {
       'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
     backgroundColor: '#006DB3F2',
     actionContent: 'Kokeile palvelua',
+    href: '/',
   },
   decorators: [
     (Story) => (
@@ -62,6 +64,7 @@ export const Secondary: Story = {
   },
   args: {
     title: secondaryCardArgs.title,
+    href: secondaryCardArgs.href,
   },
   decorators: [
     (Story) => (
@@ -90,9 +93,13 @@ export const MultipleSecondary: Story = {
       <div className="grid grid-flow-row auto-rows-max grid-cols-3 gap-[32px] lg:container">
         <Story />
         <Story
-          args={{ title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi', backgroundColor: '#EE7C45F2' }}
+          args={{
+            title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi',
+            backgroundColor: '#EE7C45F2',
+            href: '/',
+          }}
         />
-        <Story args={{ title: 'Luo oma profiili ja suunnittele polkusi', backgroundColor: '#CD4EB3F2' }} />
+        <Story args={{ title: 'Luo oma profiili ja suunnittele polkusi', backgroundColor: '#CD4EB3F2', href: '/' }} />
       </div>
     ),
   ],
@@ -120,6 +127,7 @@ export const Hero: Story = {
       'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
     backgroundColor: '#006DB3F2',
     actionContent: 'Kokeile palvelua',
+    href: '/',
   },
   decorators: [
     (Story) => (
@@ -130,9 +138,13 @@ export const Hero: Story = {
         <div className="grid grid-flow-row auto-rows-max grid-cols-3 gap-[32px] lg:container">
           <Story args={secondaryCardArgs} />
           <Story
-            args={{ title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi', backgroundColor: '#EE7C45F2' }}
+            args={{
+              title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi',
+              backgroundColor: '#EE7C45F2',
+              href: '/',
+            }}
           />
-          <Story args={{ title: 'Luo oma profiili ja suunnittele polkusi', backgroundColor: '#CD4EB3F2' }} />
+          <Story args={{ title: 'Luo oma profiili ja suunnittele polkusi', backgroundColor: '#CD4EB3F2', href: '/' }} />
         </div>
       </div>
     ),

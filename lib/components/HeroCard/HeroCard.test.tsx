@@ -16,7 +16,13 @@ describe('HeroCard', () => {
 
   it('renders HeroCard with actionContent', () => {
     render(
-      <HeroCard title={title} content={content} actionContent={actionContent} backgroundColor={backgroundColor} />,
+      <HeroCard
+        title={title}
+        content={content}
+        actionContent={actionContent}
+        backgroundColor={backgroundColor}
+        href="/"
+      />,
     );
 
     // Assert title, content, and actionContent are rendered
@@ -42,7 +48,7 @@ describe('HeroCard', () => {
   });
 
   it('renders HeroCard without actionContent', () => {
-    render(<HeroCard title={title} content={content} backgroundColor={backgroundColor} />);
+    render(<HeroCard title={title} content={content} backgroundColor={backgroundColor} href="/" />);
 
     // Assert title and content are rendered
     expect(screen.getByText(title)).toBeInTheDocument();

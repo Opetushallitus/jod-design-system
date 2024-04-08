@@ -8,7 +8,7 @@ export interface HeroCardProps {
   /** Background color of the card */
   backgroundColor?: string;
   /** Link to page */
-  href?: string;
+  href: string;
 }
 
 export const HeroCard = ({ title, content, actionContent, backgroundColor = '#444BACF2', href }: HeroCardProps) => (
@@ -23,7 +23,7 @@ export const HeroCard = ({ title, content, actionContent, backgroundColor = '#44
       />
     ) : (
       <a href={href} className="flex rounded-[28px] outline-none transition-transform hover:scale-105 focus:scale-105">
-        <BaseCard title={title} content={content} backgroundColor={backgroundColor} />
+        <BaseCard title={title} content={content} backgroundColor={backgroundColor} href={href} />
       </a>
     )}
   </>
@@ -33,7 +33,7 @@ const BaseCard = ({ title, content, actionContent, backgroundColor, href }: Hero
   const Heading = actionContent ? 'h1' : 'h2';
   return (
     <div
-      className={`relative flex flex-col gap-[24px] rounded-[28px] px-[32px] pb-[64px] pt-[32px] text-white`}
+      className={`relative flex flex-col gap-6 rounded-[28px] px-7 pb-11 pt-7 text-white`}
       style={{ backgroundColor }}
     >
       <Heading className="overflow hyphens-auto text-pretty text-[28px] font-bold leading-[34px]">{title}</Heading>
@@ -41,10 +41,10 @@ const BaseCard = ({ title, content, actionContent, backgroundColor, href }: Hero
       {actionContent ? (
         <a
           href={href}
-          className="absolute bottom-0 right-[32px] translate-y-2/4 rounded-[40px] outline-none transition-transform hover:scale-105 focus:scale-105"
+          className="absolute bottom-0 right-7 translate-y-2/4 rounded-[40px] outline-none transition-transform hover:scale-105 focus:scale-105"
         >
           <div
-            className="flex select-none gap-4 rounded-[40px] bg-white px-[40px] py-[20px] text-[28px] font-bold leading-[38px]"
+            className="flex select-none gap-4 rounded-[40px] bg-white px-8 py-[20px] text-[28px] font-bold leading-[40px]"
             style={{ color: backgroundColor }}
           >
             {actionContent}
@@ -52,7 +52,7 @@ const BaseCard = ({ title, content, actionContent, backgroundColor, href }: Hero
           </div>
         </a>
       ) : (
-        <i className="absolute bottom-[14px] right-[32px] select-none text-[28px] font-bold leading-[32px]" aria-hidden>
+        <i className="absolute bottom-5 right-7 select-none text-[28px] font-bold leading-[32px]" aria-hidden>
           →
         </i>
       )}
