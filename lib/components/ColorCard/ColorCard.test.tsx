@@ -27,7 +27,13 @@ describe('ColorCard', () => {
 
   it('renders ColorCard with a link when actionContent is provided', () => {
     render(
-      <ColorCard title={title} content={content} actionContent={actionContent} backgroundColor={backgroundColor} />,
+      <ColorCard
+        title={title}
+        content={content}
+        actionContent={actionContent}
+        backgroundColor={backgroundColor}
+        href="/"
+      />,
     );
 
     // Assert ColorCard is wrapped in a link
@@ -47,7 +53,7 @@ describe('ColorCard', () => {
   });
 
   it('renders ColorCard with a link when actionContent is not provided', () => {
-    render(<ColorCard title={title} content={content} backgroundColor={backgroundColor} />);
+    render(<ColorCard title={title} content={content} backgroundColor={backgroundColor} href="/" />);
 
     // Assert ColorCard is wrapped in a link
     const linkElement = screen.getByRole('link');
