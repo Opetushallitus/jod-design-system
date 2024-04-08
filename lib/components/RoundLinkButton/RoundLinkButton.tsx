@@ -27,19 +27,19 @@ export const RoundLinkButton = ({
   const labelId = useId();
   return (
     <div className={`${className ? className : ''} flex flex-col items-center justify-center px-1`.trim()}>
-      <div
-        className={`border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring ${selected ? 'bg-[#697077]' : 'bg-[#f5f5f5]'}`}
+      <Component
+        {...rest}
+        aria-labelledby={labelId}
+        className={`flex size-[72px] justify-center rounded-full border border-none no-underline hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none ${selected ? 'bg-[#697077]' : 'bg-[#f5f5f5]'}`}
       >
-        <Component {...rest} aria-labelledby={labelId}>
-          {/** TODO: Need real icons and alignment and styles to be adjusted then */}
-          <span
-            aria-hidden={true}
-            className={`text-5xl flex select-none justify-center pt-1 ${selected ? 'text-[#ffffff]' : 'text-[#4d5358]'}`}
-          >
-            &#9776;
-          </span>
-        </Component>
-      </div>
+        {/** TODO: Need real icons and alignment and styles to be adjusted then */}
+        <span
+          aria-hidden={true}
+          className={`select-none text-[42px] ${selected ? 'text-[#ffffff]' : 'text-[#4d5358]'}`}
+        >
+          &#9776;
+        </span>
+      </Component>
       <span id={labelId} className={'text-sm flex justify-center font-normal'}>
         {label}
       </span>

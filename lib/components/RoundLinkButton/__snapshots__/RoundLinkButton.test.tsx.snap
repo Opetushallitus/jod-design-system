@@ -4,15 +4,11 @@ exports[`Snapshot testing > Default 1`] = `
 <div
   class="flex flex-col items-center justify-center px-1"
 >
-  <div
-    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#f5f5f5]"
+  <a
+    href="/#"
   >
-    <a
-      href="/#"
-    >
-      label
-    </a>
-  </div>
+    label
+  </a>
   <span
     class="text-sm flex justify-center font-normal"
     id=":r0:"
@@ -26,15 +22,11 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <div
   class="flex flex-col items-center justify-center px-1"
 >
-  <div
-    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#f5f5f5]"
+  <a
+    href="/#"
   >
-    <a
-      href="/#"
-    >
-      label
-    </a>
-  </div>
+    label
+  </a>
   <span
     class="text-sm flex justify-center font-normal"
     id=":r3:"
@@ -48,15 +40,11 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 <div
   class="flex flex-col items-center justify-center px-1"
 >
-  <div
-    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#697077]"
+  <a
+    href="/#"
   >
-    <a
-      href="/#"
-    >
-      label
-    </a>
-  </div>
+    label
+  </a>
   <span
     class="text-sm flex justify-center font-normal"
     id=":r2:"
@@ -70,15 +58,11 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 <div
   class="flex flex-col items-center justify-center px-1"
 >
-  <div
-    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#697077]"
+  <a
+    href="/#"
   >
-    <a
-      href="/#"
-    >
-      label
-    </a>
-  </div>
+    label
+  </a>
   <span
     class="text-sm flex justify-center font-normal"
     id=":r4:"
@@ -92,15 +76,11 @@ exports[`Snapshot testing > selected 1`] = `
 <div
   class="flex flex-col items-center justify-center px-1"
 >
-  <div
-    class="border-transparent hover:ring-purple-500 size-[72px] rounded-full border no-underline hover:ring bg-[#697077]"
+  <a
+    href="/#"
   >
-    <a
-      href="/#"
-    >
-      label
-    </a>
-  </div>
+    label
+  </a>
   <span
     class="text-sm flex justify-center font-normal"
     id=":r1:"

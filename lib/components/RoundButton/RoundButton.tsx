@@ -24,10 +24,10 @@ export const RoundButton = ({ label, onClick, disabled = false, selected = false
         disabled={disabled}
         type="button"
         onClick={onClick}
-        className={`border-transparent hover:ring-purple-500 focus:ring-purple-500 size-[72px] rounded-full border hover:ring focus:outline-none focus:ring focus:hover:border-none ${selected ? 'bg-[#697077]' : 'bg-[#f5f5f5]'}`}
+        className={`focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none ${selected ? 'bg-[#697077]' : 'bg-[#f5f5f5]'}`}
       >
         {/** TODO: Need real icons and alignment and styles to be adjusted then */}
-        <span className={`text-5xl text-center leading-6 ${selected ? 'text-[#ffffff]' : 'text-[#4d5358]'}`}>
+        <span className={`text-center text-[42px] leading-6 ${selected ? 'text-[#ffffff]' : 'text-[#4d5358]'}`}>
           &#9776;
         </span>
       </button>
