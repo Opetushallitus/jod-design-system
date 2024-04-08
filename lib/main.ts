@@ -1,7 +1,7 @@
 import './index.css';
 
 export { Button } from './components/Button/Button';
-export { ColorCard } from './components/ColorCard/ColorCard';
+export { HeroCard } from './components/HeroCard/HeroCard';
 export { DropdownMenu } from './components/DropdownMenu/DropdownMenu';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { RadioButton } from './components/RadioButton/RadioButton';
