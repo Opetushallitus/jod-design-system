@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextCard } from './TextCard';
+import { ResultsCard } from './ResultsCard';
 
 const meta = {
-  title: 'Primitives/Cards/TextCard',
-  component: TextCard,
+  title: 'Cards/ResultsCard',
+  component: ResultsCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof TextCard>;
+} satisfies Meta<typeof ResultsCard>;
 
 export default meta;
 
@@ -25,7 +25,7 @@ export const Default: Story = {
     },
   },
   args: {
-    text: 734,
+    value: 734,
     label: 'ammatteja',
   },
 };
@@ -43,7 +43,7 @@ export const Longer: Story = {
     },
   },
   args: {
-    text: 2336,
+    value: 2336,
     label: 'koulutuksia',
   },
 };
