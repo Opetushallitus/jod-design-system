@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshot testing > Base button 1`] = `
+<div
+  class="rounded-[20px] border-[3px] border-[#767676] p-4"
+  data-headlessui-state=""
+>
+  <button
+    aria-expanded="false"
+    class="flex w-full flex-col"
+    data-headlessui-state=""
+    id="headlessui-disclosure-button-:r1:"
+    type="button"
+  >
+    <div
+      class="mb-3 flex w-full flex-row justify-between"
+    >
+      <span
+        class="text-[20px] font-bold text-[#333333]"
+        id=":r0:"
+      >
+        Label
+      </span>
+      <svg
+        fill="none"
+        height="11"
+        viewBox="0 0 17 11"
+        width="17"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.08521 1.56995L8.19521 8.56995L15.3052 1.56995"
+          stroke="#767676"
+          stroke-width="3"
+        />
+      </svg>
+    </div>
+    <span
+      class="mb-4 text-start text-[12px] font-bold text-[#767676]"
+    >
+      Description
+    </span>
+  </button>
+</div>
+`;
