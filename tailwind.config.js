@@ -35,7 +35,7 @@ export default {
       'heading-5': ['16px', { fontWeight: '700', lineHeight: '110%' }], // Headline 5
       'body-lg': ['18px', { fontWeight: '500', lineHeight: '140%' }], // Body L
       'body-md': ['16px', { fontWeight: '500', lineHeight: '140%' }], // Body M
-      'body-sm': ['14px', { fontWeight: '700', lineHeight: '140%' }], // Body S
+      'body-sm': ['14px', { fontWeight: '500', lineHeight: '140%' }], // Body S
       'body-xs': ['12px', { fontWeight: '700', lineHeight: '140%' }], // Body XS
       'form-label': ['14px', { fontWeight: '700', lineHeight: '110%' }], // Form label
       help: ['12px', { fontWeight: '500', lineHeight: '110%' }], // Help, hint
