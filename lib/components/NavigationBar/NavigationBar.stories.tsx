@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 const parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/TpFgprt8pjcFcrHlMuL8Ry/cx_jod_ui?node-id=42%3A3498',
+    url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8159',
   },
   layout: 'fullscreen',
   viewport: {
@@ -63,7 +63,6 @@ const items: NavigationBarProps['items'] = [
 
 const user: NavigationBarProps['user'] = {
   name: 'Jane Doe',
-  src: 'https://i.pravatar.cc/200?img=24',
   component: ({ children, ...rootProps }) => (
     <a href="/profiili" aria-label="Profiili" {...rootProps}>
       {children}
