@@ -7,6 +7,6 @@ export { Expander } from './components/Expander/Expander';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { RadioButton } from './components/RadioButton/RadioButton';
 export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
+export { ResultsCard } from './components/ResultsCard/ResultsCard';
 export { RoundButton } from './components/RoundButton/RoundButton';
 export { RoundLinkButton } from './components/RoundLinkButton/RoundLinkButton';
-export { TextCard } from './components/TextCard/TextCard';
