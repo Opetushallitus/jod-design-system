@@ -6,11 +6,11 @@ exports[`Snapshot testing > Default 1`] = `
 >
   <button
     aria-labelledby=":r0:"
-    class="size-[72px] rounded-full border border-transparent hover:ring hover:ring-purple-500 focus:outline-none focus:ring focus:ring-purple-500 focus:hover:border-none bg-[#f5f5f5]"
+    class="border-transparent hover:ring-purple-500 focus:ring-purple-500 size-[72px] rounded-full border hover:ring focus:outline-none focus:ring focus:hover:border-none bg-[#f5f5f5]"
     type="button"
   >
     <span
-      class="text-center text-5xl leading-6 text-[#4d5358]"
+      class="text-5xl text-center leading-6 text-[#4d5358]"
     >
       ☰
     </span>
@@ -30,11 +30,11 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 >
   <button
     aria-labelledby=":r3:"
-    class="size-[72px] rounded-full border border-transparent hover:ring hover:ring-purple-500 focus:outline-none focus:ring focus:ring-purple-500 focus:hover:border-none bg-[#f5f5f5]"
+    class="border-transparent hover:ring-purple-500 focus:ring-purple-500 size-[72px] rounded-full border hover:ring focus:outline-none focus:ring focus:hover:border-none bg-[#f5f5f5]"
     type="button"
   >
     <span
-      class="text-center text-5xl leading-6 text-[#4d5358]"
+      class="text-5xl text-center leading-6 text-[#4d5358]"
     >
       ☰
     </span>
@@ -54,11 +54,11 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 >
   <button
     aria-labelledby=":r2:"
-    class="size-[72px] rounded-full border border-transparent hover:ring hover:ring-purple-500 focus:outline-none focus:ring focus:ring-purple-500 focus:hover:border-none bg-[#697077]"
+    class="border-transparent hover:ring-purple-500 focus:ring-purple-500 size-[72px] rounded-full border hover:ring focus:outline-none focus:ring focus:hover:border-none bg-[#697077]"
     type="button"
   >
     <span
-      class="text-center text-5xl leading-6 text-[#ffffff]"
+      class="text-5xl text-center leading-6 text-[#ffffff]"
     >
       ☰
     </span>
@@ -78,11 +78,11 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 >
   <button
     aria-labelledby=":r4:"
-    class="size-[72px] rounded-full border border-transparent hover:ring hover:ring-purple-500 focus:outline-none focus:ring focus:ring-purple-500 focus:hover:border-none bg-[#697077]"
+    class="border-transparent hover:ring-purple-500 focus:ring-purple-500 size-[72px] rounded-full border hover:ring focus:outline-none focus:ring focus:hover:border-none bg-[#697077]"
     type="button"
   >
     <span
-      class="text-center text-5xl leading-6 text-[#ffffff]"
+      class="text-5xl text-center leading-6 text-[#ffffff]"
     >
       ☰
     </span>
@@ -102,11 +102,11 @@ exports[`Snapshot testing > selected 1`] = `
 >
   <button
     aria-labelledby=":r1:"
-    class="size-[72px] rounded-full border border-transparent hover:ring hover:ring-purple-500 focus:outline-none focus:ring focus:ring-purple-500 focus:hover:border-none bg-[#697077]"
+    class="border-transparent hover:ring-purple-500 focus:ring-purple-500 size-[72px] rounded-full border hover:ring focus:outline-none focus:ring focus:hover:border-none bg-[#697077]"
     type="button"
   >
     <span
-      class="text-center text-5xl leading-6 text-[#ffffff]"
+      class="text-5xl text-center leading-6 text-[#ffffff]"
     >
       ☰
     </span>

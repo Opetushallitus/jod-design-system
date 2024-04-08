@@ -6,7 +6,7 @@ exports[`Snapshot testing > should not show label 1`] = `
 >
   <select
     aria-label="Label"
-    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
+    class="hover:bg-purple-100 focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200 border-jod-dark bg-jod-white min-w-[120px] justify-self-end rounded-lg border p-2 focus:outline-none focus:ring"
   >
     <option
       value="fi"
@@ -32,13 +32,13 @@ exports[`Snapshot testing > should render as disabled 1`] = `
   class="flex flex-row"
 >
   <label
-    class="mr-2 self-center font-bold text-jod-black"
+    class="text-jod-black mr-2 self-center font-bold"
     for=":r2:"
   >
     Label
   </label>
   <select
-    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
+    class="hover:bg-purple-100 focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200 border-jod-dark bg-jod-white min-w-[120px] justify-self-end rounded-lg border p-2 focus:outline-none focus:ring"
     disabled=""
     id=":r2:"
   >
@@ -66,13 +66,13 @@ exports[`Snapshot testing > should render with defaults 1`] = `
   class="flex flex-row"
 >
   <label
-    class="mr-2 self-center font-bold text-jod-black"
+    class="text-jod-black mr-2 self-center font-bold"
     for=":r0:"
   >
     Label
   </label>
   <select
-    class="min-w-[120px] justify-self-end rounded-lg border border-jod-dark bg-jod-white p-2 hover:bg-purple-100 focus:outline-none focus:ring focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200"
+    class="hover:bg-purple-100 focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200 border-jod-dark bg-jod-white min-w-[120px] justify-self-end rounded-lg border p-2 focus:outline-none focus:ring"
     id=":r0:"
   >
     <option
