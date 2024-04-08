@@ -27,22 +27,22 @@ export default {
     },
     // https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A6281
     fontSize: {
-      hero: ['54px', { fontWeight: '900', lineHeight: '110%', letterSpacing: '-2%' }], // Hero
-      'heading-1': ['42px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '-3%' }], // Headline 1
-      'heading-2': ['32px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '-2%' }], // Headline 2
-      'heading-3': ['24px', { fontWeight: '700', lineHeight: '120%', letterSpacing: '-1%' }], // Headline 3
-      'heading-4': ['20px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0%' }], // Headline 4
-      'heading-5': ['16px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0%' }], // Headline 5
-      'body-lg': ['18px', { fontWeight: '500', lineHeight: '140%', letterSpacing: '0%' }], // Body L
-      'body-md': ['16px', { fontWeight: '500', lineHeight: '140%', letterSpacing: '0%' }], // Body M
-      'body-sm': ['14px', { fontWeight: '700', lineHeight: '140%', letterSpacing: '0%' }], // Body S
-      'body-xs': ['12px', { fontWeight: '700', lineHeight: '140%', letterSpacing: '0%' }], // Body XS
-      'form-label': ['14px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0%' }], // Form label
-      help: ['12px', { fontWeight: '500', lineHeight: '110%', letterSpacing: '1%' }], // Help, hint
-      'button-lg': ['20px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0%' }], // Button L
-      'button-md': ['16px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '1%' }], // Button M
-      'button-sm': ['14px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '2%' }], // Button S
-      tag: ['12px', { fontWeight: '500', lineHeight: '110%', letterSpacing: '1%' }], // Tag
+      hero: ['54px', { fontWeight: '900', lineHeight: '110%', letterSpacing: '-1.08px' }], // Hero
+      'heading-1': ['42px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '-1.26px' }], // Headline 1
+      'heading-2': ['32px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '-0.64px' }], // Headline 2
+      'heading-3': ['24px', { fontWeight: '700', lineHeight: '120%', letterSpacing: '-0.24px' }], // Headline 3
+      'heading-4': ['20px', { fontWeight: '700', lineHeight: '110%' }], // Headline 4
+      'heading-5': ['16px', { fontWeight: '700', lineHeight: '110%' }], // Headline 5
+      'body-lg': ['18px', { fontWeight: '500', lineHeight: '140%' }], // Body L
+      'body-md': ['16px', { fontWeight: '500', lineHeight: '140%' }], // Body M
+      'body-sm': ['14px', { fontWeight: '700', lineHeight: '140%' }], // Body S
+      'body-xs': ['12px', { fontWeight: '700', lineHeight: '140%' }], // Body XS
+      'form-label': ['14px', { fontWeight: '700', lineHeight: '110%' }], // Form label
+      help: ['12px', { fontWeight: '500', lineHeight: '110%' }], // Help, hint
+      'button-lg': ['20px', { fontWeight: '700', lineHeight: '110%' }], // Button L
+      'button-md': ['16px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0.16px' }], // Button M
+      'button-sm': ['14px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0.28px' }], // Button S
+      tag: ['12px', { fontWeight: '500', lineHeight: '110%', letterSpacing: '0.12px' }], // Tag
     },
     // https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A6656
     spacing: {
