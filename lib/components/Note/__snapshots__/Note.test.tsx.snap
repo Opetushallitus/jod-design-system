@@ -1,0 +1,231 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Note component > renders with close button 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="
+          bg-success text-white
+          
+          
+          "
+  role="alert"
+>
+  <div
+    class="mx-auto flex min-h-11 max-w-[1092px] items-center justify-between pl-7 pr-0"
+  >
+    <div
+      class="flex flex-wrap items-end gap-x-5 gap-y-2 py-5 "
+    >
+      <div
+        class="text-heading-4"
+      >
+        Test Title
+      </div>
+      <div
+        class="text-body-sm"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="flex items-center"
+    >
+      <button
+        aria-label="Close"
+        class="mr-5 flex"
+        type="button"
+      >
+        <span
+          class="material-symbols-outlined size-24 select-none p-2"
+        >
+          cancel
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with default variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="
+          bg-success text-white
+          
+          
+          "
+  role="alert"
+>
+  <div
+    class="mx-auto flex min-h-11 max-w-[1092px] items-center justify-between pl-7 pr-0"
+  >
+    <div
+      class="flex flex-wrap items-end gap-x-5 gap-y-2 py-5 "
+    >
+      <div
+        class="text-heading-4"
+      >
+        Test Title
+      </div>
+      <div
+        class="text-body-sm"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="flex items-center"
+    />
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with error variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="
+          
+          
+          bg-alert text-white
+          "
+  role="alert"
+>
+  <div
+    class="mx-auto flex min-h-11 max-w-[1092px] items-center justify-between pl-7 pr-0"
+  >
+    <div
+      class="flex flex-wrap items-end gap-x-5 gap-y-2 py-5 "
+    >
+      <div
+        class="text-heading-4"
+      >
+        Test Title
+      </div>
+      <div
+        class="text-body-sm"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="flex items-center"
+    />
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with read more link 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="
+          bg-success text-white
+          
+          
+          "
+  role="alert"
+>
+  <div
+    class="mx-auto flex min-h-11 max-w-[1092px] items-center justify-between pl-7 pr-0"
+  >
+    <div
+      class="flex flex-wrap items-end gap-x-5 gap-y-2 py-5 "
+    >
+      <div
+        class="text-heading-4"
+      >
+        Test Title
+      </div>
+      <div
+        class="text-body-sm"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="flex items-center"
+    >
+      <a
+        class="mx-7 text-nowrap rounded-[30px] bg-white px-6 py-[10px] text-button-md text-success"
+        href="/"
+        role="button"
+      >
+        Read more
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with success variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="
+          bg-success text-white
+          
+          
+          "
+  role="alert"
+>
+  <div
+    class="mx-auto flex min-h-11 max-w-[1092px] items-center justify-between pl-7 pr-0"
+  >
+    <div
+      class="flex flex-wrap items-end gap-x-5 gap-y-2 py-5 "
+    >
+      <div
+        class="text-heading-4"
+      >
+        Test Title
+      </div>
+      <div
+        class="text-body-sm"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="flex items-center"
+    />
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with warning variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="
+          
+          bg-warning text-black
+          
+          "
+  role="alert"
+>
+  <div
+    class="mx-auto flex min-h-11 max-w-[1092px] items-center justify-between pl-7 pr-0"
+  >
+    <div
+      class="flex flex-wrap items-end gap-x-5 gap-y-2 py-5 "
+    >
+      <div
+        class="text-heading-4"
+      >
+        Test Title
+      </div>
+      <div
+        class="text-body-sm"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="flex items-center"
+    />
+  </div>
+</div>
+`;
