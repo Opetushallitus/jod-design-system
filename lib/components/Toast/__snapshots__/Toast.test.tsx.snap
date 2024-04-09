@@ -4,7 +4,7 @@ exports[`Toast > renders the toast component with icon 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="inline-flex h-8 items-center gap-3 rounded-[4px] bg-success pl-5 text-body-sm pr-7 text-white"
+  class="bg-success text-white inline-flex h-8 items-center gap-3 rounded-[4px] pl-5 text-body-sm pr-7"
   role="alert"
 >
   <span
@@ -22,7 +22,7 @@ exports[`Toast > renders the toast component with text 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="inline-flex h-8 items-center gap-3 rounded-[4px] bg-success pl-5 text-body-sm pr-5 text-white"
+  class="bg-success text-white inline-flex h-8 items-center gap-3 rounded-[4px] pl-5 text-body-sm pr-5"
   role="alert"
 >
   This is a toast message
