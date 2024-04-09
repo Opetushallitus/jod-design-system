@@ -1,13 +1,9 @@
-import { render, screen, cleanup } from '@testing-library/react';
-import { afterEach, describe, expect, test } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, test } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import userEvent from '@testing-library/user-event';
 
 import { Expander } from './Expander';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('Snapshot testing', () => {
   test('Base button', () => {

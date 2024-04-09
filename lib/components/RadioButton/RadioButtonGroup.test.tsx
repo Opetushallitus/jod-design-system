@@ -1,13 +1,9 @@
-import { render, screen, cleanup } from '@testing-library/react';
-import { afterEach, describe, expect, it, test, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it, test, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { RadioButtonGroup } from './RadioButtonGroup';
 import { RadioButton } from './RadioButton';
 import '@testing-library/jest-dom/vitest';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('Snapshot testing', () => {
   test('Default', () => {

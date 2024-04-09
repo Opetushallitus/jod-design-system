@@ -1,11 +1,7 @@
-import { afterEach, describe, expect, it, test } from 'vitest';
-import { screen, render, cleanup } from '@testing-library/react';
+import { describe, expect, it, test } from 'vitest';
+import { screen, render } from '@testing-library/react';
 
 import { RoundLinkButton } from './RoundLinkButton';
-
-afterEach(() => {
-  cleanup();
-});
 
 const DummyLink = () => {
   return <a href="/#">label</a>;

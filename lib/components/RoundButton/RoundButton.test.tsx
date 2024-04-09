@@ -1,12 +1,8 @@
-import { afterEach, describe, expect, it, test, vi } from 'vitest';
-import { screen, render, cleanup } from '@testing-library/react';
+import { describe, expect, it, test, vi } from 'vitest';
+import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { RoundButton } from './RoundButton';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('Snapshot testing', () => {
   test('Default', () => {
