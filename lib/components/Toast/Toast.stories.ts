@@ -12,22 +12,66 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Icon: Story = {
+const url = 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8376';
+const text = 'Lorem ipsum dolor';
+
+export const Success: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8376',
+      url,
     },
     docs: {
       description: {
-        story: 'This is a toast component for displaying a text.',
+        story: 'This is a success toast component for displaying a text.',
       },
     },
   },
   args: {
-    text: 'Lorem ipsum dolor',
+    text,
     icon: 'check_circle',
     iconAriaLabel: 'Check Circle',
+  },
+};
+
+export const Warning: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url,
+    },
+    docs: {
+      description: {
+        story: 'This is a warning toast component for displaying a text.',
+      },
+    },
+  },
+  args: {
+    text,
+    icon: 'warning',
+    iconAriaLabel: 'Warning',
+    variant: 'warning',
+  },
+};
+
+export const ErrorStory: Story = {
+  name: 'Error',
+  parameters: {
+    design: {
+      type: 'figma',
+      url,
+    },
+    docs: {
+      description: {
+        story: 'This is an error toast component for displaying a text.',
+      },
+    },
+  },
+  args: {
+    text,
+    icon: 'error',
+    iconAriaLabel: 'Error',
+    variant: 'error',
   },
 };
 
