@@ -1,13 +1,9 @@
-import { render, screen, cleanup } from '@testing-library/react';
-import { afterEach, describe, expect, it, test, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it, test, vi } from 'vitest';
 import { RadioButtonGroup } from './RadioButtonGroup';
 import { RadioButton } from './RadioButton';
 import '@testing-library/jest-dom/vitest';
 import React from 'react';
-
-afterEach(() => {
-  cleanup();
-});
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
   return (

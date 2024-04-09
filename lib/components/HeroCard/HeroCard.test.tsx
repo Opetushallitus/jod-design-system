@@ -1,12 +1,8 @@
-import { afterEach, describe, it, expect } from 'vitest';
-import { render, screen, cleanup } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { HeroCard } from './HeroCard';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('HeroCard', () => {
   const title = 'Test Title';
