@@ -22,7 +22,7 @@ export const Primary: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LP7Acqn5dNNHS0R1YUWM1n/cx_jod_sb?node-id=98%3A43037',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4601',
     },
     docs: {
       description: {
@@ -54,7 +54,7 @@ export const Secondary: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LP7Acqn5dNNHS0R1YUWM1n/cx_jod_sb?node-id=98%3A43040',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4604',
     },
     docs: {
       description: {
@@ -79,7 +79,7 @@ export const MultipleSecondary: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LP7Acqn5dNNHS0R1YUWM1n/cx_jod_sb?node-id=98%3A42967',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4574',
     },
     docs: {
       description: {
@@ -109,7 +109,7 @@ export const Hero: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LP7Acqn5dNNHS0R1YUWM1n/cx_jod_sb?node-id=98%3A43037',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4574',
     },
     docs: {
       description: {
