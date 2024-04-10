@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputField > renders help text correctly 1`] = `
+<label
+  class="mb-4 inline-block align-top text-form-label text-primary-gray"
+  for=":r4:"
+>
+  Username
+</label>
+`;
+
+exports[`InputField > renders input correctly 1`] = `
+<label
+  class="mb-4 inline-block align-top text-form-label text-primary-gray"
+  for=":r2:"
+>
+  Username
+</label>
+`;
+
+exports[`InputField > renders label correctly 1`] = `
+<label
+  class="mb-4 inline-block align-top text-form-label text-primary-gray"
+  for=":r0:"
+>
+  Username
+</label>
+`;
+
+exports[`InputField > updates input value correctly 1`] = `
+<label
+  class="mb-4 inline-block align-top text-form-label text-primary-gray"
+  for=":r6:"
+>
+  Username
+</label>
+`;
