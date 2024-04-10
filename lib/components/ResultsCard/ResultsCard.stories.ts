@@ -16,7 +16,7 @@ export const Default: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LP7Acqn5dNNHS0R1YUWM1n/cx_jod_sb?node-id=1-1059',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=585%3A15053',
     },
     docs: {
       description: {
@@ -25,7 +25,7 @@ export const Default: Story = {
     },
   },
   args: {
-    value: 734,
+    value: 534,
     label: 'ammatteja',
   },
 };
@@ -34,7 +34,7 @@ export const Longer: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LP7Acqn5dNNHS0R1YUWM1n/cx_jod_sb?node-id=1%3A1062',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=585%3A15053',
     },
     docs: {
       description: {
