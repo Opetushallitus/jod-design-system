@@ -1,121 +1,96 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Snapshot testing > Default 1`] = `
-<div
-  class="flex flex-col items-center justify-center px-1"
+<button
+  class="flex flex-col justify-center  min-w-[110px] items-center"
+  type="button"
 >
-  <button
-    aria-labelledby=":r0:"
-    class="focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none bg-[#f5f5f5]"
-    type="button"
-  >
-    <span
-      class="text-center text-[42px] leading-6 text-[#4d5358]"
-    >
-      ☰
-    </span>
-  </button>
   <span
-    class="text-sm font-normal"
-    id=":r0:"
+    aria-hidden="true"
+    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-secondary-gray material-symbols-outlined size-48 select-none"
+  >
+    target
+  </span>
+  <span
+    class="text-sm font-normal text-primary-gray"
   >
     Default
   </span>
-</div>
+</button>
 `;
 
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
-<div
-  class="flex flex-col items-center justify-center px-1"
+<button
+  class="flex flex-col justify-center  min-w-[110px] items-center"
+  type="button"
 >
-  <button
-    aria-labelledby=":r3:"
-    class="focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none bg-[#f5f5f5]"
-    type="button"
-  >
-    <span
-      class="text-center text-[42px] leading-6 text-[#4d5358]"
-    >
-      ☰
-    </span>
-  </button>
   <span
-    class="text-sm font-normal"
-    id=":r3:"
+    aria-hidden="true"
+    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-secondary-gray material-symbols-outlined size-48 select-none"
+  >
+    target
+  </span>
+  <span
+    class="text-sm font-normal text-primary-gray"
   >
     Disabled, non-selected
   </span>
-</div>
+</button>
 `;
 
 exports[`Snapshot testing > Disabled, selected 1`] = `
-<div
-  class="flex flex-col items-center justify-center px-1"
+<button
+  class="flex flex-col justify-center  min-w-[110px] items-center"
+  type="button"
 >
-  <button
-    aria-labelledby=":r2:"
-    class="focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none bg-[#697077]"
-    type="button"
-  >
-    <span
-      class="text-center text-[42px] leading-6 text-[#ffffff]"
-    >
-      ☰
-    </span>
-  </button>
   <span
-    class="text-sm font-normal"
-    id=":r2:"
+    aria-hidden="true"
+    class="size-[72px] rounded-full bg-accent flex items-center justify-center text-white material-symbols-outlined size-48 select-none"
+  >
+    target
+  </span>
+  <span
+    class="text-sm font-normal text-accent"
   >
     Disabled, non-selected
   </span>
-</div>
+</button>
 `;
 
 exports[`Snapshot testing > Disabled, selected 2`] = `
-<div
-  class="flex flex-col items-center justify-center px-1"
+<button
+  class="flex flex-col justify-center  min-w-[110px] items-center"
+  type="button"
 >
-  <button
-    aria-labelledby=":r4:"
-    class="focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none bg-[#697077]"
-    type="button"
-  >
-    <span
-      class="text-center text-[42px] leading-6 text-[#ffffff]"
-    >
-      ☰
-    </span>
-  </button>
   <span
-    class="text-sm font-normal"
-    id=":r4:"
+    aria-hidden="true"
+    class="size-[72px] rounded-full bg-accent flex items-center justify-center text-white material-symbols-outlined size-48 select-none"
+  >
+    target
+  </span>
+  <span
+    class="text-sm font-normal text-accent"
   >
     Disabled, non-selected
   </span>
-</div>
+</button>
 `;
 
 exports[`Snapshot testing > selected 1`] = `
-<div
-  class="flex flex-col items-center justify-center px-1"
+<button
+  class="flex flex-col justify-center  min-w-[110px] items-center"
+  type="button"
 >
-  <button
-    aria-labelledby=":r1:"
-    class="focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none bg-[#697077]"
-    type="button"
-  >
-    <span
-      class="text-center text-[42px] leading-6 text-[#ffffff]"
-    >
-      ☰
-    </span>
-  </button>
   <span
-    class="text-sm font-normal"
-    id=":r1:"
+    aria-hidden="true"
+    class="size-[72px] rounded-full bg-accent flex items-center justify-center text-white material-symbols-outlined size-48 select-none"
+  >
+    target
+  </span>
+  <span
+    class="text-sm font-normal text-accent"
   >
     Selected
   </span>
-</div>
+</button>
 `;

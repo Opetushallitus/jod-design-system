@@ -1,5 +1,3 @@
-import { useId } from 'react';
-
 export interface RoundButtonProps {
   /** Text shown on the button */
   label: string;
@@ -11,29 +9,32 @@ export interface RoundButtonProps {
   selected?: boolean;
   /** CSS classname */
   className?: string;
+  /** Icon name from Material Design */
+  icon: string;
 }
 
-export const RoundButton = ({ label, onClick, disabled = false, selected = false, className }: RoundButtonProps) => {
-  const labelId = useId();
+export const RoundButton = ({
+  label,
+  onClick,
+  disabled = false,
+  selected = false,
+  className,
+  icon,
+}: RoundButtonProps) => {
   return (
-    <div
-      className={`${className ? className : ''} flex flex-col items-center justify-center px-1 ${disabled ? 'cursor-not-allowed opacity-50' : ''}`.trim()}
+    <button
+      disabled={disabled}
+      type="button"
+      onClick={onClick}
+      className={`${className ? className : ''} flex flex-col justify-center ${disabled ? 'cursor-not-allowed opacity-50' : ''} min-w-[110px] items-center`.trim()}
     >
-      <button
-        aria-labelledby={labelId}
-        disabled={disabled}
-        type="button"
-        onClick={onClick}
-        className={`focus:ring-purple-500 size-[72px] rounded-full border border-none hover:ring hover:ring-accent focus:outline-none focus:ring focus:hover:border-none ${selected ? 'bg-[#697077]' : 'bg-[#f5f5f5]'}`}
+      <span
+        aria-hidden
+        className={`size-[72px] rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray'} flex items-center justify-center ${selected ? 'text-white' : 'text-secondary-gray'} material-symbols-outlined size-48 select-none`}
       >
-        {/** TODO: Need real icons and alignment and styles to be adjusted then */}
-        <span className={`text-center text-[42px] leading-6 ${selected ? 'text-[#ffffff]' : 'text-[#4d5358]'}`}>
-          &#9776;
-        </span>
-      </button>
-      <span id={labelId} className="text-sm font-normal">
-        {label}
+        {icon}
       </span>
-    </div>
+      <span className={`text-sm font-normal ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
+    </button>
   );
 };

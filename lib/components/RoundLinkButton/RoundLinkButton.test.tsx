@@ -3,42 +3,67 @@ import { screen, render } from '@testing-library/react';
 
 import { RoundLinkButton } from './RoundLinkButton';
 
-const DummyLink = () => {
-  return <a href="/#">label</a>;
+const DummyLink = ({ children, ...rootProps }: { children: React.ReactNode }) => {
+  return (
+    <a href="/#" {...rootProps}>
+      {children}
+    </a>
+  );
 };
 
 describe('Snapshot testing', () => {
   test('Default', () => {
-    const { container } = render(<RoundLinkButton component={() => <DummyLink />} label="Default" />);
+    const { container } = render(
+      <RoundLinkButton component={(props) => <DummyLink {...props} />} label="Default" icon="target" />,
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('selected', () => {
-    const { container } = render(<RoundLinkButton component={() => <DummyLink />} label="Selected" selected={true} />);
+    const { container } = render(
+      <RoundLinkButton
+        component={(props) => <DummyLink {...props} />}
+        label="Selected"
+        selected={true}
+        icon="target"
+      />,
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Disabled, selected', () => {
     const { container } = render(
-      <RoundLinkButton component={() => <DummyLink />} label="Disabled, nonselected" selected={true} />,
+      <RoundLinkButton
+        component={(props) => <DummyLink {...props} />}
+        label="Disabled, nonselected"
+        selected={true}
+        icon="target"
+      />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Disabled, non-selected', () => {
-    const { container } = render(<RoundLinkButton component={() => <DummyLink />} label="Disabled, nonselected" />);
+    const { container } = render(
+      <RoundLinkButton component={(props) => <DummyLink {...props} />} label="Disabled, nonselected" icon="target" />,
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Disabled, selected', () => {
     const { container } = render(
-      <RoundLinkButton component={() => <DummyLink />} label="Disabled, nonselected" selected={true} />,
+      <RoundLinkButton
+        component={(props) => <DummyLink {...props} />}
+        label="Disabled, nonselected"
+        selected={true}
+        icon="target"
+      />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 });
 
 it('has the correct label', () => {
-  render(<RoundLinkButton component={() => <DummyLink />} label="Label" />);
+  render(<RoundLinkButton component={(props) => <DummyLink {...props} />} label="label" icon="target" />);
   expect(screen.getByRole('link', { name: 'label' })).not.toBeNull();
 });
