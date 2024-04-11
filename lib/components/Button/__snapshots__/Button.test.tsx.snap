@@ -1,37 +1,105 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snapshot testing > Base button 1`] = `
+exports[`Button > calls the onClick function when clicked 1`] = `
 <button
-  class="m-2 px-4 py-2 font-bold bg-jod-base text-jod-white"
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
   type="button"
 >
-  Base button
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
 </button>
 `;
 
-exports[`Snapshot testing > Outlined button 1`] = `
+exports[`Button > renders the button as disabled 1`] = `
 <button
-  class="m-2 px-4 py-2 font-bold border border-jod-black text-jod-black"
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray disabled:text-inactive-gray disabled:cursor-not-allowed"
+  disabled=""
   type="button"
 >
-  Outlined button
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
 </button>
 `;
 
-exports[`Snapshot testing > Primary button 1`] = `
+exports[`Button > renders the button with an icon on the left side 1`] = `
 <button
-  class="m-2 px-4 py-2 font-bold bg-jod-primary text-jod-white"
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 pl-4 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
   type="button"
 >
-  Primary button
+  <span
+    aria-hidden="true"
+    class="material-symbols-outlined size-24 h-fit select-none size-24"
+  >
+    add
+  </span>
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
 </button>
 `;
 
-exports[`Snapshot testing > Text button 1`] = `
+exports[`Button > renders the button with an icon on the right side 1`] = `
 <button
-  class="m-2 px-4 py-2 font-bold text-jod-black"
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 pr-4 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
   type="button"
 >
-  Text button
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
+  <span
+    aria-hidden="true"
+    class="material-symbols-outlined size-24 h-fit select-none size-24"
+  >
+    add
+  </span>
+</button>
+`;
+
+exports[`Button > renders the button with the correct label 1`] = `
+<button
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  type="button"
+>
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
+</button>
+`;
+
+exports[`Button > renders the button with the correct size 1`] = `
+<button
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-sm px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  type="button"
+>
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
+</button>
+`;
+
+exports[`Button > renders the button with the correct variant 1`] = `
+<button
+  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  type="button"
+>
+  <span
+    class="py-[10px]"
+  >
+    Click me
+  </span>
 </button>
 `;
