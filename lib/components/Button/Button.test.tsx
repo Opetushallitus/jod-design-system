@@ -1,57 +1,63 @@
-import { describe, expect, it, test, vi } from 'vitest';
-import { screen, render } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 
 import { Button } from './Button';
 
-describe('Snapshot testing', () => {
-  test('Base button', () => {
-    const { container } = render(<Button label="Base button" variant="base" onClick={vi.fn()} />);
+describe('Button', () => {
+  it('renders the button with the correct label', () => {
+    const label = 'Click me';
+    const { container } = render(<Button label={label} onClick={vi.fn()} />);
+    const button = screen.getByRole('button', { name: label });
+    expect(button).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  test('Primary button', () => {
-    const { container } = render(<Button label="Primary button" variant="primary" onClick={vi.fn()} />);
+  it('calls the onClick function when clicked', async () => {
+    const onClick = vi.fn();
+    const { container } = render(<Button label="Click me" onClick={onClick} />);
+    const user = userEvent.setup();
+    const button = screen.getByRole('button', { name: 'Click me' });
+    await user.click(button);
+    expect(onClick).toHaveBeenCalledTimes(1);
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  test('Outlined button', () => {
-    const { container } = render(<Button label="Outlined button" variant="outlined" onClick={vi.fn()} />);
+  it('renders the button with the correct size', () => {
+    const { container } = render(<Button label="Click me" onClick={vi.fn()} size="sm" />);
+    const button = screen.getByRole('button', { name: 'Click me' });
+    expect(button).toHaveClass('text-button-sm');
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  test('Text button', () => {
-    const { container } = render(<Button label="Text button" variant="text" onClick={vi.fn()} />);
+  it('renders the button with the correct variant', () => {
+    const { container } = render(<Button label="Click me" onClick={vi.fn()} variant="gray" />);
+    const button = screen.getByRole('button', { name: 'Click me' });
+    expect(button).toHaveClass('bg-bg-gray');
     expect(container.firstChild).toMatchSnapshot();
   });
-});
 
-it('renders the button', () => {
-  render(<Button label="Rendered button" onClick={vi.fn()} />);
-  expect(true).toBeTruthy();
-});
+  it('renders the button as disabled', () => {
+    const { container } = render(<Button label="Click me" onClick={vi.fn()} disabled />);
+    const button = screen.getByRole('button', { name: 'Click me' });
+    expect(button).toBeDisabled();
+    expect(container.firstChild).toMatchSnapshot();
+  });
 
-it('has the correct label', () => {
-  render(<Button label="Label" onClick={vi.fn()} />);
-  expect(screen.getByRole('button', { name: 'Label' })).not.toBeNull();
-});
+  it('renders the button with an icon on the left side', () => {
+    const { container } = render(<Button label="Click me" onClick={vi.fn()} icon="add" iconSide="left" />);
+    const iconElement = screen.getByText('add');
+    expect(iconElement).toBeInTheDocument();
+    expect(iconElement).toHaveClass('material-symbols-outlined');
+    expect(container.firstChild).toMatchSnapshot();
+  });
 
-it('calls the callback on click', async () => {
-  const mockCallback = vi.fn();
-  const user = userEvent.setup();
-
-  render(<Button label="Test callback" onClick={mockCallback} />);
-  const button = screen.getByRole('button', { name: 'Test callback' });
-  await user.click(button);
-  expect(mockCallback).toHaveBeenCalledTimes(1);
-});
-
-it('does not call the callback while disabled', async () => {
-  const mockCallback = vi.fn();
-  const user = userEvent.setup();
-
-  render(<Button label="Disabled Button" onClick={mockCallback} disabled />);
-  const button = screen.getByRole('button', { name: 'Disabled Button' });
-  await user.click(button);
-  expect(mockCallback).toHaveBeenCalledTimes(0);
+  it('renders the button with an icon on the right side', () => {
+    const { container } = render(<Button label="Click me" onClick={vi.fn()} icon="add" iconSide="right" />);
+    const iconElement = screen.getByText('add');
+    expect(iconElement).toBeInTheDocument();
+    expect(iconElement).toHaveClass('material-symbols-outlined');
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
