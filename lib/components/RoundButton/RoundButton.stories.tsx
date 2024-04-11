@@ -14,7 +14,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   args: {
-    label: 'RoundButton',
+    label: 'Goals',
     onClick: fn(),
+    icon: 'target',
   },
 };

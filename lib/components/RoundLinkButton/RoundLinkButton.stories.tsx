@@ -14,7 +14,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   args: {
-    label: 'RoundLinkButton',
+    label: 'Goals',
+    icon: 'target',
     component: ({ children, ...rootProps }) => (
       <a href="/#" {...rootProps}>
         {children}
