@@ -1,7 +1,6 @@
 import '../lib/index.css';
 import type { Preview, ReactRenderer } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const preview: Preview = {
   parameters: {
@@ -13,7 +12,14 @@ const preview: Preview = {
     },
     viewport: {
       viewports: {
-        ...MINIMAL_VIEWPORTS,
+        mobile: {
+          name: 'Mobile',
+          styles: {
+            width: '414px',
+            height: '736px',
+          },
+          type: 'mobile',
+        },
         desktop: {
           name: 'Desktop',
           styles: {

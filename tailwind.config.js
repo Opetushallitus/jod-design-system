@@ -4,6 +4,7 @@ export default {
   darkMode: 'selector',
   theme: {
     screens: {
+      sm: '640px',
       lg: '1440px',
     },
     // https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A6241
