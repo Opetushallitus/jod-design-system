@@ -2,7 +2,7 @@
 
 exports[`Snapshot testing > Default 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center border border-none no-underline"
+  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
@@ -12,7 +12,7 @@ exports[`Snapshot testing > Default 1`] = `
     target
   </span>
   <span
-    class="text-sm font-normal text-primary-gray"
+    class="text-button-sm text-primary-gray"
   >
     Default
   </span>
@@ -21,7 +21,7 @@ exports[`Snapshot testing > Default 1`] = `
 
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center border border-none no-underline"
+  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
@@ -31,7 +31,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
     target
   </span>
   <span
-    class="text-sm font-normal text-primary-gray"
+    class="text-button-sm text-primary-gray"
   >
     Disabled, nonselected
   </span>
@@ -40,7 +40,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center border border-none no-underline"
+  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
@@ -50,7 +50,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
     target
   </span>
   <span
-    class="text-sm font-normal text-accent"
+    class="text-button-sm text-accent"
   >
     Disabled, nonselected
   </span>
@@ -59,7 +59,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center border border-none no-underline"
+  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
@@ -69,7 +69,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
     target
   </span>
   <span
-    class="text-sm font-normal text-accent"
+    class="text-button-sm text-accent"
   >
     Disabled, nonselected
   </span>
@@ -78,7 +78,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 
 exports[`Snapshot testing > selected 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center border border-none no-underline"
+  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
@@ -88,7 +88,7 @@ exports[`Snapshot testing > selected 1`] = `
     target
   </span>
   <span
-    class="text-sm font-normal text-accent"
+    class="text-button-sm text-accent"
   >
     Selected
   </span>
