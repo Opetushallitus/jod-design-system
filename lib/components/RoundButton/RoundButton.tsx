@@ -26,7 +26,7 @@ export const RoundButton = ({
       disabled={disabled}
       type="button"
       onClick={onClick}
-      className={`${className ? className : ''} flex flex-col justify-center ${disabled ? 'cursor-not-allowed opacity-50' : ''} min-w-[110px] items-center`.trim()}
+      className={`${className ? className : ''} flex flex-col justify-center ${disabled ? 'cursor-not-allowed opacity-50' : ''} min-w-[110px] items-center gap-2`.trim()}
     >
       <span
         aria-hidden
@@ -34,7 +34,7 @@ export const RoundButton = ({
       >
         {icon}
       </span>
-      <span className={`text-sm font-normal ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
+      <span className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
     </button>
   );
 };

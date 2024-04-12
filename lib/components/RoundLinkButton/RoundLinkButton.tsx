@@ -28,7 +28,7 @@ export const RoundLinkButton = ({
   return (
     <Component
       {...rest}
-      className={`${className ? className : ''} inline-flex min-w-[110px] flex-col items-center justify-center border border-none no-underline`}
+      className={`${className ? className : ''} inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline`}
     >
       <span
         aria-hidden
@@ -36,7 +36,7 @@ export const RoundLinkButton = ({
       >
         {icon}
       </span>
-      <span className={`text-sm font-normal ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
+      <span className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
     </Component>
   );
 };
