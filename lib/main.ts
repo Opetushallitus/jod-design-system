@@ -3,6 +3,7 @@ import './index.css';
 export { Button } from './components/Button/Button';
 export { DropdownMenu } from './components/DropdownMenu/DropdownMenu';
 export { Expander } from './components/Expander/Expander';
+export { Footer } from './components/Footer/Footer';
 export { HeroCard } from './components/HeroCard/HeroCard';
 export { InputField } from './components/InputField/InputField';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
