@@ -8,7 +8,7 @@ exports[`Snapshot testing > Default 1`] = `
   role="radiogroup"
 >
   <label
-    class="text-[#4D5358]"
+    class="mb-5 text-body-xs text-secondary-gray"
     id="headlessui-label-:r1:"
     role="none"
   >
@@ -16,33 +16,33 @@ exports[`Snapshot testing > Default 1`] = `
   </label>
   <div
     aria-checked="false"
-    class=""
+    class="flex h-7"
     data-headlessui-state=""
     id="headlessui-radiogroup-option-:r2:"
     role="radio"
     tabindex="0"
   >
     <div
-      class="flex-start flex space-x-3"
+      class="flex-start flex space-x-4"
     >
       <svg
+        class="self-center"
         fill="none"
-        height="32"
-        viewBox="0 0 32 32"
-        width="32"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g>
-          <circle
-            cx="15.6992"
-            cy="16.5333"
-            fill="white"
-            r="15.6992"
-          />
-        </g>
+        <circle
+          class="stroke-primary-gray"
+          cx="12.0352"
+          cy="12.0389"
+          r="11"
+          stroke-width="2"
+        />
       </svg>
       <span
-        class="flex items-center text-[#4D5358]"
+        class="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline"
       >
         Option 1
       </span>
