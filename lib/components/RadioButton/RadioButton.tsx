@@ -11,11 +11,13 @@ export interface RadioButtonProps {
 
 export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
   return (
-    <RadioGroup.Option value={value} className={`${className ? className : ''}`.trim()}>
+    <RadioGroup.Option value={value} className={`${className ? className : ''} flex h-7`.trim()}>
       {({ checked }) => (
-        <div className="flex-start flex space-x-3">
+        <div className="flex-start flex space-x-4">
           {checked ? <CheckedIcon /> : <UncheckedIcon />}
-          <span className="flex items-center text-[#4D5358]">{label}</span>
+          <span className="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline">
+            {label}
+          </span>
         </div>
       )}
     </RadioGroup.Option>
@@ -24,20 +26,30 @@ export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
 
 const CheckedIcon = () => {
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g>
-        <circle cx="15.6992" cy="16.1349" r="10.6992" stroke="#4D5358" strokeWidth="10" />
-      </g>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="self-center"
+    >
+      <circle cx="12.0352" cy="12.0389" r="8" className="stroke-accent" strokeWidth="8" />
     </svg>
   );
 };
 
 const UncheckedIcon = () => {
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g>
-        <circle cx="15.6992" cy="16.5333" r="15.6992" fill="white" />
-      </g>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="self-center"
+    >
+      <circle cx="12.0352" cy="12.0389" r="11" className="stroke-primary-gray" strokeWidth="2" />
     </svg>
   );
 };

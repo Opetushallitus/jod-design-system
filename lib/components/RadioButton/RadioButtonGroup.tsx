@@ -21,7 +21,7 @@ export const RadioButtonGroup = ({ label, value, onChange, children, className }
       onChange={onChange}
       className={`${className ? className : ''} flex flex-col space-y-2`.trim()}
     >
-      <RadioGroup.Label className="text-[#4D5358]">{label}</RadioGroup.Label>
+      <RadioGroup.Label className="mb-5 text-body-xs text-secondary-gray">{label}</RadioGroup.Label>
       {children}
     </RadioGroup>
   );
