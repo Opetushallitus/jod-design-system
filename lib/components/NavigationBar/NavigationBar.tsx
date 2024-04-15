@@ -72,7 +72,9 @@ export const NavigationBar = ({ items, user }: NavigationBarProps) => {
                 )}
               </li>
             ) : (
-              <span className="material-symbols-outlined size-40 select-none text-primary-gray">account_circle</span>
+              <span className="material-symbols-outlined size-48 m-[-4px] select-none text-primary-gray">
+                account_circle
+              </span>
             )}
           </ul>
         )}

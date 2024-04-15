@@ -130,7 +130,7 @@ exports[`NavigationBar > renders only navigation items 1`] = `
         </a>
       </li>
       <span
-        class="material-symbols-outlined size-40 select-none text-primary-gray"
+        class="material-symbols-outlined size-48 m-[-4px] select-none text-primary-gray"
       >
         account_circle
       </span>
