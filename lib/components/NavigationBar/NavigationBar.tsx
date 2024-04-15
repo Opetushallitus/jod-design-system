@@ -51,7 +51,7 @@ export const NavigationBar = ({ items, user }: NavigationBarProps) => {
                 </item.component>
               </li>
             ))}
-            {user && (
+            {user ? (
               <li className="ml-6">
                 {user.component ? (
                   <user.component
@@ -71,6 +71,8 @@ export const NavigationBar = ({ items, user }: NavigationBarProps) => {
                   </div>
                 )}
               </li>
+            ) : (
+              <span className="material-symbols-outlined size-40 select-none text-primary-gray">account_circle</span>
             )}
           </ul>
         )}
