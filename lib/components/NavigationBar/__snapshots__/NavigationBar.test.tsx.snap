@@ -129,6 +129,11 @@ exports[`NavigationBar > renders only navigation items 1`] = `
           Contact
         </a>
       </li>
+      <span
+        class="material-symbols-outlined size-40 select-none text-primary-gray"
+      >
+        account_circle
+      </span>
     </ul>
   </nav>
 </div>
