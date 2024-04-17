@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Expander } from './Expander';
 
 const meta = {
-  title: 'Primitives/Expander',
+  title: 'Expander',
   component: Expander,
   tags: ['autodocs'],
 } satisfies Meta<typeof Expander>;
