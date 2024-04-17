@@ -3,7 +3,7 @@ import { fn } from '@storybook/test';
 import { RoundButton } from './RoundButton';
 
 const meta = {
-  title: 'Primitives/RoundButton',
+  title: 'Buttons/RoundButton',
   component: RoundButton,
   tags: ['autodocs'],
 } satisfies Meta<typeof RoundButton>;
