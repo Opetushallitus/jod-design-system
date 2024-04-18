@@ -70,7 +70,16 @@ const user: NavigationBarProps['user'] = {
   ),
 };
 
+const logo = (
+  <a href="/" className="flex">
+    <div className="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent">
+      <div className="h-8 w-8 bg-accent"></div>JOD
+    </div>
+  </a>
+);
+
 const args: NavigationBarProps = {
+  logo,
   items,
   user,
 };
@@ -96,7 +105,9 @@ export const Plain: Story = {
       },
     },
   },
-  args: {},
+  args: {
+    logo,
+  },
 };
 
 export const Items: Story = {
@@ -109,6 +120,7 @@ export const Items: Story = {
     },
   },
   args: {
+    logo,
     items,
   },
 };
@@ -123,6 +135,7 @@ export const Avatar: Story = {
     },
   },
   args: {
+    logo,
     user,
   },
 };
