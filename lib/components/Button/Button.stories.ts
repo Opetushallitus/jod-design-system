@@ -57,15 +57,34 @@ export const White: Story = {
   },
 };
 
-export const Delete: Story = {
+export const GrayDelete: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8099',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=842%3A7302',
     },
     docs: {
       description: {
-        story: 'This is a delete button component for triggering an action.',
+        story: 'This is a gray delete button component for triggering an action.',
+      },
+    },
+  },
+  args: {
+    label: 'Poista',
+    onClick: fn(),
+    variant: 'gray-delete',
+  },
+};
+
+export const WhiteDelete: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=842%3A7301',
+    },
+    docs: {
+      description: {
+        story: 'This is a white delete button component for triggering an action.',
       },
     },
     backgrounds,
@@ -73,7 +92,7 @@ export const Delete: Story = {
   args: {
     label: 'Poista',
     onClick: fn(),
-    variant: 'delete',
+    variant: 'white-delete',
   },
 };
 

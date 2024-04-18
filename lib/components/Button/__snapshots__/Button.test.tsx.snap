@@ -2,11 +2,11 @@
 
 exports[`Button > calls the onClick function when clicked 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
   type="button"
 >
   <span
-    class="py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -15,7 +15,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
 
 exports[`Button > renders the button as disabled 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray disabled:text-inactive-gray disabled:cursor-not-allowed"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-md px-6 text-primary-gray bg-bg-gray disabled:text-inactive-gray disabled:cursor-not-allowed"
   disabled=""
   type="button"
 >
@@ -29,7 +29,7 @@ exports[`Button > renders the button as disabled 1`] = `
 
 exports[`Button > renders the button with an icon on the left side 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 pl-4 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-md px-6 pl-4 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
   type="button"
 >
   <span
@@ -39,7 +39,7 @@ exports[`Button > renders the button with an icon on the left side 1`] = `
     add
   </span>
   <span
-    class="py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -48,11 +48,11 @@ exports[`Button > renders the button with an icon on the left side 1`] = `
 
 exports[`Button > renders the button with an icon on the right side 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 pr-4 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-md px-6 pr-4 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
   type="button"
 >
   <span
-    class="py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -67,11 +67,11 @@ exports[`Button > renders the button with an icon on the right side 1`] = `
 
 exports[`Button > renders the button with the correct label 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
   type="button"
 >
   <span
-    class="py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -80,11 +80,11 @@ exports[`Button > renders the button with the correct label 1`] = `
 
 exports[`Button > renders the button with the correct size 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-sm px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-sm px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
   type="button"
 >
   <span
-    class="py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -93,11 +93,11 @@ exports[`Button > renders the button with the correct size 1`] = `
 
 exports[`Button > renders the button with the correct variant 1`] = `
 <button
-  class="flex items-center gap-4 rounded-[30px] select-none text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white"
+  class="flex items-center gap-4 rounded-[30px] select-none group text-button-md px-6 text-primary-gray bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
   type="button"
 >
   <span
-    class="py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
