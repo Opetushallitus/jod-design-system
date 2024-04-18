@@ -8,6 +8,8 @@ export interface NavigationBarLinkProps {
 export type NavigationBarLink = React.ComponentType<NavigationBarLinkProps>;
 
 export interface NavigationBarProps {
+  /** Navigation logo */
+  logo: React.ReactNode;
   /** Navigation items */
   items?: {
     text: string;
@@ -24,7 +26,7 @@ export interface NavigationBarProps {
 /**
  * This component is a navigation bar that displays a logo, navigation items, and an avatar.
  */
-export const NavigationBar = ({ items, user }: NavigationBarProps) => {
+export const NavigationBar = ({ logo, items, user }: NavigationBarProps) => {
   const initials = user?.name
     .split(' ')
     .map((part) => part[0])
@@ -35,9 +37,7 @@ export const NavigationBar = ({ items, user }: NavigationBarProps) => {
   return (
     <div className="min-w-min border-b-[4px] border-inactive-gray bg-[#FFFFFFE5]">
       <nav className="mx-auto flex h-[68px] items-center justify-between gap-4 px-[72px] py-[14px] font-semibold lg:container">
-        <div className="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent">
-          <div className="h-8 w-8 bg-accent"></div>JOD
-        </div>
+        {logo}
         {(items ?? user) && (
           <ul className="inline-flex items-center gap-6">
             {items?.map((item, index) => (

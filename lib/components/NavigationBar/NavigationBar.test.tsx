@@ -5,6 +5,8 @@ import '@testing-library/jest-dom';
 import { NavigationBar, NavigationBarLinkProps } from './NavigationBar';
 
 describe('NavigationBar', () => {
+  const logo = <div>logo</div>;
+
   const items = [
     {
       text: 'Home',
@@ -42,7 +44,7 @@ describe('NavigationBar', () => {
   };
 
   it('renders navigation items and user', () => {
-    const { container } = render(<NavigationBar items={items} user={user} />);
+    const { container } = render(<NavigationBar logo={logo} items={items} user={user} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
@@ -60,7 +62,7 @@ describe('NavigationBar', () => {
   });
 
   it('renders only navigation items', () => {
-    const { container } = render(<NavigationBar items={items} />);
+    const { container } = render(<NavigationBar logo={logo} items={items} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
@@ -78,7 +80,7 @@ describe('NavigationBar', () => {
   });
 
   it('renders only user', () => {
-    const { container } = render(<NavigationBar user={user} />);
+    const { container } = render(<NavigationBar logo={logo} user={user} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
@@ -95,7 +97,7 @@ describe('NavigationBar', () => {
   });
 
   it('renders no navigation items and no user', () => {
-    const { container } = render(<NavigationBar />);
+    const { container } = render(<NavigationBar logo={logo} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
