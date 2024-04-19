@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
-import '@testing-library/jest-dom/vitest';
 import userEvent from '@testing-library/user-event';
 
 import { Expander } from './Expander';

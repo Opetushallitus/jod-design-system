@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, test, vi } from 'vitest';
+import type { ReactNode } from 'react';
+
 import { RadioButtonGroup } from './RadioButtonGroup';
 import { RadioButton } from './RadioButton';
-import '@testing-library/jest-dom/vitest';
-import React from 'react';
 
-const Wrapper = ({ children }: { children: React.ReactNode }) => {
+const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
     <RadioButtonGroup label="Label" value="a" onChange={vi.fn()}>
       {children}

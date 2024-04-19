@@ -7,7 +7,7 @@
   "types": "dist/main.d.ts",
   "files": [
     "dist",
-    "tailwind.config.js"
+    "tailwind.config.ts"
   ],
   "engines": {
     "node": "^20.0.0"

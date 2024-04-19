@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+
 export default {
   content: ['./lib/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'selector',
@@ -13,7 +14,7 @@ export default {
       'secondary-1': '#c1c7cd',
       'secondary-2': '#a2a9b0',
       'secondary-3': '#878d96',
-      'secondary-4': '#697077',
+      'secondary-4': '#697977',
       white: '#ffffff',
       black: '#000000',
       'primary-gray': '#333333',
@@ -37,7 +38,7 @@ export default {
       'body-lg': ['18px', { fontWeight: '500', lineHeight: '140%' }], // Body L
       'body-md': ['16px', { fontWeight: '500', lineHeight: '140%' }], // Body M
       'body-sm': ['14px', { fontWeight: '500', lineHeight: '140%' }], // Body S
-      'body-xs': ['12px', { fontWeight: '700', lineHeight: '140%' }], // Body XS
+      'body-xs': ['12px', { fontWeight: '500', lineHeight: '120%', letterSpacing: '0.12px' }], // Body XS
       'form-label': ['14px', { fontWeight: '700', lineHeight: '110%' }], // Form label
       help: ['12px', { fontWeight: '500', lineHeight: '110%' }], // Help, hint
       'button-lg': ['20px', { fontWeight: '700', lineHeight: '110%' }], // Button L
@@ -62,4 +63,4 @@ export default {
     },
   },
   plugins: [],
-};
+} satisfies Config;
