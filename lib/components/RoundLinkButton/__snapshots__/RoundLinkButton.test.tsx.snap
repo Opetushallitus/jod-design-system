@@ -2,17 +2,17 @@
 
 exports[`Snapshot testing > Default 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-secondary-gray material-symbols-outlined size-48 flex size-[72px] select-none items-center justify-center self-center rounded-full bg-[#f5f5f5]"
+    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-primary-gray"
+    class="text-button-sm text-primary-gray group-hover:text-accent group-hover:underline"
   >
     Default
   </span>
@@ -21,17 +21,17 @@ exports[`Snapshot testing > Default 1`] = `
 
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-secondary-gray material-symbols-outlined size-48 flex size-[72px] select-none items-center justify-center self-center rounded-full bg-[#f5f5f5]"
+    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-primary-gray"
+    class="text-button-sm text-primary-gray group-hover:text-accent group-hover:underline"
   >
     Disabled, nonselected
   </span>
@@ -40,17 +40,17 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 flex size-[72px] select-none items-center justify-center self-center rounded-full bg-[#697077]"
+    class="text-white material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-accent"
+    class="text-button-sm text-accent group-hover:text-accent group-hover:underline"
   >
     Disabled, nonselected
   </span>
@@ -59,17 +59,17 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 flex size-[72px] select-none items-center justify-center self-center rounded-full bg-[#697077]"
+    class="text-white material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-accent"
+    class="text-button-sm text-accent group-hover:text-accent group-hover:underline"
   >
     Disabled, nonselected
   </span>
@@ -78,17 +78,17 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 
 exports[`Snapshot testing > selected 1`] = `
 <a
-  class=" inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 flex size-[72px] select-none items-center justify-center self-center rounded-full bg-[#697077]"
+    class="text-white material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-accent"
+    class="text-button-sm text-accent group-hover:text-accent group-hover:underline"
   >
     Selected
   </span>

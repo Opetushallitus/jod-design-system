@@ -26,15 +26,19 @@ export const RoundButton = ({
       disabled={disabled}
       type="button"
       onClick={onClick}
-      className={`${className ? className : ''} flex flex-col justify-center ${disabled ? 'cursor-not-allowed opacity-50' : ''} min-w-[110px] items-center gap-2`.trim()}
+      className={`${className ? className : ''} group flex flex-col justify-center ${disabled ? 'cursor-not-allowed opacity-50' : ''} min-w-[110px] items-center gap-2`.trim()}
     >
       <span
         aria-hidden
-        className={`size-[72px] rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray'} flex items-center justify-center ${selected ? 'text-white' : 'text-secondary-gray'} material-symbols-outlined size-48 select-none`}
+        className={`size-[72px] rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray'} flex items-center justify-center ${selected ? 'text-white' : 'text-primary-gray hover:text-accent'} material-symbols-outlined size-48 select-none`}
       >
         {icon}
       </span>
-      <span className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
+      <span
+        className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'} group-hover:text-accent group-hover:underline`}
+      >
+        {label}
+      </span>
     </button>
   );
 };

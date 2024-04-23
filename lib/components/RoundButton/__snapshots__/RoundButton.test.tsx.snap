@@ -2,17 +2,17 @@
 
 exports[`Snapshot testing > Default 1`] = `
 <button
-  class="flex flex-col justify-center  min-w-[110px] items-center gap-2"
+  class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-secondary-gray material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-primary-gray hover:text-accent material-symbols-outlined size-48 select-none"
   >
     target
   </span>
   <span
-    class="text-button-sm text-primary-gray"
+    class="text-button-sm text-primary-gray group-hover:text-accent group-hover:underline"
   >
     Default
   </span>
@@ -21,17 +21,17 @@ exports[`Snapshot testing > Default 1`] = `
 
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <button
-  class="flex flex-col justify-center  min-w-[110px] items-center gap-2"
+  class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-secondary-gray material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-primary-gray hover:text-accent material-symbols-outlined size-48 select-none"
   >
     target
   </span>
   <span
-    class="text-button-sm text-primary-gray"
+    class="text-button-sm text-primary-gray group-hover:text-accent group-hover:underline"
   >
     Disabled, non-selected
   </span>
@@ -40,7 +40,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <button
-  class="flex flex-col justify-center  min-w-[110px] items-center gap-2"
+  class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
   <span
@@ -50,7 +50,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
     target
   </span>
   <span
-    class="text-button-sm text-accent"
+    class="text-button-sm text-accent group-hover:text-accent group-hover:underline"
   >
     Disabled, non-selected
   </span>
@@ -59,7 +59,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <button
-  class="flex flex-col justify-center  min-w-[110px] items-center gap-2"
+  class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
   <span
@@ -69,7 +69,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
     target
   </span>
   <span
-    class="text-button-sm text-accent"
+    class="text-button-sm text-accent group-hover:text-accent group-hover:underline"
   >
     Disabled, non-selected
   </span>
@@ -78,7 +78,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 
 exports[`Snapshot testing > selected 1`] = `
 <button
-  class="flex flex-col justify-center  min-w-[110px] items-center gap-2"
+  class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
   <span
@@ -88,7 +88,7 @@ exports[`Snapshot testing > selected 1`] = `
     target
   </span>
   <span
-    class="text-button-sm text-accent"
+    class="text-button-sm text-accent group-hover:text-accent group-hover:underline"
   >
     Selected
   </span>

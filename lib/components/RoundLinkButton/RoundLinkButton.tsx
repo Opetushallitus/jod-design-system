@@ -28,15 +28,19 @@ export const RoundLinkButton = ({
   return (
     <Component
       {...rest}
-      className={`${className ? className : ''} inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline`}
+      className={`${className ? className : ''} group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline`}
     >
       <span
         aria-hidden
-        className={`${selected ? 'text-white' : 'text-secondary-gray'} material-symbols-outlined size-48 flex size-[72px] select-none items-center justify-center self-center rounded-full ${selected ? 'bg-[#697077]' : 'bg-[#f5f5f5]'}`}
+        className={`${selected ? 'text-white' : 'text-primary-gray'} material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray hover:text-accent'}`}
       >
         {icon}
       </span>
-      <span className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'}`}>{label}</span>
+      <span
+        className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'} group-hover:text-accent group-hover:underline`}
+      >
+        {label}
+      </span>
     </Component>
   );
 };
