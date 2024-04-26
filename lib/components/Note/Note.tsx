@@ -1,4 +1,4 @@
-import useMediaQueries from '../../hooks/useMediaQueries';
+import { useMediaQueries } from '../../hooks/useMediaQueries';
 
 export interface NoteProps {
   /** Title shown on the note */

@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+
 export interface FooterProps {
   /** Navigation items */
   items?: {
@@ -16,17 +18,21 @@ export interface FooterProps {
 /**
  * This component is a footer that displays navigation items, logos, and a copyright.
  */
-export const Footer = ({ items, variant = 'light', logos, copyright }: FooterProps) => {
+export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
+  { items, logos, copyright, variant = 'light' }: FooterProps,
+  ref,
+) {
   return (
     <footer
-      className={`py-9 text-button-md sm:px-6 ${variant === 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}
+      ref={ref}
+      className={`py-9 text-button-md sm:px-6 print:hidden ${variant === 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}
     >
       <div className="mx-auto flex flex-col gap-9 sm:max-w-[1090px]">
         {items && (
           <ul className="px-5 sm:px-4">
             {items?.map((item, index) => (
               <li key={index} className="px-2 py-[6px]">
-                <item.component className="outline-none hover:underline focus:underline" />
+                <item.component className="hover:underline" />
               </li>
             ))}
           </ul>
@@ -49,4 +55,4 @@ export const Footer = ({ items, variant = 'light', logos, copyright }: FooterPro
       </div>
     </footer>
   );
-};
+});

@@ -14,12 +14,10 @@ const useMediaQuery = (query: string) => {
   return match;
 };
 
-const useMediaQueries = () => {
+export const useMediaQueries = () => {
   const { sm, lg } = __SCREENS__;
   return {
     sm: useMediaQuery(`(min-width: ${sm})`),
     lg: useMediaQuery(`(min-width: ${lg})`),
   };
 };
-
-export default useMediaQueries;
