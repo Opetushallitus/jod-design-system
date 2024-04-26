@@ -2,7 +2,7 @@
 
 exports[`Footer > renders copyright 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 bg-white text-black"
+  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
 >
   <div
     class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
@@ -18,7 +18,7 @@ exports[`Footer > renders copyright 1`] = `
 
 exports[`Footer > renders footer with dark variant 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 bg-black text-white"
+  class="py-9 text-button-md sm:px-6 print:hidden bg-black text-white"
 >
   <div
     class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
@@ -69,7 +69,7 @@ exports[`Footer > renders footer with dark variant 1`] = `
 
 exports[`Footer > renders footer with light variant 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 bg-white text-black"
+  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
 >
   <div
     class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
@@ -120,7 +120,7 @@ exports[`Footer > renders footer with light variant 1`] = `
 
 exports[`Footer > renders items 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 bg-white text-black"
+  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
 >
   <div
     class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
@@ -156,7 +156,7 @@ exports[`Footer > renders items 1`] = `
 
 exports[`Footer > renders logos 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 bg-white text-black"
+  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
 >
   <div
     class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
