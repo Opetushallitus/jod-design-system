@@ -27,6 +27,7 @@
     "react": "^18"
   },
   "devDependencies": {
+    "@ark-ui/react": "^2.2.3",
     "@floating-ui/react": "^0.26.12",
     "@headlessui/react": "^1.7.18",
     "@storybook/addon-a11y": "^8.0.4",
