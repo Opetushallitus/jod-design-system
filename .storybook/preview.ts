@@ -30,6 +30,11 @@ const preview: Preview = {
         },
       },
     },
+    options: {
+      storySort: {
+        order: 'Getting Started',
+      },
+    },
   },
   decorators: [
     withThemeByClassName<ReactRenderer>({
