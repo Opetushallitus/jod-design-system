@@ -44,17 +44,19 @@ const BaseCard = ({ title, content, actionContent, backgroundColor, href }: Hero
           className="absolute bottom-0 right-7 translate-y-2/4 rounded-[40px] outline-none transition-transform hover:scale-105 focus:scale-105"
         >
           <div
-            className="flex select-none gap-4 rounded-[40px] bg-white px-8 py-[20px] text-[28px] font-bold leading-[40px]"
+            className="flex select-none items-center gap-4 rounded-[40px] bg-white px-8 py-[20px] text-[28px] font-bold leading-[40px]"
             style={{ color: backgroundColor }}
           >
             {actionContent}
-            <i aria-hidden>→</i>
+            <span className="material-symbols-outlined size-32 select-none font-bold" aria-hidden>
+              arrow_forward
+            </span>
           </div>
         </a>
       ) : (
-        <i className="absolute bottom-5 right-7 select-none text-[28px] font-bold leading-[32px]" aria-hidden>
-          →
-        </i>
+        <span className="material-symbols-outlined size-32 absolute bottom-5 right-7 select-none font-bold" aria-hidden>
+          arrow_forward
+        </span>
       )}
     </div>
   );
