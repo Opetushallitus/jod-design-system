@@ -9,21 +9,25 @@ describe('NavigationBar', () => {
 
   const items = [
     {
+      key: 'home',
       text: 'Home',
       active: true,
       href: '/home',
     },
     {
+      key: 'about',
       text: 'About',
       active: false,
       href: '/about',
     },
     {
+      key: 'contact',
       text: 'Contact',
       active: false,
       href: '/contact',
     },
-  ].map(({ text, active, href }) => ({
+  ].map(({ key, text, active, href }) => ({
+    key,
     text,
     active,
     href,
