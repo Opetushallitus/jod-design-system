@@ -1,5 +1,7 @@
 import './index.css';
 
+export { cva, cx } from './cva';
+
 export { useMediaQueries } from './hooks/useMediaQueries';
 
 export { Button } from './components/Button/Button';
