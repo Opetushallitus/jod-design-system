@@ -24,6 +24,7 @@ const parameters = {
 
 const items: NavigationBarProps['items'] = [
   {
+    key: 'yksiloille',
     text: 'Yksilöille',
     active: true,
     component: ({ children, ...rootProps }) => (
@@ -33,6 +34,7 @@ const items: NavigationBarProps['items'] = [
     ),
   },
   {
+    key: 'ohjaajille',
     text: 'Ohjaajille',
     active: false,
     component: ({ children, ...rootProps }) => (
@@ -42,6 +44,7 @@ const items: NavigationBarProps['items'] = [
     ),
   },
   {
+    key: 'kouluttajille',
     text: 'Kouluttajille',
     active: false,
     component: ({ children, ...rootProps }) => (
@@ -51,6 +54,7 @@ const items: NavigationBarProps['items'] = [
     ),
   },
   {
+    key: 'viranomaisille',
     text: 'Viranomaisille',
     active: false,
     component: ({ children, ...rootProps }) => (

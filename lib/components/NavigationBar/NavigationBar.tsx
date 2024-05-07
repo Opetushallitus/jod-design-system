@@ -12,6 +12,7 @@ export interface NavigationBarProps {
   logo: React.ReactNode;
   /** Navigation items */
   items?: {
+    key: React.Key;
     text: string;
     active: boolean;
     component: NavigationBarLink;
@@ -40,8 +41,8 @@ export const NavigationBar = ({ logo, items, user }: NavigationBarProps) => {
         {logo}
         {(items ?? user) && (
           <ul className="inline-flex items-center gap-6">
-            {items?.map((item, index) => (
-              <li key={index}>
+            {items?.map((item) => (
+              <li key={item.key}>
                 <item.component
                   aria-current={item.active ? 'location' : undefined}
                   className={`flex items-center gap-3 rounded-lg px-5 py-2 ${item.active ? 'text-accent' : 'text-primary-gray'}`}

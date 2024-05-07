@@ -6,11 +6,14 @@ import { Footer } from './Footer';
 
 describe('Footer', () => {
   const mockItems = [
-    { component: () => <div>Item 1</div> },
-    { component: () => <div>Item 2</div> },
-    { component: () => <div>Item 3</div> },
+    { key: 'item1', component: () => <div>Item 1</div> },
+    { key: 'item2', component: () => <div>Item 2</div> },
+    { key: 'item3', component: () => <div>Item 3</div> },
   ];
-  const mockLogos = [{ component: () => <div>Logo 1</div> }, { component: () => <div>Logo 2</div> }];
+  const mockLogos = [
+    { key: 'logo1', component: () => <div>Logo 1</div> },
+    { key: 'logo2', component: () => <div>Logo 2</div> },
+  ];
   const mockCopyright = '© 2024';
 
   it('renders footer with light variant', () => {

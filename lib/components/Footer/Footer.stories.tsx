@@ -21,6 +21,7 @@ const parameters = {
 
 const items: FooterProps['items'] = [
   {
+    key: 'about',
     component: ({ className }) => (
       <a href="/about" className={className}>
         Tietoa palvelusta ja käyttöohjeet
@@ -28,6 +29,7 @@ const items: FooterProps['items'] = [
     ),
   },
   {
+    key: 'cookies',
     component: ({ className }) => (
       <a href="/cookies" className={className}>
         Evästekäytäntö
@@ -35,6 +37,7 @@ const items: FooterProps['items'] = [
     ),
   },
   {
+    key: 'sources',
     component: ({ className }) => (
       <a href="/sources" className={className}>
         Datalähteet
@@ -42,6 +45,7 @@ const items: FooterProps['items'] = [
     ),
   },
   {
+    key: 'terms',
     component: ({ className }) => (
       <a href="/terms" className={className}>
         Käyttöehdot
@@ -49,6 +53,7 @@ const items: FooterProps['items'] = [
     ),
   },
   {
+    key: 'accessibility',
     component: ({ className }) => (
       <a href="/accessibility" className={className}>
         Saavutettavuusseloste
@@ -56,6 +61,7 @@ const items: FooterProps['items'] = [
     ),
   },
   {
+    key: 'privacy',
     component: ({ className }) => (
       <a href="/privacy" className={className}>
         Tietosuojaseloste
@@ -66,6 +72,7 @@ const items: FooterProps['items'] = [
 
 const logos: FooterProps['logos'] = [
   {
+    key: 'logo1',
     component: ({ key, className }) => (
       <a key={key} href="/logo1" className={className}>
         Logo 1
@@ -73,6 +80,7 @@ const logos: FooterProps['logos'] = [
     ),
   },
   {
+    key: 'logo2',
     component: ({ key, className }) => (
       <a key={key} href="/logo2" className={className}>
         Logo 2
@@ -80,6 +88,7 @@ const logos: FooterProps['logos'] = [
     ),
   },
   {
+    key: 'logo3',
     component: ({ key, className }) => (
       <a key={key} href="/logo3" className={className}>
         Logo 3
