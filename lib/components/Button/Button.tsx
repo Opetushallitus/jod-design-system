@@ -1,3 +1,5 @@
+import { cx } from '../../cva';
+
 export interface ButtonProps {
   /** Text shown on the button */
   label: string;
@@ -16,42 +18,31 @@ export interface ButtonProps {
 }
 
 const getSizeClassName = (size: ButtonProps['size']) => {
-  switch (size) {
-    case 'sm':
-      return 'text-button-sm px-6';
-    case 'md':
-      return 'text-button-md px-6';
-    case 'lg':
-      return 'text-button-lg px-[42px]';
-    default:
-      return '';
-  }
+  return cx({
+    'text-button-sm px-6': size === 'sm',
+    'text-button-md px-6': size === 'md',
+    'text-button-lg px-[42px]': size === 'lg',
+  });
 };
 
 const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIcon: boolean) => {
-  return `
-    ${size === 'sm' && leftIcon ? 'pl-4' : ''}
-    ${size === 'md' && leftIcon ? 'pl-4' : ''}
-    ${size === 'lg' && leftIcon ? 'pl-[21px]' : ''}
-    ${size === 'sm' && rightIcon ? 'pr-4' : ''}
-    ${size === 'md' && rightIcon ? 'pr-4' : ''}
-    ${size === 'lg' && rightIcon ? 'pr-[21px]' : ''}
-  `;
+  return cx({
+    'pl-4': (size === 'sm' || size === 'md') && leftIcon,
+    'pl-[21px]': size === 'lg' && leftIcon,
+    'pr-4': (size === 'sm' || size === 'md') && rightIcon,
+    'pr-[21px]': size === 'lg' && rightIcon,
+  });
 };
 
 const getVariantClassName = (variant: ButtonProps['variant']) => {
-  switch (variant) {
-    case 'gray':
-      return 'text-primary-gray bg-bg-gray';
-    case 'white':
-      return 'text-primary-gray bg-white';
-    case 'gray-delete':
-      return 'text-alert bg-bg-gray hover:text-alert active:text-white active:bg-alert focus-visible:text-alert';
-    case 'white-delete':
-      return 'text-alert bg-white hover:text-alert active:text-white active:bg-alert focus-visible:text-alert';
-    default:
-      return '';
-  }
+  return cx({
+    'text-primary-gray bg-bg-gray': variant === 'gray',
+    'text-primary-gray bg-white': variant === 'white',
+    'text-alert bg-bg-gray hover:text-alert active:text-white active:bg-alert focus-visible:text-alert':
+      variant === 'gray-delete',
+    'text-alert bg-white hover:text-alert active:text-white active:bg-alert focus-visible:text-alert':
+      variant === 'white-delete',
+  });
 };
 
 const getDisabledClassName = (disabled: ButtonProps['disabled']) => {
