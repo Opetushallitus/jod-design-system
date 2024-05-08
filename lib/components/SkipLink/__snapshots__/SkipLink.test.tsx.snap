@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SkipLink > renders the component correctly 1`] = `
+<a
+  class="absolute -left-full z-50 flex rounded-[4px] border-2 border-secondary-gray bg-white p-5 text-body-md text-button-sm text-link hover:text-accent hover:underline focus:left-auto focus:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px]"
+  href="#"
+>
+  Skip to main content
+</a>
+`;

@@ -17,6 +17,7 @@ export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
 export { RoundButton } from './components/RoundButton/RoundButton';
 export { RoundLinkButton } from './components/RoundLinkButton/RoundLinkButton';
+export { SkipLink } from './components/SkipLink/SkipLink';
 export { Slider } from './components/Slider/Slider';
 export { Tag } from './components/Tag/Tag';
 export { TagsInput } from './components/TagsInput/TagsInput';
