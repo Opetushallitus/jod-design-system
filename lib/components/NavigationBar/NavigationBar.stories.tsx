@@ -66,12 +66,17 @@ const items: NavigationBarProps['items'] = [
 ];
 
 const user: NavigationBarProps['user'] = {
-  name: 'Jane Doe',
+  name: 'Reetta Räppänä',
   component: ({ children, ...rootProps }) => (
     <a href="/profiili" aria-label="Profiili" {...rootProps}>
       {children}
     </a>
   ),
+};
+
+const login: NavigationBarProps['login'] = {
+  url: '/login',
+  text: 'Login',
 };
 
 const logo = (
@@ -86,6 +91,7 @@ const args: NavigationBarProps = {
   logo,
   items,
   user,
+  login,
 };
 
 export const Default: Story = {
@@ -111,6 +117,7 @@ export const Plain: Story = {
   },
   args: {
     logo,
+    login,
   },
 };
 
@@ -126,6 +133,7 @@ export const Items: Story = {
   args: {
     logo,
     items,
+    login,
   },
 };
 
@@ -141,6 +149,7 @@ export const Avatar: Story = {
   args: {
     logo,
     user,
+    login,
   },
 };
 

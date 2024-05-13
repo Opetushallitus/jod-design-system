@@ -39,7 +39,7 @@ describe('NavigationBar', () => {
   }));
 
   const user = {
-    name: 'Jane Doe',
+    name: 'Reetta Räppänä',
     component: ({ children, ...rootProps }: NavigationBarLinkProps) => (
       <a href="/profile" aria-label="Profile" {...rootProps}>
         {children}
@@ -47,8 +47,10 @@ describe('NavigationBar', () => {
     ),
   };
 
+  const login = { url: '/login', text: 'Login' };
+
   it('renders navigation items and user', () => {
-    const { container } = render(<NavigationBar logo={logo} items={items} user={user} />);
+    const { container } = render(<NavigationBar logo={logo} items={items} user={user} login={login} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
@@ -66,7 +68,7 @@ describe('NavigationBar', () => {
   });
 
   it('renders only navigation items', () => {
-    const { container } = render(<NavigationBar logo={logo} items={items} />);
+    const { container } = render(<NavigationBar logo={logo} items={items} login={login} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
@@ -84,7 +86,7 @@ describe('NavigationBar', () => {
   });
 
   it('renders only user', () => {
-    const { container } = render(<NavigationBar logo={logo} user={user} />);
+    const { container } = render(<NavigationBar logo={logo} user={user} login={login} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
@@ -101,7 +103,7 @@ describe('NavigationBar', () => {
   });
 
   it('renders no navigation items and no user', () => {
-    const { container } = render(<NavigationBar logo={logo} />);
+    const { container } = render(<NavigationBar logo={logo} login={login} />);
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
