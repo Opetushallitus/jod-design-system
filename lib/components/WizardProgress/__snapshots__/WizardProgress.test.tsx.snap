@@ -4,70 +4,67 @@ exports[`WizardProgress > renders correctly 1`] = `
 <ol
   class="flex gap-4 text-body-md font-bold text-primary-gray sm:text-body-lg sm:font-bold"
 >
-  <li>
-    <button
-      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
-      type="button"
+  <li
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+  >
+    <span
+      class="sr-only"
     >
-      <span
-        class="sr-only"
-      >
-        Completed: 1
-      </span>
-      <span
-        aria-hidden="true"
-        class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
-      >
-        check
-      </span>
-    </button>
+      Completed: 1
+    </span>
+    <span
+      aria-hidden="true"
+      class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
+    >
+      check
+    </span>
   </li>
-  <li>
-    <button
-      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
-      type="button"
+  <li
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+  >
+    <span
+      class="sr-only"
     >
-      <span
-        class="sr-only"
-      >
-        Completed: 2
-      </span>
-      <span
-        aria-hidden="true"
-        class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
-      >
-        check
-      </span>
-    </button>
+      Completed: 2
+    </span>
+    <span
+      aria-hidden="true"
+      class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
+    >
+      check
+    </span>
   </li>
-  <li>
-    <button
-      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-accent text-white sm:min-h-8 sm:min-w-8"
-      type="button"
+  <li
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-accent text-white sm:min-h-8 sm:min-w-8"
+  >
+    <span
+      class="sr-only"
     >
-      <span
-        class="sr-only"
-      >
-        Current: 
-      </span>
+      Current: 
+    </span>
+    <span
+      class="select-none"
+    >
       3
-    </button>
+    </span>
   </li>
-  <li>
-    <button
-      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
-      type="button"
+  <li
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+  >
+    <span
+      class="select-none"
     >
       4
-    </button>
+    </span>
   </li>
-  <li>
-    <button
-      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
-      type="button"
+  <li
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+  >
+    <span
+      class="select-none"
     >
       5
-    </button>
+    </span>
   </li>
 </ol>
 `;

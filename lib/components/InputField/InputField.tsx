@@ -1,14 +1,26 @@
-import { useId } from 'react';
+import { FocusEvent, ChangeEvent, forwardRef, useId } from 'react';
 
 export interface InputFieldProps {
-  value: string;
-  onChange: (newValue: string) => void;
+  /** The name of the input field */
+  name?: string;
+  /** The value of the input field */
+  value?: string;
+  /** The function to call when the input field loses focus */
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  /** The function to call when the value of the input field changes */
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  /** The placeholder text to display in the input field */
   placeholder?: string;
+  /** The label text to display above the input field */
   label: string;
+  /** The help text to display below the input field */
   help?: string;
 }
 
-export const InputField = ({ value, onChange, placeholder, label, help }: InputFieldProps) => {
+export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function InputField(
+  { name, value, onBlur, onChange, placeholder, label, help }: InputFieldProps,
+  ref,
+) {
   const inputId = useId();
   const helpId = useId();
   return (
@@ -17,10 +29,13 @@ export const InputField = ({ value, onChange, placeholder, label, help }: InputF
         {label}
       </label>
       <input
+        ref={ref}
         id={inputId}
+        name={name}
         type="text"
         value={value}
-        onChange={(event) => onChange(event.target.value)}
+        onBlur={onBlur}
+        onChange={onChange}
         placeholder={placeholder ? `(${placeholder})` : undefined}
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
@@ -33,4 +48,4 @@ export const InputField = ({ value, onChange, placeholder, label, help }: InputF
       )}
     </>
   );
-};
+});

@@ -1,10 +1,12 @@
 import { cx } from '../../cva';
 
 export interface ButtonProps {
+  /** Form ID to associate the button with */
+  form?: string;
   /** Text shown on the button */
   label: string;
   /** Callback fired on tap/click of the button */
-  onClick: () => void;
+  onClick?: () => void;
   /** Size of the button */
   size?: 'sm' | 'md' | 'lg';
   /** Button variant */
@@ -34,14 +36,13 @@ const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIco
   });
 };
 
-const getVariantClassName = (variant: ButtonProps['variant']) => {
+const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
   return cx({
     'text-primary-gray bg-bg-gray': variant === 'gray',
     'text-primary-gray bg-white': variant === 'white',
-    'text-alert bg-bg-gray hover:text-alert active:text-white active:bg-alert focus-visible:text-alert':
-      variant === 'gray-delete',
-    'text-alert bg-white hover:text-alert active:text-white active:bg-alert focus-visible:text-alert':
-      variant === 'white-delete',
+    'text-alert bg-bg-gray hover:text-alert active:text-white focus-visible:text-alert': variant === 'gray-delete',
+    'text-alert bg-white hover:text-alert active:text-white focus-visible:text-alert': variant === 'white-delete',
+    'active:bg-alert': (variant === 'gray-delete' || variant === 'white-delete') && !disabled,
   });
 };
 
@@ -61,7 +62,7 @@ const getButtonClassName = ({
   return `flex items-center gap-4 rounded-[30px] select-none group
     ${getSizeClassName(size)}
     ${getIconClassName(size, leftIcon, rightIcon)}
-    ${getVariantClassName(variant)}
+    ${getVariantClassName(variant, disabled)}
     ${getDisabledClassName(disabled)}
   `
     .replace(/\s+/g, ' ')
@@ -70,16 +71,18 @@ const getButtonClassName = ({
 
 /** Button component for user actions. */
 export const Button = ({
+  form,
   label,
   onClick,
   size = 'md',
   variant = 'gray',
   disabled = false,
   icon,
-  iconSide = 'left',
+  iconSide,
 }: ButtonProps) => {
   const leftIcon = icon !== undefined && iconSide === 'left';
   const rightIcon = icon !== undefined && iconSide === 'right';
+  const onlyIcon = icon && !leftIcon && !rightIcon;
   const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled });
   const iconClassName = `material-symbols-outlined size-24 h-fit select-none
       ${size === 'sm' ? 'size-20' : ''}
@@ -96,13 +99,25 @@ export const Button = ({
     .trim();
 
   return (
-    <button disabled={disabled} type="button" onClick={onClick} className={buttonClassName}>
+    <button
+      form={form}
+      disabled={disabled}
+      type={onClick ? 'button' : 'submit'}
+      onClick={onClick}
+      className={buttonClassName}
+    >
       {leftIcon && (
         <span className={iconClassName} aria-hidden>
           {icon}
         </span>
       )}
-      <span className={spanClassName}>{label}</span>
+      {onlyIcon ? (
+        <span className={iconClassName} aria-label={label}>
+          {icon}
+        </span>
+      ) : (
+        <span className={spanClassName}>{label}</span>
+      )}
       {rightIcon && (
         <span className={iconClassName} aria-hidden>
           {icon}

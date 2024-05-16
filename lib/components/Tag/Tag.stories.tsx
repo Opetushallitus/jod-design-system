@@ -17,7 +17,7 @@ export const Selectable: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?type=design&node-id=542-6833',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542-6833',
     },
   },
   args: {
@@ -30,7 +30,7 @@ export const Added: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?type=design&node-id=542-6866',
+      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542-6866',
     },
   },
   args: {
