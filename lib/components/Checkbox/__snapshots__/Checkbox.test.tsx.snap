@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Checkbox > renders correctly 1`] = `
+<div
+  class="flex min-h-7 items-center text-left"
+>
+  <input
+    class="peer relative size-6 min-h-6 min-w-6 appearance-none rounded-none border-2 border-primary-gray accent-accent checked:border-accent hover:rounded-none hover:border-accent disabled:border-border-gray"
+    id=":r0:"
+    name="myCheckbox"
+    type="checkbox"
+    value="myValue"
+  />
+  <svg
+    class="pointer-events-none absolute hidden fill-accent peer-checked:block peer-disabled:fill-border-gray"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      height="14"
+      width="14"
+      x="5"
+      y="5"
+    />
+  </svg>
+  <label
+    class="flex select-none flex-row items-center text-button-md text-primary-gray peer-hover:text-accent peer-hover:underline peer-disabled:text-border-gray peer-disabled:no-underline pl-4"
+    for=":r0:"
+  >
+    My Checkbox
+  </label>
+</div>
+`;
