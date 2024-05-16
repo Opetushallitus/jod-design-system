@@ -1,7 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/preview-api';
-import { useEffect, useState } from 'react';
 
 import { WizardProgress } from './WizardProgress';
 
@@ -30,22 +27,5 @@ export const Default: Story = {
   args: {
     steps: 5,
     currentStep: 2,
-  },
-  render: (args) => {
-    const [, setArgs] = useArgs();
-    const [value, setValue] = useState<number>(args.currentStep);
-
-    useEffect(() => {
-      action('onChange')(args.currentStep);
-      setValue(args.currentStep);
-    }, [args.currentStep]);
-
-    const onChange = (value: number) => {
-      action('onChange')(value);
-      setArgs({ currentStep: value });
-      setValue(value);
-    };
-
-    return <WizardProgress {...args} currentStep={value} onChange={onChange} />;
   },
 };

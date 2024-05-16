@@ -2,7 +2,7 @@
 
 exports[`Checkbox > renders correctly 1`] = `
 <div
-  class="flex min-h-7 items-center text-left"
+  class="flex items-center text-left"
 >
   <input
     class="peer relative size-6 min-h-6 min-w-6 appearance-none rounded-none border-2 border-primary-gray accent-accent checked:border-accent hover:rounded-none hover:border-accent disabled:border-border-gray"
@@ -27,7 +27,7 @@ exports[`Checkbox > renders correctly 1`] = `
     />
   </svg>
   <label
-    class="flex select-none flex-row items-center text-button-md text-primary-gray peer-hover:text-accent peer-hover:underline peer-disabled:text-border-gray peer-disabled:no-underline pl-4"
+    class="flex flex-row items-center text-button-md text-primary-gray peer-hover:text-accent peer-hover:underline peer-disabled:text-border-gray peer-disabled:no-underline pl-4"
     for=":r0:"
   >
     My Checkbox

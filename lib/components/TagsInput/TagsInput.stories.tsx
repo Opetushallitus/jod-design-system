@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 const parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?type=design&node-id=542-7646',
+    url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542-7646',
   },
 };
 

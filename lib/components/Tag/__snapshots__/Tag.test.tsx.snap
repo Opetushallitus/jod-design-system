@@ -4,6 +4,7 @@ exports[`Snapshot testing > matches the snapshot 1`] = `
 <div>
   <button
     class="group flex select-none items-center gap-3 rounded-sm border-2 border-secondary-gray px-4 text-tag"
+    type="button"
   >
     <span
       class="hyphens-auto py-[5px] text-secondary-gray group-hover:underline"

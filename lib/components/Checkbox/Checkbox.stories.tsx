@@ -53,6 +53,7 @@ export const Available: Story = {
     value: 'value',
     checked: false,
     label,
+    ariaLabel: label,
   },
   render,
 };
@@ -72,6 +73,7 @@ export const Selected: Story = {
     value: 'value',
     checked: true,
     label,
+    ariaLabel: label,
   },
   render,
 };
@@ -91,6 +93,7 @@ export const Disabled: Story = {
     value: 'value',
     checked: false,
     label,
+    ariaLabel: label,
   },
   render,
 };

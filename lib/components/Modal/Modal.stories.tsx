@@ -37,7 +37,9 @@ const render = (args: Story['args']) => {
         {...rest}
         open={isOpen}
         onClose={() => {
-          onClose();
+          if (onClose) {
+            onClose();
+          }
           setIsOpen(false);
         }}
         footer={
@@ -88,7 +90,7 @@ export const Default: Story = {
     open: false,
     onClose: fn(),
     content: <LoremIpsum />,
-    sidePanelSlot: <LoremIpsum />,
+    sidePanel: <LoremIpsum />,
     footer: <>/</>,
   },
 };
@@ -110,9 +112,9 @@ export const Progress: Story = {
     open: false,
     onClose: fn(),
     content: <LoremIpsum />,
-    sidePanelSlot: <LoremIpsum />,
+    sidePanel: <LoremIpsum />,
     footer: <>/</>,
-    progressSlot: <div>Progress</div>,
+    progress: <div>Progress</div>,
   },
 };
 
@@ -136,7 +138,7 @@ export const Mobile: Story = {
     open: false,
     onClose: fn(),
     content: <LoremIpsum />,
-    sidePanelSlot: <LoremIpsum />,
+    sidePanel: <LoremIpsum />,
     footer: <>/</>,
   },
 };
@@ -161,8 +163,8 @@ export const MobileWithProgress: Story = {
     open: false,
     onClose: fn(),
     content: <LoremIpsum />,
-    sidePanelSlot: <LoremIpsum />,
+    sidePanel: <LoremIpsum />,
     footer: <>/</>,
-    progressSlot: <div>Progress slot</div>,
+    progress: <div>Progress slot</div>,
   },
 };

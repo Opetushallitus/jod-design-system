@@ -7,6 +7,7 @@ export interface TagProps {
 export const Tag = ({ label, onClick, variant = 'selectable' }: TagProps) => {
   return (
     <button
+      type="button"
       className="group flex select-none items-center gap-3 rounded-sm border-2 border-secondary-gray px-4 text-tag"
       onClick={onClick}
     >

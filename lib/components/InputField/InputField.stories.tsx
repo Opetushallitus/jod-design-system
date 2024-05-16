@@ -20,9 +20,9 @@ const render = (args: Story['args']) => {
   return (
     <InputField
       value={textValue}
-      onChange={(newValue) => {
-        setTextValue(newValue);
-        onChange(newValue);
+      onChange={(event) => {
+        setTextValue(event.target.value);
+        onChange(event);
       }}
       {...rest}
     />
