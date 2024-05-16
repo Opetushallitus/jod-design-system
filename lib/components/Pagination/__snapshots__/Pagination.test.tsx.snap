@@ -1,0 +1,292 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination > renders the pagination component with correct number of pages with ellipsis 1`] = `
+<nav
+  class="inline-flex list-none items-center justify-center"
+  data-part="root"
+  data-scope="pagination"
+  dir="ltr"
+  id="pagination::r1:"
+>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    disabled=""
+  >
+    <span
+      class="hidden"
+    >
+      First Page
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      first_page
+    </span>
+  </button>
+  <button
+    aria-label="Previous"
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    data-disabled=""
+    data-part="prev-trigger"
+    data-scope="pagination"
+    dir="ltr"
+    disabled=""
+    id="pagination::r1::prev"
+    type="button"
+  >
+    <span
+      class="hidden"
+    >
+      Previous
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      chevron_left
+    </span>
+  </button>
+  <button
+    aria-current="page"
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full bg-accent text-white font-bold"
+    data-index="1"
+    data-part="item"
+    data-scope="pagination"
+    data-selected=""
+    dir="ltr"
+    id="pagination::r1::item:1"
+    type="button"
+  >
+    1
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="2"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::item:2"
+    type="button"
+  >
+    2
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="3"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::item:3"
+    type="button"
+  >
+    3
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="4"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::item:4"
+    type="button"
+  >
+    4
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="5"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::item:5"
+    type="button"
+  >
+    5
+  </button>
+  <div
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined"
+    data-part="ellipsis"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::ellipsis:5"
+  >
+    <span
+      aria-hidden="true"
+    >
+      more_horiz
+    </span>
+  </div>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="10"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::item:10"
+    type="button"
+  >
+    10
+  </button>
+  <button
+    aria-label="Next"
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined"
+    data-part="next-trigger"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r1::next"
+    type="button"
+  >
+    <span
+      class="hidden"
+    >
+      Next
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      chevron_right
+    </span>
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined"
+  >
+    <span
+      class="hidden"
+    >
+      Last Page
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      last_page
+    </span>
+  </button>
+</nav>
+`;
+
+exports[`Pagination > renders the pagination component with correct number of pages without ellipsis 1`] = `
+<nav
+  class="inline-flex list-none items-center justify-center"
+  data-part="root"
+  data-scope="pagination"
+  dir="ltr"
+  id="pagination::r0:"
+>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    disabled=""
+  >
+    <span
+      class="hidden"
+    >
+      First Page
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      first_page
+    </span>
+  </button>
+  <button
+    aria-label="Previous"
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    data-disabled=""
+    data-part="prev-trigger"
+    data-scope="pagination"
+    dir="ltr"
+    disabled=""
+    id="pagination::r0::prev"
+    type="button"
+  >
+    <span
+      class="hidden"
+    >
+      Previous
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      chevron_left
+    </span>
+  </button>
+  <button
+    aria-current="page"
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full bg-accent text-white font-bold"
+    data-index="1"
+    data-part="item"
+    data-scope="pagination"
+    data-selected=""
+    dir="ltr"
+    id="pagination::r0::item:1"
+    type="button"
+  >
+    1
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="2"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r0::item:2"
+    type="button"
+  >
+    2
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="3"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r0::item:3"
+    type="button"
+  >
+    3
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray font-bold"
+    data-index="4"
+    data-part="item"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r0::item:4"
+    type="button"
+  >
+    4
+  </button>
+  <button
+    aria-label="Next"
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined"
+    data-part="next-trigger"
+    data-scope="pagination"
+    dir="ltr"
+    id="pagination::r0::next"
+    type="button"
+  >
+    <span
+      class="hidden"
+    >
+      Next
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      chevron_right
+    </span>
+  </button>
+  <button
+    class="min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray material-symbols-outlined"
+  >
+    <span
+      class="hidden"
+    >
+      Last Page
+    </span>
+    <span
+      aria-hidden="true"
+    >
+      last_page
+    </span>
+  </button>
+</nav>
+`;
