@@ -7,18 +7,19 @@ exports[`Snapshot testing > Default 1`] = `
   id="headlessui-radiogroup-:r0:"
   role="radiogroup"
 >
-  <label
+  <div
     class="mb-5 text-body-xs text-secondary-gray"
+    data-headlessui-state=""
     id="headlessui-label-:r1:"
-    role="none"
   >
     Label
-  </label>
-  <div
+  </div>
+  <span
     aria-checked="true"
     class="flex h-7"
+    data-checked=""
     data-headlessui-state="checked"
-    id="headlessui-radiogroup-option-:r2:"
+    id="headlessui-radio-:r2:"
     role="radio"
     tabindex="0"
   >
@@ -47,6 +48,6 @@ exports[`Snapshot testing > Default 1`] = `
         A
       </span>
     </div>
-  </div>
+  </span>
 </div>
 `;

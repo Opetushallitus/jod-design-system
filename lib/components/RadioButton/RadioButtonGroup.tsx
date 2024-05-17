@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioGroup } from '@headlessui/react';
+import { Label, RadioGroup } from '@headlessui/react';
 
 export interface RadioButtonGroupProps {
   /** Text for the component */
@@ -21,7 +21,7 @@ export const RadioButtonGroup = ({ label, value, onChange, children, className }
       onChange={onChange}
       className={`${className ? className : ''} flex flex-col space-y-2`.trim()}
     >
-      <RadioGroup.Label className="mb-5 text-body-xs text-secondary-gray">{label}</RadioGroup.Label>
+      <Label className="mb-5 text-body-xs text-secondary-gray">{label}</Label>
       {children}
     </RadioGroup>
   );
