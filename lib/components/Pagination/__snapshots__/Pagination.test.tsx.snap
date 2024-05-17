@@ -11,6 +11,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   <button
     class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
     disabled=""
+    type="button"
   >
     <span
       class="sr-only"
@@ -148,6 +149,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    type="button"
   >
     <span
       class="sr-only"
@@ -174,6 +176,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   <button
     class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
     disabled=""
+    type="button"
   >
     <span
       class="sr-only"
@@ -276,6 +279,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    type="button"
   >
     <span
       class="sr-only"

@@ -46,6 +46,7 @@ export const Pagination = ({
         onClick={() => onPageChange({ page: 1, pageSize })}
         className={getClassName({ disabled: isFirstPage })}
         disabled={isFirstPage}
+        type="button"
       >
         <span className="sr-only">{translations.firstPageTriggerLabel}</span>
         <span aria-hidden>first_page</span>
@@ -83,6 +84,7 @@ export const Pagination = ({
         onClick={() => onPageChange({ page: lastPage, pageSize })}
         className={getClassName({ disabled: isLastPage })}
         disabled={isLastPage}
+        type="button"
       >
         <span className="sr-only">{translations.lastPageTriggerLabel}</span>
         <span aria-hidden>last_page</span>
