@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`WizardProgress > renders correctly 1`] = `
+<ol
+  class="flex gap-4 text-body-md font-bold text-primary-gray sm:text-body-lg sm:font-bold"
+>
+  <li>
+    <button
+      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+      type="button"
+    >
+      <span
+        class="sr-only"
+      >
+        Completed: 1
+      </span>
+      <span
+        aria-hidden="true"
+        class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
+      >
+        check
+      </span>
+    </button>
+  </li>
+  <li>
+    <button
+      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+      type="button"
+    >
+      <span
+        class="sr-only"
+      >
+        Completed: 2
+      </span>
+      <span
+        aria-hidden="true"
+        class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
+      >
+        check
+      </span>
+    </button>
+  </li>
+  <li>
+    <button
+      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-accent text-white sm:min-h-8 sm:min-w-8"
+      type="button"
+    >
+      <span
+        class="sr-only"
+      >
+        Current: 
+      </span>
+      3
+    </button>
+  </li>
+  <li>
+    <button
+      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+      type="button"
+    >
+      4
+    </button>
+  </li>
+  <li>
+    <button
+      class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+      type="button"
+    >
+      5
+    </button>
+  </li>
+</ol>
+`;
