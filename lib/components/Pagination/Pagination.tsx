@@ -2,7 +2,7 @@ import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react'
 import { cx } from '../../cva';
 
 const getClassName = ({ isActive = false, isArrowButton = true, disabled = false } = {}) =>
-  cx(`min-w-[32px] h-[32px] p-2 mx-2 rounded-full text-button-smflex bg-bg-gray`, {
+  cx(`min-w-7 min-h-7 p-2 rounded-full text-button-smflex bg-bg-gray text-primary-gray`, {
     'bg-accent text-white': !isArrowButton && isActive,
     'material-symbols-outlined': isArrowButton,
     'disabled:text-inactive-gray disabled:cursor-not-allowed': disabled === true,
@@ -40,19 +40,19 @@ export const Pagination = ({
       translations={translations}
       onPageChange={onPageChange}
       type={type}
-      className="inline-flex list-none items-center justify-center"
+      className="inline-flex list-none items-center justify-center gap-3"
     >
       <button
         onClick={() => onPageChange({ page: 1, pageSize })}
         className={getClassName({ disabled: isFirstPage })}
         disabled={isFirstPage}
       >
-        <span className="hidden">{translations.firstPageTriggerLabel}</span>
+        <span className="sr-only">{translations.firstPageTriggerLabel}</span>
         <span aria-hidden>first_page</span>
       </button>
 
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
-        <span className="hidden">{translations.prevTriggerLabel}</span>
+        <span className="sr-only">{translations.prevTriggerLabel}</span>
         <span aria-hidden>chevron_left</span>
       </ArkPagination.PrevTrigger>
       <ArkPagination.Context>
@@ -75,7 +75,7 @@ export const Pagination = ({
         }
       </ArkPagination.Context>
       <ArkPagination.NextTrigger className={getClassName({ disabled: isLastPage })} disabled={isLastPage}>
-        <span className="hidden">{translations.nextTriggerLabel}</span>
+        <span className="sr-only">{translations.nextTriggerLabel}</span>
         <span aria-hidden>chevron_right</span>
       </ArkPagination.NextTrigger>
 
@@ -84,7 +84,7 @@ export const Pagination = ({
         className={getClassName({ disabled: isLastPage })}
         disabled={isLastPage}
       >
-        <span className="hidden">{translations.lastPageTriggerLabel}</span>
+        <span className="sr-only">{translations.lastPageTriggerLabel}</span>
         <span aria-hidden>last_page</span>
       </button>
     </ArkPagination.Root>
