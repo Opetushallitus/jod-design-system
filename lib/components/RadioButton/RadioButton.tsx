@@ -1,4 +1,4 @@
-import { RadioGroup } from '@headlessui/react';
+import { Radio } from '@headlessui/react';
 
 export interface RadioButtonProps {
   /** Text for the component */
@@ -11,7 +11,7 @@ export interface RadioButtonProps {
 
 export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
   return (
-    <RadioGroup.Option value={value} className={`${className ? className : ''} flex h-7`.trim()}>
+    <Radio value={value} className={`${className ? className : ''} flex h-7`.trim()}>
       {({ checked }) => (
         <div className="flex-start flex space-x-4">
           {checked ? <CheckedIcon /> : <UncheckedIcon />}
@@ -20,7 +20,7 @@ export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
           </span>
         </div>
       )}
-    </RadioGroup.Option>
+    </Radio>
   );
 };
 

@@ -21,19 +21,11 @@ exports[`Snapshot testing > Base button 1`] = `
       >
         Label
       </span>
-      <svg
-        fill="none"
-        height="11"
-        viewBox="0 0 17 11"
-        width="17"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        class="material-symbols-outlined size-32 select-none text-secondary-gray"
       >
-        <path
-          d="M1.08521 1.56995L8.19521 8.56995L15.3052 1.56995"
-          stroke="#767676"
-          stroke-width="3"
-        />
-      </svg>
+        keyboard_arrow_down
+      </span>
     </div>
     <span
       class="mb-4 text-start text-[12px] font-bold text-[#767676]"
