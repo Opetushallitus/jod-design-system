@@ -4,6 +4,7 @@ export { cva, cx } from './cva';
 
 export { useMediaQueries } from './hooks/useMediaQueries';
 
+export { ActiveIndicator } from './components/ActiveIndicator/ActiveIndicator';
 export { Button } from './components/Button/Button';
 export { Checkbox } from './components/Checkbox/Checkbox';
 export { DropdownMenu } from './components/DropdownMenu/DropdownMenu';

@@ -1,3 +1,5 @@
+import { ActiveIndicator } from '../ActiveIndicator/ActiveIndicator';
+
 export interface NavigationBarLinkProps {
   className?: string;
   role?: string;
@@ -53,7 +55,7 @@ export const NavigationBar = ({ logo, items, user, login }: NavigationBarProps) 
                 aria-current={item.active ? 'location' : undefined}
                 className={`flex items-center gap-3 rounded-lg px-5 py-2 ${item.active ? 'text-accent' : 'text-primary-gray'}`}
               >
-                {item.active && <div className="h-5 w-5 rounded-full bg-accent" />}
+                {item.active && <ActiveIndicator />}
                 {item.text}
               </item.component>
             </li>
