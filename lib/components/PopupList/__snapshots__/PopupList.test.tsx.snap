@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PopupList > renders the PopupList component correctly 1`] = `
+<div
+  class="inline-flex flex-col items-start rounded-[20px] border-[3px] border-[#767676] p-6 pr-10"
+>
+  <ul>
+    <li
+      class="pl-6"
+    >
+      <button
+        aria-current="true"
+        class="flex items-center gap-3 py-3 text-button-md hover:text-accent hover:underline focus:left-auto focus:underline"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="absolute -ml-6"
+          focusable="false"
+          height="15"
+          width="15"
+        >
+          <circle
+            class="fill-accent"
+            cx="7.5"
+            cy="7.5"
+            r="7.5"
+          />
+        </svg>
+        Item 1
+      </button>
+    </li>
+    <li
+      class="pl-6"
+    >
+      <button
+        class="flex items-center gap-3 py-3 text-button-md hover:text-accent hover:underline focus:left-auto focus:underline"
+        type="button"
+      >
+        Item 2
+      </button>
+    </li>
+    <li
+      class="pl-6"
+    >
+      <button
+        class="flex items-center gap-3 py-3 text-button-md hover:text-accent hover:underline focus:left-auto focus:underline"
+        type="button"
+      >
+        Item 3
+      </button>
+    </li>
+  </ul>
+</div>
+`;
