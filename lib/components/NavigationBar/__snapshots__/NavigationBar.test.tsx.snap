@@ -20,9 +20,20 @@ exports[`NavigationBar > renders navigation items and user 1`] = `
           class="flex items-center gap-3 rounded-lg px-5 py-2 text-accent"
           href="/home"
         >
-          <div
-            class="h-5 w-5 rounded-full bg-accent"
-          />
+          <svg
+            aria-hidden="true"
+            class="absolute -ml-6"
+            focusable="false"
+            height="15"
+            width="15"
+          >
+            <circle
+              class="fill-accent"
+              cx="7.5"
+              cy="7.5"
+              r="7.5"
+            />
+          </svg>
           Home
         </a>
       </li>
@@ -119,9 +130,20 @@ exports[`NavigationBar > renders only navigation items 1`] = `
           class="flex items-center gap-3 rounded-lg px-5 py-2 text-accent"
           href="/home"
         >
-          <div
-            class="h-5 w-5 rounded-full bg-accent"
-          />
+          <svg
+            aria-hidden="true"
+            class="absolute -ml-6"
+            focusable="false"
+            height="15"
+            width="15"
+          >
+            <circle
+              class="fill-accent"
+              cx="7.5"
+              cy="7.5"
+              r="7.5"
+            />
+          </svg>
           Home
         </a>
       </li>

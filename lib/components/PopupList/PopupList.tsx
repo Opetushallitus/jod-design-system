@@ -1,3 +1,5 @@
+import { ActiveIndicator } from '../ActiveIndicator/ActiveIndicator';
+
 export interface PopupListItem {
   /** List item label */
   label: string;
@@ -16,12 +18,6 @@ export interface PopupListProps {
   itemsType?: 'button' | 'link';
 }
 
-const activeIndicator = (
-  <svg height="15" width="15" aria-hidden focusable="false" className="absolute -ml-6">
-    <circle cx="7.5" cy="7.5" r="7.5" className="fill-accent" />
-  </svg>
-);
-
 export const PopupList = ({ items, itemsType: itemType = 'button' }: PopupListProps) => {
   const hasActives = Array.isArray(items) && items.some((item) => item.active);
   const Component = itemType === 'link' ? 'a' : 'button';
@@ -37,7 +33,7 @@ export const PopupList = ({ items, itemsType: itemType = 'button' }: PopupListPr
               onClick={item.onClick}
               className={`flex items-center gap-3 py-3 text-button-md hover:text-accent hover:underline focus:left-auto focus:underline`}
             >
-              {item.active && activeIndicator}
+              {item.active && <ActiveIndicator />}
               {item.label}
             </Component>
           </li>
