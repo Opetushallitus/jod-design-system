@@ -98,11 +98,11 @@ export const Progress: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541-11408',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541-16019',
     },
     docs: {
       description: {
-        story: 'This is a modal component',
+        story: 'This has content in progress slot',
       },
     },
   },
@@ -113,5 +113,56 @@ export const Progress: Story = {
     sidePanelSlot: <LoremIpsum />,
     footer: <>/</>,
     progressSlot: <div>Progress</div>,
+  },
+};
+
+export const Mobile: Story = {
+  render,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729-23078',
+    },
+    docs: {
+      description: {
+        story: 'Mobile version of the Modal',
+      },
+    },
+  },
+  args: {
+    open: false,
+    onClose: fn(),
+    content: <LoremIpsum />,
+    sidePanelSlot: <LoremIpsum />,
+    footer: <>/</>,
+  },
+};
+
+export const MobileWithProgress: Story = {
+  render,
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile',
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729-23000',
+    },
+    docs: {
+      description: {
+        story: 'Mobile version of the Modal, with progress slot.',
+      },
+    },
+  },
+  args: {
+    open: false,
+    onClose: fn(),
+    content: <LoremIpsum />,
+    sidePanelSlot: <LoremIpsum />,
+    footer: <>/</>,
+    progressSlot: <div>Progress slot</div>,
   },
 };
