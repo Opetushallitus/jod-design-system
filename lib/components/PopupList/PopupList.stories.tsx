@@ -17,19 +17,19 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Popup list is a list of buttons or links that can be used for actions in a popup menu.',
+        story: 'Default popup list behavior with links',
       },
     },
   },
   args: {
     items: [
-      { label: 'Omat sivut', onClick: fn() },
-      { label: 'Kirjaudu ulos', onClick: fn() },
+      { label: 'Omat sivut', href: '#' },
+      { label: 'Kirjaudu ulos', href: '#' },
     ],
   },
 };
 
-export const Actives: Story = {
+export const Active: Story = {
   parameters: {
     docs: {
       description: {
@@ -42,20 +42,18 @@ export const Actives: Story = {
   },
 };
 
-export const Links: Story = {
-  render: (args) => <PopupList items={args.items} itemsType="link" />,
+export const ButtonsAndLinks: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Popup list with links instead of buttons',
+        story: 'Popup list with links and buttons',
       },
     },
   },
   args: {
     items: [
-      { label: 'Luo tili', href: '#' },
-      { label: 'Kirjaudu sisään', href: '#' },
+      { label: 'Luo tili', type: 'link', href: '#' },
+      { label: 'Kirjaudu sisään', type: 'button', onClick: fn() },
     ],
-    itemsType: 'link',
   },
 };
