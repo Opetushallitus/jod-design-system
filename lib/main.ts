@@ -13,6 +13,7 @@ export { Expander } from './components/Expander/Expander';
 export { Footer } from './components/Footer/Footer';
 export { HeroCard } from './components/HeroCard/HeroCard';
 export { InputField } from './components/InputField/InputField';
+export { Modal } from './components/Modal/Modal';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { Note } from './components/Note/Note';
 export { PopupList } from './components/PopupList/PopupList';
