@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Datepicker > renders correctly 1`] = `
+<div
+  class="inline-block"
+  data-part="root"
+  data-scope="date-picker"
+  data-state="closed"
+  dir="ltr"
+  id="datepicker::r0:"
+>
+  <label
+    class="mb-4 inline-block align-top text-form-label text-primary-gray"
+    data-part="label"
+    data-scope="date-picker"
+    data-state="closed"
+    dir="ltr"
+    for="datepicker::r0::input:0"
+  >
+    Pick a date dude!
+  </label>
+  <div
+    data-part="control"
+    data-scope="date-picker"
+    dir="ltr"
+    id="datepicker::r0::control"
+  >
+    <div
+      class="inline-flex rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray"
+    >
+      <input
+        autocomplete="off"
+        autocorrect="off"
+        class="outline-none placeholder:text-secondary-gray"
+        data-part="input"
+        data-scope="date-picker"
+        data-state="closed"
+        dir="ltr"
+        id="datepicker::r0::input:0"
+        placeholder="(pp.kk.vvvv)"
+        spellcheck="false"
+        value="01.05.2024"
+      />
+      <button
+        aria-controls="datepicker::r0::content"
+        aria-haspopup="grid"
+        aria-label="Open calendar"
+        class="material-symbols-outlined ml-auto"
+        data-part="trigger"
+        data-scope="date-picker"
+        data-state="closed"
+        dir="ltr"
+        id="datepicker::r0::trigger"
+        type="button"
+      >
+        calendar_month
+      </button>
+    </div>
+  </div>
+</div>
+`;
