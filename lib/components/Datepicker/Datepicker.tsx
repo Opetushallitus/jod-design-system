@@ -1,11 +1,12 @@
+import { forwardRef, FocusEvent, useId, ChangeEvent } from 'react';
 import { DatePicker as ArkDatePicker, Portal, UseDatePickerContext } from '@ark-ui/react';
 import { cx } from '../../cva';
 
 const MIN_YEAR = 1900;
 const MAX_YEAR = 2100;
-const isInvalidYear = (year: number) => year < MIN_YEAR || year > MAX_YEAR;
+const isInvalidYear = (year: number) => year < MIN_YEAR || year >= MAX_YEAR;
 
-const tableCellClasses = 'p-4 hover:text-accent hover:underline focus:left-auto focus:underline capitalize';
+const tableCellClasses = 'p-4 hover:text-accent hover:underline focus:left-auto capitalize data-[selected]:font-bold';
 
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
   cx(tableCellClasses, {
@@ -31,39 +32,72 @@ const Header = () => (
 );
 
 export interface DatepickerProps {
+  /** Name of the input field */
+  name?: string;
+  /** Initial value, the internal format is 'yyyy-mm-dd' */
+  value?: string;
+  /** Callback for when the input field loses focus */
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  /** Callback for when the value of the input field changes */
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   /** Label text for input */
   label: string;
   /** Placeholder text, eg. "pp.kk.vvvv" */
-  placeholder: string;
-  /** Initial value, the internal format is ['yyyy-mm-dd'] */
-  value?: string[];
-  /** Callback value for when the value has been changed. Triggers on blur and on calendar click */
-  onValueChange?: (value: ArkDatePicker.ValueChangeDetails) => void;
+  placeholder?: string;
+  /** Help text to display below the input field */
+  help?: string;
 }
-export const Datepicker = ({ value, label, placeholder, onValueChange }: DatepickerProps) => {
+
+export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(function Datepicker(
+  { value, name, label, placeholder, help, onBlur, onChange }: DatepickerProps,
+  ref,
+) {
+  const helpId = useId();
   return (
     <ArkDatePicker.Root
-      onValueChange={onValueChange}
-      value={value}
+      onValueChange={(details) => {
+        onChange({
+          target: { name, value: details.valueAsString[0] ?? '' },
+        } as ChangeEvent<HTMLInputElement>);
+      }}
+      value={value ? [value] : []}
       locale="fi-FI"
-      className="inline-block"
+      timeZone="Europe/Helsinki"
+      className="w-full"
       isDateUnavailable={(date) => isInvalidYear(date.year)}
     >
       <ArkDatePicker.Label className="mb-4 inline-block align-top text-form-label text-primary-gray">
         {label}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
-        <div className="inline-flex rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray">
+        <div className="flex w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray">
           <ArkDatePicker.Input
-            placeholder={`(${placeholder})`}
-            className="outline-none placeholder:text-secondary-gray"
+            ref={ref}
+            name={name}
+            placeholder={placeholder ? `(${placeholder})` : undefined}
+            className="w-full outline-none placeholder:text-secondary-gray"
+            onChange={(e) => {
+              if (e.target.value === '') {
+                onChange({
+                  target: { name, value: '' },
+                } as ChangeEvent<HTMLInputElement>);
+              }
+            }}
+            onBlur={onBlur}
           />
-          <ArkDatePicker.Trigger className="material-symbols-outlined ml-auto">calendar_month</ArkDatePicker.Trigger>
+          <ArkDatePicker.Trigger className="material-symbols-outlined select-none text-secondary-gray">
+            calendar_month
+          </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
+      {help && (
+        <div id={helpId} className="mt-2 block text-help text-secondary-3">
+          {help}
+        </div>
+      )}
       <Portal>
         <ArkDatePicker.Positioner>
-          <ArkDatePicker.Content className="rounded-[20px] border-[3px] border-[#767676] bg-white p-4">
+          <ArkDatePicker.Content className="z-50 rounded-[20px] border-[3px] border-secondary-gray bg-white p-4">
             <ArkDatePicker.View view="day">
               <ArkDatePicker.Context>
                 {(datePicker) => (
@@ -156,4 +190,4 @@ export const Datepicker = ({ value, label, placeholder, onValueChange }: Datepic
       </Portal>
     </ArkDatePicker.Root>
   );
-};
+});

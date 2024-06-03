@@ -2,12 +2,12 @@
 
 exports[`Datepicker > renders correctly 1`] = `
 <div
-  class="inline-block"
+  class="w-full"
   data-part="root"
   data-scope="date-picker"
   data-state="closed"
   dir="ltr"
-  id="datepicker::r0:"
+  id="datepicker::r1:"
 >
   <label
     class="mb-4 inline-block align-top text-form-label text-primary-gray"
@@ -15,7 +15,7 @@ exports[`Datepicker > renders correctly 1`] = `
     data-scope="date-picker"
     data-state="closed"
     dir="ltr"
-    for="datepicker::r0::input:0"
+    for="datepicker::r1::input:0"
   >
     Pick a date dude!
   </label>
@@ -23,34 +23,34 @@ exports[`Datepicker > renders correctly 1`] = `
     data-part="control"
     data-scope="date-picker"
     dir="ltr"
-    id="datepicker::r0::control"
+    id="datepicker::r1::control"
   >
     <div
-      class="inline-flex rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray"
+      class="flex w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray"
     >
       <input
         autocomplete="off"
         autocorrect="off"
-        class="outline-none placeholder:text-secondary-gray"
+        class="w-full outline-none placeholder:text-secondary-gray"
         data-part="input"
         data-scope="date-picker"
         data-state="closed"
         dir="ltr"
-        id="datepicker::r0::input:0"
+        id="datepicker::r1::input:0"
         placeholder="(pp.kk.vvvv)"
         spellcheck="false"
         value="01.05.2024"
       />
       <button
-        aria-controls="datepicker::r0::content"
+        aria-controls="datepicker::r1::content"
         aria-haspopup="grid"
         aria-label="Open calendar"
-        class="material-symbols-outlined ml-auto"
+        class="material-symbols-outlined select-none text-secondary-gray"
         data-part="trigger"
         data-scope="date-picker"
         data-state="closed"
         dir="ltr"
-        id="datepicker::r0::trigger"
+        id="datepicker::r1::trigger"
         type="button"
       >
         calendar_month
