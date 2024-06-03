@@ -17,7 +17,11 @@ nvm use
 npm install
 ```
 
-### Package linking for hot reloading
+## Download third-party UI assets
+
+Third-party assets such as images, fonts, and icons are stored in S3 bucket. Guide to download assets is available in the infrastructure repository.
+
+## Package linking for hot reloading
 
 Run the following commands:
 
