@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+
 import { Datepicker } from './Datepicker';
-import { useState } from 'react';
 
 const meta = {
   title: 'Forms/Datepicker',
@@ -22,36 +23,33 @@ const parameters = {
 const args = {
   label: 'Valitse päivämäärä',
   placeholder: 'pp.kk.vvvv',
+  help: 'Help text',
+  onChange: fn(),
 };
 
 export const Default: Story = {
-  render: (args) => {
-    const [dateValue, setDateValue] = useState('');
-    return (
-      <Datepicker
-        {...args}
-        onValueChange={(value) => {
-          const data = value.value[0];
-
-          if (data) {
-            const day = `${data.day}`.padStart(2, '0');
-            const month = `${data.month}`.padStart(2, '0');
-            const year = `${data.year}`;
-            setDateValue(`${day}.${month}.${year}`);
-            console.log(dateValue);
-          }
-        }}
-      />
-    );
-  },
+  decorators: [
+    (Story) => (
+      <div className="max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
   parameters,
   args,
 };
 
 export const WithValue: Story = {
+  decorators: [
+    (Story) => (
+      <div className="max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
   parameters,
   args: {
     ...args,
-    value: ['2024-06-01'],
+    value: '2024-06-01',
   },
 };
