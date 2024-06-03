@@ -8,6 +8,7 @@ export { Accordion } from './components/Accordion/Accordion';
 export { ActiveIndicator } from './components/ActiveIndicator/ActiveIndicator';
 export { Button } from './components/Button/Button';
 export { Checkbox } from './components/Checkbox/Checkbox';
+export { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
 export { Datepicker } from './components/Datepicker/Datepicker';
 export { DropdownMenu } from './components/DropdownMenu/DropdownMenu';
 export { Expander } from './components/Expander/Expander';

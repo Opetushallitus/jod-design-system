@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
+<div
+  aria-describedby="headlessui-description-:r3:"
+  aria-labelledby="headlessui-dialog-title-:r2:"
+  aria-modal="true"
+  class="relative z-50"
+  data-headlessui-state="open"
+  data-open=""
+  id="headlessui-dialog-:r0:"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 bg-black/30"
+  />
+  <div
+    class="fixed inset-0 flex w-screen py-[96px]"
+  >
+    <div
+      class="flex w-full items-center justify-center"
+    >
+      <div
+        class="overflow-hidden rounded-[40px] border-[5px] border-inactive-gray bg-white"
+        data-headlessui-state="open"
+        data-open=""
+        id="headlessui-dialog-panel-:r1:"
+      >
+        <div
+          class="flex max-w-[640px] flex-col p-9"
+        >
+          <h2
+            class="mb-5 text-heading-3"
+            data-headlessui-state="open"
+            data-open=""
+            id="headlessui-dialog-title-:r2:"
+          >
+            ConfirmDialog rendered
+          </h2>
+          <p
+            class="text-body-sm"
+            data-headlessui-state="open"
+            data-open=""
+            id="headlessui-description-:r3:"
+          >
+            Are you sure?
+          </p>
+        </div>
+        <div
+          class="h-[70px] max-h-[70px] overflow-x-auto bg-bg-gray"
+        >
+          <div
+            class="flex flex-row gap-5 px-6 py-5 sm:px-9"
+          >
+            <button
+              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-primary-gray bg-white"
+            >
+              <span
+                class="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline"
+              >
+                Cancel
+              </span>
+            </button>
+            <button
+              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-primary-gray bg-white"
+            >
+              <span
+                class="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline"
+              >
+                Confirm
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
