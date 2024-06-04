@@ -76,7 +76,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(function
             name={name}
             placeholder={placeholder ? `(${placeholder})` : undefined}
             className="w-full outline-none placeholder:text-secondary-gray"
-            onChange={(e) => {
+            onInput={(e: ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({
                   target: { name, value: '' },
