@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Slider } from './Slider';
@@ -17,6 +18,12 @@ type Story = StoryObj<typeof meta>;
 const render = (args: Story['args']) => {
   const { value, onValueChange, ...rest } = args;
   const [numberValue, setNumberValue] = useState(value);
+
+  useEffect(() => {
+    action('onValueChange')(args.value);
+    setNumberValue(args.value);
+  }, [args.value]);
+
   return (
     <Slider
       value={numberValue}
@@ -38,6 +45,13 @@ const parameters = {
 
 export const Default: Story = {
   render,
+  decorators: [
+    (Story) => (
+      <div className="max-w-[348px]">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     ...parameters,
   },
@@ -45,6 +59,6 @@ export const Default: Story = {
     label: 'Osaamiset',
     icon: 'school',
     onValueChange: fn(),
-    value: 0,
+    value: 50,
   },
 };
