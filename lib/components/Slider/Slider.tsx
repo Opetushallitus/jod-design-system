@@ -87,7 +87,7 @@ export const Slider = ({ label, icon, onValueChange, value }: SliderProps) => {
   const thumbColorBackgroundColor = getThumbBackgroundColor(focused, value);
 
   return (
-    <div className="flex h-[63px] w-[348px] rounded-[100px] bg-bg-gray">
+    <div className="flex h-[63px] w-full rounded-[100px] bg-bg-gray">
       <span
         className={`m-2 size-[55px] rounded-full ${focused ? 'bg-accent' : 'bg-white'} flex items-center justify-center ${focused ? 'text-white' : 'text-primary-gray'} material-symbols-outlined select-none`}
         aria-hidden
@@ -100,6 +100,7 @@ export const Slider = ({ label, icon, onValueChange, value }: SliderProps) => {
         className="ml-3 mr-5 flex grow flex-col justify-center"
         onValueChange={onValueChangeHandler}
         onFocusChange={onFocusChangeHandler}
+        value={[value]}
       >
         <ArkSlider.Control className="flex">
           <ArkSlider.Track className="flex h-[3px] grow bg-white">
