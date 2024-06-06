@@ -1,5 +1,3 @@
-import './index.css';
-
 export { cva, cx } from './cva';
 
 export { useMediaQueries } from './hooks/useMediaQueries';
