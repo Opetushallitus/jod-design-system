@@ -70,12 +70,12 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(function
         {label}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
-        <div className="flex w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray">
+        <div className="flex w-full">
           <ArkDatePicker.Input
             ref={ref}
             name={name}
             placeholder={placeholder ? `(${placeholder})` : undefined}
-            className="w-full outline-none placeholder:text-secondary-gray"
+            className="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-primary-gray outline-none placeholder:text-secondary-gray"
             onInput={(e: ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({
@@ -85,7 +85,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(function
             }}
             onBlur={onBlur}
           />
-          <ArkDatePicker.Trigger className="material-symbols-outlined select-none text-secondary-gray">
+          <ArkDatePicker.Trigger className="material-symbols-outlined select-none rounded-r-[10px] border-y-[5px] border-r-[5px] border-border-gray bg-white p-[11px] text-secondary-gray">
             calendar_month
           </ArkDatePicker.Trigger>
         </div>
