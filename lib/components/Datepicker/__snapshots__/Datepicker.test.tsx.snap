@@ -26,12 +26,12 @@ exports[`Datepicker > renders correctly 1`] = `
     id="datepicker::r1::control"
   >
     <div
-      class="flex w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray"
+      class="flex w-full"
     >
       <input
         autocomplete="off"
         autocorrect="off"
-        class="w-full outline-none placeholder:text-secondary-gray"
+        class="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-primary-gray outline-none placeholder:text-secondary-gray"
         data-part="input"
         data-scope="date-picker"
         data-state="closed"
@@ -45,7 +45,7 @@ exports[`Datepicker > renders correctly 1`] = `
         aria-controls="datepicker::r1::content"
         aria-haspopup="grid"
         aria-label="Open calendar"
-        class="material-symbols-outlined select-none text-secondary-gray"
+        class="material-symbols-outlined select-none rounded-r-[10px] border-y-[5px] border-r-[5px] border-border-gray bg-white p-[11px] text-secondary-gray"
         data-part="trigger"
         data-scope="date-picker"
         data-state="closed"
