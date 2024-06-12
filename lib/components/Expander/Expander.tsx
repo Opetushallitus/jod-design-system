@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import React from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 
 export interface ExpanderProps {
@@ -8,7 +8,7 @@ export interface ExpanderProps {
 }
 
 export const Expander = ({ label, description, children }: ExpanderProps) => {
-  const labelId = useId();
+  const labelId = React.useId();
 
   return (
     <Disclosure as="div" className="rounded-[20px] border-[3px] border-[#767676] p-4">

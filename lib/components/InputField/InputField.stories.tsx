@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { useState } from 'react';
+import React from 'react';
 
 import { InputField } from './InputField';
 
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 const render = (args: Story['args']) => {
   const { value, onChange, ...rest } = args;
-  const [textValue, setTextValue] = useState(value);
+  const [textValue, setTextValue] = React.useState(value);
   return (
     <InputField
       value={textValue}

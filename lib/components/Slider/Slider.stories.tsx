@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -17,9 +17,9 @@ type Story = StoryObj<typeof meta>;
 
 const render = (args: Story['args']) => {
   const { value, onValueChange, ...rest } = args;
-  const [numberValue, setNumberValue] = useState(value);
+  const [numberValue, setNumberValue] = React.useState(value);
 
-  useEffect(() => {
+  React.useEffect(() => {
     action('onValueChange')(args.value);
     setNumberValue(args.value);
   }, [args.value]);

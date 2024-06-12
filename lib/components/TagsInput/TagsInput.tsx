@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { TagsInput as ArkTagsInput, TagsInputValueChangeDetails as ArkValueChangeDetails } from '@ark-ui/react';
 
 export interface TagsInputProps {
@@ -10,7 +10,7 @@ export interface TagsInputProps {
 }
 
 export const TagsInput = ({ label, placeholder, tags, onValueChange, inputPosition = 'top' }: TagsInputProps) => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = React.useState<string | null>(null);
 
   const highlightChange = (details: ArkTagsInput.HighlightChangeDetails) => {
     setSelectedTag(details.highlightedValue);

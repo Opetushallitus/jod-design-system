@@ -1,4 +1,4 @@
-import { isValidElement, useEffect, useState } from 'react';
+import React from 'react';
 
 interface AccordionProps {
   title: React.ReactNode | string;
@@ -11,11 +11,11 @@ interface AccordionProps {
 const INITIAL_STATE = true;
 
 export const Accordion = ({ title, children, expandLessText, expandMoreText, lang }: AccordionProps) => {
-  const [isOpen, setIsOpen] = useState(INITIAL_STATE);
-  const isTitleValidElement = isValidElement(title);
+  const [isOpen, setIsOpen] = React.useState(INITIAL_STATE);
+  const isTitleValidElement = React.isValidElement(title);
 
   // Reset the state when the children change
-  useEffect(() => {
+  React.useEffect(() => {
     setIsOpen(INITIAL_STATE);
   }, [children]);
 

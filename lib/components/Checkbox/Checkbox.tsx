@@ -1,4 +1,4 @@
-import React, { useId, isValidElement } from 'react';
+import React from 'react';
 import { cx } from '../../cva';
 
 export interface CheckboxProps {
@@ -24,8 +24,8 @@ export interface CheckboxProps {
  * This component is a checkbox that can be checked or unchecked.
  */
 export const Checkbox = ({ name, disabled, value, checked, onChange, label, ariaLabel, className }: CheckboxProps) => {
-  const id = useId();
-  const isLabelValidElement = isValidElement(label);
+  const id = React.useId();
+  const isLabelValidElement = React.isValidElement(label);
 
   return (
     <div className={cx('flex items-center text-left', className)}>

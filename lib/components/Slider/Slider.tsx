@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from 'react';
+import React from 'react';
 import {
   Slider as ArkSlider,
   SliderValueChangeDetails as ArkValueChangeDetails,
@@ -50,9 +50,9 @@ const getThumbBackgroundColor = (focused: boolean, value: number) => {
 };
 
 export const Slider = ({ label, icon, onValueChange, value }: SliderProps) => {
-  const inputId = useId();
-  const [focused, setFocused] = useState(false);
-  const arrowRef = useRef(null);
+  const inputId = React.useId();
+  const [focused, setFocused] = React.useState(false);
+  const arrowRef = React.useRef(null);
   const { refs, floatingStyles, context } = useFloating({
     open: focused,
     middleware: [
