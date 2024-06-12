@@ -1,4 +1,4 @@
-import { FocusEvent, ChangeEvent, forwardRef, useId } from 'react';
+import React from 'react';
 
 export interface InputFieldProps {
   /** The name of the input field */
@@ -6,9 +6,9 @@ export interface InputFieldProps {
   /** The value of the input field */
   value?: string;
   /** The function to call when the input field loses focus */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** The function to call when the value of the input field changes */
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The placeholder text to display in the input field */
   placeholder?: string;
   /** The label text to display above the input field */
@@ -17,12 +17,12 @@ export interface InputFieldProps {
   help?: string;
 }
 
-export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function InputField(
+export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(function InputField(
   { name, value, onBlur, onChange, placeholder, label, help }: InputFieldProps,
   ref,
 ) {
-  const inputId = useId();
-  const helpId = useId();
+  const inputId = React.useId();
+  const helpId = React.useId();
   return (
     <>
       <label htmlFor={inputId} className="mb-4 inline-block align-top text-form-label text-primary-gray">

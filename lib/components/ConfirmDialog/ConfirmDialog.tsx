@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
+import React from 'react';
 import { cx } from '../../cva';
 
 type Variant = 'normal' | 'destructive';
@@ -62,7 +62,7 @@ export const ConfirmDialog = ({
   variant = 'normal',
   cancelText,
 }: ConfirmDialogProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const showDialog = () => {
     setIsOpen(true);

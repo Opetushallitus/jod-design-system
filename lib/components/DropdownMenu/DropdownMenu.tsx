@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import React from 'react';
 
 export interface DropdownMenuOptionsData<T extends string = string> {
   value: T;
@@ -33,7 +33,7 @@ export const DropdownMenu = <
   onChange: propOnChange,
   disabled = false,
 }: DropdownMenuProps<T, U>) => {
-  const labelId = useId();
+  const labelId = React.useId();
   return (
     <div className="flex flex-row">
       {!hideLabel && (

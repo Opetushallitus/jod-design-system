@@ -1,10 +1,10 @@
-import { useMemo, useState, useEffect } from 'react';
+import React from 'react';
 
 const useMediaQuery = (query: string) => {
-  const mediaQuery = useMemo(() => window.matchMedia(query), [query]);
-  const [match, setMatch] = useState(mediaQuery.matches);
+  const mediaQuery = React.useMemo(() => window.matchMedia(query), [query]);
+  const [match, setMatch] = React.useState(mediaQuery.matches);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onChange = () => setMatch(mediaQuery.matches);
     mediaQuery.addEventListener('change', onChange);
 

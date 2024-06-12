@@ -22,10 +22,11 @@ module.exports = {
   settings: {
     react: { version: 'detect' },
   },
-  plugins: ['react-refresh', 'jsx-a11y', 'sonarjs'],
+  plugins: ['react-refresh', 'jsx-a11y', 'sonarjs', '@singlestore/react-hooks-disable-import'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/jsx-child-element-spacing': 'error',
     'no-useless-rename': 'error',
+    '@singlestore/react-hooks-disable-import/react-hooks-disable-import': 'error',
   },
 };

@@ -1,4 +1,4 @@
-import { forwardRef, FocusEvent, useId, ChangeEvent } from 'react';
+import React from 'react';
 import { DatePicker as ArkDatePicker, Portal, UseDatePickerContext } from '@ark-ui/react';
 import { cx } from '../../cva';
 
@@ -37,9 +37,9 @@ export interface DatepickerProps {
   /** Initial value, the internal format is 'yyyy-mm-dd' */
   value?: string;
   /** Callback for when the input field loses focus */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Callback for when the value of the input field changes */
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Label text for input */
   label: string;
   /** Placeholder text, eg. "pp.kk.vvvv" */
@@ -48,17 +48,17 @@ export interface DatepickerProps {
   help?: string;
 }
 
-export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(function Datepicker(
+export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(function Datepicker(
   { value, name, label, placeholder, help, onBlur, onChange }: DatepickerProps,
   ref,
 ) {
-  const helpId = useId();
+  const helpId = React.useId();
   return (
     <ArkDatePicker.Root
       onValueChange={(details) => {
         onChange({
           target: { name, value: details.valueAsString[0] ?? '' },
-        } as ChangeEvent<HTMLInputElement>);
+        } as React.ChangeEvent<HTMLInputElement>);
       }}
       value={value ? [value] : []}
       locale="fi-FI"
@@ -76,11 +76,11 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(function
             name={name}
             placeholder={placeholder ? `(${placeholder})` : undefined}
             className="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-primary-gray outline-none placeholder:text-secondary-gray"
-            onInput={(e: ChangeEvent<HTMLInputElement>) => {
+            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({
                   target: { name, value: '' },
-                } as ChangeEvent<HTMLInputElement>);
+                } as React.ChangeEvent<HTMLInputElement>);
               }
             }}
             onBlur={onBlur}
