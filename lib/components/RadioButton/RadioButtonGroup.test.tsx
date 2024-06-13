@@ -1,6 +1,6 @@
-import { describe, expect, it, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, test, vi } from 'vitest';
 import { RadioButtonGroup } from './RadioButtonGroup';
 
 import { RadioButton } from './RadioButton';

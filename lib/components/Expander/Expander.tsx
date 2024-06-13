@@ -1,5 +1,5 @@
-import React from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import React from 'react';
 
 export interface ExpanderProps {
   label: string;

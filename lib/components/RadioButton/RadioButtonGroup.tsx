@@ -1,5 +1,5 @@
-import React from 'react';
 import { Label, RadioGroup } from '@headlessui/react';
+import React from 'react';
 
 export interface RadioButtonGroupProps {
   /** Text for the component */

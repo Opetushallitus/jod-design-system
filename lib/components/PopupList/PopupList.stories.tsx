@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { PopupList } from './PopupList';
 import { fn } from '@storybook/test';
+import { PopupList } from './PopupList';
 
 const meta = {
   title: 'PopupList',

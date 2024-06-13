@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it, test, vi } from 'vitest';
 import type { ReactNode } from 'react';
+import { describe, expect, it, test, vi } from 'vitest';
 
-import { RadioButtonGroup } from './RadioButtonGroup';
 import { RadioButton } from './RadioButton';
+import { RadioButtonGroup } from './RadioButtonGroup';
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Placement } from '@floating-ui/react';
+import React from 'react';
 import { useTooltip } from './utils';
 
 export interface TooltipOptions {

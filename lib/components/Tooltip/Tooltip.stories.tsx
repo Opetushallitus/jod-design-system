@@ -1,9 +1,9 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Tooltip, TooltipProps } from './Tooltip';
-import { TooltipTrigger } from './TooltipTrigger';
 import { TooltipContent } from './TooltipContent';
+import { TooltipTrigger } from './TooltipTrigger';
 
 const meta = {
   component: Tooltip,

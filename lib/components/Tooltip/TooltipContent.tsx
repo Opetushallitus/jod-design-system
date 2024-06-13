@@ -1,6 +1,6 @@
-import React from 'react';
 import { FloatingArrow, FloatingPortal, useMergeRefs } from '@floating-ui/react';
-import { useTooltipContext, ARROW_HEIGHT } from './utils';
+import React from 'react';
+import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
 export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
   function TooltipContent(props, propRef) {

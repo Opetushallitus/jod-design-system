@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
-import dts from 'vite-plugin-dts';
 import { resolve } from 'node:path';
 import resolveConfig from 'tailwindcss/resolveConfig';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import tailwindConfig from './tailwind.config';
 
 const fullConfig = resolveConfig(tailwindConfig);

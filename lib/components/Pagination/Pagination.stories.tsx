@@ -1,8 +1,8 @@
+import { PaginationItemLabelDetails } from '@ark-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Pagination } from './Pagination';
 import { fn } from '@storybook/test';
 import React from 'react';
-import { PaginationItemLabelDetails } from '@ark-ui/react';
+import { Pagination } from './Pagination';
 
 const meta = {
   title: 'Pagination',

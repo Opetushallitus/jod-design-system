@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { expect, vi, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { Modal } from './Modal';
 
 test('Modal renders correctly', () => {

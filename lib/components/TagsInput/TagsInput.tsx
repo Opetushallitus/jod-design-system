@@ -1,5 +1,5 @@
-import React from 'react';
 import { TagsInput as ArkTagsInput, TagsInputValueChangeDetails as ArkValueChangeDetails } from '@ark-ui/react';
+import React from 'react';
 
 export interface TagsInputProps {
   label: string;
