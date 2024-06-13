@@ -1,9 +1,8 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Slider } from './Slider';
 import { fn } from '@storybook/test';
+import React from 'react';
+import { Slider } from './Slider';
 
 const meta = {
   title: 'Slider',

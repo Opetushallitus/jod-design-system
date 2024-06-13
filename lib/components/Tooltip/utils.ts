@@ -1,17 +1,17 @@
-import React from 'react';
 import {
   arrow,
   autoUpdate,
   flip,
   offset,
   shift,
+  useDismiss,
   useFloating,
   useFocus,
-  useDismiss,
   useHover,
   useInteractions,
   useRole,
 } from '@floating-ui/react';
+import React from 'react';
 import { TooltipContext, TooltipOptions } from './Tooltip';
 
 export const ARROW_HEIGHT = 12;

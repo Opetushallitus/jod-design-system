@@ -1,5 +1,5 @@
-import React from 'react';
 import { DatePicker as ArkDatePicker, Portal, UseDatePickerContext } from '@ark-ui/react';
+import React from 'react';
 import { cx } from '../../cva';
 
 const MIN_YEAR = 1900;

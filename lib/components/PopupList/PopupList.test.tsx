@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PopupList, PopupListItem, PopupListProps } from './PopupList';
-import { describe, it, expect, vi, afterEach } from 'vitest';
 
 describe('PopupList', () => {
   const mockOnClick = vi.fn();

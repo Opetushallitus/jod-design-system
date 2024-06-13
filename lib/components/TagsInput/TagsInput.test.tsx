@@ -1,5 +1,5 @@
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { screen, render } from '@testing-library/react';
 import { TagsInput } from './TagsInput';
 
 describe('Snapshot testing', () => {

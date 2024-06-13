@@ -1,6 +1,6 @@
-import { describe, expect, it, test, vi } from 'vitest';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, test, vi } from 'vitest';
 
 import { RoundButton } from './RoundButton';
 

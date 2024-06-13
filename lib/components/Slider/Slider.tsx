@@ -1,15 +1,14 @@
-import React from 'react';
 import {
+  SliderFocusChangeDetails as ArkFocusChangeDetails,
   Slider as ArkSlider,
   SliderValueChangeDetails as ArkValueChangeDetails,
-  SliderFocusChangeDetails as ArkFocusChangeDetails,
 } from '@ark-ui/react';
 import {
+  FloatingArrow,
   arrow,
   autoUpdate,
-  offset,
   flip,
-  FloatingArrow,
+  offset,
   shift,
   useDismiss,
   useFloating,
@@ -18,6 +17,7 @@ import {
   useInteractions,
   useRole,
 } from '@floating-ui/react';
+import React from 'react';
 
 const ARROW_HEIGHT = 12;
 const GAP = 8;

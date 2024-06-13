@@ -1,7 +1,7 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { screen, render, waitFor } from '@testing-library/react';
-import { Slider } from './Slider';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { Slider } from './Slider';
 
 const { ResizeObserver } = window;
 
