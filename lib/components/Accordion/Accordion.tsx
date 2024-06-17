@@ -31,7 +31,7 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
             }}
             className="flex"
           >
-            <span className="material-symbols-outlined size-32 m-[-5px] select-none font-bold" aria-hidden>
+            <span className="material-symbols-outlined size-32 select-none font-bold" aria-hidden>
               {isOpen ? 'expand_less' : 'expand_more'}
             </span>
           </button>
@@ -47,7 +47,7 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
           <div className="hyphens-auto text-heading-4" lang={lang}>
             {title}
           </div>
-          <span className="material-symbols-outlined size-32 m-[-5px] select-none font-bold" aria-hidden>
+          <span className="material-symbols-outlined size-32 select-none font-bold" aria-hidden>
             {isOpen ? 'expand_less' : 'expand_more'}
           </span>
         </button>
