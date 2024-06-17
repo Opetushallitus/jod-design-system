@@ -13,7 +13,7 @@ exports[`Accordion > renders accordion with open state by default 1`] = `
   </div>
   <span
     aria-hidden="true"
-    class="material-symbols-outlined size-32 m-[-5px] select-none font-bold"
+    class="material-symbols-outlined size-32 select-none font-bold"
   >
     expand_less
   </span>
