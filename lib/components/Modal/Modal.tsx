@@ -3,7 +3,7 @@ import { useMediaQueries } from '../../hooks/useMediaQueries';
 
 export interface ModalProps {
   open: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   content: React.ReactNode;
   footer: React.ReactNode;
   progress?: React.ReactNode;
@@ -15,7 +15,15 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
   const { sm } = useMediaQueries();
 
   return (
-    <Dialog open={open} onClose={onClose} className="relative z-50">
+    <Dialog
+      open={open}
+      onClose={() => {
+        if (onClose) {
+          onClose();
+        }
+      }}
+      className="relative z-50"
+    >
       <div className="fixed inset-0 bg-black/30" aria-hidden />
       <div className="fixed inset-0 w-screen py-6 sm:py-[96px]">
         <div className="flex h-full items-center justify-center">
