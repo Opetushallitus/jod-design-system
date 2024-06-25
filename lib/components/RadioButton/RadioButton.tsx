@@ -15,7 +15,7 @@ export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
       {({ checked }) => (
         <div className="flex-start flex space-x-4">
           {checked ? <CheckedIcon /> : <UncheckedIcon />}
-          <span className="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline">
+          <span className="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline hyphens-auto">
             {label}
           </span>
         </div>
