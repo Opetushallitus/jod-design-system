@@ -43,7 +43,7 @@ exports[`Snapshot testing > Default 1`] = `
         />
       </svg>
       <span
-        class="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline"
+        class="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline hyphens-auto"
       >
         A
       </span>
