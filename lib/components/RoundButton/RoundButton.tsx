@@ -1,6 +1,8 @@
 export interface RoundButtonProps {
   /** Text shown on the button */
   label: string;
+  /** Hide label */
+  hideLabel?: boolean;
   /** Callback fired on tap/click of the button */
   onClick: () => void;
   /** Button disabled for any actions */
@@ -15,6 +17,7 @@ export interface RoundButtonProps {
 
 export const RoundButton = ({
   label,
+  hideLabel = false,
   onClick,
   disabled = false,
   selected = false,
@@ -23,6 +26,7 @@ export const RoundButton = ({
 }: RoundButtonProps) => {
   return (
     <button
+      aria-label={label}
       disabled={disabled}
       type="button"
       onClick={onClick}
@@ -35,7 +39,7 @@ export const RoundButton = ({
         {icon}
       </span>
       <span
-        className={`text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'} group-hover:text-accent group-hover:underline`}
+        className={`${hideLabel ? 'hidden' : ''} text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'} group-hover:text-accent group-hover:underline`.trim()}
       >
         {label}
       </span>
