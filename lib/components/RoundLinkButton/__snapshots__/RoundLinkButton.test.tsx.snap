@@ -2,12 +2,13 @@
 
 exports[`Snapshot testing > Default 1`] = `
 <a
-  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  aria-label="Default"
+  class="group inline-flex min-w-[64px] sm:min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
+    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
   >
     target
   </span>
@@ -21,12 +22,13 @@ exports[`Snapshot testing > Default 1`] = `
 
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <a
-  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  aria-label="Disabled, nonselected"
+  class="group inline-flex min-w-[64px] sm:min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
+    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
   >
     target
   </span>
@@ -40,12 +42,13 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <a
-  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  aria-label="Disabled, nonselected"
+  class="group inline-flex min-w-[64px] sm:min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-accent"
+    class="text-white material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-accent"
   >
     target
   </span>
@@ -59,12 +62,13 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <a
-  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  aria-label="Disabled, nonselected"
+  class="group inline-flex min-w-[64px] sm:min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-accent"
+    class="text-white material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-accent"
   >
     target
   </span>
@@ -78,12 +82,13 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 
 exports[`Snapshot testing > selected 1`] = `
 <a
-  class=" group inline-flex min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
+  aria-label="Selected"
+  class="group inline-flex min-w-[64px] sm:min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline"
   href="/#"
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 group- flex size-[72px] select-none items-center justify-center self-center rounded-full bg-accent"
+    class="text-white material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-accent"
   >
     target
   </span>

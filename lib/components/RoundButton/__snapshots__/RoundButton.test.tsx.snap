@@ -2,6 +2,7 @@
 
 exports[`Snapshot testing > Default 1`] = `
 <button
+  aria-label="Default"
   class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
@@ -21,6 +22,7 @@ exports[`Snapshot testing > Default 1`] = `
 
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <button
+  aria-label="Disabled, non-selected"
   class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
@@ -40,6 +42,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <button
+  aria-label="Disabled, non-selected"
   class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
@@ -59,6 +62,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <button
+  aria-label="Disabled, non-selected"
   class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
@@ -78,6 +82,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 
 exports[`Snapshot testing > selected 1`] = `
 <button
+  aria-label="Selected"
   class="group flex flex-col justify-center  min-w-[110px] items-center gap-2"
   type="button"
 >
