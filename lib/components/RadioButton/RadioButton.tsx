@@ -15,7 +15,7 @@ export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
       {({ checked }) => (
         <div className="flex-start flex space-x-4">
           {checked ? <CheckedIcon /> : <UncheckedIcon />}
-          <span className="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline hyphens-auto">
+          <span className="flex items-center text-button-md text-black hover:text-accent hover:underline hyphens-auto">
             {label}
           </span>
         </div>
@@ -49,7 +49,7 @@ const UncheckedIcon = () => {
       fill="none"
       className="self-center"
     >
-      <circle cx="12.0352" cy="12.0389" r="11" className="stroke-primary-gray" strokeWidth="2" />
+      <circle cx="12.0352" cy="12.0389" r="11" className="stroke-black" strokeWidth="2" />
     </svg>
   );
 };

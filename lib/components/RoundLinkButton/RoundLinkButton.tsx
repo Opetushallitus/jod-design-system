@@ -36,12 +36,12 @@ export const RoundLinkButton = ({
     >
       <span
         aria-hidden
-        className={`${selected ? 'text-white' : 'text-primary-gray'} material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray hover:text-accent'}`}
+        className={`${selected ? 'text-white' : 'text-black'} material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray hover:text-accent'}`}
       >
         {icon}
       </span>
       <span
-        className={`${hideLabel ? 'hidden' : ''} text-button-sm ${selected ? 'text-accent' : 'text-primary-gray'} group-hover:text-accent group-hover:underline`.trim()}
+        className={`${hideLabel ? 'hidden' : ''} text-button-sm ${selected ? 'text-accent' : 'text-black'} group-hover:text-accent group-hover:underline`.trim()}
       >
         {label}
       </span>

@@ -5,12 +5,12 @@ exports[`ResultsCard > renders the text and the label 1`] = `
   class="flex w-min flex-col-reverse items-center rounded-[10px] bg-bg-gray px-8 py-5 font-bold"
 >
   <span
-    class="text-heading-4 text-primary-gray"
+    class="text-heading-4 text-black"
   >
     Dolor sit amet
   </span>
   <span
-    class="text-[80px] leading-[110%] text-primary-gray"
+    class="text-[80px] leading-[110%] text-black"
   >
     Lorem ipsum
   </span>

@@ -8,12 +8,12 @@ exports[`Snapshot testing > Default 1`] = `
 >
   <span
     aria-hidden="true"
-    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
+    class="text-black material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-primary-gray group-hover:text-accent group-hover:underline"
+    class="text-button-sm text-black group-hover:text-accent group-hover:underline"
   >
     Default
   </span>
@@ -28,12 +28,12 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="text-primary-gray material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
+    class="text-black material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
   >
     target
   </span>
   <span
-    class="text-button-sm text-primary-gray group-hover:text-accent group-hover:underline"
+    class="text-button-sm text-black group-hover:text-accent group-hover:underline"
   >
     Disabled, nonselected
   </span>

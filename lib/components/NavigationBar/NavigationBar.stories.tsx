@@ -81,8 +81,8 @@ const login: NavigationBarProps['login'] = {
 
 const logo = (
   <a href="/" className="flex">
-    <div className="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-accent">
-      <div className="h-8 w-8 bg-accent"></div>JOD
+    <div className="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-black">
+      <div className="h-8 w-8 bg-secondary-gray"></div>JOD
     </div>
   </a>
 );

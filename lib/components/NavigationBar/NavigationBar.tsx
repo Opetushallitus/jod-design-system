@@ -53,7 +53,7 @@ export const NavigationBar = ({ logo, items, user, login }: NavigationBarProps) 
             <li key={item.key}>
               <item.component
                 aria-current={item.active ? 'location' : undefined}
-                className={`flex items-center gap-3 rounded-lg px-5 py-2 ${item.active ? 'text-accent' : 'text-primary-gray'}`}
+                className={`flex items-center gap-3 rounded-lg px-5 py-2 ${item.active ? 'text-accent' : 'text-black'}`}
               >
                 {item.active && <ActiveIndicator />}
                 {item.text}
@@ -75,7 +75,7 @@ export const NavigationBar = ({ logo, items, user, login }: NavigationBarProps) 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="80 -880 800 800"
-                  className="rounded-full fill-primary-gray"
+                  className="rounded-full fill-black"
                   role="img"
                   aria-label={login.text}
                 >

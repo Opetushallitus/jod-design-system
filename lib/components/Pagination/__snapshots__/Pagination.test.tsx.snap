@@ -9,7 +9,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   id="pagination::r1:"
 >
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
     disabled=""
     type="button"
   >
@@ -26,7 +26,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Previous"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -60,7 +60,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     1
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -71,7 +71,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     2
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -82,7 +82,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     3
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -93,7 +93,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     4
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="5"
     data-part="item"
     data-scope="pagination"
@@ -104,7 +104,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     5
   </button>
   <div
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined"
     data-part="ellipsis"
     data-scope="pagination"
     dir="ltr"
@@ -117,7 +117,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </span>
   </div>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="10"
     data-part="item"
     data-scope="pagination"
@@ -129,7 +129,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -148,7 +148,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </span>
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined"
     type="button"
   >
     <span
@@ -174,7 +174,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   id="pagination::r0:"
 >
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
     disabled=""
     type="button"
   >
@@ -191,7 +191,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Previous"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -225,7 +225,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     1
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -236,7 +236,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     2
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -247,7 +247,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     3
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray font-bold"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -259,7 +259,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -278,7 +278,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </span>
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-primary-gray material-symbols-outlined"
+    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray text-black material-symbols-outlined"
     type="button"
   >
     <span

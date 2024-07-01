@@ -38,8 +38,8 @@ const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIco
 
 const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
   return cx({
-    'text-primary-gray bg-bg-gray': variant === 'gray',
-    'text-primary-gray bg-white': variant === 'white',
+    'text-black bg-bg-gray': variant === 'gray',
+    'text-black bg-white': variant === 'white',
     'text-alert bg-bg-gray hover:text-alert active:text-white focus-visible:text-alert': variant === 'gray-delete',
     'text-alert bg-white hover:text-alert active:text-white focus-visible:text-alert': variant === 'white-delete',
     'active:bg-alert': (variant === 'gray-delete' || variant === 'white-delete') && !disabled,

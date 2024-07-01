@@ -2,7 +2,7 @@ import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react'
 import { cx } from '../../cva';
 
 const getClassName = ({ isActive = false, isArrowButton = true, disabled = false } = {}) =>
-  cx(`min-w-7 min-h-7 p-2 rounded-full text-button-smflex bg-bg-gray text-primary-gray`, {
+  cx(`min-w-7 min-h-7 p-2 rounded-full text-button-smflex bg-bg-gray text-black`, {
     'bg-accent text-white': !isArrowButton && isActive,
     'material-symbols-outlined': isArrowButton,
     'disabled:text-inactive-gray disabled:cursor-not-allowed': disabled === true,
