@@ -10,7 +10,7 @@ exports[`Snapshot testing > matches the snapshot 1`] = `
     id="tags-input::r0:"
   >
     <label
-      class="mb-4 text-form-label text-primary-gray"
+      class="mb-4 text-form-label text-black"
       data-part="label"
       data-scope="tags-input"
       dir="ltr"

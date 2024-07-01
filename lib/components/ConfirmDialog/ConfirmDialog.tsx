@@ -33,7 +33,7 @@ const getVariantClassNames = ({ variant }: { variant: Variant }) => {
   return cx({
     'text-alert bg-white hover:text-alert active:text-white active:bg-alert focus-visible:text-alert':
       variant === 'destructive',
-    'text-primary-gray bg-white': variant === 'normal',
+    'text-black bg-white': variant === 'normal',
   });
 };
 

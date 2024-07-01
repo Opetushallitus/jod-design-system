@@ -62,7 +62,7 @@ const render = (args: Story['args']) => {
 const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
   return (
     <button
-      className="group flex select-none items-center gap-4 rounded-[30px] bg-white px-6 text-button-md text-primary-gray hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0"
+      className="group flex select-none items-center gap-4 rounded-[30px] bg-white px-6 text-button-md text-black hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0"
       onClick={onClick}
     >
       <span className="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline">

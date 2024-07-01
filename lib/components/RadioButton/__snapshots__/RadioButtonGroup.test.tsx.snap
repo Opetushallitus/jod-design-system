@@ -34,7 +34,7 @@ exports[`Snapshot testing > Default 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle
-          class="stroke-primary-gray"
+          class="stroke-black"
           cx="12.0352"
           cy="12.0389"
           r="11"
@@ -42,7 +42,7 @@ exports[`Snapshot testing > Default 1`] = `
         />
       </svg>
       <span
-        class="flex items-center text-button-md text-primary-gray hover:text-accent hover:underline hyphens-auto"
+        class="flex items-center text-button-md text-black hover:text-accent hover:underline hyphens-auto"
       >
         Option 1
       </span>

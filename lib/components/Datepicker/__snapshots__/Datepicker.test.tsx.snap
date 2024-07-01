@@ -10,7 +10,7 @@ exports[`Datepicker > renders correctly 1`] = `
   id="datepicker::r1:"
 >
   <label
-    class="mb-4 inline-block align-top text-form-label text-primary-gray"
+    class="mb-4 inline-block align-top text-form-label text-black"
     data-part="label"
     data-scope="date-picker"
     data-state="closed"
@@ -31,7 +31,7 @@ exports[`Datepicker > renders correctly 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-primary-gray outline-none placeholder:text-secondary-gray"
+        class="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-black outline-none placeholder:text-secondary-gray"
         data-part="input"
         data-scope="date-picker"
         data-state="closed"

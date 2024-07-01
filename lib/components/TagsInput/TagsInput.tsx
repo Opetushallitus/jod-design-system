@@ -35,7 +35,7 @@ export const TagsInput = ({ label, placeholder, tags, onValueChange, inputPositi
       <ArkTagsInput.Context>
         {(tagsInput) => (
           <>
-            <ArkTagsInput.Label className="mb-4 text-form-label text-primary-gray">{label}</ArkTagsInput.Label>
+            <ArkTagsInput.Label className="mb-4 text-form-label text-black">{label}</ArkTagsInput.Label>
             <div
               className={`${tagsInput.value.length > 0 ? 'gap-3' : ''} flex flex-col rounded-[10px] border-[5px] border-border-gray p-5`.trim()}
             >

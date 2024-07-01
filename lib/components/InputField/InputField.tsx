@@ -25,7 +25,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
   const helpId = React.useId();
   return (
     <>
-      <label htmlFor={inputId} className="mb-4 inline-block align-top text-form-label text-primary-gray">
+      <label htmlFor={inputId} className="mb-4 inline-block align-top text-form-label text-black">
         {label}
       </label>
       <input
@@ -39,7 +39,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         placeholder={placeholder ? `(${placeholder})` : undefined}
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
-        className="block w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-primary-gray outline-none placeholder:text-secondary-gray"
+        className="block w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-black outline-none placeholder:text-secondary-gray"
       />
       {help && (
         <div id={helpId} className="mt-2 block text-help text-secondary-3">

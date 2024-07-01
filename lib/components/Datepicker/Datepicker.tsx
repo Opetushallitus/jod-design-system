@@ -66,7 +66,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
       className="w-full"
       isDateUnavailable={(date) => isInvalidYear(date.year)}
     >
-      <ArkDatePicker.Label className="mb-4 inline-block align-top text-form-label text-primary-gray">
+      <ArkDatePicker.Label className="mb-4 inline-block align-top text-form-label text-black">
         {label}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
@@ -75,7 +75,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             ref={ref}
             name={name}
             placeholder={placeholder ? `(${placeholder})` : undefined}
-            className="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-primary-gray outline-none placeholder:text-secondary-gray"
+            className="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-black outline-none placeholder:text-secondary-gray"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({

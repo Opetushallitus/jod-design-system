@@ -55,7 +55,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="flex flex-row gap-5 px-6 py-5 sm:px-9"
           >
             <button
-              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-primary-gray bg-white"
+              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-black bg-white"
             >
               <span
                 class="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline"
@@ -64,7 +64,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
               </span>
             </button>
             <button
-              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-primary-gray bg-white"
+              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-black bg-white"
             >
               <span
                 class="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline"

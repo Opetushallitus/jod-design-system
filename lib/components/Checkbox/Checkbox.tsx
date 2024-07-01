@@ -38,7 +38,7 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
         checked={checked}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
-        className="peer relative size-6 min-h-6 min-w-6 appearance-none rounded-none border-2 border-primary-gray accent-accent checked:border-accent hover:rounded-none hover:border-accent disabled:border-border-gray"
+        className="peer relative size-6 min-h-6 min-w-6 appearance-none rounded-none border-2 border-black accent-accent checked:border-accent hover:rounded-none hover:border-accent disabled:border-border-gray"
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
       {label && (
         <label
           htmlFor={id}
-          className={`flex flex-row items-center text-button-md text-primary-gray peer-hover:text-accent peer-hover:underline peer-disabled:text-border-gray peer-disabled:no-underline ${!isLabelValidElement ? 'pl-4' : ''}`.trim()}
+          className={`flex flex-row items-center text-button-md text-black peer-hover:text-accent peer-hover:underline peer-disabled:text-border-gray peer-disabled:no-underline ${!isLabelValidElement ? 'pl-4' : ''}`.trim()}
         >
           {label}
         </label>
