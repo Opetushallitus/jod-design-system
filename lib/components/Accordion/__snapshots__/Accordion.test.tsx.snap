@@ -6,7 +6,7 @@ exports[`Accordion > renders accordion with open state by default 1`] = `
   class="flex w-full items-center justify-between gap-x-4"
 >
   <div
-    class="hyphens-auto text-heading-4"
+    class="hyphens-auto text-heading-4 font-poppins"
     lang="en"
   >
     Accordion Title

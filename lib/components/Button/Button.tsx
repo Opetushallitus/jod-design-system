@@ -91,7 +91,7 @@ export const Button = ({
     .replace(/\s+/g, ' ')
     .trim();
   const spanClassName = `
-      ${!disabled ? 'group-hover:underline group-active:no-underline group-focus-visible:no-underline' : ''}
+      ${!disabled ? 'group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins' : ''}
       ${size === 'sm' ? 'py-[10px]' : ''}
       ${size === 'md' ? 'py-[10px]' : ''}
       ${size === 'lg' ? 'py-[20px]' : ''}`

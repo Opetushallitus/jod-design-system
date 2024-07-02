@@ -44,7 +44,7 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
           }}
           className="flex w-full items-center justify-between gap-x-4"
         >
-          <div className="hyphens-auto text-heading-4" lang={lang}>
+          <div className="hyphens-auto text-heading-4 font-poppins" lang={lang}>
             {title}
           </div>
           <span className="material-symbols-outlined size-32 select-none font-bold" aria-hidden>

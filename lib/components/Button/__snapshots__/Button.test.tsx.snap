@@ -6,7 +6,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
   >
     Click me
   </span>
@@ -39,7 +39,7 @@ exports[`Button > renders the button with an icon on the left side 1`] = `
     add
   </span>
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
   >
     Click me
   </span>
@@ -52,7 +52,7 @@ exports[`Button > renders the button with an icon on the right side 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
   >
     Click me
   </span>
@@ -71,7 +71,7 @@ exports[`Button > renders the button with the correct label 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
   >
     Click me
   </span>
@@ -84,7 +84,7 @@ exports[`Button > renders the button with the correct size 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
   >
     Click me
   </span>
@@ -97,7 +97,7 @@ exports[`Button > renders the button with the correct variant 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
   >
     Click me
   </span>

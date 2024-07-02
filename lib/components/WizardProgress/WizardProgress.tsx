@@ -12,7 +12,7 @@ export interface WizardProgressProps {
 /** A component that displays the progress of a wizard. */
 export const WizardProgress = ({ steps, currentStep, completedText, currentText }: WizardProgressProps) => {
   return (
-    <ol className="flex gap-4 text-body-md font-bold text-black sm:text-body-lg sm:font-bold">
+    <ol className="flex gap-4 text-body-md font-bold text-black sm:text-body-lg sm:font-bold sm:font-poppins">
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
