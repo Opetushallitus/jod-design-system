@@ -25,13 +25,13 @@ describe('Slider', () => {
     const onValueChangeMock = vi.fn();
     const user = userEvent.setup();
 
-    render(<Slider label="Target" icon="target" onValueChange={onValueChangeMock} value={0} />);
+    render(<Slider label="Target" onValueChange={onValueChangeMock} value={0} />);
 
     const [sliderThumb] = screen.getAllByRole('slider', { hidden: true });
     sliderThumb.focus();
 
     await user.keyboard('[ArrowRight]');
-    expect(sliderThumb).toHaveAttribute('aria-valuenow', '1');
+    expect(sliderThumb).toHaveAttribute('aria-valuenow', '25');
     await user.keyboard('[ArrowLeft]');
     expect(sliderThumb).toHaveAttribute('aria-valuenow', '0');
 
