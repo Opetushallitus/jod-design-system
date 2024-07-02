@@ -4,11 +4,7 @@ exports[`Note component > renders with close button 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="
-          bg-success text-white
-          
-          
-          "
+  class="bg-success text-white"
   role="alert"
 >
   <div
@@ -18,7 +14,7 @@ exports[`Note component > renders with close button 1`] = `
       class="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5"
     >
       <div
-        class="text-heading-5 sm:text-heading-4"
+        class="text-heading-5 sm:text-heading-4 sm:font-poppins"
       >
         Test Title
       </div>
@@ -51,11 +47,7 @@ exports[`Note component > renders with default variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="
-          bg-success text-white
-          
-          
-          "
+  class="bg-success text-white"
   role="alert"
 >
   <div
@@ -65,7 +57,7 @@ exports[`Note component > renders with default variant 1`] = `
       class="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5"
     >
       <div
-        class="text-heading-5 sm:text-heading-4"
+        class="text-heading-5 sm:text-heading-4 sm:font-poppins"
       >
         Test Title
       </div>
@@ -86,11 +78,7 @@ exports[`Note component > renders with error variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="
-          
-          
-          bg-alert text-white
-          "
+  class="bg-alert text-white"
   role="alert"
 >
   <div
@@ -100,7 +88,7 @@ exports[`Note component > renders with error variant 1`] = `
       class="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5"
     >
       <div
-        class="text-heading-5 sm:text-heading-4"
+        class="text-heading-5 sm:text-heading-4 sm:font-poppins"
       >
         Test Title
       </div>
@@ -121,11 +109,7 @@ exports[`Note component > renders with read more link 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="
-          bg-success text-white
-          
-          
-          "
+  class="bg-success text-white"
   role="alert"
 >
   <div
@@ -135,7 +119,7 @@ exports[`Note component > renders with read more link 1`] = `
       class="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5"
     >
       <div
-        class="text-heading-5 sm:text-heading-4"
+        class="text-heading-5 sm:text-heading-4 sm:font-poppins"
       >
         Test Title
       </div>
@@ -163,11 +147,7 @@ exports[`Note component > renders with success variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="
-          bg-success text-white
-          
-          
-          "
+  class="bg-success text-white"
   role="alert"
 >
   <div
@@ -177,7 +157,7 @@ exports[`Note component > renders with success variant 1`] = `
       class="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5"
     >
       <div
-        class="text-heading-5 sm:text-heading-4"
+        class="text-heading-5 sm:text-heading-4 sm:font-poppins"
       >
         Test Title
       </div>
@@ -198,11 +178,7 @@ exports[`Note component > renders with warning variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="
-          
-          bg-warning text-black
-          
-          "
+  class="bg-warning text-black"
   role="alert"
 >
   <div
@@ -212,7 +188,7 @@ exports[`Note component > renders with warning variant 1`] = `
       class="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5"
     >
       <div
-        class="text-heading-5 sm:text-heading-4"
+        class="text-heading-5 sm:text-heading-4 sm:font-poppins"
       >
         Test Title
       </div>

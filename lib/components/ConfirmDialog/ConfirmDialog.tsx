@@ -87,7 +87,7 @@ export const ConfirmDialog = ({
             <div className="flex w-full items-center justify-center">
               <DialogPanel className="overflow-hidden rounded-[40px] border-[5px] border-inactive-gray bg-white">
                 <div className="flex max-w-[640px] flex-col p-9">
-                  <DialogTitle className="mb-5 text-heading-3">{title}</DialogTitle>
+                  <DialogTitle className="mb-5 text-heading-3 font-poppins">{title}</DialogTitle>
                   <Description className="text-body-sm">{description}</Description>
                   {content && <div className="mt-7">{content}</div>}
                 </div>

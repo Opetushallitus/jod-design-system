@@ -32,7 +32,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
           class="flex max-w-[640px] flex-col p-9"
         >
           <h2
-            class="mb-5 text-heading-3"
+            class="mb-5 text-heading-3 font-poppins"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-dialog-title-:r2:"

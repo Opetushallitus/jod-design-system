@@ -34,11 +34,11 @@ export const Note = ({
           ${variant === 'success' ? 'bg-success text-white' : ''}
           ${variant === 'warning' ? 'bg-warning text-black' : ''}
           ${variant === 'error' ? 'bg-alert text-white' : ''}
-          `}
+          `.trim()}
     >
       <div className="mx-auto flex min-h-[42px] max-w-[1092px] items-center justify-between px-5 sm:min-h-11 sm:pl-7 sm:pr-0">
         <div className="flex flex-col flex-wrap items-start py-4 sm:flex-row sm:items-end sm:gap-x-5 sm:gap-y-2 sm:py-5">
-          <div className="text-heading-5 sm:text-heading-4">{title}</div>
+          <div className="text-heading-5 sm:text-heading-4 sm:font-poppins">{title}</div>
           <div className="mt-1 text-body-xs sm:mt-0 sm:text-body-sm">{description}</div>
           {hasReadMore && !sm && (
             <a
