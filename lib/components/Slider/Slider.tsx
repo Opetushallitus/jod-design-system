@@ -23,33 +23,23 @@ const ARROW_HEIGHT = 12;
 const GAP = 8;
 
 export interface SliderProps {
-  /** Label for tooltip */
+  /** Label */
   label: string;
-  /** Icon shown on the button */
-  icon: string;
   /** On slider value change */
   onValueChange: (value: number) => void;
   /** Current value of the slider */
   value: number;
 }
 
-const getThumbClassName = (focused: boolean, value: number) => {
-  return focused ? `${value === 0 ? 'bg-[#DB2C35]' : 'bg-[#25A249]'} ` : 'bg-secondary-gray';
+const Marker = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+      <circle cx="2.5" cy="2.5" r="1.5" fill="#71A9CB" />
+    </svg>
+  );
 };
 
-const getThumbBackgroundColor = (focused: boolean, value: number) => {
-  const lightColorSaturation = 41;
-  const lightColorLightness = 85;
-  const darkColorSaturation = 63;
-  const darkColorLightness = 39;
-
-  const saturation = lightColorSaturation + ((darkColorSaturation - lightColorSaturation) * value) / 100;
-  const lightness = lightColorLightness + ((darkColorLightness - lightColorLightness) * value) / 100;
-
-  return focused && value !== 0 ? `hsl(137 ${saturation}% ${lightness}%)` : undefined;
-};
-
-export const Slider = ({ label, icon, onValueChange, value }: SliderProps) => {
+export const Slider = ({ label, onValueChange, value }: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);
   const arrowRef = React.useRef(null);
@@ -83,46 +73,55 @@ export const Slider = ({ label, icon, onValueChange, value }: SliderProps) => {
     setFocused(details.focusedIndex === 0);
   };
 
-  const thumbClassName = getThumbClassName(focused, value);
-  const thumbColorBackgroundColor = getThumbBackgroundColor(focused, value);
-
   return (
-    <div className="flex h-[63px] w-full rounded-[100px] bg-bg-gray">
-      <span
-        className={`m-2 size-[55px] rounded-full ${focused ? 'bg-accent' : 'bg-white'} flex items-center justify-center ${focused ? 'text-white' : 'text-black'} material-symbols-outlined select-none`}
-        aria-hidden
-      >
-        <span className="flex items-center justify-center text-[37px]">{icon}</span>
-      </span>
+    <div className="flex h-[40px] rounded-[20px] bg-white justify-between">
+      <span className="ml-5 flex items-center text-[12px] basis-1/4">{label}</span>
       <ArkSlider.Root
         id={inputId}
         name={`slider-${inputId}`}
-        className="ml-3 mr-5 flex grow flex-col justify-center"
+        className="ml-5 mr-7 sm:mr-5 flex grow flex-col justify-center basis-3/4"
         onValueChange={onValueChangeHandler}
         onFocusChange={onFocusChangeHandler}
         value={[value]}
+        step={25}
       >
+        <ArkSlider.MarkerGroup className="z-10">
+          <ArkSlider.Marker value={0}>
+            <Marker />
+          </ArkSlider.Marker>
+          <ArkSlider.Marker value={25}>
+            <Marker />
+          </ArkSlider.Marker>
+          <ArkSlider.Marker value={50}>
+            <Marker />
+          </ArkSlider.Marker>
+          <ArkSlider.Marker value={75}>
+            <Marker />
+          </ArkSlider.Marker>
+          <ArkSlider.Marker value={100}>
+            <Marker />
+          </ArkSlider.Marker>
+        </ArkSlider.MarkerGroup>
         <ArkSlider.Control className="flex">
-          <ArkSlider.Track className="flex h-[3px] grow bg-white">
-            <ArkSlider.Range className="" />
+          <ArkSlider.Track className="flex h-[5px] grow bg-bg-gray-2 rounded-[4px]">
+            <ArkSlider.Range className="bg-accent h-[5px] rounded-[8px]" />
           </ArkSlider.Track>
           <ArkSlider.Thumb
             ref={refs.setReference}
             {...getReferenceProps()}
             index={0}
-            style={thumbColorBackgroundColor ? { backgroundColor: thumbColorBackgroundColor } : undefined}
-            className={`absolute -top-[11px] flex size-[24px] justify-center rounded-full border-[3px] border-white ${thumbClassName}`.trim()}
+            className="absolute -top-[6px] flex size-[17px] justify-center rounded-full bg-accent z-20"
           />
         </ArkSlider.Control>
       </ArkSlider.Root>
       {focused && (
         <div
           ref={refs.setFloating}
-          className="max-w-[292px] rounded-[20px] bg-black px-[20px] py-2 text-button-md text-white sm:text-body-md sm:font-arial"
+          className="max-w-[292px] rounded-[8px] bg-black px-6 py-3 text-button-md text-white sm:text-body-md sm:font-arial"
           style={floatingStyles}
           {...getFloatingProps()}
         >
-          {label} {value}%
+          {value}%
           <FloatingArrow
             ref={arrowRef}
             context={context}
