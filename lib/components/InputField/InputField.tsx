@@ -39,10 +39,10 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         placeholder={placeholder ? `(${placeholder})` : undefined}
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
-        className="block w-full rounded-[10px] border-[5px] border-border-gray bg-white p-[11px] text-black outline-none placeholder:text-secondary-gray"
+        className="block w-full rounded border border-border-gray bg-white p-[11px] text-black outline-none placeholder:text-secondary-gray"
       />
       {help && (
-        <div id={helpId} className="mt-2 block text-help text-secondary-3">
+        <div id={helpId} className="mt-2 block text-help text-secondary-gray">
           {help}
         </div>
       )}
