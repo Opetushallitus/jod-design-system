@@ -9,6 +9,17 @@ export default {
         arial: ['Arial', 'sans-serif'], // Default font
         poppins: ['Poppins', 'sans-serif'],
       },
+      borderRadius: {
+        DEFAULT: '8px',
+        none: '0px',
+        sm: '4px',
+        md: '8px',
+        lg: '16px',
+        full: '9999px',
+      },
+      boxShadow: {
+        border: '0 1px 1px 1px rgba(0, 0, 0, 0.1)',
+      },
     },
     screens: {
       sm: '640px',
@@ -17,7 +28,10 @@ export default {
     // https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5250
     colors: {
       accent: '#006db3',
-      'secondary-1': '#339ddf',
+      'secondary-1': {
+        DEFAULT: '#339ddf',
+        50: '#99ceef',
+      },
       'secondary-2': '#00a8b3',
       'secondary-3': '#ee7c45',
       'secondary-4': '#cd4eb3',

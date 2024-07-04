@@ -6,7 +6,8 @@ const MIN_YEAR = 1900;
 const MAX_YEAR = 2100;
 const isInvalidYear = (year: number) => year < MIN_YEAR || year >= MAX_YEAR;
 
-const tableCellClasses = 'p-4 hover:text-accent hover:underline focus:left-auto capitalize data-[selected]:font-bold';
+const tableCellClasses =
+  'm-3 text-body-sm size-[28px] sm:size-[32px] hover:underline focus:left-auto capitalize data-[selected]:bg-secondary-1-50 data-[selected]:rounded-full';
 
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
   cx(tableCellClasses, {
@@ -21,13 +22,17 @@ const getYearCellClasses = (year: { label: string; value: number }) =>
 
 const Header = () => (
   <ArkDatePicker.ViewControl className="mb-4 flex justify-between">
-    <ArkDatePicker.PrevTrigger className="material-symbols-outlined">arrow_back</ArkDatePicker.PrevTrigger>
+    <ArkDatePicker.PrevTrigger className="material-symbols-outlined text-accent font-semibold px-3">
+      arrow_back
+    </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger>
-      <ArkDatePicker.RangeText className="capitalize" />
+      <ArkDatePicker.RangeText className="capitalize font-bold" />
     </ArkDatePicker.ViewTrigger>
 
-    <ArkDatePicker.NextTrigger className="material-symbols-outlined">arrow_forward</ArkDatePicker.NextTrigger>
+    <ArkDatePicker.NextTrigger className="material-symbols-outlined text-accent font-semibold px-3">
+      arrow_forward
+    </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
 );
 
@@ -74,8 +79,8 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
           <ArkDatePicker.Input
             ref={ref}
             name={name}
-            placeholder={placeholder ? `(${placeholder})` : undefined}
-            className="w-full rounded-l-[10px] border-y-[5px] border-l-[5px] border-border-gray bg-white p-[11px] text-black outline-none placeholder:text-secondary-gray"
+            placeholder={placeholder}
+            className="w-full rounded-l border-y border-l border-border-gray bg-white p-5 text-black outline-none placeholder:text-inactive-gray placeholder:font-poppins"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({
@@ -85,19 +90,19 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             }}
             onBlur={onBlur}
           />
-          <ArkDatePicker.Trigger className="material-symbols-outlined select-none rounded-r-[10px] border-y-[5px] border-r-[5px] border-border-gray bg-white p-[11px] text-secondary-gray">
+          <ArkDatePicker.Trigger className="material-symbols-outlined select-none rounded-r border-y border-r border-border-gray bg-white p-5 text-secondary-gray">
             calendar_month
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
       {help && (
-        <div id={helpId} className="mt-2 block text-help text-secondary-3">
+        <div id={helpId} className="mt-2 block text-help text-secondary-gray">
           {help}
         </div>
       )}
       <Portal>
         <ArkDatePicker.Positioner>
-          <ArkDatePicker.Content className="z-50 rounded-[20px] border-[3px] border-secondary-gray bg-white p-4">
+          <ArkDatePicker.Content className="z-50 rounded shadow-border bg-white p-4">
             <ArkDatePicker.View view="day">
               <ArkDatePicker.Context>
                 {(datePicker) => (
@@ -107,7 +112,10 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                       <ArkDatePicker.TableHead>
                         <ArkDatePicker.TableRow>
                           {datePicker.weekDays.map((weekDay) => (
-                            <ArkDatePicker.TableHeader key={weekDay.long} className="capitalize">
+                            <ArkDatePicker.TableHeader
+                              key={weekDay.long}
+                              className="capitalize size-[28px] sm:size-[32px]"
+                            >
                               {weekDay.short}
                             </ArkDatePicker.TableHeader>
                           ))}
