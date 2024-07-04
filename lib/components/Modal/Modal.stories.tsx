@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
+import { WizardProgress } from '../WizardProgress/WizardProgress';
 import { Modal } from './Modal';
 
 const meta = {
@@ -13,15 +14,18 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const LoremIpsum = () => {
+const LoremIpsum = ({ heading }: { heading: string }) => {
   const loremIpsumText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget augue aliquam, varius ex nec, aliquet orci. Donec nec congue eros. Phasellus vulputate facilisis efficitur. Praesent non mi tellus. Donec lacinia congue condimentum. Ut suscipit, felis ac bibendum convallis, lectus nulla aliquet tortor, at egestas dolor ex non nunc. Aliquam id dolor ex. Sed eros arcu, scelerisque ut lorem nec, ornare rutrum magna. Nunc id leo condimentum massa convallis rhoncus id quis tortor. Mauris scelerisque ultrices mi, sit amet lobortis lorem placerat vitae. Etiam tincidunt interdum ante eu pretium. Integer suscipit velit et tortor gravida varius.';
   return (
-    <div className="flex flex-col gap-4">
-      {Array.from({ length: 10 }).map((_, index) => (
-        <p key={index}>{loremIpsumText}</p>
-      ))}
-    </div>
+    <>
+      <p className="font-bold">{heading}</p>
+      <div className="flex flex-col gap-4">
+        {Array.from({ length: 10 }).map((_, index) => (
+          <p key={index}>{loremIpsumText}</p>
+        ))}
+      </div>
+    </>
   );
 };
 
@@ -77,7 +81,7 @@ export const Default: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541-11408',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
     },
     docs: {
       description: {
@@ -88,8 +92,8 @@ export const Default: Story = {
   args: {
     open: false,
     onClose: fn(),
-    content: <LoremIpsum />,
-    sidePanel: <LoremIpsum />,
+    content: <LoremIpsum heading="Content" />,
+    sidePanel: <LoremIpsum heading="Side panel" />,
     footer: <>/</>,
   },
 };
@@ -110,10 +114,10 @@ export const Progress: Story = {
   args: {
     open: false,
     onClose: fn(),
-    content: <LoremIpsum />,
-    sidePanel: <LoremIpsum />,
+    content: <LoremIpsum heading="Content" />,
+    sidePanel: <LoremIpsum heading="Side panel" />,
     footer: <>/</>,
-    progress: <div>Progress</div>,
+    progress: <WizardProgress steps={4} currentStep={2} />,
   },
 };
 
@@ -136,8 +140,8 @@ export const Mobile: Story = {
   args: {
     open: false,
     onClose: fn(),
-    content: <LoremIpsum />,
-    sidePanel: <LoremIpsum />,
+    content: <LoremIpsum heading="Content" />,
+    sidePanel: <LoremIpsum heading="Side panel" />,
     footer: <>/</>,
   },
 };
@@ -161,9 +165,9 @@ export const MobileWithProgress: Story = {
   args: {
     open: false,
     onClose: fn(),
-    content: <LoremIpsum />,
-    sidePanel: <LoremIpsum />,
+    content: <LoremIpsum heading="Content" />,
+    sidePanel: <LoremIpsum heading="Side panel" />,
     footer: <>/</>,
-    progress: <div>Progress slot</div>,
+    progress: <WizardProgress steps={4} currentStep={2} />,
   },
 };
