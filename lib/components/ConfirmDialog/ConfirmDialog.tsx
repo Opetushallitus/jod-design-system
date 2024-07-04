@@ -85,15 +85,15 @@ export const ConfirmDialog = ({
           <div className="fixed inset-0 bg-black/30" aria-hidden />
           <div className="fixed inset-0 flex w-screen py-[96px]">
             <div className="flex w-full items-center justify-center">
-              <DialogPanel className="overflow-hidden rounded-[40px] border-[5px] border-inactive-gray bg-white">
+              <DialogPanel className="overflow-hidden rounded-lg bg-bg-gray">
                 <div className="flex max-w-[640px] flex-col p-9">
                   <DialogTitle className="mb-5 text-heading-3 font-poppins">{title}</DialogTitle>
                   <Description className="text-body-sm">{description}</Description>
                   {content && <div className="mt-7">{content}</div>}
                 </div>
 
-                <div className="h-[70px] max-h-[70px] overflow-x-auto bg-bg-gray">
-                  <div className="flex flex-row gap-5 px-6 py-5 sm:px-9">
+                <div className="overflow-x-auto overflow-y-hidden bg-bg-gray-2">
+                  <div className="flex flex-row gap-5 px-6 py-5 sm:px-9 justify-end">
                     {footer ? (
                       footer(hideDialog)
                     ) : (

@@ -24,7 +24,7 @@ const render = (args: Story['args']) => {
 const parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542-7830',
+    url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7677&t=b8o6NAta57e3aj8E-1',
   },
 };
 

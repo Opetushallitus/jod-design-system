@@ -23,7 +23,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
       class="flex w-full items-center justify-center"
     >
       <div
-        class="overflow-hidden rounded-[40px] border-[5px] border-inactive-gray bg-white"
+        class="overflow-hidden rounded-lg bg-bg-gray"
         data-headlessui-state="open"
         data-open=""
         id="headlessui-dialog-panel-:r1:"
@@ -49,10 +49,10 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
           </p>
         </div>
         <div
-          class="h-[70px] max-h-[70px] overflow-x-auto bg-bg-gray"
+          class="overflow-x-auto overflow-y-hidden bg-bg-gray-2"
         >
           <div
-            class="flex flex-row gap-5 px-6 py-5 sm:px-9"
+            class="flex flex-row gap-5 px-6 py-5 sm:px-9 justify-end"
           >
             <button
               class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-black bg-white"
