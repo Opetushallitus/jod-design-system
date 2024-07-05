@@ -19,7 +19,7 @@ describe('PopupList', () => {
     const props: PopupListProps = { items };
     const { container } = render(<PopupList {...props} />);
     const activeItem = screen.getByRole('link', { name: 'Item 1' });
-    expect(activeItem.querySelector('svg')).toBeTruthy();
+    expect(activeItem.classList).toContain('bg-secondary-1-50');
     expect(container.firstChild).toMatchSnapshot();
   });
 
