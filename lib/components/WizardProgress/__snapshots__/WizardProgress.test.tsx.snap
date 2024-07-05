@@ -2,10 +2,10 @@
 
 exports[`WizardProgress > renders correctly 1`] = `
 <ol
-  class="flex gap-4 text-body-md font-bold text-black sm:text-body-lg sm:font-bold sm:font-poppins"
+  class="flex gap-4 text-[24px] text-black font-semibold sm:font-poppins leading-[24px]"
 >
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
   >
     <span
       class="sr-only"
@@ -20,7 +20,7 @@ exports[`WizardProgress > renders correctly 1`] = `
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
   >
     <span
       class="sr-only"
@@ -49,7 +49,7 @@ exports[`WizardProgress > renders correctly 1`] = `
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
   >
     <span
       class="select-none"
@@ -58,7 +58,7 @@ exports[`WizardProgress > renders correctly 1`] = `
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray sm:min-h-8 sm:min-w-8"
+    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
   >
     <span
       class="select-none"
