@@ -21,9 +21,9 @@ export interface ButtonProps {
 
 const getSizeClassName = (size: ButtonProps['size']) => {
   return cx({
-    'text-button-sm px-6': size === 'sm',
-    'text-button-md px-6': size === 'md',
-    'text-button-lg px-[42px]': size === 'lg',
+    'text-button-sm px-6 rounded-[30px]': size === 'sm',
+    'text-button-md px-6 rounded-[30px]': size === 'md',
+    'text-button-lg px-[42px] rounded-[50px]': size === 'lg',
   });
 };
 
@@ -42,7 +42,7 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
     'text-black bg-white': variant === 'white',
     'text-alert bg-bg-gray hover:text-alert active:text-white focus-visible:text-alert': variant === 'gray-delete',
     'text-alert bg-white hover:text-alert active:text-white focus-visible:text-alert': variant === 'white-delete',
-    'active:bg-alert': (variant === 'gray-delete' || variant === 'white-delete') && !disabled,
+    'active:bg-alert focus-visible:outline-alert': variant?.includes('-delete') && !disabled,
   });
 };
 
@@ -59,7 +59,7 @@ const getButtonClassName = ({
   rightIcon,
   disabled,
 }: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) => {
-  return `flex items-center gap-4 rounded-[30px] select-none group
+  return `flex items-center gap-4 select-none group
     ${getSizeClassName(size)}
     ${getIconClassName(size, leftIcon, rightIcon)}
     ${getVariantClassName(variant, disabled)}
@@ -92,7 +92,7 @@ export const Button = ({
     .trim();
   const spanClassName = `
       ${!disabled ? 'group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins' : ''}
-      ${size === 'sm' ? 'py-[10px]' : ''}
+      ${size === 'sm' ? 'py-3' : ''}
       ${size === 'md' ? 'py-[10px]' : ''}
       ${size === 'lg' ? 'py-[20px]' : ''}`
     .replace(/\s+/g, ' ')
