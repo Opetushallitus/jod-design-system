@@ -27,10 +27,17 @@ export default {
     },
     // https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5250
     colors: {
-      accent: '#006db3',
+      accent: {
+        DEFAULT: '#006db3',
+        75: '#4091c6',
+        50: '#80b6d9',
+        25: '#bfdbec',
+      },
       'secondary-1': {
         DEFAULT: '#339ddf',
+        75: '#66b5e7',
         50: '#99ceef',
+        25: '#c2e2f5',
       },
       'secondary-2': '#00a8b3',
       'secondary-3': '#ee7c45',
