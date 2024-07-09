@@ -37,5 +37,6 @@ export const Added: Story = {
     label: 'added',
     onClick: fn(),
     variant: 'added',
+    color: 'secondary-3',
   },
 };
