@@ -26,6 +26,5 @@ export { RoundLinkButton } from './components/RoundLinkButton/RoundLinkButton';
 export { SkipLink } from './components/SkipLink/SkipLink';
 export { Slider } from './components/Slider/Slider';
 export { Tag } from './components/Tag/Tag';
-export { TagsInput } from './components/TagsInput/TagsInput';
 export { Toast } from './components/Toast/Toast';
 export { WizardProgress } from './components/WizardProgress/WizardProgress';

@@ -15,6 +15,7 @@ export default {
         sm: '4px',
         md: '8px',
         lg: '16px',
+        xl: '20px',
         full: '9999px',
       },
       boxShadow: {
@@ -39,9 +40,18 @@ export default {
         50: '#99ceef',
         25: '#c2e2f5',
       },
-      'secondary-2': '#00a8b3',
-      'secondary-3': '#ee7c45',
-      'secondary-4': '#cd4eb3',
+      'secondary-2': {
+        DEFAULT: '#00a8b3',
+        50: '#80d3d9',
+      },
+      'secondary-3': {
+        DEFAULT: '#ee7c45',
+        50: '#f7bda2',
+      },
+      'secondary-4': {
+        DEFAULT: '#cd4eb3',
+        50: '#e6a6d9',
+      },
       'secondary-5': '#d8d8d8',
       white: '#ffffff',
       black: '#000000',
