@@ -17,7 +17,7 @@ export { Modal } from './components/Modal/Modal';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { Note } from './components/Note/Note';
 export { Pagination } from './components/Pagination/Pagination';
-export { PopupList } from './components/PopupList/PopupList';
+export { PopupList, PopupListItem } from './components/PopupList/PopupList';
 export { RadioButton } from './components/RadioButton/RadioButton';
 export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
