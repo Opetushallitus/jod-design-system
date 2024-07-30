@@ -16,13 +16,15 @@ const secondaryCardArgs = {
   title: 'Tunnista osaamistasi ja tutki mahdollisuuksia',
   backgroundColor: '#00A8B3F2',
   href: '/',
+  size: 'sm' as 'sm' | 'lg' | undefined,
+  textColor: '#000',
 };
 
 export const Primary: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4601',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2225-24513',
     },
     docs: {
       description: {
@@ -39,6 +41,40 @@ export const Primary: Story = {
       'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
     backgroundColor: '#006DB3F2',
     actionContent: 'Kokeile palvelua',
+    arrowColor: '#006DB3',
+    href: '/',
+    onClick: () => console.log('Clicked'),
+  },
+  decorators: [
+    (Story) => (
+      <div className="mb-[30px] max-w-2xl">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const PrimaryWithoutArrowsOrActions: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2225-24513',
+    },
+    docs: {
+      description: {
+        story: 'This is a primary hero card component without arrows or actions.',
+      },
+    },
+    backgrounds: {
+      default: 'light',
+    },
+  },
+  args: {
+    title: 'Amet sit dolor ipsum lorem',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui ac nunc tincidunt tincidunt. Nullam nec dui ac nunc tincidunt tincidunt.',
+    backgroundColor: '#006DB3F2',
+    arrowVisible: false,
     href: '/',
   },
   decorators: [
@@ -62,10 +98,7 @@ export const Secondary: Story = {
       },
     },
   },
-  args: {
-    title: secondaryCardArgs.title,
-    href: secondaryCardArgs.href,
-  },
+  args: secondaryCardArgs,
   decorators: [
     (Story) => (
       <div className="max-w-xs">
@@ -90,16 +123,22 @@ export const MultipleSecondary: Story = {
   args: secondaryCardArgs,
   decorators: [
     (Story) => (
-      <div className="grid grid-flow-row auto-rows-max grid-cols-3 gap-[32px] lg:container">
+      <div className="flex flex-row gap-[32px] lg:container">
         <Story />
         <Story
           args={{
+            ...secondaryCardArgs,
             title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi',
             backgroundColor: '#EE7C45F2',
-            href: '/',
           }}
         />
-        <Story args={{ title: 'Luo oma profiili ja suunnittele polkusi', backgroundColor: '#CD4EB3F2', href: '/' }} />
+        <Story
+          args={{
+            ...secondaryCardArgs,
+            title: 'Luo oma profiili ja suunnittele polkusi',
+            backgroundColor: '#CD4EB3F2',
+          }}
+        />
       </div>
     ),
   ],
@@ -128,6 +167,7 @@ export const Hero: Story = {
     backgroundColor: '#006DB3F2',
     actionContent: 'Kokeile palvelua',
     href: '/',
+    arrowColor: '#006DB3',
   },
   decorators: [
     (Story) => (
@@ -135,16 +175,22 @@ export const Hero: Story = {
         <div className="mb-[30px] max-w-2xl">
           <Story />
         </div>
-        <div className="grid grid-flow-row auto-rows-max grid-cols-3 gap-[32px] lg:container">
+        <div className="flex flex-row gap-[32px] lg:container">
           <Story args={secondaryCardArgs} />
           <Story
             args={{
+              ...secondaryCardArgs,
               title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi',
               backgroundColor: '#EE7C45F2',
-              href: '/',
             }}
           />
-          <Story args={{ title: 'Luo oma profiili ja suunnittele polkusi', backgroundColor: '#CD4EB3F2', href: '/' }} />
+          <Story
+            args={{
+              ...secondaryCardArgs,
+              title: 'Luo oma profiili ja suunnittele polkusi',
+              backgroundColor: '#CD4EB3F2',
+            }}
+          />
         </div>
       </div>
     ),
