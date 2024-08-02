@@ -61,6 +61,7 @@ export default {
       'border-gray': '#cecece',
       'bg-gray': '#f0f2f5',
       'bg-gray-2': '#e4e6ec',
+      warning: '#f2c832',
       alert: '#e3564f',
       'alert-text': '#de342b',
       success: '#00c181',
