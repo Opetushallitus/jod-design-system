@@ -16,6 +16,7 @@ import { TooltipContext, TooltipOptions } from './Tooltip';
 
 export const ARROW_HEIGHT = 12;
 export const GAP = 0;
+const BORDER_RADIUS_OFFSET = 18;
 
 export function useTooltip({
   initialOpen = false,
@@ -44,6 +45,7 @@ export function useTooltip({
       shift({ padding: 5 }),
       arrow({
         element: arrowRef,
+        padding: BORDER_RADIUS_OFFSET,
       }),
     ],
   });
