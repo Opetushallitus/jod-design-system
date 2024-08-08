@@ -28,6 +28,14 @@ const preview: Preview = {
           },
           type: 'desktop',
         },
+        fullwidth: {
+          name: 'Full width',
+          styles: {
+            width: '100%',
+            height: '100%',
+          },
+          type: 'desktop',
+        },
       },
     },
     options: {

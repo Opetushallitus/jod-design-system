@@ -16,11 +16,21 @@ type Story = StoryObj<typeof meta>;
 const title = 'Lorem ipsum';
 const description = 'Ipsum dolor est nonummy sit amet accusata mediocre me tulsa opus.';
 
+// Add some bottom padding to stories so that the "Show code" button doesn't cover the content
+const decorators: Story['decorators'] = [
+  (Story) => (
+    <div className="pb-[25px]">
+      <Story />
+    </div>
+  ),
+];
+
 export const ConfirmationNote: Story = {
+  decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8296',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8714&t=XinajcpkjOyuElVJ-1',
     },
     docs: {
       description: {
@@ -42,10 +52,11 @@ export const ConfirmationNote: Story = {
 };
 
 export const LongTitleText: Story = {
+  decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8357',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8803&t=XinajcpkjOyuElVJ-4',
     },
     docs: {
       description: {
@@ -67,10 +78,11 @@ export const LongTitleText: Story = {
 };
 
 export const PermanentNote: Story = {
+  decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8278',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8725&t=XinajcpkjOyuElVJ-4',
     },
     docs: {
       description: {
@@ -91,10 +103,11 @@ export const PermanentNote: Story = {
 };
 
 export const NoCTA: Story = {
+  decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8316',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8762&t=XinajcpkjOyuElVJ-4',
     },
     docs: {
       description: {
@@ -114,10 +127,11 @@ export const NoCTA: Story = {
 };
 
 export const WarningNote: Story = {
+  decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8344',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8790&t=XinajcpkjOyuElVJ-4',
     },
     docs: {
       description: {
@@ -137,10 +151,11 @@ export const WarningNote: Story = {
 };
 
 export const ErrorNote: Story = {
+  decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8331',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8777&t=XinajcpkjOyuElVJ-4',
     },
     docs: {
       description: {
