@@ -15,13 +15,17 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
       class="inline-flex items-center gap-3 sm:gap-5"
     >
       <li
-        class="ml-5 flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+        class="ml-5"
       >
-        <span
-          class="material-symbols-outlined size-24 select-none text-black"
+        <button
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
         >
-          language
-        </span>
+          <span
+            class="material-symbols-outlined size-24 select-none text-black"
+          >
+            language
+          </span>
+        </button>
       </li>
       <li>
         <a
@@ -55,13 +59,17 @@ exports[`NavigationBar > renders only user 1`] = `
       class="inline-flex items-center gap-3 sm:gap-5"
     >
       <li
-        class="ml-5 flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+        class="ml-5"
       >
-        <span
-          class="material-symbols-outlined size-24 select-none text-black"
+        <button
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
         >
-          language
-        </span>
+          <span
+            class="material-symbols-outlined size-24 select-none text-black"
+          >
+            language
+          </span>
+        </button>
       </li>
       <li>
         <a
