@@ -22,49 +22,6 @@ const parameters = {
   },
 };
 
-const items: NavigationBarProps['items'] = [
-  {
-    key: 'yksiloille',
-    text: 'Yksilöille',
-    active: true,
-    component: ({ children, ...rootProps }) => (
-      <a href="/yksiloille" {...rootProps}>
-        {children}
-      </a>
-    ),
-  },
-  {
-    key: 'ohjaajille',
-    text: 'Ohjaajille',
-    active: false,
-    component: ({ children, ...rootProps }) => (
-      <a href="/ohjaajille" {...rootProps}>
-        {children}
-      </a>
-    ),
-  },
-  {
-    key: 'kouluttajille',
-    text: 'Kouluttajille',
-    active: false,
-    component: ({ children, ...rootProps }) => (
-      <a href="/kouluttajille" {...rootProps}>
-        {children}
-      </a>
-    ),
-  },
-  {
-    key: 'viranomaisille',
-    text: 'Viranomaisille',
-    active: false,
-    component: ({ children, ...rootProps }) => (
-      <a href="/viranomaisille" {...rootProps}>
-        {children}
-      </a>
-    ),
-  },
-];
-
 const user: NavigationBarProps['user'] = {
   name: 'Reetta Räppänä',
   component: ({ children, ...rootProps }) => (
@@ -89,7 +46,6 @@ const logo = (
 
 const args: NavigationBarProps = {
   logo,
-  items,
   user,
   login,
 };
@@ -99,7 +55,7 @@ export const Default: Story = {
     ...parameters,
     docs: {
       description: {
-        story: 'This story demonstrates how the navigation bar looks with navigation items and an avatar.',
+        story: 'This story demonstrates how the navigation bar looks with an avatar.',
       },
     },
   },
@@ -111,44 +67,12 @@ export const Plain: Story = {
     ...parameters,
     docs: {
       description: {
-        story: 'This story demonstrates how the navigation bar looks without any items or an avatar.',
+        story: 'This story demonstrates how the navigation bar looks without an avatar.',
       },
     },
   },
   args: {
     logo,
-    login,
-  },
-};
-
-export const Items: Story = {
-  parameters: {
-    ...parameters,
-    docs: {
-      description: {
-        story: 'This story demonstrates how the navigation bar looks with navigation items.',
-      },
-    },
-  },
-  args: {
-    logo,
-    items,
-    login,
-  },
-};
-
-export const Avatar: Story = {
-  parameters: {
-    ...parameters,
-    docs: {
-      description: {
-        story: 'This story demonstrates how the navigation bar looks with an avatar.',
-      },
-    },
-  },
-  args: {
-    logo,
-    user,
     login,
   },
 };
