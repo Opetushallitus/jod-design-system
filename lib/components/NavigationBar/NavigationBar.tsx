@@ -14,6 +14,8 @@ export interface NavigationBarProps {
   logo: React.ReactNode;
   /** Place for menu opener button */
   menuComponent?: React.ReactNode;
+  /** For language selection button **/
+  onLanguageClick?: () => void;
   /** Navigation avatar */
   user?: {
     name: string;
@@ -28,7 +30,7 @@ export interface NavigationBarProps {
 /**
  * This component is a navigation bar that displays a logo, and an avatar.
  */
-export const NavigationBar = ({ logo, menuComponent, user, login }: NavigationBarProps) => {
+export const NavigationBar = ({ logo, menuComponent, onLanguageClick, user, login }: NavigationBarProps) => {
   const { sm } = useMediaQueries();
 
   const initials = user?.name
@@ -47,9 +49,13 @@ export const NavigationBar = ({ logo, menuComponent, user, login }: NavigationBa
         {logo}
         <ul className="inline-flex items-center gap-3 sm:gap-5">
           {menuComponent && sm && <li>{menuComponent}</li>}
-          {/** TODO: Language selection */}
-          <li className="ml-5 flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2">
-            <span className="material-symbols-outlined size-24 select-none text-black">language</span>
+          <li className="ml-5">
+            <button
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+              onClick={onLanguageClick}
+            >
+              <span className="material-symbols-outlined size-24 select-none text-black">language</span>
+            </button>
           </li>
           <li>
             {user ? (
