@@ -3,7 +3,7 @@ import React from 'react';
 
 export interface RadioButtonGroupProps {
   /** Text for the component */
-  label: string;
+  label?: string;
   /** Value that is currently selected */
   value: string;
   /** Callback function when the value changes */
@@ -21,7 +21,7 @@ export const RadioButtonGroup = ({ label, value, onChange, children, className }
       onChange={onChange}
       className={`${className ? className : ''} flex flex-col space-y-2`.trim()}
     >
-      <Label className="mb-5 text-body-xs text-secondary-gray">{label}</Label>
+      {label && <Label className="mb-5 text-body-xs text-secondary-gray">{label}</Label>}
       {children}
     </RadioGroup>
   );
