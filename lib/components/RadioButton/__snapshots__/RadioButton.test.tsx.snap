@@ -29,21 +29,20 @@ exports[`Snapshot testing > Default 1`] = `
       <svg
         class="self-center"
         fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle
-          class="stroke-accent"
-          cx="12.0352"
-          cy="12.0389"
+          class="fill-accent"
+          cx="8"
+          cy="8"
           r="8"
-          stroke-width="8"
         />
       </svg>
       <span
-        class="flex items-center text-button-md text-black hover:text-accent hover:underline hyphens-auto"
+        class="font-poppins flex items-center text-button-md text-black hover:text-accent hover:underline hyphens-auto"
       >
         A
       </span>
