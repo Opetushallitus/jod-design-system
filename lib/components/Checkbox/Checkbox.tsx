@@ -38,22 +38,22 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
         checked={checked}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
-        className="peer relative size-6 min-h-6 min-w-6 appearance-none rounded-none border-2 border-black accent-accent checked:border-accent hover:rounded-none hover:border-accent disabled:border-border-gray"
+        className="peer relative size-5 min-h-5 min-w-5 appearance-none rounded-none bg-white"
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
         fill="none"
-        className="pointer-events-none absolute hidden fill-accent peer-checked:block peer-disabled:fill-border-gray"
+        className="pointer-events-none absolute hidden fill-accent peer-checked:block"
       >
-        <rect x="5" y="5" width="14" height="14" />
+        <rect x="0" y="0" width="16" height="16" />
       </svg>
       {label && (
         <label
           htmlFor={id}
-          className={`flex flex-row items-center text-button-md text-black peer-hover:text-accent peer-hover:underline peer-disabled:text-border-gray peer-disabled:no-underline ${!isLabelValidElement ? 'pl-4' : ''}`.trim()}
+          className={`font-poppins flex flex-row items-center text-button-md text-black peer-hover:text-accent peer-hover:underline peer-disabled:text-inactive-gray peer-disabled:no-underline ${!isLabelValidElement ? 'pl-4' : ''}`.trim()}
         >
           {label}
         </label>
