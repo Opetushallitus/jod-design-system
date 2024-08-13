@@ -36,19 +36,12 @@ describe('Note component', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('renders with read more link', () => {
+  it('renders with read more component', () => {
     const { container } = render(
-      <Note
-        title="Test Title"
-        description="Test Description"
-        variant="success"
-        readMoreText="Read more"
-        readMoreHref="/"
-      />,
+      <Note title="Test Title" description="Test Description" variant="success" readMoreComponent={<>Read more</>} />,
     );
-    const readMoreLink = screen.getByRole('button', { name: 'Read more' });
+    const readMoreLink = screen.getByText(/Read more/);
     expect(readMoreLink).toBeInTheDocument();
-    expect(readMoreLink).toHaveAttribute('href', '/');
     expect(container.firstChild).toMatchSnapshot();
   });
 
