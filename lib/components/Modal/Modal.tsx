@@ -11,6 +11,7 @@ export interface ModalProps {
   sidePanel?: React.ReactNode;
 }
 
+/** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
 export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: ModalProps) => {
   const { sm } = useMediaQueries();
 

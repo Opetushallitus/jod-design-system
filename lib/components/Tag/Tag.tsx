@@ -6,6 +6,7 @@ export interface TagProps {
   color?: TagColors;
 }
 
+/** Tags allow users to categorize content. They can represent keywords or people, and are grouped to describe an item or a search request. */
 export const Tag = ({ label, onClick, variant = 'selectable', color = 'secondary-4' }: TagProps) => {
   const colorMap: Record<TagColors, string> = {
     'secondary-2': 'bg-secondary-2-50',

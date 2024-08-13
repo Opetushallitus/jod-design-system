@@ -51,6 +51,7 @@ const Button = ({ label, onClick, variant = 'normal' }: { label: string; onClick
   );
 };
 
+/** Confirm dialogs are used to confirm an action before proceeding. They appear over the interface and block further interactions. */
 export const ConfirmDialog = ({
   children,
   title,

@@ -16,7 +16,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Default popup list behavior with links',
+        story: 'Default popup list behavior with links.',
       },
     },
   },

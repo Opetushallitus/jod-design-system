@@ -39,6 +39,7 @@ const Marker = () => {
   );
 };
 
+/** Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable. */
 export const Slider = ({ label, onValueChange, value }: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);

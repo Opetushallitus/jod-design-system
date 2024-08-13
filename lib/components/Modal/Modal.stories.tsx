@@ -85,7 +85,7 @@ export const Default: Story = {
     },
     docs: {
       description: {
-        story: 'This is a modal component',
+        story: 'This is a modal component.',
       },
     },
   },
@@ -107,7 +107,7 @@ export const Progress: Story = {
     },
     docs: {
       description: {
-        story: 'This has content in progress slot',
+        story: 'This has content in progress slot.',
       },
     },
   },
@@ -133,7 +133,7 @@ export const Mobile: Story = {
     },
     docs: {
       description: {
-        story: 'Mobile version of the Modal',
+        story: 'Mobile version of the modal.',
       },
     },
   },

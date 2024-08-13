@@ -18,6 +18,8 @@ export interface PaginationProps {
   onPageChange: (details: ArkPagination.PageChangeDetails) => void;
   type?: 'button' | 'link';
 }
+
+/** Pagination component for navigating through a list of items. */
 export const Pagination = ({
   totalItems,
   pageSize,

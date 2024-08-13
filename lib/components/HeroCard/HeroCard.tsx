@@ -29,6 +29,7 @@ const Arrow = ({ color }: { color: string }) => (
   </div>
 );
 
+/** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const HeroCard = ({
   title,
   content,

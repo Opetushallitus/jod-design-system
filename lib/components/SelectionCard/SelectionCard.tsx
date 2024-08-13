@@ -31,6 +31,7 @@ const CheckIcon = () => (
   </svg>
 );
 
+/** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const SelectionCard = ({
   label,
   icon,

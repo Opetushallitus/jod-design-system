@@ -21,7 +21,7 @@ export interface CheckboxProps {
 }
 
 /**
- * This component is a checkbox that can be checked or unchecked.
+ * Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
  */
 export const Checkbox = ({ name, disabled, value, checked, onChange, label, ariaLabel, className }: CheckboxProps) => {
   const id = React.useId();

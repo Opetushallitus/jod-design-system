@@ -17,6 +17,7 @@ export interface InputFieldProps {
   help?: string;
 }
 
+/** Input fields are text boxes that allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements. */
 export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(function InputField(
   { name, value, onBlur, onChange, placeholder, label, help }: InputFieldProps,
   ref,

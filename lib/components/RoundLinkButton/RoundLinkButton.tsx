@@ -19,6 +19,7 @@ export interface RoundLinkButtonProps {
   icon: string;
 }
 
+/** Button component for single-step user actions. */
 export const RoundLinkButton = ({
   label,
   hideLabel = false,
