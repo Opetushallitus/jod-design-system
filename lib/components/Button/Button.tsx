@@ -84,19 +84,18 @@ export const Button = ({
   const rightIcon = icon !== undefined && iconSide === 'right';
   const onlyIcon = icon && !leftIcon && !rightIcon;
   const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled });
-  const iconClassName = `material-symbols-outlined size-24 h-fit select-none
-      ${size === 'sm' ? 'size-20' : ''}
-      ${size === 'md' ? 'size-24' : ''}
-      ${size === 'lg' ? 'size-40' : ''}`
-    .replace(/\s+/g, ' ')
-    .trim();
-  const spanClassName = `
-      ${!disabled ? 'group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins' : ''}
-      ${size === 'sm' ? 'py-3' : ''}
-      ${size === 'md' ? 'py-[10px]' : ''}
-      ${size === 'lg' ? 'py-[20px]' : ''}`
-    .replace(/\s+/g, ' ')
-    .trim();
+  const iconClassName = cx('material-symbols-outlined h-fit select-none', {
+    'size-20': size === 'sm',
+    'size-24': size === 'md',
+    'size-40': size === 'lg',
+  });
+
+  const spanClassName = cx('font-poppins', {
+    'group-hover:underline group-active:no-underline group-focus-visible:no-underline': !disabled,
+    'py-3': size === 'sm',
+    'py-[10px]': size === 'md',
+    'py-[20px]': size === 'lg',
+  });
 
   return (
     <button
