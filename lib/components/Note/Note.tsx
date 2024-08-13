@@ -10,22 +10,13 @@ export interface NoteProps {
   variant?: 'success' | 'warning' | 'error';
   /** Callback fired on tap/click of the close button */
   onCloseClick?: () => void;
-  /** Text for read more link if variant is success */
-  readMoreText?: string;
-  /** Link to read more if variant is success */
-  readMoreHref?: string;
+  /** Component inside the button container if variant is success */
+  readMoreComponent?: React.ReactNode;
 }
 
-export const Note = ({
-  title,
-  description,
-  variant = 'success',
-  onCloseClick,
-  readMoreText,
-  readMoreHref,
-}: NoteProps) => {
+export const Note = ({ title, description, variant = 'success', onCloseClick, readMoreComponent }: NoteProps) => {
   const { sm } = useMediaQueries();
-  const hasReadMore = variant === 'success' && readMoreText && readMoreHref;
+  const hasReadMore = variant === 'success' && readMoreComponent;
   return (
     <div
       role="alert"
@@ -42,24 +33,16 @@ export const Note = ({
           <div className="font-poppins text-heading-4 sm:text-heading-3">{title}</div>
           <div className="mt-1 sm:mt-0 text-body-sm">{description}</div>
           {hasReadMore && !sm && (
-            <a
-              className="font-poppins mt-4 text-nowrap rounded-[30px] bg-white px-6 py-[10px] text-button-md hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-white active:bg-accent active:text-white active:no-underline"
-              href={readMoreHref}
-              role="button"
-            >
-              {readMoreText}
-            </a>
+            <span className="font-poppins mt-4 text-nowrap rounded-[30px] bg-white px-6 py-[10px] text-button-md hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-white active:bg-accent active:text-white active:no-underline">
+              {readMoreComponent}
+            </span>
           )}
         </div>
         <div className="flex items-center">
           {hasReadMore && sm && (
-            <a
-              className="font-poppins mx-7 text-nowrap rounded-[30px] bg-white px-6 py-[10px] text-button-md hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-white active:bg-accent active:text-white active:no-underline"
-              href={readMoreHref}
-              role="button"
-            >
-              {readMoreText}
-            </a>
+            <span className="font-poppins mx-7 text-nowrap rounded-[30px] bg-white px-6 py-[10px] text-button-md hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-white active:bg-accent active:text-white active:no-underline">
+              {readMoreComponent}
+            </span>
           )}
           {onCloseClick && (
             <button

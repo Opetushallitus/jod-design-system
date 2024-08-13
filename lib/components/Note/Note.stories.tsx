@@ -45,8 +45,7 @@ export const ConfirmationNote: Story = {
   args: {
     title,
     description,
-    readMoreText: 'Lue lisää',
-    readMoreHref: '/',
+    readMoreComponent: <>Lue lisää</>,
     onCloseClick: fn(),
   },
 };
@@ -71,8 +70,7 @@ export const LongTitleText: Story = {
   args: {
     title: 'Lorem ipsum dolor est nonummy noblem ester!',
     description,
-    readMoreText: 'Lue lisää',
-    readMoreHref: '/',
+    readMoreComponent: <>Lue lisää</>,
     onCloseClick: fn(),
   },
 };
@@ -97,8 +95,7 @@ export const PermanentNote: Story = {
   args: {
     title,
     description,
-    readMoreText: 'Lue lisää',
-    readMoreHref: '/',
+    readMoreComponent: <>Lue lisää</>,
   },
 };
 

@@ -105,7 +105,7 @@ exports[`Note component > renders with error variant 1`] = `
 </div>
 `;
 
-exports[`Note component > renders with read more link 1`] = `
+exports[`Note component > renders with read more component 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
@@ -128,13 +128,11 @@ exports[`Note component > renders with read more link 1`] = `
       >
         Test Description
       </div>
-      <a
+      <span
         class="font-poppins mt-4 text-nowrap rounded-[30px] bg-white px-6 py-[10px] text-button-md hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-white active:bg-accent active:text-white active:no-underline"
-        href="/"
-        role="button"
       >
         Read more
-      </a>
+      </span>
     </div>
     <div
       class="flex items-center"
