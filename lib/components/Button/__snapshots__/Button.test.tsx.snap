@@ -6,7 +6,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
+    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -20,7 +20,7 @@ exports[`Button > renders the button as disabled 1`] = `
   type="button"
 >
   <span
-    class="py-[10px]"
+    class="font-poppins py-[10px]"
   >
     Click me
   </span>
@@ -34,12 +34,12 @@ exports[`Button > renders the button with an icon on the left side 1`] = `
 >
   <span
     aria-hidden="true"
-    class="material-symbols-outlined size-24 h-fit select-none size-24"
+    class="material-symbols-outlined select-none size-24"
   >
     add
   </span>
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
+    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -52,13 +52,13 @@ exports[`Button > renders the button with an icon on the right side 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
+    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
   <span
     aria-hidden="true"
-    class="material-symbols-outlined size-24 h-fit select-none size-24"
+    class="material-symbols-outlined select-none size-24"
   >
     add
   </span>
@@ -71,7 +71,7 @@ exports[`Button > renders the button with the correct label 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
+    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
@@ -84,7 +84,7 @@ exports[`Button > renders the button with the correct size 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-3"
+    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-3"
   >
     Click me
   </span>
@@ -97,7 +97,7 @@ exports[`Button > renders the button with the correct variant 1`] = `
   type="button"
 >
   <span
-    class="group-hover:underline group-active:no-underline group-focus-visible:no-underline font-poppins py-[10px]"
+    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
   >
     Click me
   </span>
