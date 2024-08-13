@@ -14,6 +14,7 @@ export interface NoteProps {
   readMoreComponent?: React.ReactNode;
 }
 
+/** Dialogs display important information that users need to acknowledge. They appear over the interface and block further interactions. */
 export const Note = ({ title, description, variant = 'success', onCloseClick, readMoreComponent }: NoteProps) => {
   const { sm } = useMediaQueries();
   const hasReadMore = variant === 'success' && readMoreComponent;

@@ -5,6 +5,7 @@ export interface PopupListProps {
 
 export type PopupListItemProps = PopupListProps;
 
+/** Popup lists allow users to choose from a list of options in a limited space. The list of options can change based on the context. */
 export const PopupList = ({ children, classNames = '' }: PopupListProps) => {
   return (
     <div

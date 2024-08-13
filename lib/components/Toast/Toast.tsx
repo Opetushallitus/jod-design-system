@@ -10,7 +10,7 @@ export interface ToastProps {
 }
 
 /**
- * Toast component for displaying a text.
+ * Toasts display brief, temporary notifications. They are noticeable but do not disrupt the user experience and do not require an action to be taken.
  */
 export const Toast = ({ text, icon, iconAriaLabel, variant = 'success' }: ToastProps) => (
   <div

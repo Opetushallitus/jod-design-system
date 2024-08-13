@@ -17,6 +17,7 @@ type ContextType = ReturnType<typeof useTooltip> | null;
 
 export const TooltipContext = React.createContext<ContextType>(null);
 
+/** Tooltips show contextual help or information about specific components when a user hovers or focuses on them. */
 export function Tooltip({ children, ...options }: TooltipProps) {
   const tooltip = useTooltip(options);
   return <TooltipContext.Provider value={tooltip}>{children}</TooltipContext.Provider>;

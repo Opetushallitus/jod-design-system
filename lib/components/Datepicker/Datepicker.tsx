@@ -53,6 +53,7 @@ export interface DatepickerProps {
   help?: string;
 }
 
+/** Datepicker component for selecting a date. */
 export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(function Datepicker(
   { value, name, label, placeholder, help, onBlur, onChange }: DatepickerProps,
   ref,
