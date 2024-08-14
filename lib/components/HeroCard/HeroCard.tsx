@@ -85,7 +85,7 @@ export const HeroCard = ({
         onClick={handleLinkClick}
       >
         <div
-          className="font-poppins relative flex flex-col gap-6 rounded-lg p-7 pb-6 tracking-widest justify-between"
+          className="font-poppins relative flex flex-col grow gap-6 rounded-lg p-7 pb-6 tracking-widest justify-between"
           style={{ backgroundColor, color: textColor }}
         >
           <h2 className="overflow text-pretty text-[24px] font-semibold leading-[34px]">{title}</h2>
