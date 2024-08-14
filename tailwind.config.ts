@@ -24,6 +24,7 @@ export default {
     },
     screens: {
       sm: '640px',
+      md: '768px',
       lg: '1440px',
     },
     // https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5250
