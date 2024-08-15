@@ -31,6 +31,9 @@ jobs:
       - name: Copy icons from S3
         run: aws s3 cp s3://${{ secrets.JOD_UI_ASSETS }}/icons.woff2 ./public/assets/icons.woff2
 
+      - name: Copy font from S3
+        run: aws s3 cp s3://${{ secrets.JOD_UI_ASSETS }}/Poppins-Regular.ttf ./public/assets/Poppins-Regular.ttf
+
       - uses: actions/setup-node@v4
         with:
           node-version: lts/iron
