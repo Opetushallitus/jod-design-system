@@ -8,7 +8,7 @@ exports[`Snapshot testing > Default 1`] = `
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-black hover:text-accent material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-bg-gray-2 text-black group-hover:text-accent flex items-center justify-center material-symbols-outlined size-48 select-none"
   >
     target
   </span>
@@ -28,7 +28,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-bg-gray flex items-center justify-center text-black hover:text-accent material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-bg-gray-2 text-black group-hover:text-accent flex items-center justify-center material-symbols-outlined size-48 select-none"
   >
     target
   </span>
@@ -48,7 +48,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-accent flex items-center justify-center text-white material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-accent text-white flex items-center justify-center material-symbols-outlined size-48 select-none"
   >
     target
   </span>
@@ -68,7 +68,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-accent flex items-center justify-center text-white material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-accent text-white flex items-center justify-center material-symbols-outlined size-48 select-none"
   >
     target
   </span>
@@ -88,7 +88,7 @@ exports[`Snapshot testing > selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="size-[72px] rounded-full bg-accent flex items-center justify-center text-white material-symbols-outlined size-48 select-none"
+    class="size-[72px] rounded-full bg-accent text-white flex items-center justify-center material-symbols-outlined size-48 select-none"
   >
     target
   </span>
