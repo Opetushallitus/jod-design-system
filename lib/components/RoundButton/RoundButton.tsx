@@ -35,7 +35,7 @@ export const RoundButton = ({
     >
       <span
         aria-hidden
-        className={`size-[72px] rounded-full ${selected ? 'bg-accent' : 'bg-bg-gray'} flex items-center justify-center ${selected ? 'text-white' : 'text-black hover:text-accent'} material-symbols-outlined size-48 select-none`}
+        className={`size-[72px] rounded-full ${selected ? 'bg-accent text-white' : 'bg-bg-gray-2 text-black group-hover:text-accent'} flex items-center justify-center material-symbols-outlined size-48 select-none`}
       >
         {icon}
       </span>

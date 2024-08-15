@@ -8,7 +8,7 @@ exports[`Snapshot testing > Default 1`] = `
 >
   <span
     aria-hidden="true"
-    class="text-black material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
+    class="text-black bg-bg-gray-2 group-hover:text-accent material-symbols-outlined size-48 flex size-[64px] select-none items-center justify-center self-center rounded-full"
   >
     target
   </span>
@@ -28,7 +28,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="text-black material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-bg-gray hover:text-accent"
+    class="text-black bg-bg-gray-2 group-hover:text-accent material-symbols-outlined size-48 flex size-[64px] select-none items-center justify-center self-center rounded-full"
   >
     target
   </span>
@@ -48,7 +48,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-accent"
+    class="bg-accent text-white material-symbols-outlined size-48 flex size-[64px] select-none items-center justify-center self-center rounded-full"
   >
     target
   </span>
@@ -68,7 +68,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-accent"
+    class="bg-accent text-white material-symbols-outlined size-48 flex size-[64px] select-none items-center justify-center self-center rounded-full"
   >
     target
   </span>
@@ -88,7 +88,7 @@ exports[`Snapshot testing > selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="text-white material-symbols-outlined size-48 group- flex size-[64px] select-none items-center justify-center self-center rounded-full bg-accent"
+    class="bg-accent text-white material-symbols-outlined size-48 flex size-[64px] select-none items-center justify-center self-center rounded-full"
   >
     target
   </span>
