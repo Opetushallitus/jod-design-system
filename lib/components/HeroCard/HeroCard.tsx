@@ -22,7 +22,7 @@ export interface HeroCardProps {
 }
 
 const Arrow = ({ color }: { color: string }) => (
-  <div className="size-32 ml-auto select-none font-bold" aria-hidden>
+  <div className="ds-size-32 ds-ml-auto ds-select-none ds-font-bold" aria-hidden>
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
       <path d="M30 38L27.15 35.2L36.35 26H4V22H36.35L27.2 12.8L30 10L44 24L30 38Z" fill={color} />
     </svg>
@@ -52,19 +52,19 @@ export const HeroCard = ({
   if (size === 'lg') {
     return (
       <div
-        className="font-poppins relative flex flex-col gap-6 rounded-lg px-7 pb-11 pt-7 tracking-widest"
+        className="ds-font-poppins ds-relative ds-flex ds-flex-col ds-gap-6 ds-rounded-lg ds-px-7 ds-pb-11 ds-pt-7 ds-tracking-widest"
         style={{ backgroundColor, color: textColor }}
       >
-        <h1 className="overflow text-pretty text-[36px] font-semibold leading-[50px]">{title}</h1>
-        {content && <p className="tracking-normal leading-[27px] font-medium text-[18px]">{content}</p>}
+        <h1 className="ds-overflow ds-text-pretty ds-text-[36px] ds-font-semibold ds-leading-[50px]">{title}</h1>
+        {content && <p className="ds-tracking-normal ds-leading-[27px] ds-font-medium ds-text-[18px]">{content}</p>}
         {actionContent && (
           <a
             href={href}
-            className="absolute bottom-0 right-7 translate-y-2/4 rounded-[40px] outline-none transition-transform hover:scale-105 focus:scale-105"
+            className="ds-absolute ds-bottom-0 ds-right-7 ds-translate-y-2/4 ds-rounded-[40px] ds-outline-none ds-transition-transform hover:ds-scale-105 focus:ds-scale-105"
             onClick={handleLinkClick}
           >
             <div
-              className="flex select-none items-center gap-4 rounded-[40px] bg-white px-8 py-[20px] text-[28px] font-bold leading-[40px]"
+              className="ds-flex ds-select-none ds-items-center ds-gap-4 ds-rounded-[40px] ds-bg-white ds-px-8 ds-py-[20px] ds-text-[28px] ds-font-bold ds-leading-[40px]"
               style={{ color: backgroundColor }}
             >
               {actionContent}
@@ -81,14 +81,14 @@ export const HeroCard = ({
     return (
       <a
         href={href}
-        className="flex rounded-lg outline-none transition-transform hover:scale-105 focus:scale-105"
+        className="ds-flex ds-rounded-lg ds-outline-none ds-transition-transform hover:ds-scale-105 focus:ds-scale-105"
         onClick={handleLinkClick}
       >
         <div
-          className="font-poppins relative flex flex-col grow gap-6 rounded-lg p-7 pb-6 tracking-widest justify-between"
+          className="ds-font-poppins ds-relative ds-flex ds-flex-col ds-grow ds-gap-6 ds-rounded-lg ds-p-7 ds-pb-6 ds-tracking-widest ds-justify-between"
           style={{ backgroundColor, color: textColor }}
         >
-          <h2 className="overflow text-pretty text-[24px] font-semibold leading-[34px]">{title}</h2>
+          <h2 className="ds-overflow ds-text-pretty ds-text-[24px] ds-font-semibold ds-leading-[34px]">{title}</h2>
           {arrowVisible && <Arrow color={arrowColor} />}
         </div>
       </a>

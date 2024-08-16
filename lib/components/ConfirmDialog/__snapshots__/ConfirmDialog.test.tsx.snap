@@ -5,7 +5,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
   aria-describedby="headlessui-description-:r3:"
   aria-labelledby="headlessui-dialog-title-:r2:"
   aria-modal="true"
-  class="relative z-50"
+  class="ds-relative ds-z-50"
   data-headlessui-state="open"
   data-open=""
   id="headlessui-dialog-:r0:"
@@ -14,25 +14,25 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
 >
   <div
     aria-hidden="true"
-    class="fixed inset-0 bg-black/30"
+    class="ds-fixed ds-inset-0 ds-bg-black/30"
   />
   <div
-    class="fixed inset-0 flex w-screen py-[96px]"
+    class="ds-fixed ds-inset-0 ds-flex ds-w-screen ds-py-[96px]"
   >
     <div
-      class="flex w-full items-center justify-center"
+      class="ds-flex ds-w-full ds-items-center ds-justify-center"
     >
       <div
-        class="overflow-hidden rounded-lg bg-bg-gray"
+        class="ds-overflow-hidden ds-rounded-lg ds-bg-bg-gray"
         data-headlessui-state="open"
         data-open=""
         id="headlessui-dialog-panel-:r1:"
       >
         <div
-          class="flex max-w-[640px] flex-col p-9"
+          class="ds-flex ds-max-w-[640px] ds-flex-col ds-p-9"
         >
           <h2
-            class="mb-5 text-heading-3 font-poppins"
+            class="ds-mb-5 ds-text-heading-3 ds-font-poppins"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-dialog-title-:r2:"
@@ -40,7 +40,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             ConfirmDialog rendered
           </h2>
           <p
-            class="text-body-sm"
+            class="ds-text-body-sm"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-description-:r3:"
@@ -49,25 +49,25 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
           </p>
         </div>
         <div
-          class="overflow-x-auto overflow-y-hidden bg-bg-gray-2"
+          class="ds-overflow-x-auto ds-overflow-y-hidden ds-bg-bg-gray-2"
         >
           <div
-            class="flex flex-row gap-5 px-6 py-5 sm:px-9 justify-end"
+            class="ds-flex ds-flex-row ds-gap-5 ds-px-6 ds-py-5 sm:ds-px-9 ds-justify-end"
           >
             <button
-              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-black bg-white"
+              class="ds-group ds-flex ds-select-none ds-items-center ds-gap-4 ds-rounded-[30px] ds-px-6 ds-text-button-md hover:ds-text-accent focus-visible:ds-text-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-accent active:ds-bg-accent active:ds-text-white active:ds-outline-0 ds-text-black ds-bg-white"
             >
               <span
-                class="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline"
+                class="ds-py-[10px] group-hover:ds-underline group-focus-visible:ds-no-underline group-active:ds-no-underline"
               >
                 Cancel
               </span>
             </button>
             <button
-              class="group flex select-none items-center gap-4 rounded-[30px] px-6 text-button-md hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0 text-black bg-white"
+              class="ds-group ds-flex ds-select-none ds-items-center ds-gap-4 ds-rounded-[30px] ds-px-6 ds-text-button-md hover:ds-text-accent focus-visible:ds-text-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-accent active:ds-bg-accent active:ds-text-white active:ds-outline-0 ds-text-black ds-bg-white"
             >
               <span
-                class="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline"
+                class="ds-py-[10px] group-hover:ds-underline group-focus-visible:ds-no-underline group-active:ds-no-underline"
               >
                 Confirm
               </span>

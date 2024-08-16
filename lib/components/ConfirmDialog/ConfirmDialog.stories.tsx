@@ -42,7 +42,7 @@ export const Normal: Story = {
 };
 
 const Content = () => (
-  <div className="flex items-center rounded-[10px] border-[5px] border-secondary-1 px-[108px] py-[22px] text-center text-secondary-1">
+  <div className="ds-flex ds-items-center ds-rounded-[10px] ds-border-[5px] ds-border-secondary-1 ds-px-[108px] ds-py-[22px] ds-text-center ds-text-secondary-1">
     Raahaa kuva tähän tai klikkaa aluetta valitaksesi kuva tietokoneeltasi.
   </div>
 );
@@ -79,10 +79,10 @@ export const Destructive: Story = {
 const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
   return (
     <button
-      className="group flex select-none items-center gap-4 rounded-[30px] bg-white px-6 text-button-md text-black hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0"
+      className="ds-group ds-flex ds-select-none ds-items-center ds-gap-4 ds-rounded-[30px] ds-bg-white ds-px-6 ds-text-button-md ds-text-black hover:ds-text-accent focus-visible:ds-text-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-accent active:ds-bg-accent active:ds-text-white active:ds-outline-0"
       onClick={onClick}
     >
-      <span className="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline">
+      <span className="ds-py-[10px] group-hover:ds-underline group-focus-visible:ds-no-underline group-active:ds-no-underline">
         {label}
       </span>
     </button>
@@ -96,7 +96,7 @@ const renderFooter = (args: Story['args']) => {
     <ConfirmDialog
       {...rest}
       footer={(hideDialog) => (
-        <div className="flex flex-row justify-between gap-5">
+        <div className="ds-flex ds-flex-row ds-justify-between ds-gap-5">
           <Button onClick={hideDialog} label="En" />
           <Button
             onClick={() => {

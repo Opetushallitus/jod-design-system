@@ -35,9 +35,9 @@ export const DropdownMenu = <
 }: DropdownMenuProps<T, U>) => {
   const labelId = React.useId();
   return (
-    <div className="flex flex-row">
+    <div className="ds-flex ds-flex-row">
       {!hideLabel && (
-        <label htmlFor={labelId} className="text-jod-black mr-2 self-center font-bold">
+        <label htmlFor={labelId} className="ds-text-jod-black ds-mr-2 ds-self-center ds-font-bold">
           {label}
         </label>
       )}
@@ -45,7 +45,7 @@ export const DropdownMenu = <
         disabled={disabled}
         id={hideLabel ? undefined : labelId}
         aria-label={hideLabel ? label : undefined}
-        className="hover:bg-purple-100 focus:ring-purple-500 disabled:border-gray-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:hover:bg-gray-200 border-jod-dark bg-jod-white min-w-[120px] justify-self-end rounded-lg border p-2 focus:outline-none focus:ring"
+        className="hover:ds-bg-purple-100 focus:ds-ring-purple-500 disabled:ds-border-gray-500 disabled:ds-bg-gray-200 disabled:ds-text-gray-500 disabled:hover:ds-bg-gray-200 ds-border-jod-dark ds-bg-jod-white ds-min-w-[120px] ds-justify-self-end ds-rounded-lg ds-border ds-p-2 focus:ds-outline-none focus:ds-ring"
         onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
           if (propOnChange) {
             propOnChange(event.target.value as U);

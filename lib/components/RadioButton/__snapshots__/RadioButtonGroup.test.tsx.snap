@@ -3,12 +3,12 @@
 exports[`Snapshot testing > Default 1`] = `
 <div
   aria-labelledby="headlessui-label-:r1:"
-  class="flex flex-col space-y-2"
+  class="ds-flex ds-flex-col ds-space-y-2"
   id="headlessui-radiogroup-:r0:"
   role="radiogroup"
 >
   <div
-    class="mb-5 text-body-xs text-secondary-gray"
+    class="ds-mb-5 ds-text-body-xs ds-text-secondary-gray"
     data-headlessui-state=""
     id="headlessui-label-:r1:"
   >
@@ -23,10 +23,10 @@ exports[`Snapshot testing > Default 1`] = `
     tabindex="0"
   >
     <div
-      class="flex-start flex space-x-4"
+      class="ds-flex-start ds-flex ds-space-x-4"
     >
       <svg
-        class="self-center"
+        class="ds-self-center"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -34,14 +34,14 @@ exports[`Snapshot testing > Default 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle
-          class="fill-white"
+          class="ds-fill-white"
           cx="8"
           cy="8"
           r="8"
         />
       </svg>
       <span
-        class="font-poppins flex items-center text-button-md text-black hover:text-accent hover:underline hyphens-auto"
+        class="ds-font-poppins ds-flex ds-items-center ds-text-button-md ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto"
       >
         Option 1
       </span>

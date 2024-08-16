@@ -2,7 +2,7 @@
 
 exports[`InputField > renders help text correctly 1`] = `
 <label
-  class="mb-4 inline-block align-top text-form-label text-black"
+  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-text-black"
   for=":r4:"
 >
   Username
@@ -11,7 +11,7 @@ exports[`InputField > renders help text correctly 1`] = `
 
 exports[`InputField > renders input correctly 1`] = `
 <label
-  class="mb-4 inline-block align-top text-form-label text-black"
+  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-text-black"
   for=":r2:"
 >
   Username
@@ -20,7 +20,7 @@ exports[`InputField > renders input correctly 1`] = `
 
 exports[`InputField > renders label correctly 1`] = `
 <label
-  class="mb-4 inline-block align-top text-form-label text-black"
+  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-text-black"
   for=":r0:"
 >
   Username
@@ -29,7 +29,7 @@ exports[`InputField > renders label correctly 1`] = `
 
 exports[`InputField > updates input value correctly 1`] = `
 <label
-  class="mb-4 inline-block align-top text-form-label text-black"
+  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-text-black"
   for=":r6:"
 >
   Username

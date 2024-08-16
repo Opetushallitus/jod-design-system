@@ -31,16 +31,16 @@ export const RoundButton = ({
       disabled={disabled}
       type="button"
       onClick={onClick}
-      className={`${className ? className : ''} group flex flex-col justify-center ${disabled ? 'cursor-not-allowed opacity-50' : ''} min-w-[110px] items-center gap-2`.trim()}
+      className={`${className ? className : ''} ds-group ds-flex ds-flex-col ds-justify-center ${disabled ? 'ds-cursor-not-allowed ds-opacity-50' : ''} ds-min-w-[110px] ds-items-center ds-gap-2`.trim()}
     >
       <span
         aria-hidden
-        className={`size-[72px] rounded-full ${selected ? 'bg-accent text-white' : 'bg-bg-gray-2 text-black group-hover:text-accent'} flex items-center justify-center material-symbols-outlined size-48 select-none`}
+        className={`ds-size-[72px] ds-rounded-full ${selected ? 'ds-bg-accent ds-text-white' : 'ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent'} ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none`}
       >
         {icon}
       </span>
       <span
-        className={`${hideLabel ? 'hidden' : ''} text-button-sm ${selected ? 'text-accent' : 'text-black'} group-hover:text-accent group-hover:underline`.trim()}
+        className={`${hideLabel ? 'ds-hidden' : ''} ds-text-button-sm ${selected ? 'ds-text-accent' : 'ds-text-black'} group-hover:ds-text-accent group-hover:ds-underline`.trim()}
       >
         {label}
       </span>

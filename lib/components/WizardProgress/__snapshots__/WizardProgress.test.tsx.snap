@@ -2,66 +2,66 @@
 
 exports[`WizardProgress > renders correctly 1`] = `
 <ol
-  class="flex gap-4 text-[24px] text-black font-semibold sm:font-poppins leading-[24px]"
+  class="ds-flex ds-gap-4 ds-text-[24px] ds-text-black ds-font-semibold sm:ds-font-poppins ds-leading-[24px]"
 >
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
+    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Completed: 1
     </span>
     <span
       aria-hidden="true"
-      class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
+      class="material-symbols-outlined size-24 sm:ds-size-32 ds-select-none ds-font-bold"
     >
       check
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
+    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Completed: 2
     </span>
     <span
       aria-hidden="true"
-      class="material-symbols-outlined size-24 sm:size-32 select-none font-bold"
+      class="material-symbols-outlined size-24 sm:ds-size-32 ds-select-none ds-font-bold"
     >
       check
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-accent text-white sm:min-h-8 sm:min-w-8"
+    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-accent ds-text-white sm:ds-min-h-8 sm:ds-min-w-8"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Current: 
     </span>
     <span
-      class="select-none"
+      class="ds-select-none"
     >
       3
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
+    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
   >
     <span
-      class="select-none"
+      class="ds-select-none"
     >
       4
     </span>
   </li>
   <li
-    class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-bg-gray-2 sm:min-h-8 sm:min-w-8"
+    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
   >
     <span
-      class="select-none"
+      class="ds-select-none"
     >
       5
     </span>

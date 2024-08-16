@@ -20,7 +20,7 @@ describe('Footer', () => {
     const { container } = render(
       <Footer items={mockItems} variant="light" logos={mockLogos} copyright={mockCopyright} />,
     );
-    expect(container.firstChild).toHaveClass('bg-white text-black');
+    expect(container.firstChild).toHaveClass('ds-bg-white ds-text-black');
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -28,7 +28,7 @@ describe('Footer', () => {
     const { container } = render(
       <Footer items={mockItems} variant="dark" logos={mockLogos} copyright={mockCopyright} />,
     );
-    expect(container.firstChild).toHaveClass('bg-black text-white');
+    expect(container.firstChild).toHaveClass('ds-bg-black ds-text-white');
     expect(container.firstChild).toMatchSnapshot();
   });
 

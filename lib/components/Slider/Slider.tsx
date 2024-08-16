@@ -75,18 +75,18 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
   };
 
   return (
-    <div className="flex h-[40px] rounded-[20px] bg-white justify-between">
-      <span className="ml-5 flex items-center text-[12px] basis-1/4">{label}</span>
+    <div className="ds-flex ds-h-[40px] ds-rounded-[20px] ds-bg-white ds-justify-between">
+      <span className="ds-ml-5 ds-flex ds-items-center ds-text-[12px] ds-basis-1/4">{label}</span>
       <ArkSlider.Root
         id={inputId}
         name={`slider-${inputId}`}
-        className="ml-5 mr-7 sm:mr-5 flex grow flex-col justify-center basis-3/4"
+        className="ds-ml-5 ds-mr-7 sm:ds-mr-5 ds-flex ds-grow ds-flex-col ds-justify-center ds-basis-3/4"
         onValueChange={onValueChangeHandler}
         onFocusChange={onFocusChangeHandler}
         value={[value]}
         step={25}
       >
-        <ArkSlider.MarkerGroup className="z-10">
+        <ArkSlider.MarkerGroup className="ds-z-10">
           <ArkSlider.Marker value={0}>
             <Marker />
           </ArkSlider.Marker>
@@ -103,22 +103,22 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
             <Marker />
           </ArkSlider.Marker>
         </ArkSlider.MarkerGroup>
-        <ArkSlider.Control className="flex">
-          <ArkSlider.Track className="flex h-[5px] grow bg-bg-gray-2 rounded-[4px]">
-            <ArkSlider.Range className="bg-accent h-[5px] rounded-[8px]" />
+        <ArkSlider.Control className="ds-flex">
+          <ArkSlider.Track className="ds-flex ds-h-[5px] ds-grow ds-bg-bg-gray-2 ds-rounded-[4px]">
+            <ArkSlider.Range className="ds-bg-accent ds-h-[5px] ds-rounded-[8px]" />
           </ArkSlider.Track>
           <ArkSlider.Thumb
             ref={refs.setReference}
             {...getReferenceProps()}
             index={0}
-            className="absolute -top-[6px] flex size-[17px] justify-center rounded-full bg-accent z-20"
+            className="ds-absolute -ds-top-[6px] ds-flex ds-size-[17px] ds-justify-center ds-rounded-full ds-bg-accent ds-z-20"
           />
         </ArkSlider.Control>
       </ArkSlider.Root>
       {focused && (
         <div
           ref={refs.setFloating}
-          className="max-w-[292px] rounded-[8px] bg-black px-6 py-3 text-button-md text-white sm:text-body-md sm:font-arial"
+          className="ds-max-w-[292px] ds-rounded-[8px] ds-bg-black ds-px-6 ds-py-3 ds-text-button-md ds-text-white sm:ds-text-body-md sm:ds-font-arial"
           style={floatingStyles}
           {...getFloatingProps()}
         >
@@ -126,7 +126,7 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
           <FloatingArrow
             ref={arrowRef}
             context={context}
-            className="fill-black"
+            className="ds-fill-black"
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
           />

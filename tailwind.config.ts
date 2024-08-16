@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 export default {
+  prefix: 'ds-',
   content: ['./lib/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'selector',
   theme: {

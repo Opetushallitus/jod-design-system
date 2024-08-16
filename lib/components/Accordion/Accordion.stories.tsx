@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 // Decorator for preventing the preview size change when the content is toggled
 const decorators: Story['decorators'] = [
   (Story) => (
-    <div className="min-h-[80px]">
+    <div className="ds-min-h-[80px]">
       <Story />
     </div>
   ),
@@ -58,7 +58,7 @@ export const TitleComponent: Story = {
     },
   },
   args: {
-    title: <div className="text-heading-1 font-arial text-alert italic tracking-widest">Title</div>,
+    title: <div className="ds-text-heading-1 ds-font-arial ds-text-alert ds-italic ds-tracking-widest">Title</div>,
     children: 'Content',
     lang: 'en',
     expandMoreText: 'Show more',

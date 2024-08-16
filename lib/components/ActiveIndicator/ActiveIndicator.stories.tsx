@@ -14,12 +14,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <ul className="text-button-md">
-      <li className="flex items-center">
+    <ul className="ds-text-button-md">
+      <li className="ds-flex ds-items-center">
         <ActiveIndicator /> Item 1
       </li>
-      <li className="flex items-center">Item 2</li>
-      <li className="flex items-center">Item 3</li>
+      <li className="ds-flex ds-items-center">Item 2</li>
+      <li className="ds-flex ds-items-center">Item 3</li>
     </ul>
   ),
   parameters: {

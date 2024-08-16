@@ -47,7 +47,7 @@ export const Primary: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="mb-[30px] max-w-2xl">
+      <div className="ds-mb-[30px] ds-max-w-2xl">
         <Story />
       </div>
     ),
@@ -79,7 +79,7 @@ export const PrimaryWithoutArrowsOrActions: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="mb-[30px] max-w-2xl">
+      <div className="ds-mb-[30px] ds-max-w-2xl">
         <Story />
       </div>
     ),
@@ -101,7 +101,7 @@ export const Secondary: Story = {
   args: secondaryCardArgs,
   decorators: [
     (Story) => (
-      <div className="max-w-xs">
+      <div className="ds-max-w-xs">
         <Story />
       </div>
     ),
@@ -123,7 +123,7 @@ export const MultipleSecondary: Story = {
   args: secondaryCardArgs,
   decorators: [
     (Story) => (
-      <div className="flex flex-row gap-[32px] lg:container">
+      <div className="ds-flex ds-flex-row ds-gap-[32px] lg:ds-container">
         <Story />
         <Story
           args={{
@@ -171,11 +171,11 @@ export const Hero: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="mx-auto flex flex-col gap-[104px] bg-[url('https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=2070')] bg-[length:2000px_cover] bg-[top_-6rem_left_-10rem] p-8 lg:container">
-        <div className="mb-[30px] max-w-2xl">
+      <div className="ds-mx-auto ds-flex ds-flex-col ds-gap-[104px] ds-bg-[url('https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=2070')] ds-bg-[length:2000px_cover] ds-bg-[top_-6rem_left_-10rem] ds-p-8 lg:ds-container">
+        <div className="ds-mb-[30px] ds-max-w-2xl">
           <Story />
         </div>
-        <div className="flex flex-row gap-[32px] lg:container">
+        <div className="ds-flex ds-flex-row ds-gap-[32px] lg:ds-container">
           <Story args={secondaryCardArgs} />
           <Story
             args={{

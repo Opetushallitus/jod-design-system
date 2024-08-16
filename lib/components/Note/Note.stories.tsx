@@ -19,7 +19,7 @@ const description = 'Ipsum dolor est nonummy sit amet accusata mediocre me tulsa
 // Add some bottom padding to stories so that the "Show code" button doesn't cover the content
 const decorators: Story['decorators'] = [
   (Story) => (
-    <div className="pb-[25px]">
+    <div className="ds-pb-[25px]">
       <Story />
     </div>
   ),

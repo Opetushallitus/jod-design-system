@@ -18,16 +18,16 @@ export const Toast = ({ text, icon, iconAriaLabel, variant = 'success' }: ToastP
     aria-live="assertive"
     aria-atomic="true"
     className={`
-        ${variant === 'success' ? 'bg-success' : ''}
-        ${variant === 'warning' ? 'bg-warning' : ''}
-        ${variant === 'error' ? 'bg-alert' : ''}
-        inline-flex h-8 items-center gap-3 rounded-sm pl-5 text-black
-        text-body-sm ${icon ? 'pr-7' : 'pr-5'}`
+        ${variant === 'success' ? 'ds-bg-success' : ''}
+        ${variant === 'warning' ? 'ds-bg-warning' : ''}
+        ${variant === 'error' ? 'ds-bg-alert' : ''}
+        ds-inline-flex ds-h-8 ds-items-center ds-gap-3 ds-rounded-sm ds-pl-5 ds-text-black
+        ds-text-body-sm ${icon ? 'ds-pr-7' : 'ds-pr-5'}`
       .replace(/\s+/g, ' ')
       .trim()}
   >
     {icon && (
-      <span className="material-symbols-outlined size-24 select-none" role="img" aria-label={iconAriaLabel}>
+      <span className="material-symbols-outlined size-24 ds-select-none" role="img" aria-label={iconAriaLabel}>
         {icon}
       </span>
     )}

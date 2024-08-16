@@ -2,13 +2,13 @@
 
 exports[`Footer > renders copyright 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
+  class="ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ds-bg-white ds-text-black"
 >
   <div
-    class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
+    class="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]"
   >
     <div
-      class="mt-9 flex justify-end px-5 sm:px-0"
+      class="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0"
     >
       © 2024
     </div>
@@ -18,30 +18,30 @@ exports[`Footer > renders copyright 1`] = `
 
 exports[`Footer > renders footer with dark variant 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 print:hidden bg-black text-white"
+  class="ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ds-bg-black ds-text-white"
 >
   <div
-    class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
+    class="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]"
   >
     <ul
-      class="px-5 sm:px-4"
+      class="ds-px-5 sm:ds-px-4"
     >
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 1
         </div>
       </li>
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 2
         </div>
       </li>
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 3
@@ -49,7 +49,7 @@ exports[`Footer > renders footer with dark variant 1`] = `
       </li>
     </ul>
     <div
-      class="flex flex-col gap-6 px-5 sm:flex-row sm:px-0"
+      class="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0"
     >
       <div>
         Logo 1
@@ -59,7 +59,7 @@ exports[`Footer > renders footer with dark variant 1`] = `
       </div>
     </div>
     <div
-      class="mt-9 flex justify-end px-5 sm:px-0"
+      class="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0"
     >
       © 2024
     </div>
@@ -69,30 +69,30 @@ exports[`Footer > renders footer with dark variant 1`] = `
 
 exports[`Footer > renders footer with light variant 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
+  class="ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ds-bg-white ds-text-black"
 >
   <div
-    class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
+    class="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]"
   >
     <ul
-      class="px-5 sm:px-4"
+      class="ds-px-5 sm:ds-px-4"
     >
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 1
         </div>
       </li>
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 2
         </div>
       </li>
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 3
@@ -100,7 +100,7 @@ exports[`Footer > renders footer with light variant 1`] = `
       </li>
     </ul>
     <div
-      class="flex flex-col gap-6 px-5 sm:flex-row sm:px-0"
+      class="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0"
     >
       <div>
         Logo 1
@@ -110,7 +110,7 @@ exports[`Footer > renders footer with light variant 1`] = `
       </div>
     </div>
     <div
-      class="mt-9 flex justify-end px-5 sm:px-0"
+      class="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0"
     >
       © 2024
     </div>
@@ -120,30 +120,30 @@ exports[`Footer > renders footer with light variant 1`] = `
 
 exports[`Footer > renders items 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
+  class="ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ds-bg-white ds-text-black"
 >
   <div
-    class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
+    class="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]"
   >
     <ul
-      class="px-5 sm:px-4"
+      class="ds-px-5 sm:ds-px-4"
     >
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 1
         </div>
       </li>
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 2
         </div>
       </li>
       <li
-        class="px-2 py-[6px]"
+        class="ds-px-2 ds-py-[6px]"
       >
         <div>
           Item 3
@@ -156,13 +156,13 @@ exports[`Footer > renders items 1`] = `
 
 exports[`Footer > renders logos 1`] = `
 <footer
-  class="py-9 text-button-md sm:px-6 print:hidden bg-white text-black"
+  class="ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ds-bg-white ds-text-black"
 >
   <div
-    class="mx-auto flex flex-col gap-9 sm:max-w-[1090px]"
+    class="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]"
   >
     <div
-      class="flex flex-col gap-6 px-5 sm:flex-row sm:px-0"
+      class="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0"
     >
       <div>
         Logo 1
