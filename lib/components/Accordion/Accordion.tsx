@@ -14,7 +14,7 @@ const INITIAL_STATE = true;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
   <span
-    className="material-symbols-outlined size-32 select-none text-secondary-gray group-hover:!text-accent"
+    className="material-symbols-outlined size-32 ds-select-none ds-text-secondary-gray group-hover:!ds-text-accent"
     aria-hidden
   >
     {isOpen ? 'expand_less' : 'expand_more'}
@@ -25,9 +25,12 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
   const [isOpen, setIsOpen] = React.useState(INITIAL_STATE);
   const toggleOpen = () => setIsOpen(!isOpen);
   const isTitleValidElement = React.isValidElement(title);
-  const wrapperClassnames = cx('flex w-full items-center justify-between gap-x-4 mb-2 group-hover:!text-accent', {
-    'border-b border-border-gray': underline,
-  });
+  const wrapperClassnames = cx(
+    'ds-flex ds-w-full ds-items-center ds-justify-between ds-gap-x-4 ds-mb-2 group-hover:!ds-text-accent',
+    {
+      'ds-border-b ds-border-border-gray': underline,
+    },
+  );
 
   // Reset the state when the children change
   React.useEffect(() => {
@@ -39,19 +42,19 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
       {isTitleValidElement ? (
         <div className={wrapperClassnames}>
           {title}
-          <button aria-label={isOpen ? expandLessText : expandMoreText} onClick={toggleOpen} className="flex">
+          <button aria-label={isOpen ? expandLessText : expandMoreText} onClick={toggleOpen} className="ds-flex">
             <Caret isOpen={isOpen} />
           </button>
         </div>
       ) : (
-        <div className="group">
+        <div className="ds-group">
           <button
             aria-label={isOpen ? expandLessText : expandMoreText}
             onClick={toggleOpen}
             className={wrapperClassnames}
           >
             <span
-              className="mr-5 w-full text-left hyphens-auto text-heading-3 font-poppins group-hover:underline"
+              className="ds-mr-5 ds-w-full ds-text-left ds-hyphens-auto ds-text-heading-3 ds-font-poppins group-hover:ds-underline"
               lang={lang}
             >
               {title}

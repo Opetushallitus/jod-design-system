@@ -2,15 +2,15 @@
 
 exports[`ResultsCard > renders the text and the label 1`] = `
 <div
-  class="flex w-min flex-col-reverse items-center rounded-[10px] bg-bg-gray px-8 py-5 font-bold"
+  class="ds-flex ds-w-min ds-flex-col-reverse ds-items-center ds-rounded-[10px] ds-bg-bg-gray ds-px-8 ds-py-5 ds-font-bold"
 >
   <span
-    class="text-heading-4 font-poppins text-black"
+    class="ds-text-heading-4 ds-font-poppins ds-text-black"
   >
     Dolor sit amet
   </span>
   <span
-    class="text-[80px] leading-[110%] text-black"
+    class="ds-text-[80px] ds-leading-[110%] ds-text-black"
   >
     Lorem ipsum
   </span>

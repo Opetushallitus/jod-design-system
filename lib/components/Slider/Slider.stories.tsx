@@ -50,7 +50,7 @@ export const Default: Story = {
   render,
   decorators: [
     (Story) => (
-      <div className="max-w-[348px]">
+      <div className="ds-max-w-[348px]">
         <Story />
       </div>
     ),

@@ -2,17 +2,17 @@
 
 exports[`Checkbox > renders correctly 1`] = `
 <div
-  class="flex items-center text-left"
+  class="ds-flex ds-items-center ds-text-left"
 >
   <input
-    class="peer relative size-5 min-h-5 min-w-5 appearance-none rounded-none bg-white"
+    class="ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white"
     id=":r0:"
     name="myCheckbox"
     type="checkbox"
     value="myValue"
   />
   <svg
-    class="pointer-events-none absolute hidden fill-accent peer-checked:block"
+    class="ds-pointer-events-none ds-absolute ds-hidden ds-fill-accent peer-checked:ds-block"
     fill="none"
     height="16"
     viewBox="0 0 16 16"
@@ -27,7 +27,7 @@ exports[`Checkbox > renders correctly 1`] = `
     />
   </svg>
   <label
-    class="font-poppins flex flex-row items-center text-button-md text-black peer-hover:text-accent peer-hover:underline peer-disabled:text-inactive-gray peer-disabled:no-underline pl-4"
+    class="ds-font-poppins ds-flex ds-flex-row ds-items-center ds-text-button-md ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ds-pl-4"
     for=":r0:"
   >
     My Checkbox

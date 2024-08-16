@@ -41,38 +41,41 @@ export const NavigationBar = ({ logo, menuComponent, onLanguageClick, user, logi
     .toUpperCase();
 
   return (
-    <div className="min-w-min shadow-border bg-white">
+    <div className="ds-min-w-min ds-shadow-border ds-bg-white">
       <nav
         role="navigation"
-        className="mx-auto flex h-[56px] items-center justify-between gap-4 px-7 py-3 font-semibold lg:container"
+        className="ds-mx-auto ds-flex ds-h-[56px] ds-items-center ds-justify-between ds-gap-4 ds-px-7 ds-py-3 ds-font-semibold lg:ds-container"
       >
         {logo}
-        <ul className="inline-flex items-center gap-3 sm:gap-5">
+        <ul className="ds-inline-flex ds-items-center ds-gap-3 sm:ds-gap-5">
           {menuComponent && sm && <li>{menuComponent}</li>}
-          <li className="ml-5">
+          <li className="ds-ml-5">
             <button
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+              className="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2"
               onClick={onLanguageClick}
             >
-              <span className="material-symbols-outlined size-24 select-none text-black">language</span>
+              <span className="material-symbols-outlined size-24 ds-select-none ds-text-black">language</span>
             </button>
           </li>
           <li>
             {user ? (
               <user.component
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary-3 text-white"
+                className="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-secondary-3 ds-text-white"
                 role="img"
                 title={user.name}
               >
                 {initials}
               </user.component>
             ) : (
-              <a href={login.url} className="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2">
-                <span className="material-symbols-outlined size-24 select-none text-black">person</span>
+              <a
+                href={login.url}
+                className="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2"
+              >
+                <span className="material-symbols-outlined size-24 ds-select-none ds-text-black">person</span>
               </a>
             )}
           </li>
-          {menuComponent && !sm && <li className="ml-3">{menuComponent}</li>}
+          {menuComponent && !sm && <li className="ds-ml-3">{menuComponent}</li>}
         </ul>
       </nav>
     </div>

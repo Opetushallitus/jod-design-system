@@ -19,8 +19,8 @@ const LoremIpsum = ({ heading }: { heading: string }) => {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget augue aliquam, varius ex nec, aliquet orci. Donec nec congue eros. Phasellus vulputate facilisis efficitur. Praesent non mi tellus. Donec lacinia congue condimentum. Ut suscipit, felis ac bibendum convallis, lectus nulla aliquet tortor, at egestas dolor ex non nunc. Aliquam id dolor ex. Sed eros arcu, scelerisque ut lorem nec, ornare rutrum magna. Nunc id leo condimentum massa convallis rhoncus id quis tortor. Mauris scelerisque ultrices mi, sit amet lobortis lorem placerat vitae. Etiam tincidunt interdum ante eu pretium. Integer suscipit velit et tortor gravida varius.';
   return (
     <>
-      <p className="font-bold">{heading}</p>
-      <div className="flex flex-col gap-4">
+      <p className="ds-font-bold">{heading}</p>
+      <div className="ds-flex ds-flex-col ds-gap-4">
         {Array.from({ length: 10 }).map((_, index) => (
           <p key={index}>{loremIpsumText}</p>
         ))}
@@ -46,12 +46,12 @@ const render = (args: Story['args']) => {
           setIsOpen(false);
         }}
         footer={
-          <div className="flex flex-row justify-between gap-5">
-            <div className="flex flex-row gap-5">
+          <div className="ds-flex ds-flex-row ds-justify-between ds-gap-5">
+            <div className="ds-flex ds-flex-row ds-gap-5">
               <Button label="Sulje" onClick={() => setIsOpen(false)} />
               <Button label="Lisää" />
             </div>
-            <div className="flex flex-row gap-5">
+            <div className="ds-flex ds-flex-row ds-gap-5">
               <Button label="Edellinen" />
               <Button label="Seuraava" />
               <Button label="Tallenna" />
@@ -66,10 +66,10 @@ const render = (args: Story['args']) => {
 const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
   return (
     <button
-      className="group flex select-none items-center gap-4 rounded-[30px] bg-white px-6 text-button-md text-black hover:text-accent focus-visible:text-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] focus-visible:outline-accent active:bg-accent active:text-white active:outline-0"
+      className="ds-group ds-flex ds-select-none ds-items-center ds-gap-4 ds-rounded-[30px] ds-bg-white ds-px-6 ds-text-button-md ds-text-black hover:ds-text-accent focus-visible:ds-text-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-accent active:ds-bg-accent active:ds-text-white active:ds-outline-0"
       onClick={onClick}
     >
-      <span className="py-[10px] group-hover:underline group-focus-visible:no-underline group-active:no-underline">
+      <span className="ds-py-[10px] group-hover:ds-underline group-focus-visible:ds-no-underline group-active:ds-no-underline">
         {label}
       </span>
     </button>

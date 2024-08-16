@@ -58,7 +58,7 @@ export const SelectionCard = ({
   return sm ? (
     <button
       type="button"
-      className="w-[166px] min-h-[250px] rounded-md p-5 hover:bg-secondary-1-25 flex flex-col items-center"
+      className="ds-w-[166px] ds-min-h-[250px] ds-rounded-md ds-p-5 hover:ds-bg-secondary-1-25 ds-flex ds-flex-col ds-items-center"
       onClick={onClick}
       aria-pressed={selected}
       aria-label={label}
@@ -68,39 +68,42 @@ export const SelectionCard = ({
       onBlur={deactivateInfo}
     >
       <span
-        className="w-full aspect-square rounded-full bg-white flex items-center justify-center relative"
+        className="ds-w-full ds-aspect-square ds-rounded-full ds-bg-white ds-flex ds-items-center ds-justify-center ds-relative"
         aria-hidden
       >
-        <span className="absolute right-0 top-0">{selected ? <CheckIcon /> : null}</span>
+        <span className="ds-absolute ds-right-0 ds-top-0">{selected ? <CheckIcon /> : null}</span>
         {icon ?? null}
       </span>
-      <span className="block font-poppins p-5 pb-0 text-center">
-        <span className="text-heading-4">{label ?? ''}</span>
+      <span className="ds-block ds-font-poppins ds-p-5 ds-pb-0 ds-text-center">
+        <span className="ds-text-heading-4">{label ?? ''}</span>
       </span>
     </button>
   ) : (
-    <div className="min-h-[93px] min-w-[280px] rounded-md bg-bg-gray-2 hover:bg-secondary-1-25 flex flex-row">
+    <div className="ds-min-h-[93px] ds-min-w-[280px] ds-rounded-md ds-bg-bg-gray-2 hover:ds-bg-secondary-1-25 ds-flex ds-flex-row">
       <button
         type="button"
-        className="flex items-center relative w-full p-3 pr-0"
+        className="ds-flex ds-items-center ds-relative ds-w-full ds-p-3 ds-pr-0"
         onClick={onClick}
         aria-pressed={selected}
         aria-label={label}
       >
-        <span className="absolute left-0 top-0 -m-3" aria-hidden>
+        <span className="ds-absolute ds-left-0 ds-top-0 -ds-m-3" aria-hidden>
           {selected ? <CheckIcon /> : null}
         </span>
-        <span className="h-[93px] aspect-square rounded-full bg-white flex items-center justify-center" aria-hidden>
-          <span className="transform scale-75">{icon ?? null}</span>
+        <span
+          className="ds-h-[93px] ds-aspect-square ds-rounded-full ds-bg-white ds-flex ds-items-center ds-justify-center"
+          aria-hidden
+        >
+          <span className="ds-transform ds-scale-75">{icon ?? null}</span>
         </span>
-        <span className="font-poppins ml-5 text-start pr-4">
-          <span className="text-heading-4">{label ?? ''}</span>
+        <span className="ds-font-poppins ds-ml-5 ds-text-start ds-pr-4">
+          <span className="ds-text-heading-4">{label ?? ''}</span>
         </span>
       </button>
       {tooltipContent && React.isValidElement(tooltipContent) && (
         <Tooltip open={tooltipOpen} placement="bottom-start">
           <TooltipTrigger
-            className="ml-auto p-5 border-l border-border-gray"
+            className="ds-ml-auto ds-p-5 ds-border-l ds-border-border-gray"
             aria-label={infoAriaLabel ?? ''}
             onClick={(e) => {
               e?.preventDefault?.();
@@ -108,11 +111,14 @@ export const SelectionCard = ({
               toggleTooltip();
             }}
           >
-            <span className="ml-auto p-3 material-symbols-outlined size-24 sm:size-32 select-none" aria-hidden>
+            <span
+              className="ds-ml-auto ds-p-3 material-symbols-outlined size-24 sm:ds-size-32 ds-select-none"
+              aria-hidden
+            >
               info
             </span>
           </TooltipTrigger>
-          <TooltipContent className="bg-black text-white rounded-xl p-5 z-50 text-body-sm sm:text-body-md">
+          <TooltipContent className="ds-bg-black ds-text-white ds-rounded-xl ds-p-5 ds-z-50 ds-text-body-sm sm:ds-text-body-md">
             {tooltipContent}
           </TooltipContent>
         </Tooltip>

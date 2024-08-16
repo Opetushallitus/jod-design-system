@@ -2,26 +2,26 @@
 
 exports[`NavigationBar > renders no navigation items and no user 1`] = `
 <div
-  class="min-w-min shadow-border bg-white"
+  class="ds-min-w-min ds-shadow-border ds-bg-white"
 >
   <nav
-    class="mx-auto flex h-[56px] items-center justify-between gap-4 px-7 py-3 font-semibold lg:container"
+    class="ds-mx-auto ds-flex ds-h-[56px] ds-items-center ds-justify-between ds-gap-4 ds-px-7 ds-py-3 ds-font-semibold lg:ds-container"
     role="navigation"
   >
     <div>
       logo
     </div>
     <ul
-      class="inline-flex items-center gap-3 sm:gap-5"
+      class="ds-inline-flex ds-items-center ds-gap-3 sm:ds-gap-5"
     >
       <li
-        class="ml-5"
+        class="ds-ml-5"
       >
         <button
-          class="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+          class="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2"
         >
           <span
-            class="material-symbols-outlined size-24 select-none text-black"
+            class="material-symbols-outlined size-24 ds-select-none ds-text-black"
           >
             language
           </span>
@@ -29,11 +29,11 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
       </li>
       <li>
         <a
-          class="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+          class="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2"
           href="/login"
         >
           <span
-            class="material-symbols-outlined size-24 select-none text-black"
+            class="material-symbols-outlined size-24 ds-select-none ds-text-black"
           >
             person
           </span>
@@ -46,26 +46,26 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
 
 exports[`NavigationBar > renders only user 1`] = `
 <div
-  class="min-w-min shadow-border bg-white"
+  class="ds-min-w-min ds-shadow-border ds-bg-white"
 >
   <nav
-    class="mx-auto flex h-[56px] items-center justify-between gap-4 px-7 py-3 font-semibold lg:container"
+    class="ds-mx-auto ds-flex ds-h-[56px] ds-items-center ds-justify-between ds-gap-4 ds-px-7 ds-py-3 ds-font-semibold lg:ds-container"
     role="navigation"
   >
     <div>
       logo
     </div>
     <ul
-      class="inline-flex items-center gap-3 sm:gap-5"
+      class="ds-inline-flex ds-items-center ds-gap-3 sm:ds-gap-5"
     >
       <li
-        class="ml-5"
+        class="ds-ml-5"
       >
         <button
-          class="flex h-8 w-8 items-center justify-center rounded-full bg-bg-gray-2"
+          class="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2"
         >
           <span
-            class="material-symbols-outlined size-24 select-none text-black"
+            class="material-symbols-outlined size-24 ds-select-none ds-text-black"
           >
             language
           </span>
@@ -74,7 +74,7 @@ exports[`NavigationBar > renders only user 1`] = `
       <li>
         <a
           aria-label="Profile"
-          class="flex h-8 w-8 items-center justify-center rounded-full bg-secondary-3 text-white"
+          class="ds-flex ds-h-8 ds-w-8 ds-items-center ds-justify-center ds-rounded-full ds-bg-secondary-3 ds-text-white"
           href="/profile"
           role="img"
           title="Reetta Räppänä"

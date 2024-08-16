@@ -14,7 +14,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
     return (
       <FloatingPortal>
         <div
-          className="max-w-[292px] rounded bg-black px-6 py-5 text-body-sm text-white sm:text-body-md"
+          className="ds-max-w-[292px] ds-rounded ds-bg-black ds-px-6 ds-py-5 ds-text-body-sm ds-text-white sm:ds-text-body-md"
           ref={ref}
           style={{
             ...tooltipContext.floatingStyles,
@@ -25,7 +25,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
           <FloatingArrow
             ref={tooltipContext.arrowRef}
             context={tooltipContext.context}
-            className="fill-black"
+            className="ds-fill-black"
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
           />

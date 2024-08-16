@@ -4,12 +4,12 @@ exports[`Toast > renders the toast component with icon 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="bg-success inline-flex h-8 items-center gap-3 rounded-sm pl-5 text-black text-body-sm pr-7"
+  class="ds-bg-success ds-inline-flex ds-h-8 ds-items-center ds-gap-3 ds-rounded-sm ds-pl-5 ds-text-black ds-text-body-sm ds-pr-7"
   role="alert"
 >
   <span
     aria-label="Mood"
-    class="material-symbols-outlined size-24 select-none"
+    class="material-symbols-outlined size-24 ds-select-none"
     role="img"
   >
     mood
@@ -22,7 +22,7 @@ exports[`Toast > renders the toast component with text 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="bg-success inline-flex h-8 items-center gap-3 rounded-sm pl-5 text-black text-body-sm pr-5"
+  class="ds-bg-success ds-inline-flex ds-h-8 ds-items-center ds-gap-3 ds-rounded-sm ds-pl-5 ds-text-black ds-text-body-sm ds-pr-5"
   role="alert"
 >
   This is a toast message

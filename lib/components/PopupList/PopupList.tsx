@@ -9,7 +9,7 @@ export type PopupListItemProps = PopupListProps;
 export const PopupList = ({ children, classNames = '' }: PopupListProps) => {
   return (
     <div
-      className={`inline-flex flex-col items-start rounded bg-white py-6 px-[20px] shadow-border w-[257px] ${classNames}`.trim()}
+      className={`ds-inline-flex ds-flex-col ds-items-start ds-rounded ds-bg-white ds-py-6 ds-px-[20px] ds-shadow-border ds-w-[257px] ${classNames}`.trim()}
     >
       {children}
     </div>
@@ -19,7 +19,7 @@ export const PopupList = ({ children, classNames = '' }: PopupListProps) => {
 export const PopupListItem = ({ children, classNames = '' }: PopupListItemProps) => {
   return (
     <div
-      className={`flex items-center gap-3 py-3 text-heading-4 font-poppins hover:text-accent hover:underline focus:left-auto focus:underline w-full pl-5 rounded ${classNames}`.trim()}
+      className={`ds-flex ds-items-center ds-gap-3 ds-py-3 ds-text-heading-4 ds-font-poppins hover:ds-text-accent hover:ds-underline focus:ds-left-auto focus:ds-underline ds-w-full ds-pl-5 ds-rounded ${classNames}`.trim()}
     >
       {children}
     </div>

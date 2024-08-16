@@ -10,9 +10,9 @@ export interface ResultsCardProps {
  */
 export const ResultsCard = ({ value, label }: ResultsCardProps) => {
   return (
-    <div className="flex w-min flex-col-reverse items-center rounded-[10px] bg-bg-gray px-8 py-5 font-bold">
-      <span className="text-heading-4 font-poppins text-black">{label}</span>
-      <span className="text-[80px] leading-[110%] text-black">{value}</span>
+    <div className="ds-flex ds-w-min ds-flex-col-reverse ds-items-center ds-rounded-[10px] ds-bg-bg-gray ds-px-8 ds-py-5 ds-font-bold">
+      <span className="ds-text-heading-4 ds-font-poppins ds-text-black">{label}</span>
+      <span className="ds-text-[80px] ds-leading-[110%] ds-text-black">{value}</span>
     </div>
   );
 };

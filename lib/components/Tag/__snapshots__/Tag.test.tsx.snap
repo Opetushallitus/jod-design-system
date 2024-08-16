@@ -3,17 +3,17 @@
 exports[`Snapshot testing > matches the snapshot 1`] = `
 <div>
   <button
-    class="group flex select-none items-center rounded-xl text-tag px-4 py-2 bg-secondary-4-50"
+    class="ds-group ds-flex ds-select-none ds-items-center ds-rounded-xl ds-text-tag ds-px-4 ds-py-2 ds-bg-secondary-4-50"
     type="button"
   >
     <span
-      class="hyphens-auto text-black group-hover:underline"
+      class="ds-hyphens-auto ds-text-black group-hover:ds-underline"
     >
       Label here
     </span>
     <span
       aria-hidden="true"
-      class="material-symbols-outlined pl-3 select-none text-button-md text-black"
+      class="material-symbols-outlined ds-pl-3 ds-select-none ds-text-button-md ds-text-black"
     >
       add
     </span>

@@ -33,16 +33,16 @@ export const RoundLinkButton = ({
     <Component
       {...rest}
       aria-label={label}
-      className={`${className ? className : ''} group inline-flex min-w-[64px] sm:min-w-[110px] flex-col items-center justify-center gap-2 border border-none no-underline`.trim()}
+      className={`${className ? className : ''} ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline`.trim()}
     >
       <span
         aria-hidden
-        className={`${selected ? 'bg-accent text-white' : 'text-black bg-bg-gray-2 group-hover:text-accent'} material-symbols-outlined size-48 flex size-[64px] select-none items-center justify-center self-center rounded-full`}
+        className={`${selected ? 'ds-bg-accent text-white' : 'ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent'} material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full`}
       >
         {icon}
       </span>
       <span
-        className={`${hideLabel ? 'hidden' : ''} text-button-sm ${selected ? 'text-accent' : 'text-black'} group-hover:text-accent group-hover:underline`.trim()}
+        className={`${hideLabel ? 'ds-hidden' : ''} ds-text-button-sm ${selected ? 'ds-text-accent' : 'ds-text-black'} group-hover:ds-text-accent group-hover:ds-underline`.trim()}
       >
         {label}
       </span>

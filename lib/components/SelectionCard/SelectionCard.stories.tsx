@@ -33,12 +33,12 @@ export const Default: Story = {
   parameters,
   args: {
     label: 'Kartoittaa omaa osaamistani',
-    icon: <span className="text-[70px]">😎</span>,
+    icon: <span className="ds-text-[70px]">😎</span>,
     selected: false,
     infoAriaLabel: 'Info',
     tooltipContent: (
       <>
-        <div className="text-heading-4 mb-4">Tavoitteen vaikutus tuloksiin</div>
+        <div className="ds-text-heading-4 ds-mb-4">Tavoitteen vaikutus tuloksiin</div>
         <p>
           Ohjeistaa täyttämään osaamisprofiilin ja sieltä löytyvien apuvälineiden hyödyntämiseen. Kannustaa katsomaan
           myös kohtaannon tuloksia.
@@ -82,7 +82,7 @@ export const MultipleWithHover: Story = {
           selected={card.selected}
           onClick={onClick(index)}
           setHovered={setInfoVisible(index)}
-          icon={<span className="text-[70px]">{card.icon}</span>}
+          icon={<span className="ds-text-[70px]">{card.icon}</span>}
           infoAriaLabel={`Info for ${card.label}`}
           tooltipContent={
             <div>
@@ -95,11 +95,11 @@ export const MultipleWithHover: Story = {
       <>
         {sm && <div>Showing info for card: {info}</div>}
         {sm ? (
-          <div className="flex flex-row gap-x-5">
+          <div className="ds-flex ds-flex-row ds-gap-x-5">
             <CardList />
           </div>
         ) : (
-          <div className="flex flex-col gap-y-5">
+          <div className="ds-flex ds-flex-col ds-gap-y-5">
             <CardList />
           </div>
         )}
@@ -111,7 +111,7 @@ export const MultipleWithHover: Story = {
   },
   args: {
     label: 'Kartoittaa omaa osaamistani',
-    icon: <span className="text-[70px]">😎</span>,
+    icon: <span className="ds-text-[70px]">😎</span>,
     infoAriaLabel: 'Info',
     selected: false,
   },

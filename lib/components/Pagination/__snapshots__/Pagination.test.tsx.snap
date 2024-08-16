@@ -2,19 +2,19 @@
 
 exports[`Pagination > renders the pagination component with correct number of pages with ellipsis 1`] = `
 <nav
-  class="inline-flex list-none items-center justify-center gap-3"
+  class="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
   data-part="root"
   data-scope="pagination"
   dir="ltr"
   id="pagination::r1:"
 >
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     disabled=""
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       First Page
     </span>
@@ -26,7 +26,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Previous"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -36,7 +36,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Previous
     </span>
@@ -48,7 +48,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-current="page"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-accent text-white font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-bg-accent ds-text-white ds-font-poppins ds-font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
@@ -60,7 +60,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     1
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -71,7 +71,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     2
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -82,7 +82,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     3
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -93,7 +93,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     4
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="5"
     data-part="item"
     data-scope="pagination"
@@ -104,7 +104,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     5
   </button>
   <div
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
     data-part="ellipsis"
     data-scope="pagination"
     dir="ltr"
@@ -117,7 +117,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </span>
   </div>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="10"
     data-part="item"
     data-scope="pagination"
@@ -129,7 +129,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -137,7 +137,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Next
     </span>
@@ -148,11 +148,11 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </span>
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Last Page
     </span>
@@ -167,19 +167,19 @@ exports[`Pagination > renders the pagination component with correct number of pa
 
 exports[`Pagination > renders the pagination component with correct number of pages without ellipsis 1`] = `
 <nav
-  class="inline-flex list-none items-center justify-center gap-3"
+  class="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
   data-part="root"
   data-scope="pagination"
   dir="ltr"
   id="pagination::r0:"
 >
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     disabled=""
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       First Page
     </span>
@@ -191,7 +191,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Previous"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined disabled:text-inactive-gray disabled:cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -201,7 +201,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Previous
     </span>
@@ -213,7 +213,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-current="page"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-accent text-white font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-bg-accent ds-text-white ds-font-poppins ds-font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
@@ -225,7 +225,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     1
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -236,7 +236,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     2
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -247,7 +247,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     3
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black font-poppins font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-poppins ds-font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -259,7 +259,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -267,7 +267,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Next
     </span>
@@ -278,11 +278,11 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </span>
   </button>
   <button
-    class="min-w-7 min-h-7 p-2 rounded-full bg-bg-gray-2 text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
     type="button"
   >
     <span
-      class="sr-only"
+      class="ds-sr-only"
     >
       Last Page
     </span>

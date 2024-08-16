@@ -2,11 +2,11 @@
 
 exports[`Button > calls the onClick function when clicked 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-md px-6 rounded-[30px] text-black bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
   type="button"
 >
   <span
-    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -15,12 +15,12 @@ exports[`Button > calls the onClick function when clicked 1`] = `
 
 exports[`Button > renders the button as disabled 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-md px-6 rounded-[30px] text-black bg-bg-gray disabled:text-inactive-gray disabled:cursor-not-allowed"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
   disabled=""
   type="button"
 >
   <span
-    class="font-poppins py-[10px]"
+    class="ds-font-poppins ds-py-[10px]"
   >
     Click me
   </span>
@@ -29,17 +29,17 @@ exports[`Button > renders the button as disabled 1`] = `
 
 exports[`Button > renders the button with an icon on the left side 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-md px-6 rounded-[30px] pl-4 text-black bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md ds-px-6 ds-rounded-[30px] ds-pl-4 ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="material-symbols-outlined select-none size-24"
+    class="material-symbols-outlined ds-h-fit ds-select-none size-24"
   >
     add
   </span>
   <span
-    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -48,17 +48,17 @@ exports[`Button > renders the button with an icon on the left side 1`] = `
 
 exports[`Button > renders the button with an icon on the right side 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-md px-6 rounded-[30px] pr-4 text-black bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md ds-px-6 ds-rounded-[30px] ds-pr-4 ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
   type="button"
 >
   <span
-    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
   <span
     aria-hidden="true"
-    class="material-symbols-outlined select-none size-24"
+    class="material-symbols-outlined ds-h-fit ds-select-none size-24"
   >
     add
   </span>
@@ -67,11 +67,11 @@ exports[`Button > renders the button with an icon on the right side 1`] = `
 
 exports[`Button > renders the button with the correct label 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-md px-6 rounded-[30px] text-black bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
   type="button"
 >
   <span
-    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -80,11 +80,11 @@ exports[`Button > renders the button with the correct label 1`] = `
 
 exports[`Button > renders the button with the correct size 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-sm px-6 rounded-[30px] text-black bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-sm ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
   type="button"
 >
   <span
-    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-3"
+    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-3"
   >
     Click me
   </span>
@@ -93,11 +93,11 @@ exports[`Button > renders the button with the correct size 1`] = `
 
 exports[`Button > renders the button with the correct variant 1`] = `
 <button
-  class="flex items-center gap-4 select-none group text-button-md px-6 rounded-[30px] text-black bg-bg-gray hover:text-accent focus-visible:text-accent active:bg-accent focus-visible:outline-accent focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[1.5px] active:text-white active:outline-0"
+  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
   type="button"
 >
   <span
-    class="font-poppins group-hover:underline group-active:no-underline group-focus-visible:no-underline py-[10px]"
+    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>

@@ -37,9 +37,9 @@ const login: NavigationBarProps['login'] = {
 };
 
 const logo = (
-  <a href="/" className="flex">
-    <div className="inline-flex select-none items-center gap-4 text-[24px] leading-[140%] text-black">
-      <div className="h-8 w-8 bg-secondary-gray"></div>JOD
+  <a href="/" className="ds-flex">
+    <div className="ds-inline-flex ds-select-none ds-items-center ds-gap-4 ds-text-[24px] ds-leading-[140%] ds-text-black">
+      <div className="ds-h-8 ds-w-8 ds-bg-secondary-gray"></div>JOD
     </div>
   </a>
 );
@@ -81,12 +81,12 @@ export const Sticky: Story = {
   decorators: [
     (Story) => (
       <div>
-        <header className="sticky top-0">
+        <header className="ds-sticky ds-top-0">
           <Story />
         </header>
         <main>
           {[...Array<undefined>(20)].map((_p, index) => (
-            <p key={index} className="p-4">
+            <p key={index} className="ds-p-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
               ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -109,7 +109,7 @@ export const Sticky: Story = {
         iframeHeight: 400,
       },
       source: {
-        code: '<header className="sticky top-0">\n  <NavigationBar />\n</header>',
+        code: '<header className="ds-sticky ds-top-0">\n  <NavigationBar />\n</header>',
       },
     },
   },

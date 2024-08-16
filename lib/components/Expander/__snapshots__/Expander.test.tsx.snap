@@ -2,33 +2,33 @@
 
 exports[`Snapshot testing > Base button 1`] = `
 <div
-  class="rounded-[20px] border-[3px] border-[#767676] p-4"
+  class="ds-rounded-[20px] ds-border-[3px] ds-border-[#767676] ds-p-4"
   data-headlessui-state=""
 >
   <button
     aria-expanded="false"
-    class="flex w-full flex-col"
+    class="ds-flex ds-w-full ds-flex-col"
     data-headlessui-state=""
     id="headlessui-disclosure-button-:r1:"
     type="button"
   >
     <div
-      class="mb-3 flex w-full flex-row justify-between"
+      class="ds-mb-3 ds-flex ds-w-full ds-flex-row ds-justify-between"
     >
       <span
-        class="text-[20px] font-bold text-[#333333]"
+        class="ds-text-[20px] ds-font-bold ds-text-[#333333]"
         id=":r0:"
       >
         Label
       </span>
       <span
-        class="material-symbols-outlined size-32 select-none text-secondary-gray"
+        class="material-symbols-outlined size-32 ds-select-none ds-text-secondary-gray"
       >
         keyboard_arrow_down
       </span>
     </div>
     <span
-      class="mb-4 text-start text-[12px] font-bold text-[#767676]"
+      class="ds-mb-4 ds-text-start ds-text-[12px] ds-font-bold ds-text-[#767676]"
     >
       Description
     </span>

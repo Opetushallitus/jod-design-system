@@ -36,7 +36,7 @@ export const Default: Story = {
   render,
   decorators: [
     (Story) => (
-      <div className="max-w-[415px]">
+      <div className="ds-max-w-[415px]">
         <Story />
       </div>
     ),
@@ -63,7 +63,7 @@ export const HelpText: Story = {
   render,
   decorators: [
     (Story) => (
-      <div className="max-w-[415px]">
+      <div className="ds-max-w-[415px]">
         <Story />
       </div>
     ),
@@ -91,7 +91,7 @@ export const Placeholder: Story = {
   render,
   decorators: [
     (Story) => (
-      <div className="max-w-[415px]">
+      <div className="ds-max-w-[415px]">
         <Story />
       </div>
     ),

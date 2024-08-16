@@ -23,27 +23,27 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
           onClose();
         }
       }}
-      className="relative z-50"
+      className="ds-relative ds-z-50"
     >
-      <div className="fixed inset-0 bg-black/30" aria-hidden />
-      <div className="fixed inset-0 w-screen py-6 sm:py-[96px]">
-        <div className="flex h-full items-center justify-center">
-          <DialogPanel className="flex h-full flex-col justify-between overflow-hidden rounded sm:rounded-lg bg-bg-gray min-w-full sm:min-w-[640px]">
-            <div className="my-6 grid max-h-[calc(100vh-172px)] max-w-[1092px] grid-cols-2 gap-6 pl-5 sm:max-h-[calc(100vh-320px)] sm:grid-cols-6 sm:pl-9">
-              <div className="col-span-2 flex max-h-[calc(100vh-172px)] flex-col gap-6 pr-5 sm:col-span-4 sm:max-h-[calc(100vh-320px)] sm:pr-0">
-                {progress && !sm && <div className="flex grow flex-col items-end">{progress}</div>}
-                <div className="overflow-y-auto sm:mt-6">{content}</div>
+      <div className="ds-fixed ds-inset-0 ds-bg-black/30" aria-hidden />
+      <div className="ds-fixed ds-inset-0 ds-w-screen ds-py-6 sm:ds-py-[96px]">
+        <div className="ds-flex ds-h-full ds-items-center ds-justify-center">
+          <DialogPanel className="ds-flex ds-h-full ds-flex-col ds-justify-between ds-overflow-hidden ds-rounded sm:ds-rounded-lg ds-bg-bg-gray ds-min-w-full sm:ds-min-w-[640px]">
+            <div className="ds-my-6 ds-grid ds-max-h-[calc(100vh-172px)] ds-max-w-[1092px] ds-grid-cols-2 ds-gap-6 ds-pl-5 sm:ds-max-h-[calc(100vh-320px)] sm:ds-grid-cols-6 sm:ds-pl-9">
+              <div className="ds-col-span-2 ds-flex ds-max-h-[calc(100vh-172px)] ds-flex-col ds-gap-6 ds-pr-5 sm:ds-col-span-4 sm:ds-max-h-[calc(100vh-320px)] sm:ds-pr-0">
+                {progress && !sm && <div className="ds-flex ds-grow ds-flex-col ds-items-end">{progress}</div>}
+                <div className="ds-overflow-y-auto sm:ds-mt-6">{content}</div>
               </div>
               {sm && (
-                <div className="col-span-2 flex max-h-[calc(100vh-172px)] flex-col gap-x-6 sm:max-h-[calc(100vh-320px)]">
-                  {progress && <div className="mr-6 flex grow flex-col items-end">{progress}</div>}
-                  <div className={`mr-9 overflow-y-auto ${!progress ? 'sm:mt-6' : ''}`}>{sidePanel}</div>
+                <div className="ds-col-span-2 ds-flex ds-max-h-[calc(100vh-172px)] ds-flex-col ds-gap-x-6 sm:ds-max-h-[calc(100vh-320px)]">
+                  {progress && <div className="ds-mr-6 ds-flex ds-grow ds-flex-col ds-items-end">{progress}</div>}
+                  <div className={`ds-mr-9 ds-overflow-y-auto ${!progress ? 'sm:ds-mt-6' : ''}`}>{sidePanel}</div>
                 </div>
               )}
             </div>
 
-            <div className="bg-bg-gray-2 overflow-x-auto overflow-y-hidden">
-              <div className="py-4 sm:py-5 px-9">{footer}</div>
+            <div className="ds-bg-bg-gray-2 ds-overflow-x-auto ds-overflow-y-hidden">
+              <div className="ds-py-4 sm:ds-py-5 ds-px-9">{footer}</div>
             </div>
           </DialogPanel>
         </div>

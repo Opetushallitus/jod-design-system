@@ -28,7 +28,7 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
   const isLabelValidElement = React.isValidElement(label);
 
   return (
-    <div className={cx('flex items-center text-left', className)}>
+    <div className={cx('ds-flex ds-items-center ds-text-left', className)}>
       <input
         type="checkbox"
         id={label ? id : undefined}
@@ -38,7 +38,7 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
         checked={checked}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
-        className="peer relative size-5 min-h-5 min-w-5 appearance-none rounded-none bg-white"
+        className="ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white"
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -46,14 +46,14 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
         height="16"
         viewBox="0 0 16 16"
         fill="none"
-        className="pointer-events-none absolute hidden fill-accent peer-checked:block"
+        className="ds-pointer-events-none ds-absolute ds-hidden ds-fill-accent peer-checked:ds-block"
       >
         <rect x="0" y="0" width="16" height="16" />
       </svg>
       {label && (
         <label
           htmlFor={id}
-          className={`font-poppins flex flex-row items-center text-button-md text-black peer-hover:text-accent peer-hover:underline peer-disabled:text-inactive-gray peer-disabled:no-underline ${!isLabelValidElement ? 'pl-4' : ''}`.trim()}
+          className={`ds-font-poppins ds-flex ds-flex-row ds-items-center ds-text-button-md ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ${!isLabelValidElement ? 'ds-pl-4' : ''}`.trim()}
         >
           {label}
         </label>

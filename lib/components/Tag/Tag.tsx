@@ -9,19 +9,19 @@ export interface TagProps {
 /** Tags allow users to categorize content. They can represent keywords or people, and are grouped to describe an item or a search request. */
 export const Tag = ({ label, onClick, variant = 'selectable', color = 'secondary-4' }: TagProps) => {
   const colorMap: Record<TagColors, string> = {
-    'secondary-2': 'bg-secondary-2-50',
-    'secondary-3': 'bg-secondary-3-50',
-    'secondary-4': 'bg-secondary-4-50',
-    'secondary-5': 'bg-secondary-5',
+    'secondary-2': 'ds-bg-secondary-2-50',
+    'secondary-3': 'ds-bg-secondary-3-50',
+    'secondary-4': 'ds-bg-secondary-4-50',
+    'secondary-5': 'ds-bg-secondary-5',
   };
   return (
     <button
       type="button"
-      className={`group flex select-none items-center rounded-xl text-tag px-4 py-2 ${colorMap[color]}`}
+      className={`ds-group ds-flex ds-select-none ds-items-center ds-rounded-xl ds-text-tag ds-px-4 ds-py-2 ${colorMap[color]}`}
       onClick={onClick}
     >
-      <span className="hyphens-auto text-black group-hover:underline">{label}</span>
-      <span className="material-symbols-outlined pl-3 select-none text-button-md text-black" aria-hidden>
+      <span className="ds-hyphens-auto ds-text-black group-hover:ds-underline">{label}</span>
+      <span className="material-symbols-outlined ds-pl-3 ds-select-none ds-text-button-md ds-text-black" aria-hidden>
         {variant === 'selectable' ? 'add' : 'close'}
       </span>
     </button>
