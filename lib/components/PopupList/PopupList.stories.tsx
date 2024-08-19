@@ -19,6 +19,10 @@ export const Default: Story = {
         story: 'Default popup list behavior with links.',
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7341&t=5Uc1JYa0GCm43PGV-4',
+    },
   },
   args: {
     children: (
