@@ -1,5 +1,6 @@
 import { DatePicker as ArkDatePicker, Portal, UseDatePickerContext } from '@ark-ui/react';
 import React from 'react';
+import { MdArrowBack, MdArrowForward, MdCalendarMonth } from 'react-icons/md';
 import { cx } from '../../cva';
 
 const MIN_YEAR = 1900;
@@ -22,16 +23,16 @@ const getYearCellClasses = (year: { label: string; value: number }) =>
 
 const Header = () => (
   <ArkDatePicker.ViewControl className="ds-mb-4 ds-flex ds-justify-between">
-    <ArkDatePicker.PrevTrigger className="material-symbols-outlined ds-text-accent ds-font-semibold ds-px-3">
-      arrow_back
+    <ArkDatePicker.PrevTrigger className="ds-text-accent ds-px-3">
+      <MdArrowBack size={24} />
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger>
       <ArkDatePicker.RangeText className="ds-capitalize ds-font-bold" />
     </ArkDatePicker.ViewTrigger>
 
-    <ArkDatePicker.NextTrigger className="material-symbols-outlined ds-text-accent ds-font-semibold ds-px-3">
-      arrow_forward
+    <ArkDatePicker.NextTrigger className="ds-text-accent ds-px-3">
+      <MdArrowForward size={24} />
     </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
 );
@@ -91,8 +92,8 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             }}
             onBlur={onBlur}
           />
-          <ArkDatePicker.Trigger className="material-symbols-outlined ds-select-none ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray">
-            calendar_month
+          <ArkDatePicker.Trigger className="ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray">
+            <MdCalendarMonth size={24} />
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>

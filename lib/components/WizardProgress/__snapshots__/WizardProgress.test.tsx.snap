@@ -12,12 +12,23 @@ exports[`WizardProgress > renders correctly 1`] = `
     >
       Completed: 1
     </span>
-    <span
-      aria-hidden="true"
-      class="material-symbols-outlined size-24 sm:ds-size-32 ds-select-none ds-font-bold"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      check
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+      />
+    </svg>
   </li>
   <li
     class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
@@ -27,12 +38,23 @@ exports[`WizardProgress > renders correctly 1`] = `
     >
       Completed: 2
     </span>
-    <span
-      aria-hidden="true"
-      class="material-symbols-outlined size-24 sm:ds-size-32 ds-select-none ds-font-bold"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      check
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+      />
+    </svg>
   </li>
   <li
     class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-accent ds-text-white sm:ds-min-h-8 sm:ds-min-w-8"

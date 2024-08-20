@@ -8,7 +8,7 @@ exports[`Snapshot testing > Default 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
+    class="ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
   >
     target
   </span>
@@ -28,7 +28,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
+    class="ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
   >
     target
   </span>
@@ -48,7 +48,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds-bg-accent text-white material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
+    class="ds-bg-accent ds-text-white ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
   >
     target
   </span>
@@ -68,7 +68,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 >
   <span
     aria-hidden="true"
-    class="ds-bg-accent text-white material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
+    class="ds-bg-accent ds-text-white ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
   >
     target
   </span>
@@ -88,7 +88,7 @@ exports[`Snapshot testing > selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds-bg-accent text-white material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
+    class="ds-bg-accent ds-text-white ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full"
   >
     target
   </span>

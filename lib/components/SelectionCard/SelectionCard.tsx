@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdInfoOutline } from 'react-icons/md';
 import { useMediaQueries } from '../../main';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { TooltipContent } from '../Tooltip/TooltipContent';
@@ -103,7 +104,7 @@ export const SelectionCard = ({
       {tooltipContent && React.isValidElement(tooltipContent) && (
         <Tooltip open={tooltipOpen} placement="bottom-start">
           <TooltipTrigger
-            className="ds-ml-auto ds-p-5 ds-border-l ds-border-border-gray"
+            className="ds-ml-auto ds-p-5"
             aria-label={infoAriaLabel ?? ''}
             onClick={(e) => {
               e?.preventDefault?.();
@@ -111,12 +112,7 @@ export const SelectionCard = ({
               toggleTooltip();
             }}
           >
-            <span
-              className="ds-ml-auto ds-p-3 material-symbols-outlined size-24 sm:ds-size-32 ds-select-none"
-              aria-hidden
-            >
-              info
-            </span>
+            <MdInfoOutline size={24} />
           </TooltipTrigger>
           <TooltipContent className="ds-bg-black ds-text-white ds-rounded-xl ds-p-5 ds-z-50 ds-text-body-sm sm:ds-text-body-md ds-font-arial">
             {tooltipContent}

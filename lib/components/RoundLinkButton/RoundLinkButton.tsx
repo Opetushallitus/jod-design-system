@@ -15,8 +15,8 @@ export interface RoundLinkButtonProps {
   /** CSS classname */
   className?: string;
   component: RoundLinkButtonLink;
-  /** Icon name from Material Design */
-  icon: string;
+  /** Icon shown on the link */
+  icon: React.ReactNode;
 }
 
 /** Button component for single-step user actions. */
@@ -37,7 +37,7 @@ export const RoundLinkButton = ({
     >
       <span
         aria-hidden
-        className={`${selected ? 'ds-bg-accent text-white' : 'ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent'} material-symbols-outlined size-48 ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full`}
+        className={`${selected ? 'ds-bg-accent ds-text-white' : 'ds-text-black ds-bg-bg-gray-2 group-hover:ds-text-accent'} ds-flex ds-size-[64px] ds-select-none ds-items-center ds-justify-center ds-self-center ds-rounded-full`}
       >
         {icon}
       </span>

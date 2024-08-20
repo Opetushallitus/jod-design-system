@@ -14,7 +14,7 @@ export interface ButtonProps {
   /** Button disabled for any actions */
   disabled?: boolean;
   /** Icon shown on the button */
-  icon?: string;
+  icon?: React.ReactNode;
   /** Icon side */
   iconSide?: 'left' | 'right';
 }
@@ -86,11 +86,6 @@ export const Button = ({
   const rightIcon = icon !== undefined && iconSide === 'right';
   const onlyIcon = icon && !leftIcon && !rightIcon;
   const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled });
-  const iconClassName = cx('material-symbols-outlined ds-h-fit ds-select-none', {
-    'size-20': size === 'sm',
-    'size-24': size === 'md',
-    'size-40': size === 'lg',
-  });
 
   const spanClassName = cx({
     'group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline': !disabled,
@@ -107,23 +102,9 @@ export const Button = ({
       onClick={onClick}
       className={buttonClassName}
     >
-      {leftIcon && (
-        <span className={iconClassName} aria-hidden>
-          {icon}
-        </span>
-      )}
-      {onlyIcon ? (
-        <span className={iconClassName} aria-label={label}>
-          {icon}
-        </span>
-      ) : (
-        <span className={spanClassName}>{label}</span>
-      )}
-      {rightIcon && (
-        <span className={iconClassName} aria-hidden>
-          {icon}
-        </span>
-      )}
+      {leftIcon && <>{icon}</>}
+      {onlyIcon ? <>{icon}</> : <span className={spanClassName}>{label}</span>}
+      {rightIcon && <>{icon}</>}
     </button>
   );
 };

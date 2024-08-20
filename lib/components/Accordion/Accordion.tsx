@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 import { cx } from '../../cva';
 
 interface AccordionProps {
@@ -12,11 +13,8 @@ interface AccordionProps {
 }
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
-  <span
-    className="material-symbols-outlined size-32 ds-select-none ds-text-secondary-gray group-hover:!ds-text-accent"
-    aria-hidden
-  >
-    {isOpen ? 'expand_less' : 'expand_more'}
+  <span className="ds-text-black group-hover:!ds-text-accent" aria-hidden>
+    {isOpen ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
   </span>
 );
 

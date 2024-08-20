@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 
 import { Button } from './Button';
 
@@ -14,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const backgrounds = {
-  default: 'jod-bg-gray',
-  values: [{ name: 'jod-bg-gray', value: '#f5f5f5' }],
+  default: 'jod-bg-white',
+  values: [{ name: 'jod-bg-white', value: '#fff' }],
 };
 
 export const Gray: Story = {
@@ -29,6 +30,7 @@ export const Gray: Story = {
         story: 'This is a gray button component for triggering an action.',
       },
     },
+    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -48,7 +50,6 @@ export const White: Story = {
         story: 'This is a white button component for triggering an action.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -68,6 +69,7 @@ export const GrayDelete: Story = {
         story: 'This is a gray delete button component for triggering an action.',
       },
     },
+    backgrounds,
   },
   args: {
     label: 'Poista',
@@ -87,7 +89,6 @@ export const WhiteDelete: Story = {
         story: 'This is a white delete button component for triggering an action.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Poista',
@@ -107,6 +108,7 @@ export const Disabled: Story = {
         story: 'This is a disabled button component.',
       },
     },
+    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -126,6 +128,7 @@ export const Small: Story = {
         story: 'This is a small button component.',
       },
     },
+    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -145,7 +148,6 @@ export const Large: Story = {
         story: 'This is a large button component.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -166,13 +168,12 @@ export const MediumWithLeftIcon: Story = {
         story: 'This is a medium button component with an left icon.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Takaisin',
     onClick: fn(),
     variant: 'white',
-    icon: 'arrow_back',
+    icon: <MdArrowBack size={24} />,
   },
 };
 
@@ -187,14 +188,13 @@ export const LargeWithRightIcon: Story = {
         story: 'This is a large button component with an right icon.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Kokeile palvelua',
     onClick: fn(),
     size: 'lg',
     variant: 'white',
-    icon: 'arrow_forward',
+    icon: <MdArrowForward size={40} />,
     iconSide: 'right',
   },
 };

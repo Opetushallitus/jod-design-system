@@ -1,3 +1,5 @@
+import { MdAdd, MdClose } from 'react-icons/md';
+
 type TagColors = 'secondary-2' | 'secondary-3' | 'secondary-4' | 'secondary-5';
 export interface TagProps {
   label: string;
@@ -21,8 +23,8 @@ export const Tag = ({ label, onClick, variant = 'selectable', color = 'secondary
       onClick={onClick}
     >
       <span className="ds-hyphens-auto ds-text-black group-hover:ds-underline">{label}</span>
-      <span className="material-symbols-outlined ds-pl-3 ds-select-none ds-text-button-md ds-text-black" aria-hidden>
-        {variant === 'selectable' ? 'add' : 'close'}
+      <span className="ds-pl-3 ds-text-button-md ds-text-black" aria-hidden>
+        {variant === 'selectable' ? <MdAdd size={16} /> : <MdClose size={16} />}
       </span>
     </button>
   );

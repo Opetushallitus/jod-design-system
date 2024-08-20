@@ -22,14 +22,4 @@ describe('Tag', () => {
     fireEvent.click(getByRole('button'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
-
-  it('renders the "add" symbol when variant is "selectable"', () => {
-    const { getByText } = render(<Tag label="Selectable" variant="selectable" onClick={vi.fn()} />);
-    expect(getByText('add')).toBeInTheDocument();
-  });
-
-  it('renders the "close" symbol when variant is "added"', () => {
-    const { getByText } = render(<Tag label="Added" variant="added" onClick={vi.fn()} />);
-    expect(getByText('close')).toBeInTheDocument();
-  });
 });

@@ -11,7 +11,6 @@ export { Checkbox } from './components/Checkbox/Checkbox';
 export { Combobox } from './components/Combobox/Combobox';
 export { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
 export { Datepicker } from './components/Datepicker/Datepicker';
-export { Expander } from './components/Expander/Expander';
 export { Footer } from './components/Footer/Footer';
 export { HeroCard } from './components/HeroCard/HeroCard';
 export { InputField } from './components/InputField/InputField';

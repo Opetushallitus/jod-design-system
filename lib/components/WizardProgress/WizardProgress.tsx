@@ -1,3 +1,5 @@
+import { MdCheck } from 'react-icons/md';
+
 export interface WizardProgressProps {
   /** The total number of steps in the wizard. */
   steps: number;
@@ -23,9 +25,7 @@ export const WizardProgress = ({ steps, currentStep, completedText, currentText 
           {index + 1 < currentStep ? (
             <>
               {completedText && <span className="ds-sr-only">{`${completedText}: ${index + 1}`}</span>}
-              <span className="material-symbols-outlined size-24 sm:ds-size-32 ds-select-none ds-font-bold" aria-hidden>
-                check
-              </span>
+              <MdCheck size={24} />
             </>
           ) : (
             <>

@@ -2,9 +2,7 @@ export interface ToastProps {
   /** Text shown on the toast */
   text: string;
   /** Icon shown on the toast */
-  icon?: string;
-  /** Aria label for the icon */
-  iconAriaLabel?: string;
+  icon?: React.ReactNode;
   /** Variant of the toast */
   variant?: 'success' | 'warning' | 'error';
 }
@@ -12,7 +10,7 @@ export interface ToastProps {
 /**
  * Toasts display brief, temporary notifications. They are noticeable but do not disrupt the user experience and do not require an action to be taken.
  */
-export const Toast = ({ text, icon, iconAriaLabel, variant = 'success' }: ToastProps) => (
+export const Toast = ({ text, icon, variant = 'success' }: ToastProps) => (
   <div
     role="alert"
     aria-live="assertive"
@@ -26,11 +24,7 @@ export const Toast = ({ text, icon, iconAriaLabel, variant = 'success' }: ToastP
       .replace(/\s+/g, ' ')
       .trim()}
   >
-    {icon && (
-      <span className="material-symbols-outlined size-24 ds-select-none" role="img" aria-label={iconAriaLabel}>
-        {icon}
-      </span>
-    )}
+    {icon && <>{icon}</>}
     {text}
   </div>
 );

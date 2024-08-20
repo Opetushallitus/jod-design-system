@@ -52,7 +52,6 @@ describe('Note component', () => {
     );
     const closeButton = screen.getByLabelText('Close');
     expect(closeButton).toBeInTheDocument();
-    expect(closeButton.firstChild).toHaveClass('material-symbols-outlined');
     expect(closeButton).toHaveAttribute('aria-label', 'Close');
     closeButton.click();
     expect(onCloseClick).toHaveBeenCalled();
