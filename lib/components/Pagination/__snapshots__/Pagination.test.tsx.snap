@@ -9,7 +9,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   id="pagination::r1:"
 >
   <button
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     disabled=""
     type="button"
   >
@@ -18,15 +18,27 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       First Page
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      first_page
-    </span>
+      <path
+        d="M18.41 16.59 13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+      />
+      <path
+        d="M24 24H0V0h24v24z"
+        fill="none"
+      />
+    </svg>
   </button>
   <button
     aria-label="Previous"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -40,11 +52,23 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       Previous
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      chevron_left
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
   </button>
   <button
     aria-current="page"
@@ -104,17 +128,29 @@ exports[`Pagination > renders the pagination component with correct number of pa
     5
   </button>
   <div
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black"
     data-part="ellipsis"
     data-scope="pagination"
     dir="ltr"
     id="pagination::r1::ellipsis:5"
   >
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      more_horiz
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+      />
+    </svg>
   </div>
   <button
     class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-font-bold"
@@ -129,7 +165,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -141,14 +177,26 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       Next
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      chevron_right
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
   </button>
   <button
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black"
     type="button"
   >
     <span
@@ -156,11 +204,23 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       Last Page
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      last_page
-    </span>
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
+      />
+      <path
+        d="M5.59 7.41 10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+      />
+    </svg>
   </button>
 </nav>
 `;
@@ -174,7 +234,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   id="pagination::r0:"
 >
   <button
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     disabled=""
     type="button"
   >
@@ -183,15 +243,27 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       First Page
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      first_page
-    </span>
+      <path
+        d="M18.41 16.59 13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+      />
+      <path
+        d="M24 24H0V0h24v24z"
+        fill="none"
+      />
+    </svg>
   </button>
   <button
     aria-label="Previous"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -205,11 +277,23 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       Previous
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      chevron_left
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
   </button>
   <button
     aria-current="page"
@@ -259,7 +343,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -271,14 +355,26 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       Next
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      chevron_right
-    </span>
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
   </button>
   <button
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black material-symbols-outlined"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black"
     type="button"
   >
     <span
@@ -286,11 +382,23 @@ exports[`Pagination > renders the pagination component with correct number of pa
     >
       Last Page
     </span>
-    <span
-      aria-hidden="true"
+    <svg
+      fill="currentColor"
+      height="24"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      last_page
-    </span>
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
+      />
+      <path
+        d="M5.59 7.41 10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+      />
+    </svg>
   </button>
 </nav>
 `;

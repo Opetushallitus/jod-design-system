@@ -45,7 +45,7 @@ exports[`Datepicker > renders correctly 1`] = `
         aria-controls="datepicker::r1::content"
         aria-haspopup="grid"
         aria-label="Open calendar"
-        class="material-symbols-outlined ds-select-none ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray"
+        class="ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray"
         data-part="trigger"
         data-scope="date-picker"
         data-state="closed"
@@ -53,7 +53,23 @@ exports[`Datepicker > renders correctly 1`] = `
         id="datepicker::r1::trigger"
         type="button"
       >
-        calendar_month
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"
+          />
+        </svg>
       </button>
     </div>
   </div>

@@ -13,8 +13,8 @@ export interface RoundButtonProps {
   selected?: boolean;
   /** CSS classname */
   className?: string;
-  /** Icon name from Material Design */
-  icon: string;
+  /** Icon shown on the link */
+  icon: React.ReactNode;
   /** Icon size: sm = 32px, md = 40px, lg = 64px  */
   size?: 'sm' | 'md' | 'lg';
   /** Background color */

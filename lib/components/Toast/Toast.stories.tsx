@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { MdCheck, MdDangerous, MdWarning } from 'react-icons/md';
 import { Toast } from './Toast';
 
 const meta = {
@@ -29,8 +30,7 @@ export const Success: Story = {
   },
   args: {
     text,
-    icon: 'check_circle',
-    iconAriaLabel: 'Check Circle',
+    icon: <MdCheck size={24} />,
   },
 };
 
@@ -48,8 +48,7 @@ export const Warning: Story = {
   },
   args: {
     text,
-    icon: 'warning',
-    iconAriaLabel: 'Warning',
+    icon: <MdWarning size={24} />,
     variant: 'warning',
   },
 };
@@ -69,8 +68,7 @@ export const ErrorStory: Story = {
   },
   args: {
     text,
-    icon: 'error',
-    iconAriaLabel: 'Error',
+    icon: <MdDangerous size={24} />,
     variant: 'error',
   },
 };

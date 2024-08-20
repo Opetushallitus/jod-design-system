@@ -13,13 +13,10 @@ describe('Toast', () => {
   });
 
   it('renders the toast component with icon', () => {
-    const { container } = render(<Toast text="This is a toast message" icon="mood" iconAriaLabel="Mood" />);
+    const { container } = render(<Toast text="This is a toast message" icon="mood" />);
     const toastElement = screen.getByRole('alert');
-    const iconElement = screen.getByLabelText('Mood');
     expect(toastElement).toBeInTheDocument();
     expect(toastElement).toHaveTextContent('This is a toast message');
-    expect(iconElement).toBeInTheDocument();
-    expect(iconElement).toHaveTextContent('mood');
     expect(container.firstChild).toMatchSnapshot();
   });
 });

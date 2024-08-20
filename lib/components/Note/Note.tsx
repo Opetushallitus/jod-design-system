@@ -1,3 +1,4 @@
+import { MdOutlineCancel } from 'react-icons/md';
 import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 
@@ -52,7 +53,7 @@ export const Note = ({ title, description, variant = 'success', onCloseClick, re
               aria-label="Close"
               onClick={onCloseClick}
             >
-              <span className="material-symbols-outlined size-32 ds-select-none">cancel</span>
+              <MdOutlineCancel size={32} />
             </button>
           )}
         </div>

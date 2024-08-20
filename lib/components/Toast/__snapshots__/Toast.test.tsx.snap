@@ -7,13 +7,7 @@ exports[`Toast > renders the toast component with icon 1`] = `
   class="ds-bg-success ds-inline-flex ds-h-8 ds-items-center ds-gap-3 ds-rounded-sm ds-pl-5 ds-text-black ds-text-body-sm ds-font-arial ds-pr-7"
   role="alert"
 >
-  <span
-    aria-label="Mood"
-    class="material-symbols-outlined size-24 ds-select-none"
-    role="img"
-  >
-    mood
-  </span>
+  mood
   This is a toast message
 </div>
 `;

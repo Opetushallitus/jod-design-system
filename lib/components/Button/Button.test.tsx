@@ -44,20 +44,4 @@ describe('Button', () => {
     expect(button).toBeDisabled();
     expect(container.firstChild).toMatchSnapshot();
   });
-
-  it('renders the button with an icon on the left side', () => {
-    const { container } = render(<Button label="Click me" onClick={vi.fn()} icon="add" iconSide="left" />);
-    const iconElement = screen.getByText('add');
-    expect(iconElement).toBeInTheDocument();
-    expect(iconElement).toHaveClass('material-symbols-outlined');
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders the button with an icon on the right side', () => {
-    const { container } = render(<Button label="Click me" onClick={vi.fn()} icon="add" iconSide="right" />);
-    const iconElement = screen.getByText('add');
-    expect(iconElement).toBeInTheDocument();
-    expect(iconElement).toHaveClass('material-symbols-outlined');
-    expect(container.firstChild).toMatchSnapshot();
-  });
 });
