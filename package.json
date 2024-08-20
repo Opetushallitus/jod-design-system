@@ -20,6 +20,7 @@
     "format": "prettier . --write",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test:unit": "vitest --run",
+    "test:watch": "vitest --watch",
     "storybook": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build",
     "prepare": "husky && npm run build"
