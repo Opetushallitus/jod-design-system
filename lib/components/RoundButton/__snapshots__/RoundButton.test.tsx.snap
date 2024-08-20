@@ -3,17 +3,21 @@
 exports[`Snapshot testing > Default 1`] = `
 <button
   aria-label="Default"
-  class="ds-group ds-flex ds-flex-col ds-justify-center  ds-min-w-[110px] ds-items-center ds-gap-2"
+  class="ds-group ds-flex ds-flex-col ds-justify-center ds-items-center ds-gap-2"
   type="button"
 >
-  <span
+  <div
     aria-hidden="true"
-    class="ds-size-[72px] ds-rounded-full ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none"
+    class="ds-size-[40px] ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    target
-  </span>
+    <span
+      class="size-32 material-symbols-outlined"
+    >
+      target
+    </span>
+  </div>
   <span
-    class="ds-text-button-sm ds-text-black group-hover:ds-text-accent group-hover:ds-underline"
+    class="ds-text-black ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
   >
     Default
   </span>
@@ -23,17 +27,21 @@ exports[`Snapshot testing > Default 1`] = `
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <button
   aria-label="Disabled, non-selected"
-  class="ds-group ds-flex ds-flex-col ds-justify-center  ds-min-w-[110px] ds-items-center ds-gap-2"
+  class="ds-group ds-flex ds-flex-col ds-justify-center ds-items-center ds-gap-2"
   type="button"
 >
-  <span
+  <div
     aria-hidden="true"
-    class="ds-size-[72px] ds-rounded-full ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none"
+    class="ds-size-[40px] ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    target
-  </span>
+    <span
+      class="size-32 material-symbols-outlined"
+    >
+      target
+    </span>
+  </div>
   <span
-    class="ds-text-button-sm ds-text-black group-hover:ds-text-accent group-hover:ds-underline"
+    class="ds-text-black ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
   >
     Disabled, non-selected
   </span>
@@ -43,17 +51,21 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <button
   aria-label="Disabled, non-selected"
-  class="ds-group ds-flex ds-flex-col ds-justify-center  ds-min-w-[110px] ds-items-center ds-gap-2"
+  class="ds-group ds-flex ds-flex-col ds-justify-center ds-items-center ds-gap-2"
   type="button"
 >
-  <span
+  <div
     aria-hidden="true"
-    class="ds-size-[72px] ds-rounded-full ds-bg-accent ds-text-white ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none"
+    class="ds-size-[40px] ds-bg-accent ds-text-white ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    target
-  </span>
+    <span
+      class="size-32 material-symbols-outlined"
+    >
+      target
+    </span>
+  </div>
   <span
-    class="ds-text-button-sm ds-text-accent group-hover:ds-text-accent group-hover:ds-underline"
+    class="ds-text-accent ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
   >
     Disabled, non-selected
   </span>
@@ -63,17 +75,21 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <button
   aria-label="Disabled, non-selected"
-  class="ds-group ds-flex ds-flex-col ds-justify-center  ds-min-w-[110px] ds-items-center ds-gap-2"
+  class="ds-group ds-flex ds-flex-col ds-justify-center ds-items-center ds-gap-2"
   type="button"
 >
-  <span
+  <div
     aria-hidden="true"
-    class="ds-size-[72px] ds-rounded-full ds-bg-accent ds-text-white ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none"
+    class="ds-size-[40px] ds-bg-accent ds-text-white ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    target
-  </span>
+    <span
+      class="size-32 material-symbols-outlined"
+    >
+      target
+    </span>
+  </div>
   <span
-    class="ds-text-button-sm ds-text-accent group-hover:ds-text-accent group-hover:ds-underline"
+    class="ds-text-accent ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
   >
     Disabled, non-selected
   </span>
@@ -83,17 +99,21 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 exports[`Snapshot testing > selected 1`] = `
 <button
   aria-label="Selected"
-  class="ds-group ds-flex ds-flex-col ds-justify-center  ds-min-w-[110px] ds-items-center ds-gap-2"
+  class="ds-group ds-flex ds-flex-col ds-justify-center ds-items-center ds-gap-2"
   type="button"
 >
-  <span
+  <div
     aria-hidden="true"
-    class="ds-size-[72px] ds-rounded-full ds-bg-accent ds-text-white ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none"
+    class="ds-size-[40px] ds-bg-accent ds-text-white ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    target
-  </span>
+    <span
+      class="size-32 material-symbols-outlined"
+    >
+      target
+    </span>
+  </div>
   <span
-    class="ds-text-button-sm ds-text-accent group-hover:ds-text-accent group-hover:ds-underline"
+    class="ds-text-accent ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
   >
     Selected
   </span>

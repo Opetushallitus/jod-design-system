@@ -1,3 +1,5 @@
+import { tidyClasses } from '../../utils';
+
 export interface RoundButtonProps {
   /** Text shown on the button */
   label: string;
@@ -13,6 +15,10 @@ export interface RoundButtonProps {
   className?: string;
   /** Icon name from Material Design */
   icon: string;
+  /** Icon size: sm = 32px, md = 40px, lg = 64px  */
+  size?: 'sm' | 'md' | 'lg';
+  /** Background color */
+  bgColor?: 'gray' | 'white';
 }
 
 /** Round button component for single-step user actions. */
@@ -24,26 +30,73 @@ export const RoundButton = ({
   selected = false,
   className,
   icon,
+  size = 'md',
+  bgColor = 'gray',
 }: RoundButtonProps) => {
+  const buttonSizeClass = tidyClasses(`
+    ${size === 'sm' ? 'ds-size-[32px]' : ''}
+    ${size === 'md' ? 'ds-size-[40px]' : ''}
+    ${size === 'lg' ? 'ds-size-[64px]' : ''}
+  `);
+
+  const iconSizeClass = tidyClasses(`
+    ${size === 'sm' ? 'size-26' : ''}
+    ${size === 'md' ? 'size-32' : ''}
+    ${size === 'lg' ? 'size-48' : ''}
+  `);
+
+  const bgColorClass = tidyClasses(`
+    ${!selected && bgColor === 'gray' ? 'ds-bg-bg-gray-2' : ''}
+    ${!selected && bgColor === 'white' ? 'ds-bg-white' : ''}
+  `);
+
   return (
     <button
       aria-label={label}
       disabled={disabled}
       type="button"
       onClick={onClick}
-      className={`${className ? className : ''} ds-group ds-flex ds-flex-col ds-justify-center ${disabled ? 'ds-cursor-not-allowed ds-opacity-50' : ''} ds-min-w-[110px] ds-items-center ds-gap-2`.trim()}
+      className={tidyClasses(`
+        ${className ?? ''}
+        ${disabled ? 'ds-cursor-not-allowed ds-opacity-50' : ''}
+        ds-group
+        ds-flex
+        ds-flex-col
+        ds-justify-center 
+        ds-items-center
+        ds-gap-2
+      `)}
     >
-      <span
+      <div
         aria-hidden
-        className={`ds-size-[72px] ds-rounded-full ${selected ? 'ds-bg-accent ds-text-white' : 'ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent'} ds-flex ds-items-center ds-justify-center material-symbols-outlined size-48 ds-select-none`}
+        className={tidyClasses(`
+          ${buttonSizeClass}
+          ${selected ? 'ds-bg-accent' : bgColorClass}
+          ${selected ? 'ds-text-white' : 'ds-text-black group-hover:ds-text-accent'}
+          ds-rounded-full
+          ds-flex
+          ds-items-center
+          ds-justify-center
+          ds-select-none
+      `)}
       >
-        {icon}
-      </span>
-      <span
-        className={`${hideLabel ? 'ds-hidden' : ''} ds-text-button-sm ${selected ? 'ds-text-accent' : 'ds-text-black'} group-hover:ds-text-accent group-hover:ds-underline`.trim()}
-      >
-        {label}
-      </span>
+        <span className={`${iconSizeClass} material-symbols-outlined`}>{icon}</span>
+      </div>
+      <LabelPart label={label} hideLabel={hideLabel} selected={selected} />
     </button>
   );
 };
+
+const LabelPart = ({ label, hideLabel, selected }: Pick<RoundButtonProps, 'label' | 'hideLabel' | 'selected'>) => (
+  <span
+    className={tidyClasses(`
+      ${hideLabel ? 'ds-hidden' : ''}
+      ${selected ? 'ds-text-accent' : 'ds-text-black'}
+      ds-text-button-sm
+      group-hover:ds-text-accent
+      group-hover:ds-underline
+    `)}
+  >
+    {label}
+  </span>
+);
