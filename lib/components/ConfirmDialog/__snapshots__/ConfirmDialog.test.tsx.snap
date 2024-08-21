@@ -32,7 +32,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
           class="ds-flex ds-max-w-[640px] ds-flex-col ds-p-9"
         >
           <h2
-            class="ds-mb-5 ds-text-heading-3 ds-font-poppins"
+            class="ds-mb-5 ds-text-heading-3"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-dialog-title-:r2:"
@@ -40,7 +40,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             ConfirmDialog rendered
           </h2>
           <p
-            class="ds-text-body-sm"
+            class="ds-text-body-sm ds-font-arial"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-description-:r3:"

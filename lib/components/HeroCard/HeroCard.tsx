@@ -52,7 +52,7 @@ export const HeroCard = ({
   if (size === 'lg') {
     return (
       <div
-        className="ds-font-poppins ds-relative ds-flex ds-flex-col ds-gap-6 ds-rounded-lg ds-px-7 ds-pb-11 ds-pt-7 ds-tracking-widest"
+        className="ds-relative ds-flex ds-flex-col ds-gap-6 ds-rounded-lg ds-px-7 ds-pb-11 ds-pt-7 ds-tracking-widest"
         style={{ backgroundColor, color: textColor }}
       >
         <h1 className="ds-overflow ds-text-pretty ds-text-[36px] ds-font-semibold ds-leading-[50px]">{title}</h1>
@@ -85,7 +85,7 @@ export const HeroCard = ({
         onClick={handleLinkClick}
       >
         <div
-          className="ds-font-poppins ds-relative ds-flex ds-flex-col ds-grow ds-gap-6 ds-rounded-lg ds-p-7 ds-pb-6 ds-tracking-widest ds-justify-between"
+          className="ds-relative ds-flex ds-flex-col ds-grow ds-gap-6 ds-rounded-lg ds-p-7 ds-pb-6 ds-tracking-widest ds-justify-between"
           style={{ backgroundColor, color: textColor }}
         >
           <h2 className="ds-overflow ds-text-pretty ds-text-[24px] ds-font-semibold ds-leading-[34px]">{title}</h2>

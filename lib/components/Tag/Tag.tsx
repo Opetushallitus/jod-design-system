@@ -17,7 +17,7 @@ export const Tag = ({ label, onClick, variant = 'selectable', color = 'secondary
   return (
     <button
       type="button"
-      className={`ds-group ds-flex ds-select-none ds-items-center ds-rounded-xl ds-text-tag ds-px-4 ds-py-2 ${colorMap[color]}`}
+      className={`ds-group ds-flex ds-select-none ds-items-center ds-rounded-xl ds-text-tag ds-font-arial ds-px-4 ds-py-2 ${colorMap[color]}`}
       onClick={onClick}
     >
       <span className="ds-hyphens-auto ds-text-black group-hover:ds-underline">{label}</span>

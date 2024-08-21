@@ -31,7 +31,9 @@ export const RadioButtonGroup = ({
       onChange={onChange}
       className={`${className ? className : ''} ds-flex ds-flex-col ds-space-y-2`.trim()}
     >
-      <Label className={`ds-mb-5 ds-text-body-xs ds-text-secondary-gray ${hideLabel ? 'ds-hidden' : ''}`.trim()}>
+      <Label
+        className={`ds-mb-5 ds-text-body-xs ds-font-arial ds-text-secondary-gray ${hideLabel ? 'ds-hidden' : ''}`.trim()}
+      >
         {label}
       </Label>
       {children}

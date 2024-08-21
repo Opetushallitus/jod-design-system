@@ -6,7 +6,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
   type="button"
 >
   <span
-    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -20,7 +20,7 @@ exports[`Button > renders the button as disabled 1`] = `
   type="button"
 >
   <span
-    class="ds-font-poppins ds-py-[10px]"
+    class="ds-py-[10px]"
   >
     Click me
   </span>
@@ -39,7 +39,7 @@ exports[`Button > renders the button with an icon on the left side 1`] = `
     add
   </span>
   <span
-    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -52,7 +52,7 @@ exports[`Button > renders the button with an icon on the right side 1`] = `
   type="button"
 >
   <span
-    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -71,7 +71,7 @@ exports[`Button > renders the button with the correct label 1`] = `
   type="button"
 >
   <span
-    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>
@@ -84,7 +84,7 @@ exports[`Button > renders the button with the correct size 1`] = `
   type="button"
 >
   <span
-    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-3"
+    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-3"
   >
     Click me
   </span>
@@ -97,7 +97,7 @@ exports[`Button > renders the button with the correct variant 1`] = `
   type="button"
 >
   <span
-    class="ds-font-poppins group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
   >
     Click me
   </span>

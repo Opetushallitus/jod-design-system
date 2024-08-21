@@ -14,12 +14,12 @@ exports[`Note component > renders with close button 1`] = `
       class="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5"
     >
       <div
-        class="ds-font-poppins ds-text-heading-4 sm:ds-text-heading-3"
+        class="ds-text-heading-4 sm:ds-text-heading-3"
       >
         Test Title
       </div>
       <div
-        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm"
+        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial"
       >
         Test Description
       </div>
@@ -57,12 +57,12 @@ exports[`Note component > renders with default variant 1`] = `
       class="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5"
     >
       <div
-        class="ds-font-poppins ds-text-heading-4 sm:ds-text-heading-3"
+        class="ds-text-heading-4 sm:ds-text-heading-3"
       >
         Test Title
       </div>
       <div
-        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm"
+        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial"
       >
         Test Description
       </div>
@@ -88,12 +88,12 @@ exports[`Note component > renders with error variant 1`] = `
       class="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5"
     >
       <div
-        class="ds-font-poppins ds-text-heading-4 sm:ds-text-heading-3"
+        class="ds-text-heading-4 sm:ds-text-heading-3"
       >
         Test Title
       </div>
       <div
-        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm"
+        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial"
       >
         Test Description
       </div>
@@ -119,17 +119,17 @@ exports[`Note component > renders with read more component 1`] = `
       class="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5"
     >
       <div
-        class="ds-font-poppins ds-text-heading-4 sm:ds-text-heading-3"
+        class="ds-text-heading-4 sm:ds-text-heading-3"
       >
         Test Title
       </div>
       <div
-        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm"
+        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial"
       >
         Test Description
       </div>
       <span
-        class="ds-font-poppins ds-mt-4 ds-text-nowrap ds-rounded-[30px] ds-bg-white ds-px-6 ds-py-[10px] ds-text-button-md hover:ds-underline focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-white active:ds-bg-accent active:ds-text-white active:ds-no-underline"
+        class="ds-mt-4 ds-text-nowrap ds-rounded-[30px] ds-bg-white ds-px-6 ds-py-[10px] ds-text-button-md hover:ds-underline focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-white active:ds-bg-accent active:ds-text-white active:ds-no-underline"
       >
         Read more
       </span>
@@ -155,12 +155,12 @@ exports[`Note component > renders with success variant 1`] = `
       class="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5"
     >
       <div
-        class="ds-font-poppins ds-text-heading-4 sm:ds-text-heading-3"
+        class="ds-text-heading-4 sm:ds-text-heading-3"
       >
         Test Title
       </div>
       <div
-        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm"
+        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial"
       >
         Test Description
       </div>
@@ -186,12 +186,12 @@ exports[`Note component > renders with warning variant 1`] = `
       class="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5"
     >
       <div
-        class="ds-font-poppins ds-text-heading-4 sm:ds-text-heading-3"
+        class="ds-text-heading-4 sm:ds-text-heading-3"
       >
         Test Title
       </div>
       <div
-        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm"
+        class="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial"
       >
         Test Description
       </div>

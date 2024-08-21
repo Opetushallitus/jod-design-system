@@ -118,7 +118,7 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
       {focused && (
         <div
           ref={refs.setFloating}
-          className="ds-max-w-[292px] ds-rounded-[8px] ds-bg-black ds-px-6 ds-py-3 ds-text-button-md ds-text-white sm:ds-text-body-md sm:ds-font-arial"
+          className="ds-max-w-[292px] ds-rounded-[8px] ds-bg-black ds-px-6 ds-py-3 ds-text-button-md ds-text-white sm:ds-text-body-md ds-font-arial"
           style={floatingStyles}
           {...getFloatingProps()}
         >

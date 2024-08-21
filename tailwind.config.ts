@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        arial: ['Arial', 'sans-serif'], // Default font
+        arial: ['Arial', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
       },
       borderRadius: {

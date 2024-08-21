@@ -26,7 +26,10 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
   const helpId = React.useId();
   return (
     <>
-      <label htmlFor={inputId} className="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-text-black">
+      <label
+        htmlFor={inputId}
+        className="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+      >
         {label}
       </label>
       <input

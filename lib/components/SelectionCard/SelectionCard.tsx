@@ -74,7 +74,7 @@ export const SelectionCard = ({
         <span className="ds-absolute ds-right-0 ds-top-0">{selected ? <CheckIcon /> : null}</span>
         {icon ?? null}
       </span>
-      <span className="ds-block ds-font-poppins ds-p-5 ds-pb-0 ds-text-center">
+      <span className="ds-block ds-p-5 ds-pb-0 ds-text-center">
         <span className="ds-text-heading-4">{label ?? ''}</span>
       </span>
     </button>
@@ -96,7 +96,7 @@ export const SelectionCard = ({
         >
           <span className="ds-transform ds-scale-75">{icon ?? null}</span>
         </span>
-        <span className="ds-font-poppins ds-ml-5 ds-text-start ds-pr-4">
+        <span className="ds-ml-5 ds-text-start ds-pr-4">
           <span className="ds-text-heading-4">{label ?? ''}</span>
         </span>
       </button>
@@ -118,7 +118,7 @@ export const SelectionCard = ({
               info
             </span>
           </TooltipTrigger>
-          <TooltipContent className="ds-bg-black ds-text-white ds-rounded-xl ds-p-5 ds-z-50 ds-text-body-sm sm:ds-text-body-md">
+          <TooltipContent className="ds-bg-black ds-text-white ds-rounded-xl ds-p-5 ds-z-50 ds-text-body-sm sm:ds-text-body-md ds-font-arial">
             {tooltipContent}
           </TooltipContent>
         </Tooltip>

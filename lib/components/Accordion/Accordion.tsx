@@ -54,7 +54,7 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
             className={wrapperClassnames}
           >
             <span
-              className="ds-mr-5 ds-w-full ds-text-left ds-hyphens-auto ds-text-heading-3 ds-font-poppins group-hover:ds-underline"
+              className="ds-mr-5 ds-w-full ds-text-left ds-hyphens-auto ds-text-heading-3 group-hover:ds-underline"
               lang={lang}
             >
               {title}

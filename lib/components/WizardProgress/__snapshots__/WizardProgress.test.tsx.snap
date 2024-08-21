@@ -2,7 +2,7 @@
 
 exports[`WizardProgress > renders correctly 1`] = `
 <ol
-  class="ds-flex ds-gap-4 ds-text-[24px] ds-text-black ds-font-semibold sm:ds-font-poppins ds-leading-[24px]"
+  class="ds-flex ds-gap-4 ds-text-[24px] ds-text-black ds-font-semibold ds-leading-[24px]"
 >
   <li
     class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"

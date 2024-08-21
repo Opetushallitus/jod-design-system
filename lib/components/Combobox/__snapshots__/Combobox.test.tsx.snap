@@ -39,7 +39,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
   class="ds-flex ds-flex-col ds-relative"
 >
   <label
-    class="ds-text-jod-black ds-text-form-label ds-mb-4"
+    class="ds-text-jod-black ds-text-form-label ds-font-arial ds-mb-4"
     for=":ra:"
   >
     Label
@@ -82,7 +82,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
   class="ds-flex ds-flex-col ds-relative"
 >
   <label
-    class="ds-text-jod-black ds-text-form-label ds-mb-4"
+    class="ds-text-jod-black ds-text-form-label ds-font-arial ds-mb-4"
     for=":r0:"
   >
     Label
