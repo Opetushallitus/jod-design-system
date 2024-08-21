@@ -22,7 +22,7 @@ export const Toast = ({ text, icon, iconAriaLabel, variant = 'success' }: ToastP
         ${variant === 'warning' ? 'ds-bg-warning' : ''}
         ${variant === 'error' ? 'ds-bg-alert' : ''}
         ds-inline-flex ds-h-8 ds-items-center ds-gap-3 ds-rounded-sm ds-pl-5 ds-text-black
-        ds-text-body-sm ${icon ? 'ds-pr-7' : 'ds-pr-5'}`
+        ds-text-body-sm ds-font-arial ${icon ? 'ds-pr-7' : 'ds-pr-5'}`
       .replace(/\s+/g, ' ')
       .trim()}
   >

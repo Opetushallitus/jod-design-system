@@ -6,7 +6,7 @@ const getClassName = ({ isActive = false, isArrowButton = true, disabled = false
     'ds-bg-accent ds-text-white': !isArrowButton && isActive,
     'material-symbols-outlined': isArrowButton,
     'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed': disabled === true,
-    'ds-font-poppins ds-font-bold': !isArrowButton,
+    'ds-font-bold': !isArrowButton,
   });
 
 export interface PaginationProps {

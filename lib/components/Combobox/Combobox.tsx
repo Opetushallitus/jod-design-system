@@ -57,7 +57,7 @@ export const Combobox = <
   return (
     <div className="ds-flex ds-flex-col ds-relative">
       {!hideLabel && (
-        <label htmlFor={labelId} className="ds-text-jod-black ds-text-form-label ds-mb-4">
+        <label htmlFor={labelId} className="ds-text-jod-black ds-text-form-label ds-font-arial ds-mb-4">
           {label}
         </label>
       )}
@@ -86,7 +86,7 @@ export const Combobox = <
             {filteredOptions.map((option) => (
               <ComboboxOption
                 key={option.value}
-                className="ds-font-poppins ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer data-[focus]:ds-underline data-[focus]:ds-text-accent hover:ds-underline hover:ds-text-accent"
+                className="ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer data-[focus]:ds-underline data-[focus]:ds-text-accent hover:ds-underline hover:ds-text-accent"
                 value={option.value}
               >
                 {option.label}

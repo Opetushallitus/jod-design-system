@@ -92,7 +92,7 @@ export const Button = ({
     'size-40': size === 'lg',
   });
 
-  const spanClassName = cx('ds-font-poppins', {
+  const spanClassName = cx({
     'group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline': !disabled,
     'ds-py-3': size === 'sm',
     'ds-py-[10px]': size === 'md',

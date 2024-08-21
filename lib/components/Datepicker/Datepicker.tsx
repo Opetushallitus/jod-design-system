@@ -7,7 +7,7 @@ const MAX_YEAR = 2100;
 const isInvalidYear = (year: number) => year < MIN_YEAR || year >= MAX_YEAR;
 
 const tableCellClasses =
-  'ds-m-3 ds-text-body-sm ds-size-[28px] sm:ds-size-[32px] hover:ds-underline focus:ds-left-auto ds-capitalize data-[selected]:ds-bg-secondary-1-50 data-[selected]:ds-rounded-full';
+  'ds-m-3 ds-text-body-sm ds-font-arial ds-size-[28px] sm:ds-size-[32px] hover:ds-underline focus:ds-left-auto ds-capitalize data-[selected]:ds-bg-secondary-1-50 data-[selected]:ds-rounded-full';
 
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
   cx(tableCellClasses, {
@@ -72,7 +72,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
       className="ds-w-full"
       isDateUnavailable={(date) => isInvalidYear(date.year)}
     >
-      <ArkDatePicker.Label className="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-text-black">
+      <ArkDatePicker.Label className="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black">
         {label}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
@@ -81,7 +81,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             ref={ref}
             name={name}
             placeholder={placeholder}
-            className="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray placeholder:ds-font-poppins"
+            className="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({

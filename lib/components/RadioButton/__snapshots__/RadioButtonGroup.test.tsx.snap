@@ -8,7 +8,7 @@ exports[`Snapshot testing > Default 1`] = `
   role="radiogroup"
 >
   <div
-    class="ds-mb-5 ds-text-body-xs ds-text-secondary-gray"
+    class="ds-mb-5 ds-text-body-xs ds-font-arial ds-text-secondary-gray"
     data-headlessui-state=""
     id="headlessui-label-:r1:"
   >
@@ -41,7 +41,7 @@ exports[`Snapshot testing > Default 1`] = `
         />
       </svg>
       <span
-        class="ds-font-poppins ds-flex ds-items-center ds-text-button-md ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto"
+        class="ds-flex ds-items-center ds-text-button-md ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto"
       >
         Option 1
       </span>

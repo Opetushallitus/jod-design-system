@@ -88,8 +88,8 @@ export const ConfirmDialog = ({
             <div className="ds-flex ds-w-full ds-items-center ds-justify-center">
               <DialogPanel className="ds-overflow-hidden ds-rounded-lg ds-bg-bg-gray">
                 <div className="ds-flex ds-max-w-[640px] ds-flex-col ds-p-9">
-                  <DialogTitle className="ds-mb-5 ds-text-heading-3 ds-font-poppins">{title}</DialogTitle>
-                  <Description className="ds-text-body-sm">{description}</Description>
+                  <DialogTitle className="ds-mb-5 ds-text-heading-3">{title}</DialogTitle>
+                  <Description className="ds-text-body-sm ds-font-arial">{description}</Description>
                   {content && <div className="ds-mt-7">{content}</div>}
                 </div>
 

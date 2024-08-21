@@ -5,7 +5,7 @@ exports[`ResultsCard > renders the text and the label 1`] = `
   class="ds-flex ds-w-min ds-flex-col-reverse ds-items-center ds-rounded-[10px] ds-bg-bg-gray ds-px-8 ds-py-5 ds-font-bold"
 >
   <span
-    class="ds-text-heading-4 ds-font-poppins ds-text-black"
+    class="ds-text-heading-4 ds-text-black"
   >
     Dolor sit amet
   </span>
