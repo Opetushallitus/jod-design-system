@@ -51,4 +51,14 @@ describe('RadioButtonGroup', () => {
     await user.click(radioButton);
     expect(mockOnChange).toHaveBeenCalledTimes(1);
   });
+
+  it('hides the label correctly', () => {
+    render(
+      <RadioButtonGroup label="Label that is now hidden" value="" onChange={vi.fn()} hideLabel>
+        <RadioButton value="option1" label="Option 1" />
+      </RadioButtonGroup>,
+    );
+    const parentClassList = screen.getByText('Label that is now hidden').classList;
+    expect(parentClassList).toContain('ds-hidden');
+  });
 });
