@@ -46,6 +46,14 @@ export const Combobox = <
 }: ComboboxProps<T, U>) => {
   const labelId = React.useId();
 
+  const [query, setQuery] = React.useState('');
+  const filteredOptions =
+    query === ''
+      ? options
+      : options.filter((option) => {
+          return option.label.toLowerCase().includes(query.toLowerCase());
+        });
+
   return (
     <div className="ds-flex ds-flex-col ds-relative">
       {!hideLabel && (
@@ -65,6 +73,7 @@ export const Combobox = <
             aria-label={hideLabel ? label : undefined}
             displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
             className="ds-font-arial ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray disabled:ds-text-inactive-gray disabled:ds-pointer-events-none"
+            onChange={(event) => setQuery(event.target.value)}
             placeholder={`(${placeholder})`}
           />
           <ComboboxButton
@@ -74,10 +83,10 @@ export const Combobox = <
             expand_more
           </ComboboxButton>
           <ComboboxOptions className="ds-bg-white ds-mt-3 ds-absolute ds-w-full ds-top-full ds-p-5 ds-m-0 ds-shadow-border ds-rounded-md ds-z-50 empty:ds-invisible">
-            {options.map((option) => (
+            {filteredOptions.map((option) => (
               <ComboboxOption
                 key={option.value}
-                className="ds-font-poppins ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer hover:ds-underline hover:ds-text-accent"
+                className="ds-font-poppins ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer data-[focus]:ds-underline data-[focus]:ds-text-accent hover:ds-underline hover:ds-text-accent"
                 value={option.value}
               >
                 {option.label}

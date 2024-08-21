@@ -66,20 +66,20 @@ export const Disabled: Story = {
   },
 };
 
-export const PreSelectedValue: Story = {
+export const WithDefaultValue: Story = {
   decorators,
   parameters: {
     design,
     docs: {
       description: {
-        story: 'Combobox component with preselected value',
+        story: 'Combobox component with default value',
       },
     },
   },
   args: {
     label,
     placeholder: label,
-    selected: 'en',
+    defaultValue: 'en',
     options: [
       { label: 'Suomi', value: 'fi' },
       { label: 'Svenska', value: 'sv' },
