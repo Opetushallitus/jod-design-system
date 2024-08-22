@@ -8,9 +8,8 @@ interface AccordionProps {
   expandMoreText: string;
   lang: string;
   underline?: boolean;
+  intialState?: boolean;
 }
-
-const INITIAL_STATE = true;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
   <span
@@ -21,8 +20,16 @@ const Caret = ({ isOpen }: { isOpen: boolean }) => (
   </span>
 );
 
-export const Accordion = ({ title, children, expandLessText, expandMoreText, lang, underline }: AccordionProps) => {
-  const [isOpen, setIsOpen] = React.useState(INITIAL_STATE);
+export const Accordion = ({
+  title,
+  children,
+  expandLessText,
+  expandMoreText,
+  lang,
+  underline,
+  intialState = true,
+}: AccordionProps) => {
+  const [isOpen, setIsOpen] = React.useState(intialState);
   const toggleOpen = () => setIsOpen(!isOpen);
   const isTitleValidElement = React.isValidElement(title);
   const wrapperClassnames = cx(
@@ -34,8 +41,8 @@ export const Accordion = ({ title, children, expandLessText, expandMoreText, lan
 
   // Reset the state when the children change
   React.useEffect(() => {
-    setIsOpen(INITIAL_STATE);
-  }, [children]);
+    setIsOpen(intialState);
+  }, [children, intialState]);
 
   return (
     <>
