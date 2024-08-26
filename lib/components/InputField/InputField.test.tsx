@@ -13,7 +13,7 @@ describe('InputField', () => {
     const { container } = render(<InputField value={value} onChange={onChange} label={label} />);
     const labelElement = screen.getByText(label);
     expect(labelElement).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('renders input correctly', () => {
@@ -25,7 +25,7 @@ describe('InputField', () => {
     );
     const inputElement = screen.getByPlaceholderText(`(${placeholder})`);
     expect(inputElement).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('renders help text correctly', () => {
@@ -35,7 +35,7 @@ describe('InputField', () => {
     const { container } = render(<InputField value={value} onChange={onChange} label={label} help={helpText} />);
     const helpElement = screen.getByText(helpText);
     expect(helpElement).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('updates input value correctly', () => {
@@ -45,6 +45,6 @@ describe('InputField', () => {
     const inputElement = screen.getByRole('textbox');
     fireEvent.change(inputElement, { target: { value: 'new value' } });
     expect(onChange).toHaveBeenCalled();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

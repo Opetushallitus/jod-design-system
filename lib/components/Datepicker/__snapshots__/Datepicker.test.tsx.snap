@@ -31,7 +31,7 @@ exports[`Datepicker > renders correctly 1`] = `
       <input
         autocomplete="off"
         autocorrect="off"
-        class="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
+        class="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-font-arial ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
         data-part="input"
         data-scope="date-picker"
         data-state="closed"

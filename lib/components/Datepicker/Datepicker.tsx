@@ -82,7 +82,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             ref={ref}
             name={name}
             placeholder={placeholder}
-            className="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
+            className="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-font-arial ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (e.target.value === '') {
                 onChange({
@@ -98,7 +98,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
         </div>
       </ArkDatePicker.Control>
       {help && (
-        <div id={helpId} className="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray">
+        <div id={helpId} className="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray ds-font-arial">
           {help}
         </div>
       )}

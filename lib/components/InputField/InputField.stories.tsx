@@ -28,7 +28,7 @@ const render = (args: Story['args']) => {
     />
   );
 };
-const url = 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A7550';
+const url = 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7019&t=RZCfmzkZuXUFBRkG-4';
 const label = 'Label text';
 const loremIpsum = 'Lorem ipsum dolor sit amet';
 

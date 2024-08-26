@@ -1,37 +1,81 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`InputField > renders help text correctly 1`] = `
-<label
-  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-  for=":r4:"
->
-  Username
-</label>
+<div>
+  <label
+    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    for=":r4:"
+  >
+    Username
+  </label>
+  <input
+    aria-describedby=":r5:"
+    autocomplete="off"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    id=":r4:"
+    type="text"
+    value="john"
+  />
+  <div
+    class="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray ds-font-arial"
+    id=":r5:"
+  >
+    Please enter your username
+  </div>
+</div>
 `;
 
 exports[`InputField > renders input correctly 1`] = `
-<label
-  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-  for=":r2:"
->
-  Username
-</label>
+<div>
+  <label
+    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    for=":r2:"
+  >
+    Username
+  </label>
+  <input
+    autocomplete="off"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    id=":r2:"
+    placeholder="(Enter your username)"
+    type="text"
+    value="john"
+  />
+</div>
 `;
 
 exports[`InputField > renders label correctly 1`] = `
-<label
-  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-  for=":r0:"
->
-  Username
-</label>
+<div>
+  <label
+    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    for=":r0:"
+  >
+    Username
+  </label>
+  <input
+    autocomplete="off"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    id=":r0:"
+    type="text"
+    value="john"
+  />
+</div>
 `;
 
 exports[`InputField > updates input value correctly 1`] = `
-<label
-  class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-  for=":r6:"
->
-  Username
-</label>
+<div>
+  <label
+    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    for=":r6:"
+  >
+    Username
+  </label>
+  <input
+    autocomplete="off"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    id=":r6:"
+    type="text"
+    value="test value"
+  />
+</div>
 `;
