@@ -1,6 +1,7 @@
 import './index.css';
 
 export { cva, cx } from './cva';
+export { tidyClasses } from './utils';
 
 export { useMediaQueries } from './hooks/useMediaQueries';
 
