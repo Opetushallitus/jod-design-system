@@ -1,4 +1,6 @@
+import React from 'react';
 import { cx } from '../../cva';
+import { tidyClasses } from '../../utils';
 
 export interface ButtonProps {
   /** Form ID to associate the button with */
@@ -17,6 +19,8 @@ export interface ButtonProps {
   icon?: React.ReactNode;
   /** Icon side */
   iconSide?: 'left' | 'right';
+  /** For situation where the button needs to act as a link, like NavLink */
+  LinkComponent?: React.ComponentType<{ children: React.ReactNode }>;
 }
 
 const getSizeClassName = (size: ButtonProps['size']) => {
@@ -60,16 +64,19 @@ const getButtonClassName = ({
   leftIcon,
   rightIcon,
   disabled,
-}: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) => {
-  return `ds-flex ds-items-center ds-gap-4 ds-select-none ds-group
-    ${getSizeClassName(size)}
-    ${getIconClassName(size, leftIcon, rightIcon)}
-    ${getVariantClassName(variant, disabled)}
-    ${getDisabledClassName(disabled)}
-  `
-    .replace(/\s+/g, ' ')
-    .trim();
-};
+  LinkComponent,
+}: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) =>
+  tidyClasses([
+    LinkComponent ? 'ds-inline-flex' : 'ds-flex',
+    'ds-items-center',
+    'ds-gap-4',
+    'ds-select-none',
+    'ds-group',
+    getSizeClassName(size),
+    getIconClassName(size, leftIcon, rightIcon),
+    getVariantClassName(variant, disabled),
+    getDisabledClassName(disabled),
+  ]);
 
 /** Button component for user actions. */
 export const Button = ({
@@ -81,11 +88,12 @@ export const Button = ({
   disabled = false,
   icon,
   iconSide,
+  LinkComponent,
 }: ButtonProps) => {
   const leftIcon = icon !== undefined && iconSide === 'left';
   const rightIcon = icon !== undefined && iconSide === 'right';
   const onlyIcon = icon && !leftIcon && !rightIcon;
-  const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled });
+  const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled, LinkComponent });
 
   const spanClassName = cx({
     'group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline': !disabled,
@@ -94,7 +102,15 @@ export const Button = ({
     'ds-py-[20px]': size === 'lg',
   });
 
-  return (
+  return LinkComponent ? (
+    <LinkComponent>
+      <span className={buttonClassName}>
+        {leftIcon && <>{icon}</>}
+        {onlyIcon ? <>{icon}</> : <span className={spanClassName}>{label}</span>}
+        {rightIcon && <>{icon}</>}
+      </span>
+    </LinkComponent>
+  ) : (
     <button
       form={form}
       disabled={disabled}
