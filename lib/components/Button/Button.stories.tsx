@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { MdArrowBack, MdArrowForward } from 'react-icons/md';
+import { MdArrowBack, MdArrowForward, MdPerson } from 'react-icons/md';
 
 import { Button } from './Button';
 
@@ -23,7 +23,7 @@ export const Gray: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8122',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5869&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -43,7 +43,7 @@ export const White: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8086',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5829&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -62,7 +62,7 @@ export const GrayDelete: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=842%3A7302',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5850&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -82,7 +82,7 @@ export const WhiteDelete: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=842%3A7301',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5847&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -101,7 +101,7 @@ export const Disabled: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8077',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5809&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -121,7 +121,7 @@ export const Small: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8122',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5831&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -141,7 +141,7 @@ export const Large: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8106',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5857&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -161,7 +161,7 @@ export const MediumWithLeftIcon: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8088',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5837&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -181,7 +181,7 @@ export const LargeWithRightIcon: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729%3A8102',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5853&t=6CqIVQA2gz0PPxiK-4',
     },
     docs: {
       description: {
@@ -196,5 +196,28 @@ export const LargeWithRightIcon: Story = {
     variant: 'white',
     icon: <MdArrowForward size={40} />,
     iconSide: 'right',
+  },
+};
+
+export const AsLink: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5869&t=6CqIVQA2gz0PPxiK-4',
+    },
+    docs: {
+      description: {
+        story: 'This is a link component that resembles the button component.',
+      },
+    },
+    backgrounds,
+  },
+  args: {
+    label: 'Kirjaudu sisään',
+    size: 'lg',
+    variant: 'gray',
+    icon: <MdPerson size={40} />,
+    iconSide: 'left',
+    LinkComponent: ({ children }: { children: React.ReactNode }) => <a href="/#">{children}</a>,
   },
 };
