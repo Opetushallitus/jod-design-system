@@ -33,31 +33,32 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
       {/* Wrapper container paddings and margins */}
       <div className="ds-fixed ds-inset-0">
         {/* Wrapper for container centering */}
-        <div className="ds-flex ds-items-center ds-justify-center ds-h-full">
+        <div className="ds-flex ds-items-center ds-justify-center ds-h-full ds-m-3">
           {/* Modal container */}
           <DialogPanel
             className={tc([
-              'ds-mx-3',
               'ds-flex',
               'ds-flex-col',
               'ds-bg-bg-gray',
               'ds-overflow-hidden',
               'ds-rounded',
+              'ds-w-full',
+              'ds-min-h-[calc(100vh-172px)]',
+              'ds-max-w-[1092px]',
               'sm:ds-rounded-lg',
             ])}
           >
             {/* Content wrapper */}
             <div
               className={tc([
-                'heightClasses',
+                heightClasses,
                 'ds-grid',
                 'ds-max-w-[1092px]',
-                'ds-grid-cols-2',
+                'ds-grid-cols-1',
                 'ds-gap-6',
                 'ds-my-6',
+                'sm:ds-grid-cols-3',
                 'ds-pl-5',
-                'sm:ds-grid-cols-6',
-                'sm:ds-pl-5',
                 'md:ds-pl-9',
               ])}
             >
@@ -65,12 +66,12 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
               <div
                 className={tc([
                   heightClasses,
-                  'ds-col-span-2',
+                  'ds-col-span-1',
                   'ds-flex',
                   'ds-flex-col',
                   'ds-gap-y-6',
                   'ds-pr-5',
-                  'sm:ds-col-span-4',
+                  'sm:ds-col-span-2',
                   'sm:ds-pr-0',
                 ])}
               >
@@ -79,17 +80,17 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
               </div>
               {/* Side panel */}
               {sm && (
-                <div className={`ds-col-span-2 ds-flex ds-flex-col ${heightClasses}`}>
+                <div className={`ds-col-span-1 ds-flex ds-flex-col ${heightClasses}`}>
                   {progress && <div className="ds-mr-6 ds-flex ds-grow ds-flex-col ds-items-end">{progress}</div>}
-                  <div className={`sm:ds-mr-5 md:ds-mr-9 ds-overflow-y-auto ${!progress ? 'sm:ds-mt-6' : ''}`}>
+                  <div className={`ds-mr-5 sm:ds-mr-9 ds-overflow-y-auto ${!progress ? 'sm:ds-mt-6' : ''}`}>
                     {sidePanel}
                   </div>
                 </div>
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds-bg-bg-gray-2 ds-overflow-x-auto ds-overflow-y-hidden ds-justify-between ds-py-4 sm:ds-py-5 ds-px-4 sm:ds-px-9">
-              {footer}
+            <div className="ds-bg-bg-gray-2 ds-overflow-x-auto ds-overflow-y-hidden ds-mt-auto">
+              <div className="ds-py-4 sm:ds-py-5 ds-px-9 ds-w-fit">{footer}</div>
             </div>
           </DialogPanel>
         </div>
