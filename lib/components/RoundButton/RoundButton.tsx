@@ -39,12 +39,6 @@ export const RoundButton = ({
     ${size === 'lg' ? 'ds-size-[64px]' : ''}
   `);
 
-  const iconSizeClass = tidyClasses(`
-    ${size === 'sm' ? 'size-26' : ''}
-    ${size === 'md' ? 'size-32' : ''}
-    ${size === 'lg' ? 'size-48' : ''}
-  `);
-
   const bgColorClass = tidyClasses(`
     ${!selected && bgColor === 'gray' ? 'ds-bg-bg-gray-2' : ''}
     ${!selected && bgColor === 'white' ? 'ds-bg-white' : ''}
@@ -80,7 +74,7 @@ export const RoundButton = ({
           ds-select-none
       `)}
       >
-        <span className={`${iconSizeClass} material-symbols-outlined`}>{icon}</span>
+        {icon}
       </div>
       <LabelPart label={label} hideLabel={hideLabel} selected={selected} />
     </button>

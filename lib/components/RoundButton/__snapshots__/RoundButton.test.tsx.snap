@@ -10,11 +10,7 @@ exports[`Snapshot testing > Default 1`] = `
     aria-hidden="true"
     class="ds-size-[40px] ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    <span
-      class="size-32 material-symbols-outlined"
-    >
-      target
-    </span>
+    target
   </div>
   <span
     class="ds-text-black ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
@@ -34,11 +30,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
     aria-hidden="true"
     class="ds-size-[40px] ds-bg-bg-gray-2 ds-text-black group-hover:ds-text-accent ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    <span
-      class="size-32 material-symbols-outlined"
-    >
-      target
-    </span>
+    target
   </div>
   <span
     class="ds-text-black ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
@@ -58,11 +50,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
     aria-hidden="true"
     class="ds-size-[40px] ds-bg-accent ds-text-white ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    <span
-      class="size-32 material-symbols-outlined"
-    >
-      target
-    </span>
+    target
   </div>
   <span
     class="ds-text-accent ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
@@ -82,11 +70,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
     aria-hidden="true"
     class="ds-size-[40px] ds-bg-accent ds-text-white ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    <span
-      class="size-32 material-symbols-outlined"
-    >
-      target
-    </span>
+    target
   </div>
   <span
     class="ds-text-accent ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
@@ -106,11 +90,7 @@ exports[`Snapshot testing > selected 1`] = `
     aria-hidden="true"
     class="ds-size-[40px] ds-bg-accent ds-text-white ds-rounded-full ds-flex ds-items-center ds-justify-center ds-select-none"
   >
-    <span
-      class="size-32 material-symbols-outlined"
-    >
-      target
-    </span>
+    target
   </div>
   <span
     class="ds-text-accent ds-text-button-sm group-hover:ds-text-accent group-hover:ds-underline"
