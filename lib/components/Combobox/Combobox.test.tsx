@@ -59,7 +59,7 @@ describe('Combobox', () => {
 
       // Assert that the value is English, click the expand button and check that English is selected
       expect(input.value).toBe('English');
-      await user.click(screen.getByRole('button', { name: 'expand_more' }));
+      await user.click(screen.getByRole('button'));
       expect(screen.getByRole('option', { name: 'English' }).ariaSelected).toBe('true');
     });
   });

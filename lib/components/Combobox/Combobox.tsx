@@ -6,6 +6,7 @@ import {
   Combobox as HeadlessCombobox,
 } from '@headlessui/react';
 import React from 'react';
+import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 
 export interface ComboboxOptionsData<T extends string = string> {
   value: T;
@@ -68,31 +69,35 @@ export const Combobox = <
           disabled={disabled}
           value={selected}
         >
-          <ComboboxInput
-            id={labelId}
-            aria-label={hideLabel ? label : undefined}
-            displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
-            className="ds-font-arial ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray disabled:ds-text-inactive-gray disabled:ds-pointer-events-none"
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder={`(${placeholder})`}
-          />
-          <ComboboxButton
-            className="material-symbols-outlined ds-select-none ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray disabled:ds-text-inactive-gray"
-            disabled={disabled}
-          >
-            expand_more
-          </ComboboxButton>
-          <ComboboxOptions className="ds-bg-white ds-mt-3 ds-absolute ds-w-full ds-top-full ds-p-5 ds-m-0 ds-shadow-border ds-rounded-md ds-z-50 empty:ds-invisible">
-            {filteredOptions.map((option) => (
-              <ComboboxOption
-                key={option.value}
-                className="ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer data-[focus]:ds-underline data-[focus]:ds-text-accent hover:ds-underline hover:ds-text-accent"
-                value={option.value}
+          {({ open }) => (
+            <>
+              <ComboboxInput
+                id={labelId}
+                aria-label={hideLabel ? label : undefined}
+                displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
+                className="ds-font-arial ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray disabled:ds-text-inactive-gray disabled:ds-pointer-events-none"
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={`(${placeholder})`}
+              />
+              <ComboboxButton
+                className="ds-select-none ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray disabled:ds-text-inactive-gray"
+                disabled={disabled}
               >
-                {option.label}
-              </ComboboxOption>
-            ))}
-          </ComboboxOptions>
+                {open ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
+              </ComboboxButton>
+              <ComboboxOptions className="ds-bg-white ds-mt-3 ds-absolute ds-w-full ds-top-full ds-p-5 ds-m-0 ds-shadow-border ds-rounded-md ds-z-50 empty:ds-invisible">
+                {filteredOptions.map((option) => (
+                  <ComboboxOption
+                    key={option.value}
+                    className="ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer data-[focus]:ds-underline data-[focus]:ds-text-accent hover:ds-underline hover:ds-text-accent"
+                    value={option.value}
+                  >
+                    {option.label}
+                  </ComboboxOption>
+                ))}
+              </ComboboxOptions>
+            </>
+          )}
         </HeadlessCombobox>
       </div>
     </div>
