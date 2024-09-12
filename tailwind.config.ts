@@ -36,6 +36,14 @@ export default {
         50: '#80b6d9',
         25: '#bfdbec',
       },
+      tag: {
+        tyopaikka: '#E6A6D9',
+        koulutus: '#80D3D9',
+        'vapaa-ajan-toiminto': '#99CEEF',
+        'jotain-muuta': '#D8D8D8',
+        kiinnostus: '#F7BDA2',
+        rajoitus: '#F7A2A7',
+      },
       'secondary-1': {
         DEFAULT: '#339ddf',
         75: '#66b5e7',
