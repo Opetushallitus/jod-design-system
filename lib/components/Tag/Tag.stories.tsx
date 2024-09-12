@@ -26,7 +26,7 @@ export const Selectable: Story = {
   },
 };
 
-export const Added: Story = {
+export const Selected: Story = {
   parameters: {
     design: {
       type: 'figma',
@@ -37,6 +37,6 @@ export const Added: Story = {
     label: 'added',
     onClick: fn(),
     variant: 'added',
-    color: 'secondary-3',
+    sourceType: 'tyopaikka',
   },
 };
