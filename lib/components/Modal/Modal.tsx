@@ -16,7 +16,7 @@ export interface ModalProps {
 export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: ModalProps) => {
   const { sm } = useMediaQueries();
 
-  const heightClasses = `ds-max-h-[calc(100vh-172px)] sm:ds-max-h-[calc(100vh-320px)]`;
+  const heightClasses = `ds-max-h-[calc(100vh-172px)] ds-min-h-[calc(100vh-344px)] sm:ds-max-h-[calc(100vh-320px)]`;
 
   return (
     <Dialog
@@ -43,7 +43,6 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
               'ds-overflow-hidden',
               'ds-rounded',
               'ds-w-full',
-              'ds-min-h-[calc(100vh-172px)]',
               'ds-max-w-[1092px]',
               'sm:ds-rounded-lg',
             ])}
@@ -89,8 +88,8 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds-bg-bg-gray-2 ds-overflow-x-auto ds-overflow-y-hidden ds-mt-auto">
-              <div className="ds-py-4 sm:ds-py-5 ds-px-9 ds-w-fit">{footer}</div>
+            <div className="ds-bg-bg-gray-2 ds-overflow-x-auto ds-overflow-y-hidden ds-justify-between ds-py-4 sm:ds-py-5 ds-px-4 sm:ds-px-9">
+              {footer}
             </div>
           </DialogPanel>
         </div>
