@@ -1,4 +1,6 @@
 import React from 'react';
+import { GrTarget } from 'react-icons/gr';
+import { MdCheck, MdOutlineFlag } from 'react-icons/md';
 import { tidyClasses } from '../../utils';
 
 export interface PathProgressProps {
@@ -16,7 +18,7 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
     setStep(getStep(currentStep));
   }, [currentStep, getStep]);
 
-  const baseClasses = 'ds-size-8 ds-rounded-full ds-appearance-none ds-z-10';
+  const baseClasses = 'ds-size-8 ds-rounded-full ds-appearance-none ds-z-10 ds-flex ds-items-center ds-justify-center';
   const getActiveClasses = (idx: number) =>
     step === idx ? 'ds-bg-accent ds-text-white' : 'ds-bg-bg-gray-2 ds-text-black';
 
@@ -31,14 +33,13 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
       <button
         type="button"
         className={tidyClasses(`
-          material-symbols-outlined
           ds-mb-6
           ${baseClasses}
           ${getActiveClasses(0)}
         `)}
         onClick={handleOnClick(0)}
       >
-        flag
+        <MdOutlineFlag size={24} />
       </button>
       {Array.from({ length: steps }).map((_, index) => (
         <button
@@ -54,11 +55,7 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
           `)}
           onClick={handleOnClick(index + 1)}
         >
-          {selectedStep === index + 1 ? (
-            <span className="material-symbols-outlined ds-font-bold">check</span>
-          ) : (
-            index + 1
-          )}
+          {selectedStep === index + 1 ? <MdCheck size={24} /> : index + 1}
         </button>
       ))}
       <button
@@ -66,12 +63,11 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
         className={tidyClasses(`
           ${baseClasses}
           ${getActiveClasses(steps + 1)}
-          material-symbols-outlined
           ds-mb-0
         `)}
         onClick={handleOnClick(steps + 1)}
       >
-        target
+        <GrTarget size={24} />
       </button>
     </div>
   );
