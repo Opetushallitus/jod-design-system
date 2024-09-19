@@ -12,7 +12,7 @@ export interface ButtonProps {
   /** Size of the button */
   size?: 'sm' | 'md' | 'lg';
   /** Button variant */
-  variant?: 'gray' | 'white' | 'gray-delete' | 'white-delete';
+  variant?: 'gray' | 'white' | 'gray-delete' | 'white-delete' | 'accent';
   /** Button disabled for any actions */
   disabled?: boolean;
   /** Icon shown on the button */
@@ -42,6 +42,7 @@ const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIco
 
 const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
   return cx({
+    'ds-text-white ds-bg-accent hover:ds-text-white active:ds-bg-white active:ds-text-black': variant === 'accent',
     'ds-text-black ds-bg-bg-gray': variant === 'gray',
     'ds-text-black ds-bg-white': variant === 'white',
     'ds-text-alert ds-bg-bg-gray hover:ds-text-alert active:ds-text-white focus-visible:ds-text-alert':
@@ -99,7 +100,7 @@ export const Button = ({
     'group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline': !disabled,
     'ds-py-3': size === 'sm',
     'ds-py-[10px]': size === 'md',
-    'ds-py-[20px]': size === 'lg',
+    'ds-py-[18px]': size === 'lg',
   });
 
   return LinkComponent ? (
