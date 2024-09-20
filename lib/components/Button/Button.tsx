@@ -42,7 +42,9 @@ const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIco
 
 const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
   return cx({
-    'ds-text-white ds-bg-accent hover:ds-text-white active:ds-bg-white active:ds-text-black': variant === 'accent',
+    'ds-text-white ds-bg-accent hover:ds-text-white active:ds-bg-white active:ds-text-black focus-visible:ds-text-white':
+      variant === 'accent' && !disabled,
+    'ds-bg-bg-gray': variant === 'accent' && disabled,
     'ds-text-black ds-bg-bg-gray': variant === 'gray',
     'ds-text-black ds-bg-white': variant === 'white',
     'ds-text-alert ds-bg-bg-gray hover:ds-text-alert active:ds-text-white focus-visible:ds-text-alert':
@@ -53,9 +55,19 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
   });
 };
 
-const getDisabledClassName = (disabled: ButtonProps['disabled']) => {
+const getDisabledClassName = (disabled: ButtonProps['disabled'], variant: ButtonProps['variant']) => {
   return disabled === false
-    ? 'hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0'
+    ? tidyClasses(`
+      hover:ds-text-accent
+      focus-visible:ds-text-accent
+      active:ds-bg-accent
+      focus-visible:ds-outline-accent
+      focus-visible:ds-outline
+      focus-visible:ds-outline-[3px]
+      focus-visible:ds-outline-offset-[1.5px]
+      ${variant === 'accent' ? 'active:ds-text-accent' : 'active:ds-text-white'}
+      active:ds-outline-0
+    `)
     : 'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed';
 };
 
@@ -76,7 +88,7 @@ const getButtonClassName = ({
     getSizeClassName(size),
     getIconClassName(size, leftIcon, rightIcon),
     getVariantClassName(variant, disabled),
-    getDisabledClassName(disabled),
+    getDisabledClassName(disabled, variant),
   ]);
 
 /** Button component for user actions. */
