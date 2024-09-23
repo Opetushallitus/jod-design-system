@@ -19,12 +19,16 @@ import {
 } from '@floating-ui/react';
 import React from 'react';
 
+import { tidyClasses as tc } from '../../utils';
+
 const ARROW_HEIGHT = 12;
 const GAP = 8;
 
 export interface SliderProps {
   /** Label */
   label: string;
+  /** Label to right side */
+  rightLabel?: string;
   /** On slider value change */
   onValueChange: (value: number) => void;
   /** Current value of the slider */
@@ -40,7 +44,7 @@ const Marker = () => {
 };
 
 /** Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable. */
-export const Slider = ({ label, onValueChange, value }: SliderProps) => {
+export const Slider = ({ label, onValueChange, value, rightLabel }: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);
   const arrowRef = React.useRef(null);
@@ -74,13 +78,20 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
     setFocused(details.focusedIndex === 0);
   };
 
+  const getTooltipValue = () => {
+    if (rightLabel) {
+      return `${100 - value} - ${value} %`;
+    }
+    return `${value} %`;
+  };
+
   return (
     <div className="ds-flex ds-h-[40px] ds-rounded-[20px] ds-bg-white ds-justify-between">
-      <span className="ds-ml-5 ds-flex ds-items-center ds-text-[12px] ds-basis-1/4">{label}</span>
+      <span className="ds-ml-6 ds-mr-5 ds-flex ds-items-center ds-text-[12px]">{label}</span>
       <ArkSlider.Root
         id={inputId}
         name={`slider-${inputId}`}
-        className="ds-ml-5 ds-mr-7 sm:ds-mr-5 ds-flex ds-grow ds-flex-col ds-justify-center ds-basis-3/4"
+        className={tc([rightLabel ? '' : 'ds-mr-6', 'ds-flex ds-grow ds-flex-col ds-justify-center'])}
         onValueChange={onValueChangeHandler}
         onFocusChange={onFocusChangeHandler}
         value={[value]}
@@ -115,6 +126,7 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
           />
         </ArkSlider.Control>
       </ArkSlider.Root>
+      {rightLabel && <span className="ds-ml-5 ds-mr-6 ds-flex ds-items-center ds-text-[12px]">{rightLabel}</span>}
       {focused && (
         <div
           ref={refs.setFloating}
@@ -122,7 +134,7 @@ export const Slider = ({ label, onValueChange, value }: SliderProps) => {
           style={floatingStyles}
           {...getFloatingProps()}
         >
-          {value}%
+          {getTooltipValue()}
           <FloatingArrow
             ref={arrowRef}
             context={context}

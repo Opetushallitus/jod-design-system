@@ -28,7 +28,7 @@ describe('Slider', () => {
     render(<Slider label="Target" onValueChange={onValueChangeMock} value={0} />);
 
     const [sliderThumb] = screen.getAllByRole('slider', { hidden: true });
-    sliderThumb.focus();
+    await waitFor(() => sliderThumb.focus());
 
     await user.keyboard('[ArrowRight]');
     expect(sliderThumb).toHaveAttribute('aria-valuenow', '25');
@@ -36,5 +36,24 @@ describe('Slider', () => {
     expect(sliderThumb).toHaveAttribute('aria-valuenow', '0');
 
     await waitFor(() => expect(onValueChangeMock).toHaveBeenCalledTimes(2));
+  });
+
+  it('should show both values in tooltip when rightLabel is used', async () => {
+    const rightLabel = 'Kiinnostukset';
+
+    render(<Slider label="Osaamiset" value={25} onValueChange={vi.fn()} rightLabel={rightLabel} />);
+
+    const [sliderThumb] = screen.getAllByRole('slider', { hidden: true });
+    await waitFor(() => sliderThumb.focus());
+
+    const tooltip = screen.getByRole('tooltip');
+    expect(tooltip).toHaveTextContent('75 - 25 %');
+  });
+
+  it('should render the label and rightLabel correctly', () => {
+    render(<Slider label="Osaamiset" rightLabel="Kiinnostukset" onValueChange={() => vi.fn()} value={50} />);
+
+    expect(screen.getByText('Osaamiset')).toBeInTheDocument();
+    expect(screen.getByText('Kiinnostukset')).toBeInTheDocument();
   });
 });
