@@ -42,8 +42,6 @@ export const Primary: Story = {
     backgroundColor: '#006DB3F2',
     actionContent: 'Kokeile palvelua',
     arrowColor: '#006DB3',
-    href: '/',
-    onClick: () => console.log('Clicked'),
   },
   decorators: [
     (Story) => (
@@ -75,7 +73,6 @@ export const PrimaryWithoutArrowsOrActions: Story = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui ac nunc tincidunt tincidunt. Nullam nec dui ac nunc tincidunt tincidunt.',
     backgroundColor: '#006DB3F2',
     arrowVisible: false,
-    href: '/',
   },
   decorators: [
     (Story) => (
@@ -86,7 +83,7 @@ export const PrimaryWithoutArrowsOrActions: Story = {
   ],
 };
 
-export const Secondary: Story = {
+export const SecondaryWithLink: Story = {
   parameters: {
     design: {
       type: 'figma',
@@ -94,11 +91,15 @@ export const Secondary: Story = {
     },
     docs: {
       description: {
-        story: 'This is a secondary hero card component.',
+        story: 'This is a secondary hero card component with a link.',
       },
     },
   },
-  args: secondaryCardArgs,
+  args: {
+    to: '#',
+    linkComponent: ({ to, children }) => <a href={to as string}>{children}</a>,
+    ...secondaryCardArgs,
+  },
   decorators: [
     (Story) => (
       <div className="ds-max-w-xs">
@@ -166,7 +167,6 @@ export const Hero: Story = {
       'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
     backgroundColor: '#006DB3F2',
     actionContent: 'Kokeile palvelua',
-    href: '/',
     arrowColor: '#006DB3',
   },
   decorators: [
