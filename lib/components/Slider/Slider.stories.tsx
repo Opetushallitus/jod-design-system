@@ -64,3 +64,23 @@ export const Default: Story = {
     value: 50,
   },
 };
+
+export const WithRightLabel: Story = {
+  render,
+  decorators: [
+    (Story) => (
+      <div className="ds-max-w-[348px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    ...parameters,
+  },
+  args: {
+    label: 'Osaamiset',
+    rightLabel: 'Kiinnostukset',
+    onValueChange: fn(),
+    value: 50,
+  },
+};
