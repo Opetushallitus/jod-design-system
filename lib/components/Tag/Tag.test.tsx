@@ -22,4 +22,10 @@ describe('Tag', () => {
     fireEvent.click(getByRole('button'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it('should not be a button and no icons are present when using presentation variant', () => {
+    const { container, queryByRole } = render(<Tag label="presentation" variant="presentation" />);
+    expect(queryByRole('button')).toBeNull();
+    expect(container.querySelector('svg')).toBeNull();
+  });
 });
