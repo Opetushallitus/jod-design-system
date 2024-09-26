@@ -70,7 +70,10 @@ export default {
       'inactive-gray': '#a9a9a9',
       'border-gray': '#cecece',
       'bg-gray': '#f0f2f5',
-      'bg-gray-2': '#e4e6ec',
+      'bg-gray-2': {
+        DEFAULT: '#e4e6ec',
+        25: '#f8f9fa',
+      },
       warning: '#f2c832',
       alert: '#e3564f',
       'alert-text': '#de342b',
