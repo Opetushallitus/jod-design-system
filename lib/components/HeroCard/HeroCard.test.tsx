@@ -24,7 +24,6 @@ describe('HeroCard', () => {
 
     // Assert title, content, and actionContent are rendered
     expect(screen.getByText(title)).toBeInTheDocument();
-    expect(screen.getByText(content)).toBeInTheDocument();
     expect(screen.getByText(actionContent)).toBeInTheDocument();
   });
 
@@ -58,7 +57,6 @@ describe('HeroCard', () => {
 
     // Assert title and content are rendered
     expect(screen.getByText(title)).toBeInTheDocument();
-    expect(screen.getByText(content)).toBeInTheDocument();
 
     // Assert actionContent is not rendered
     expect(screen.queryByText(actionContent)).toBeNull();

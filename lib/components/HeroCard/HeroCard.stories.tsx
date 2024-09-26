@@ -171,11 +171,11 @@ export const Hero: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="ds-mx-auto ds-flex ds-flex-col ds-gap-[104px] ds-bg-[url('https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=2070')] ds-bg-[length:2000px_cover] ds-bg-[top_-6rem_left_-10rem] ds-p-8 lg:ds-container">
-        <div className="ds-mb-[30px] ds-max-w-2xl">
+      <div className="ds-mx-auto ds-flex ds-flex-col ds-gap-3 sm:ds-gap-[104px] ds-bg-[url('https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=2070')] ds-bg-[length:2000px_cover] ds-bg-[top_-6rem_left_-10rem] ds-p-5 sm:ds-p-8 lg:ds-container">
+        <div className="sm:ds-mb-[30px] ds-max-w-2xl">
           <Story />
         </div>
-        <div className="ds-flex ds-flex-row ds-gap-[32px] lg:ds-container">
+        <div className="ds-grid ds-grid-flow-row ds-auto-rows-max ds-grid-cols-1 ds-gap-3 sm:ds-gap-7 md:ds-grid-cols-3">
           <Story args={secondaryCardArgs} />
           <Story
             args={{
