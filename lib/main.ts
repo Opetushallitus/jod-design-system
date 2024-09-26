@@ -20,6 +20,7 @@ export { Note } from './components/Note/Note';
 export { Pagination } from './components/Pagination/Pagination';
 export { PathProgress } from './components/PathProgress/PathProgress';
 export { PopupList, PopupListItem } from './components/PopupList/PopupList';
+export { ProgressIndicatorCard } from './components/ProgressIndicatorCard/ProgressIndicatorCard';
 export { RadioButton } from './components/RadioButton/RadioButton';
 export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
