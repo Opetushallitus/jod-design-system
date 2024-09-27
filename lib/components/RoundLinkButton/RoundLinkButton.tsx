@@ -33,7 +33,7 @@ export const RoundLinkButton = ({
     <Component
       {...rest}
       aria-label={label}
-      className={`${className ? className : ''} ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline`.trim()}
+      className={`${className ? className : ''} ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[124px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline`.trim()}
     >
       <span
         aria-hidden
