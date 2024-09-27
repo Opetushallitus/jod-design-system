@@ -16,7 +16,16 @@ export interface ModalProps {
 export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: ModalProps) => {
   const { sm } = useMediaQueries();
 
-  const heightClasses = `ds-max-h-[calc(100vh-172px)] ds-min-h-[calc(100vh-344px)] sm:ds-max-h-[calc(100vh-320px)]`;
+  /* 204px =   
+  40px (gap on top of the screen)
++ 24px (content top padding) 
++ 24px (content bottom padding) 
++ 76px (footer height) 
++ 40px (gap on bottom of the screen)
+
+  sm:ds-max-h-[calc(100vh-204px)] is then the maximum height for the actual content of Modal for desktop
+*/
+  const heightClasses = `ds-max-h-[calc(100vh-172px)] ds-min-h-[calc(100vh-344px)] sm:ds-max-h-[calc(100vh-204px)]`;
 
   return (
     <Dialog
@@ -33,7 +42,7 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
       {/* Wrapper container paddings and margins */}
       <div className="ds-fixed ds-inset-0">
         {/* Wrapper for container centering */}
-        <div className="ds-flex ds-items-center ds-justify-center ds-h-full ds-m-3">
+        <div className="ds-flex ds-items-center ds-justify-center ds-h-full">
           {/* Modal container */}
           <DialogPanel
             className={tc([
