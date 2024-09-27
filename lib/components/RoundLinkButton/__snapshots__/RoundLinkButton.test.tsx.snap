@@ -3,7 +3,7 @@
 exports[`Snapshot testing > Default 1`] = `
 <a
   aria-label="Default"
-  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
+  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[124px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
   href="/#"
 >
   <span
@@ -23,7 +23,7 @@ exports[`Snapshot testing > Default 1`] = `
 exports[`Snapshot testing > Disabled, non-selected 1`] = `
 <a
   aria-label="Disabled, nonselected"
-  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
+  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[124px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
   href="/#"
 >
   <span
@@ -43,7 +43,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 exports[`Snapshot testing > Disabled, selected 1`] = `
 <a
   aria-label="Disabled, nonselected"
-  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
+  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[124px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
   href="/#"
 >
   <span
@@ -63,7 +63,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
 exports[`Snapshot testing > Disabled, selected 2`] = `
 <a
   aria-label="Disabled, nonselected"
-  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
+  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[124px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
   href="/#"
 >
   <span
@@ -83,7 +83,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
 exports[`Snapshot testing > selected 1`] = `
 <a
   aria-label="Selected"
-  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[110px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
+  class="ds-group ds-inline-flex ds-min-w-[64px] sm:ds-min-w-[124px] ds-flex-col ds-items-center ds-justify-center ds-gap-2 ds-border ds-border-none ds-no-underline"
   href="/#"
 >
   <span
