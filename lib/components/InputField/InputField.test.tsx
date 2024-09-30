@@ -23,7 +23,7 @@ describe('InputField', () => {
     const { container } = render(
       <InputField value={value} onChange={onChange} label={label} placeholder={placeholder} />,
     );
-    const inputElement = screen.getByPlaceholderText(`(${placeholder})`);
+    const inputElement = screen.getByPlaceholderText(placeholder);
     expect(inputElement).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });

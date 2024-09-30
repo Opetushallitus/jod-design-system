@@ -37,7 +37,7 @@ exports[`InputField > renders input correctly 1`] = `
     autocomplete="off"
     class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
     id=":r2:"
-    placeholder="(Enter your username)"
+    placeholder="Enter your username"
     type="text"
     value="john"
   />
