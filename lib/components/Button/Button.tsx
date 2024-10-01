@@ -44,7 +44,7 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
   return cx({
     'ds-text-white ds-bg-accent hover:ds-text-white active:ds-bg-white active:ds-text-black focus-visible:ds-text-white':
       variant === 'accent' && !disabled,
-    'ds-bg-bg-gray': variant === 'accent' && disabled,
+    'ds-bg-accent-50 disabled:ds-text-white': variant === 'accent' && disabled,
     'ds-text-black ds-bg-bg-gray': variant === 'gray',
     'ds-text-black ds-bg-white': variant === 'white',
     'ds-text-alert ds-bg-bg-gray hover:ds-text-alert active:ds-text-white focus-visible:ds-text-alert':
