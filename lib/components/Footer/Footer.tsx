@@ -15,19 +15,21 @@ export interface FooterProps {
   copyright?: string;
   /** Variant of the footer */
   variant?: 'light' | 'dark';
+  /** Additional class name */
+  className?: string;
 }
 
 /**
  * This component is a footer that displays navigation items, logos, and a copyright.
  */
 export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
-  { items, logos, copyright, variant = 'light' }: FooterProps,
+  { items, logos, copyright, variant = 'light', className = '' }: FooterProps,
   ref,
 ) {
   return (
     <footer
       ref={ref}
-      className={`ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ${variant === 'light' ? 'ds-bg-white ds-text-black' : 'ds-bg-black ds-text-white'}`}
+      className={`ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ${variant === 'light' ? 'ds-bg-white ds-text-black' : 'ds-bg-black ds-text-white'} ${className}`.trim()}
     >
       <div className="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]">
         {items && (
