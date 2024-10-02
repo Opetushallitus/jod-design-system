@@ -3,6 +3,7 @@ import { MdAdd, MdClose } from 'react-icons/md';
 
 interface BaseTagProps {
   label: string;
+  title?: string;
   variant?: 'selectable' | 'added' | 'presentation';
   sourceType?: 'tyopaikka' | 'koulutus' | 'vapaa-ajan-toiminto' | 'kiinnostus' | 'jotain-muuta' | 'rajoitus';
 }
@@ -33,13 +34,13 @@ const containerClassNames = (sourceType: TagProps['sourceType']) =>
   );
 
 /** Tags allow users to categorize content. They can represent keywords or people, and are grouped to describe an item or a search request. */
-export const Tag = ({ label, onClick, variant = 'selectable', sourceType = 'jotain-muuta' }: TagProps) => {
+export const Tag = ({ label, title, onClick, variant = 'selectable', sourceType = 'jotain-muuta' }: TagProps) => {
   return variant === 'presentation' ? (
-    <span className={containerClassNames(sourceType)}>
+    <div className={containerClassNames(sourceType)} title={title}>
       <span className="ds-hyphens-auto ds-text-black">{label}</span>
-    </span>
+    </div>
   ) : (
-    <button type="button" className={containerClassNames(sourceType)} onClick={onClick}>
+    <button type="button" className={containerClassNames(sourceType)} onClick={onClick} title={title}>
       <span className="ds-hyphens-auto ds-text-black group-hover:ds-underline">{label}</span>
       <span className="ds-pl-3 ds-text-button-md ds-text-black" aria-hidden>
         {variant === 'selectable' ? <MdAdd size={16} /> : <MdClose size={16} />}
