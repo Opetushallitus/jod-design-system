@@ -9,7 +9,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   id="pagination::r1:"
 >
   <button
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed ds-bg-bg-gray-2 ds-text-black"
     disabled=""
     type="button"
   >
@@ -38,7 +38,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Previous"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed ds-bg-bg-gray-2 ds-text-black"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -72,7 +72,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-current="page"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-bg-accent ds-text-white ds-font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-accent ds-text-white ds-font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
@@ -234,7 +234,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   id="pagination::r0:"
 >
   <button
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed ds-bg-bg-gray-2 ds-text-black"
     disabled=""
     type="button"
   >
@@ -263,7 +263,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Previous"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed ds-bg-bg-gray-2 ds-text-black"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -297,7 +297,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-current="page"
-    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black ds-bg-accent ds-text-white ds-font-bold"
+    class="ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-accent ds-text-white ds-font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
