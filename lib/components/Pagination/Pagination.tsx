@@ -3,9 +3,10 @@ import { MdChevronLeft, MdChevronRight, MdFirstPage, MdLastPage, MdMoreHoriz } f
 import { cx } from '../../cva';
 
 const getClassName = ({ isActive = false, isArrowButton = true, disabled = false } = {}) =>
-  cx(`ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full ds-bg-bg-gray-2 ds-text-black`, {
-    'ds-bg-accent ds-text-white': !isArrowButton && isActive,
+  cx(`ds-min-w-7 ds-min-h-7 ds-p-2 ds-rounded-full`, {
     'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed': disabled === true,
+    'ds-bg-accent ds-text-white': !isArrowButton && isActive,
+    'ds-bg-bg-gray-2 ds-text-black': !isActive,
     'ds-font-bold': !isArrowButton,
   });
 
