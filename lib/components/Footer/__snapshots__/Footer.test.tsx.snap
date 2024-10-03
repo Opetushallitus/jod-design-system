@@ -48,15 +48,11 @@ exports[`Footer > renders footer with dark variant 1`] = `
         </div>
       </li>
     </ul>
-    <div
-      class="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0"
-    >
-      <div>
-        Logo 1
-      </div>
-      <div>
-        Logo 2
-      </div>
+    <div>
+      Logo 1
+    </div>
+    <div>
+      Logo 2
     </div>
     <div
       class="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0"
@@ -99,15 +95,11 @@ exports[`Footer > renders footer with light variant 1`] = `
         </div>
       </li>
     </ul>
-    <div
-      class="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0"
-    >
-      <div>
-        Logo 1
-      </div>
-      <div>
-        Logo 2
-      </div>
+    <div>
+      Logo 1
+    </div>
+    <div>
+      Logo 2
     </div>
     <div
       class="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0"
@@ -161,15 +153,11 @@ exports[`Footer > renders logos 1`] = `
   <div
     class="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]"
   >
-    <div
-      class="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0"
-    >
-      <div>
-        Logo 1
-      </div>
-      <div>
-        Logo 2
-      </div>
+    <div>
+      Logo 1
+    </div>
+    <div>
+      Logo 2
     </div>
   </div>
 </footer>

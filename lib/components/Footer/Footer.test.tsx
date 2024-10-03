@@ -10,10 +10,7 @@ describe('Footer', () => {
     { key: 'item2', component: () => <div>Item 2</div> },
     { key: 'item3', component: () => <div>Item 3</div> },
   ];
-  const mockLogos = [
-    { key: 'logo1', component: () => <div>Logo 1</div> },
-    { key: 'logo2', component: () => <div>Logo 2</div> },
-  ];
+  const mockLogos = [<div key="logo1">Logo 1</div>, <div key="logo2">Logo 2</div>];
   const mockCopyright = '© 2024';
 
   it('renders footer with light variant', () => {
