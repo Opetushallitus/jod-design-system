@@ -7,10 +7,7 @@ export interface FooterProps {
     component: React.ComponentType<{ className: string }>;
   }[];
   /** Collection of logos */
-  logos?: {
-    key: React.Key;
-    component: React.ComponentType<{ key: React.Key; className: string }>;
-  }[];
+  logos?: React.ReactNode;
   /** Copyright text */
   copyright?: string;
   /** Variant of the footer */
@@ -41,20 +38,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
             ))}
           </ul>
         )}
-        {logos && (
-          <div className="ds-flex ds-flex-col ds-gap-6 ds-px-5 sm:ds-flex-row sm:ds-px-0">
-            {logos.map((logo) => (
-              <logo.component
-                key={logo.key}
-                className={`ds-flex ds-h-10 ds-w-full ds-items-center ds-justify-center ds-border-2 ds-border-solid ds-outline-none ds-transition ${
-                  variant === 'light'
-                    ? 'ds-border-black ds-text-black hover:ds-bg-black hover:ds-text-white focus:ds-bg-black focus:ds-text-white'
-                    : 'ds-border-white ds-text-white hover:ds-bg-white hover:ds-text-black focus:ds-bg-white focus:ds-text-black'
-                }`}
-              />
-            ))}
-          </div>
-        )}
+        {logos}
         {copyright && <div className="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0">{copyright}</div>}
       </div>
     </footer>

@@ -71,30 +71,15 @@ const items: FooterProps['items'] = [
 ];
 
 const logos: FooterProps['logos'] = [
-  {
-    key: 'logo1',
-    component: ({ key, className }) => (
-      <a key={key} href="/logo1" className={className}>
-        Logo 1
-      </a>
-    ),
-  },
-  {
-    key: 'logo2',
-    component: ({ key, className }) => (
-      <a key={key} href="/logo2" className={className}>
-        Logo 2
-      </a>
-    ),
-  },
-  {
-    key: 'logo3',
-    component: ({ key, className }) => (
-      <a key={key} href="/logo3" className={className}>
-        Logo 3
-      </a>
-    ),
-  },
+  <a key="1" href="/logo1">
+    Logo 1
+  </a>,
+  <a key="2" href="/logo2">
+    Logo 2
+  </a>,
+  <a key="3" href="/logo3">
+    Logo 3
+  </a>,
 ];
 
 const copyright = '© JOD 2024. Kaikki oikeudet pidätetään.';
