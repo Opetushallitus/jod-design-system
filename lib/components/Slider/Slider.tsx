@@ -86,7 +86,7 @@ export const Slider = ({ label, onValueChange, value, rightLabel }: SliderProps)
   };
 
   return (
-    <div className="ds-flex ds-h-[40px] ds-rounded-[20px] ds-bg-white ds-justify-between ds-min-w-[414px]">
+    <div className="ds-flex ds-h-[40px] ds-rounded-[20px] ds-bg-white ds-justify-between ds:min-w-full sm:ds-min-w-[414px]">
       <span className="ds-ml-6 ds-mr-5 ds-flex ds-items-center ds-text-[12px]">{label}</span>
       <ArkSlider.Root
         id={inputId}

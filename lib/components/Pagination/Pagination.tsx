@@ -1,5 +1,5 @@
 import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react';
-import { MdChevronLeft, MdChevronRight, MdFirstPage, MdLastPage, MdMoreHoriz } from 'react-icons/md';
+import { MdChevronLeft, MdChevronRight, MdMoreHoriz } from 'react-icons/md';
 import { cx } from '../../cva';
 
 const getClassName = ({ isActive = false, isArrowButton = true, disabled = false } = {}) =>
@@ -15,7 +15,7 @@ export interface PaginationProps {
   pageSize: number;
   siblingCount: number;
   currentPage: number;
-  translations: PaginationRootProps['translations'] & { firstPageTriggerLabel?: string; lastPageTriggerLabel?: string };
+  translations: PaginationRootProps['translations'];
   onPageChange: (details: ArkPagination.PageChangeDetails) => void;
   type?: 'button' | 'link';
 }
@@ -45,18 +45,7 @@ export const Pagination = ({
       type={type}
       className="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
     >
-      <button
-        onClick={() => onPageChange({ page: 1, pageSize })}
-        className={getClassName({ disabled: isFirstPage })}
-        disabled={isFirstPage}
-        type="button"
-      >
-        <span className="ds-sr-only">{translations.firstPageTriggerLabel}</span>
-        <MdFirstPage size={24} />
-      </button>
-
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
-        <span className="ds-sr-only">{translations.prevTriggerLabel}</span>
         <MdChevronLeft size={24} />
       </ArkPagination.PrevTrigger>
       <ArkPagination.Context>
@@ -79,19 +68,8 @@ export const Pagination = ({
         }
       </ArkPagination.Context>
       <ArkPagination.NextTrigger className={getClassName({ disabled: isLastPage })} disabled={isLastPage}>
-        <span className="ds-sr-only">{translations.nextTriggerLabel}</span>
         <MdChevronRight size={24} />
       </ArkPagination.NextTrigger>
-
-      <button
-        onClick={() => onPageChange({ page: lastPage, pageSize })}
-        className={getClassName({ disabled: isLastPage })}
-        disabled={isLastPage}
-        type="button"
-      >
-        <span className="ds-sr-only">{translations.lastPageTriggerLabel}</span>
-        <MdLastPage size={24} />
-      </button>
     </ArkPagination.Root>
   );
 };

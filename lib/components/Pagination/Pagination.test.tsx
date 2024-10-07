@@ -4,8 +4,6 @@ import { Pagination, PaginationProps } from './Pagination';
 
 describe('Pagination', () => {
   const mockTranslations = {
-    firstPageTriggerLabel: 'First Page',
-    lastPageTriggerLabel: 'Last Page',
     prevTriggerLabel: 'Previous',
     nextTriggerLabel: 'Next',
   };
@@ -23,7 +21,7 @@ describe('Pagination', () => {
         pageSize={props.pageSize}
         siblingCount={props.siblingCount}
         currentPage={props.currentPage}
-        translations={mockTranslations}
+        translations={props.translations}
         onPageChange={mockOnPageChange}
       />,
     );
@@ -91,7 +89,7 @@ describe('Pagination', () => {
 
     renderPagination(props);
 
-    const pageElement = screen.getByRole('button', { name: 'First Page' });
+    const pageElement = screen.getByRole('button', { name: '1' });
     pageElement.click();
     await waitFor(() => expect(mockOnPageChange).toHaveBeenCalledWith({ page: 1, pageSize: 5 }));
   });
@@ -108,7 +106,7 @@ describe('Pagination', () => {
 
     renderPagination(props);
 
-    const pageElement = screen.getByRole('button', { name: 'Last Page' });
+    const pageElement = screen.getByRole('button', { name: '20' });
     pageElement.click();
     await waitFor(() => expect(mockOnPageChange).toHaveBeenCalledWith({ page: 20, pageSize: 5 }));
   });
