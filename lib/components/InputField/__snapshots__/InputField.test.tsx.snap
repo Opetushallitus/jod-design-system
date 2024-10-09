@@ -4,21 +4,21 @@ exports[`InputField > renders help text correctly 1`] = `
 <div>
   <label
     class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-    for=":r4:"
+    for="mock-id"
   >
     Username
   </label>
   <input
-    aria-describedby=":r5:"
+    aria-describedby="mock-id"
     autocomplete="off"
     class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
-    id=":r4:"
+    id="mock-id"
     type="text"
     value="john"
   />
   <div
     class="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray ds-font-arial"
-    id=":r5:"
+    id="mock-id"
   >
     Please enter your username
   </div>
@@ -29,14 +29,14 @@ exports[`InputField > renders input correctly 1`] = `
 <div>
   <label
     class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-    for=":r2:"
+    for="mock-id"
   >
     Username
   </label>
   <input
     autocomplete="off"
     class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
-    id=":r2:"
+    id="mock-id"
     placeholder="(Enter your username)"
     type="text"
     value="john"
@@ -48,14 +48,14 @@ exports[`InputField > renders label correctly 1`] = `
 <div>
   <label
     class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-    for=":r0:"
+    for="mock-id"
   >
     Username
   </label>
   <input
     autocomplete="off"
     class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
-    id=":r0:"
+    id="mock-id"
     type="text"
     value="john"
   />
@@ -66,14 +66,14 @@ exports[`InputField > updates input value correctly 1`] = `
 <div>
   <label
     class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
-    for=":r6:"
+    for="mock-id"
   >
     Username
   </label>
   <input
     autocomplete="off"
     class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
-    id=":r6:"
+    id="mock-id"
     type="text"
     value="test value"
   />

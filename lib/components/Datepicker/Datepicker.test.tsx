@@ -1,5 +1,6 @@
 import { userEvent } from '@storybook/test';
 import { act, render, screen } from '@testing-library/react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Datepicker } from './Datepicker';
 
@@ -9,6 +10,8 @@ describe('Datepicker', () => {
   const value = '2024-05-01';
   const formattedValue = '01.05.2024';
   const onChange = vi.fn();
+
+  vi.spyOn(React, 'useId').mockImplementation(() => 'mock-id');
 
   afterEach(() => {
     onChange.mockClear();

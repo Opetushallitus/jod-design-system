@@ -2,9 +2,12 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
 
+import React from 'react';
 import { ConfirmDialog } from './ConfirmDialog';
 
 describe('ConfirmDialog', () => {
+  vi.spyOn(React, 'useId').mockImplementation(() => 'mock-id');
+
   test('renders dialog when showDialog is called', () => {
     render(
       <ConfirmDialog

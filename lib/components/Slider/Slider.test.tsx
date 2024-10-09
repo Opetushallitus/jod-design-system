@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Slider } from './Slider';
 
@@ -21,6 +22,8 @@ afterEach(() => {
 });
 
 describe('Slider', () => {
+  vi.spyOn(React, 'useId').mockImplementation(() => 'mock-id');
+
   it('should call onValueChange when value changes', async () => {
     const onValueChangeMock = vi.fn();
     const user = userEvent.setup();

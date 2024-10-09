@@ -6,7 +6,7 @@ exports[`Checkbox > renders correctly 1`] = `
 >
   <input
     class="ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white"
-    id=":r0:"
+    id="mock-id"
     name="myCheckbox"
     type="checkbox"
     value="myValue"
@@ -28,7 +28,7 @@ exports[`Checkbox > renders correctly 1`] = `
   </svg>
   <label
     class="ds-flex ds-flex-row ds-items-center ds-text-button-md ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ds-pl-4"
-    for=":r0:"
+    for="mock-id"
   >
     My Checkbox
   </label>

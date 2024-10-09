@@ -2,10 +2,13 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import React from 'react';
 import { InputField } from './InputField';
 
 describe('InputField', () => {
   const label = 'Username';
+
+  vi.spyOn(React, 'useId').mockImplementation(() => 'mock-id');
 
   it('renders label correctly', () => {
     const value = 'john';

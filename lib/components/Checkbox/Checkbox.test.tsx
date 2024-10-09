@@ -1,13 +1,15 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
-
 import { Checkbox } from './Checkbox';
 
 const label = 'My Checkbox';
 const myValue = 'myValue';
 
 describe('Checkbox', () => {
+  vi.spyOn(React, 'useId').mockImplementation(() => 'mock-id');
+
   it('renders correctly', () => {
     const { container } = render(
       <Checkbox name="myCheckbox" label={label} ariaLabel={label} onChange={vi.fn} value={myValue} checked={false} />,
