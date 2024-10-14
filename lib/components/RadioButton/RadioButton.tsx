@@ -7,14 +7,16 @@ export interface RadioButtonProps {
   value: string;
   /** CSS classes for custom styles */
   className?: string;
+  /** Component variant */
+  variant?: 'default' | 'bordered';
 }
 
-export const RadioButton = ({ label, value, className }: RadioButtonProps) => {
+export const RadioButton = ({ label, value, className, variant = 'default' }: RadioButtonProps) => {
   return (
     <Radio value={value} className={`${className ? className : ''} flex h-7`.trim()}>
       {({ checked }) => (
         <div className="ds-flex-start ds-flex ds-space-x-4">
-          {checked ? <CheckedIcon /> : <UncheckedIcon />}
+          {checked ? <CheckedIcon /> : <UncheckedIcon variant={variant} />}
           <span className="ds-flex ds-items-center ds-text-button-md ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto">
             {label}
           </span>
@@ -39,7 +41,7 @@ const CheckedIcon = () => {
   );
 };
 
-const UncheckedIcon = () => {
+const UncheckedIcon = ({ variant }: { variant?: RadioButtonProps['variant'] }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +52,7 @@ const UncheckedIcon = () => {
       className="ds-self-center"
     >
       <circle cx="8" cy="8" r="8" className="ds-fill-white" />
+      {variant === 'bordered' && <circle cx="8" cy="8" r="7" className="ds-stroke-accent" />}
     </svg>
   );
 };

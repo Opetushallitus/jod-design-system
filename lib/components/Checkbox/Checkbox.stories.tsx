@@ -12,6 +12,10 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+const backgrounds = {
+  default: 'jod-bg-white',
+  values: [{ name: 'jod-bg-white', value: '#fff' }],
+};
 
 const design = {
   type: 'figma',
@@ -67,6 +71,48 @@ export const Selected: Story = {
     checked: true,
     label,
     ariaLabel: label,
+  },
+  render,
+};
+
+export const Bordered: Story = {
+  parameters: {
+    backgrounds,
+    design,
+    docs: {
+      description: {
+        story: 'This is a checkbox with bordered variant.',
+      },
+    },
+  },
+  args: {
+    name: 'name',
+    value: 'value',
+    checked: false,
+    label,
+    ariaLabel: label,
+    variant: 'bordered',
+  },
+  render,
+};
+export const BorderedAndDisabled: Story = {
+  parameters: {
+    backgrounds,
+    design,
+    docs: {
+      description: {
+        story: 'This is a disabled checkbox with bordered variant.',
+      },
+    },
+  },
+  args: {
+    name: 'name',
+    disabled: true,
+    value: 'value',
+    checked: false,
+    label,
+    ariaLabel: label,
+    variant: 'bordered',
   },
   render,
 };
