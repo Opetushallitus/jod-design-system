@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs, useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { Checkbox, CheckboxProps } from './Checkbox';
 
 const meta = {
@@ -21,12 +20,7 @@ const design = {
 const label = 'Tuloksen sopivuus';
 const render = (args: CheckboxProps) => {
   const [, setArgs] = useArgs();
-  const [value, setValue] = React.useState<boolean>(args.checked);
-
-  React.useEffect(() => {
-    action('onChange')(args.checked);
-    setValue(args.checked);
-  }, [args.checked]);
+  const [value, setValue] = useState<boolean>(args.checked);
 
   const onChange = (value: boolean) => {
     action('onChange')(value);
