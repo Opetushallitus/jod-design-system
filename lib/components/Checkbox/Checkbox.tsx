@@ -18,14 +18,32 @@ export interface CheckboxProps {
   ariaLabel: string;
   /** Additional class name for the component */
   className?: string;
+  /** Component variant */
+  variant?: 'default' | 'bordered';
 }
 
 /**
  * Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
  */
-export const Checkbox = ({ name, disabled, value, checked, onChange, label, ariaLabel, className }: CheckboxProps) => {
+export const Checkbox = ({
+  name,
+  disabled,
+  value,
+  checked,
+  onChange,
+  label,
+  ariaLabel,
+  className,
+  variant = 'default',
+}: CheckboxProps) => {
   const id = React.useId();
   const isLabelValidElement = React.isValidElement(label);
+
+  const borderVariantClassnames = {
+    'ds-border ds-border-accent': variant === 'bordered',
+    'ds-border ds-border-inactive-gray': variant === 'bordered' && disabled,
+    'ds-border-0': variant === 'default',
+  };
 
   return (
     <div className={cx('ds-flex ds-items-center ds-text-left', className)}>
@@ -38,7 +56,12 @@ export const Checkbox = ({ name, disabled, value, checked, onChange, label, aria
         checked={checked}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
-        className="ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white"
+        className={cx(
+          'ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white',
+          {
+            ...borderVariantClassnames,
+          },
+        )}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
