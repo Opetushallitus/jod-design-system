@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { useState } from '@storybook/preview-api';
 import React from 'react';
 import { useMediaQueries } from '../../main';
 import { SelectionCard } from './SelectionCard';
@@ -23,7 +24,7 @@ const parameters = {
 
 export const Default: Story = {
   render: (args) => {
-    const [selected, setSelected] = React.useState(false);
+    const [selected, setSelected] = useState(false);
     const onClick = () => {
       setSelected(!selected);
     };

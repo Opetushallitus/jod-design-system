@@ -1,7 +1,7 @@
 import { PaginationItemLabelDetails } from '@ark-ui/react';
+import { useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import React from 'react';
 import { Pagination } from './Pagination';
 
 const meta = {
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 const render = (args: Story['args']) => {
   const { currentPage, onPageChange, ...rest } = args;
-  const [pageNumber, setPageNumber] = React.useState<number>(currentPage);
+  const [pageNumber, setPageNumber] = useState<number>(currentPage);
   return (
     <Pagination
       currentPage={pageNumber}
