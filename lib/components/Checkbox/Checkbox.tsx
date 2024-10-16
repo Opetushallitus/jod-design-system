@@ -76,7 +76,7 @@ export const Checkbox = ({
       {label && (
         <label
           htmlFor={id}
-          className={`ds-flex ds-flex-row ds-items-center ds-text-button-md ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ${!isLabelValidElement ? 'ds-pl-4' : ''}`.trim()}
+          className={`ds-flex ds-flex-row ds-items-center ds-text-heading-4 ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ${!isLabelValidElement ? 'ds-pl-4' : ''}`.trim()}
         >
           {label}
         </label>

@@ -11,7 +11,7 @@ exports[`InputField > renders help text correctly 1`] = `
   <input
     aria-describedby=":r5:"
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
     id=":r4:"
     type="text"
     value="john"
@@ -35,7 +35,7 @@ exports[`InputField > renders input correctly 1`] = `
   </label>
   <input
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
     id=":r2:"
     placeholder="Enter your username"
     type="text"
@@ -54,7 +54,7 @@ exports[`InputField > renders label correctly 1`] = `
   </label>
   <input
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
     id=":r0:"
     type="text"
     value="john"
@@ -72,7 +72,7 @@ exports[`InputField > updates input value correctly 1`] = `
   </label>
   <input
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial"
+    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
     id=":r6:"
     type="text"
     value="test value"

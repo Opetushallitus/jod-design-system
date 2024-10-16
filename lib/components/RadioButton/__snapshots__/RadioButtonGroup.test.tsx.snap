@@ -41,7 +41,7 @@ exports[`Snapshot testing > Default 1`] = `
         />
       </svg>
       <span
-        class="ds-flex ds-items-center ds-text-button-md ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto"
+        class="ds-flex ds-items-center ds-text-heading-4 ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto"
       >
         Option 1
       </span>

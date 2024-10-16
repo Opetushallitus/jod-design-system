@@ -86,7 +86,7 @@ const LabelPart = ({ label, hideLabel, selected }: Pick<RoundButtonProps, 'label
     className={tidyClasses(`
       ${hideLabel ? 'ds-hidden' : ''}
       ${selected ? 'ds-text-accent' : 'ds-text-black'}
-      ds-text-button-sm
+      ds-text-button-sm-mobile sm:ds-text-button-md
       group-hover:ds-text-accent
       group-hover:ds-underline
     `)}

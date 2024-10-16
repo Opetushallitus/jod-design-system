@@ -27,7 +27,7 @@ exports[`Checkbox > renders correctly 1`] = `
     />
   </svg>
   <label
-    class="ds-flex ds-flex-row ds-items-center ds-text-button-md ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ds-pl-4"
+    class="ds-flex ds-flex-row ds-items-center ds-text-heading-4 ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ds-pl-4"
     for=":r0:"
   >
     My Checkbox

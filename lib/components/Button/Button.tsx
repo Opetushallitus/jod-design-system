@@ -26,7 +26,7 @@ export interface ButtonProps {
 const getSizeClassName = (size: ButtonProps['size']) => {
   return cx({
     'ds-text-button-sm ds-px-6 ds-rounded-[30px]': size === 'sm',
-    'ds-text-button-md ds-px-6 ds-rounded-[30px]': size === 'md',
+    'ds-text-button-md-mobile sm:ds-text-button-md ds-px-6 ds-rounded-[30px]': size === 'md',
     'ds-text-button-lg ds-px-[42px] ds-rounded-[50px]': size === 'lg',
   });
 };
