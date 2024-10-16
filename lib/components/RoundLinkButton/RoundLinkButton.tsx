@@ -42,7 +42,7 @@ export const RoundLinkButton = ({
         {icon}
       </span>
       <span
-        className={`${hideLabel ? 'ds-hidden' : ''} ds-text-button-sm ${selected ? 'ds-text-accent' : 'ds-text-black'} group-hover:ds-text-accent group-hover:ds-underline`.trim()}
+        className={`${hideLabel ? 'ds-hidden' : ''} ds-text-button-sm-mobile sm:ds-text-button-md ${selected ? 'ds-text-accent' : 'ds-text-black'} group-hover:ds-text-accent group-hover:ds-underline`.trim()}
       >
         {label}
       </span>

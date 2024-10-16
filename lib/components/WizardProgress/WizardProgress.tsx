@@ -14,7 +14,7 @@ export interface WizardProgressProps {
 /** A component that displays the progress of a wizard. */
 export const WizardProgress = ({ steps, currentStep, completedText, currentText }: WizardProgressProps) => {
   return (
-    <ol className="ds-flex ds-gap-4 ds-text-[24px] ds-text-black ds-font-semibold ds-leading-[24px]">
+    <ol className="ds-flex ds-gap-4 ds-text-black sm:ds-text-heading-2 sm:ds-leading-[24px] ds-text-heading-3-mobile ds-leading-[16px]">
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
