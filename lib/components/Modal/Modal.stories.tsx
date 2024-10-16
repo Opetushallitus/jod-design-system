@@ -1,6 +1,6 @@
+import { useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import React from 'react';
 import { WizardProgress } from '../WizardProgress/WizardProgress';
 import { Modal } from './Modal';
 
@@ -31,7 +31,7 @@ const LoremIpsum = ({ heading }: { heading: string }) => {
 
 const render = (args: Story['args']) => {
   const { open, onClose, ...rest } = args;
-  const [isOpen, setIsOpen] = React.useState(open);
+  const [isOpen, setIsOpen] = useState(open);
 
   return (
     <>
