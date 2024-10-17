@@ -105,7 +105,7 @@ export default {
       'button-sm': ['14px', { fontWeight: '600', lineHeight: '18px', letterSpacing: '0.28px' }], // Button S
       'button-sm-mobile': ['12px', { fontWeight: '600', lineHeight: '14px', letterSpacing: '0.28px' }], // Button S, mobile
       tag: ['14px', { fontWeight: '400', lineHeight: '20px' }], // Tag
-      'attrib-title': ['12px', { fontWeight: '400', lineHeight: '110%', letterSpacing: '1%' }], // Attribute title
+      'attrib-title': ['12px', { fontWeight: '400', lineHeight: '110%', letterSpacing: '0.12px' }], // Attribute title
       'attrib-value': ['12px', { fontWeight: '700', lineHeight: '110%', letterSpacing: '0.12px' }], // Attribute value
     },
     // https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A6656
