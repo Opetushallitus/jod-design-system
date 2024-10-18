@@ -98,7 +98,7 @@ export const SelectionCard = ({
           <span className="ds-transform ds-scale-75">{icon ?? null}</span>
         </span>
         <span className="ds-ml-5 ds-text-start ds-pr-4">
-          <span className="ds-text-heading-4">{label ?? ''}</span>
+          <span className="ds-text-heading-4-mobile">{label ?? ''}</span>
         </span>
       </button>
       {tooltipContent && React.isValidElement(tooltipContent) && (
