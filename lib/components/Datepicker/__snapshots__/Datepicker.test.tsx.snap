@@ -11,11 +11,13 @@ exports[`Datepicker > renders correctly 1`] = `
 >
   <label
     class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    data-index="0"
     data-part="label"
     data-scope="date-picker"
     data-state="closed"
     dir="ltr"
     for="datepicker::r1::input:0"
+    id="datepicker::r1::label:0"
   >
     Pick a date dude!
   </label>
@@ -32,6 +34,7 @@ exports[`Datepicker > renders correctly 1`] = `
         autocomplete="off"
         autocorrect="off"
         class="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-font-arial ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
+        data-index="0"
         data-part="input"
         data-scope="date-picker"
         data-state="closed"
