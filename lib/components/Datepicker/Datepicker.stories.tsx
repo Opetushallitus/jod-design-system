@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
+import { useState } from '@storybook/preview-api';
 import { Datepicker } from './Datepicker';
 
 const meta = {
@@ -48,6 +49,10 @@ export const WithValue: Story = {
     ),
   ],
   parameters,
+  render: (args) => {
+    const [value, setValue] = useState(args.value);
+    return <Datepicker {...args} value={value} onChange={(e) => setValue(e.target.value)} />;
+  },
   args: {
     ...args,
     value: '2024-06-01',

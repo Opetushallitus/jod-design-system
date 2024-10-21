@@ -1,11 +1,12 @@
-import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, test, vi } from 'vitest';
+import { act, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 
+import { userEvent } from '@storybook/test';
 import { ConfirmDialog } from './ConfirmDialog';
 
 describe('ConfirmDialog', () => {
-  test('renders dialog when showDialog is called', () => {
+  it('renders dialog when showDialog is called', async () => {
+    const user = userEvent.setup();
     render(
       <ConfirmDialog
         title="ConfirmDialog rendered"
@@ -18,16 +19,18 @@ describe('ConfirmDialog', () => {
       </ConfirmDialog>,
     );
 
-    fireEvent.click(screen.getByText('Show for rendering'));
+    await act(async () => {
+      await user.click(screen.getByText('Show for rendering'));
+    });
 
     expect(screen.getByText('ConfirmDialog rendered')).toBeInTheDocument();
     expect(screen.getByText('Are you sure?')).toBeInTheDocument();
-
     expect(screen.getByLabelText('ConfirmDialog rendered')).toMatchSnapshot();
   });
 
-  test('calls onConfirm when confirm button is clicked', () => {
+  it('calls onConfirm when confirm button is clicked', async () => {
     const onConfirmMock = vi.fn();
+    const user = userEvent.setup();
     render(
       <ConfirmDialog
         title="onConfirm called"
@@ -39,14 +42,18 @@ describe('ConfirmDialog', () => {
         {(showDialog) => <button onClick={showDialog}>Show for onConfirm</button>}
       </ConfirmDialog>,
     );
-
-    fireEvent.click(screen.getByText('Show for onConfirm'));
-    fireEvent.click(screen.getByText('Confirm'));
+    await act(async () => {
+      await user.click(screen.getByText('Show for onConfirm'));
+    });
+    await act(async () => {
+      await user.click(screen.getByText('Confirm'));
+    });
 
     expect(onConfirmMock).toHaveBeenCalled();
   });
 
-  test('closes dialog when cancel button is clicked', () => {
+  it('closes dialog when cancel button is clicked', async () => {
+    const user = userEvent.setup();
     render(
       <ConfirmDialog
         title="ConfirmDialog closes"
@@ -59,8 +66,12 @@ describe('ConfirmDialog', () => {
       </ConfirmDialog>,
     );
 
-    fireEvent.click(screen.getByText('Test closing'));
-    fireEvent.click(screen.getByText('Cancel'));
+    await act(async () => {
+      await user.click(screen.getByText('Test closing'));
+    });
+    await act(async () => {
+      await user.click(screen.getByText('Cancel'));
+    });
 
     expect(screen.queryByText('ConfirmDialog closes')).not.toBeInTheDocument();
     expect(screen.queryByText('Are you sure?')).not.toBeInTheDocument();
