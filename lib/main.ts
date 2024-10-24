@@ -17,7 +17,7 @@ export { HeroCard } from './components/HeroCard/HeroCard';
 export { InputField } from './components/InputField/InputField';
 export { Modal } from './components/Modal/Modal';
 export { Note } from './components/Note/Note';
-export { Pagination } from './components/Pagination/Pagination';
+export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress } from './components/PathProgress/PathProgress';
 export { PopupList, PopupListItem } from './components/PopupList/PopupList';
 export { ProgressIndicatorCard } from './components/ProgressIndicatorCard/ProgressIndicatorCard';

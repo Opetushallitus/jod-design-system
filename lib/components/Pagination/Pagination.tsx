@@ -13,13 +13,15 @@ const getClassName = ({ isActive = false, isArrowButton = true, disabled = false
     },
   );
 
+export type PageChangeDetails = ArkPagination.PageChangeDetails;
+
 export interface PaginationProps {
   totalItems: number;
   pageSize: number;
   siblingCount: number;
   currentPage: number;
   translations: PaginationRootProps['translations'];
-  onPageChange: (details: ArkPagination.PageChangeDetails) => void;
+  onPageChange: (details: PageChangeDetails) => void;
   type?: 'button' | 'link';
 }
 
