@@ -13,7 +13,10 @@ const getClassName = ({ isActive = false, isArrowButton = true, disabled = false
     },
   );
 
-export type PageChangeDetails = ArkPagination.PageChangeDetails;
+export interface PageChangeDetails {
+  page: number;
+  pageSize: number;
+}
 
 export interface PaginationProps {
   totalItems: number;
