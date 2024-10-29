@@ -42,8 +42,6 @@ export const Default: Story = {
     title: 'Title',
     children: 'Content',
     lang: 'en',
-    expandMoreText: 'Show more',
-    expandLessText: 'Show less',
   },
 };
 
@@ -59,10 +57,9 @@ export const TitleComponent: Story = {
   },
   args: {
     title: <div className="ds-text-heading-1 ds-font-arial ds-text-alert ds-italic ds-tracking-widest">Title</div>,
+    titleText: 'Title',
     children: 'Content',
     lang: 'en',
-    expandMoreText: 'Show more',
-    expandLessText: 'Show less',
   },
 };
 
@@ -81,7 +78,5 @@ export const WithUnderline: Story = {
     children: 'Content',
     underline: true,
     lang: 'en',
-    expandMoreText: 'Show more',
-    expandLessText: 'Show less',
   },
 };

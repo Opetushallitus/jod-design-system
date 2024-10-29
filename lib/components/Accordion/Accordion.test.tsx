@@ -6,19 +6,17 @@ import { Accordion } from './Accordion';
 
 describe('Accordion', () => {
   const title = 'Accordion Title';
-  const expandLessText = 'Expand Less';
-  const expandMoreText = 'Expand More';
   const lang = 'en';
 
   test('renders accordion with open state by default', () => {
     const { container } = render(
-      <Accordion title={title} expandLessText={expandLessText} expandMoreText={expandMoreText} lang={lang}>
+      <Accordion title={title} lang={lang}>
         <div>Default content</div>
       </Accordion>,
     );
 
     const accordionTitle = screen.getByText(title);
-    const expandButton = screen.getByLabelText(expandLessText);
+    const expandButton = screen.getByRole('button');
     const accordionContent = screen.queryByText('Default content');
 
     expect(accordionTitle).toBeInTheDocument();
@@ -29,12 +27,12 @@ describe('Accordion', () => {
 
   test('closes accordion when expand button is clicked', () => {
     render(
-      <Accordion title={title} expandLessText={expandLessText} expandMoreText={expandMoreText} lang={lang}>
+      <Accordion title={title} lang={lang}>
         <div>Content to be gone</div>
       </Accordion>,
     );
 
-    const expandButton = screen.getByLabelText(expandLessText);
+    const expandButton = screen.getByRole('button');
     fireEvent.click(expandButton);
 
     const accordionContent = screen.queryByText('Content to be gone');
