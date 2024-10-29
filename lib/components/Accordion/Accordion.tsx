@@ -2,15 +2,23 @@ import React from 'react';
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 import { cx } from '../../cva';
 
-interface AccordionProps {
+type TitleProps =
+  | {
+      title: React.ReactNode;
+      titleText: string;
+    }
+  | {
+      title: string;
+      titleText?: never;
+    };
+
+type AccordionProps = {
   title: React.ReactNode | string;
   children: React.ReactNode;
-  expandLessText: string;
-  expandMoreText: string;
   lang: string;
   underline?: boolean;
   intialState?: boolean;
-}
+} & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
   <span className="ds-text-black group-hover:!ds-text-accent" aria-hidden>
@@ -18,15 +26,7 @@ const Caret = ({ isOpen }: { isOpen: boolean }) => (
   </span>
 );
 
-export const Accordion = ({
-  title,
-  children,
-  expandLessText,
-  expandMoreText,
-  lang,
-  underline,
-  intialState = true,
-}: AccordionProps) => {
+export const Accordion = ({ title, titleText, children, lang, underline, intialState = true }: AccordionProps) => {
   const [isOpen, setIsOpen] = React.useState(intialState);
   const toggleOpen = () => setIsOpen(!isOpen);
   const isTitleValidElement = React.isValidElement(title);
@@ -47,17 +47,13 @@ export const Accordion = ({
       {isTitleValidElement ? (
         <div className={wrapperClassnames}>
           {title}
-          <button aria-label={isOpen ? expandLessText : expandMoreText} onClick={toggleOpen} className="ds-flex">
+          <button aria-label={titleText} aria-expanded={isOpen} onClick={toggleOpen} className="ds-flex">
             <Caret isOpen={isOpen} />
           </button>
         </div>
       ) : (
         <div className="ds-group">
-          <button
-            aria-label={isOpen ? expandLessText : expandMoreText}
-            onClick={toggleOpen}
-            className={wrapperClassnames}
-          >
+          <button aria-expanded={isOpen} onClick={toggleOpen} className={wrapperClassnames}>
             <span
               className="ds-mr-5 ds-w-full ds-text-left ds-hyphens-auto ds-text-heading-3 group-hover:ds-underline"
               lang={lang}
