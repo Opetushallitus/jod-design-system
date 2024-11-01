@@ -98,6 +98,14 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             name={name}
             placeholder={placeholder}
             className="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-font-arial ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
+            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+              // Handle clearing the input field to allow clearing the datepicker value
+              if (e.target.value === '') {
+                onChange({
+                  target: { name, value: '' },
+                } as React.ChangeEvent<HTMLInputElement>);
+              }
+            }}
             onBlur={onBlur}
           />
           <ArkDatePicker.Trigger className="ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray">

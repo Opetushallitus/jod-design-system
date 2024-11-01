@@ -1,5 +1,6 @@
 import { userEvent } from '@storybook/test';
 import { act, render, screen } from '@testing-library/react';
+import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Datepicker } from './Datepicker';
 
@@ -47,5 +48,37 @@ describe('Datepicker', () => {
         target: { name: 'startDate', value: '2024-06-01' },
       }),
     );
+  });
+
+  it('can clear the value', async () => {
+    const value = {
+      date: '2020-01-01',
+    };
+    const onChangeMock = vi.fn().mockImplementation((event: React.ChangeEvent<HTMLInputElement>) => {
+      value.date = event.target.value;
+    });
+    render(
+      <Datepicker
+        name="startDate"
+        label={label}
+        placeholder={placeholder}
+        onChange={onChangeMock}
+        value={value.date}
+      />,
+    );
+    const input = screen.getByRole('textbox');
+    const user = userEvent.setup();
+    await act(async () => {
+      await user.clear(input);
+      await user.tab();
+    });
+
+    expect(onChangeMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        target: { name: 'startDate', value: '' },
+      }),
+    );
+
+    expect(value.date).toBe('');
   });
 });
