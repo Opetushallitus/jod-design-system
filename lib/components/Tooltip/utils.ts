@@ -12,7 +12,8 @@ import {
   useRole,
 } from '@floating-ui/react';
 import React from 'react';
-import { TooltipContext, TooltipOptions } from './Tooltip';
+import { TooltipOptions } from './Tooltip';
+import { TooltipContext } from './TooltipContext';
 
 export const ARROW_HEIGHT = 12;
 export const GAP = 0;

@@ -1,5 +1,6 @@
 import type { Placement } from '@floating-ui/react';
 import React from 'react';
+import { TooltipContext } from './TooltipContext';
 import { useTooltip } from './utils';
 
 export interface TooltipOptions {
@@ -12,10 +13,6 @@ export interface TooltipOptions {
 export interface TooltipProps extends TooltipOptions {
   children?: React.ReactNode;
 }
-
-type ContextType = ReturnType<typeof useTooltip> | null;
-
-export const TooltipContext = React.createContext<ContextType>(null);
 
 /** Tooltips show contextual help or information about specific components when a user hovers or focuses on them. */
 export function Tooltip({ children, ...options }: TooltipProps) {
