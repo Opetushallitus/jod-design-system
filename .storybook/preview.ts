@@ -58,6 +58,7 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
     withThemeByClassName<ReactRenderer>({
       themes: {
@@ -67,6 +68,8 @@ const preview: Preview = {
       defaultTheme: 'light',
     }),
   ],
+
+  tags: ['autodocs'],
 };
 
 export default preview;
