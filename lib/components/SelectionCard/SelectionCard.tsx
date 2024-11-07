@@ -1,6 +1,5 @@
 import React from 'react';
 import { MdInfoOutline } from 'react-icons/md';
-import { useMediaQueries } from '../../main';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { TooltipContent } from '../Tooltip/TooltipContent';
 import { TooltipTrigger } from '../Tooltip/TooltipTrigger';
@@ -20,6 +19,8 @@ export interface SelectionCardProps {
   tooltipContent?: React.ReactNode;
   /** Aria label for the info button */
   infoAriaLabel: string;
+  /** Desktop or mobile variant */
+  sm?: boolean;
 }
 
 const CheckIcon = () => (
@@ -41,8 +42,8 @@ export const SelectionCard = ({
   setHovered: setInfoVisible,
   tooltipContent,
   infoAriaLabel,
+  sm = true,
 }: SelectionCardProps) => {
-  const { sm } = useMediaQueries();
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
 
   const toggleTooltip = () => {

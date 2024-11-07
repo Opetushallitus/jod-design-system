@@ -9,7 +9,12 @@ vi.mock('../../main', () => ({
 
 describe('SelectionCard', () => {
   const label = 'Card Label';
-  const mockedMediaQueries = vi.mocked(useMediaQueries).mockReturnValue({ sm: false, lg: false });
+  const mockedMediaQueries = vi.mocked(useMediaQueries).mockReturnValue({
+    sm: false,
+    md: false,
+    lg: false,
+    xl: false,
+  });
 
   beforeEach(() => {
     mockedMediaQueries.mockClear();
@@ -39,7 +44,7 @@ describe('SelectionCard', () => {
 
   it('calls setHovered callback when hovered', () => {
     const setHovered = vi.fn();
-    mockedMediaQueries.mockReturnValue({ sm: true, lg: false });
+    mockedMediaQueries.mockReturnValue({ sm: true, md: false, lg: false, xl: false });
     const { getByRole } = render(<SelectionCard label={label} setHovered={setHovered} infoAriaLabel={label} />);
 
     fireEvent.pointerEnter(getByRole('button'));
@@ -53,7 +58,7 @@ describe('SelectionCard', () => {
     const setHovered = vi.fn();
     const { getByLabelText } = render(<SelectionCard label={label} setHovered={setHovered} infoAriaLabel={label} />);
 
-    mockedMediaQueries.mockReturnValue({ sm: true, lg: false });
+    mockedMediaQueries.mockReturnValue({ sm: true, md: false, lg: false, xl: false });
     fireEvent.focus(getByLabelText(label));
     expect(setHovered).toHaveBeenCalledWith(true);
 
