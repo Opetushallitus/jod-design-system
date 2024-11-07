@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { useState } from '@storybook/preview-api';
-import React from 'react';
 import { useMediaQueries } from '../../main';
 import { SelectionCard } from './SelectionCard';
 
@@ -51,13 +50,13 @@ export const Default: Story = {
 export const MultipleWithHover: Story = {
   render: () => {
     const { sm } = useMediaQueries();
-    const [cardData, setCardData] = React.useState([
+    const [cardData, setCardData] = useState([
       { icon: '🙈', selected: false, label: 'Lorem ipsum' },
       { icon: '🙉', selected: false, label: 'Dolor sit amet' },
       { icon: '🙊', selected: false, label: 'Consectetur adipiscing elit' },
     ]);
 
-    const [info, setInfo] = React.useState('');
+    const [info, setInfo] = useState('');
 
     const onClick = (index: number) => () => {
       setCardData((prev) => {

@@ -10,7 +10,7 @@ const myValue = 'myValue';
 describe('Checkbox', () => {
   it('renders correctly', () => {
     const { container } = render(
-      <Checkbox name="myCheckbox" label={label} ariaLabel={label} onChange={vi.fn} value={myValue} checked={false} />,
+      <Checkbox name="myCheckbox" label={label} ariaLabel={label} onChange={vi.fn()} value={myValue} checked={false} />,
     );
     const checkbox = screen.getByLabelText(label);
     expect(checkbox).toBeInTheDocument();
@@ -41,7 +41,7 @@ describe('Checkbox', () => {
         name="myCheckbox"
         label={label}
         ariaLabel={label}
-        onChange={vi.fn}
+        onChange={vi.fn()}
         value={myValue}
         checked={false}
         disabled
@@ -53,7 +53,7 @@ describe('Checkbox', () => {
 
   it('checks the checkbox', () => {
     render(
-      <Checkbox name="myCheckbox" label={label} ariaLabel={label} onChange={vi.fn} value={myValue} checked={true} />,
+      <Checkbox name="myCheckbox" label={label} ariaLabel={label} onChange={vi.fn()} value={myValue} checked={true} />,
     );
     const checkbox = screen.getByLabelText(label);
     expect(checkbox).toBeChecked();
