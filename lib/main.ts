@@ -33,5 +33,6 @@ export { SkipLink } from './components/SkipLink/SkipLink';
 export { Slider } from './components/Slider/Slider';
 export { Spinner } from './components/Spinner/Spinner';
 export { Tag } from './components/Tag/Tag';
+export { Textarea } from './components/Textarea/Textarea';
 export { Toast } from './components/Toast/Toast';
 export { WizardProgress } from './components/WizardProgress/WizardProgress';

@@ -26,6 +26,7 @@ export interface PaginationProps {
   translations: PaginationRootProps['translations'];
   onPageChange: (details: PageChangeDetails) => void;
   type?: 'button' | 'link';
+  ariaLabel?: string;
 }
 
 /** Pagination component for navigating through a list of items. */
@@ -36,6 +37,7 @@ export const Pagination = ({
   currentPage,
   translations,
   type,
+  ariaLabel,
   onPageChange,
 }: PaginationProps) => {
   const lastPage = Math.ceil(totalItems / pageSize);
@@ -51,6 +53,7 @@ export const Pagination = ({
       translations={translations}
       onPageChange={onPageChange}
       type={type}
+      aria-label={ariaLabel}
       className="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
     >
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>

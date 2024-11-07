@@ -19,6 +19,7 @@ import {
 } from '@floating-ui/react';
 import React from 'react';
 
+import { cx } from 'cva';
 import { tidyClasses as tc } from '../../utils';
 
 const ARROW_HEIGHT = 12;
@@ -33,18 +34,18 @@ export interface SliderProps {
   onValueChange: (value: number) => void;
   /** Current value of the slider */
   value: number;
+  /** Disabled state */
+  disabled?: boolean;
 }
 
-const Marker = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
-      <circle cx="2.5" cy="2.5" r="1.5" fill="#71A9CB" />
-    </svg>
-  );
-};
+const Marker = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" width={5} height={5}>
+    <circle cx="2.5" cy="2.5" r="1.5" fill="currentColor" />
+  </svg>
+);
 
 /** Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable. */
-export const Slider = ({ label, onValueChange, value, rightLabel }: SliderProps) => {
+export const Slider = ({ label, onValueChange, value, rightLabel, disabled }: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);
   const arrowRef = React.useRef(null);
@@ -86,7 +87,14 @@ export const Slider = ({ label, onValueChange, value, rightLabel }: SliderProps)
   };
 
   return (
-    <div className="ds-flex ds-h-[40px] ds-rounded-[20px] ds-bg-white ds-justify-between ds:min-w-full sm:ds-min-w-[414px]">
+    <div
+      className={cx(
+        'ds-flex ds-h-[40px] ds-rounded-[20px] ds-bg-white ds-justify-between ds:min-w-full sm:ds-min-w-[414px]',
+        {
+          'ds-text-inactive-gray ds-cursor-not-allowed': disabled,
+        },
+      )}
+    >
       <span className="ds-ml-6 ds-mr-5 ds-flex ds-items-center ds-text-[12px]">{label}</span>
       <ArkSlider.Root
         id={inputId}
@@ -96,8 +104,14 @@ export const Slider = ({ label, onValueChange, value, rightLabel }: SliderProps)
         onFocusChange={onFocusChangeHandler}
         value={[value]}
         step={25}
+        disabled={disabled}
       >
-        <ArkSlider.MarkerGroup className="ds-z-10">
+        <ArkSlider.MarkerGroup
+          className={cx('ds-z-10 ds-bg-todo', {
+            'ds-text-[#71A9CB]': !disabled,
+            'ds-text-inactive-gray': disabled,
+          })}
+        >
           <ArkSlider.Marker value={0}>
             <Marker />
           </ArkSlider.Marker>
@@ -116,13 +130,25 @@ export const Slider = ({ label, onValueChange, value, rightLabel }: SliderProps)
         </ArkSlider.MarkerGroup>
         <ArkSlider.Control className="ds-flex">
           <ArkSlider.Track className="ds-flex ds-h-[5px] ds-grow ds-bg-bg-gray-2 ds-rounded-[4px]">
-            <ArkSlider.Range className="ds-bg-accent ds-h-[5px] ds-rounded-[8px]" />
+            <ArkSlider.Range
+              className={cx('ds-h-[5px] ds-rounded-[8px]', {
+                'ds-bg-accent': !disabled,
+                'ds-bg-inactive-gray': disabled,
+              })}
+            />
           </ArkSlider.Track>
           <ArkSlider.Thumb
             ref={refs.setReference}
             {...getReferenceProps()}
+            aria-label={rightLabel ? `${label} - ${rightLabel}` : label}
             index={0}
-            className="ds-absolute -ds-top-[6px] ds-flex ds-size-[17px] ds-justify-center ds-rounded-full ds-bg-accent ds-z-20"
+            className={cx(
+              'ds-absolute -ds-top-[6px] ds-flex ds-size-[17px] ds-justify-center ds-rounded-full ds-z-20',
+              {
+                'ds-bg-accent': !disabled,
+                'ds-bg-inactive-gray': disabled,
+              },
+            )}
           />
         </ArkSlider.Control>
       </ArkSlider.Root>
