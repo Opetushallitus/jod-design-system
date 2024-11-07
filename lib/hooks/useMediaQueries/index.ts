@@ -15,9 +15,11 @@ const useMediaQuery = (query: string) => {
 };
 
 export const useMediaQueries = () => {
-  const { sm, lg } = __SCREENS__;
+  const { sm, md, lg, xl } = __SCREENS__;
   return {
     sm: useMediaQuery(`(min-width: ${sm})`),
+    md: useMediaQuery(`(min-width: ${md})`),
     lg: useMediaQuery(`(min-width: ${lg})`),
+    xl: useMediaQuery(`(min-width: ${xl})`),
   };
 };
