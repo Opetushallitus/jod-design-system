@@ -38,7 +38,7 @@ describe('Pagination', () => {
 
     const { container } = renderPagination(props);
 
-    const pageElements = screen.getAllByRole('button', { name: /[0-9]+/ });
+    const pageElements = screen.getAllByRole('button', { name: /\d+/ });
     expect(pageElements.length).toBe(4);
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -55,7 +55,7 @@ describe('Pagination', () => {
 
     const { container } = renderPagination(props);
 
-    const pageElements = screen.getAllByRole('button', { name: /[0-9]+/ });
+    const pageElements = screen.getAllByRole('button', { name: /\d+/ });
     expect(pageElements.length).toBe(6);
     expect(container.firstChild).toMatchSnapshot();
   });

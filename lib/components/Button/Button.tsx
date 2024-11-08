@@ -1,6 +1,6 @@
 import React from 'react';
 import { cx } from '../../cva';
-import { tidyClasses } from '../../utils';
+import { tidyClasses as tc } from '../../utils';
 
 export interface ButtonProps {
   /** Form ID to associate the button with */
@@ -57,17 +57,17 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
 
 const getDisabledClassName = (disabled: ButtonProps['disabled'], variant: ButtonProps['variant']) => {
   return disabled === false
-    ? tidyClasses(`
-      hover:ds-text-accent
-      focus-visible:ds-text-accent
-      active:ds-bg-accent
-      focus-visible:ds-outline-accent
-      focus-visible:ds-outline
-      focus-visible:ds-outline-[3px]
-      focus-visible:ds-outline-offset-[1.5px]
-      ${variant === 'accent' ? 'active:ds-text-accent' : 'active:ds-text-white'}
-      active:ds-outline-0
-    `)
+    ? tc([
+        'hover:ds-text-accent',
+        'focus-visible:ds-text-accent',
+        'active:ds-bg-accent',
+        'focus-visible:ds-outline-accent',
+        'focus-visible:ds-outline',
+        'focus-visible:ds-outline-[3px]',
+        'focus-visible:ds-outline-offset-[1.5px]',
+        variant === 'accent' ? 'active:ds-text-accent' : 'active:ds-text-white',
+        'active:ds-outline-0',
+      ])
     : 'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed';
 };
 
@@ -79,7 +79,7 @@ const getButtonClassName = ({
   disabled,
   LinkComponent,
 }: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) =>
-  tidyClasses([
+  tc([
     LinkComponent ? 'ds-inline-flex' : 'ds-flex',
     'ds-items-center',
     'ds-gap-4',
@@ -118,9 +118,9 @@ export const Button = ({
   return LinkComponent ? (
     <LinkComponent>
       <span className={buttonClassName}>
-        {leftIcon && <>{icon}</>}
-        {onlyIcon ? <>{icon}</> : <span className={spanClassName}>{label}</span>}
-        {rightIcon && <>{icon}</>}
+        {leftIcon && icon}
+        {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}
+        {rightIcon && icon}
       </span>
     </LinkComponent>
   ) : (
@@ -131,9 +131,9 @@ export const Button = ({
       onClick={onClick}
       className={buttonClassName}
     >
-      {leftIcon && <>{icon}</>}
-      {onlyIcon ? <>{icon}</> : <span className={spanClassName}>{label}</span>}
-      {rightIcon && <>{icon}</>}
+      {leftIcon && icon}
+      {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}
+      {rightIcon && icon}
     </button>
   );
 };

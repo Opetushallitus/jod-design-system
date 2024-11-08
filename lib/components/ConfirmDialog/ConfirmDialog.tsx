@@ -74,7 +74,7 @@ export const ConfirmDialog = ({
   };
 
   const confirmHandler = () => {
-    onConfirm && onConfirm();
+    onConfirm?.();
     hideDialog();
   };
 

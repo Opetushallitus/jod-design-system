@@ -10,10 +10,10 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:storybook/recommended',
-    'plugin:sonarjs/recommended',
+    'plugin:sonarjs/recommended-legacy',
     'prettier', // must be last, override other configs
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'storybook-static', '!.storybook'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'storybook-static', '!.storybook', '**.stories.tsx'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json', './tsconfig.node.json'],

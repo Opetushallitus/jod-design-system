@@ -1,7 +1,7 @@
 import React from 'react';
 import { GrTarget } from 'react-icons/gr';
 import { MdCheck, MdOutlineFlag } from 'react-icons/md';
-import { tidyClasses } from '../../utils';
+import { tidyClasses as tc } from '../../utils';
 
 export interface PathProgressProps {
   steps: number;
@@ -32,7 +32,7 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
       <span className="ds-absolute ds-top-0 ds-left-[50%] ds-transform -ds-translate-x-[50%] ds-bg-white ds-w-2 ds-h-full" />
       <button
         type="button"
-        className={tidyClasses(`
+        className={tc(`
           ds-mb-6
           ${baseClasses}
           ${getActiveClasses(0)}
@@ -44,15 +44,15 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
       {Array.from({ length: steps }).map((_, index) => (
         <button
           type="button"
-          key={index}
-          className={tidyClasses(`
-            ds-text-button-lg
-            ds-mb-6
-            ${baseClasses}
-            ${getActiveClasses(index + 1)}
-            ${index < 2 ? 'ds-mt-auto' : ''}
-            ${selectedStep === index + 1 ? 'ds-flex ds-items-center ds-justify-center' : ''}
-          `)}
+          key={index} // eslint-disable-line sonarjs/no-array-index-key
+          className={tc([
+            'ds-text-button-lg',
+            'ds-mb-6',
+            baseClasses,
+            getActiveClasses(index + 1),
+            index < 2 ? 'ds-mt-auto' : '',
+            selectedStep === index + 1 ? 'ds-flex ds-items-center ds-justify-center' : '',
+          ])}
           onClick={handleOnClick(index + 1)}
         >
           {selectedStep === index + 1 ? <MdCheck size={24} /> : index + 1}
@@ -60,7 +60,7 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
       ))}
       <button
         type="button"
-        className={tidyClasses(`
+        className={tc(`
           ${baseClasses}
           ${getActiveClasses(steps + 1)}
           ds-mb-0

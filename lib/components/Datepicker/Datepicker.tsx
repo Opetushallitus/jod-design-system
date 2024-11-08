@@ -74,6 +74,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
   ref,
 ) {
   const helpId = React.useId();
+  const timeZone = 'Europe/Helsinki';
 
   return (
     <ArkDatePicker.Root
@@ -84,7 +85,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
       }}
       value={value ? [parseDate(value)] : undefined}
       locale="fi-FI"
-      timeZone="Europe/Helsinki"
+      timeZone={timeZone}
       className="ds-w-full"
       isDateUnavailable={(date) => isInvalidYear(date.year)}
     >
@@ -140,10 +141,10 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                         </ArkDatePicker.TableRow>
                       </ArkDatePicker.TableHead>
                       <ArkDatePicker.TableBody>
-                        {datePicker.weeks.map((week, i) => (
-                          <ArkDatePicker.TableRow key={i}>
+                        {datePicker.weeks.map((week) => (
+                          <ArkDatePicker.TableRow key={week[0].toDate(timeZone).toISOString()}>
                             {week.map((day) => (
-                              <ArkDatePicker.TableCell key={`${day.day}_${i}`} value={day}>
+                              <ArkDatePicker.TableCell key={day.day} value={day}>
                                 <ArkDatePicker.TableCellTrigger className={getDayCellClasses(datePicker, day)} asChild>
                                   <button type="button" disabled={datePicker.isUnavailable(day)}>
                                     {day.day}
@@ -166,10 +167,10 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                     <Header />
                     <ArkDatePicker.Table>
                       <ArkDatePicker.TableBody>
-                        {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months, i) => (
-                          <ArkDatePicker.TableRow key={i}>
+                        {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months) => (
+                          <ArkDatePicker.TableRow key={months[0].label}>
                             {months.map((month) => (
-                              <ArkDatePicker.TableCell key={month.label} value={month.value}>
+                              <ArkDatePicker.TableCell key={`_${month.label}`} value={month.value}>
                                 <ArkDatePicker.TableCellTrigger className={tableCellClasses}>
                                   {month.label}
                                 </ArkDatePicker.TableCellTrigger>
@@ -190,10 +191,10 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                     <Header />
                     <ArkDatePicker.Table>
                       <ArkDatePicker.TableBody>
-                        {datePicker.getYearsGrid({ columns: 4 }).map((years, i) => (
-                          <ArkDatePicker.TableRow key={`year_${i}`}>
+                        {datePicker.getYearsGrid({ columns: 4 }).map((years) => (
+                          <ArkDatePicker.TableRow key={years[0].label}>
                             {years.map((year) => (
-                              <ArkDatePicker.TableCell key={year.label} value={year.value}>
+                              <ArkDatePicker.TableCell key={`_${year.label}`} value={year.value}>
                                 <ArkDatePicker.TableCellTrigger className={getYearCellClasses(year)} asChild>
                                   <button type="button" disabled={isInvalidYear(year.value)}>
                                     {year.label}
