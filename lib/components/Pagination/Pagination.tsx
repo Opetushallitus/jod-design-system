@@ -68,6 +68,8 @@ export const Pagination = ({
                 {page.value}
               </ArkPagination.Item>
             ) : (
+              // The page object for ellipsis does not contain a value, so index must be used as a key.
+              // eslint-disable-next-line sonarjs/no-array-index-key
               <ArkPagination.Ellipsis key={`ellipsis_${index}`} index={index} className={getClassName()}>
                 <MdMoreHoriz size={24} />
               </ArkPagination.Ellipsis>

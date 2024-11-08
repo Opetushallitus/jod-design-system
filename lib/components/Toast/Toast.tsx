@@ -24,7 +24,7 @@ export const Toast = ({ text, icon, variant = 'success' }: ToastProps) => (
       .replace(/\s+/g, ' ')
       .trim()}
   >
-    {icon && <>{icon}</>}
+    {icon ?? null}
     {text}
   </div>
 );

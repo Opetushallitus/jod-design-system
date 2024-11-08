@@ -15,7 +15,7 @@ export interface TooltipProps extends TooltipOptions {
 }
 
 /** Tooltips show contextual help or information about specific components when a user hovers or focuses on them. */
-export function Tooltip({ children, ...options }: TooltipProps) {
+export const Tooltip = ({ children, ...options }: Readonly<TooltipProps>) => {
   const tooltip = useTooltip(options);
   return <TooltipContext.Provider value={tooltip}>{children}</TooltipContext.Provider>;
-}
+};
