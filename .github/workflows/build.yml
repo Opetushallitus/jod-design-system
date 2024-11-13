@@ -28,11 +28,8 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.JOD_UTIL_AWS_ACCOUNT_ID }}:role/${{ secrets.JOD_UTIL_AWS_GITHUB_ROLE_NAME}}
           aws-region: eu-west-1
 
-      - name: Copy icons from S3
-        run: aws s3 cp s3://${{ secrets.JOD_UI_ASSETS }}/icons.woff2 ./public/assets/icons.woff2
-
-      - name: Copy font from S3
-        run: aws s3 cp s3://${{ secrets.JOD_UI_ASSETS }}/Poppins-Regular.ttf ./public/assets/Poppins-Regular.ttf
+      - name: Copy third party assets from S3
+        run: aws s3 sync --quiet s3://${{ secrets.JOD_UI_ASSETS }} ./assets
 
       - uses: actions/setup-node@v4
         with:
@@ -61,6 +58,9 @@ jobs:
 
       - name: Run build
         run: npm run storybook:build
+
+      - name: Copy Poppins font files
+        run: cp assets/Poppins-* storybook-static/assets
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
