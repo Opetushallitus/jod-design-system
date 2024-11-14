@@ -14,6 +14,8 @@ interface BaseTextareaProps {
   placeholder?: string;
   /** The help text to display below the textarea */
   help?: string;
+  /** The maximum number of characters that can be entered into the textarea */
+  maxLength?: number;
   /** The number of rows to display in the textarea */
   rows?: number;
   /** Additional classes to add to the textarea */
@@ -41,7 +43,19 @@ export type TextareaProps = ShowLabelProps | HideLabelProps;
 
 /** Textareas are multi-line text boxes that allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements. */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(function Textarea(
-  { name, value, onBlur, onChange, placeholder, label, hideLabel = false, help, rows, className = '' }: TextareaProps,
+  {
+    name,
+    value,
+    onBlur,
+    onChange,
+    placeholder,
+    label,
+    hideLabel = false,
+    help,
+    maxLength,
+    rows,
+    className = '',
+  }: TextareaProps,
   ref,
 ) {
   const inputId = React.useId();
@@ -64,6 +78,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         value={value}
         onBlur={onBlur}
         onChange={onChange}
+        maxLength={maxLength}
         rows={rows}
         placeholder={placeholder}
         autoComplete="off"

@@ -10,6 +10,8 @@ interface BaseInputFieldProps {
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** The function to call when the value of the input field changes */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** The maximum number of characters that can be entered into the input field */
+  maxLength?: number;
   /** The placeholder text to display in the input field */
   placeholder?: string;
   /** The help text to display below the input field */
@@ -39,7 +41,18 @@ export type InputFieldProps = ShowLabelProps | HideLabelProps;
 
 /** Input fields are text boxes that allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements. */
 export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(function InputField(
-  { name, value, onBlur, onChange, placeholder, label, hideLabel = false, help, className = '' }: InputFieldProps,
+  {
+    name,
+    value,
+    onBlur,
+    onChange,
+    maxLength,
+    placeholder,
+    label,
+    hideLabel = false,
+    help,
+    className = '',
+  }: InputFieldProps,
   ref,
 ) {
   const inputId = React.useId();
@@ -63,6 +76,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         value={value}
         onBlur={onBlur}
         onChange={onChange}
+        maxLength={maxLength}
         placeholder={placeholder}
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
