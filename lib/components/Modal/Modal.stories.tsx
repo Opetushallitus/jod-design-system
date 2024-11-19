@@ -22,6 +22,7 @@ const LoremIpsum = ({ heading }: { heading: string }) => {
       <p className="ds-font-bold">{heading}</p>
       <div className="ds-flex ds-flex-col ds-gap-4">
         {Array.from({ length: 10 }).map((_, index) => (
+          // eslint-disable-next-line sonarjs/no-array-index-key
           <p key={index}>{loremIpsumText}</p>
         ))}
       </div>

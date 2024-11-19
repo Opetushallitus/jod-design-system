@@ -1,7 +1,6 @@
+import { useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import React from 'react';
-
 import { Textarea } from './Textarea';
 
 const meta = {
@@ -17,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args: Story['args']) => {
     const { value, onChange, ...rest } = args;
-    const [textareaValue, setTextareaValue] = React.useState(value);
+    const [textareaValue, setTextareaValue] = useState(value);
     return (
       <Textarea
         value={textareaValue}
