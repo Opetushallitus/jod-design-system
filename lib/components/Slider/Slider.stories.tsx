@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
@@ -14,9 +15,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const render = (args: Story['args']) => {
+const Render = (args: Story['args']) => {
   const { value, onValueChange, ...rest } = args;
-  const [numberValue, setNumberValue] = React.useState(value);
+  const [numberValue, setNumberValue] = useState(value);
 
   React.useEffect(() => {
     action('onValueChange')(args.value);
@@ -47,7 +48,7 @@ const parameters = {
 };
 
 export const Default: Story = {
-  render,
+  render: Render,
   decorators: [
     (Story) => (
       <div className="ds-max-w-[414px]">
@@ -66,7 +67,7 @@ export const Default: Story = {
 };
 
 export const WithRightLabel: Story = {
-  render,
+  render: Render,
   decorators: [
     (Story) => (
       <div className="ds-max-w-[348px]">
@@ -82,5 +83,26 @@ export const WithRightLabel: Story = {
     rightLabel: 'Kiinnostukset',
     onValueChange: fn(),
     value: 50,
+  },
+};
+
+export const Disabled: Story = {
+  render: Render,
+  decorators: [
+    (Story) => (
+      <div className="ds-max-w-[348px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    ...parameters,
+  },
+  args: {
+    label: 'Osaamiset',
+    rightLabel: 'Kiinnostukset',
+    onValueChange: fn(),
+    value: 50,
+    disabled: true,
   },
 };

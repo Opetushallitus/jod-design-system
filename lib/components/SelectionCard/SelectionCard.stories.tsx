@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import { useState } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
 import { useMediaQueries } from '../../main';
 import { SelectionCard } from './SelectionCard';
 
@@ -67,6 +66,7 @@ export const MultipleWithHover: Story = {
     };
 
     const setInfoVisible = (index: number) => (visible: boolean) => {
+      // eslint-disable-next-line sonarjs/no-selector-parameter
       if (visible && info !== cardData[index].label) {
         setInfo(cardData[index].label);
       } else if (!visible) {
@@ -77,7 +77,7 @@ export const MultipleWithHover: Story = {
     const CardList = () =>
       cardData.map((card, index) => (
         <SelectionCard
-          key={index}
+          key={card.label}
           label={card.label}
           selected={card.selected}
           onClick={onClick(index)}
