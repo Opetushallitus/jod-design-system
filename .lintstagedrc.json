@@ -1,4 +1,4 @@
 {
   "*": ["prettier --check"],
-  "*.{ts,tsx}": ["eslint --report-unused-disable-directives --max-warnings 0"]
+  "*.{ts,tsx}": ["eslint --report-unused-disable-directives --max-warnings 0 --no-warn-ignored"]
 }
