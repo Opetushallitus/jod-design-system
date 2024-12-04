@@ -83,13 +83,13 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
                   'sm:ds-pr-0',
                 ])}
               >
-                {progress && !sm && <div className="ds-flex ds-grow ds-flex-col ds-items-end">{progress}</div>}
+                {progress && !sm && <div className="ds-flex ds-justify-end">{progress}</div>}
                 <div className="ds-overflow-y-auto sm:ds-mt-6">{content}</div>
               </div>
               {/* Side panel */}
               {sm && (
                 <div className={`ds-col-span-1 ds-flex ds-flex-col ${heightClasses}`}>
-                  {progress && <div className="ds-mr-6 ds-flex ds-grow ds-flex-col ds-items-end">{progress}</div>}
+                  {progress && <div className="ds-mr-6 ds-flex ds-justify-end">{progress}</div>}
                   <div className={`ds-mr-5 sm:ds-mr-9 ds-overflow-y-auto ${!progress ? 'sm:ds-mt-6' : ''}`}>
                     {sidePanel}
                   </div>
