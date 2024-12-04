@@ -14,14 +14,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const LoremIpsum = ({ heading }: { heading: string }) => {
+const LoremIpsum = ({ heading, length = 10 }: { heading: string; length?: number }) => {
   const loremIpsumText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget augue aliquam, varius ex nec, aliquet orci. Donec nec congue eros. Phasellus vulputate facilisis efficitur. Praesent non mi tellus. Donec lacinia congue condimentum. Ut suscipit, felis ac bibendum convallis, lectus nulla aliquet tortor, at egestas dolor ex non nunc. Aliquam id dolor ex. Sed eros arcu, scelerisque ut lorem nec, ornare rutrum magna. Nunc id leo condimentum massa convallis rhoncus id quis tortor. Mauris scelerisque ultrices mi, sit amet lobortis lorem placerat vitae. Etiam tincidunt interdum ante eu pretium. Integer suscipit velit et tortor gravida varius.';
   return (
     <>
       <p className="ds-font-bold">{heading}</p>
       <div className="ds-flex ds-flex-col ds-gap-4">
-        {Array.from({ length: 10 }).map((_, index) => (
+        {Array.from({ length }).map((_, index) => (
           // eslint-disable-next-line sonarjs/no-array-index-key
           <p key={index}>{loremIpsumText}</p>
         ))}
@@ -95,6 +95,86 @@ export const Default: Story = {
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
     sidePanel: <LoremIpsum heading="Side panel" />,
+    footer: <>/</>,
+  },
+};
+
+export const DynamicContent: Story = {
+  render: (args: Story['args']) => {
+    const { open, onClose, ...rest } = args;
+    const [isOpen, setIsOpen] = useState(open);
+    const [hasProgress, setHasProgress] = useState(false);
+    const [hasSidePanel, setHasSidePanel] = useState(false);
+    const [loremIpsumLength, setLoremIpsumLength] = useState(3);
+
+    return (
+      <>
+        <button onClick={() => setIsOpen(true)}>Open Modal example</button>
+        <Modal
+          {...rest}
+          sidePanel={hasSidePanel ? <LoremIpsum heading="Side panel" length={loremIpsumLength} /> : null}
+          progress={hasProgress ? <WizardProgress steps={4} currentStep={2} /> : null}
+          content={
+            <>
+              <div className="ds-flex ds-flex-row ds-gap-4">
+                <button
+                  type="button"
+                  onClick={() => setHasProgress(!hasProgress)}
+                  className="ds-shadow-border ds-bg-accent ds-text-white ds-p-5"
+                >
+                  Toggle progress
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHasSidePanel(!hasSidePanel)}
+                  className="ds-shadow-border ds-bg-accent ds-text-white ds-p-5"
+                >
+                  Toggle side panel
+                </button>
+                <div className="ds-flex ds-flex-col">
+                  <label htmlFor="loremIpsumLength">Lorem ipsum length</label>
+                  <input
+                    id="loremIpsumLength"
+                    className="ds-p-3"
+                    type="number"
+                    value={loremIpsumLength}
+                    onChange={(e) => setLoremIpsumLength(parseInt(e.target.value, 10))}
+                    min={0}
+                    max={20}
+                  />
+                </div>
+              </div>
+              <hr className="ds-my-4" />
+              <LoremIpsum heading="This is a modal with dynamic content for testing" length={loremIpsumLength} />
+            </>
+          }
+          open={isOpen}
+          onClose={() => {
+            if (onClose) {
+              onClose();
+            }
+            setIsOpen(false);
+          }}
+          footer={<Button label="Sulje" onClick={() => setIsOpen(false)} />}
+        />
+      </>
+    );
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
+    },
+    docs: {
+      description: {
+        story: 'This is a modal with dynamic content for testing.',
+      },
+    },
+  },
+  args: {
+    open: false,
+    onClose: fn(),
+    content: <>/</>,
     footer: <>/</>,
   },
 };
