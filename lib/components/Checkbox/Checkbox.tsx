@@ -46,7 +46,7 @@ export const Checkbox = ({
   };
 
   return (
-    <div className={cx('ds-flex ds-items-center ds-text-left', className)}>
+    <div className={cx('ds-flex ds-items-center ds-text-left ds-relative', className)}>
       <input
         type="checkbox"
         id={label ? id : undefined}
@@ -56,12 +56,9 @@ export const Checkbox = ({
         checked={checked}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
-        className={cx(
-          'ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white',
-          {
-            ...borderVariantClassnames,
-          },
-        )}
+        className={cx('ds-peer ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white', {
+          ...borderVariantClassnames,
+        })}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"

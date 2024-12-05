@@ -2,10 +2,10 @@
 
 exports[`Checkbox > renders correctly 1`] = `
 <div
-  class="ds-flex ds-items-center ds-text-left"
+  class="ds-flex ds-items-center ds-text-left ds-relative"
 >
   <input
-    class="ds-peer ds-relative ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white ds-border-0"
+    class="ds-peer ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white ds-border-0"
     id=":r0:"
     name="myCheckbox"
     type="checkbox"
