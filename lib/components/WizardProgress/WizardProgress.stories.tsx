@@ -13,6 +13,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  decorators: [
+    (Story) => (
+      <div lang="fi">
+        <button className="ds-sr-only">Interaktiivinen elementti</button>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     design: {
       type: 'figma',
@@ -27,5 +35,9 @@ export const Default: Story = {
   args: {
     steps: 5,
     currentStep: 2,
+    stepText: 'Vaihe',
+    completedText: 'Valmis',
+    currentText: 'Nykyinen',
+    labelText: 'Eteneminen',
   },
 };
