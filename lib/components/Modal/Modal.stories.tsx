@@ -14,6 +14,16 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const ProgressComponent = () => (
+  <WizardProgress
+    labelText="Eteneminen"
+    stepText="Vaihe"
+    completedText="Valmis"
+    currentText="Nykyinen"
+    steps={4}
+    currentStep={2}
+  />
+);
 const LoremIpsum = ({ heading, length = 10 }: { heading: string; length?: number }) => {
   const loremIpsumText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget augue aliquam, varius ex nec, aliquet orci. Donec nec congue eros. Phasellus vulputate facilisis efficitur. Praesent non mi tellus. Donec lacinia congue condimentum. Ut suscipit, felis ac bibendum convallis, lectus nulla aliquet tortor, at egestas dolor ex non nunc. Aliquam id dolor ex. Sed eros arcu, scelerisque ut lorem nec, ornare rutrum magna. Nunc id leo condimentum massa convallis rhoncus id quis tortor. Mauris scelerisque ultrices mi, sit amet lobortis lorem placerat vitae. Etiam tincidunt interdum ante eu pretium. Integer suscipit velit et tortor gravida varius.';
@@ -113,7 +123,7 @@ export const DynamicContent: Story = {
         <Modal
           {...rest}
           sidePanel={hasSidePanel ? <LoremIpsum heading="Side panel" length={loremIpsumLength} /> : null}
-          progress={hasProgress ? <WizardProgress steps={4} currentStep={2} /> : null}
+          progress={hasProgress ? <ProgressComponent /> : null}
           content={
             <>
               <div className="ds-flex ds-flex-row ds-gap-4">
@@ -198,7 +208,7 @@ export const Progress: Story = {
     content: <LoremIpsum heading="Content" />,
     sidePanel: <LoremIpsum heading="Side panel" />,
     footer: <>/</>,
-    progress: <WizardProgress steps={4} currentStep={2} />,
+    progress: <ProgressComponent />,
   },
 };
 
@@ -249,6 +259,6 @@ export const MobileWithProgress: Story = {
     content: <LoremIpsum heading="Content" />,
     sidePanel: <LoremIpsum heading="Side panel" />,
     footer: <>/</>,
-    progress: <WizardProgress steps={4} currentStep={2} />,
+    progress: <ProgressComponent />,
   },
 };

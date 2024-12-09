@@ -5,34 +5,76 @@ export interface WizardProgressProps {
   steps: number;
   /** The current step in the wizard. */
   currentStep: number;
-  /** The text to display when a step is completed. */
-  completedText?: string;
-  /** The text to display when a step is the current step. */
-  currentText?: string;
+  /** The text for screenreader when a step is completed. */
+  completedText: string;
+  /** The text for screenreader when a step is the current step. */
+  currentText: string;
+  /** The text for describing meaning for screenreader for every step */
+  stepText: string;
+  /** The text for telling screenreader what the component is all about */
+  labelText: string;
 }
 
-/** A component that displays the progress of a wizard. */
-export const WizardProgress = ({ steps, currentStep, completedText, currentText }: WizardProgressProps) => {
+const Step = ({ step, stepText }: { step: number; stepText: string }) => {
   return (
-    <ol className="ds-flex ds-gap-4 ds-text-black sm:ds-text-heading-2 sm:ds-leading-[24px] ds-text-heading-3-mobile ds-leading-[16px]">
+    <>
+      <span className="ds-sr-only">{`${stepText}: `}</span>
+      <span className="ds-select-none">{step}</span>
+    </>
+  );
+};
+
+const CompletedStep = ({ text, step, stepText }: { text: string; step: number; stepText: string }) => {
+  return (
+    <>
+      <span className="ds-sr-only">{`${stepText}: ${step}, ${text}.`}</span>
+      <MdCheck role="presentation" size={24} />
+    </>
+  );
+};
+
+const CurrentStep = ({ text, step, stepText }: { text: string; step: number; stepText: string }) => {
+  return (
+    <>
+      <Step step={step} stepText={stepText} />
+      <span className="ds-sr-only">{`, ${text}.`}</span>
+    </>
+  );
+};
+
+/** A component that displays the progress of a wizard. */
+export const WizardProgress = ({
+  steps,
+  currentStep,
+  completedText,
+  currentText,
+  stepText,
+  labelText,
+}: WizardProgressProps) => {
+  const renderStep = (step: number) => {
+    if (step < currentStep) {
+      return <CompletedStep text={completedText} step={step} stepText={stepText} />;
+    } else if (step === currentStep) {
+      return <CurrentStep text={currentText} step={step} stepText={stepText} />;
+    } else {
+      return <Step step={step} stepText={stepText} />;
+    }
+  };
+
+  return (
+    <ol
+      className="ds-flex ds-gap-4 ds-text-black sm:ds-text-heading-2 sm:ds-leading-[24px] ds-text-heading-3-mobile ds-leading-[16px]"
+      aria-label={labelText}
+    >
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
           className={`ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ${
             index + 1 === currentStep ? 'ds-bg-accent ds-text-white' : 'ds-bg-bg-gray-2'
           } sm:ds-min-h-8 sm:ds-min-w-8`}
+          aria-current={index + 1 === currentStep}
         >
-          {index + 1 < currentStep ? (
-            <>
-              {completedText && <span className="ds-sr-only">{`${completedText}: ${index + 1}`}</span>}
-              <MdCheck size={24} />
-            </>
-          ) : (
-            <>
-              {index + 1 === currentStep && currentText && <span className="ds-sr-only">{`${currentText}: `}</span>}
-              <span className="ds-select-none">{index + 1}</span>
-            </>
-          )}
+          {renderStep(index + 1)}
         </li>
       ))}
     </ol>
