@@ -11,6 +11,8 @@ describe('WizardProgress', () => {
   it('renders correctly', () => {
     const { container } = render(
       <WizardProgress
+        labelText="Progress"
+        stepText="Step"
         steps={steps}
         currentStep={currentStep}
         completedText={completedText}
