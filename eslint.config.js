@@ -94,14 +94,11 @@ export default [
         },
       ],
       '@singlestore/react-hooks-disable-import/react-hooks-disable-import': 'error',
-      'sonarjs/new-cap': 'off',
+      'react/no-unstable-nested-components': 'warn',
+      'react/no-array-index-key': 'warn',
       'sonarjs/no-ignored-exceptions': 'off',
       'sonarjs/todo-tag': 'warn',
-      'sonarjs/mouse-events-a11y': 'off', // this is also checked by the jsx-a11y
-      'sonarjs/no-unstable-nested-components': 'warn',
       'sonarjs/slow-regex': 'error',
-      'sonarjs/no-empty-function': 'off', // off for now as it causes "Cannot read properties of undefined (reading 'allow')" here and there
-      'sonarjs/no-unused-expressions': 'off', // off for now as it causes "Cannot read properties of undefined (reading 'allowShortCircuit')"
       ...hooksPlugin.configs.recommended.rules,
     },
   },
