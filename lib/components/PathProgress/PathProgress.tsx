@@ -44,7 +44,7 @@ export const PathProgress = ({ steps = 5, currentStep = 0, selectedStep, onClick
       {Array.from({ length: steps }).map((_, index) => (
         <button
           type="button"
-          key={index} // eslint-disable-line sonarjs/no-array-index-key
+          key={index} // eslint-disable-line react/no-array-index-key
           className={tc([
             'ds-text-button-lg',
             'ds-mb-6',
