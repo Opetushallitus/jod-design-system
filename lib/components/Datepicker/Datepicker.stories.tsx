@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import { useState } from '@storybook/preview-api';
+import { DateView, DayTableCellState } from '@zag-js/date-picker';
 import { Datepicker } from './Datepicker';
 
 const meta = {
@@ -21,11 +22,38 @@ const parameters = {
   },
 };
 
+const viewTranslations = {
+  day: {
+    next: 'Vaihda seuraavaan kuukauteen',
+    view: 'Vaihda kuukausinäkymään',
+    prev: 'Vaihda edelliseen kuukauteen',
+  },
+  month: {
+    next: 'Vaihda seuraavaan vuoteen',
+    view: 'Vaihda vuosinäkymään',
+    prev: 'Vaihda edelliseen vuoteen',
+  },
+  year: {
+    next: 'Vaihda seuraavaan vuosikymmeneen',
+    view: 'Vaihda päivänäkymään',
+    prev: 'Vaihda edelliseen vuosikymmeneen',
+  },
+} as const;
+
+const translations = {
+  nextTrigger: (view: DateView) => viewTranslations[view].next,
+  viewTrigger: (view: DateView) => viewTranslations[view].view,
+  prevTrigger: (view: DateView) => viewTranslations[view].prev,
+  dayCell: (state: DayTableCellState): string => `Valitse ${state.formattedDate}`,
+  trigger: (open: boolean): string => (open ? 'Sulje kalenteri' : 'Avaa kalenteri'),
+};
+
 const args = {
   label: 'Valitse päivämäärä',
   placeholder: 'pp.kk.vvvv',
   help: 'Help text',
   onChange: fn(),
+  translations: translations,
 };
 
 export const Default: Story = {
