@@ -1,4 +1,10 @@
-import { DatePicker as ArkDatePicker, parseDate, Portal, UseDatePickerContext } from '@ark-ui/react';
+import {
+  DatePicker as ArkDatePicker,
+  DatePickerRootProps,
+  parseDate,
+  Portal,
+  UseDatePickerContext,
+} from '@ark-ui/react';
 import React from 'react';
 import { MdArrowBack, MdArrowForward, MdCalendarMonth } from 'react-icons/md';
 import { cx } from '../../cva';
@@ -51,6 +57,11 @@ const Header = () => (
   </ArkDatePicker.ViewControl>
 );
 
+type ArkTranslationsInUse = Pick<
+  Required<DatePickerRootProps>['translations'],
+  'nextTrigger' | 'viewTrigger' | 'prevTrigger' | 'dayCell' | 'trigger'
+>;
+
 export interface DatepickerProps {
   /** Name of the input field */
   name?: string;
@@ -66,15 +77,31 @@ export interface DatepickerProps {
   placeholder?: string;
   /** Help text to display below the input field */
   help?: string;
-}
 
+  translations: ArkTranslationsInUse;
+}
 /** Datepicker component for selecting a date. */
 export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(function Datepicker(
-  { value, name, label, placeholder, help, onBlur, onChange }: DatepickerProps,
+  { value, name, label, placeholder, help, onBlur, onChange, translations }: DatepickerProps,
   ref,
 ) {
   const helpId = React.useId();
   const timeZone = 'Europe/Helsinki';
+
+  const arkTranslations: DatePickerRootProps['translations'] = {
+    ...translations,
+    // Not in use, but required to be defined for Ark-UI
+    clearTrigger: '',
+    content: '',
+    monthSelect: '',
+    placeholder: function (_locale: string): { year: string; month: string; day: string } {
+      return { year: '', month: '', day: '' };
+    },
+    presetTrigger: function (_value: string[]): string {
+      return '';
+    },
+    yearSelect: '',
+  };
 
   return (
     <ArkDatePicker.Root
@@ -88,6 +115,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
       timeZone={timeZone}
       className="ds-w-full"
       isDateUnavailable={(date) => isInvalidYear(date.year)}
+      translations={arkTranslations}
     >
       <ArkDatePicker.Label className="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black">
         {label}

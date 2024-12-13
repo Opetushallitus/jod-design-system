@@ -1,5 +1,6 @@
 import { userEvent } from '@storybook/test';
 import { act, render, screen } from '@testing-library/react';
+import { DateView, DayTableCellState } from '@zag-js/date-picker';
 import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Datepicker } from './Datepicker';
@@ -14,29 +15,84 @@ describe('Datepicker', () => {
   afterEach(() => {
     onChange.mockClear();
   });
+  const viewTranslations = {
+    day: {
+      next: 'Switch to next month',
+      view: 'Switch to month view',
+      prev: 'Switch to previous month',
+    },
+    month: {
+      next: 'Switch to next year',
+      view: 'Switch to year view',
+      prev: 'Switch to previous year',
+    },
+    year: {
+      next: 'Switch to next decade',
+      view: 'Switch to day view',
+      prev: 'Switch to previous decade',
+    },
+  } as const;
+
+  const translations = {
+    nextTrigger: (view: DateView) => viewTranslations[view].next,
+    viewTrigger: (view: DateView) => viewTranslations[view].view,
+    prevTrigger: (view: DateView) => viewTranslations[view].prev,
+    dayCell: (state: DayTableCellState): string => `Choose ${state.formattedDate}`,
+    trigger: (open: boolean): string => (open ? 'Close calendar' : 'Open calendar'),
+  };
 
   it('renders correctly', () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2024, 6, 1, 12, 0, 0));
     const { container } = render(
-      <Datepicker label={label} placeholder={placeholder} value={value} onChange={onChange} />,
+      <Datepicker
+        label={label}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        translations={translations}
+      />,
     );
     expect(container.firstChild).toMatchSnapshot();
     vi.useRealTimers();
   });
 
   it('renders the correct label', () => {
-    render(<Datepicker label={label} placeholder={placeholder} value={value} onChange={onChange} />);
+    render(
+      <Datepicker
+        label={label}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        translations={translations}
+      />,
+    );
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 
   it('renders the correct initial value', () => {
-    render(<Datepicker label={label} placeholder={placeholder} value={value} onChange={onChange} />);
+    render(
+      <Datepicker
+        label={label}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        translations={translations}
+      />,
+    );
     expect(screen.getByDisplayValue(formattedValue)).toBeInTheDocument();
   });
 
   it('calls onValueChange when a new date is typed into the input', async () => {
-    render(<Datepicker name="startDate" label={label} placeholder={placeholder} onChange={onChange} />);
+    render(
+      <Datepicker
+        name="startDate"
+        label={label}
+        placeholder={placeholder}
+        onChange={onChange}
+        translations={translations}
+      />,
+    );
     const input = screen.getByRole('textbox');
     const user = userEvent.setup();
     await act(async () => {
@@ -64,6 +120,7 @@ describe('Datepicker', () => {
         placeholder={placeholder}
         onChange={onChangeMock}
         value={value.date}
+        translations={translations}
       />,
     );
     const input = screen.getByRole('textbox');
