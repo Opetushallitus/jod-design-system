@@ -17,7 +17,6 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-themes',
     '@storybook/addon-designs',
-    '@storybook/addon-mdx-gfm',
     '@chromatic-com/storybook',
   ],
 
