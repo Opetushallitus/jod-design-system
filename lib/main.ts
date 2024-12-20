@@ -1,13 +1,13 @@
 import './index.css';
 
 export { cva, cx } from './cva';
-export { tidyClasses } from './utils';
-
 export { useMediaQueries } from './hooks/useMediaQueries';
+export { tidyClasses } from './utils';
 
 export { Accordion } from './components/Accordion/Accordion';
 export { ActiveIndicator } from './components/ActiveIndicator/ActiveIndicator';
 export { Button } from './components/Button/Button';
+export { CardCarousel } from './components/CardCarousel/CardCarousel';
 export { Checkbox } from './components/Checkbox/Checkbox';
 export { Combobox } from './components/Combobox/Combobox';
 export { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
