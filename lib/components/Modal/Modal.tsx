@@ -79,7 +79,7 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
                   'ds-flex-col',
                   'ds-gap-y-6',
                   'ds-pr-5',
-                  'sm:ds-col-span-2',
+                  (sidePanel ?? progress) ? 'sm:ds-col-span-2' : 'sm:ds-col-span-3 ds-mr-0 sm:ds-mr-5 md:ds-mr-9',
                   'sm:ds-pr-0',
                 ])}
               >
@@ -87,7 +87,7 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
                 <div className="ds-overflow-y-auto sm:ds-mt-6">{content}</div>
               </div>
               {/* Side panel */}
-              {sm && (
+              {sm && (sidePanel ?? progress) && (
                 <div className={`ds-col-span-1 ds-flex ds-flex-col ${heightClasses}`}>
                   {progress && <div className="ds-mr-6 ds-flex ds-justify-end">{progress}</div>}
                   <div className={`ds-mr-5 sm:ds-mr-9 ds-overflow-y-auto ${!progress ? 'sm:ds-mt-6' : ''}`}>
