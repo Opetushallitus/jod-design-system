@@ -109,6 +109,27 @@ export const Default: Story = {
   },
 };
 
+export const DefaultWithoutSidePanel: Story = {
+  render,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
+    },
+    docs: {
+      description: {
+        story: 'This is a modal component without side panel.',
+      },
+    },
+  },
+  args: {
+    open: false,
+    onClose: fn(),
+    content: <LoremIpsum heading="Content" />,
+    footer: <>/</>,
+  },
+};
+
 export const DynamicContent: Story = {
   render: (args: Story['args']) => {
     const { open, onClose, ...rest } = args;
