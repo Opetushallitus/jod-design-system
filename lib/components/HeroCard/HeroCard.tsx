@@ -90,26 +90,11 @@ export const HeroCard = ({
     );
   }
 
-  if (size === 'sm') {
-    return Link && to ? (
-      <Link
-        to={to}
-        className="ds-flex ds-rounded-lg ds-outline-none ds-transition-transform hover:ds-scale-105 focus:ds-scale-105"
-      >
-        <div
-          className="ds-relative ds-flex ds-flex-row sm:ds-flex-col ds-items-center sm:ds-items-start ds-grow ds-gap-3 sm:ds-gap-6 ds-rounded-lg ds-p-5 sm:ds-p-7 sm:ds-pb-6 ds-tracking-widest ds-justify-between"
-          style={{ backgroundColor, color: textColor }}
-        >
-          <div className="ds-flex ds-flex-col gap-4">
-            <h2 className="ds-overflow ds-text-pretty ds-text-[22px] sm:ds-text-[24px] ds-font-semibold ds-leading-[30px] sm:ds-leading-[34px]">
-              {title}
-            </h2>
-            {content && <p className="ds-tracking-normal ds-leading-[27px] ds-font-medium ds-text-[18px]">{content}</p>}
-          </div>
-          {arrowVisible && sm ? <Arrow color={arrowColor} /> : <ArrowSmall color={arrowColor} />}
-        </div>
-      </Link>
-    ) : (
+  return Link && to ? (
+    <Link
+      to={to}
+      className="ds-flex ds-rounded-lg ds-outline-none ds-transition-transform hover:ds-scale-105 focus:ds-scale-105"
+    >
       <div
         className="ds-relative ds-flex ds-flex-row sm:ds-flex-col ds-items-center sm:ds-items-start ds-grow ds-gap-3 sm:ds-gap-6 ds-rounded-lg ds-p-5 sm:ds-p-7 sm:ds-pb-6 ds-tracking-widest ds-justify-between"
         style={{ backgroundColor, color: textColor }}
@@ -122,6 +107,19 @@ export const HeroCard = ({
         </div>
         {arrowVisible && sm ? <Arrow color={arrowColor} /> : <ArrowSmall color={arrowColor} />}
       </div>
-    );
-  }
+    </Link>
+  ) : (
+    <div
+      className="ds-relative ds-flex ds-flex-row sm:ds-flex-col ds-items-center sm:ds-items-start ds-grow ds-gap-3 sm:ds-gap-6 ds-rounded-lg ds-p-5 sm:ds-p-7 sm:ds-pb-6 ds-tracking-widest ds-justify-between"
+      style={{ backgroundColor, color: textColor }}
+    >
+      <div className="ds-flex ds-flex-col gap-4">
+        <h2 className="ds-overflow ds-text-pretty ds-text-[22px] sm:ds-text-[24px] ds-font-semibold ds-leading-[30px] sm:ds-leading-[34px]">
+          {title}
+        </h2>
+        {content && <p className="ds-tracking-normal ds-leading-[27px] ds-font-medium ds-text-[18px]">{content}</p>}
+      </div>
+      {arrowVisible && sm ? <Arrow color={arrowColor} /> : <ArrowSmall color={arrowColor} />}
+    </div>
+  );
 };
