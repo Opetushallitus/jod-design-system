@@ -10,6 +10,8 @@ interface BaseTextareaProps {
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
   /** The function to call when the value of the textarea changes */
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  /** The function to call when a key is pressed in the textarea */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   /** The placeholder text to display in the textarea */
   placeholder?: string;
   /** The help text to display below the textarea */
@@ -48,6 +50,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
     value,
     onBlur,
     onChange,
+    onKeyDown,
     placeholder,
     label,
     hideLabel = false,
@@ -78,6 +81,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         value={value}
         onBlur={onBlur}
         onChange={onChange}
+        onKeyDown={onKeyDown}
         maxLength={maxLength}
         rows={rows}
         placeholder={placeholder}
