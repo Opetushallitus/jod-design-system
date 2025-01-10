@@ -6,7 +6,7 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
 >
   <img
     alt="Image for default"
-    class="ds-min-h-[147px]"
+    class="ds-object-cover ds-min-h-[147px]"
     src="default.jpg"
   />
   <div
