@@ -1,8 +1,7 @@
 import { useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
-import { MdInfoOutline } from 'react-icons/md';
 import { JSX } from 'react/jsx-runtime';
-import { useMediaQueries } from '../../main';
+import { Button } from '../Button/Button';
 import { SelectionCard, SelectionCardProps } from './SelectionCard';
 
 const meta = {
@@ -38,22 +37,11 @@ export const Default: Story = {
     label: 'Kartoittaa omaa osaamistani',
     icon: <span className="ds-text-[70px]">😎</span>,
     selected: false,
-    infoAriaLabel: 'Info',
-    infoIcon: <MdInfoOutline size={24} />,
-    tooltipContent: (
-      <>
-        <div className="ds-text-heading-4 ds-mb-4">Tavoitteen vaikutus tuloksiin</div>
-        <p>
-          Ohjeistaa täyttämään osaamisprofiilin ja sieltä löytyvien apuvälineiden hyödyntämiseen. Kannustaa katsomaan
-          myös kohtaannon tuloksia.
-        </p>
-      </>
-    ),
   },
 };
 
 const RenderMultiple = () => {
-  const { sm } = useMediaQueries();
+  const [orientation, setOrientation] = useState<SelectionCardProps['orientation']>('vertical');
   const [cardData, setCardData] = useState([
     { icon: '🙈', selected: false, label: 'Lorem ipsum' },
     { icon: '🙉', selected: false, label: 'Dolor sit amet' },
@@ -61,7 +49,6 @@ const RenderMultiple = () => {
   ]);
 
   const [info, setInfo] = useState('');
-
   const onClick = (index: number) => () => {
     setCardData((prev) => {
       const data = [...prev];
@@ -85,30 +72,29 @@ const RenderMultiple = () => {
         key={card.label}
         label={card.label}
         selected={card.selected}
+        orientation={orientation}
         onClick={onClick(index)}
-        setHovered={setInfoVisible(index)}
+        onMouseEnter={() => setInfoVisible(index)(true)}
+        onMouseLeave={() => setInfoVisible(index)(false)}
+        onFocus={() => setInfoVisible(index)(true)}
+        onBlur={() => setInfoVisible(index)(false)}
         icon={<span className="ds-text-[70px]">{card.icon}</span>}
-        infoAriaLabel={`Info for ${card.label}`}
-        tooltipContent={
-          <div>
-            Tooltip for <strong>{card.label}</strong>
-          </div>
-        }
       />
     ));
   return (
-    <>
-      {sm && <div>Showing info for card: {info}</div>}
-      {sm ? (
-        <div className="ds-flex ds-flex-row ds-gap-x-5">
-          <CardList />
-        </div>
-      ) : (
-        <div className="ds-flex ds-flex-col ds-gap-y-5">
-          <CardList />
-        </div>
-      )}
-    </>
+    <div className="ds-flex ds-flex-col ds-gap-y-5">
+      <div>
+        <Button
+          onClick={() => setOrientation(orientation === 'vertical' ? 'horizontal' : 'vertical')}
+          label={orientation === 'horizontal' ? 'Show as vertical' : 'Show as horizontal'}
+          variant="accent"
+        />
+      </div>
+      <div>Showing info for card: {info}</div>
+      <div className={`ds-flex ${orientation === 'vertical' ? 'ds-flex-row' : 'ds-flex-col'} ds-gap-5`}>
+        <CardList />
+      </div>
+    </div>
   );
 };
 
@@ -120,7 +106,6 @@ export const MultipleWithHover: Story = {
   args: {
     label: 'Kartoittaa omaa osaamistani',
     icon: <span className="ds-text-[70px]">😎</span>,
-    infoAriaLabel: 'Info',
     selected: false,
   },
 };
