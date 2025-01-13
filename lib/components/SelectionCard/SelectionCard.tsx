@@ -1,7 +1,5 @@
 import React from 'react';
-import { Tooltip } from '../Tooltip/Tooltip';
-import { TooltipContent } from '../Tooltip/TooltipContent';
-import { TooltipTrigger } from '../Tooltip/TooltipTrigger';
+import { tidyClasses as tc } from '../../utils';
 
 export interface SelectionCardProps {
   /** Card label */
@@ -12,15 +10,16 @@ export interface SelectionCardProps {
   selected?: boolean;
   /** Callback when the card is clicked */
   onClick?: () => void;
-  /** Callback when the card is hovered/exited or focused/blurred */
-  setHovered?: (visible: boolean) => void;
-  /** Tooltip content that's displayed when the info button is pressed (mobile only) */
-  tooltipContent?: React.ReactNode;
-  /** Aria label for the info button */
-  infoAriaLabel: string;
-  /** Desktop or mobile variant */
-  sm?: boolean;
-  infoIcon?: React.ReactNode;
+  /** Card orientation */
+  orientation?: 'horizontal' | 'vertical';
+  /** Custom class names for the card container */
+  className?: string;
+  /** Custom action component appended to the right side. Visible in horizontal mode only */
+  actionComponent?: React.ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
 const CheckIcon = () => (
@@ -35,44 +34,26 @@ const CheckIcon = () => (
 
 /** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const SelectionCard = ({
-  label,
+  className,
   icon,
-  selected,
+  actionComponent,
+  label,
+  onBlur,
   onClick,
-  setHovered: setInfoVisible,
-  tooltipContent,
-  infoAriaLabel,
-  infoIcon,
-  sm = true,
+  onFocus,
+  onMouseEnter,
+  onMouseLeave,
+  orientation = 'vertical',
+  selected,
 }: SelectionCardProps) => {
-  const [tooltipOpen, setTooltipOpen] = React.useState(false);
-
-  const toggleTooltip = () => {
-    setTooltipOpen(!tooltipOpen);
-  };
-
-  const activateInfo = () => {
-    setInfoVisible?.(true);
-  };
-  const deactivateInfo = () => {
-    setInfoVisible?.(false);
-  };
-
-  const showToolTip = () => {
-    setTooltipOpen(true);
-  };
-
-  const hideToolTip = () => {
-    setTooltipOpen(false);
-  };
-
-  const desktopCard = (
+  const eventProps = { onClick, onMouseEnter, onMouseLeave, onFocus, onBlur };
+  const horizontalCard = (
     <button
       type="button"
-      className="ds-flex ds-items-center ds-relative ds-w-full ds-p-3 ds-pr-0"
-      onClick={onClick}
+      className="ds-flex ds-flex-grow ds-items-center ds-relative ds-p-3 ds-pr-0"
       aria-pressed={selected}
       aria-label={label}
+      {...eventProps}
     >
       <span className="ds-absolute ds-left-0 ds-top-0 -ds-m-3" aria-hidden>
         {selected ? <CheckIcon /> : null}
@@ -89,44 +70,15 @@ export const SelectionCard = ({
     </button>
   );
 
-  const desktopTooltipCard = (
-    <TooltipTrigger
-      type="button"
-      className="ds-flex ds-items-center ds-relative ds-w-full ds-p-3 ds-pr-0"
-      onClick={onClick}
-      aria-pressed={selected}
-      aria-label={label}
-      onMouseEnter={showToolTip}
-      onMouseLeave={hideToolTip}
-      onFocus={showToolTip}
-      onBlur={hideToolTip}
-    >
-      <span className="ds-absolute ds-left-0 ds-top-0 -ds-m-3" aria-hidden>
-        {selected ? <CheckIcon /> : null}
-      </span>
-      <span
-        className="ds-h-[93px] ds-aspect-square ds-rounded-full ds-bg-white ds-flex ds-items-center ds-justify-center"
-        aria-hidden
-      >
-        <span className="ds-transform ds-scale-75">{icon ?? null}</span>
-      </span>
-      <span className="ds-ml-5 ds-container ds-text-left ds-pr-4">
-        <span className="ds-text-heading-4-mobile">{label ?? ''}</span>
-      </span>
-    </TooltipTrigger>
-  );
-
-  const mobileCard = (
+  const verticalCard = (
     <button
       type="button"
-      className="ds-w-[166px] ds-min-h-[250px] ds-rounded-md ds-p-5 hover:ds-bg-secondary-1-25 ds-flex ds-flex-col ds-items-center"
-      onClick={onClick}
+      className={tc(
+        `ds-w-[166px] ds-min-h-[250px] ds-rounded-md ds-p-5 hover:ds-bg-secondary-1-25 ds-flex ds-flex-col ds-items-center ${className ?? ''}`,
+      )}
       aria-pressed={selected}
       aria-label={label}
-      onPointerEnter={activateInfo}
-      onPointerLeave={deactivateInfo}
-      onFocus={activateInfo}
-      onBlur={deactivateInfo}
+      {...eventProps}
     >
       <span
         className="ds-w-full ds-aspect-square ds-rounded-full ds-bg-white ds-flex ds-items-center ds-justify-center ds-relative"
@@ -141,41 +93,12 @@ export const SelectionCard = ({
     </button>
   );
 
-  return sm ? (
-    mobileCard
+  return orientation === 'vertical' ? (
+    verticalCard
   ) : (
-    <div className="ds-min-h-[93px] ds-min-w-[280px] ds-rounded-md ds-bg-bg-gray-2 hover:ds-bg-secondary-1-25 ds-flex ds-flex-row">
-      {!tooltipContent && !infoIcon && desktopCard}
-      {tooltipContent && !infoIcon && React.isValidElement(tooltipContent) && (
-        <Tooltip open={tooltipOpen} placement="bottom-end">
-          {desktopTooltipCard}
-
-          <TooltipContent className="ds-bg-black ds-text-white ds-rounded-xl ds-p-5 ds-z-50 ds-text-body-sm sm:ds-text-body-md ds-font-arial ds-max-w-[340px]">
-            {tooltipContent}
-          </TooltipContent>
-        </Tooltip>
-      )}
-      {tooltipContent && infoIcon && React.isValidElement(tooltipContent) && (
-        <>
-          {desktopCard}
-          <Tooltip open={tooltipOpen} placement="bottom-end">
-            <TooltipTrigger
-              className="ds-ml-auto ds-p-5"
-              aria-label={infoAriaLabel ?? ''}
-              onClick={(e) => {
-                e?.preventDefault?.();
-                e?.stopPropagation?.();
-                toggleTooltip();
-              }}
-            >
-              {infoIcon}
-            </TooltipTrigger>
-            <TooltipContent className="ds-bg-black ds-text-white ds-rounded-xl ds-p-5 ds-z-50 ds-text-body-sm sm:ds-text-body-md ds-font-arial">
-              {tooltipContent}
-            </TooltipContent>
-          </Tooltip>
-        </>
-      )}
+    <div className={tc(`ds-flex ds-flex-row ds-rounded-md hover:ds-bg-secondary-1-25 ${className ?? ''}`)}>
+      {horizontalCard}
+      {actionComponent ?? null}
     </div>
   );
 };

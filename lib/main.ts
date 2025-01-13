@@ -37,4 +37,7 @@ export { Spinner } from './components/Spinner/Spinner';
 export { Tag } from './components/Tag/Tag';
 export { Textarea } from './components/Textarea/Textarea';
 export { Toast } from './components/Toast/Toast';
+export { Tooltip } from './components/Tooltip/Tooltip';
+export { TooltipContent } from './components/Tooltip/TooltipContent';
+export { TooltipTrigger } from './components/Tooltip/TooltipTrigger';
 export { WizardProgress } from './components/WizardProgress/WizardProgress';
