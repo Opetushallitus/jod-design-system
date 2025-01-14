@@ -6,7 +6,6 @@ describe('MediaCard', () => {
   it('renders the MediaCard component with vertical variant', () => {
     render(
       <MediaCard
-        variant="vertical"
         imageSrc="vertical.jpg"
         imageAlt="Image for the vertical"
         label="Vertical"
@@ -25,7 +24,6 @@ describe('MediaCard', () => {
   it('renders the MediaCard component with horizontal variant', () => {
     render(
       <MediaCard
-        variant="horizontal"
         imageSrc="horizontal.jpg"
         imageAlt="Image for horizontal"
         label="Horizontal"

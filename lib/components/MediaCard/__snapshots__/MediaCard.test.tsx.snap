@@ -2,7 +2,7 @@
 
 exports[`MediaCard > renders the MediaCard component with default vertical variant 1`] = `
 <div
-  class="ds-overflow-clip ds-rounded ds-shadow-border ds-bg-white ds-flex ds-flex-col ds-w-[260px] ds-h-[329px]"
+  class="ds-overflow-clip ds-rounded ds-shadow-border ds-bg-white ds-relative ds-flex ds-flex-col ds-w-[261px] ds-h-[299px]"
 >
   <img
     alt="Image for default"
