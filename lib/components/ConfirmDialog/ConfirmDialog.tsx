@@ -1,5 +1,6 @@
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import React from 'react';
+import { JSX } from 'react/jsx-runtime';
 import { cx } from '../../cva';
 
 type Variant = 'normal' | 'destructive';
