@@ -93,7 +93,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
 
   return (
     <>
-      <ul className="ds-flex ds-flex-row ds-gap-5 ds-overflow-hidden ds-p-3" ref={containerRef}>
+      <ul className="ds-flex ds-flex-row ds-overflow-hidden ds-p-3" ref={containerRef} style={{ gap }}>
         {items.map((item, index) => {
           // Change the page according to focused item during tab navigation
           const onFocus = () => {
