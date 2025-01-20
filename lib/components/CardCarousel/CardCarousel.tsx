@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
-export interface CarouselItem {
+export interface CardCarouselItem {
   /** Id to be used as key during iteration */
   id: string;
   /** Component to be rendered in the carousel */
@@ -10,9 +10,11 @@ export interface CarouselItem {
 
 export interface CardCarouselProps {
   /** Items to show in the carousel */
-  items?: CarouselItem[];
+  items?: CardCarouselItem[];
   /** Width of each item in the carousel */
   itemWidth: number;
+  /** Gap between items in the carousel. Default is 16px */
+  gap?: number;
   /** Translations for accessibility */
   translations: {
     nextTrigger: string;
@@ -20,9 +22,8 @@ export interface CardCarouselProps {
     indicator: (index: number) => string;
   };
 }
-export const CardCarousel = ({ items = [], translations, itemWidth }: CardCarouselProps) => {
+export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: CardCarouselProps) => {
   const containerRef = React.createRef<HTMLUListElement>();
-  const GAP = 16;
   const [itemsPerPage, setItemsPerPage] = React.useState(1);
   const [pageNr, setPageNr] = React.useState(0);
   const [pageCount, setPageCount] = React.useState(0);
@@ -33,9 +34,9 @@ export const CardCarousel = ({ items = [], translations, itemWidth }: CardCarous
   React.useEffect(() => {
     const { current } = containerRef;
     if (current) {
-      current.scrollTo({ left: pageNr * itemsPerPage * (itemWidth + GAP), behavior: 'smooth' });
+      current.scrollTo({ left: pageNr * itemsPerPage * (itemWidth + gap), behavior: 'smooth' });
     }
-  }, [itemsPerPage, containerRef, itemWidth, pageNr]);
+  }, [itemsPerPage, containerRef, itemWidth, pageNr, gap]);
 
   const goToNextPage = () => {
     if (!isLastPage) {
@@ -70,7 +71,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth }: CardCarous
     const handleResize = (entries: ResizeObserverEntry[]) => {
       for (const entry of entries) {
         if (entry.target == current) {
-          setItemsPerPage(Math.max(Math.floor(entry.contentRect.width / (itemWidth + GAP)), 1));
+          setItemsPerPage(Math.max(Math.floor((entry.contentRect.width + gap) / (itemWidth + gap)), 1));
           setPageCount(getPageCount());
           setPageNr(Math.min(Math.max(0, pageNr), getPageCount() - 1));
         }
@@ -88,7 +89,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth }: CardCarous
         resizeObserver.unobserve(current);
       }
     };
-  }, [itemsPerPage, getPageCount, itemWidth, items.length, pageNr, containerRef]);
+  }, [itemsPerPage, getPageCount, itemWidth, items.length, pageNr, containerRef, gap]);
 
   return (
     <>

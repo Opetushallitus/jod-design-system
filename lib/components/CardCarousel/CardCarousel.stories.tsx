@@ -17,6 +17,13 @@ const design = {
   url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=7031-3025&t=hppCWVuC76hePJaZ-4',
 };
 export const Default: Story = {
+  decorators: [
+    (Story) => (
+      <div className="ds-max-w-[1140px] ds-px-5">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     design,
     docs: {
