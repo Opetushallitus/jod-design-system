@@ -18,8 +18,21 @@ export { DiscussionCard } from './components/DiscussionCard/DiscussionCard';
 export { Footer } from './components/Footer/Footer';
 export { HeroCard } from './components/HeroCard/HeroCard';
 export { InputField } from './components/InputField/InputField';
+export {
+  LogoArrowBlack,
+  LogoArrowBlue,
+  LogoArrowOrange,
+  LogoArrowPink,
+  LogoArrowTurquoise,
+  LogoArrowWhite,
+} from './components/Logo/LogoArrow';
+export { LogoBlackEn, LogoRgbEn, LogoWhiteEn } from './components/Logo/LogoEn';
+export { LogoBlackFi, LogoRgbFi, LogoWhiteFi } from './components/Logo/LogoFi';
+export { LogoIconBlack, LogoIconRgb, LogoIconWhite } from './components/Logo/LogoIcon';
+export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
+export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { Note } from './components/Note/Note';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress } from './components/PathProgress/PathProgress';
