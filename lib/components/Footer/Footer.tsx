@@ -41,56 +41,56 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     switch (language) {
       case 'sv':
         return [
-          <div key="LogoEuSv" className="flex">
-            <LogoEuSv className="h-10 max-w-full" />
+          <div key="LogoEuSv" className="ds-flex">
+            <LogoEuSv className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoOkmFiSv" className="flex">
-            <LogoOkmFiSv className="h-10 max-w-full" />
+          <div key="LogoOkmFiSv" className="ds-flex">
+            <LogoOkmFiSv className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoTemFiSv" className="flex">
-            <LogoTemFiSv className="h-10 max-w-full" />
+          <div key="LogoTemFiSv" className="ds-flex">
+            <LogoTemFiSv className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoKehaSv" className="flex">
-            <LogoKehaSv className="h-10 max-w-full" />
+          <div key="LogoKehaSv" className="ds-flex">
+            <LogoKehaSv className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoOphFiSv" className="flex">
-            <LogoOphFiSv className="h-10 max-w-full" />
+          <div key="LogoOphFiSv" className="ds-flex">
+            <LogoOphFiSv className="ds-h-10 ds-max-w-full" />
           </div>,
         ];
       case 'en':
         return [
-          <div key="LogoEuEn" className="flex">
-            <LogoEuEn className="h-10 max-w-full" />
+          <div key="LogoEuEn" className="ds-flex">
+            <LogoEuEn className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoOkmEn" className="flex">
-            <LogoOkmEn className="h-10 max-w-full" />
+          <div key="LogoOkmEn" className="ds-flex">
+            <LogoOkmEn className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoTemEn" className="flex">
-            <LogoTemEn className="h-10 max-w-full" />
+          <div key="LogoTemEn" className="ds-flex">
+            <LogoTemEn className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoKehaEn" className="flex">
-            <LogoKehaEn className="h-10 max-w-full" />
+          <div key="LogoKehaEn" className="ds-flex">
+            <LogoKehaEn className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoOphEn" className="flex">
-            <LogoOphEn className="h-10 max-w-full" />
+          <div key="LogoOphEn" className="ds-flex">
+            <LogoOphEn className="ds-h-10 ds-max-w-full" />
           </div>,
         ];
       default:
         return [
-          <div key="LogoEuFi" className="flex">
-            <LogoEuFi className="h-10 max-w-full" />
+          <div key="LogoEuFi" className="ds-flex">
+            <LogoEuFi className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoOkmFiSv" className="flex">
-            <LogoOkmFiSv className="h-10 max-w-full" />
+          <div key="LogoOkmFiSv" className="ds-flex">
+            <LogoOkmFiSv className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoTemFiSv" className="flex">
-            <LogoTemFiSv className="h-10 max-w-full" />
+          <div key="LogoTemFiSv" className="ds-flex">
+            <LogoTemFiSv className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoKehaFi" className="flex">
-            <LogoKehaFi className="h-10 max-w-full" />
+          <div key="LogoKehaFi" className="ds-flex">
+            <LogoKehaFi className="ds-h-10 ds-max-w-full" />
           </div>,
-          <div key="LogoOphFiSv" className="flex">
-            <LogoOphFiSv className="h-10 max-w-full" />
+          <div key="LogoOphFiSv" className="ds-flex">
+            <LogoOphFiSv className="ds-h-10 ds-max-w-full" />
           </div>,
         ];
     }

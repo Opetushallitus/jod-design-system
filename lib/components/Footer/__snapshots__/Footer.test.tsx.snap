@@ -11,10 +11,10 @@ exports[`Footer > renders copyright 1`] = `
       class="ds-px-5 sm:ds-px-0 ds-grid sm:ds-grid-cols-3 ds-gap-6 sm:ds-gap-9 ds-items-center"
     >
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           fill="#100f0d"
           viewBox="0 0 1169.535 267.045"
           xmlns="http://www.w3.org/2000/svg"
@@ -31,10 +31,10 @@ exports[`Footer > renders copyright 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 264.695 40.8"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -46,10 +46,10 @@ exports[`Footer > renders copyright 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 33.077 7.316"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -66,10 +66,10 @@ exports[`Footer > renders copyright 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 44.278 15.648"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -92,10 +92,10 @@ exports[`Footer > renders copyright 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 321.294 90.723"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -159,10 +159,10 @@ exports[`Footer > renders footer with dark variant 1`] = `
       class="ds-px-5 sm:ds-px-0 ds-grid sm:ds-grid-cols-3 ds-gap-6 sm:ds-gap-9 ds-items-center"
     >
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           fill="#100f0d"
           viewBox="0 0 1169.535 267.045"
           xmlns="http://www.w3.org/2000/svg"
@@ -179,10 +179,10 @@ exports[`Footer > renders footer with dark variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 264.695 40.8"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -194,10 +194,10 @@ exports[`Footer > renders footer with dark variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 33.077 7.316"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -214,10 +214,10 @@ exports[`Footer > renders footer with dark variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 44.278 15.648"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -240,10 +240,10 @@ exports[`Footer > renders footer with dark variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 321.294 90.723"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -307,10 +307,10 @@ exports[`Footer > renders footer with light variant 1`] = `
       class="ds-px-5 sm:ds-px-0 ds-grid sm:ds-grid-cols-3 ds-gap-6 sm:ds-gap-9 ds-items-center"
     >
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           fill="#100f0d"
           viewBox="0 0 1169.535 267.045"
           xmlns="http://www.w3.org/2000/svg"
@@ -327,10 +327,10 @@ exports[`Footer > renders footer with light variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 264.695 40.8"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -342,10 +342,10 @@ exports[`Footer > renders footer with light variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 33.077 7.316"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -362,10 +362,10 @@ exports[`Footer > renders footer with light variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 44.278 15.648"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -388,10 +388,10 @@ exports[`Footer > renders footer with light variant 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 321.294 90.723"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -455,10 +455,10 @@ exports[`Footer > renders items 1`] = `
       class="ds-px-5 sm:ds-px-0 ds-grid sm:ds-grid-cols-3 ds-gap-6 sm:ds-gap-9 ds-items-center"
     >
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           fill="#100f0d"
           viewBox="0 0 1169.535 267.045"
           xmlns="http://www.w3.org/2000/svg"
@@ -475,10 +475,10 @@ exports[`Footer > renders items 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 264.695 40.8"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -490,10 +490,10 @@ exports[`Footer > renders items 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 33.077 7.316"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -510,10 +510,10 @@ exports[`Footer > renders items 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 44.278 15.648"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -536,10 +536,10 @@ exports[`Footer > renders items 1`] = `
         </svg>
       </div>
       <div
-        class="flex"
+        class="ds-flex"
       >
         <svg
-          class="h-10 max-w-full"
+          class="ds-h-10 ds-max-w-full"
           viewBox="0 0 321.294 90.723"
           xmlns="http://www.w3.org/2000/svg"
         >
