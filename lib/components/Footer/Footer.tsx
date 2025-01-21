@@ -1,4 +1,18 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
+import {
+  LogoEuEn,
+  LogoEuFi,
+  LogoEuSv,
+  LogoKehaEn,
+  LogoKehaFi,
+  LogoKehaSv,
+  LogoOkmEn,
+  LogoOkmFiSv,
+  LogoOphEn,
+  LogoOphFiSv,
+  LogoTemEn,
+  LogoTemFiSv,
+} from './logos';
 
 export interface FooterProps {
   /** Navigation items */
@@ -6,8 +20,8 @@ export interface FooterProps {
     key: React.Key;
     component: React.ComponentType<{ className: string }>;
   }[];
-  /** Collection of logos */
-  logos?: React.ReactNode;
+  /** Language of the logos */
+  language?: string;
   /** Copyright text */
   copyright?: string;
   /** Variant of the footer */
@@ -20,9 +34,68 @@ export interface FooterProps {
  * This component is a footer that displays navigation items, logos, and a copyright.
  */
 export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
-  { items, logos, copyright, variant = 'light', className = '' }: FooterProps,
+  { items, language, copyright, variant = 'light', className = '' }: FooterProps,
   ref,
 ) {
+  const logos = React.useMemo(() => {
+    switch (language) {
+      case 'sv':
+        return [
+          <div key="LogoEuSv" className="flex">
+            <LogoEuSv className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoOkmFiSv" className="flex">
+            <LogoOkmFiSv className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoTemFiSv" className="flex">
+            <LogoTemFiSv className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoKehaSv" className="flex">
+            <LogoKehaSv className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoOphFiSv" className="flex">
+            <LogoOphFiSv className="h-10 max-w-full" />
+          </div>,
+        ];
+      case 'en':
+        return [
+          <div key="LogoEuEn" className="flex">
+            <LogoEuEn className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoOkmEn" className="flex">
+            <LogoOkmEn className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoTemEn" className="flex">
+            <LogoTemEn className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoKehaEn" className="flex">
+            <LogoKehaEn className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoOphEn" className="flex">
+            <LogoOphEn className="h-10 max-w-full" />
+          </div>,
+        ];
+      default:
+        return [
+          <div key="LogoEuFi" className="flex">
+            <LogoEuFi className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoOkmFiSv" className="flex">
+            <LogoOkmFiSv className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoTemFiSv" className="flex">
+            <LogoTemFiSv className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoKehaFi" className="flex">
+            <LogoKehaFi className="h-10 max-w-full" />
+          </div>,
+          <div key="LogoOphFiSv" className="flex">
+            <LogoOphFiSv className="h-10 max-w-full" />
+          </div>,
+        ];
+    }
+  }, [language]);
+
   return (
     <footer
       ref={ref}
@@ -38,7 +111,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
             ))}
           </ul>
         )}
-        {logos}
+        <div className="ds-px-5 sm:ds-px-0 ds-grid sm:ds-grid-cols-3 ds-gap-6 sm:ds-gap-9 ds-items-center">{logos}</div>
         {copyright && <div className="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0">{copyright}</div>}
       </div>
     </footer>

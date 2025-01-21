@@ -70,18 +70,6 @@ const items: FooterProps['items'] = [
   },
 ];
 
-const logos: FooterProps['logos'] = [
-  <a key="1" href="/logo1">
-    Logo 1
-  </a>,
-  <a key="2" href="/logo2">
-    Logo 2
-  </a>,
-  <a key="3" href="/logo3">
-    Logo 3
-  </a>,
-];
-
 const copyright = '© JOD 2024. Kaikki oikeudet pidätetään.';
 
 export const Light: Story = {
@@ -99,7 +87,7 @@ export const Light: Story = {
   },
   args: {
     items,
-    logos,
+    language: 'fi',
     copyright,
   },
 };
@@ -123,7 +111,7 @@ export const Dark: Story = {
   },
   args: {
     items,
-    logos,
+    language: 'fi',
     copyright,
     variant: 'dark',
   },
@@ -151,7 +139,7 @@ export const MobileDark: Story = {
   },
   args: {
     items,
-    logos,
+    language: 'fi',
     copyright,
     variant: 'dark',
   },
