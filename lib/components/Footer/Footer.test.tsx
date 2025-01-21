@@ -10,21 +10,16 @@ describe('Footer', () => {
     { key: 'item2', component: () => <div>Item 2</div> },
     { key: 'item3', component: () => <div>Item 3</div> },
   ];
-  const mockLogos = [<div key="logo1">Logo 1</div>, <div key="logo2">Logo 2</div>];
   const mockCopyright = '© 2024';
 
   it('renders footer with light variant', () => {
-    const { container } = render(
-      <Footer items={mockItems} variant="light" logos={mockLogos} copyright={mockCopyright} />,
-    );
+    const { container } = render(<Footer items={mockItems} variant="light" language="fi" copyright={mockCopyright} />);
     expect(container.firstChild).toHaveClass('ds-bg-white ds-text-black');
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders footer with dark variant', () => {
-    const { container } = render(
-      <Footer items={mockItems} variant="dark" logos={mockLogos} copyright={mockCopyright} />,
-    );
+    const { container } = render(<Footer items={mockItems} variant="dark" language="fi" copyright={mockCopyright} />);
     expect(container.firstChild).toHaveClass('ds-bg-black ds-text-white');
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -37,15 +32,6 @@ describe('Footer', () => {
     expect(item1).toBeInTheDocument();
     expect(item2).toBeInTheDocument();
     expect(item3).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders logos', () => {
-    const { container } = render(<Footer logos={mockLogos} variant="light" />);
-    const logo1 = screen.getByText('Logo 1');
-    const logo2 = screen.getByText('Logo 2');
-    expect(logo1).toBeInTheDocument();
-    expect(logo2).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
