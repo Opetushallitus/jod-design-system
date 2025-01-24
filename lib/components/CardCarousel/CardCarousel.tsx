@@ -93,7 +93,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
 
   return (
     <>
-      <ul className="ds-flex ds-flex-row ds-overflow-hidden ds-p-3" ref={containerRef} style={{ gap }}>
+      <ul className="ds:flex ds:flex-row ds:overflow-hidden ds:p-3" ref={containerRef} style={{ gap }}>
         {items.map((item, index) => {
           // Change the page according to focused item during tab navigation
           const onFocus = () => {
@@ -112,28 +112,29 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
           );
         })}
       </ul>
-      <div className="ds-flex ds-flex-row ds-gap-2 ds-justify-between ds-items-center ds-p-3">
+      <div className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3">
         <button
           onClick={goToPreviousPage}
           onKeyDown={handleEnterPress(goToPreviousPage)}
           aria-label={translations.prevTrigger}
           disabled={isFirstPage}
+          className="ds:cursor-pointer"
         >
-          <span className="ds-size-8 ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-rounded-full">
-            <MdChevronLeft size={24} className={isFirstPage ? 'ds-text-inactive-gray' : 'ds-text-black'} />
+          <span className="ds:size-8 ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:rounded-full">
+            <MdChevronLeft size={24} className={isFirstPage ? 'ds:text-inactive-gray' : 'ds:text-black'} />
           </span>
         </button>
 
-        <div className="ds-flex ds-flex-row ds-gap-2 ds-justify-center">
+        <div className="ds:flex ds:flex-row ds:gap-2 ds:justify-center">
           {Array.from({ length: Math.max(1, pageCount) }, (_, page) => (
             <button
               type="button"
               key={page}
-              className={`ds-rounded-full ds-size-4 ${pageNr === page ? 'ds-bg-accent' : 'ds-bg-[#d4d4d4]'}`}
+              className={`ds:cursor-pointer ds:rounded-full ds:size-4 ${pageNr === page ? 'ds:bg-accent' : 'ds:bg-[#d4d4d4]'}`}
               onClick={goToPage(page)}
               onKeyDown={handleEnterPress(goToPage(page))}
             >
-              <span className="ds-sr-only">{translations.indicator(page)}</span>
+              <span className="ds:sr-only">{translations.indicator(page)}</span>
             </button>
           ))}
         </div>
@@ -143,9 +144,10 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
           onKeyDown={handleEnterPress(goToNextPage)}
           aria-label={translations.nextTrigger}
           disabled={isLastPage}
+          className="ds:cursor-pointer"
         >
-          <span className="ds-size-8 ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-rounded-full">
-            <MdChevronRight size={24} className={isLastPage ? 'ds-text-inactive-gray' : 'ds-text-black'} />
+          <span className="ds:size-8 ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:rounded-full">
+            <MdChevronRight size={24} className={isLastPage ? 'ds:text-inactive-gray' : 'ds:text-black'} />
           </span>
         </button>
       </div>

@@ -24,31 +24,31 @@ export const Note = ({ title, description, variant = 'success', onCloseClick, re
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-      className={cx('ds-text-black', {
-        'ds-bg-success': variant === 'success',
-        'ds-bg-warning': variant === 'warning',
-        'ds-bg-alert': variant === 'error',
+      className={cx('ds:text-black', {
+        'ds:bg-success': variant === 'success',
+        'ds:bg-warning': variant === 'warning',
+        'ds:bg-alert': variant === 'error',
       })}
     >
-      <div className="ds-mx-auto ds-flex ds-min-h-[42px] ds-items-center ds-px-5 ds-justify-start sm:ds-min-h-11 sm:ds-pl-7 sm:ds-pr-0 sm:ds-justify-center sm:ds-gap-x-[20%]">
-        <div className="ds-flex ds-flex-col ds-flex-wrap ds-items-start ds-py-4 sm:ds-flex-row sm:ds-items-center sm:ds-gap-x-5 sm:ds-gap-y-2 sm:ds-py-5">
-          <div className="ds-text-heading-4 sm:ds-text-heading-3">{title}</div>
-          <div className="ds-mt-1 sm:ds-mt-0 ds-text-body-sm ds-font-arial">{description}</div>
+      <div className="ds:mx-auto ds:flex ds:min-h-[42px] ds:items-center ds:px-5 ds:justify-start ds:sm:min-h-11 ds:sm:pl-7 ds:sm:pr-0 ds:sm:justify-center ds:sm:gap-x-[20%]">
+        <div className="ds:flex ds:flex-col ds:flex-wrap ds:items-start ds:py-4 ds:sm:flex-row ds:sm:items-center ds:sm:gap-x-5 ds:sm:gap-y-2 ds:sm:py-5">
+          <div className="ds:text-heading-4 ds:sm:text-heading-3">{title}</div>
+          <div className="ds:mt-1 ds:sm:mt-0 ds:text-body-sm ds:font-arial">{description}</div>
           {hasReadMore && !sm && (
-            <span className="ds-mt-4 ds-text-nowrap ds-rounded-[30px] ds-bg-white ds-px-6 ds-py-[10px] ds-text-button-md hover:ds-underline focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-white active:ds-bg-accent active:ds-text-white active:ds-no-underline">
+            <span className="ds:mt-4 ds:text-nowrap ds:rounded-[30px] ds:bg-white ds:px-6 ds:py-[10px] ds:text-button-md ds:hover:underline ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-white ds:active:bg-accent ds:active:text-white ds:active:no-underline">
               {readMoreComponent}
             </span>
           )}
         </div>
-        <div className="ds-flex ds-items-center">
+        <div className="ds:flex ds:items-center">
           {hasReadMore && sm && (
-            <span className="ds-mx-7 ds-text-nowrap ds-rounded-[30px] ds-bg-white ds-px-6 ds-py-[10px] ds-text-button-md hover:ds-underline focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-white active:ds-bg-accent active:ds-text-white active:ds-no-underline">
+            <span className="ds:mx-7 ds:text-nowrap ds:rounded-[30px] ds:bg-white ds:px-6 ds:py-[10px] ds:text-button-md ds:hover:underline ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-white ds:active:bg-accent ds:active:text-white ds:active:no-underline">
               {readMoreComponent}
             </span>
           )}
           {onCloseClick && (
             <button
-              className={`ds-ml-3 ds-mr-0 ds-flex sm:ds-mr-5 ${hasReadMore ? 'sm:ds-ml-0' : 'sm:ds-ml-5'}`}
+              className={`ds:cursor-pointer ds:ml-3 ds:mr-0 ds:flex ds:sm:mr-5 ${hasReadMore ? 'ds:sm:ml-0' : 'ds:sm:ml-5'}`}
               type="button"
               aria-label="Close"
               onClick={onCloseClick}

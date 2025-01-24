@@ -59,7 +59,7 @@ const args = {
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <div className="ds-max-w-[415px]">
+      <div className="ds:max-w-[415px]">
         <Story />
       </div>
     ),
@@ -71,7 +71,7 @@ export const Default: Story = {
 export const WithValue: Story = {
   decorators: [
     (Story) => (
-      <div className="ds-max-w-[415px]">
+      <div className="ds:max-w-[415px]">
         <Story />
       </div>
     ),

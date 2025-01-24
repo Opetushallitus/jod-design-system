@@ -4,12 +4,12 @@ import { cx } from '../../cva';
 
 const getClassName = ({ isActive = false, isArrowButton = true, disabled = false } = {}) =>
   cx(
-    `sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center`,
+    `ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center`,
     {
-      'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed': disabled === true,
-      'ds-bg-accent ds-text-white': !isArrowButton && isActive,
-      'ds-bg-bg-gray-2 ds-text-black': !isActive,
-      'ds-font-bold': !isArrowButton,
+      'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': disabled === true,
+      'ds:bg-accent ds:text-white': !isArrowButton && isActive,
+      'ds:bg-bg-gray-2 ds:text-black': !isActive,
+      'ds:font-bold': !isArrowButton,
     },
   );
 
@@ -54,7 +54,7 @@ export const Pagination = ({
       onPageChange={onPageChange}
       type={type}
       aria-label={ariaLabel}
-      className="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
+      className="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
     >
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
         <MdChevronLeft size={24} />

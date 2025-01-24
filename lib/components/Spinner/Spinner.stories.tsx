@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <div className="ds-min-h-11 ds-p-6 ds-py-11">
+      <div className="ds:min-h-11 ds:p-6 ds:py-11">
         <Story />
       </div>
     ),

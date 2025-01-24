@@ -1,5 +1,7 @@
 import React from 'react';
 
+const styles = getComputedStyle(document.documentElement);
+
 const useMediaQuery = (query: string) => {
   const mediaQuery = React.useMemo(() => window.matchMedia(query), [query]);
   const [match, setMatch] = React.useState(mediaQuery.matches);
@@ -15,7 +17,12 @@ const useMediaQuery = (query: string) => {
 };
 
 export const useMediaQueries = () => {
-  const { sm, md, lg, xl } = __SCREENS__;
+  const { sm, md, lg, xl } = {
+    sm: styles.getPropertyValue('--breakpoint-sm'),
+    md: styles.getPropertyValue('--breakpoint-md'),
+    lg: styles.getPropertyValue('--breakpoint-lg'),
+    xl: styles.getPropertyValue('--breakpoint-xl'),
+  };
   return {
     sm: useMediaQuery(`(min-width: ${sm})`),
     md: useMediaQuery(`(min-width: ${md})`),

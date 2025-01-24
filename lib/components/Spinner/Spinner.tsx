@@ -9,7 +9,7 @@ export interface SpinnerProps {
   className?: string;
 }
 export const Spinner = ({ size = 24, color = 'white', className }: SpinnerProps) => {
-  const fillClass = color === 'white' ? 'ds-fill-white' : 'ds-fill-accent';
+  const fillClass = color === 'white' ? 'ds:fill-white' : 'ds:fill-accent';
 
   return (
     <svg
@@ -18,7 +18,7 @@ export const Spinner = ({ size = 24, color = 'white', className }: SpinnerProps)
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      className={tc(['ds-animate-spin', className ?? ''])}
+      className={tc(['ds:animate-spin', className ?? ''])}
     >
       <path
         className={fillClass}

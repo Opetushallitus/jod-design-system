@@ -23,9 +23,9 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
 + 76px (footer height) 
 + 40px (gap on bottom of the screen)
 
-  sm:ds-max-h-[calc(100vh-204px)] is then the maximum height for the actual content of Modal for desktop
+  ds:sm:max-h-[calc(100vh-204px)] is then the maximum height for the actual content of Modal for desktop
 */
-  const heightClasses = `ds-max-h-[calc(100vh-172px)] ds-min-h-[calc(100vh-344px)] sm:ds-max-h-[calc(100vh-204px)]`;
+  const heightClasses = `ds:max-h-[calc(100vh-172px)] ds:min-h-[calc(100vh-344px)] ds:sm:max-h-[calc(100vh-204px)]`;
 
   return (
     <Dialog
@@ -35,69 +35,69 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
           onClose();
         }
       }}
-      className="ds-relative ds-z-50"
+      className="ds:relative ds:z-50"
     >
       {/* Backdrop */}
-      <div className="ds-fixed ds-inset-0 ds-bg-black/30" aria-hidden />
+      <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden />
       {/* Wrapper container paddings and margins */}
-      <div className="ds-fixed ds-inset-0">
+      <div className="ds:fixed ds:inset-0">
         {/* Wrapper for container centering */}
-        <div className="ds-flex ds-items-center ds-justify-center ds-h-full">
+        <div className="ds:flex ds:items-center ds:justify-center ds:h-full">
           {/* Modal container */}
           <DialogPanel
             className={tc([
-              'ds-flex',
-              'ds-flex-col',
-              'ds-bg-bg-gray',
-              'ds-overflow-hidden',
-              'ds-rounded',
-              'ds-w-full',
-              'ds-max-w-[1092px]',
-              'sm:ds-rounded-lg',
+              'ds:flex',
+              'ds:flex-col',
+              'ds:bg-bg-gray',
+              'ds:overflow-hidden',
+              'ds:rounded',
+              'ds:w-full',
+              'ds:max-w-[1092px]',
+              'ds:sm:rounded-lg',
             ])}
           >
             {/* Content wrapper */}
             <div
               className={tc([
                 heightClasses,
-                'ds-grid',
-                'ds-max-w-[1092px]',
-                'ds-grid-cols-1',
-                'ds-gap-6',
-                'ds-my-6',
-                'sm:ds-grid-cols-3',
-                'ds-pl-5',
-                'md:ds-pl-9',
+                'ds:grid',
+                'ds:max-w-[1092px]',
+                'ds:grid-cols-1',
+                'ds:gap-6',
+                'ds:my-6',
+                'ds:sm:grid-cols-3',
+                'ds:pl-5',
+                'ds:md:pl-9',
               ])}
             >
               {/* Main content */}
               <div
                 className={tc([
                   heightClasses,
-                  'ds-col-span-1',
-                  'ds-flex',
-                  'ds-flex-col',
-                  'ds-gap-y-6',
-                  'ds-pr-5',
-                  (sidePanel ?? progress) ? 'sm:ds-col-span-2' : 'sm:ds-col-span-3 ds-mr-0 sm:ds-mr-5 md:ds-mr-9',
-                  'sm:ds-pr-0',
+                  'ds:col-span-1',
+                  'ds:flex',
+                  'ds:flex-col',
+                  'ds:gap-y-6',
+                  'ds:pr-5',
+                  (sidePanel ?? progress) ? 'ds:sm:col-span-2' : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-9',
+                  'ds:sm:pr-0',
                 ])}
               >
-                {progress && !sm && <div className="ds-flex ds-justify-end">{progress}</div>}
-                <div className="ds-overflow-y-auto sm:ds-mt-6">{content}</div>
+                {progress && !sm && <div className="ds:flex ds:justify-end">{progress}</div>}
+                <div className="ds:overflow-y-auto ds:sm:mt-6">{content}</div>
               </div>
               {/* Side panel */}
               {sm && (sidePanel ?? progress) && (
-                <div className={`ds-col-span-1 ds-flex ds-flex-col ${heightClasses}`}>
-                  {progress && <div className="ds-mr-6 ds-flex ds-justify-end">{progress}</div>}
-                  <div className={`ds-mr-5 sm:ds-mr-9 ds-overflow-y-auto ${!progress ? 'sm:ds-mt-6' : ''}`}>
+                <div className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}>
+                  {progress && <div className="ds:mr-6 ds:flex ds:justify-end">{progress}</div>}
+                  <div className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${!progress ? 'ds:sm:mt-6' : ''}`}>
                     {sidePanel}
                   </div>
                 </div>
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds-bg-bg-gray-2 ds-overflow-x-auto ds-overflow-y-hidden ds-justify-between ds-py-4 sm:ds-py-5 ds-px-4 sm:ds-px-9">
+            <div className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9">
               {footer}
             </div>
           </DialogPanel>

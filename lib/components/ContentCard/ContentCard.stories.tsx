@@ -29,6 +29,6 @@ export const Default: Story = {
     description:
       'Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet, lorem velit osana ei osaa sanoa mitä accumsan dolor nonummy.',
     tags: ['Taglorem', 'Loremtag', 'Nonutag'],
-    className: 'ds-bg-white',
+    className: 'ds:bg-white',
   },
 };

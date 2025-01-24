@@ -25,50 +25,50 @@ export interface ButtonProps {
 
 const getSizeClassName = (size: ButtonProps['size']) => {
   return cx({
-    'ds-text-button-sm ds-px-6 ds-rounded-[30px]': size === 'sm',
-    'ds-text-button-md-mobile sm:ds-text-button-md ds-px-6 ds-rounded-[30px]': size === 'md',
-    'ds-text-button-lg ds-px-[42px] ds-rounded-[50px]': size === 'lg',
+    'ds:text-button-sm ds:px-6 ds:rounded-[30px]': size === 'sm',
+    'ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px]': size === 'md',
+    'ds:text-button-lg ds:px-[42px] ds:rounded-[50px]': size === 'lg',
   });
 };
 
 const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIcon: boolean) => {
   return cx({
-    'ds-pl-4': (size === 'sm' || size === 'md') && leftIcon,
-    'ds-pl-[21px]': size === 'lg' && leftIcon,
-    'ds-pr-4': (size === 'sm' || size === 'md') && rightIcon,
-    'ds-pr-[21px]': size === 'lg' && rightIcon,
+    'ds:pl-4': (size === 'sm' || size === 'md') && leftIcon,
+    'ds:pl-[21px]': size === 'lg' && leftIcon,
+    'ds:pr-4': (size === 'sm' || size === 'md') && rightIcon,
+    'ds:pr-[21px]': size === 'lg' && rightIcon,
   });
 };
 
 const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
   return cx({
-    'ds-text-white ds-bg-accent hover:ds-text-white active:ds-bg-white active:ds-text-black focus-visible:ds-text-white':
+    'ds:text-white ds:bg-accent ds:hover:text-white ds:active:bg-white ds:active:text-black ds:focus-visible:text-white':
       variant === 'accent' && !disabled,
-    'ds-bg-accent-50 disabled:ds-text-white': variant === 'accent' && disabled,
-    'ds-text-black ds-bg-bg-gray': variant === 'gray',
-    'ds-text-black ds-bg-white': variant === 'white',
-    'ds-text-alert ds-bg-bg-gray hover:ds-text-alert active:ds-text-white focus-visible:ds-text-alert':
+    'ds:bg-accent-50 ds:disabled:text-white': variant === 'accent' && disabled,
+    'ds:text-black ds:bg-bg-gray': variant === 'gray',
+    'ds:text-black ds:bg-white': variant === 'white',
+    'ds:text-alert ds:bg-bg-gray ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
       variant === 'gray-delete',
-    'ds-text-alert ds-bg-white hover:ds-text-alert active:ds-text-white focus-visible:ds-text-alert':
+    'ds:text-alert ds:bg-white ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
       variant === 'white-delete',
-    'active:ds-bg-alert focus-visible:ds-outline-alert': variant?.includes('-delete') && !disabled,
+    'ds:active:bg-alert ds:focus-visible:outline-alert': variant?.includes('-delete') && !disabled,
   });
 };
 
 const getDisabledClassName = (disabled: ButtonProps['disabled'], variant: ButtonProps['variant']) => {
   return disabled === false
     ? tc([
-        'hover:ds-text-accent',
-        'focus-visible:ds-text-accent',
-        'active:ds-bg-accent',
-        'focus-visible:ds-outline-accent',
-        'focus-visible:ds-outline',
-        'focus-visible:ds-outline-[3px]',
-        'focus-visible:ds-outline-offset-[1.5px]',
-        variant === 'accent' ? 'active:ds-text-accent' : 'active:ds-text-white',
-        'active:ds-outline-0',
+        'ds:hover:text-accent',
+        'ds:focus-visible:text-accent',
+        'ds:active:bg-accent',
+        'ds:focus-visible:outline-accent',
+        'ds:focus-visible:outline',
+        'ds:focus-visible:outline-[3px]',
+        'ds:focus-visible:outline-offset-[1.5px]',
+        variant === 'accent' ? 'ds:active:text-accent' : 'ds:active:text-white',
+        'ds:active:outline-0',
       ])
-    : 'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed';
+    : 'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed';
 };
 
 const getButtonClassName = ({
@@ -80,11 +80,12 @@ const getButtonClassName = ({
   LinkComponent,
 }: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) =>
   tc([
-    LinkComponent ? 'ds-inline-flex' : 'ds-flex',
-    'ds-items-center',
-    'ds-gap-4',
-    'ds-select-none',
-    'ds-group',
+    'ds:cursor-pointer',
+    LinkComponent ? 'ds:inline-flex' : 'ds:flex',
+    'ds:items-center',
+    'ds:gap-4',
+    'ds:select-none',
+    'ds:group',
     getSizeClassName(size),
     getIconClassName(size, leftIcon, rightIcon),
     getVariantClassName(variant, disabled),
@@ -109,10 +110,10 @@ export const Button = ({
   const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled, LinkComponent });
 
   const spanClassName = cx({
-    'group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline': !disabled,
-    'ds-py-3': size === 'sm',
-    'ds-py-[10px]': size === 'md',
-    'ds-py-[18px]': size === 'lg',
+    'ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline': !disabled,
+    'ds:py-3': size === 'sm',
+    'ds:py-[10px]': size === 'md',
+    'ds:py-[18px]': size === 'lg',
   });
 
   return LinkComponent ? (

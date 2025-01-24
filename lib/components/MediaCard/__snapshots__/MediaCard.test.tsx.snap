@@ -2,40 +2,40 @@
 
 exports[`MediaCard > renders the MediaCard component with default vertical variant 1`] = `
 <div
-  class="ds-overflow-clip ds-rounded ds-shadow-border ds-bg-white ds-relative ds-flex ds-flex-col ds-w-[261px] ds-h-[299px]"
+  class="ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:relative ds:flex ds:flex-col ds:w-[261px] ds:h-[299px]"
 >
   <img
     alt="Image for default"
-    class="ds-object-cover ds-min-h-[147px]"
+    class="ds:object-cover ds:min-h-[147px]"
     src="default.jpg"
   />
   <div
-    class="ds-px-5 ds-pt-4 ds-pb-5 ds-text-black ds-flex ds-flex-col ds-justify-between ds-h-full ds-flex-nowrap"
+    class="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap"
   >
     <div
-      class="ds-gap-3 ds-flex ds-flex-col"
+      class="ds:gap-3 ds:flex ds:flex-col"
     >
       <div
-        class="ds-text-heading-3-mobile sm:ds-text-heading-3"
+        class="ds:text-heading-3-mobile ds:sm:text-heading-3"
       >
         Default
       </div>
       <div
-        class="ds-text-body-sm-mobile sm:ds-text-body-sm ds-line-clamp-3"
+        class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3"
       >
         Default description
       </div>
     </div>
     <ul
-      class="ds-text-attrib-value ds-flex ds-flex-row ds-divide-x ds-flex-wrap ds-text-accent ds-pt-3"
+      class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:flex-wrap ds:text-accent ds:pt-3"
     >
       <li
-        class="ds-px-2 first:ds-pl-0 last:ds-pr-0"
+        class="ds:px-2 ds:first:pl-0 ds:last:pr-0"
       >
         tag1
       </li>
       <li
-        class="ds-px-2 first:ds-pl-0 last:ds-pr-0"
+        class="ds:px-2 ds:first:pl-0 ds:last:pr-0"
       >
         tag2
       </li>

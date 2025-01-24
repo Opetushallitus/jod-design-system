@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 const label = 'Choose language';
 const decorators: Story['decorators'] = [
   (Story) => (
-    <div className="ds-min-h-[250px]">
+    <div className="ds:min-h-[250px]">
       <Story />
     </div>
   ),

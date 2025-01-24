@@ -68,8 +68,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
       <label
         htmlFor={inputId}
         className={tc([
-          hideLabel ? 'ds-hidden' : '',
-          'ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black',
+          hideLabel ? 'ds:hidden' : '',
+          'ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black',
         ])}
       >
         {label}
@@ -88,12 +88,12 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
         className={tc([
-          'ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md',
+          'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
           className,
         ])}
       />
       {help && (
-        <div id={helpId} className="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray ds-font-arial">
+        <div id={helpId} className="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial">
           {help}
         </div>
       )}

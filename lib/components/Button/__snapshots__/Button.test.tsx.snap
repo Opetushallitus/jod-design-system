@@ -2,11 +2,11 @@
 
 exports[`Button > calls the onClick function when clicked 1`] = `
 <button
-  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md-mobile sm:ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
-    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-[10px]"
   >
     Click me
   </span>
@@ -15,12 +15,12 @@ exports[`Button > calls the onClick function when clicked 1`] = `
 
 exports[`Button > renders the button as disabled 1`] = `
 <button
-  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md-mobile sm:ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed"
   disabled=""
   type="button"
 >
   <span
-    class="ds-py-[10px]"
+    class="ds:py-[10px]"
   >
     Click me
   </span>
@@ -29,11 +29,11 @@ exports[`Button > renders the button as disabled 1`] = `
 
 exports[`Button > renders the button with the correct label 1`] = `
 <button
-  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md-mobile sm:ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
-    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-[10px]"
   >
     Click me
   </span>
@@ -42,11 +42,11 @@ exports[`Button > renders the button with the correct label 1`] = `
 
 exports[`Button > renders the button with the correct size 1`] = `
 <button
-  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-sm ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
-    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-3"
+    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-3"
   >
     Click me
   </span>
@@ -55,11 +55,11 @@ exports[`Button > renders the button with the correct size 1`] = `
 
 exports[`Button > renders the button with the correct variant 1`] = `
 <button
-  class="ds-flex ds-items-center ds-gap-4 ds-select-none ds-group ds-text-button-md-mobile sm:ds-text-button-md ds-px-6 ds-rounded-[30px] ds-text-black ds-bg-bg-gray hover:ds-text-accent focus-visible:ds-text-accent active:ds-bg-accent focus-visible:ds-outline-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] active:ds-text-white active:ds-outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
-    class="group-hover:ds-underline group-active:ds-no-underline group-focus-visible:ds-no-underline ds-py-[10px]"
+    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-[10px]"
   >
     Click me
   </span>

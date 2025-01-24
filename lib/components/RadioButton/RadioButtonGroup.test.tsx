@@ -59,6 +59,6 @@ describe('RadioButtonGroup', () => {
       </RadioButtonGroup>,
     );
     const parentClassList = screen.getByText('Label that is now hidden').classList;
-    expect(parentClassList).toContain('ds-hidden');
+    expect(parentClassList).toContain('ds:hidden');
   });
 });

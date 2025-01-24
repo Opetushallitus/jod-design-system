@@ -16,7 +16,11 @@ type Story = StoryObj<typeof meta>;
 const render = (args: Story['args']) => {
   return (
     <ConfirmDialog {...args}>
-      {(showDialog) => <button onClick={showDialog}>Open ConfirmDialog example</button>}
+      {(showDialog) => (
+        <button onClick={showDialog} className="ds:cursor-pointer">
+          Open ConfirmDialog example
+        </button>
+      )}
     </ConfirmDialog>
   );
 };
@@ -42,7 +46,7 @@ export const Normal: Story = {
 };
 
 const Content = () => (
-  <div className="ds-flex ds-items-center ds-rounded-[10px] ds-border-[5px] ds-border-secondary-1 ds-px-[108px] ds-py-[22px] ds-text-center ds-text-secondary-1">
+  <div className="ds:flex ds:items-center ds:rounded-[10px] ds:border-[5px] ds:border-secondary-1 ds:px-[108px] ds:py-[22px] ds:text-center ds:text-secondary-1">
     Raahaa kuva tähän tai klikkaa aluetta valitaksesi kuva tietokoneeltasi.
   </div>
 );
@@ -79,10 +83,10 @@ export const Destructive: Story = {
 const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
   return (
     <button
-      className="ds-group ds-flex ds-select-none ds-items-center ds-gap-4 ds-rounded-[30px] ds-bg-white ds-px-6 ds-text-button-md ds-text-black hover:ds-text-accent focus-visible:ds-text-accent focus-visible:ds-outline focus-visible:ds-outline-[3px] focus-visible:ds-outline-offset-[1.5px] focus-visible:ds-outline-accent active:ds-bg-accent active:ds-text-white active:ds-outline-0"
+      className="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:bg-white ds:px-6 ds:text-button-md ds:text-black ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0"
       onClick={onClick}
     >
-      <span className="ds-py-[10px] group-hover:ds-underline group-focus-visible:ds-no-underline group-active:ds-no-underline">
+      <span className="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline">
         {label}
       </span>
     </button>
@@ -96,7 +100,7 @@ const renderFooter = (args: Story['args']) => {
     <ConfirmDialog
       {...rest}
       footer={(hideDialog) => (
-        <div className="ds-flex ds-flex-row ds-justify-between ds-gap-5">
+        <div className="ds:flex ds:flex-row ds:justify-between ds:gap-5">
           <Button onClick={hideDialog} label="En" />
           <Button
             onClick={() => {
@@ -108,7 +112,11 @@ const renderFooter = (args: Story['args']) => {
         </div>
       )}
     >
-      {(showDialog) => <button onClick={showDialog}>Open ConfirmDialog example</button>}
+      {(showDialog) => (
+        <button onClick={showDialog} className="ds:cursor-pointer">
+          Open ConfirmDialog example
+        </button>
+      )}
     </ConfirmDialog>
   );
 };

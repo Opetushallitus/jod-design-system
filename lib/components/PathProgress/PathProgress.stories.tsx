@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 const decorators: Story['decorators'] = [
   (Story) => (
-    <div className="ds-h-[600px]">
+    <div className="ds:h-[600px]">
       <Story />
     </div>
   ),

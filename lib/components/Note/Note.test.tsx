@@ -8,7 +8,7 @@ describe('Note component', () => {
     const { container } = render(<Note title="Test Title" description="Test Description" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
-    expect(noteElement).toHaveClass('ds-bg-success');
+    expect(noteElement).toHaveClass('ds:bg-success');
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -16,7 +16,7 @@ describe('Note component', () => {
     const { container } = render(<Note title="Test Title" description="Test Description" variant="success" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
-    expect(noteElement).toHaveClass('ds-bg-success');
+    expect(noteElement).toHaveClass('ds:bg-success');
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -24,7 +24,7 @@ describe('Note component', () => {
     const { container } = render(<Note title="Test Title" description="Test Description" variant="warning" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
-    expect(noteElement).toHaveClass('ds-bg-warning');
+    expect(noteElement).toHaveClass('ds:bg-warning');
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -32,7 +32,7 @@ describe('Note component', () => {
     const { container } = render(<Note title="Test Title" description="Test Description" variant="error" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
-    expect(noteElement).toHaveClass('ds-bg-alert');
+    expect(noteElement).toHaveClass('ds:bg-alert');
     expect(container.firstChild).toMatchSnapshot();
   });
 

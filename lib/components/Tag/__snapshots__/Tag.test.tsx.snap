@@ -3,17 +3,17 @@
 exports[`Snapshot testing > matches the snapshot 1`] = `
 <div>
   <button
-    class="ds-group ds-inline-flex ds-select-none ds-items-center ds-rounded-xl ds-text-tag ds-font-arial ds-px-4 ds-py-2 ds-text-left ds-bg-tag-jotain-muuta"
+    class="ds:cursor-pointer ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-tag ds:font-arial ds:px-4 ds:py-2 ds:text-left ds:bg-tag-jotain-muuta"
     type="button"
   >
     <span
-      class="ds-hyphens-auto ds-text-black group-hover:ds-underline"
+      class="ds:hyphens-auto ds:text-black ds:group-hover:underline"
     >
       Label here
     </span>
     <span
       aria-hidden="true"
-      class="ds-pl-3 ds-text-button-md ds-text-black"
+      class="ds:pl-3 ds:text-button-md ds:text-black"
     >
       <svg
         fill="currentColor"

@@ -1,19 +1,17 @@
 /// <reference types="vitest" />
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'node:path';
-import resolveConfig from 'tailwindcss/resolveConfig';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import tailwindConfig from './tailwind.config';
-
-const fullConfig = resolveConfig(tailwindConfig);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  define: {
-    __SCREENS__: fullConfig.theme.screens,
-  },
-  plugins: [react(), dts({ include: ['lib'], exclude: ['lib/**/*.stories.{ts,tsx}'], rollupTypes: true })],
+  plugins: [
+    react(),
+    tailwindcss(),
+    dts({ include: ['lib'], exclude: ['lib/**/*.stories.{ts,tsx}'], rollupTypes: true }),
+  ],
   test: {
     environment: 'jsdom',
     globals: true,

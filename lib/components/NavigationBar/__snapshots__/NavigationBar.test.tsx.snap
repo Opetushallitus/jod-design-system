@@ -2,15 +2,15 @@
 
 exports[`NavigationBar > renders no navigation items and no user 1`] = `
 <div
-  class="ds-min-w-min ds-shadow-border ds-bg-white"
+  class="ds:min-w-min ds:shadow-border ds:bg-white"
 >
   <nav
-    class="ds-mx-auto ds-flex ds-h-11 ds-items-center ds-gap-4 ds-px-5 sm:ds-px-7 ds-py-3 ds-font-semibold xl:ds-container"
+    class="ds:mx-auto ds:flex ds:h-11 ds:items-center ds:gap-4 ds:px-5 ds:sm:px-7 ds:py-3 ds:font-semibold ds:xl:container"
     role="navigation"
   >
     <div>
       <div
-        class="ds-inline-flex ds-select-none ds-items-center ds-p-3"
+        class="ds:inline-flex ds:select-none ds:items-center ds:p-3"
       >
         <svg
           height="32"
@@ -64,14 +64,14 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
           </g>
         </svg>
         <span
-          class="ds-sr-only"
+          class="ds:sr-only"
         >
           jod
         </span>
       </div>
     </div>
     <ul
-      class="ds-inline-flex ds-items-center ds-gap-3 sm:ds-gap-5 ds-ml-auto"
+      class="ds:inline-flex ds:items-center ds:gap-3 ds:sm:gap-5 ds:ml-auto"
     />
   </nav>
 </div>

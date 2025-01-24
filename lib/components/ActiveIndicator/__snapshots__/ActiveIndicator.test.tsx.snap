@@ -3,13 +3,13 @@
 exports[`ActiveIndicator > renders the ActiveIndicator component correctly 1`] = `
 <svg
   aria-hidden="true"
-  class="ds-absolute -ds-ml-6"
+  class="ds:absolute ds:-ml-6"
   focusable="false"
   height="15"
   width="15"
 >
   <circle
-    class="ds-fill-accent"
+    class="ds:fill-accent"
     cx="7.5"
     cy="7.5"
     r="7.5"
