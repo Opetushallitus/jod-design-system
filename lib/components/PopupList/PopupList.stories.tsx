@@ -31,7 +31,9 @@ export const Default: Story = {
           <a href="/#">Omat sivut</a>
         </PopupListItem>
         <PopupListItem>
-          <button onClick={console.log}>Kirjaudu ulos</button>
+          <button onClick={console.log} className="ds:cursor-pointer">
+            Kirjaudu ulos
+          </button>
         </PopupListItem>
       </>
     ),

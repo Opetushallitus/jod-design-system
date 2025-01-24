@@ -1,3 +1,166 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' prefix(ds);
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+
+  --color-*: initial;
+  --color-accent-25: #bfdbec;
+  --color-accent-50: #80b6d9;
+  --color-accent-75: #4091c6;
+  --color-accent: #006db3;
+
+  --color-tag-tyopaikka: #e6a6d9;
+  --color-tag-koulutus: #80d3d9;
+  --color-tag-vapaa-ajan-toiminto: #99ceef;
+  --color-tag-jotain-muuta: #d8d8d8;
+  --color-tag-kiinnostus: #f7bda2;
+  --color-tag-rajoitus: #f7a2a7;
+
+  --color-secondary-1-25: #c2e2f5;
+  --color-secondary-1-50: #99ceef;
+  --color-secondary-1-75: #66b5e7;
+  --color-secondary-1: #339ddf;
+
+  --color-secondary-2-50: #80d3d9;
+  --color-secondary-2: #00a8b3;
+
+  --color-secondary-3-50: #f7bda2;
+  --color-secondary-3: #ee7c45;
+
+  --color-secondary-4-50: #e6a6d9;
+  --color-secondary-4: #cd4eb3;
+
+  --color-secondary-5: #d8d8d8;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-secondary-gray: #6e6e6e;
+  --color-link: #006db3;
+  --color-inactive-gray: #a9a9a9;
+  --color-border-gray: #cecece;
+  --color-bg-gray: #f0f2f5;
+
+  --color-bg-gray-2-25: #f8f9fa;
+  --color-bg-gray-2: #e4e6ec;
+
+  --color-warning: #f2c832;
+  --color-alert: #e3564f;
+  --color-alert-text: #de342b;
+  --color-success: #00c181;
+
+  --text-*: initial;
+  --text-heading-1: 36px;
+  --text-heading-1--font-weight: 600;
+  --text-heading-1--line-height: 50px;
+  --text-heading-1-mobile: 32px;
+  --text-heading-1-mobile--font-weight: 600;
+  --text-heading-1-mobile--line-height: 44px;
+  --text-heading-2: 24px;
+  --text-heading-2--font-weight: 600;
+  --text-heading-2--line-height: 34px;
+  --text-heading-2-mobile: 22px;
+  --text-heading-2-mobile--font-weight: 600;
+  --text-heading-2-mobile--line-height: 30px;
+  --text-heading-3: 18px;
+  --text-heading-3--font-weight: 600;
+  --text-heading-3--line-height: 27px;
+  --text-heading-3-mobile: 16px;
+  --text-heading-3-mobile--font-weight: 600;
+  --text-heading-3-mobile--line-height: 24px;
+  --text-heading-4: 16px;
+  --text-heading-4--font-weight: 600;
+  --text-heading-4--line-height: 24px;
+  --text-heading-4-mobile: 14px;
+  --text-heading-4-mobile--font-weight: 600;
+  --text-heading-4-mobile--line-height: 24px;
+  --text-heading-5: 16px;
+  --text-heading-5--font-weight: 400;
+  --text-heading-5--line-height: 24px;
+  --text-body-lg: 18px;
+  --text-body-lg--font-weight: 400;
+  --text-body-lg--line-height: 26px;
+  --text-body-lg-mobile: 16px;
+  --text-body-lg-mobile--font-weight: 400;
+  --text-body-lg-mobile--line-height: 24px;
+  --text-body-md: 16px;
+  --text-body-md--font-weight: 400;
+  --text-body-md--line-height: 24px;
+  --text-body-md-mobile: 15px;
+  --text-body-md-mobile--font-weight: 400;
+  --text-body-md-mobile--line-height: 23px;
+  --text-body-sm: 14px;
+  --text-body-sm--font-weight: 400;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm-mobile: 13px;
+  --text-body-sm-mobile--font-weight: 400;
+  --text-body-sm-mobile--line-height: 19px;
+  --text-body-xs: 12px;
+  --text-body-xs--font-weight: 400;
+  --text-body-xs--line-height: 16px;
+  --text-form-label: 16px;
+  --text-form-label--font-weight: 700;
+  --text-form-label--line-height: 24px;
+  --text-help: 16px;
+  --text-help--font-weight: 400;
+  --text-help--line-height: 24px;
+  --text-button-lg: 24px;
+  --text-button-lg--font-weight: 600;
+  --text-button-lg--line-height: 34px;
+  --text-button-md: 16px;
+  --text-button-md--font-weight: 600;
+  --text-button-md--line-height: 24px;
+  --text-button-md--letter-spacing: 0.16px;
+  --text-button-md-mobile: 15px;
+  --text-button-md-mobile--font-weight: 600;
+  --text-button-md-mobile--line-height: 24px;
+  --text-button-md-mobile--letter-spacing: 0.15px;
+  --text-button-sm: 14px;
+  --text-button-sm--font-weight: 600;
+  --text-button-sm--line-height: 18px;
+  --text-button-sm--letter-spacing: 0.28px;
+  --text-button-sm-mobile: 12px;
+  --text-button-sm-mobile--font-weight: 600;
+  --text-button-sm-mobile--line-height: 14px;
+  --text-button-sm-mobile--letter-spacing: 0.28px;
+  --text-tag: 14px;
+  --text-tag--font-weight: 400;
+  --text-tag--line-height: 20px;
+  --text-attrib-title: 12px;
+  --text-attrib-title--font-weight: 400;
+  --text-attrib-title--line-height: 110%;
+  --text-attrib-title--letter-spacing: 0.12px;
+  --text-attrib-value: 12px;
+  --text-attrib-value--font-weight: 700;
+  --text-attrib-value--line-height: 110%;
+  --text-attrib-value--letter-spacing: 0.12px;
+
+  --spacing-*: initial;
+  --spacing-0: 0px;
+  --spacing-1: 2px;
+  --spacing-2: 4px;
+  --spacing-3: 8px;
+  --spacing-4: 12px;
+  --spacing-5: 16px;
+  --spacing-6: 24px;
+  --spacing-7: 32px;
+  --spacing-8: 40px;
+  --spacing-9: 48px;
+  --spacing-10: 56px;
+  --spacing-11: 64px;
+
+  --font-arial: Arial, sans-serif;
+  --font-poppins: Poppins, sans-serif;
+
+  --radius: 8px;
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --shadow-border: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+}

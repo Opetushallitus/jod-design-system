@@ -16,7 +16,7 @@ export const Default: Story = {
   decorators: [
     (Story) => (
       <div lang="fi">
-        <button className="ds-sr-only">Interaktiivinen elementti</button>
+        <button className="ds:sr-only">Interaktiivinen elementti</button>
         <Story />
       </div>
     ),

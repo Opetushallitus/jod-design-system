@@ -14,13 +14,13 @@ describe('Footer', () => {
 
   it('renders footer with light variant', () => {
     const { container } = render(<Footer items={mockItems} variant="light" language="fi" copyright={mockCopyright} />);
-    expect(container.firstChild).toHaveClass('ds-bg-white ds-text-black');
+    expect(container.firstChild).toHaveClass('ds:bg-white ds:text-black');
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders footer with dark variant', () => {
     const { container } = render(<Footer items={mockItems} variant="dark" language="fi" copyright={mockCopyright} />);
-    expect(container.firstChild).toHaveClass('ds-bg-black ds-text-white');
+    expect(container.firstChild).toHaveClass('ds:bg-black ds:text-white');
     expect(container.firstChild).toMatchSnapshot();
   });
 

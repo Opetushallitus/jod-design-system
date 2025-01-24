@@ -51,7 +51,7 @@ export const Default: Story = {
   render: Render,
   decorators: [
     (Story) => (
-      <div className="ds-max-w-[414px]">
+      <div className="ds:max-w-[414px]">
         <Story />
       </div>
     ),
@@ -70,7 +70,7 @@ export const WithRightLabel: Story = {
   render: Render,
   decorators: [
     (Story) => (
-      <div className="ds-max-w-[348px]">
+      <div className="ds:max-w-[348px]">
         <Story />
       </div>
     ),
@@ -90,7 +90,7 @@ export const Disabled: Story = {
   render: Render,
   decorators: [
     (Story) => (
-      <div className="ds-max-w-[348px]">
+      <div className="ds:max-w-[348px]">
         <Story />
       </div>
     ),

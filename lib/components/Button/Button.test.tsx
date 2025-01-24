@@ -27,14 +27,14 @@ describe('Button', () => {
   it('renders the button with the correct size', () => {
     const { container } = render(<Button label="Click me" onClick={vi.fn()} size="sm" />);
     const button = screen.getByRole('button', { name: 'Click me' });
-    expect(button).toHaveClass('ds-text-button-sm');
+    expect(button).toHaveClass('ds:text-button-sm');
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders the button with the correct variant', () => {
     const { container } = render(<Button label="Click me" onClick={vi.fn()} variant="gray" />);
     const button = screen.getByRole('button', { name: 'Click me' });
-    expect(button).toHaveClass('ds-bg-bg-gray');
+    expect(button).toHaveClass('ds:bg-bg-gray');
     expect(container.firstChild).toMatchSnapshot();
   });
 

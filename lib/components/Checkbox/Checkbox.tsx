@@ -40,13 +40,13 @@ export const Checkbox = ({
   const isLabelValidElement = React.isValidElement(label);
 
   const borderVariantClassnames = {
-    'ds-border ds-border-accent': variant === 'bordered',
-    'ds-border ds-border-inactive-gray': variant === 'bordered' && disabled,
-    'ds-border-0': variant === 'default',
+    'ds:border ds:border-accent': variant === 'bordered',
+    'ds:border ds:border-inactive-gray': variant === 'bordered' && disabled,
+    'ds:border-0': variant === 'default',
   };
 
   return (
-    <div className={cx('ds-flex ds-items-center ds-text-left ds-relative', className)}>
+    <div className={cx('ds:flex ds:items-center ds:text-left ds:relative', className)}>
       <input
         type="checkbox"
         id={label ? id : undefined}
@@ -56,7 +56,7 @@ export const Checkbox = ({
         checked={checked}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
-        className={cx('ds-peer ds-size-5 ds-min-h-5 ds-min-w-5 ds-appearance-none ds-rounded-none ds-bg-white', {
+        className={cx('ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white', {
           ...borderVariantClassnames,
         })}
       />
@@ -66,14 +66,14 @@ export const Checkbox = ({
         height="16"
         viewBox="0 0 16 16"
         fill="none"
-        className="ds-pointer-events-none ds-absolute ds-hidden ds-fill-accent peer-checked:ds-block"
+        className="ds:pointer-events-none ds:absolute ds:hidden ds:fill-accent ds:peer-checked:block"
       >
         <rect x="0" y="0" width="16" height="16" />
       </svg>
       {label && (
         <label
           htmlFor={id}
-          className={`ds-flex ds-flex-row ds-items-center ds-text-heading-4 ds-text-black peer-hover:ds-text-accent peer-hover:ds-underline peer-disabled:ds-text-inactive-gray peer-disabled:ds-no-underline ${!isLabelValidElement ? 'ds-pl-4' : ''}`.trim()}
+          className={`ds:flex ds:flex-row ds:items-center ds:text-heading-4 ds:text-black ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ${!isLabelValidElement ? 'ds:pl-4' : ''}`.trim()}
         >
           {label}
         </label>

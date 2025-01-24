@@ -3,12 +3,12 @@
 exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
 <div>
   <label
-    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":r8:"
   />
   <textarea
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":r8:"
     placeholder="Enter text"
   />
@@ -18,12 +18,12 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
 exports[`Textarea > calls onChange when the value changes 1`] = `
 <div>
   <label
-    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":r6:"
   />
   <textarea
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":r6:"
     placeholder="Enter text"
   />
@@ -33,18 +33,18 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
 exports[`Textarea > displays help text when provided 1`] = `
 <div>
   <label
-    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":ra:"
   />
   <textarea
     aria-describedby=":rb:"
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":ra:"
     placeholder="Enter text"
   />
   <div
-    class="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray ds-font-arial"
+    class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
     id=":rb:"
   >
     Help text
@@ -55,14 +55,14 @@ exports[`Textarea > displays help text when provided 1`] = `
 exports[`Textarea > displays the label when hideLabel is false 1`] = `
 <div>
   <label
-    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":r2:"
   >
     Test Label
   </label>
   <textarea
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":r2:"
     placeholder="Enter text"
   />
@@ -72,12 +72,12 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
 exports[`Textarea > hides the label when hideLabel is true 1`] = `
 <div>
   <label
-    class="ds-hidden ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:hidden ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":r4:"
   />
   <textarea
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":r4:"
     placeholder="Enter text"
   />
@@ -87,12 +87,12 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
 exports[`Textarea > renders without crashing 1`] = `
 <div>
   <label
-    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":r0:"
   />
   <textarea
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":r0:"
     placeholder="Enter text"
   />
@@ -102,12 +102,12 @@ exports[`Textarea > renders without crashing 1`] = `
 exports[`Textarea > sets the correct number of rows 1`] = `
 <div>
   <label
-    class="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black"
+    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
     for=":rc:"
   />
   <textarea
     autocomplete="off"
-    class="ds-block ds-w-full ds-rounded ds-border ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-secondary-gray ds-font-arial ds-text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id=":rc:"
     placeholder="Enter text"
     rows="5"

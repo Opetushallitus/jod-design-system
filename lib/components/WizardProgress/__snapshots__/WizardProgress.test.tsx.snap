@@ -3,14 +3,14 @@
 exports[`WizardProgress > renders correctly 1`] = `
 <ol
   aria-label="Progress"
-  class="ds-flex ds-gap-4 ds-text-black sm:ds-text-heading-2 sm:ds-leading-[24px] ds-text-heading-3-mobile ds-leading-[16px]"
+  class="ds:flex ds:gap-4 ds:text-black ds:sm:text-heading-2 ds:sm:leading-[24px] ds:text-heading-3-mobile ds:leading-[16px]"
 >
   <li
     aria-current="false"
-    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
   >
     <span
-      class="ds-sr-only"
+      class="ds:sr-only"
     >
       Step: 1, Completed.
     </span>
@@ -35,10 +35,10 @@ exports[`WizardProgress > renders correctly 1`] = `
   </li>
   <li
     aria-current="false"
-    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
   >
     <span
-      class="ds-sr-only"
+      class="ds:sr-only"
     >
       Step: 2, Completed.
     </span>
@@ -63,50 +63,50 @@ exports[`WizardProgress > renders correctly 1`] = `
   </li>
   <li
     aria-current="true"
-    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-accent ds-text-white sm:ds-min-h-8 sm:ds-min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-accent ds:text-white ds:sm:min-h-8 ds:sm:min-w-8"
   >
     <span
-      class="ds-sr-only"
+      class="ds:sr-only"
     >
       Step: 
     </span>
     <span
-      class="ds-select-none"
+      class="ds:select-none"
     >
       3
     </span>
     <span
-      class="ds-sr-only"
+      class="ds:sr-only"
     >
       , Current.
     </span>
   </li>
   <li
     aria-current="false"
-    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
   >
     <span
-      class="ds-sr-only"
+      class="ds:sr-only"
     >
       Step: 
     </span>
     <span
-      class="ds-select-none"
+      class="ds:select-none"
     >
       4
     </span>
   </li>
   <li
     aria-current="false"
-    class="ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ds-bg-bg-gray-2 sm:ds-min-h-8 sm:ds-min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
   >
     <span
-      class="ds-sr-only"
+      class="ds:sr-only"
     >
       Step: 
     </span>
     <span
-      class="ds-select-none"
+      class="ds:select-none"
     >
       5
     </span>

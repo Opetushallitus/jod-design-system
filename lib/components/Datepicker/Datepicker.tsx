@@ -15,43 +15,43 @@ const MAX_YEAR = 2100;
 const isInvalidYear = (year: number) => year < MIN_YEAR || year >= MAX_YEAR;
 
 const tableCellClasses = tc([
-  'ds-flex',
-  'ds-justify-center',
-  'ds-items-center',
-  'ds-align-center',
-  'ds-text-body-sm',
-  'ds-m-3',
-  'ds-font-arial',
-  'ds-size-[28px]',
-  'sm:ds-size-[32px]',
-  'hover:ds-underline',
-  'focus:ds-left-auto ds-capitalize',
-  'data-[selected]:ds-bg-secondary-1-50',
-  'data-[selected]:ds-rounded-full',
+  'ds:flex',
+  'ds:justify-center',
+  'ds:items-center',
+  'ds:align-center',
+  'ds:text-body-sm',
+  'ds:m-3',
+  'ds:font-arial',
+  'ds:size-[28px]',
+  'ds:sm:size-[32px]',
+  'ds:hover:underline',
+  'ds:focus:left-auto ds:capitalize',
+  'ds:data-selected:bg-secondary-1-50',
+  'ds:data-selected:rounded-full',
 ]);
 
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
   cx(tableCellClasses, {
-    'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed': datePicker.isUnavailable(day),
-    'ds-text-inactive-gray': datePicker.focusedValue.month !== day.month,
+    'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': datePicker.isUnavailable(day),
+    'ds:text-inactive-gray': datePicker.focusedValue.month !== day.month,
   });
 
 const getYearCellClasses = (year: { label: string; value: number }) =>
   cx(tableCellClasses, {
-    'disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed': isInvalidYear(year.value),
+    'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': isInvalidYear(year.value),
   });
 
 const Header = () => (
-  <ArkDatePicker.ViewControl className="ds-mb-4 ds-flex ds-justify-between">
-    <ArkDatePicker.PrevTrigger className="ds-text-accent ds-px-3">
+  <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
+    <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3">
       <MdArrowBack size={24} />
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger>
-      <ArkDatePicker.RangeText className="ds-capitalize ds-font-bold" />
+      <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold" />
     </ArkDatePicker.ViewTrigger>
 
-    <ArkDatePicker.NextTrigger className="ds-text-accent ds-px-3">
+    <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3">
       <MdArrowForward size={24} />
     </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
@@ -113,20 +113,20 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
       value={value ? [parseDate(value)] : undefined}
       locale="fi-FI"
       timeZone={timeZone}
-      className="ds-w-full"
+      className="ds:w-full"
       isDateUnavailable={(date) => isInvalidYear(date.year)}
       translations={arkTranslations}
     >
-      <ArkDatePicker.Label className="ds-mb-4 ds-inline-block ds-align-top ds-text-form-label ds-font-arial ds-text-black">
+      <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black">
         {label}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
-        <div className="ds-flex ds-w-full">
+        <div className="ds:flex ds:w-full">
           <ArkDatePicker.Input
             ref={ref}
             name={name}
             placeholder={placeholder}
-            className="ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-font-arial ds-text-black ds-outline-none placeholder:ds-text-inactive-gray"
+            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               // Handle clearing the input field to allow clearing the datepicker value
               if (e.target.value === '') {
@@ -137,19 +137,19 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             }}
             onBlur={onBlur}
           />
-          <ArkDatePicker.Trigger className="ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray">
+          <ArkDatePicker.Trigger className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray">
             <MdCalendarMonth size={24} />
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
       {help && (
-        <div id={helpId} className="ds-mt-2 ds-block ds-text-help ds-text-secondary-gray ds-font-arial">
+        <div id={helpId} className="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial">
           {help}
         </div>
       )}
       <Portal>
         <ArkDatePicker.Positioner>
-          <ArkDatePicker.Content className="ds-z-50 ds-rounded ds-shadow-border ds-bg-white ds-p-4">
+          <ArkDatePicker.Content className="ds:z-50 ds:rounded ds:shadow-border ds:bg-white ds:p-4">
             <ArkDatePicker.View view="day">
               <ArkDatePicker.Context>
                 {(datePicker) => (
@@ -161,7 +161,7 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                           {datePicker.weekDays.map((weekDay) => (
                             <ArkDatePicker.TableHeader
                               key={weekDay.long}
-                              className="ds-capitalize ds-size-[28px] sm:ds-size-[32px]"
+                              className="ds:capitalize ds:size-[28px] ds:sm:size-[32px]"
                             >
                               {weekDay.short}
                             </ArkDatePicker.TableHeader>
@@ -174,7 +174,11 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                             {week.map((day) => (
                               <ArkDatePicker.TableCell key={day.day} value={day}>
                                 <ArkDatePicker.TableCellTrigger className={getDayCellClasses(datePicker, day)} asChild>
-                                  <button type="button" disabled={datePicker.isUnavailable(day)}>
+                                  <button
+                                    type="button"
+                                    disabled={datePicker.isUnavailable(day)}
+                                    className="ds:cursor-pointer"
+                                  >
                                     {day.day}
                                   </button>
                                 </ArkDatePicker.TableCellTrigger>
@@ -224,7 +228,11 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                             {years.map((year) => (
                               <ArkDatePicker.TableCell key={`_${year.label}`} value={year.value}>
                                 <ArkDatePicker.TableCellTrigger className={getYearCellClasses(year)} asChild>
-                                  <button type="button" disabled={isInvalidYear(year.value)}>
+                                  <button
+                                    type="button"
+                                    disabled={isInvalidYear(year.value)}
+                                    className="ds:cursor-pointer"
+                                  >
                                     {year.label}
                                   </button>
                                 </ArkDatePicker.TableCellTrigger>

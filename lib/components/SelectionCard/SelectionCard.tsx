@@ -50,22 +50,22 @@ export const SelectionCard = ({
   const horizontalCard = (
     <button
       type="button"
-      className="ds-flex ds-flex-grow ds-items-center ds-relative ds-p-3 ds-pr-0"
+      className="ds:cursor-pointer ds:flex ds:grow ds:items-center ds:relative ds:p-3 ds:pr-0"
       aria-pressed={selected}
       aria-label={label}
       {...eventProps}
     >
-      <span className="ds-absolute ds-left-0 ds-top-0 -ds-m-3" aria-hidden>
+      <span className="ds:absolute ds:left-0 ds:top-0 ds:-m-3" aria-hidden>
         {selected ? <CheckIcon /> : null}
       </span>
       <span
-        className="ds-h-[93px] ds-aspect-square ds-rounded-full ds-bg-white ds-flex ds-items-center ds-justify-center"
+        className="ds:h-[93px] ds:aspect-square ds:rounded-full ds:bg-white ds:flex ds:items-center ds:justify-center"
         aria-hidden
       >
-        <span className="ds-transform ds-scale-75">{icon ?? null}</span>
+        <span className="ds:transform ds:scale-75">{icon ?? null}</span>
       </span>
-      <span className="ds-ml-5 ds-container ds-text-left ds-pr-4">
-        <span className="ds-text-heading-4-mobile">{label ?? ''}</span>
+      <span className="ds:ml-5 ds:container ds:text-left ds:pr-4">
+        <span className="ds:text-heading-4-mobile">{label ?? ''}</span>
       </span>
     </button>
   );
@@ -74,21 +74,21 @@ export const SelectionCard = ({
     <button
       type="button"
       className={tc(
-        `ds-w-[166px] ds-min-h-[250px] ds-rounded-md ds-p-5 hover:ds-bg-secondary-1-25 ds-flex ds-flex-col ds-items-center ${className ?? ''}`,
+        `ds:cursor-pointer ds:w-[166px] ds:min-h-[250px] ds:rounded-md ds:p-5 ds:hover:bg-secondary-1-25 ds:flex ds:flex-col ds:items-center ${className ?? ''}`,
       )}
       aria-pressed={selected}
       aria-label={label}
       {...eventProps}
     >
       <span
-        className="ds-w-full ds-aspect-square ds-rounded-full ds-bg-white ds-flex ds-items-center ds-justify-center ds-relative"
+        className="ds:w-full ds:aspect-square ds:rounded-full ds:bg-white ds:flex ds:items-center ds:justify-center ds:relative"
         aria-hidden
       >
-        <span className="ds-absolute ds-right-0 ds-top-0">{selected ? <CheckIcon /> : null}</span>
+        <span className="ds:absolute ds:right-0 ds:top-0">{selected ? <CheckIcon /> : null}</span>
         {icon ?? null}
       </span>
-      <span className="ds-block ds-p-5 ds-pb-0 ds-text-center">
-        <span className="ds-text-heading-4">{label ?? ''}</span>
+      <span className="ds:block ds:p-5 ds:pb-0 ds:text-center">
+        <span className="ds:text-heading-4">{label ?? ''}</span>
       </span>
     </button>
   );
@@ -96,7 +96,7 @@ export const SelectionCard = ({
   return orientation === 'vertical' ? (
     verticalCard
   ) : (
-    <div className={tc(`ds-flex ds-flex-row ds-rounded-md hover:ds-bg-secondary-1-25 ${className ?? ''}`)}>
+    <div className={tc(`ds:flex ds:flex-row ds:rounded-md ds:hover:bg-secondary-1-25 ${className ?? ''}`)}>
       {horizontalCard}
       {actionComponent ?? null}
     </div>

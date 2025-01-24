@@ -19,7 +19,7 @@ const design = {
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <div className="ds-max-w-[1140px] ds-px-5">
+      <div className="ds:max-w-[1140px] ds:px-5">
         <Story />
       </div>
     ),

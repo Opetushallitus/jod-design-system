@@ -56,13 +56,13 @@ export const Combobox = <
         });
 
   return (
-    <div className="ds-flex ds-flex-col ds-relative">
+    <div className="ds:flex ds:flex-col ds:relative">
       {!hideLabel && (
-        <label htmlFor={labelId} className="ds-text-jod-black ds-text-form-label ds-font-arial ds-mb-4">
+        <label htmlFor={labelId} className="ds:text-jod-black ds:text-form-label ds:font-arial ds:mb-4">
           {label}
         </label>
       )}
-      <div className="ds-flex ds-flex-row relative">
+      <div className="ds:flex ds:flex-row relative">
         <HeadlessCombobox
           defaultValue={defaultValue ?? (options[0]?.value as U)}
           onChange={propOnChange}
@@ -75,21 +75,21 @@ export const Combobox = <
                 id={labelId}
                 aria-label={hideLabel ? label : undefined}
                 displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
-                className="ds-font-arial ds-w-full ds-rounded-l ds-border-y ds-border-l ds-border-border-gray ds-bg-white ds-p-5 ds-text-black ds-outline-none placeholder:ds-text-inactive-gray disabled:ds-text-inactive-gray disabled:ds-pointer-events-none"
+                className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
               />
               <ComboboxButton
-                className="ds-select-none ds-rounded-r ds-border-y ds-border-r ds-border-border-gray ds-bg-white ds-p-5 ds-text-secondary-gray disabled:ds-text-inactive-gray"
+                className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
               >
                 {open ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
               </ComboboxButton>
-              <ComboboxOptions className="ds-bg-white ds-mt-3 ds-absolute ds-w-full ds-top-full ds-p-5 ds-m-0 ds-shadow-border ds-rounded-md ds-z-50 empty:ds-invisible">
+              <ComboboxOptions className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible">
                 {filteredOptions.map((option) => (
                   <ComboboxOption
                     key={option.value}
-                    className="ds-py-3 ds-text-heading-4 ds-ml-5 ds-text-black ds-cursor-pointer data-[focus]:ds-underline data-[focus]:ds-text-accent hover:ds-underline hover:ds-text-accent"
+                    className="ds:py-3 ds:text-heading-4 ds:ml-5 ds:text-black ds:cursor-pointer ds:data-focus:underline ds:data-focus:text-accent ds:hover:underline ds:hover:text-accent"
                     value={option.value}
                   >
                     {option.label}

@@ -15,7 +15,11 @@ describe('ConfirmDialog', () => {
         confirmText="Confirm"
         cancelText="Cancel"
       >
-        {(showDialog) => <button onClick={showDialog}>Show for rendering</button>}
+        {(showDialog) => (
+          <button onClick={showDialog} className="ds:cursor-pointer">
+            Show for rendering
+          </button>
+        )}
       </ConfirmDialog>,
     );
 
@@ -39,7 +43,11 @@ describe('ConfirmDialog', () => {
         confirmText="Confirm"
         cancelText="Cancel"
       >
-        {(showDialog) => <button onClick={showDialog}>Show for onConfirm</button>}
+        {(showDialog) => (
+          <button onClick={showDialog} className="ds:cursor-pointer">
+            Show for onConfirm
+          </button>
+        )}
       </ConfirmDialog>,
     );
     await act(async () => {
@@ -62,7 +70,11 @@ describe('ConfirmDialog', () => {
         confirmText="Confirm"
         cancelText="Cancel"
       >
-        {(showDialog) => <button onClick={showDialog}>Test closing</button>}
+        {(showDialog) => (
+          <button onClick={showDialog} className="ds:cursor-pointer">
+            Test closing
+          </button>
+        )}
       </ConfirmDialog>,
     );
 

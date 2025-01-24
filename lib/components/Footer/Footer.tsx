@@ -41,56 +41,56 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     switch (language) {
       case 'sv':
         return [
-          <div key="LogoEuSv" className="ds-flex">
-            <LogoEuSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoEuSv" className="ds:flex">
+            <LogoEuSv className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoOkmFiSv" className="ds-flex">
-            <LogoOkmFiSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoOkmFiSv" className="ds:flex">
+            <LogoOkmFiSv className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoTemFiSv" className="ds-flex">
-            <LogoTemFiSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoTemFiSv" className="ds:flex">
+            <LogoTemFiSv className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoKehaSv" className="ds-flex">
-            <LogoKehaSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoKehaSv" className="ds:flex">
+            <LogoKehaSv className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoOphFiSv" className="ds-flex">
-            <LogoOphFiSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoOphFiSv" className="ds:flex">
+            <LogoOphFiSv className="ds:h-10 ds:max-w-full" />
           </div>,
         ];
       case 'en':
         return [
-          <div key="LogoEuEn" className="ds-flex">
-            <LogoEuEn className="ds-h-10 ds-max-w-full" />
+          <div key="LogoEuEn" className="ds:flex">
+            <LogoEuEn className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoOkmEn" className="ds-flex">
-            <LogoOkmEn className="ds-h-10 ds-max-w-full" />
+          <div key="LogoOkmEn" className="ds:flex">
+            <LogoOkmEn className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoTemEn" className="ds-flex">
-            <LogoTemEn className="ds-h-10 ds-max-w-full" />
+          <div key="LogoTemEn" className="ds:flex">
+            <LogoTemEn className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoKehaEn" className="ds-flex">
-            <LogoKehaEn className="ds-h-10 ds-max-w-full" />
+          <div key="LogoKehaEn" className="ds:flex">
+            <LogoKehaEn className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoOphEn" className="ds-flex">
-            <LogoOphEn className="ds-h-10 ds-max-w-full" />
+          <div key="LogoOphEn" className="ds:flex">
+            <LogoOphEn className="ds:h-10 ds:max-w-full" />
           </div>,
         ];
       default:
         return [
-          <div key="LogoEuFi" className="ds-flex">
-            <LogoEuFi className="ds-h-10 ds-max-w-full" />
+          <div key="LogoEuFi" className="ds:flex">
+            <LogoEuFi className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoOkmFiSv" className="ds-flex">
-            <LogoOkmFiSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoOkmFiSv" className="ds:flex">
+            <LogoOkmFiSv className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoTemFiSv" className="ds-flex">
-            <LogoTemFiSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoTemFiSv" className="ds:flex">
+            <LogoTemFiSv className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoKehaFi" className="ds-flex">
-            <LogoKehaFi className="ds-h-10 ds-max-w-full" />
+          <div key="LogoKehaFi" className="ds:flex">
+            <LogoKehaFi className="ds:h-10 ds:max-w-full" />
           </div>,
-          <div key="LogoOphFiSv" className="ds-flex">
-            <LogoOphFiSv className="ds-h-10 ds-max-w-full" />
+          <div key="LogoOphFiSv" className="ds:flex">
+            <LogoOphFiSv className="ds:h-10 ds:max-w-full" />
           </div>,
         ];
     }
@@ -99,20 +99,20 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
   return (
     <footer
       ref={ref}
-      className={`ds-py-9 ds-text-button-md sm:ds-px-6 print:ds-hidden ${variant === 'light' ? 'ds-bg-white ds-text-black' : 'ds-bg-black ds-text-white'} ${className}`.trim()}
+      className={`ds:py-9 ds:text-button-md ds:sm:px-6 ds:print:hidden ${variant === 'light' ? 'ds:bg-white ds:text-black' : 'ds:bg-black ds:text-white'} ${className}`.trim()}
     >
-      <div className="ds-mx-auto ds-flex ds-flex-col ds-gap-9 sm:ds-max-w-[1090px]">
+      <div className="ds:mx-auto ds:flex ds:flex-col ds:gap-9 ds:sm:max-w-[1090px]">
         {items && (
-          <ul className="ds-px-5 sm:ds-px-4">
+          <ul className="ds:px-5 ds:sm:px-4">
             {items?.map((item) => (
-              <li key={item.key} className="ds-px-2 ds-py-[6px]">
-                <item.component className="hover:ds-underline" />
+              <li key={item.key} className="ds:px-2 ds:py-[6px]">
+                <item.component className="ds:hover:underline" />
               </li>
             ))}
           </ul>
         )}
-        <div className="ds-px-5 sm:ds-px-0 ds-grid sm:ds-grid-cols-3 ds-gap-6 sm:ds-gap-9 ds-items-center">{logos}</div>
-        {copyright && <div className="ds-mt-9 ds-flex ds-justify-end ds-px-5 sm:ds-px-0">{copyright}</div>}
+        <div className="ds:px-5 ds:sm:px-0 ds:grid ds:sm:grid-cols-3 ds:gap-6 ds:sm:gap-9 ds:items-center">{logos}</div>
+        {copyright && <div className="ds:mt-9 ds:flex ds:justify-end ds:px-5 ds:sm:px-0">{copyright}</div>}
       </div>
     </footer>
   );

@@ -35,7 +35,7 @@ export const Default: Story = {
   parameters,
   args: {
     label: 'Kartoittaa omaa osaamistani',
-    icon: <span className="ds-text-[70px]">😎</span>,
+    icon: <span className="ds:text-[70px]">😎</span>,
     selected: false,
   },
 };
@@ -78,11 +78,11 @@ const RenderMultiple = () => {
         onMouseLeave={() => setInfoVisible(index)(false)}
         onFocus={() => setInfoVisible(index)(true)}
         onBlur={() => setInfoVisible(index)(false)}
-        icon={<span className="ds-text-[70px]">{card.icon}</span>}
+        icon={<span className="ds:text-[70px]">{card.icon}</span>}
       />
     ));
   return (
-    <div className="ds-flex ds-flex-col ds-gap-y-5">
+    <div className="ds:flex ds:flex-col ds:gap-y-5">
       <div>
         <Button
           onClick={() => setOrientation(orientation === 'vertical' ? 'horizontal' : 'vertical')}
@@ -91,7 +91,7 @@ const RenderMultiple = () => {
         />
       </div>
       <div>Showing info for card: {info}</div>
-      <div className={`ds-flex ${orientation === 'vertical' ? 'ds-flex-row' : 'ds-flex-col'} ds-gap-5`}>
+      <div className={`ds:flex ${orientation === 'vertical' ? 'ds:flex-row' : 'ds:flex-col'} ds:gap-5`}>
         <CardList />
       </div>
     </div>
@@ -105,7 +105,7 @@ export const MultipleWithHover: Story = {
   },
   args: {
     label: 'Kartoittaa omaa osaamistani',
-    icon: <span className="ds-text-[70px]">😎</span>,
+    icon: <span className="ds:text-[70px]">😎</span>,
     selected: false,
   },
 };

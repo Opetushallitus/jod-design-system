@@ -15,9 +15,9 @@ export const RadioButton = ({ label, value, className, variant = 'default' }: Ra
   return (
     <Radio value={value} className={`${className ? className : ''} flex h-7`.trim()}>
       {({ checked }) => (
-        <div className="ds-flex-start ds-flex ds-space-x-4">
+        <div className="ds:flex-start ds:flex ds:space-x-4">
           {checked ? <CheckedIcon /> : <UncheckedIcon variant={variant} />}
-          <span className="ds-flex ds-items-center ds-text-heading-4 ds-text-black hover:ds-text-accent hover:ds-underline ds-hyphens-auto">
+          <span className="ds:flex ds:items-center ds:text-heading-4 ds:text-black ds:hover:text-accent ds:hover:underline ds:hyphens-auto">
             {label}
           </span>
         </div>
@@ -34,9 +34,9 @@ const CheckedIcon = () => {
       height="16"
       viewBox="0 0 16 16"
       fill="none"
-      className="ds-self-center"
+      className="ds:self-center"
     >
-      <circle cx="8" cy="8" r="8" className="ds-fill-accent" />
+      <circle cx="8" cy="8" r="8" className="ds:fill-accent" />
     </svg>
   );
 };
@@ -49,10 +49,10 @@ const UncheckedIcon = ({ variant }: { variant?: RadioButtonProps['variant'] }) =
       height="16"
       viewBox="0 0 16 16"
       fill="none"
-      className="ds-self-center"
+      className="ds:self-center"
     >
-      <circle cx="8" cy="8" r="8" className="ds-fill-white" />
-      {variant === 'bordered' && <circle cx="8" cy="8" r="7" className="ds-stroke-accent" />}
+      <circle cx="8" cy="8" r="8" className="ds:fill-white" />
+      {variant === 'bordered' && <circle cx="8" cy="8" r="7" className="ds:stroke-accent" />}
     </svg>
   );
 };

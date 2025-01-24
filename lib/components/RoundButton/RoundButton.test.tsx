@@ -64,8 +64,8 @@ describe('disabled', () => {
   it('should add correct CSS classes', () => {
     render(<RoundButton label="Disabled RoundButton" disabled={true} onClick={vi.fn()} icon="target" />);
     const parentClassList = screen.getByText('Disabled RoundButton').parentElement?.classList;
-    expect(parentClassList).toContain('ds-cursor-not-allowed');
-    expect(parentClassList).toContain('ds-opacity-50');
+    expect(parentClassList).toContain('ds:cursor-not-allowed');
+    expect(parentClassList).toContain('ds:opacity-50');
   });
 
   it('has the disabled attribute', () => {

@@ -34,14 +34,14 @@ export const RoundButton = ({
   bgColor = 'gray',
 }: RoundButtonProps) => {
   const buttonSizeClass = tidyClasses(`
-    ${size === 'sm' ? 'ds-size-[32px]' : ''}
-    ${size === 'md' ? 'ds-size-[40px]' : ''}
-    ${size === 'lg' ? 'ds-size-[64px]' : ''}
+    ${size === 'sm' ? 'ds:size-[32px]' : ''}
+    ${size === 'md' ? 'ds:size-[40px]' : ''}
+    ${size === 'lg' ? 'ds:size-[64px]' : ''}
   `);
 
   const bgColorClass = tidyClasses(`
-    ${!selected && bgColor === 'gray' ? 'ds-bg-bg-gray-2' : ''}
-    ${!selected && bgColor === 'white' ? 'ds-bg-white' : ''}
+    ${!selected && bgColor === 'gray' ? 'ds:bg-bg-gray-2' : ''}
+    ${!selected && bgColor === 'white' ? 'ds:bg-white' : ''}
   `);
 
   return (
@@ -51,27 +51,28 @@ export const RoundButton = ({
       type="button"
       onClick={onClick}
       className={tidyClasses(`
+        ds:cursor-pointer
         ${className ?? ''}
-        ${disabled ? 'ds-cursor-not-allowed ds-opacity-50' : ''}
-        ds-group
-        ds-flex
-        ds-flex-col
-        ds-justify-center 
-        ds-items-center
-        ds-gap-2
+        ${disabled ? 'ds:cursor-not-allowed ds:opacity-50' : ''}
+        ds:group
+        ds:flex
+        ds:flex-col
+        ds:justify-center 
+        ds:items-center
+        ds:gap-2
       `)}
     >
       <div
         aria-hidden
         className={tidyClasses(`
           ${buttonSizeClass}
-          ${selected ? 'ds-bg-accent' : bgColorClass}
-          ${selected ? 'ds-text-white' : 'ds-text-black group-hover:ds-text-accent'}
-          ds-rounded-full
-          ds-flex
-          ds-items-center
-          ds-justify-center
-          ds-select-none
+          ${selected ? 'ds:bg-accent' : bgColorClass}
+          ${selected ? 'ds:text-white' : 'ds:text-black ds:group-hover:text-accent'}
+          ds:rounded-full
+          ds:flex
+          ds:items-center
+          ds:justify-center
+          ds:select-none
       `)}
       >
         {icon}
@@ -84,11 +85,11 @@ export const RoundButton = ({
 const LabelPart = ({ label, hideLabel, selected }: Pick<RoundButtonProps, 'label' | 'hideLabel' | 'selected'>) => (
   <span
     className={tidyClasses(`
-      ${hideLabel ? 'ds-hidden' : ''}
-      ${selected ? 'ds-text-accent' : 'ds-text-black'}
-      ds-text-button-sm-mobile sm:ds-text-button-md
-      group-hover:ds-text-accent
-      group-hover:ds-underline
+      ${hideLabel ? 'ds:hidden' : ''}
+      ${selected ? 'ds:text-accent' : 'ds:text-black'}
+      ds:text-button-sm-mobile ds:sm:text-button-md
+      ds:group-hover:text-accent
+      ds:group-hover:underline
     `)}
   >
     {label}

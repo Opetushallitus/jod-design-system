@@ -18,8 +18,8 @@ export interface WizardProgressProps {
 const Step = ({ step, stepText }: { step: number; stepText: string }) => {
   return (
     <>
-      <span className="ds-sr-only">{`${stepText}: `}</span>
-      <span className="ds-select-none">{step}</span>
+      <span className="ds:sr-only">{`${stepText}: `}</span>
+      <span className="ds:select-none">{step}</span>
     </>
   );
 };
@@ -27,7 +27,7 @@ const Step = ({ step, stepText }: { step: number; stepText: string }) => {
 const CompletedStep = ({ text, step, stepText }: { text: string; step: number; stepText: string }) => {
   return (
     <>
-      <span className="ds-sr-only">{`${stepText}: ${step}, ${text}.`}</span>
+      <span className="ds:sr-only">{`${stepText}: ${step}, ${text}.`}</span>
       <MdCheck role="presentation" size={24} />
     </>
   );
@@ -37,7 +37,7 @@ const CurrentStep = ({ text, step, stepText }: { text: string; step: number; ste
   return (
     <>
       <Step step={step} stepText={stepText} />
-      <span className="ds-sr-only">{`, ${text}.`}</span>
+      <span className="ds:sr-only">{`, ${text}.`}</span>
     </>
   );
 };
@@ -63,15 +63,15 @@ export const WizardProgress = ({
 
   return (
     <ol
-      className="ds-flex ds-gap-4 ds-text-black sm:ds-text-heading-2 sm:ds-leading-[24px] ds-text-heading-3-mobile ds-leading-[16px]"
+      className="ds:flex ds:gap-4 ds:text-black ds:sm:text-heading-2 ds:sm:leading-[24px] ds:text-heading-3-mobile ds:leading-[16px]"
       aria-label={labelText}
     >
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
-          className={`ds-flex ds-min-h-7 ds-min-w-7 ds-items-center ds-justify-center ds-rounded-full ${
-            index + 1 === currentStep ? 'ds-bg-accent ds-text-white' : 'ds-bg-bg-gray-2'
-          } sm:ds-min-h-8 sm:ds-min-w-8`}
+          className={`ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ${
+            index + 1 === currentStep ? 'ds:bg-accent ds:text-white' : 'ds:bg-bg-gray-2'
+          } ds:sm:min-h-8 ds:sm:min-w-8`}
           aria-current={index + 1 === currentStep}
         >
           {renderStep(index + 1)}

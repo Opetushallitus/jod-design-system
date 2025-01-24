@@ -17,14 +17,7 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
   },
   {
-    ignores: [
-      '**/dist',
-      '**/eslint.config.js',
-      '**/postcss.config.js',
-      'storybook-static',
-      '!.storybook',
-      '**/**.stories.tsx',
-    ],
+    ignores: ['**/dist', '**/eslint.config.js', 'storybook-static', '!.storybook', '**/**.stories.tsx'],
   },
 
   eslint.configs.recommended,

@@ -1,7 +1,6 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview, ReactRenderer } from '@storybook/react';
 import '../lib/index.css';
-import twConfig from '../tailwind.config';
 
 const preview: Preview = {
   parameters: {
@@ -10,7 +9,7 @@ const preview: Preview = {
       values: [
         {
           name: 'JOD UI background',
-          value: twConfig.theme.colors['bg-gray'],
+          value: '#f0f2f5',
         },
         {
           name: 'white',

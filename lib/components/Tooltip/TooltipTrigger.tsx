@@ -29,7 +29,7 @@ export const TooltipTrigger = React.forwardRef<
   }
 
   return (
-    <button ref={ref} {...context.getReferenceProps(props)}>
+    <button ref={ref} {...context.getReferenceProps(props)} className="ds:cursor-pointer">
       {children}
     </button>
   );

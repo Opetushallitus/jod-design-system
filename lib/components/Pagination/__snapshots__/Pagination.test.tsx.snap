@@ -2,7 +2,7 @@
 
 exports[`Pagination > renders the pagination component with correct number of pages with ellipsis 1`] = `
 <nav
-  class="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
+  class="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
   data-part="root"
   data-scope="pagination"
   dir="ltr"
@@ -10,7 +10,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
 >
   <button
     aria-label="Previous"
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed ds-bg-bg-gray-2 ds-text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed ds:bg-bg-gray-2 ds:text-black"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -39,7 +39,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-current="page"
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-accent ds-text-white ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-accent ds:text-white ds:font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
@@ -51,7 +51,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     1
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -62,7 +62,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     2
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -73,7 +73,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     3
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -84,7 +84,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     4
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="5"
     data-part="item"
     data-scope="pagination"
@@ -95,7 +95,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     5
   </button>
   <div
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black"
     data-part="ellipsis"
     data-scope="pagination"
     dir="ltr"
@@ -120,7 +120,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     </svg>
   </div>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="10"
     data-part="item"
     data-scope="pagination"
@@ -132,7 +132,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -162,7 +162,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
 
 exports[`Pagination > renders the pagination component with correct number of pages without ellipsis 1`] = `
 <nav
-  class="ds-inline-flex ds-list-none ds-items-center ds-justify-center ds-gap-3"
+  class="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
   data-part="root"
   data-scope="pagination"
   dir="ltr"
@@ -170,7 +170,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
 >
   <button
     aria-label="Previous"
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center disabled:ds-text-inactive-gray disabled:ds-cursor-not-allowed ds-bg-bg-gray-2 ds-text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed ds:bg-bg-gray-2 ds:text-black"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -199,7 +199,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-current="page"
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-accent ds-text-white ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-accent ds:text-white ds:font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
@@ -211,7 +211,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     1
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -222,7 +222,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     2
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -233,7 +233,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     3
   </button>
   <button
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black ds-font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black ds:font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -245,7 +245,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="sm:ds-min-w-[37px] ds-min-h-7 ds-min-w-7 sm:ds-min-h-[37px] ds-p-2 ds-rounded-full ds-flex ds-justify-center ds-items-center ds-bg-bg-gray-2 ds-text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:text-black"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
