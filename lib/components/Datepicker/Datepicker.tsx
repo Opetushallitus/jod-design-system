@@ -103,14 +103,23 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
     yearSelect: '',
   };
 
+  let parsedValue;
+  if (value) {
+    parsedValue = [parseDate(value)];
+  } else if (value === '') {
+    parsedValue = [];
+  } else {
+    parsedValue = undefined;
+  }
+
   return (
     <ArkDatePicker.Root
       onValueChange={(details) => {
         onChange({
-          target: { name, value: details.valueAsString[0] ?? '' },
+          target: { name, value: details.value.toString() ?? '' },
         } as React.ChangeEvent<HTMLInputElement>);
       }}
-      value={value ? [parseDate(value)] : undefined}
+      value={parsedValue}
       locale="fi-FI"
       timeZone={timeZone}
       className="ds:w-full"
