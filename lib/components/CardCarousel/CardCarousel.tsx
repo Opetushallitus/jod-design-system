@@ -118,7 +118,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
           onKeyDown={handleEnterPress(goToPreviousPage)}
           aria-label={translations.prevTrigger}
           disabled={isFirstPage}
-          className="ds:cursor-pointer"
+          className="ds:cursor-pointer ds:disabled:cursor-not-allowed"
         >
           <span className="ds:size-8 ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:rounded-full">
             <MdChevronLeft size={24} className={isFirstPage ? 'ds:text-inactive-gray' : 'ds:text-black'} />
@@ -144,7 +144,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
           onKeyDown={handleEnterPress(goToNextPage)}
           aria-label={translations.nextTrigger}
           disabled={isLastPage}
-          className="ds:cursor-pointer"
+          className="ds:cursor-pointer ds:disabled:cursor-not-allowed"
         >
           <span className="ds:size-8 ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:rounded-full">
             <MdChevronRight size={24} className={isLastPage ? 'ds:text-inactive-gray' : 'ds:text-black'} />
