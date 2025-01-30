@@ -101,7 +101,7 @@ describe('Datepicker', () => {
     });
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
-        target: { name: 'startDate', value: '01.06.2024' },
+        target: { name: 'startDate', value: '2024-06-01' },
       }),
     );
   });
