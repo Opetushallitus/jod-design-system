@@ -16,6 +16,20 @@ export { ContentCard } from './components/ContentCard/ContentCard';
 export { Datepicker } from './components/Datepicker/Datepicker';
 export { DiscussionCard } from './components/DiscussionCard/DiscussionCard';
 export { Footer } from './components/Footer/Footer';
+export {
+  LogoEuEn,
+  LogoEuFi,
+  LogoEuSv,
+  LogoKehaEn,
+  LogoKehaFi,
+  LogoKehaSv,
+  LogoOkmEn,
+  LogoOkmFiSv,
+  LogoOphEn,
+  LogoOphFiSv,
+  LogoTemEn,
+  LogoTemFiSv,
+} from './components/Footer/logos';
 export { HeroCard } from './components/HeroCard/HeroCard';
 export { InputField } from './components/InputField/InputField';
 export {
