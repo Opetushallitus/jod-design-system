@@ -1,3 +1,4 @@
+import React from 'react';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 
 type LinkComponent =
@@ -36,7 +37,7 @@ export type MediaCardProps = {
   FavoriteButtonProps;
 
 const Tag = ({ label }: { label: string }) => {
-  return <li className="ds:px-2 ds:first:pl-0 ds:last:pr-0">{label}</li>;
+  return <li className="ds:px-2 ds:pb-2 ds:last:pr-0">{label}</li>;
 };
 
 const LinkOrDiv = ({
@@ -92,9 +93,21 @@ export const MediaCard = ({
   favoriteLabel,
 }: MediaCardProps) => {
   const variantImageClassNames = 'ds:object-cover ds:min-h-[147px]';
+  const labelRef = React.useRef<HTMLDivElement>(null);
+  const SINGLE_LINE_LABEL_HEIGHT = 27;
+  const [lineClampClassNames, setLineClampClassNames] = React.useState('ds:line-clamp-3');
+
+  React.useEffect(() => {
+    const labelHeight = labelRef.current?.clientHeight ?? 0;
+    if (labelHeight > SINGLE_LINE_LABEL_HEIGHT) {
+      setLineClampClassNames('ds:line-clamp-2');
+    } else {
+      setLineClampClassNames('ds:line-clamp-3');
+    }
+  }, [label]);
 
   return (
-    <LinkOrDiv to={to} linkComponent={Link} className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:h-[299px]">
+    <LinkOrDiv to={to} linkComponent={Link} className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px]">
       {imageSrc ? (
         <img className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
       ) : (
@@ -102,14 +115,16 @@ export const MediaCard = ({
       )}
       <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap">
         <div className="ds:gap-3 ds:flex ds:flex-col">
-          <div className="ds:text-heading-3-mobile ds:sm:text-heading-3">{label}</div>
-          <div className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3">{description}</div>
+          <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2" ref={labelRef}>
+            {label}
+          </div>
+          <div className={`ds:text-body-sm-mobile ds:sm:text-body-sm ${lineClampClassNames}`}>{description}</div>
         </div>
         {isFavorite !== undefined && (
           <FavoriteButton isFavorite={isFavorite} favoriteLabel={favoriteLabel} onFavoriteClick={onFavoriteClick} />
         )}
-        <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:flex-wrap ds:text-accent ds:pt-3">
-          {tags.map((tag) => (
+        <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3">
+          {tags.filter(Boolean).map((tag) => (
             <Tag key={tag} label={tag} />
           ))}
         </ul>
