@@ -13,6 +13,7 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+const imageSrc = 'https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=260';
 
 export const Default: Story = {
   parameters: {
@@ -27,11 +28,46 @@ export const Default: Story = {
     },
   },
   args: {
-    imageSrc: 'https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=260?q=80&w=260',
+    imageSrc,
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
     description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
     tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+  },
+};
+
+export const Multiple: Story = {
+  render: (args) => {
+    const longTitle = 'Otsikko joka aina vain jatkuu ja jatkuu ja rivittyy';
+    const shortTitle = 'Lyhyt otsikko';
+    const longDescription = 'Teksti joka on tosi pitkä, eikä se mahdu millään yhdelle tai edes kahdelle riville.';
+    const shortDescription = 'Tosi vähän tekstiä';
+    return (
+      <div className="ds:flex ds:flex-row ds:gap-4">
+        <MediaCard {...args} label={longTitle} description={longDescription} />
+        <MediaCard {...args} label={longTitle} description={shortDescription} />
+        <MediaCard {...args} label={shortTitle} description={longDescription} tags={args.tags.slice(0, 3)} />
+        <MediaCard {...args} label={shortTitle} description={shortDescription} tags={[]} />
+      </div>
+    );
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8529',
+    },
+    docs: {
+      description: {
+        story: `Group of MediaCards with different lengths of title, description and tags.`,
+      },
+    },
+  },
+  args: {
+    imageSrc,
+    imageAlt: 'Woman standing in front of a colourful wall',
+    label: 'Otsikko joka aina vain jatkuu ja jatkuu ja rivittyy',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam adipiscin amet consectetur.',
+    tags: ['Taglorem', 'Loremtag', 'Nonutag', 'Dolortag', 'Tagamet', 'Nullatag'],
   },
 };
 
@@ -59,7 +95,7 @@ export const AbleToBeFavorited: Story = {
     );
   },
   args: {
-    imageSrc: 'https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=260?q=80&w=260',
+    imageSrc,
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
     description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',

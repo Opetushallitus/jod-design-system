@@ -21,24 +21,6 @@ describe('MediaCard', () => {
     expect(screen.getByText('tag2')).toBeInTheDocument();
   });
 
-  it('renders the MediaCard component with horizontal variant', () => {
-    render(
-      <MediaCard
-        imageSrc="horizontal.jpg"
-        imageAlt="Image for horizontal"
-        label="Horizontal"
-        description="Horizontal description"
-        tags={['tag1', 'tag2']}
-      />,
-    );
-
-    expect(screen.getByAltText('Image for horizontal')).toBeInTheDocument();
-    expect(screen.getByText('Horizontal')).toBeInTheDocument();
-    expect(screen.getByText('Horizontal description')).toBeInTheDocument();
-    expect(screen.getByText('tag1')).toBeInTheDocument();
-    expect(screen.getByText('tag2')).toBeInTheDocument();
-  });
-
   it('renders the MediaCard component with default vertical variant', () => {
     const { container } = render(
       <MediaCard

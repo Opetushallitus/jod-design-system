@@ -2,7 +2,7 @@
 
 exports[`MediaCard > renders the MediaCard component with default vertical variant 1`] = `
 <div
-  class="ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:relative ds:flex ds:flex-col ds:w-[261px] ds:h-[299px]"
+  class="ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px]"
 >
   <img
     alt="Image for default"
@@ -16,7 +16,7 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
       class="ds:gap-3 ds:flex ds:flex-col"
     >
       <div
-        class="ds:text-heading-3-mobile ds:sm:text-heading-3"
+        class="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2"
       >
         Default
       </div>
@@ -27,15 +27,15 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
       </div>
     </div>
     <ul
-      class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:flex-wrap ds:text-accent ds:pt-3"
+      class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3"
     >
       <li
-        class="ds:px-2 ds:first:pl-0 ds:last:pr-0"
+        class="ds:px-2 ds:pb-2 ds:last:pr-0"
       >
         tag1
       </li>
       <li
-        class="ds:px-2 ds:first:pl-0 ds:last:pr-0"
+        class="ds:px-2 ds:pb-2 ds:last:pr-0"
       >
         tag2
       </li>
