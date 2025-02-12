@@ -23,11 +23,33 @@ export const Default: Story = {
     },
     docs: {
       description: {
-        story: 'MediaCard where there is no favorite-button available',
+        story: 'Vertical MediaCard where there is no favorite-button available',
       },
     },
   },
   args: {
+    imageSrc,
+    imageAlt: 'Woman standing in front of a colourful wall',
+    label: 'Tulevaisuusmatka',
+    description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
+    tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+  },
+};
+
+export const Horizontal: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8529',
+    },
+    docs: {
+      description: {
+        story: 'Horizontal MediaCard where there is no favorite-button available',
+      },
+    },
+  },
+  args: {
+    variant: 'horizontal',
     imageSrc,
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
@@ -58,7 +80,7 @@ export const Multiple: Story = {
     },
     docs: {
       description: {
-        story: `Group of MediaCards with different lengths of title, description and tags.`,
+        story: `Group of Vertical MediaCards with different lengths of title, description and tags.`,
       },
     },
   },
@@ -71,37 +93,50 @@ export const Multiple: Story = {
   },
 };
 
-export const AbleToBeFavorited: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'MediaCard where the favorite status can be toggled.',
+const getAbleToBeFavorite = (description: string, variant: 'horizontal' | 'vertical'): Story => {
+  return {
+    parameters: {
+      docs: {
+        description: {
+          story: description,
+        },
+      },
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8529',
       },
     },
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8529',
+    render: (args) => {
+      const [isFavorite, setFavorite] = useState(true);
+      return (
+        <MediaCard
+          {...args}
+          favoriteLabel={isFavorite ? 'Poista suosikeista' : 'Lisää suosikkeihin'}
+          isFavorite={isFavorite}
+          onFavoriteClick={() => setFavorite(!isFavorite)}
+        />
+      );
     },
-  },
-  render: (args) => {
-    const [isFavorite, setFavorite] = useState(true);
-    return (
-      <MediaCard
-        {...args}
-        favoriteLabel={isFavorite ? 'Poista suosikeista' : 'Lisää suosikkeihin'}
-        isFavorite={isFavorite}
-        onFavoriteClick={() => setFavorite(!isFavorite)}
-      />
-    );
-  },
-  args: {
-    imageSrc,
-    imageAlt: 'Woman standing in front of a colourful wall',
-    label: 'Tulevaisuusmatka',
-    description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
-    tags: ['Taglorem', 'Loremtag', 'Nonutag'],
-    isFavorite: true,
-    onFavoriteClick: fn(),
-    favoriteLabel: 'Poista suosikeista',
-  },
+    args: {
+      variant,
+      imageSrc,
+      imageAlt: 'Woman standing in front of a colourful wall',
+      label: 'Tulevaisuusmatka',
+      description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
+      tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+      isFavorite: true,
+      onFavoriteClick: fn(),
+      favoriteLabel: 'Poista suosikeista',
+    },
+  };
 };
+
+export const AbleToBeFavoritedVertical: Story = getAbleToBeFavorite(
+  'Vertical MediaCard where the favorite status can be toggled.',
+  'vertical',
+);
+
+export const AbleToBeFavoritedHorizontal: Story = getAbleToBeFavorite(
+  'Horizontal MediaCard where the favorite status can be toggled.',
+  'horizontal',
+);

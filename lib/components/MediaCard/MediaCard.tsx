@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
+import { useMediaQueries } from '../../hooks/useMediaQueries';
 
 type LinkComponent =
   | {
@@ -28,6 +29,7 @@ type FavoriteButtonProps =
     };
 
 export type MediaCardProps = {
+  variant?: 'vertical' | 'horizontal';
   imageSrc: string;
   imageAlt: string;
   label: string;
@@ -35,6 +37,14 @@ export type MediaCardProps = {
   tags: string[];
 } & LinkComponent &
   FavoriteButtonProps;
+
+type MediaCardImplProps = {
+  imageSrc: string;
+  imageAlt: string;
+  label: string;
+  description: string;
+  children: React.ReactNode;
+} & LinkComponent;
 
 const Tag = ({ label }: { label: string }) => {
   return <li className="ds:px-2 ds:pb-2 ds:last:pr-0">{label}</li>;
@@ -81,6 +91,7 @@ const FavoriteButton = ({ isFavorite, favoriteLabel, onFavoriteClick }: Favorite
 };
 
 export const MediaCard = ({
+  variant = 'vertical',
   imageSrc,
   imageAlt,
   label,
@@ -92,6 +103,37 @@ export const MediaCard = ({
   onFavoriteClick,
   favoriteLabel,
 }: MediaCardProps) => {
+  const favoriteButtonAndTags = (
+    <>
+      {isFavorite !== undefined && (
+        <FavoriteButton isFavorite={isFavorite} favoriteLabel={favoriteLabel} onFavoriteClick={onFavoriteClick} />
+      )}
+      <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3">
+        {tags.filter(Boolean).map((tag) => (
+          <Tag key={tag} label={tag} />
+        ))}
+      </ul>
+    </>
+  );
+  const linkProps = to && Link ? { to, linkComponent: Link } : {};
+  const MediaCardComponent = variant === 'vertical' ? MediaCardVertical : MediaCardHorizontal;
+
+  return (
+    <MediaCardComponent imageSrc={imageSrc} imageAlt={imageAlt} label={label} description={description} {...linkProps}>
+      {favoriteButtonAndTags}
+    </MediaCardComponent>
+  );
+};
+
+const MediaCardVertical = ({
+  imageSrc,
+  imageAlt,
+  label,
+  description,
+  linkComponent: Link,
+  to,
+  children,
+}: MediaCardImplProps) => {
   const variantImageClassNames = 'ds:object-cover ds:min-h-[147px]';
   const labelRef = React.useRef<HTMLDivElement>(null);
   const SINGLE_LINE_LABEL_HEIGHT = 27;
@@ -120,14 +162,48 @@ export const MediaCard = ({
           </div>
           <div className={`ds:text-body-sm-mobile ds:sm:text-body-sm ${lineClampClassNames}`}>{description}</div>
         </div>
-        {isFavorite !== undefined && (
-          <FavoriteButton isFavorite={isFavorite} favoriteLabel={favoriteLabel} onFavoriteClick={onFavoriteClick} />
+        {children}
+      </div>
+    </LinkOrDiv>
+  );
+};
+
+const MediaCardHorizontal = ({
+  imageSrc,
+  imageAlt,
+  label,
+  description,
+  linkComponent: Link,
+  to,
+  children,
+}: MediaCardImplProps) => {
+  const { sm } = useMediaQueries();
+
+  return (
+    <LinkOrDiv to={to} linkComponent={Link} className="ds:relative ds:flex ds:flex-row ds:min-h-[137px] ds:w-full">
+      <div className="ds:shrink-0">
+        {imageSrc ? (
+          sm && (
+            <img
+              className="ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
+              src={imageSrc}
+              alt={imageAlt}
+            />
+          )
+        ) : (
+          <div className={`ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}></div>
         )}
-        <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3">
-          {tags.filter(Boolean).map((tag) => (
-            <Tag key={tag} label={tag} />
-          ))}
-        </ul>
+      </div>
+      <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:flex-nowrap">
+        <div className="ds:gap-3 ds:flex ds:flex-col">
+          <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-3 ds:sm:line-clamp-2">
+            {label}
+          </div>
+          <div className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2">
+            {description}
+          </div>
+        </div>
+        {children}
       </div>
     </LinkOrDiv>
   );
