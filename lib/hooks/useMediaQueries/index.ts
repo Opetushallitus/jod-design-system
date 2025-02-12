@@ -18,10 +18,10 @@ const useMediaQuery = (query: string) => {
 
 export const useMediaQueries = () => {
   const { sm, md, lg, xl } = {
-    sm: styles.getPropertyValue('--breakpoint-sm'),
-    md: styles.getPropertyValue('--breakpoint-md'),
-    lg: styles.getPropertyValue('--breakpoint-lg'),
-    xl: styles.getPropertyValue('--breakpoint-xl'),
+    sm: styles.getPropertyValue('--ds-breakpoint-sm'),
+    md: styles.getPropertyValue('--ds-breakpoint-md'),
+    lg: styles.getPropertyValue('--ds-breakpoint-lg'),
+    xl: styles.getPropertyValue('--ds-breakpoint-xl'),
   };
   return {
     sm: useMediaQuery(`(min-width: ${sm})`),
