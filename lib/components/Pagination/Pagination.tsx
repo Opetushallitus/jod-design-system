@@ -2,10 +2,12 @@ import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react'
 import { MdChevronLeft, MdChevronRight, MdMoreHoriz } from 'react-icons/md';
 import { cx } from '../../cva';
 
-const getClassName = ({ isActive = false, isArrowButton = true, disabled = false } = {}) =>
+const getClassName = ({ isActive = false, isArrowButton = true, disabled = false, isEllipsis = false } = {}) =>
   cx(
     `ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center`,
     {
+      'ds:cursor-pointer': !isEllipsis || !disabled,
+      'ds:cursor-default': isEllipsis,
       'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': disabled === true,
       'ds:bg-accent ds:text-white': !isArrowButton && isActive,
       'ds:bg-bg-gray-2 ds:text-black': !isActive,
@@ -71,9 +73,13 @@ export const Pagination = ({
                 {page.value}
               </ArkPagination.Item>
             ) : (
-              // The page object for ellipsis does not contain a value, so index must be used as a key.
-              // eslint-disable-next-line react/no-array-index-key
-              <ArkPagination.Ellipsis key={`ellipsis_${index}`} index={index} className={getClassName()}>
+              <ArkPagination.Ellipsis
+                // The page object for ellipsis does not contain a value, so index must be used as a key.
+                // eslint-disable-next-line react/no-array-index-key
+                key={`ellipsis_${index}`}
+                index={index}
+                className={getClassName({ isEllipsis: true })}
+              >
                 <MdMoreHoriz size={24} />
               </ArkPagination.Ellipsis>
             ),
