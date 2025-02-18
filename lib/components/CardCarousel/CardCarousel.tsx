@@ -105,8 +105,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
             }
           };
           return (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-            <li key={item.id} style={{ width: itemWidth }} tabIndex={0} onFocus={onFocus}>
+            <li key={item.id} style={{ width: itemWidth }} onFocus={onFocus}>
               {item.component}
             </li>
           );

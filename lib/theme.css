@@ -80,7 +80,7 @@
   --text-heading-5--font-weight: 400;
   --text-heading-5--line-height: 24px;
   --text-body-lg: 18px;
-  --text-body-lg--font-weight: 400;
+  --text-body-lg--font-weight: 500;
   --text-body-lg--line-height: 26px;
   --text-body-lg-mobile: 16px;
   --text-body-lg-mobile--font-weight: 400;
@@ -127,7 +127,7 @@
   --text-button-sm-mobile--letter-spacing: 0.28px;
   --text-tag: 14px;
   --text-tag--font-weight: 400;
-  --text-tag--line-height: 20px;
+  --text-tag--line-height: 16px;
   --text-attrib-title: 12px;
   --text-attrib-title--font-weight: 400;
   --text-attrib-title--line-height: 110%;

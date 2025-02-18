@@ -25,3 +25,5 @@ const ResizeObserverMock = vi.fn(() => ({
 }));
 
 vi.stubGlobal('ResizeObserver', ResizeObserverMock);
+
+Element.prototype.scrollTo = vi.fn();
