@@ -16,6 +16,13 @@ const design = {
   type: 'figma',
   url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=7031-3025&t=hppCWVuC76hePJaZ-4',
 };
+
+const Link = ({ children, to, className }: { children: React.ReactNode; to?: string | object; className?: string }) => (
+  <a href={typeof to === 'string' ? to : '#'} className={className}>
+    {children}
+  </a>
+);
+
 export const Default: Story = {
   decorators: [
     (Story) => (
@@ -41,6 +48,8 @@ export const Default: Story = {
           description={`Description ${i + 1}`}
           imageSrc="https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=260"
           imageAlt={`Image ${i + 1}`}
+          to="#"
+          linkComponent={Link}
           tags={['Lorem', 'Ipsum', 'Dolor']}
         />
       ),
