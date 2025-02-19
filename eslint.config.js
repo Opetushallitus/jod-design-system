@@ -86,6 +86,7 @@ export default [
           ignoreRestSiblings: true,
         },
       ],
+      '@typescript-eslint/prefer-nullish-coalescing': 'off',
       '@singlestore/react-hooks-disable-import/react-hooks-disable-import': 'error',
       'react/no-unstable-nested-components': 'warn',
       'react/no-array-index-key': 'warn',
