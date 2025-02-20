@@ -134,7 +134,7 @@ const MediaCardVertical = ({
   to,
   children,
 }: MediaCardImplProps) => {
-  const variantImageClassNames = 'ds:object-cover ds:min-h-[147px]';
+  const variantImageClassNames = 'ds:object-cover ds:h-[147px]';
   const labelRef = React.useRef<HTMLDivElement>(null);
   const SINGLE_LINE_LABEL_HEIGHT = 27;
   const [lineClampClassNames, setLineClampClassNames] = React.useState('ds:line-clamp-3');

@@ -23,10 +23,12 @@ const renderComponent = (props: Partial<CardCarouselProps> = {}) => {
 
 describe('CardCarousel', () => {
   it('renders the carousel items', () => {
-    const { getByText } = renderComponent();
+    const { container, getByText } = renderComponent();
     expect(getByText('Item 1')).toBeInTheDocument();
     expect(getByText('Item 2')).toBeInTheDocument();
     expect(getByText('Item 3')).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('navigates to the next page', () => {
