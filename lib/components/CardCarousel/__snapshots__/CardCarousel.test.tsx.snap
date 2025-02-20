@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardCarousel > renders the carousel items 1`] = `
+<ul
+  aria-roledescription="carousel"
+  class="ds:flex ds:flex-row ds:overflow-hidden ds:p-3 ds:relative ds:-m-3"
+  role="group"
+  style="gap: 16px;"
+>
+  <li
+    aria-roledescription="slide"
+    class="ds:flex"
+    style="width: 200px;"
+  >
+    <div>
+      Item 1
+    </div>
+  </li>
+  <li
+    aria-roledescription="slide"
+    class="ds:flex"
+    style="width: 200px;"
+  >
+    <div>
+      Item 2
+    </div>
+  </li>
+  <li
+    aria-roledescription="slide"
+    class="ds:flex"
+    style="width: 200px;"
+  >
+    <div>
+      Item 3
+    </div>
+  </li>
+</ul>
+`;
