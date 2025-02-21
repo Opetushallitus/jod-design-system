@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { LazyImage } from '../LazyImage/LazyImage';
 
 type LinkComponent =
   | {
@@ -134,7 +135,7 @@ const MediaCardVertical = ({
   to,
   children,
 }: MediaCardImplProps) => {
-  const variantImageClassNames = 'ds:object-cover ds:h-[147px]';
+  const variantImageClassNames = 'ds:object-cover ds:h-[147px] ds:min-h-[147px]';
   const labelRef = React.useRef<HTMLDivElement>(null);
   const SINGLE_LINE_LABEL_HEIGHT = 27;
   const [lineClampClassNames, setLineClampClassNames] = React.useState('ds:line-clamp-3');
@@ -151,7 +152,7 @@ const MediaCardVertical = ({
   return (
     <LinkOrDiv to={to} linkComponent={Link} className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px]">
       {imageSrc ? (
-        <img className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
+        <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
       ) : (
         <span className={`ds:w-full ds:h-full ds:bg-secondary-5 ds:max-w-[265px] ${variantImageClassNames}`}></span>
       )}
@@ -184,7 +185,7 @@ const MediaCardHorizontal = ({
       <div className="ds:shrink-0">
         {imageSrc ? (
           sm && (
-            <img
+            <LazyImage
               className="ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
               src={imageSrc}
               alt={imageAlt}

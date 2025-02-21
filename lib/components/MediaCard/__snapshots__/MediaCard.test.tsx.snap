@@ -4,11 +4,15 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
 <div
   class="ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px]"
 >
-  <img
-    alt="Image for default"
-    class="ds:object-cover ds:h-[147px]"
-    src="default.jpg"
-  />
+  <div
+    class="ds:flex ds:bg-secondary-5 ds:object-cover ds:h-[147px] ds:min-h-[147px]"
+  >
+    <img
+      alt="Image for default"
+      class="ds:w-full ds:h-full ds:object-cover"
+      style="opacity: 0; transition: opacity 0.3s;"
+    />
+  </div>
   <div
     class="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap"
   >
