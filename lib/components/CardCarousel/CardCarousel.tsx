@@ -21,8 +21,9 @@ export interface CardCarouselProps {
     prevTrigger: string;
     indicator: (index: number) => string;
   };
+  className?: string;
 }
-export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: CardCarouselProps) => {
+export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, className = '' }: CardCarouselProps) => {
   const containerRef = React.createRef<HTMLUListElement>();
   const [itemsPerPage, setItemsPerPage] = React.useState(1);
   const [pageNr, setPageNr] = React.useState(0);
@@ -97,7 +98,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16 }: 
         ref={containerRef}
         role="group"
         aria-roledescription="carousel"
-        className="ds:flex ds:flex-row ds:overflow-hidden ds:p-3 ds:relative ds:-m-3"
+        className={`ds:flex ds:flex-row ds:overflow-hidden ${className}`.trim()}
         style={{ gap }}
       >
         {items.map((item, index) => {

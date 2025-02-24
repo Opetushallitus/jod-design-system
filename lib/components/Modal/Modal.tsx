@@ -84,7 +84,7 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
                 ])}
               >
                 {progress && !sm && <div className="ds:flex ds:justify-end">{progress}</div>}
-                <div className="ds:overflow-y-auto ds:sm:mt-6">{content}</div>
+                <div className="ds:overflow-y-auto ds:sm:mt-6 ds:p-3 ds:-m-3">{content}</div>
               </div>
               {/* Side panel */}
               {sm && (sidePanel ?? progress) && (
