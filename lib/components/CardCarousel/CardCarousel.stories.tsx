@@ -60,6 +60,7 @@ export const Default: Story = {
       prevTrigger: 'Previous page',
       indicator: (idx: number) => `Go to page ${idx + 1}`,
     },
+    className: 'ds:p-7 ds:-m-7',
   },
 };
 
@@ -130,5 +131,6 @@ export const DifferentCardHeight: Story = {
       prevTrigger: 'Previous page',
       indicator: (idx: number) => `Go to page ${idx + 1}`,
     },
+    className: 'ds:p-7 ds:-m-7',
   },
 };

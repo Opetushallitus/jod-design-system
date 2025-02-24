@@ -3,7 +3,7 @@
 exports[`CardCarousel > renders the carousel items 1`] = `
 <ul
   aria-roledescription="carousel"
-  class="ds:flex ds:flex-row ds:overflow-hidden ds:p-3 ds:relative ds:-m-3"
+  class="ds:flex ds:flex-row ds:overflow-hidden"
   role="group"
   style="gap: 16px;"
 >
