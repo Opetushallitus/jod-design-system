@@ -65,7 +65,7 @@ export const HeroCard = ({
         className="ds:relative ds:flex ds:flex-col ds:gap-6 ds:rounded-lg ds:p-5 ds:sm:px-7 ds:sm:pb-11 ds:sm:pt-7 ds:tracking-widest"
         style={{ backgroundColor, color: textColor }}
       >
-        <h1 className="ds-overflow ds:text-pretty ds:text-[22px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[50px] ds:sm:text-[36px]">
+        <h1 className="ds:overflow ds:text-pretty ds:text-[22px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[50px] ds:sm:text-[36px]">
           {title}
         </h1>
         {sm && content && (
@@ -100,7 +100,7 @@ export const HeroCard = ({
         style={{ backgroundColor, color: textColor }}
       >
         <div className="ds:flex ds:flex-col gap-4">
-          <h2 className="ds-overflow ds:text-pretty ds:text-[22px] ds:sm:text-[24px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[34px]">
+          <h2 className="ds:overflow ds:text-pretty ds:text-[22px] ds:sm:text-[24px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[34px]">
             {title}
           </h2>
           {content && <p className="ds:tracking-normal ds:leading-[27px] ds:font-medium ds:text-[18px]">{content}</p>}
@@ -114,7 +114,7 @@ export const HeroCard = ({
       style={{ backgroundColor, color: textColor }}
     >
       <div className="ds:flex ds:flex-col gap-4">
-        <h2 className="ds-overflow ds:text-pretty ds:text-[22px] ds:sm:text-[24px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[34px]">
+        <h2 className="ds:overflow ds:text-pretty ds:text-[22px] ds:sm:text-[24px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[34px]">
           {title}
         </h2>
         {content && <p className="ds:tracking-normal ds:leading-[27px] ds:font-medium ds:text-[18px]">{content}</p>}
