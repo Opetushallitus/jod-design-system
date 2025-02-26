@@ -1,18 +1,17 @@
 import {
   DatePicker as ArkDatePicker,
   DatePickerRootProps,
+  DateValue,
   parseDate,
   Portal,
+  useDatePicker,
   UseDatePickerContext,
 } from '@ark-ui/react';
 import React from 'react';
 import { MdArrowBack, MdArrowForward, MdCalendarMonth } from 'react-icons/md';
 import { cx } from '../../cva';
 import { tidyClasses as tc } from '../../utils';
-
-const MIN_YEAR = 1900;
-const MAX_YEAR = 2100;
-const isInvalidYear = (year: number) => year < MIN_YEAR || year >= MAX_YEAR;
+import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
 
 const tableCellClasses = tc([
   'ds:flex',
@@ -41,17 +40,24 @@ const getYearCellClasses = (year: { label: string; value: number }) =>
     'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': isInvalidYear(year.value),
   });
 
+const handleEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    e.currentTarget.click();
+  }
+};
+
 const Header = () => (
   <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
-    <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3">
+    <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3" onKeyDown={handleEnter}>
       <MdArrowBack size={24} />
     </ArkDatePicker.PrevTrigger>
 
-    <ArkDatePicker.ViewTrigger>
+    <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
       <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold" />
     </ArkDatePicker.ViewTrigger>
 
-    <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3">
+    <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3" onKeyDown={handleEnter}>
       <MdArrowForward size={24} />
     </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
@@ -77,14 +83,22 @@ export interface DatepickerProps {
   placeholder?: string;
   /** Help text to display below the input field */
   help?: string;
-
   translations: ArkTranslationsInUse;
+  ref?: React.RefObject<HTMLInputElement>;
 }
+
 /** Datepicker component for selecting a date. */
-export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(function Datepicker(
-  { value, name, label, placeholder, help, onBlur, onChange, translations }: DatepickerProps,
+export const Datepicker = ({
+  value,
+  name,
+  label,
+  placeholder,
+  help,
   ref,
-) {
+  onBlur,
+  onChange,
+  translations,
+}: DatepickerProps) => {
   const helpId = React.useId();
   const timeZone = 'Europe/Helsinki';
 
@@ -111,21 +125,28 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
   } else {
     parsedValue = undefined;
   }
+  const formatValue = (v: DateValue) => {
+    const { day, month, year } = verifyCalendarDate(v);
+    return `${day}.${month}.${year}`;
+  };
+
+  const datePicker = useDatePicker({
+    translations: arkTranslations,
+    onValueChange: (details) => {
+      onChange({
+        target: { name, value: details.value.toString() ?? '' },
+      } as React.ChangeEvent<HTMLInputElement>);
+    },
+    value: parsedValue,
+    locale: 'fi-FI',
+    timeZone: timeZone,
+    isDateUnavailable: (date) => isInvalidYear(date.year),
+    parse: parseInputValue,
+    format: formatValue,
+  });
 
   return (
-    <ArkDatePicker.Root
-      onValueChange={(details) => {
-        onChange({
-          target: { name, value: details.value.toString() ?? '' },
-        } as React.ChangeEvent<HTMLInputElement>);
-      }}
-      value={parsedValue}
-      locale="fi-FI"
-      timeZone={timeZone}
-      className="ds:w-full"
-      isDateUnavailable={(date) => isInvalidYear(date.year)}
-      translations={arkTranslations}
-    >
+    <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full">
       <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black">
         {label}
       </ArkDatePicker.Label>
@@ -146,7 +167,17 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
             }}
             onBlur={onBlur}
           />
-          <ArkDatePicker.Trigger className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray">
+          <ArkDatePicker.Trigger
+            className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray"
+            type="button"
+            onKeyDown={handleEnter}
+            onClick={() => {
+              const { value } = datePicker;
+              if (value[0]) {
+                datePicker.setValue([verifyCalendarDate(value[0])]);
+              }
+            }}
+          >
             <MdCalendarMonth size={24} />
           </ArkDatePicker.Trigger>
         </div>
@@ -213,7 +244,9 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
                             {months.map((month) => (
                               <ArkDatePicker.TableCell key={`_${month.label}`} value={month.value}>
                                 <ArkDatePicker.TableCellTrigger className={tableCellClasses}>
-                                  {month.label}
+                                  <button type="button" className="ds:cursor-pointer">
+                                    {month.label}
+                                  </button>
                                 </ArkDatePicker.TableCellTrigger>
                               </ArkDatePicker.TableCell>
                             ))}
@@ -258,6 +291,6 @@ export const Datepicker = React.forwardRef<HTMLInputElement, DatepickerProps>(fu
           </ArkDatePicker.Content>
         </ArkDatePicker.Positioner>
       </Portal>
-    </ArkDatePicker.Root>
+    </ArkDatePicker.RootProvider>
   );
-});
+};

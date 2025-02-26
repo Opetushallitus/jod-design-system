@@ -42,7 +42,7 @@ exports[`Datepicker > renders correctly 1`] = `
         id="datepicker::r1::input:0"
         placeholder="pp.kk.vvvv"
         spellcheck="false"
-        value="01.05.2024"
+        value="1.5.2024"
       />
       <button
         aria-controls="datepicker::r1::content"
