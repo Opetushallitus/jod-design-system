@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { tidyClasses } from './utils';
+import { clamp, tidyClasses } from './utils';
 
 describe('utils', () => {
   describe('tidyClasses', () => {
@@ -29,9 +29,7 @@ describe('utils', () => {
     });
 
     it('should handle empty strings', () => {
-      const input = '';
-      const output = '';
-      expect(tidyClasses(input)).toBe(output);
+      expect(tidyClasses('')).toBe('');
     });
 
     it('should handle strings with no extra whitespaces', () => {
@@ -42,6 +40,31 @@ describe('utils', () => {
     it('works with arrays', () => {
       const input = ['', '    bg-gray', `text-white        `, '   font-poppins  '];
       expect(tidyClasses(input)).toBe('bg-gray text-white font-poppins');
+    });
+  });
+
+  describe('clamp', () => {
+    it('should return the value if it is within the range', () => {
+      expect(clamp(5, 1, 10)).toBe(5);
+    });
+
+    it('should return the minimum value if the value is less than the minimum', () => {
+      expect(clamp(0, 1, 10)).toBe(1);
+    });
+
+    it('should return the maximum value if the value is greater than the maximum', () => {
+      expect(clamp(15, 1, 10)).toBe(10);
+    });
+
+    it('should handle negative ranges correctly', () => {
+      expect(clamp(-5, -10, -1)).toBe(-5);
+      expect(clamp(-15, -10, -1)).toBe(-10);
+      expect(clamp(0, -10, -1)).toBe(-1);
+    });
+
+    it('should handle edge cases where value is exactly min or max', () => {
+      expect(clamp(1, 1, 10)).toBe(1);
+      expect(clamp(10, 1, 10)).toBe(10);
     });
   });
 });

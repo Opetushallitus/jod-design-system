@@ -9,7 +9,7 @@ describe('Datepicker', () => {
   const label = 'Pick a date dude!';
   const placeholder = 'pp.kk.vvvv';
   const value = '2024-05-01';
-  const formattedValue = '01.05.2024';
+  const formattedValue = '1.5.2024';
   const onChange = vi.fn();
 
   afterEach(() => {
@@ -44,6 +44,8 @@ describe('Datepicker', () => {
   it('renders correctly', () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date(2024, 6, 1, 12, 0, 0));
+    vi.runAllTimers();
+
     const { container } = render(
       <Datepicker
         label={label}
