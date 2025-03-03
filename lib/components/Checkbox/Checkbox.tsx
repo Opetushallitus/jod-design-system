@@ -1,7 +1,19 @@
 import React from 'react';
 import { cx } from '../../cva';
 
-export interface CheckboxProps {
+type LabelProp =
+  | {
+      /** Text for the component */
+      label: React.ReactNode;
+      ariaLabel?: never;
+    }
+  | {
+      label?: never;
+      /** Aria label for the component */
+      ariaLabel: string;
+    };
+
+export type CheckboxProps = {
   /** Name for the component */
   name: string;
   /** Disabled state for the component */
@@ -12,15 +24,11 @@ export interface CheckboxProps {
   checked: boolean;
   /** Change event for the component */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Text for the component */
-  label?: React.ReactNode;
-  /** Aria label for the component */
-  ariaLabel: string;
   /** Additional class name for the component */
   className?: string;
   /** Component variant */
   variant?: 'default' | 'bordered';
-}
+} & LabelProp;
 
 /**
  * Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
@@ -41,8 +49,9 @@ export const Checkbox = ({
 
   const borderVariantClassnames = {
     'ds:border ds:border-accent': variant === 'bordered',
-    'ds:border ds:border-inactive-gray': variant === 'bordered' && disabled,
+    'ds:border ds:border-border-gray ': variant === 'bordered' && disabled,
     'ds:border-0': variant === 'default',
+    'ds:bg-bg-gray-2': disabled,
   };
 
   return (
