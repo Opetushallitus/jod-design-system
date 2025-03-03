@@ -14,7 +14,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 const backgrounds = {
   default: 'jod-bg-white',
-  values: [{ name: 'jod-bg-white', value: '#fff' }],
+  values: [
+    { name: 'jod-bg-white', value: '#fff' },
+    { name: 'jod-bg-1', value: '#f0f2f5' },
+    { name: 'jod-bg-2', value: '#e4e6ec' },
+  ],
 };
 
 const design = {
@@ -50,7 +54,6 @@ export const Available: Story = {
     value: 'value',
     checked: false,
     label,
-    ariaLabel: label,
   },
   render,
 };
@@ -70,7 +73,6 @@ export const Selected: Story = {
     value: 'value',
     checked: true,
     label,
-    ariaLabel: label,
   },
   render,
 };
@@ -90,7 +92,6 @@ export const Bordered: Story = {
     value: 'value',
     checked: false,
     label,
-    ariaLabel: label,
     variant: 'bordered',
   },
   render,
@@ -111,7 +112,6 @@ export const BorderedAndDisabled: Story = {
     value: 'value',
     checked: false,
     label,
-    ariaLabel: label,
     variant: 'bordered',
   },
   render,
@@ -132,7 +132,46 @@ export const Disabled: Story = {
     value: 'value',
     checked: false,
     label,
+  },
+  render,
+};
+
+export const WithNoVisibleLabel: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'This is a checkbox which has no visible label (having aria-label).',
+      },
+    },
+  },
+  args: {
+    name: 'name',
+    value: 'value',
+    checked: false,
+    variant: 'bordered',
     ariaLabel: label,
+  },
+  render,
+};
+
+export const DisabledAndBorderedWithNoVisibleLabel: Story = {
+  parameters: {
+    backgrounds,
+    design,
+    docs: {
+      description: {
+        story: 'This is a disabled checkbox with bordered variant, which has no visible label (having aria-label).',
+      },
+    },
+  },
+  args: {
+    name: 'name',
+    disabled: true,
+    value: 'value',
+    checked: false,
+    ariaLabel: label,
+    variant: 'bordered',
   },
   render,
 };
