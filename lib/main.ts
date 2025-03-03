@@ -49,7 +49,7 @@ export { Modal } from './components/Modal/Modal';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { Note } from './components/Note/Note';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
-export { PathProgress } from './components/PathProgress/PathProgress';
+export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';
 export { PopupList, PopupListItem } from './components/PopupList/PopupList';
 export { ProgressIndicatorCard } from './components/ProgressIndicatorCard/ProgressIndicatorCard';
 export { RadioButton } from './components/RadioButton/RadioButton';
