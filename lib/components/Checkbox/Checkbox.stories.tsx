@@ -54,6 +54,7 @@ export const Available: Story = {
     value: 'value',
     checked: false,
     label,
+    ariaLabel: label,
   },
   render,
 };
@@ -73,6 +74,7 @@ export const Selected: Story = {
     value: 'value',
     checked: true,
     label,
+    ariaLabel: label,
   },
   render,
 };
@@ -92,6 +94,7 @@ export const Bordered: Story = {
     value: 'value',
     checked: false,
     label,
+    ariaLabel: label,
     variant: 'bordered',
   },
   render,
@@ -112,6 +115,7 @@ export const BorderedAndDisabled: Story = {
     value: 'value',
     checked: false,
     label,
+    ariaLabel: label,
     variant: 'bordered',
   },
   render,
@@ -132,6 +136,7 @@ export const Disabled: Story = {
     value: 'value',
     checked: false,
     label,
+    ariaLabel: label,
   },
   render,
 };
@@ -170,6 +175,32 @@ export const DisabledAndBorderedWithNoVisibleLabel: Story = {
     disabled: true,
     value: 'value',
     checked: false,
+    ariaLabel: label,
+    variant: 'bordered',
+  },
+  render,
+};
+
+export const ComponentAsLabel: Story = {
+  parameters: {
+    backgrounds,
+    design,
+    docs: {
+      description: {
+        story: 'This is a disabled checkbox with bordered variant, which has no visible label (having aria-label).',
+      },
+    },
+  },
+  args: {
+    name: 'name',
+    value: 'value',
+    checked: false,
+    label: (
+      <div className="ds:flex ds:flex-row ds:ml-2 ds:gap-3">
+        <span className="ds:text-heading-2 ds:ml-3">{label}</span>
+        <span className="ds:size-3 ds:rounded ds:bg-success ds:block ds:self-center" />
+      </div>
+    ),
     ariaLabel: label,
     variant: 'bordered',
   },
