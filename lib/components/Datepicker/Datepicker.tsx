@@ -68,6 +68,8 @@ type ArkTranslationsInUse = Pick<
   'nextTrigger' | 'viewTrigger' | 'prevTrigger' | 'dayCell' | 'trigger'
 >;
 
+type RefCallback<T> = (instance: T | null) => void;
+
 export interface DatepickerProps {
   /** Name of the input field */
   name?: string;
@@ -84,7 +86,7 @@ export interface DatepickerProps {
   /** Help text to display below the input field */
   help?: string;
   translations: ArkTranslationsInUse;
-  ref?: React.RefObject<HTMLInputElement>;
+  ref?: React.RefObject<HTMLInputElement> | RefCallback<HTMLInputElement>;
 }
 
 /** Datepicker component for selecting a date. */
