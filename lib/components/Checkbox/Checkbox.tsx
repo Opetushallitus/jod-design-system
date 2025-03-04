@@ -1,19 +1,7 @@
 import React from 'react';
 import { cx } from '../../cva';
 
-type LabelProp =
-  | {
-      /** Text for the component */
-      label: React.ReactNode;
-      ariaLabel?: never;
-    }
-  | {
-      label?: never;
-      /** Aria label for the component */
-      ariaLabel: string;
-    };
-
-export type CheckboxProps = {
+export interface CheckboxProps {
   /** Name for the component */
   name: string;
   /** Disabled state for the component */
@@ -24,11 +12,16 @@ export type CheckboxProps = {
   checked: boolean;
   /** Change event for the component */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Text or component used as label for the component */
+  label?: React.ReactNode;
+  /** Aria label for the component */
+  ariaLabel: string;
+
   /** Additional class name for the component */
   className?: string;
   /** Component variant */
   variant?: 'default' | 'bordered';
-} & LabelProp;
+}
 
 /**
  * Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
