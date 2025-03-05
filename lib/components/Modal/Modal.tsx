@@ -1,4 +1,5 @@
 import { Dialog, DialogPanel } from '@headlessui/react';
+import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { tidyClasses as tc } from '../../utils';
 
@@ -15,6 +16,7 @@ export interface ModalProps {
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
 export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: ModalProps) => {
   const { sm } = useMediaQueries();
+  const id = React.useId();
 
   /* 204px =   
   40px (gap on top of the screen)
@@ -29,6 +31,7 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
 
   return (
     <Dialog
+      id={`ds-modal-${id}`}
       open={open}
       onClose={() => {
         if (onClose) {
@@ -45,6 +48,7 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
         <div className="ds:flex ds:items-center ds:justify-center ds:h-full">
           {/* Modal container */}
           <DialogPanel
+            id={`ds-modal-panel-${id}`}
             className={tc([
               'ds:flex',
               'ds:flex-col',
