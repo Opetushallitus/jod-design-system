@@ -44,4 +44,11 @@ describe('Button', () => {
     expect(button).toBeDisabled();
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('attaches ref to the button element', () => {
+    const ref = vi.fn();
+    render(<Button label="Click me" ref={ref} onClick={vi.fn()} />);
+    const button = screen.getByRole('button', { name: 'Click me' });
+    expect(ref).toHaveBeenCalledWith(button);
+  });
 });
