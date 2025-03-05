@@ -65,6 +65,7 @@ export const ConfirmDialog = ({
   cancelText,
 }: ConfirmDialogProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const id = React.useId();
 
   const showDialog = () => {
     setIsOpen(true);
@@ -83,11 +84,21 @@ export const ConfirmDialog = ({
     <>
       {children(showDialog)}
       {isOpen && (
-        <Dialog open={isOpen} onClose={hideDialog} className="ds:relative ds:z-50">
+        <Dialog
+          id={`ds-confirm-dialog-${id}`}
+          open={isOpen}
+          onClose={() => {
+            /* unused on purpose to prevent close on ESC or clicking the dimmed area */
+          }}
+          className="ds:relative ds:z-50"
+        >
           <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden />
           <div className="ds:fixed ds:inset-0 ds:flex ds:w-screen ds:py-[96px]">
             <div className="ds:flex ds:w-full ds:items-center ds:justify-center">
-              <DialogPanel className="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray">
+              <DialogPanel
+                id={`ds-confirm-dialog-panel-${id}`}
+                className="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray"
+              >
                 <div className="ds:flex ds:max-w-[640px] ds:flex-col ds:p-9">
                   <DialogTitle className="ds:mb-5 ds:text-heading-2">{title}</DialogTitle>
                   <Description className="ds:text-body-sm ds:font-arial">{description}</Description>
