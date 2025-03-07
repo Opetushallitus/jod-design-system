@@ -206,3 +206,152 @@ export const ComponentAsLabel: Story = {
   },
   render,
 };
+
+export const IndeterminateCheckbox: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story:
+          'This is a indeterminate checkbox that cycles between unchecked → indeterminate → checked → unchecked states.',
+      },
+    },
+  },
+  args: {
+    name: 'indeterminate-state-checkbox',
+    value: 'indeterminate-state',
+    checked: false,
+    label: 'Indeterminate checkbox',
+    ariaLabel: 'Indeterminate checkbox',
+  },
+  render: () => {
+    const [state, setState] = useState<'unchecked' | 'indeterminate' | 'checked'>('unchecked');
+
+    const cycleState = () => {
+      if (state === 'unchecked') {
+        setState('indeterminate');
+      } else if (state === 'indeterminate') {
+        setState('checked');
+      } else {
+        setState('unchecked');
+      }
+    };
+
+    return (
+      <div className="ds:flex ds:flex-col ds:gap-4">
+        <Checkbox
+          name="indeterminate-state-checkbox"
+          value="indeterminate-state"
+          checked={state === 'checked'}
+          indeterminate={state === 'indeterminate'}
+          onChange={cycleState}
+          label="Indeterminate-state checkbox"
+          ariaLabel="Indeterminate-state checkbox"
+        />
+        <Checkbox
+          name="indeterminate-state-checkbox"
+          value="indeterminate-state"
+          checked={state === 'checked'}
+          indeterminate={state === 'indeterminate'}
+          onChange={cycleState}
+          label="Indeterminate-state checkbox with Bordered"
+          ariaLabel="Indeterminate-state checkbox"
+          variant="bordered"
+        />
+      </div>
+    );
+  },
+};
+
+export const IndeterminateCheckboxWithChildren: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story:
+          'A practical example of the indeterminate state with a parent checkbox controlling multiple child checkboxes.',
+      },
+    },
+  },
+  args: {
+    name: 'parent',
+    value: 'parent',
+    checked: false,
+    label: 'Select all items',
+    ariaLabel: 'Select all items',
+  },
+  render: () => {
+    // Track states of children checkboxes
+    const [childrenState, setChildrenState] = useState([false, false, false]);
+
+    // Calculate parent state based on children
+    const allChecked = childrenState.every((state) => state);
+    const someChecked = childrenState.some((state) => state);
+    const parentChecked = allChecked;
+    const parentIndeterminate = someChecked && !allChecked;
+
+    const handleParentChange = () => {
+      const newState = !allChecked;
+      setChildrenState(childrenState.map(() => newState));
+    };
+
+    const handleChildChange = (index: number) => {
+      const newChildrenState = [...childrenState];
+      newChildrenState[index] = !newChildrenState[index];
+      setChildrenState(newChildrenState);
+    };
+
+    return (
+      <div className="ds:flex ds:flex-col ds:gap-3">
+        <Checkbox
+          name="parent"
+          value="parent"
+          checked={parentChecked}
+          indeterminate={parentIndeterminate}
+          onChange={handleParentChange}
+          label="Select all items"
+          ariaLabel="Select all items"
+        />
+        <div className="ds:ml-6 ds:flex ds:flex-col ds:gap-2">
+          {['Item 1', 'Item 2', 'Item 3'].map((item, index) => (
+            <Checkbox
+              key={item}
+              name={`child-${index}`}
+              value={`child-${index}`}
+              checked={childrenState[index]}
+              onChange={() => handleChildChange(index)}
+              label={item}
+              ariaLabel={item}
+            />
+          ))}
+        </div>
+
+        <div className="mt-10" />
+        <Checkbox
+          name="parent"
+          value="parent"
+          checked={parentChecked}
+          indeterminate={parentIndeterminate}
+          onChange={handleParentChange}
+          label="Select all items (with Bordered)"
+          ariaLabel="Select all items (with Bordered)"
+          variant="bordered"
+        />
+        <div className="ds:ml-6 ds:flex ds:flex-col ds:gap-2">
+          {['Item 1', 'Item 2', 'Item 3'].map((item, index) => (
+            <Checkbox
+              key={item}
+              name={`child-${index}`}
+              value={`child-${index}`}
+              checked={childrenState[index]}
+              onChange={() => handleChildChange(index)}
+              label={item}
+              ariaLabel={item}
+              variant="bordered"
+            />
+          ))}
+        </div>
+      </div>
+    );
+  },
+};

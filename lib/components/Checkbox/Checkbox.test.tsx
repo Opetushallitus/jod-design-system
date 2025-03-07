@@ -58,4 +58,30 @@ describe('Checkbox', () => {
     const checkbox = screen.getByLabelText(label);
     expect(checkbox).toBeChecked();
   });
+
+  it('applies accent color to checked icon when checked', () => {
+    const { container } = render(
+      <Checkbox name="myCheckbox" label={label} ariaLabel={label} onChange={vi.fn()} value={myValue} checked={true} />,
+    );
+    const checkedIcon = container.querySelector('svg[data-state="visible"]');
+    expect(checkedIcon).toHaveClass('ds:text-accent');
+    expect(checkedIcon).toBeVisible();
+  });
+
+  it('shows indeterminate icon with accent fill when in indeterminate state', () => {
+    const { container } = render(
+      <Checkbox
+        name="myCheckbox"
+        label={label}
+        ariaLabel={label}
+        onChange={vi.fn()}
+        value={myValue}
+        checked={false}
+        indeterminate={true}
+      />,
+    );
+    const indeterminateIcon = container.querySelector('svg:not([data-state])');
+    expect(indeterminateIcon).toHaveClass('ds:fill-accent');
+    expect(indeterminateIcon).toBeVisible();
+  });
 });
