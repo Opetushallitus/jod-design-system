@@ -5,6 +5,7 @@ exports[`Checkbox > renders correctly 1`] = `
   class="ds:flex ds:items-center ds:text-left ds:relative"
 >
   <input
+    aria-checked="false"
     class="ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-0"
     id=":r0:"
     name="myCheckbox"
@@ -12,18 +13,36 @@ exports[`Checkbox > renders correctly 1`] = `
     value="myValue"
   />
   <svg
-    class="ds:pointer-events-none ds:absolute ds:hidden ds:fill-accent ds:peer-checked:block"
+    class="ds:pointer-events-none ds:absolute ds:hidden ds:text-accent ds:peer-checked:block"
+    data-state="visible"
     fill="none"
     height="16"
+    style="display: none;"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 8l3 3l5-5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    />
+  </svg>
+  <svg
+    class="ds:pointer-events-none ds:absolute ds:fill-accent"
+    fill="none"
+    height="16"
+    style="display: none;"
     viewBox="0 0 16 16"
     width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect
-      height="16"
-      width="16"
-      x="0"
-      y="0"
+      height="2"
+      width="10"
+      x="3"
+      y="7"
     />
   </svg>
   <label
