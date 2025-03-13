@@ -1,103 +1,175 @@
 import React from 'react';
 import { Button } from '../Button/Button';
 
-export interface ModalProps {
-  /** Ref for the dialog element */
-  ref: React.RefObject<HTMLDialogElement | null>;
-  /** Content of the modal */
-  children?: React.ReactNode;
-  /** Ref for the confirm dialog element */
-  confirmRef?: React.RefObject<HTMLDialogElement | null>;
-  /** Ref for the yes button */
-  confirmYesRef?: React.RefObject<HTMLButtonElement | null>;
+interface ConfirmTranslations {
+  title: string;
+  description: string;
+  noLabel: string;
+  yesLabel: string;
 }
 
-export const Modal = ({ ref, children, confirmRef, confirmYesRef }: ModalProps) => {
+export interface ModalProps {
+  /** State to control the open state */
+  open: boolean;
+  /** Function to set the open state */
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  /** If true, a confirm modal will be shown before closing */
+  confirmBeforeClose?: {
+    enabled: boolean;
+    translations: ConfirmTranslations;
+  };
+  /** Children to render inside the modal */
+  children?: (onCloseClick: () => void) => React.ReactNode;
+}
+
+export const Modal = (props: ModalProps) => {
+  const { open, setOpen, confirmBeforeClose, children } = props;
+  const ref = React.createRef<HTMLDialogElement>();
+  const [internalOpen, setInternalOpen] = React.useState(open);
+  const [confirmOpen, setConfirmOpen] = React.useState(false);
+  const confirmRef = React.createRef<HTMLDialogElement>();
+
+  // Handle dialog events in correct order
+  React.useEffect(() => {
+    if (open) {
+      setInternalOpen(true);
+      ref.current?.showModal();
+    } else {
+      ref.current?.close();
+      setInternalOpen(false);
+    }
+  }, [open, ref]);
+
+  if (!internalOpen) {
+    return null;
+  }
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      e.stopPropagation();
+
+      close();
+    }
+  };
+
+  const onClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if ((e.target as HTMLDialogElement).tagName === 'DIALOG') {
+      e.preventDefault();
+      e.stopPropagation();
+
+      close();
+    }
+  };
+
+  const close = () => {
+    if (confirmBeforeClose) {
+      setConfirmOpen(true);
+    } else {
+      setOpen(false);
+    }
+  };
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <dialog
       ref={ref}
-      onKeyDown={(e) => {
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          e.stopPropagation();
-
-          if (confirmRef) {
-            confirmRef.current?.showModal();
-            confirmYesRef?.current?.focus();
-          } else {
-            ref.current?.close();
-          }
-        }
-      }}
-      onClick={(e) => {
-        if ((e.target as HTMLDialogElement).tagName === 'DIALOG') {
-          e.preventDefault();
-          e.stopPropagation();
-
-          if (confirmRef) {
-            confirmRef?.current?.showModal();
-          } else {
-            ref.current?.close();
-          }
-        }
-      }}
+      onKeyDown={onKeyDown}
+      onClick={onClick}
       className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
     >
-      {children}
-      {confirmRef && <ConfirmModal ref={confirmRef} parentRef={ref} yesRef={confirmYesRef} />}
+      {children?.(close)}
+      {confirmBeforeClose && (
+        <ConfirmModal
+          ref={confirmRef}
+          open={confirmOpen}
+          setOpen={setConfirmOpen}
+          setParentOpen={setOpen}
+          translations={confirmBeforeClose.translations}
+        />
+      )}
     </dialog>
   );
 };
 
 export interface ConfirmModalProps {
-  /** Ref for the dialog element */
+  /** Ref to the dialog element */
   ref: React.RefObject<HTMLDialogElement | null>;
-  /** Ref for the parent dialog element */
-  parentRef: React.RefObject<HTMLDialogElement | null>;
-  /** Ref for the yes button */
-  yesRef?: React.RefObject<HTMLButtonElement | null>;
+  /** State to control the confirm open state */
+  open: boolean;
+  /** Function to set the confirm open state */
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  /** Function to set the parent open state */
+  setParentOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  translations: ConfirmTranslations;
 }
 
-const ConfirmModal = ({ ref, parentRef, yesRef }: ConfirmModalProps) => {
+const ConfirmModal = (props: ConfirmModalProps) => {
+  const {
+    ref,
+    open,
+    setOpen,
+    setParentOpen,
+    translations: { title, description, noLabel, yesLabel },
+  } = props;
+  const yesRef = React.createRef<HTMLButtonElement>();
+
+  // Focus on the yes button when the dialog is opened
+  React.useEffect(() => {
+    if (open) {
+      ref.current?.showModal();
+      yesRef.current?.focus();
+    } else {
+      ref.current?.close();
+    }
+  }, [yesRef, open, ref]);
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (ref && e.key === 'Escape') {
+      e.preventDefault();
+      e.stopPropagation();
+
+      setOpen(false);
+    }
+  };
+
+  const onClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if (ref && (e.target as HTMLDialogElement).tagName === 'DIALOG') {
+      e.preventDefault();
+      e.stopPropagation();
+
+      setOpen(false);
+    }
+  };
+
+  const onNoClick = () => {
+    setOpen(false);
+  };
+
+  const onYesClick = () => {
+    setOpen(false);
+    setParentOpen(false);
+  };
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <dialog
       ref={ref}
-      onKeyDown={(e) => {
-        if (ref && e.key === 'Escape') {
-          e.preventDefault();
-          e.stopPropagation();
-
-          ref.current?.close();
-        }
-      }}
-      onClick={(e) => {
-        if (ref && (e.target as HTMLDialogElement).tagName === 'DIALOG') {
-          e.preventDefault();
-          e.stopPropagation();
-
-          ref.current?.close();
-        }
-      }}
+      onKeyDown={onKeyDown}
+      onClick={onClick}
       className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
     >
       <div className="ds:flex ds:flex-col">
-        <div className="ds:p-5 ds:flex ds:flex-col ds:gap-5">
-          <h2 className="ds:text-heading-2">Are you sure you want to close?</h2>
-          <p className="ds:text-body-sm ds:font-arial">If you close, you will lose any unsaved changes.</p>
+        <div className="ds:flex ds:flex-col ds:gap-5 ds:max-w-[640px] ds:px-6 ds:py-5 ds:sm:px-9">
+          <h2 className="ds:text-heading-2">{title}</h2>
+          <p className="ds:text-body-sm ds:font-arial">{description}</p>
         </div>
-        <div className="ds:flex ds:gap-3 ds:p-3 ds:justify-end ds:bg-bg-gray-2" role="group">
-          <Button label="No" onClick={() => ref.current?.close()} variant="white" />
-          <Button
-            ref={yesRef}
-            label="Yes"
-            onClick={() => {
-              ref.current?.close();
-              parentRef.current?.close();
-            }}
-            variant="white"
-          />
+        <div
+          className="ds:flex ds:gap-5 ds:px-6 ds:py-5 ds:sm:px-9 ds:justify-end ds:overflow-x-auto ds:bg-bg-gray-2"
+          role="group"
+        >
+          <Button label={noLabel} onClick={onNoClick} variant="white" />
+          <Button ref={yesRef} label={yesLabel} onClick={onYesClick} variant="white" />
         </div>
       </div>
     </dialog>
