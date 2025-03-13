@@ -1,112 +1,105 @@
-import { Dialog, DialogPanel } from '@headlessui/react';
 import React from 'react';
-import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { tidyClasses as tc } from '../../utils';
+import { Button } from '../Button/Button';
 
 export interface ModalProps {
-  open: boolean;
-  onClose?: () => void;
-  content: React.ReactNode;
-  footer: React.ReactNode;
-  progress?: React.ReactNode;
-  /** Slot is not used on mobile. */
-  sidePanel?: React.ReactNode;
+  /** Ref for the dialog element */
+  ref: React.RefObject<HTMLDialogElement | null>;
+  /** Content of the modal */
+  children?: React.ReactNode;
+  /** Ref for the confirm dialog element */
+  confirmRef?: React.RefObject<HTMLDialogElement | null>;
+  /** Ref for the yes button */
+  confirmYesRef?: React.RefObject<HTMLButtonElement | null>;
 }
 
-/** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
-export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: ModalProps) => {
-  const { sm } = useMediaQueries();
-  const id = React.useId();
-
-  /* 204px =   
-  40px (gap on top of the screen)
-+ 24px (content top padding) 
-+ 24px (content bottom padding) 
-+ 76px (footer height) 
-+ 40px (gap on bottom of the screen)
-
-  ds:sm:max-h-[calc(100vh-204px)] is then the maximum height for the actual content of Modal for desktop
-*/
-  const heightClasses = `ds:max-h-[calc(100vh-172px)] ds:min-h-[calc(100vh-344px)] ds:sm:max-h-[calc(100vh-204px)]`;
-
+export const Modal = ({ ref, children, confirmRef, confirmYesRef }: ModalProps) => {
   return (
-    <Dialog
-      id={`ds-modal-${id}`}
-      open={open}
-      onClose={() => {
-        if (onClose) {
-          onClose();
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    <dialog
+      ref={ref}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (confirmRef) {
+            confirmRef.current?.showModal();
+            confirmYesRef?.current?.focus();
+          } else {
+            ref.current?.close();
+          }
         }
       }}
-      className="ds:relative ds:z-50"
+      onClick={(e) => {
+        if ((e.target as HTMLDialogElement).tagName === 'DIALOG') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (confirmRef) {
+            confirmRef?.current?.showModal();
+          } else {
+            ref.current?.close();
+          }
+        }
+      }}
+      className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
     >
-      {/* Backdrop */}
-      <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden />
-      {/* Wrapper container paddings and margins */}
-      <div className="ds:fixed ds:inset-0">
-        {/* Wrapper for container centering */}
-        <div className="ds:flex ds:items-center ds:justify-center ds:h-full">
-          {/* Modal container */}
-          <DialogPanel
-            id={`ds-modal-panel-${id}`}
-            className={tc([
-              'ds:flex',
-              'ds:flex-col',
-              'ds:bg-bg-gray',
-              'ds:overflow-hidden',
-              'ds:rounded',
-              'ds:w-full',
-              'ds:max-w-[1092px]',
-              'ds:sm:rounded-lg',
-            ])}
-          >
-            {/* Content wrapper */}
-            <div
-              className={tc([
-                heightClasses,
-                'ds:grid',
-                'ds:max-w-[1092px]',
-                'ds:grid-cols-1',
-                'ds:gap-6',
-                'ds:my-6',
-                'ds:sm:grid-cols-3',
-                'ds:pl-5',
-                'ds:md:pl-9',
-              ])}
-            >
-              {/* Main content */}
-              <div
-                className={tc([
-                  heightClasses,
-                  'ds:col-span-1',
-                  'ds:flex',
-                  'ds:flex-col',
-                  'ds:gap-y-6',
-                  'ds:pr-5',
-                  (sidePanel ?? progress) ? 'ds:sm:col-span-2' : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-9',
-                  'ds:sm:pr-0',
-                ])}
-              >
-                {progress && !sm && <div className="ds:flex ds:justify-end">{progress}</div>}
-                <div className="ds:overflow-y-auto ds:sm:mt-6 ds:p-3 ds:-m-3">{content}</div>
-              </div>
-              {/* Side panel */}
-              {sm && (sidePanel ?? progress) && (
-                <div className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}>
-                  {progress && <div className="ds:mr-6 ds:flex ds:justify-end">{progress}</div>}
-                  <div className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${!progress ? 'ds:sm:mt-6' : ''}`}>
-                    {sidePanel}
-                  </div>
-                </div>
-              )}
-            </div>
-            {/* Footer, button area */}
-            <div className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9">
-              {footer}
-            </div>
-          </DialogPanel>
+      {children}
+      {confirmRef && <ConfirmModal ref={confirmRef} parentRef={ref} yesRef={confirmYesRef} />}
+    </dialog>
+  );
+};
+
+export interface ConfirmModalProps {
+  /** Ref for the dialog element */
+  ref: React.RefObject<HTMLDialogElement | null>;
+  /** Ref for the parent dialog element */
+  parentRef: React.RefObject<HTMLDialogElement | null>;
+  /** Ref for the yes button */
+  yesRef?: React.RefObject<HTMLButtonElement | null>;
+}
+
+const ConfirmModal = ({ ref, parentRef, yesRef }: ConfirmModalProps) => {
+  return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    <dialog
+      ref={ref}
+      onKeyDown={(e) => {
+        if (ref && e.key === 'Escape') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          ref.current?.close();
+        }
+      }}
+      onClick={(e) => {
+        if (ref && (e.target as HTMLDialogElement).tagName === 'DIALOG') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          ref.current?.close();
+        }
+      }}
+      className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
+    >
+      <div className="ds:flex ds:flex-col">
+        <div className="ds:p-5 ds:flex ds:flex-col ds:gap-5">
+          <h2 className="ds:text-heading-2">Are you sure you want to close?</h2>
+          <p className="ds:text-body-sm ds:font-arial">If you close, you will lose any unsaved changes.</p>
+        </div>
+        <div className="ds:flex ds:gap-3 ds:p-3 ds:justify-end ds:bg-bg-gray-2" role="group">
+          <Button label="No" onClick={() => ref.current?.close()} variant="white" />
+          <Button
+            ref={yesRef}
+            label="Yes"
+            onClick={() => {
+              ref.current?.close();
+              parentRef.current?.close();
+            }}
+            variant="white"
+          />
         </div>
       </div>
-    </Dialog>
+    </dialog>
   );
 };

@@ -1,24 +1,93 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { fireEvent, render } from '@testing-library/react';
+import { createRef } from 'react';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Modal } from './Modal';
 
-describe('Modal', () => {
-  it('renders correctly', async () => {
-    const content = <div>Modal Content</div>;
-    const footer = <div>Modal Footer</div>;
+describe('Modal Component', () => {
+  beforeAll(() => {
+    HTMLDialogElement.prototype.show = vi.fn(function mock(this: HTMLDialogElement) {
+      this.open = true;
+    });
+    HTMLDialogElement.prototype.showModal = vi.fn(function mock(this: HTMLDialogElement) {
+      this.open = true;
+    });
+    HTMLDialogElement.prototype.close = vi.fn(function mock(this: HTMLDialogElement) {
+      this.open = false;
+    });
+  });
 
-    render(<Modal open={true} onClose={vi.fn()} content={content} footer={footer} />);
+  it('should close the modal when Escape key is pressed and confirmRef is not provided', () => {
+    const ref = createRef<HTMLDialogElement>();
+    const { container } = render(<Modal ref={ref}>Test Content</Modal>);
 
-    // Assert that the modal is rendered
-    const modalElement = screen.getByRole('dialog');
-    await waitFor(() => expect(modalElement).toBeInTheDocument());
+    expect(ref.current?.open).toBe(false);
 
-    // Assert that the content is rendered
-    const contentElement = screen.getByText('Modal Content');
-    expect(contentElement).toBeInTheDocument();
+    ref.current?.showModal();
 
-    // Assert that the footer is rendered
-    const footerElement = screen.getByText('Modal Footer');
-    expect(footerElement).toBeInTheDocument();
+    expect(ref.current?.open).toBe(true);
+
+    fireEvent.keyDown(container.querySelector('dialog')!, { key: 'Escape' });
+
+    expect(ref.current?.open).toBe(false);
+  });
+
+  it('should open confirm modal when Escape key is pressed and confirmRef is provided', () => {
+    const ref = createRef<HTMLDialogElement>();
+    const confirmRef = createRef<HTMLDialogElement>();
+    const confirmYesRef = createRef<HTMLButtonElement>();
+    render(
+      <Modal ref={ref} confirmRef={confirmRef} confirmYesRef={confirmYesRef}>
+        Test Content
+      </Modal>,
+    );
+
+    expect(ref.current?.open).toBe(false);
+
+    ref.current?.showModal();
+
+    expect(ref.current?.open).toBe(true);
+    expect(confirmRef.current?.open).toBe(false);
+
+    fireEvent.keyDown(ref.current!, { key: 'Escape' });
+
+    expect(confirmRef.current?.open).toBe(true);
+    expect(confirmYesRef.current).toHaveFocus();
+  });
+
+  it('should close the modal when clicking outside and confirmRef is not provided', () => {
+    const ref = createRef<HTMLDialogElement>();
+    const { container } = render(<Modal ref={ref}>Test Content</Modal>);
+
+    expect(ref.current?.open).toBe(false);
+
+    ref.current?.showModal();
+
+    expect(ref.current?.open).toBe(true);
+
+    fireEvent.click(container.querySelector('dialog')!);
+
+    expect(ref.current?.open).toBe(false);
+  });
+
+  it('should open confirm modal when clicking outside and confirmRef is provided', () => {
+    const ref = createRef<HTMLDialogElement>();
+    const confirmRef = createRef<HTMLDialogElement>();
+    render(
+      <Modal ref={ref} confirmRef={confirmRef}>
+        Test Content
+      </Modal>,
+    );
+
+    expect(ref.current?.open).toBe(false);
+
+    ref.current?.showModal();
+
+    expect(ref.current?.open).toBe(true);
+    expect(confirmRef.current?.open).toBe(false);
+
+    fireEvent.click(ref.current!);
+
+    expect(ref.current?.open).toBe(true);
+    expect(confirmRef.current?.open).toBe(true);
   });
 });
