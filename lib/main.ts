@@ -10,7 +10,7 @@ export { ActiveIndicator } from './components/ActiveIndicator/ActiveIndicator';
 export { Button } from './components/Button/Button';
 export { CardCarousel, type CardCarouselItem } from './components/CardCarousel/CardCarousel';
 export { Checkbox } from './components/Checkbox/Checkbox';
-export { Combobox } from './components/Combobox/Combobox';
+export { Combobox, type ComboboxOptionsData } from './components/Combobox/Combobox';
 export { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
 export { ContentCard } from './components/ContentCard/ContentCard';
 export { Datepicker } from './components/Datepicker/Datepicker';
