@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { MdOutlineInfo } from 'react-icons/md';
+import { Button } from '../Button/Button';
 import { Tooltip, TooltipProps } from './Tooltip';
 import { TooltipContent } from './TooltipContent';
 import { TooltipTrigger } from './TooltipTrigger';
@@ -36,7 +38,59 @@ export const Default: Story = {
     ...parameters,
   },
   args: {},
-  render: (args) => {
-    return <DefaultStoryRender {...args} />;
+  render: DefaultStoryRender,
+};
+
+const FocusOrHoverStoryRender = (props: TooltipProps) => {
+  return (
+    <div className="ds:flex">
+      <span className="ds:text-form-label">Important label</span>
+      <Tooltip {...props}>
+        <TooltipTrigger>
+          <MdOutlineInfo size={24} />
+        </TooltipTrigger>
+        <TooltipContent>This is very informative Tooltip for important label</TooltipContent>
+      </Tooltip>
+    </div>
+  );
+};
+
+export const FocusOrHover: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Shows Tooltip when gaining focus or hovering with a mouse.',
+      },
+    },
   },
+  args: {
+    initialOpen: false,
+  },
+  render: FocusOrHoverStoryRender,
+};
+
+const ButtonAsTriggerRender = (props: TooltipProps) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Tooltip {...props} open={open} onOpenChange={setOpen}>
+      <TooltipTrigger>
+        <Button variant="white" label="Show Tooltip" onClick={() => setOpen((v) => !v)} />
+      </TooltipTrigger>
+      <TooltipContent>Lorem ipsum dolor sit amet, no vis verear commodo.</TooltipContent>
+    </Tooltip>
+  );
+};
+
+export const ButtonAsTrigger: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Shows Tooltip when pressing Button-component.',
+      },
+    },
+  },
+  args: {},
+  render: ButtonAsTriggerRender,
 };
