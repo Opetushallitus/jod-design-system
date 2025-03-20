@@ -5,47 +5,52 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <div
-    class="ds:flex ds:flex-row relative"
+    class="ds:flex ds:flex-row ds:relative"
   >
-    <input
-      aria-autocomplete="list"
-      aria-expanded="false"
-      aria-label="Label"
-      class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+    <div
+      class="ds:flex ds:flex-row ds:w-full"
       data-headlessui-state=""
-      id=":r8:"
-      placeholder="(placeholder text)"
-      role="combobox"
-      type="text"
-      value="Suomi"
-    />
-    <button
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
-      data-headlessui-state=""
-      id="headlessui-combobox-button-:rc:"
-      tabindex="-1"
-      type="button"
     >
-      <svg
-        fill="currentColor"
-        height="24"
-        stroke="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-label="Label"
+        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+        data-headlessui-state=""
+        id=":r8:"
+        placeholder="(placeholder text)"
+        role="combobox"
+        type="text"
+        value="Suomi"
+      />
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
+        data-headlessui-state=""
+        id="headlessui-combobox-button-:rc:"
+        tabindex="-1"
+        type="button"
       >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-        />
-      </svg>
-    </button>
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -61,50 +66,56 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
     Label
   </label>
   <div
-    class="ds:flex ds:flex-row relative"
+    class="ds:flex ds:flex-row ds:relative"
   >
-    <input
-      aria-autocomplete="list"
-      aria-expanded="false"
-      class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+    <div
+      class="ds:flex ds:flex-row ds:w-full"
       data-disabled=""
       data-headlessui-state="disabled"
-      disabled=""
-      id=":rg:"
-      placeholder="(placeholder text)"
-      role="combobox"
-      type="text"
-      value="Suomi"
-    />
-    <button
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
-      data-disabled=""
-      data-headlessui-state="disabled"
-      disabled=""
-      id="headlessui-combobox-button-:rk:"
-      tabindex="-1"
-      type="button"
     >
-      <svg
-        fill="currentColor"
-        height="24"
-        stroke="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+        data-disabled=""
+        data-headlessui-state="disabled"
+        disabled=""
+        id=":rg:"
+        placeholder="(placeholder text)"
+        role="combobox"
+        type="text"
+        value="Suomi"
+      />
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
+        data-disabled=""
+        data-headlessui-state="disabled"
+        disabled=""
+        id="headlessui-combobox-button-:rk:"
+        tabindex="-1"
+        type="button"
       >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-        />
-      </svg>
-    </button>
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -120,46 +131,51 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
     Label
   </label>
   <div
-    class="ds:flex ds:flex-row relative"
+    class="ds:flex ds:flex-row ds:relative"
   >
-    <input
-      aria-autocomplete="list"
-      aria-expanded="false"
-      class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+    <div
+      class="ds:flex ds:flex-row ds:w-full"
       data-headlessui-state=""
-      id=":r0:"
-      placeholder="(placeholder text)"
-      role="combobox"
-      type="text"
-      value="Suomi"
-    />
-    <button
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
-      data-headlessui-state=""
-      id="headlessui-combobox-button-:r4:"
-      tabindex="-1"
-      type="button"
     >
-      <svg
-        fill="currentColor"
-        height="24"
-        stroke="currentColor"
-        stroke-width="0"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+        data-headlessui-state=""
+        id=":r0:"
+        placeholder="(placeholder text)"
+        role="combobox"
+        type="text"
+        value="Suomi"
+      />
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
+        data-headlessui-state=""
+        id="headlessui-combobox-button-:r4:"
+        tabindex="-1"
+        type="button"
       >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-        />
-      </svg>
-    </button>
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
 `;

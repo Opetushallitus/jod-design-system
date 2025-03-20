@@ -62,7 +62,7 @@ export const Combobox = <
           {label}
         </label>
       )}
-      <div className="ds:flex ds:flex-row relative">
+      <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
           defaultValue={defaultValue ?? (options[0]?.value as U)}
           onChange={propOnChange}
@@ -70,7 +70,7 @@ export const Combobox = <
           value={selected}
         >
           {({ open }) => (
-            <>
+            <div className="ds:flex ds:flex-row ds:w-full">
               <ComboboxInput
                 id={labelId}
                 aria-label={hideLabel ? label : undefined}
@@ -96,7 +96,7 @@ export const Combobox = <
                   </ComboboxOption>
                 ))}
               </ComboboxOptions>
-            </>
+            </div>
           )}
         </HeadlessCombobox>
       </div>
