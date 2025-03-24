@@ -5,7 +5,7 @@ import { Button } from '../Button/Button';
 import { SelectionCard, SelectionCardProps } from './SelectionCard';
 
 const meta = {
-  title: 'Cards/SelectionCard',
+  title: 'Card/SelectionCard',
   component: SelectionCard,
   tags: ['autodocs'],
 } satisfies Meta<typeof SelectionCard>;

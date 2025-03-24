@@ -3,7 +3,7 @@ import { MediaCard } from '../MediaCard/MediaCard';
 import { CardCarousel } from './CardCarousel';
 
 const meta = {
-  title: 'Cards/CardCarousel',
+  title: 'Card/CardCarousel',
   component: CardCarousel,
   tags: ['autodocs'],
 } satisfies Meta<typeof CardCarousel>;

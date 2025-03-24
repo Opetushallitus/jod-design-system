@@ -5,7 +5,7 @@ import { fn } from '@storybook/test';
 import { MediaCard } from './MediaCard';
 
 const meta = {
-  title: 'Cards/MediaCard',
+  title: 'Card/MediaCard',
   component: MediaCard,
   tags: ['autodocs'],
 } satisfies Meta<typeof MediaCard>;

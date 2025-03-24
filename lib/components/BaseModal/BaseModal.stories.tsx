@@ -3,13 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
 import { Button } from '../../main';
-import { ModalV2 } from './ModalV2';
+import { BaseModal } from './BaseModal';
 
 const meta = {
-  title: 'ModalV2',
-  component: ModalV2,
+  title: 'Dialog/BaseModal',
+  component: BaseModal,
   tags: ['autodocs'],
-} satisfies Meta<typeof ModalV2>;
+} satisfies Meta<typeof BaseModal>;
 
 export default meta;
 
@@ -37,7 +37,7 @@ export const Default: Story = {
     return (
       <>
         <Button label="Open Modal" onClick={() => setOpen(true)} variant="white" />
-        <ModalV2 {...args} setOpen={(value) => setOpen(value)}>
+        <BaseModal {...args} setOpen={(value) => setOpen(value)}>
           {(onCloseClick) => (
             <div className="ds:flex ds:flex-col">
               <div className="ds:flex ds:flex-col ds:gap-5 ds:max-w-[1092px] ds:px-6 ds:py-5 ds:sm:px-9">
@@ -52,7 +52,7 @@ export const Default: Story = {
               </div>
             </div>
           )}
-        </ModalV2>
+        </BaseModal>
       </>
     );
   },
@@ -102,7 +102,7 @@ export const ConfirmBeforeClose: Story = {
     return (
       <>
         <Button label="Open Modal" onClick={() => setOpen(true)} variant="white" />
-        <ModalV2 open={open} setOpen={(value) => setOpen(value)} confirmBeforeClose={args.confirmBeforeClose}>
+        <BaseModal open={open} setOpen={(value) => setOpen(value)} confirmBeforeClose={args.confirmBeforeClose}>
           {(onCloseClick) => (
             <div className="ds:flex ds:flex-col">
               <div className="ds:flex ds:flex-col ds:gap-5 ds:max-w-[1092px] ds:px-6 ds:py-5 ds:sm:px-9">
@@ -117,7 +117,7 @@ export const ConfirmBeforeClose: Story = {
               </div>
             </div>
           )}
-        </ModalV2>
+        </BaseModal>
       </>
     );
   },
@@ -169,7 +169,7 @@ export const NestedModalWithConfirmBeforeClose: Story = {
     return (
       <>
         <Button label="Open Modal" onClick={() => setOpen(true)} variant="white" />
-        <ModalV2 open={open} setOpen={(value) => setOpen(value)} confirmBeforeClose={args.confirmBeforeClose}>
+        <BaseModal open={open} setOpen={(value) => setOpen(value)} confirmBeforeClose={args.confirmBeforeClose}>
           {(onCloseClick) => (
             <div className="ds:flex ds:flex-col">
               <div className="ds:flex ds:flex-col ds:gap-5 ds:max-w-[1092px] ds:px-6 ds:py-5 ds:sm:px-9">
@@ -177,7 +177,7 @@ export const NestedModalWithConfirmBeforeClose: Story = {
                 <p className="ds:text-body-sm ds:font-arial">This is the outer modal dialog content.</p>
                 <div>
                   <Button label="Open inner Modal" onClick={() => setInnerOpen(true)} />
-                  <ModalV2 open={innerOpen} setOpen={setInnerOpen} confirmBeforeClose={args.confirmBeforeClose}>
+                  <BaseModal open={innerOpen} setOpen={setInnerOpen} confirmBeforeClose={args.confirmBeforeClose}>
                     {(onCloseClick) => (
                       <div className="ds:flex ds:flex-col ds:gap-5 ds:p-5">
                         <p>This is the inner modal dialog content.</p>
@@ -186,7 +186,7 @@ export const NestedModalWithConfirmBeforeClose: Story = {
                         </div>
                       </div>
                     )}
-                  </ModalV2>
+                  </BaseModal>
                 </div>
               </div>
               <div
@@ -197,7 +197,7 @@ export const NestedModalWithConfirmBeforeClose: Story = {
               </div>
             </div>
           )}
-        </ModalV2>
+        </BaseModal>
       </>
     );
   },

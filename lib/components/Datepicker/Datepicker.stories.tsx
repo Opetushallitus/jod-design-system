@@ -6,7 +6,7 @@ import { DateView, DayTableCellState } from '@zag-js/date-picker';
 import { Datepicker } from './Datepicker';
 
 const meta = {
-  title: 'Forms/Datepicker',
+  title: 'Form/Datepicker',
   component: Datepicker,
   tags: ['autodocs'],
 } satisfies Meta<typeof Datepicker>;

@@ -4,7 +4,7 @@ import { useState } from '@storybook/preview-api';
 import { DiscussionCard } from './DiscussionCard';
 
 const meta = {
-  title: 'Cards/DiscussionCard',
+  title: 'Card/DiscussionCard',
   component: DiscussionCard,
   tags: ['autodocs'],
 } satisfies Meta<typeof DiscussionCard>;

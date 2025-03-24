@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { HeroCard } from './HeroCard';
 
 const meta = {
-  title: 'Cards/HeroCard',
+  title: 'Card/HeroCard',
   component: HeroCard,
   tags: ['autodocs'],
 } satisfies Meta<typeof HeroCard>;

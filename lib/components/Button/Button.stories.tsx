@@ -5,7 +5,7 @@ import { MdArrowBack, MdArrowForward, MdPerson } from 'react-icons/md';
 import { Button } from './Button';
 
 const meta = {
-  title: 'Buttons/Button',
+  title: 'Button/Button',
   component: Button,
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>;

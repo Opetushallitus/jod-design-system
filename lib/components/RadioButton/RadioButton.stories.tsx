@@ -6,7 +6,7 @@ import { RadioButton } from './RadioButton';
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 
 const meta = {
-  title: 'Forms/RadioButton',
+  title: 'Form/RadioButton',
   component: RadioButtonGroup,
   tags: ['autodocs'],
 } satisfies Meta<typeof RadioButtonGroup>;

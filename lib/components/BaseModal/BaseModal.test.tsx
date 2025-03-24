@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { ModalProps, ModalV2 } from './ModalV2';
+import { BaseModal, ModalProps } from './BaseModal';
 
-describe('ModalV2 Component', () => {
+describe('BaseModal Component', () => {
   beforeAll(() => {
     HTMLDialogElement.prototype.show = vi.fn(function mock(this: HTMLDialogElement) {
       this.open = true;
@@ -27,18 +27,18 @@ describe('ModalV2 Component', () => {
   };
 
   it('renders the modal when open is true', () => {
-    render(<ModalV2 {...defaultProps} />);
+    render(<BaseModal {...defaultProps} />);
     expect(screen.getByText('Modal Content')).toBeInTheDocument();
   });
 
   it('does not render the modal when open is false', () => {
-    render(<ModalV2 {...defaultProps} open={false} />);
+    render(<BaseModal {...defaultProps} open={false} />);
     expect(screen.queryByText('Modal Content')).not.toBeInTheDocument();
   });
 
   it('calls setOpen(false) when close is triggered without confirmBeforeClose', () => {
     const setOpenMock = vi.fn();
-    render(<ModalV2 {...defaultProps} setOpen={setOpenMock} />);
+    render(<BaseModal {...defaultProps} setOpen={setOpenMock} />);
     fireEvent.click(screen.getByText('Close'));
     expect(setOpenMock).toHaveBeenCalledWith(false);
   });
@@ -50,7 +50,7 @@ describe('ModalV2 Component', () => {
       noLabel: 'No',
       yesLabel: 'Yes',
     };
-    render(<ModalV2 {...defaultProps} confirmBeforeClose={{ enabled: true, translations: confirmTranslations }} />);
+    render(<BaseModal {...defaultProps} confirmBeforeClose={{ enabled: true, translations: confirmTranslations }} />);
     fireEvent.click(screen.getByText('Close'));
     expect(screen.getByText('Confirm Close')).toBeInTheDocument();
     expect(screen.getByText('Are you sure you want to close?')).toBeInTheDocument();
@@ -65,7 +65,7 @@ describe('ModalV2 Component', () => {
       yesLabel: 'Yes',
     };
     render(
-      <ModalV2
+      <BaseModal
         {...defaultProps}
         setOpen={setOpenMock}
         confirmBeforeClose={{ enabled: true, translations: confirmTranslations }}
@@ -77,7 +77,7 @@ describe('ModalV2 Component', () => {
   });
 
   it('closes the modal when clicking outside the dialog', () => {
-    render(<ModalV2 {...defaultProps} />);
+    render(<BaseModal {...defaultProps} />);
     fireEvent.click(screen.getByRole('dialog'));
     expect(defaultProps.setOpen).toHaveBeenCalledWith(false);
   });
@@ -89,7 +89,7 @@ describe('ModalV2 Component', () => {
       noLabel: 'No',
       yesLabel: 'Yes',
     };
-    render(<ModalV2 {...defaultProps} confirmBeforeClose={{ enabled: true, translations: confirmTranslations }} />);
+    render(<BaseModal {...defaultProps} confirmBeforeClose={{ enabled: true, translations: confirmTranslations }} />);
     fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
     expect(screen.getByText('Confirm Close')).toBeInTheDocument();
   });

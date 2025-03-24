@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WizardProgress } from './WizardProgress';
 
 const meta = {
-  title: 'Wizard/WizardProgress',
+  title: 'WizardProgress',
   component: WizardProgress,
   tags: ['autodocs'],
 } satisfies Meta<typeof WizardProgress>;

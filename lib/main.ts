@@ -7,6 +7,7 @@ export { useMediaQueries } from './hooks/useMediaQueries';
 
 export { Accordion } from './components/Accordion/Accordion';
 export { ActiveIndicator } from './components/ActiveIndicator/ActiveIndicator';
+export { BaseModal } from './components/BaseModal/BaseModal';
 export { Button } from './components/Button/Button';
 export { CardCarousel, type CardCarouselItem } from './components/CardCarousel/CardCarousel';
 export { Checkbox } from './components/Checkbox/Checkbox';
@@ -46,7 +47,6 @@ export { LogoIconBlack, LogoIconRgb, LogoIconWhite } from './components/Logo/Log
 export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
-export { ModalV2 } from './components/ModalV2/ModalV2';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { Note } from './components/Note/Note';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';

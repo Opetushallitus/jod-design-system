@@ -4,7 +4,7 @@ import { MdCheck, MdDangerous, MdWarning } from 'react-icons/md';
 import { Toast } from './Toast';
 
 const meta = {
-  title: 'Snackbars/Toast',
+  title: 'Snackbar/Toast',
   component: Toast,
   tags: ['autodocs'],
 } satisfies Meta<typeof Toast>;

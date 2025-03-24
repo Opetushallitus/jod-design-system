@@ -4,7 +4,7 @@ import { fn } from '@storybook/test';
 import { InputField } from './InputField';
 
 const meta = {
-  title: 'Forms/InputField',
+  title: 'Form/InputField',
   component: InputField,
   tags: ['autodocs'],
 } satisfies Meta<typeof InputField>;

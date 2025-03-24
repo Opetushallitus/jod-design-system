@@ -5,7 +5,7 @@ import { WizardProgress } from '../WizardProgress/WizardProgress';
 import { Modal } from './Modal';
 
 const meta = {
-  title: 'Modal',
+  title: 'Dialog/Modal',
   component: Modal,
   tags: ['autodocs'],
 } satisfies Meta<typeof Modal>;

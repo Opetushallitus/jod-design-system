@@ -4,7 +4,7 @@ import { fn } from '@storybook/test';
 import { Note } from './Note';
 
 const meta = {
-  title: 'Snackbars/Note',
+  title: 'Snackbar/Note',
   component: Note,
   tags: ['autodocs'],
 } satisfies Meta<typeof Note>;
