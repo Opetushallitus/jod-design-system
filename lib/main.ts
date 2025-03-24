@@ -45,7 +45,7 @@ export { LogoBlackFi, LogoRgbFi, LogoWhiteFi } from './components/Logo/LogoFi';
 export { LogoIconBlack, LogoIconRgb, LogoIconWhite } from './components/Logo/LogoIcon';
 export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MediaCard } from './components/MediaCard/MediaCard';
-export { Modal } from './components/Modal/Modal';
+export { ModalV2 } from './components/ModalV2/ModalV2';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export { Note } from './components/Note/Note';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';

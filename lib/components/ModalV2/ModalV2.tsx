@@ -22,7 +22,7 @@ export interface ModalProps {
   children?: (onCloseClick: () => void) => React.ReactNode;
 }
 
-export const Modal = (props: ModalProps) => {
+export const ModalV2 = (props: ModalProps) => {
   const { open, setOpen, confirmBeforeClose, children } = props;
   const ref = React.createRef<HTMLDialogElement>();
   const [internalOpen, setInternalOpen] = React.useState(open);
