@@ -6,7 +6,7 @@ import { Button } from '../../main';
 import { ModalV2 } from './ModalV2';
 
 const meta = {
-  title: 'Modal',
+  title: 'ModalV2',
   component: ModalV2,
   tags: ['autodocs'],
 } satisfies Meta<typeof ModalV2>;
