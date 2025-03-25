@@ -35,7 +35,9 @@ export const Modal = ({ open, onClose, content, footer, confirmBeforeClose }: Mo
     <BaseModal open={open} setOpen={setOpen} confirmBeforeClose={confirmBeforeClose}>
       {(onCloseClick) => (
         <div className="ds:bg-bg-gray ds:flex ds:flex-col ds:max-w-[1092px]">
-          <div className={cx(heightClasses, 'ds:overflow-y-auto ds:p-5 ds:sm:px-7 ds:sm:py-8')}>{content}</div>
+          <div className={cx(heightClasses, 'ds:overflow-y-auto ds:overscroll-y-contain ds:p-5 ds:sm:px-7 ds:sm:py-8')}>
+            {content}
+          </div>
           <div
             role="group"
             className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:p-5 ds:sm:px-7"
