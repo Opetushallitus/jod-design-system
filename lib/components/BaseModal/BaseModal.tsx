@@ -8,12 +8,12 @@ interface ConfirmTranslations {
   yesLabel: string;
 }
 
-export interface ModalProps {
+export interface BaseModalProps {
   /** State to control the open state */
   open: boolean;
   /** Function to set the open state */
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  /** If true, a confirm modal will be shown before closing */
+  /** Configuration for confirm dialog before closing */
   confirmBeforeClose?: {
     enabled: boolean;
     translations: ConfirmTranslations;
@@ -22,7 +22,7 @@ export interface ModalProps {
   children?: (onCloseClick: () => void) => React.ReactNode;
 }
 
-export const BaseModal = (props: ModalProps) => {
+export const BaseModal = (props: BaseModalProps) => {
   const { open, setOpen, confirmBeforeClose, children } = props;
   const ref = React.createRef<HTMLDialogElement>();
   const [internalOpen, setInternalOpen] = React.useState(open);
@@ -160,12 +160,12 @@ const ConfirmModal = (props: ConfirmModalProps) => {
       className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
     >
       <div className="ds:flex ds:flex-col">
-        <div className="ds:flex ds:flex-col ds:gap-5 ds:max-w-[640px] ds:px-6 ds:py-5 ds:sm:px-9">
-          <h2 className="ds:text-heading-2">{title}</h2>
+        <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:p-7 ds:sm:p-9">
+          <h2 className="ds:text-heading-2 ds:mb-5">{title}</h2>
           <p className="ds:text-body-sm ds:font-arial">{description}</p>
         </div>
         <div
-          className="ds:flex ds:gap-5 ds:px-6 ds:py-5 ds:sm:px-9 ds:justify-end ds:overflow-x-auto ds:bg-bg-gray-2"
+          className="ds:flex ds:gap-5 ds:justify-end ds:p-5 ds:sm:px-7 ds:overflow-x-auto ds:bg-bg-gray-2"
           role="group"
         >
           <Button label={noLabel} onClick={onNoClick} variant="white" />

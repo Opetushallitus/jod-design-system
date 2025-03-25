@@ -1,8 +1,20 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { Modal } from './Modal';
 
 describe('Modal', () => {
+  beforeAll(() => {
+    HTMLDialogElement.prototype.show = vi.fn(function mock(this: HTMLDialogElement) {
+      this.open = true;
+    });
+    HTMLDialogElement.prototype.showModal = vi.fn(function mock(this: HTMLDialogElement) {
+      this.open = true;
+    });
+    HTMLDialogElement.prototype.close = vi.fn(function mock(this: HTMLDialogElement) {
+      this.open = false;
+    });
+  });
+
   it('renders correctly', async () => {
     const content = <div>Modal Content</div>;
     const footer = <div>Modal Footer</div>;

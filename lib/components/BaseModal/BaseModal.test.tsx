@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { BaseModal, ModalProps } from './BaseModal';
+import { BaseModal, BaseModalProps } from './BaseModal';
 
-describe('BaseModal Component', () => {
+describe('BaseModal', () => {
   beforeAll(() => {
     HTMLDialogElement.prototype.show = vi.fn(function mock(this: HTMLDialogElement) {
       this.open = true;
@@ -15,7 +15,7 @@ describe('BaseModal Component', () => {
     });
   });
 
-  const defaultProps: ModalProps = {
+  const defaultProps: BaseModalProps = {
     open: true,
     setOpen: vi.fn(),
     children: (onCloseClick) => (
