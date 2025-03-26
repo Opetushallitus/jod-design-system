@@ -5,14 +5,14 @@ import { BaseModal, type BaseModalProps } from '../BaseModal/BaseModal';
 export interface ModalProps {
   open: boolean;
   onClose?: () => void;
-  content: React.ReactNode;
-  footer: ((onCloseClick: () => void) => React.ReactNode) | React.ReactNode;
   /** Configuration for confirm dialog before closing */
   confirmBeforeClose?: BaseModalProps['confirmBeforeClose'];
+  renderFooter: (onCloseClick: () => void) => React.ReactNode;
+  children?: React.ReactNode;
 }
 
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
-export const Modal = ({ open, onClose, content, footer, confirmBeforeClose }: ModalProps) => {
+export const Modal = ({ open, onClose, confirmBeforeClose, renderFooter, children }: ModalProps) => {
   const setOpen = (value: React.SetStateAction<boolean>) => {
     if (value === false && onClose) {
       onClose();
@@ -34,15 +34,15 @@ export const Modal = ({ open, onClose, content, footer, confirmBeforeClose }: Mo
   return (
     <BaseModal open={open} setOpen={setOpen} confirmBeforeClose={confirmBeforeClose}>
       {(onCloseClick) => (
-        <div className="ds:bg-bg-gray ds:flex ds:flex-col ds:max-w-[1092px]">
+        <div className="ds:bg-bg-gray ds:flex ds:flex-col ds:grow ds:max-w-[1092px]">
           <div className={cx(heightClasses, 'ds:overflow-y-auto ds:overscroll-y-contain ds:p-5 ds:sm:px-7 ds:sm:py-8')}>
-            {content}
+            {children}
           </div>
           <div
             role="group"
             className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:p-5 ds:sm:px-7"
           >
-            {typeof footer === 'function' ? footer(onCloseClick) : footer}
+            {typeof renderFooter === 'function' ? renderFooter(onCloseClick) : renderFooter}
           </div>
         </div>
       )}

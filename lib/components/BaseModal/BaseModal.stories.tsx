@@ -16,7 +16,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const confirmBeforeClose: Story['args']['confirmBeforeClose'] = {
-  enabled: true,
   translations: {
     title: 'Are you sure you want to close?',
     description: 'If you close, you will lose any unsaved changes.',

@@ -20,12 +20,12 @@ const argTypes: Story['argTypes'] = {
       disable: true,
     },
   },
-  content: {
+  children: {
     table: {
       disable: true,
     },
   },
-  footer: {
+  renderFooter: {
     table: {
       disable: true,
     },
@@ -33,7 +33,6 @@ const argTypes: Story['argTypes'] = {
 };
 
 const confirmBeforeClose: Story['args']['confirmBeforeClose'] = {
-  enabled: true,
   translations: {
     title: 'Are you sure you want to close?',
     description: 'If you close, you will lose any unsaved changes.',
@@ -59,7 +58,7 @@ const LoremIpsum = ({ heading, length = 10 }: { heading: string; length?: number
 };
 
 const render = (args: Story['args']) => {
-  const { open, onClose, footer, ...rest } = args;
+  const { open, onClose, renderFooter, ...rest } = args;
   const [isOpen, setIsOpen] = useState(open);
 
   return (
@@ -74,7 +73,7 @@ const render = (args: Story['args']) => {
           }
           setIsOpen(false);
         }}
-        footer={footer}
+        renderFooter={renderFooter}
       />
     </>
   );
@@ -83,9 +82,6 @@ const render = (args: Story['args']) => {
 export const Default: Story = {
   render,
   parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
     design: {
       type: 'figma',
       url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
@@ -100,17 +96,17 @@ export const Default: Story = {
   args: {
     open: false,
     onClose: fn(),
-    content: <LoremIpsum heading="Content" />,
-    footer: (onCloseClick) => (
+    children: <LoremIpsum heading="Content" />,
+    renderFooter: (onCloseClick) => (
       <div className="ds:flex ds:flex-row ds:justify-between ds:gap-5">
         <div className="ds:flex ds:flex-row ds:gap-5">
-          <Button label="Sulje" variant="white" onClick={onCloseClick} />
-          <Button label="Lisää" variant="white" />
+          <Button label="Close" variant="white" onClick={onCloseClick} />
+          <Button label="Add" variant="white" />
         </div>
         <div className="ds:flex ds:flex-row ds:gap-5">
-          <Button label="Edellinen" variant="white" />
-          <Button label="Seuraava" variant="white" />
-          <Button label="Tallenna" variant="white" />
+          <Button label="Previous" variant="white" />
+          <Button label="Next" variant="white" />
+          <Button label="Save" variant="white" />
         </div>
       </div>
     ),
@@ -138,17 +134,17 @@ export const Mobile: Story = {
   args: {
     open: false,
     onClose: fn(),
-    content: <LoremIpsum heading="Content" />,
-    footer: (onCloseClick) => (
+    children: <LoremIpsum heading="Content" />,
+    renderFooter: (onCloseClick) => (
       <div className="ds:flex ds:flex-row ds:justify-between ds:gap-5">
         <div className="ds:flex ds:flex-row ds:gap-5">
-          <Button label="Sulje" variant="white" onClick={onCloseClick} />
-          <Button label="Lisää" variant="white" />
+          <Button label="Close" variant="white" onClick={onCloseClick} />
+          <Button label="Add" variant="white" />
         </div>
         <div className="ds:flex ds:flex-row ds:gap-5">
-          <Button label="Edellinen" variant="white" />
-          <Button label="Seuraava" variant="white" />
-          <Button label="Tallenna" variant="white" />
+          <Button label="Previous" variant="white" />
+          <Button label="Next" variant="white" />
+          <Button label="Save" variant="white" />
         </div>
       </div>
     ),

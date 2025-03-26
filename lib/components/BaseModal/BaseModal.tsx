@@ -15,7 +15,6 @@ export interface BaseModalProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   /** Configuration for confirm dialog before closing */
   confirmBeforeClose?: {
-    enabled: boolean;
     translations: ConfirmTranslations;
   };
   /** Children to render inside the modal */
@@ -25,24 +24,23 @@ export interface BaseModalProps {
 export const BaseModal = (props: BaseModalProps) => {
   const { open, setOpen, confirmBeforeClose, children } = props;
   const ref = React.createRef<HTMLDialogElement>();
-  const [internalOpen, setInternalOpen] = React.useState(open);
   const [confirmOpen, setConfirmOpen] = React.useState(false);
   const confirmRef = React.createRef<HTMLDialogElement>();
 
   // Handle dialog events in correct order
   React.useEffect(() => {
     if (open) {
-      setInternalOpen(true);
-      ref.current?.showModal();
+      const element = ref.current;
+      // Workaround to show the dialog after the children are rendered
+      const timeoutId = setTimeout(() => {
+        element?.showModal();
+      });
+      return () => clearTimeout(timeoutId);
     } else {
       ref.current?.close();
-      setInternalOpen(false);
     }
-  }, [open, ref]);
-
-  if (!internalOpen) {
-    return null;
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDialogElement>) => {
     if (e.key === 'Escape') {

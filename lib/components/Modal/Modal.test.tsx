@@ -19,7 +19,11 @@ describe('Modal', () => {
     const content = <div>Modal Content</div>;
     const footer = <div>Modal Footer</div>;
 
-    render(<Modal open={true} onClose={vi.fn()} content={content} footer={footer} />);
+    render(
+      <Modal open={true} onClose={vi.fn()} renderFooter={() => footer}>
+        {content}
+      </Modal>,
+    );
 
     // Assert that the modal is rendered
     const modalElement = screen.getByRole('dialog');
