@@ -49,15 +49,15 @@ const handleEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
 
 const Header = () => (
   <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
-    <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3" onKeyDown={handleEnter}>
+    <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
       <MdArrowBack size={24} />
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
-      <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold" />
+      <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold ds:cursor-pointer" />
     </ArkDatePicker.ViewTrigger>
 
-    <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3" onKeyDown={handleEnter}>
+    <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
       <MdArrowForward size={24} />
     </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
@@ -170,7 +170,7 @@ export const Datepicker = ({
             onBlur={onBlur}
           />
           <ArkDatePicker.Trigger
-            className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray"
+            className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:cursor-pointer"
             type="button"
             onKeyDown={handleEnter}
             onClick={() => {
