@@ -24,23 +24,20 @@ export interface BaseModalProps {
 export const BaseModal = (props: BaseModalProps) => {
   const { open, setOpen, confirmBeforeClose, children } = props;
   const ref = React.createRef<HTMLDialogElement>();
+  const [internalOpen, setInternalOpen] = React.useState(open);
   const [confirmOpen, setConfirmOpen] = React.useState(false);
   const confirmRef = React.createRef<HTMLDialogElement>();
 
   // Handle dialog events in correct order
   React.useEffect(() => {
     if (open) {
-      const element = ref.current;
-      // Workaround to show the dialog after the children are rendered
-      const timeoutId = setTimeout(() => {
-        element?.showModal();
-      });
-      return () => clearTimeout(timeoutId);
+      setInternalOpen(true);
+      ref.current?.showModal();
     } else {
       ref.current?.close();
+      setInternalOpen(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open]);
+  }, [open, ref]);
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDialogElement>) => {
     if (e.key === 'Escape') {
@@ -67,6 +64,10 @@ export const BaseModal = (props: BaseModalProps) => {
       setOpen(false);
     }
   };
+
+  if (!internalOpen) {
+    return null;
+  }
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
@@ -99,6 +100,7 @@ export interface ConfirmModalProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   /** Function to set the parent open state */
   setParentOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  /** Translations for the confirm dialog */
   translations: ConfirmTranslations;
 }
 

@@ -50,7 +50,7 @@ describe('BaseModal', () => {
       noLabel: 'No',
       yesLabel: 'Yes',
     };
-    render(<BaseModal {...defaultProps} confirmBeforeClose={{ enabled: true, translations: confirmTranslations }} />);
+    render(<BaseModal {...defaultProps} confirmBeforeClose={{ translations: confirmTranslations }} />);
     fireEvent.click(screen.getByText('Close'));
     expect(screen.getByText('Confirm Close')).toBeInTheDocument();
     expect(screen.getByText('Are you sure you want to close?')).toBeInTheDocument();
@@ -65,11 +65,7 @@ describe('BaseModal', () => {
       yesLabel: 'Yes',
     };
     render(
-      <BaseModal
-        {...defaultProps}
-        setOpen={setOpenMock}
-        confirmBeforeClose={{ enabled: true, translations: confirmTranslations }}
-      />,
+      <BaseModal {...defaultProps} setOpen={setOpenMock} confirmBeforeClose={{ translations: confirmTranslations }} />,
     );
     fireEvent.click(screen.getByText('Close'));
     fireEvent.click(screen.getByText('Yes'));
@@ -89,7 +85,7 @@ describe('BaseModal', () => {
       noLabel: 'No',
       yesLabel: 'Yes',
     };
-    render(<BaseModal {...defaultProps} confirmBeforeClose={{ enabled: true, translations: confirmTranslations }} />);
+    render(<BaseModal {...defaultProps} confirmBeforeClose={{ translations: confirmTranslations }} />);
     fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
     expect(screen.getByText('Confirm Close')).toBeInTheDocument();
   });
