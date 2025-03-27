@@ -40,9 +40,14 @@ export const Modal = ({ open, onClose, children, content, confirmBeforeClose, re
   };
 
   return (
-    <BaseModal open={open} setOpen={setOpen} confirmBeforeClose={confirmBeforeClose}>
+    <BaseModal
+      open={open}
+      setOpen={setOpen}
+      confirmBeforeClose={confirmBeforeClose}
+      className="ds:max-w-[min(100%,1092px)] ds:min-w-[min(100%,1092px)] ds:w-[min(100%,1092px)]"
+    >
       {(onCloseClick) => (
-        <div className="ds:bg-bg-gray ds:flex ds:flex-col ds:grow ds:max-w-[1092px]">
+        <div className="ds:bg-bg-gray ds:flex ds:flex-col">
           <div className={cx(heightClasses, 'ds:overflow-y-auto ds:overscroll-y-contain ds:p-5 ds:sm:px-7 ds:sm:py-8')}>
             {children ?? content}
           </div>

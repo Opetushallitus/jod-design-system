@@ -19,10 +19,12 @@ export interface BaseModalProps {
   };
   /** Children to render inside the modal */
   children?: (onCloseClick: () => void) => React.ReactNode;
+  /** Additional class name */
+  className?: string;
 }
 
 export const BaseModal = (props: BaseModalProps) => {
-  const { open, setOpen, confirmBeforeClose, children } = props;
+  const { open, setOpen, confirmBeforeClose, children, className } = props;
   const ref = React.createRef<HTMLDialogElement>();
   const [internalOpen, setInternalOpen] = React.useState(open);
   const [confirmOpen, setConfirmOpen] = React.useState(false);
@@ -75,7 +77,7 @@ export const BaseModal = (props: BaseModalProps) => {
       ref={ref}
       onKeyDown={onKeyDown}
       onClick={onClick}
-      className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
+      className={`ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ${className}`.trim()}
     >
       {children?.(close)}
       {confirmBeforeClose && (
@@ -157,7 +159,7 @@ const ConfirmModal = (props: ConfirmModalProps) => {
       ref={ref}
       onKeyDown={onKeyDown}
       onClick={onClick}
-      className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto ds:max-w-full"
+      className="ds:backdrop:bg-black/30 ds:rounded-lg ds:m-auto"
     >
       <div className="ds:flex ds:flex-col">
         <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:p-7 ds:sm:p-9">
