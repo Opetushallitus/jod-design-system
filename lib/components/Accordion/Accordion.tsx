@@ -17,7 +17,7 @@ type AccordionProps = {
   children: React.ReactNode;
   lang: string;
   underline?: boolean;
-  intialState?: boolean;
+  initialState?: boolean;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -26,21 +26,22 @@ const Caret = ({ isOpen }: { isOpen: boolean }) => (
   </span>
 );
 
-export const Accordion = ({ title, titleText, children, lang, underline, intialState = true }: AccordionProps) => {
-  const [isOpen, setIsOpen] = React.useState(intialState);
+export const Accordion = ({ title, titleText, children, lang, underline, initialState = true }: AccordionProps) => {
+  const [isOpen, setIsOpen] = React.useState(initialState);
   const toggleOpen = () => setIsOpen(!isOpen);
   const isTitleValidElement = React.isValidElement(title);
   const wrapperClassnames = cx(
-    'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:mb-2 ds:group-hover:text-accent!',
+    'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent!',
     {
       'ds:border-b ds:border-border-gray': underline,
+      'ds:mb-2': isOpen,
     },
   );
 
   // Reset the state when the children change
   React.useEffect(() => {
-    setIsOpen(intialState);
-  }, [children, intialState]);
+    setIsOpen(initialState);
+  }, [children, initialState]);
 
   return (
     <>
