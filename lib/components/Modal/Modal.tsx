@@ -11,10 +11,19 @@ export interface ModalProps {
   progress?: React.ReactNode;
   /** Slot is not used on mobile. */
   sidePanel?: React.ReactNode;
+  fullWidthContent?: boolean;
 }
 
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
-export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: ModalProps) => {
+export const Modal = ({
+  open,
+  onClose,
+  content,
+  progress,
+  sidePanel,
+  footer,
+  fullWidthContent = false,
+}: ModalProps) => {
   const { sm } = useMediaQueries();
   const id = React.useId();
 
@@ -72,9 +81,11 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
                 'ds:sm:grid-cols-3',
                 'ds:pl-5',
                 'ds:md:pl-9',
+                'ds:relative',
               ])}
             >
               {/* Main content */}
+              {progress && <div className="ds:absolute ds:top-0 ds:right-5">{progress}</div>}
               <div
                 className={tc([
                   heightClasses,
@@ -83,25 +94,26 @@ export const Modal = ({ open, onClose, content, progress, sidePanel, footer }: M
                   'ds:flex-col',
                   'ds:gap-y-6',
                   'ds:pr-5',
-                  (sidePanel ?? progress) ? 'ds:sm:col-span-2' : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-9',
+                  sidePanel || !fullWidthContent
+                    ? 'ds:sm:col-span-2'
+                    : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-9',
+                  progress && !sm ? 'ds:mt-6 ds:sm:mt-8' : '',
                   'ds:sm:pr-0',
                 ])}
               >
-                {progress && !sm && <div className="ds:flex ds:justify-end">{progress}</div>}
-                <div className="ds:overflow-y-auto ds:sm:mt-6 ds:p-3 ds:-m-3">{content}</div>
+                <div className={`ds:overflow-y-auto ds:p-3 ${progress ? 'ds:mt-8' : ''}`}>{content}</div>
               </div>
               {/* Side panel */}
-              {sm && (sidePanel ?? progress) && (
+              {sm && sidePanel && !fullWidthContent && (
                 <div className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}>
-                  {progress && <div className="ds:mr-6 ds:flex ds:justify-end">{progress}</div>}
-                  <div className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${!progress ? 'ds:sm:mt-6' : ''}`}>
+                  <div className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}>
                     {sidePanel}
                   </div>
                 </div>
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9">
+            <div className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50">
               {footer}
             </div>
           </DialogPanel>
