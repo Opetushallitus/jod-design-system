@@ -72,7 +72,7 @@ describe('Pagination', () => {
 
     renderPagination(props);
 
-    const pageElement = screen.getByRole('button', { name: '2' });
+    const pageElement = await screen.findByRole('button', { name: 'page 2' });
     pageElement.click();
     await waitFor(() => expect(mockOnPageChange).toHaveBeenCalledWith({ page: 2, pageSize: 10 }));
   });
@@ -89,7 +89,7 @@ describe('Pagination', () => {
 
     renderPagination(props);
 
-    const pageElement = screen.getByRole('button', { name: '1' });
+    const pageElement = await screen.findByRole('button', { name: 'page 1' });
     pageElement.click();
     await waitFor(() => expect(mockOnPageChange).toHaveBeenCalledWith({ page: 1, pageSize: 5 }));
   });
@@ -106,7 +106,7 @@ describe('Pagination', () => {
 
     renderPagination(props);
 
-    const pageElement = screen.getByRole('button', { name: '20' });
+    const pageElement = await screen.findByRole('button', { name: 'last page, page 20' });
     pageElement.click();
     await waitFor(() => expect(mockOnPageChange).toHaveBeenCalledWith({ page: 20, pageSize: 5 }));
   });
