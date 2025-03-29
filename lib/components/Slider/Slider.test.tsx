@@ -1,36 +1,41 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import React from 'react';
+import { afterEach, describe, expect, it, Mock, vi } from 'vitest';
 import { Slider } from './Slider';
 
 afterEach(() => {
   vi.restoreAllMocks();
 });
 
+const ControlledSlider = ({ mockOnChange, defaultValue, ...rest }: { mockOnChange: Mock; defaultValue: number }) => {
+  const [value, setValue] = React.useState(defaultValue);
+  mockOnChange.mockImplementation((v: number) => setValue(v));
+  return <Slider value={value} label="Target" onValueChange={mockOnChange} rightLabel="moi" {...rest} />;
+};
+
 describe('Slider', () => {
   it('should call onValueChange when value changes', async () => {
-    const onValueChangeMock = vi.fn();
+    const onValueChangeMock = await waitFor(() => vi.fn());
     const user = userEvent.setup();
 
     act(() => {
-      render(<Slider label="Target" onValueChange={onValueChangeMock} value={0} rightLabel="moi" />);
+      render(<ControlledSlider mockOnChange={onValueChangeMock} defaultValue={0} />);
     });
 
-    const [sliderThumb] = screen.getAllByRole('slider', { hidden: true });
+    const [sliderThumb] = await screen.findAllByRole('slider', { hidden: true });
 
     await waitFor(() => sliderThumb.focus());
     expect(sliderThumb).toHaveFocus();
-    const tooltip = screen.getByRole('tooltip');
+    const tooltip = await screen.findByRole('tooltip');
     expect(tooltip).toHaveTextContent('100 - 0 %');
 
-    const press = async (key: 'left' | 'right') => await user.keyboard(key === 'left' ? '[ArrowLeft]' : '[ArrowRight]');
+    const press = async (key: 'left' | 'right') => await user.keyboard(key === 'left' ? '{ArrowLeft}' : '{ArrowRight}');
     const ariaValue = 'aria-valuenow';
 
     expect(sliderThumb).toHaveAttribute(ariaValue, '0');
 
     await press('right');
-    expect(onValueChangeMock).toHaveBeenCalledWith(25);
-    await press('right'); // For some reason, the "aria-valuenow" attribute is not updated without extra right press
     expect(onValueChangeMock).toHaveBeenCalledWith(25);
     expect(sliderThumb).toHaveAttribute(ariaValue, '25');
 
@@ -61,7 +66,7 @@ describe('Slider', () => {
     await press('left');
     expect(sliderThumb).toHaveAttribute(ariaValue, '0');
 
-    expect(onValueChangeMock).toHaveBeenCalledTimes(9);
+    expect(onValueChangeMock).toHaveBeenCalledTimes(8);
   });
 
   it('should show both values in tooltip when rightLabel is used', async () => {
@@ -76,8 +81,10 @@ describe('Slider', () => {
     expect(tooltip).toHaveTextContent('75 - 25 %');
   });
 
-  it('should render the label and rightLabel correctly', () => {
-    render(<Slider label="Osaamiset" rightLabel="Kiinnostukset" onValueChange={() => vi.fn()} value={50} />);
+  it('should render the label and rightLabel correctly', async () => {
+    await waitFor(() => {
+      render(<Slider label="Osaamiset" rightLabel="Kiinnostukset" onValueChange={() => vi.fn()} value={50} />);
+    });
 
     expect(screen.getByText('Osaamiset')).toBeInTheDocument();
     expect(screen.getByText('Kiinnostukset')).toBeInTheDocument();
