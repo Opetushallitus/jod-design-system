@@ -1,4 +1,4 @@
-@theme {
+@theme static {
   --breakpoint-*: initial;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
