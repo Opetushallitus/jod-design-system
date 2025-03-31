@@ -113,7 +113,7 @@ export const Modal = ({
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50">
+            <div className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50">
               {footer}
             </div>
           </DialogPanel>
