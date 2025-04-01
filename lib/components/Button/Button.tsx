@@ -21,7 +21,10 @@ export interface ButtonProps {
   iconSide?: 'left' | 'right';
   /** For situation where the button needs to act as a link, like NavLink */
   LinkComponent?: React.ComponentType<{ children: React.ReactNode }>;
+  /** Ref to the button element */
   ref?: React.Ref<HTMLButtonElement>;
+  /** Additional class names */
+  className?: string;
 }
 
 const getSizeClassName = (size: ButtonProps['size']) => {
@@ -105,6 +108,7 @@ export const Button = ({
   iconSide,
   LinkComponent,
   ref,
+  className,
 }: ButtonProps) => {
   const leftIcon = icon !== undefined && iconSide === 'left';
   const rightIcon = icon !== undefined && iconSide === 'right';
@@ -120,7 +124,7 @@ export const Button = ({
 
   return LinkComponent ? (
     <LinkComponent>
-      <span className={buttonClassName}>
+      <span className={`${buttonClassName} ${className ?? ''}`.trim()}>
         {leftIcon && icon}
         {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}
         {rightIcon && icon}
@@ -132,7 +136,7 @@ export const Button = ({
       disabled={disabled}
       type={onClick ? 'button' : 'submit'}
       onClick={onClick}
-      className={buttonClassName}
+      className={`${buttonClassName} ${className ?? ''}`.trim()}
       ref={ref}
     >
       {leftIcon && icon}
