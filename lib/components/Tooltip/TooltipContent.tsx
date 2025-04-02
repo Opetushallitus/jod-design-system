@@ -2,7 +2,10 @@ import { FloatingArrow, FloatingPortal, useMergeRefs } from '@floating-ui/react'
 import React from 'react';
 import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
-export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
+type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
+  arrowClassName?: string;
+};
+export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
   function TooltipContent(props, propRef) {
     const tooltipContext = useTooltipContext();
     const ref = useMergeRefs([tooltipContext.refs.setFloating, propRef]);
@@ -14,7 +17,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
     return (
       <FloatingPortal>
         <div
-          className="ds:max-w-[292px] ds:rounded ds:bg-black ds:px-6 ds:py-5 ds:text-body-sm ds:font-arial ds:font-arial ds:text-white ds:sm:text-body-md"
+          className="ds:max-w-[292px] ds:rounded ds:bg-black ds:px-6 ds:py-5 ds:text-body-sm ds:font-arial ds:text-white ds:sm:text-body-md"
           ref={ref}
           style={{
             ...tooltipContext.floatingStyles,
@@ -25,7 +28,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<H
           <FloatingArrow
             ref={tooltipContext.arrowRef}
             context={tooltipContext.context}
-            className="ds:fill-black"
+            className={props.arrowClassName ?? 'ds:fill-black'}
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
           />
