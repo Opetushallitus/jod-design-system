@@ -48,6 +48,20 @@ export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
+export {
+  ExternalLinkSections,
+  LanguageSelection,
+  MenuList,
+  NavigationMenu,
+  type ExternalLinkSection,
+  type LanguageSelectionItem,
+  type LinkComponent,
+  type LinkItem,
+  type MenuItem,
+  type MenuListProps,
+  type NavigationMenuLanguageSelectionProps,
+  type NavigationMenuProps,
+} from './components/NavigationMenu';
 export { Note } from './components/Note/Note';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';
