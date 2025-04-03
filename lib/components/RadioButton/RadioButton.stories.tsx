@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
+import { MdCheck } from 'react-icons/md';
 
 import { RadioButton } from './RadioButton';
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
@@ -71,4 +72,47 @@ export const Bordered: Story = {
   render: (args) => {
     return <DefaultStoryRender {...args} />;
   },
+};
+
+const LanguageSelectionRender = (props: RadioButtonGroupProps) => {
+  const [value, setValue] = React.useState<string>('fi');
+  return <RadioButtonGroup {...props} value={value} onChange={setValue} />;
+};
+export const CustomIcons: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Custom icons for checked and unchecked states.',
+      },
+    },
+  },
+  args: {
+    label: 'Millä kielellä haluat käyttää palvelua?',
+    value: 'fi',
+    onChange: fn(),
+    children: (
+      <>
+        <RadioButton
+          checkedIcon={<MdCheck size={24} />}
+          uncheckedIcon={<span className="ds:size-[24px]"></span>}
+          label="Suomeksi"
+          value="fi"
+        />
+        <RadioButton
+          checkedIcon={<MdCheck size={24} />}
+          uncheckedIcon={<span className="ds:size-[24px]"></span>}
+          label="På svenska"
+          value="sv"
+        />
+        <RadioButton
+          checkedIcon={<MdCheck size={24} />}
+          uncheckedIcon={<span className="ds:size-[24px]"></span>}
+          label="In English"
+          value="en"
+        />
+      </>
+    ),
+  },
+  render: LanguageSelectionRender,
 };

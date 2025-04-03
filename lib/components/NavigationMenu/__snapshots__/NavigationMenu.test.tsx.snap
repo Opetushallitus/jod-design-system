@@ -1,0 +1,103 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavigationMenu > renders navigation menu with default state 1`] = `
+<nav
+  class="ds:w-sm ds:min-w-sm ds:max-w-sm ds:h-full ds:bg-white"
+>
+  <div
+    class="ds:p-3 ds:flex ds:flex-col"
+  >
+    <div
+      class="ds:flex ds:justify-end"
+    >
+      <button
+        class="ds:cursor-pointer"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </button>
+    </div>
+    <a
+      class="ds:flex ds:flex-row ds:gap-3 ds:p-3 ds:cursor-pointer ds:group"
+      href="/#"
+    >
+      <svg
+        fill="currentColor"
+        height="24"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+        />
+      </svg>
+      <span
+        class="ds:text-button-md ds:group-hover:underline"
+      >
+        Etusivu
+      </span>
+    </a>
+    <span
+      class="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"
+    />
+    <div
+      class="ds:border-l-[8px]"
+      style="border-color: #85c4ec;"
+    >
+      <ul
+        class="ds:ml-3 ds:gap-2 ds:flex ds:flex-col"
+      />
+    </div>
+    <span
+      class="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"
+    />
+    <div />
+    <span
+      class="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"
+    />
+    <div
+      class="ds:flex ds:flex-row"
+    >
+      <div
+        aria-labelledby="headlessui-label-:r1:"
+        class="ds:space-y-3 ds:flex ds:flex-1 ds:flex ds:flex-col ds:space-y-2"
+        id="headlessui-radiogroup-:r0:"
+        role="radiogroup"
+      >
+        <div
+          class="ds:mb-5 ds:text-body-xs ds:font-arial ds:text-secondary-gray ds:hidden"
+          data-headlessui-state=""
+          id="headlessui-label-:r1:"
+        >
+          Language selection
+        </div>
+      </div>
+      <span
+        class="ds:size-[40px]"
+      />
+    </div>
+  </div>
+</nav>
+`;

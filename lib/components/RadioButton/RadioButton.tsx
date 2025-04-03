@@ -1,4 +1,5 @@
 import { Radio } from '@headlessui/react';
+import React from 'react';
 
 export interface RadioButtonProps {
   /** Text for the component */
@@ -9,14 +10,31 @@ export interface RadioButtonProps {
   className?: string;
   /** Component variant */
   variant?: 'default' | 'bordered';
+
+  checkedIcon?: React.ReactNode;
+  uncheckedIcon?: React.ReactNode;
 }
 
-export const RadioButton = ({ label, value, className, variant = 'default' }: RadioButtonProps) => {
+export const RadioButton = ({
+  label,
+  value,
+  className,
+  variant = 'default',
+  checkedIcon,
+  uncheckedIcon,
+}: RadioButtonProps) => {
+  const Icon = ({ checked }: { checked: boolean }): React.ReactElement => {
+    const iconChecked = React.isValidElement(checkedIcon) ? checkedIcon : <CheckedIcon />;
+    const iconUnchecked = React.isValidElement(uncheckedIcon) ? uncheckedIcon : <UncheckedIcon variant={variant} />;
+
+    return checked ? iconChecked : iconUnchecked;
+  };
+
   return (
     <Radio value={value} className={`${className ? className : ''} flex h-7`.trim()}>
       {({ checked }) => (
         <div className="ds:flex-start ds:flex ds:space-x-4">
-          {checked ? <CheckedIcon /> : <UncheckedIcon variant={variant} />}
+          <Icon checked={checked} />
           <span className="ds:flex ds:items-center ds:text-heading-4 ds:text-black ds:hover:text-accent ds:hover:underline ds:hyphens-auto">
             {label}
           </span>
