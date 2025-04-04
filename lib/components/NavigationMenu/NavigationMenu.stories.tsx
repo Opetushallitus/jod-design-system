@@ -120,6 +120,40 @@ const menuItems: MenuItem[] = [
             {children}
           </a>
         ),
+        childItems: [
+          {
+            label: 'Työpaikkani',
+            LinkComponent: ({ children, className }: LinkComponent) => (
+              <a href="/#" className={className}>
+                {children}
+              </a>
+            ),
+          },
+          {
+            label: 'Koulutukseni',
+            LinkComponent: ({ children, className }: LinkComponent) => (
+              <a href="/#" className={className}>
+                {children}
+              </a>
+            ),
+          },
+          {
+            label: 'Vapaa-ajan toimintoni',
+            LinkComponent: ({ children, className }: LinkComponent) => (
+              <a href="/#" className={className}>
+                {children}
+              </a>
+            ),
+          },
+          {
+            label: 'Muut osaamiseni',
+            LinkComponent: ({ children, className }: LinkComponent) => (
+              <a href="/#" className={className}>
+                {children}
+              </a>
+            ),
+          },
+        ],
       },
       {
         label: 'Kiinnostuksen kohteeni',

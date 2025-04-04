@@ -1,12 +1,10 @@
-import { MdClose, MdHome } from 'react-icons/md';
+import React from 'react';
+import { MdClose } from 'react-icons/md';
 import { ExternalLinkSection, ExternalLinkSections } from './ExternalLinkSections';
 import { LanguageSelection, LanguageSelectionItem } from './LanguageSelection';
 import { MenuItem, MenuList } from './MenuList';
+import { MenuSeparator } from './MenuSeparator';
 import { LinkComponent } from './types';
-
-const MenuSeparator = () => {
-  return <span className="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"></span>;
-};
 
 const CloseMenuButton = () => {
   return (
@@ -15,21 +13,6 @@ const CloseMenuButton = () => {
         <MdClose size={24} />
       </button>
     </div>
-  );
-};
-
-const FrontPageLink = ({
-  label,
-  component: Component,
-}: {
-  label: string;
-  component: React.ComponentType<LinkComponent>;
-}) => {
-  return (
-    <Component className="ds:flex ds:flex-row ds:gap-3 ds:p-3 ds:cursor-pointer ds:group">
-      <MdHome size={24} />
-      <span className="ds:text-button-md ds:group-hover:underline">{label}</span>
-    </Component>
   );
 };
 
@@ -65,17 +48,27 @@ export const NavigationMenu = ({
   selectedLanguage,
   onLanguageChange,
 }: NavigationMenuProps) => {
+  const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
+
   return (
     <nav className="ds:w-sm ds:min-w-sm ds:max-w-sm ds:h-full ds:bg-white">
       <div className="ds:p-3 ds:flex ds:flex-col">
         <CloseMenuButton />
-        <FrontPageLink label={frontPageLinkLabel} component={FrontPageLinkComponent} />
-        <MenuSeparator />
-        <MenuList menuItems={menuItems} accentColor={accentColor} />
-        <MenuSeparator />
-        <ExternalLinkSections sections={externalLinkSections} />
-        <MenuSeparator />
-        <LanguageSelection items={languageSelectionItems} selected={selectedLanguage} onChange={onLanguageChange} />
+        <MenuList
+          menuItems={menuItems}
+          accentColor={accentColor}
+          frontPageLinkLabel={frontPageLinkLabel}
+          FrontPageLinkComponent={FrontPageLinkComponent}
+          onNestedMenuOpen={(menuOpen) => setNestedMenuOpen(menuOpen)}
+        />
+        {!nestedMenuOpen && (
+          <>
+            <MenuSeparator />
+            <ExternalLinkSections sections={externalLinkSections} />
+            <MenuSeparator />
+            <LanguageSelection items={languageSelectionItems} selected={selectedLanguage} onChange={onLanguageChange} />
+          </>
+        )}
       </div>
     </nav>
   );
