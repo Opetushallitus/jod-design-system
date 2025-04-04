@@ -74,44 +74,47 @@ export const MenuList = ({
   FrontPageLinkComponent,
   onNestedMenuOpen,
 }: MenuListProps) => {
-  //
-  // FIXME: logic for nested menu inside nested menu...
-  //
-  const [nestedMenuItems, setNestedMenuItems] = React.useState<MenuItem[]>([]);
-  const [previousNestedMenuItems, setPreviousNestedMenuItems] = React.useState<MenuItem[]>([]);
-
+  const [historyMenuItems, setHistoryMenuItems] = React.useState<MenuItem[][]>([]);
+  /** Going to nested menu */
   const onMenuItemClickHandler = (item: MenuItem) => {
     if (item.childItems && item.childItems.length > 0) {
-      setPreviousNestedMenuItems(nestedMenuItems);
-      setNestedMenuItems(item.childItems);
-    } else {
-      setNestedMenuItems([]);
-      setPreviousNestedMenuItems([]);
+      setHistoryMenuItems((prev) => {
+        const childItems = item.childItems || [];
+        return [...prev, childItems];
+      });
     }
   };
 
-  const someItems = React.useMemo(() => {
-    if (nestedMenuItems.length > 0) {
-      return nestedMenuItems;
+  const currentMenuItems = React.useMemo(() => {
+    if (historyMenuItems && historyMenuItems.length > 0) {
+      const lastItem = historyMenuItems[historyMenuItems.length - 1];
+      return lastItem;
     }
+
     return menuItems;
-  }, [nestedMenuItems, menuItems]);
+  }, [menuItems, historyMenuItems]);
 
   React.useEffect(() => {
-    if (nestedMenuItems.length > 0) {
+    if (historyMenuItems && historyMenuItems.length > 0) {
       onNestedMenuOpen(true);
     } else {
       onNestedMenuOpen(false);
     }
-  }, [nestedMenuItems, onNestedMenuOpen]);
+  }, [onNestedMenuOpen, historyMenuItems]);
 
   const HomeButton = React.useCallback(() => {
-    return nestedMenuItems.length > 0 ? (
+    return historyMenuItems && historyMenuItems.length > 0 ? (
       <div className="ds:flex ds:flex-row">
         <button
           className="ds:flex ds:flex-row ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group"
           onClick={() => {
-            setNestedMenuItems(previousNestedMenuItems);
+            /** Back to previous menu level */
+            setHistoryMenuItems((prev) => {
+              if (prev.length <= 1) {
+                return [];
+              }
+              return prev.slice(0, -1);
+            });
           }}
         >
           <MdArrowBackIos size={24} />
@@ -122,7 +125,7 @@ export const MenuList = ({
     ) : (
       <FrontPageLink label={frontPageLinkLabel} component={FrontPageLinkComponent} />
     );
-  }, [nestedMenuItems, FrontPageLinkComponent, frontPageLinkLabel, previousNestedMenuItems]);
+  }, [historyMenuItems, FrontPageLinkComponent, frontPageLinkLabel]);
 
   return (
     <>
@@ -132,7 +135,7 @@ export const MenuList = ({
 
       <div className={`ds:border-l-[8px]`} style={{ borderColor: accentColor }}>
         <ul className="ds:ml-3 ds:gap-2 ds:flex ds:flex-col">
-          {someItems.map((item) => (
+          {currentMenuItems.map((item) => (
             <MenuListItem
               key={item.label}
               label={item.label}

@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
-import { ExternalLinkSection, LinkComponent, MenuItem, NavigationMenu, NavigationMenuProps } from './NavigationMenu';
+import { ExternalLinkSection } from './ExternalLinkSections';
+import { MenuItem } from './MenuList';
+import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
+import { LinkComponent } from './types';
 
 const meta = {
   title: 'Layout/NavigationMenu',
@@ -19,7 +22,6 @@ const parameters = {
     url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=10543-34956',
   },
 };
-// LinkComponent={({ children }: { children: React.ReactNode }) => <a href={loginLink}>{children}</a>}
 
 const menuItems: MenuItem[] = [
   {

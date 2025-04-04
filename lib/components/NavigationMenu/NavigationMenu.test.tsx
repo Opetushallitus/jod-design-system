@@ -2,7 +2,8 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
 
-import { LinkComponent, NavigationMenu } from './NavigationMenu';
+import { NavigationMenu } from './NavigationMenu';
+import { LinkComponent } from './types';
 
 describe('NavigationMenu', () => {
   test('renders navigation menu with default state', () => {
@@ -21,7 +22,7 @@ describe('NavigationMenu', () => {
         languageSelectionItems={[]}
         selectedLanguage=""
         onLanguageChange={vi.fn()}
-      />,
+      />
     );
 
     const navigationMenu = screen.getByRole('navigation');
