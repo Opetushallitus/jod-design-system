@@ -12,6 +12,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const Link = ({ children, to, className }: { children: React.ReactNode; to?: string; className?: string }) => (
+  <a href={to} className={className}>
+    {children}
+  </a>
+);
+
 export const Default: Story = {
   parameters: {
     design: {
@@ -28,7 +34,14 @@ export const Default: Story = {
     title: 'Tulevaisuusmatka',
     description:
       'Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet, lorem velit osana ei osaa sanoa mitä accumsan dolor nonummy.',
-    tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+    path: ['Asiakastyön tueksi', 'Itsetuntemus'],
+    to: '#cardlink',
+    linkComponent: Link,
+    tags: [
+      { label: 'Taglorem', to: '#tag1link' },
+      { label: 'Loremtag', to: '#tag2link' },
+      { label: 'Nonutag', to: '#tag3link' },
+    ],
     className: 'ds:bg-white',
   },
 };

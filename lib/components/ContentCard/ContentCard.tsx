@@ -1,25 +1,100 @@
-import { tidyClasses as tc } from '../../main';
-
-export interface ContentCardProps {
+type LinkComponent =
+  | {
+      to: string;
+      linkComponent: React.ComponentType<{
+        to: string;
+        className?: string;
+        children: React.ReactNode;
+      }>;
+    }
+  | {
+      to?: never;
+      linkComponent?: never;
+    };
+export type ContentCardProps = {
   title: string;
   description: string;
-  tags: string[];
+  path: string[];
+  tags: {
+    label: string;
+    to: string;
+  }[];
   className?: string;
-}
+} & LinkComponent;
 
-const Tag = ({ label }: { label: string }) => {
-  return <li className="ds:px-2 ds:first:pl-0 ds:last:pr-0">{label}</li>;
+const Tag = ({
+  label,
+  to,
+  linkComponent: Link,
+}: {
+  label: string;
+  to: string;
+  linkComponent?: React.ComponentType<{
+    to: string;
+    className?: string;
+    children: React.ReactNode;
+  }>;
+}) => {
+  return (
+    <li className="ds:px-2 ds:first:pl-0 ds:last:pr-0">
+      {Link ? (
+        <Link to={to} className="ds:z-1 ds:relative">
+          {label}
+        </Link>
+      ) : (
+        <>{label}</>
+      )}
+    </li>
+  );
 };
 
-export const ContentCard = ({ title, description, tags, className = '' }: ContentCardProps) => {
+const LinkOrDiv = ({
+  to,
+  linkComponent: Link,
+  children,
+}: {
+  to?: string;
+  linkComponent?: React.ComponentType<{
+    to: string;
+    className?: string;
+    children: React.ReactNode;
+  }>;
+  children: React.ReactNode;
+}) => {
+  return Link && to ? (
+    <Link
+      to={to}
+      className="ds:flex ds:flex-col ds:gap-3 ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full"
+    >
+      {children}
+    </Link>
+  ) : (
+    <div className={`ds:flex ds:flex-col ds:gap-3`}>{children}</div>
+  );
+};
+
+export const ContentCard = ({
+  title,
+  description,
+  path,
+  tags,
+  linkComponent: Link,
+  to,
+  className = '',
+}: ContentCardProps) => {
   return (
-    <div className={tc(`ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`)}>
-      <div className="ds:text-heading-3">{title}</div>
-      <div className="ds:text-body-sm">{description}</div>
+    <div className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`}>
+      <LinkOrDiv to={to} linkComponent={Link}>
+        <div>
+          <div className="ds:text-body-xs ds:text-secondary-gray ds:font-semibold">{path.join(' / ')}</div>
+          <div className="ds:text-heading-3">{title}</div>
+        </div>
+        <div className="ds:text-body-sm ds:line-clamp-2 ds:min-h-[40px]">{description}</div>
+      </LinkOrDiv>
       <div className="ds:flex ds:flex-row ds:gap-3 ds:items-center">
         <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:flex-wrap ds:text-accent">
           {tags.map((tag) => (
-            <Tag key={tag} label={tag} />
+            <Tag key={tag.label} linkComponent={Link} {...tag} />
           ))}
         </ul>
       </div>
