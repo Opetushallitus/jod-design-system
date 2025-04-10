@@ -35,7 +35,10 @@ export type MediaCardProps = {
   imageAlt: string;
   label: string;
   description: string;
-  tags: string[];
+  tags: {
+    label: string;
+    to: string;
+  }[];
 } & LinkComponent &
   FavoriteButtonProps;
 
@@ -47,8 +50,20 @@ type MediaCardImplProps = {
   children: React.ReactNode;
 } & LinkComponent;
 
-const Tag = ({ label }: { label: string }) => {
-  return <li className="ds:px-2 ds:pb-2 ds:last:pr-0">{label}</li>;
+const Tag = ({
+  label,
+  to,
+  linkComponent: Link,
+}: {
+  label: string;
+  to: string;
+  linkComponent?: React.ComponentType<{
+    to: object | string;
+    className?: string;
+    children: React.ReactNode;
+  }>;
+}) => {
+  return <li className="ds:px-2 ds:pb-2 ds:last:pr-0">{Link ? <Link to={to}>{label}</Link> : <>{label}</>}</li>;
 };
 
 const LinkOrDiv = ({
@@ -111,7 +126,7 @@ export const MediaCard = ({
       )}
       <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3">
         {tags.filter(Boolean).map((tag) => (
-          <Tag key={tag} label={tag} />
+          <Tag key={tag.label} linkComponent={Link} {...tag} />
         ))}
       </ul>
     </>

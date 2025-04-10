@@ -50,7 +50,11 @@ export const Default: Story = {
           imageAlt={`Image ${i + 1}`}
           to="#"
           linkComponent={Link}
-          tags={['Lorem', 'Ipsum', 'Dolor']}
+          tags={[
+            { label: 'Lorem', to: '#' },
+            { label: 'Ipsum', to: '#' },
+            { label: 'Dolor', to: '#' },
+          ]}
         />
       ),
     })),
@@ -92,7 +96,11 @@ export const DifferentCardHeight: Story = {
             imageAlt="Image 1"
             to="#"
             linkComponent={Link}
-            tags={['lorem', 'ipsum', 'dolor']}
+            tags={[
+              { label: 'lorem', to: '#' },
+              { label: 'ipsum', to: '#' },
+              { label: 'dolor', to: '#' },
+            ]}
           />
         ),
       },
@@ -106,7 +114,10 @@ export const DifferentCardHeight: Story = {
             imageAlt="Image 2"
             to="#"
             linkComponent={Link}
-            tags={['lorem', 'ipsum']}
+            tags={[
+              { label: 'lorem', to: '#' },
+              { label: 'ipsum', to: '#' },
+            ]}
           />
         ),
       },
@@ -120,7 +131,13 @@ export const DifferentCardHeight: Story = {
             imageAlt="Image 3"
             to="#"
             linkComponent={Link}
-            tags={['lorem', 'ipsum', 'dolor', 'sit', 'amet']}
+            tags={[
+              { label: 'lorem', to: '#' },
+              { label: 'ipsum', to: '#' },
+              { label: 'dolor', to: '#' },
+              { label: 'sit', to: '#' },
+              { label: 'amet', to: '#' },
+            ]}
           />
         ),
       },
