@@ -32,7 +32,11 @@ export const Default: Story = {
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
     description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
-    tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+    tags: [
+      { label: 'Taglorem', to: '#' },
+      { label: 'Loremtag', to: '#' },
+      { label: 'Nonutag', to: '#' },
+    ],
   },
 };
 
@@ -54,7 +58,11 @@ export const Horizontal: Story = {
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
     description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
-    tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+    tags: [
+      { label: 'Taglorem', to: '#' },
+      { label: 'Loremtag', to: '#' },
+      { label: 'Nonutag', to: '#' },
+    ],
   },
 };
 
@@ -89,7 +97,14 @@ export const Multiple: Story = {
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Otsikko joka aina vain jatkuu ja jatkuu ja rivittyy',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam adipiscin amet consectetur.',
-    tags: ['Taglorem', 'Loremtag', 'Nonutag', 'Dolortag', 'Tagamet', 'Nullatag'],
+    tags: [
+      { label: 'Taglorem', to: '#' },
+      { label: 'Loremtag', to: '#' },
+      { label: 'Nonutag', to: '#' },
+      { label: 'Dolortag', to: '#' },
+      { label: 'Tagamet', to: '#' },
+      { label: 'Nullatag', to: '#' },
+    ],
   },
 };
 
@@ -123,7 +138,11 @@ const getAbleToBeFavorite = (description: string, variant: 'horizontal' | 'verti
       imageAlt: 'Woman standing in front of a colourful wall',
       label: 'Tulevaisuusmatka',
       description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
-      tags: ['Taglorem', 'Loremtag', 'Nonutag'],
+      tags: [
+        { label: 'Taglorem', to: '#' },
+        { label: 'Loremtag', to: '#' },
+        { label: 'Nonutag', to: '#' },
+      ],
       isFavorite: true,
       onFavoriteClick: fn(),
       favoriteLabel: 'Poista suosikeista',

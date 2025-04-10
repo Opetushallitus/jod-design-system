@@ -2,6 +2,10 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { MediaCard } from './MediaCard';
 
+const mockTags = [
+  { label: 'tag1', to: '#' },
+  { label: 'tag2', to: '#' },
+];
 describe('MediaCard', () => {
   it('renders the MediaCard component with vertical variant', () => {
     render(
@@ -11,7 +15,7 @@ describe('MediaCard', () => {
         imageAlt="Image for the vertical"
         label="Vertical"
         description="Vertical description"
-        tags={['tag1', 'tag2']}
+        tags={mockTags}
       />,
     );
 
@@ -33,7 +37,7 @@ describe('MediaCard', () => {
         imageAlt="Image for the horizontal"
         label="Horizontal"
         description="Horizontal description"
-        tags={['tag1', 'tag2']}
+        tags={mockTags}
       />,
     );
 
@@ -51,7 +55,7 @@ describe('MediaCard', () => {
         imageAlt="Image for default"
         label="Default"
         description="Default description"
-        tags={['tag1', 'tag2']}
+        tags={mockTags}
       />,
     );
 
