@@ -1,14 +1,15 @@
 import { useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 import { WizardProgress } from '../WizardProgress/WizardProgress';
 import { Modal } from './Modal';
 
 const meta = {
-  title: 'Modal',
+  title: 'Popups/Modal',
   component: Modal,
   tags: ['autodocs'],
-} satisfies Meta<typeof Modal>;
+} satisfies TitledMeta<typeof Modal>;
 
 export default meta;
 

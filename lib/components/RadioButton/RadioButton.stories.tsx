@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
+import type { TitledMeta } from '../../utils';
 
 import { RadioButton } from './RadioButton';
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
@@ -9,7 +10,7 @@ const meta = {
   title: 'Forms/RadioButton',
   component: RadioButtonGroup,
   tags: ['autodocs'],
-} satisfies Meta<typeof RadioButtonGroup>;
+} satisfies TitledMeta<typeof RadioButtonGroup>;
 
 export default meta;
 
@@ -43,9 +44,7 @@ export const Default: Story = {
       </>
     ),
   },
-  render: (args) => {
-    return <DefaultStoryRender {...args} />;
-  },
+  render: DefaultStoryRender,
 };
 
 export const Bordered: Story = {
@@ -68,7 +67,5 @@ export const Bordered: Story = {
       </>
     ),
   },
-  render: (args) => {
-    return <DefaultStoryRender {...args} />;
-  },
+  render: DefaultStoryRender,
 };

@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { RoundLinkButton } from './RoundLinkButton';
 
@@ -6,7 +7,7 @@ const meta = {
   title: 'Buttons/RoundLinkButton',
   component: RoundLinkButton,
   tags: ['autodocs'],
-} satisfies Meta<typeof RoundLinkButton>;
+} satisfies TitledMeta<typeof RoundLinkButton>;
 
 export default meta;
 

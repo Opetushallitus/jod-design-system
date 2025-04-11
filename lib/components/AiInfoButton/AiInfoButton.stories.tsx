@@ -1,11 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 import { AiInfoButton } from './AiInfoButton';
 
 const meta = {
   title: 'Buttons/AiInfoButton',
   component: AiInfoButton,
   tags: ['autodocs'],
-} satisfies Meta<typeof AiInfoButton>;
+} satisfies TitledMeta<typeof AiInfoButton>;
 
 export default meta;
 

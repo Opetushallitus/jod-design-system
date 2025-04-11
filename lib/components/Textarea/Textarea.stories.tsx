@@ -1,13 +1,14 @@
 import { useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 import { Textarea } from './Textarea';
 
 const meta = {
   title: 'Forms/Textarea',
   component: Textarea,
   tags: ['autodocs'],
-} satisfies Meta<typeof Textarea>;
+} satisfies TitledMeta<typeof Textarea>;
 
 export default meta;
 

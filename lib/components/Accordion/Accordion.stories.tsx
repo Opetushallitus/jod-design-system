@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 import { Accordion } from './Accordion';
 
 const meta = {
-  title: 'Accordion',
+  title: 'Content/Accordion',
   component: Accordion,
   tags: ['autodocs'],
-} satisfies Meta<typeof Accordion>;
+} satisfies TitledMeta<typeof Accordion>;
 
 export default meta;
 

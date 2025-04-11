@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { Spinner } from './Spinner';
 
 const meta = {
-  title: 'Spinner',
+  title: 'Misc/Spinner',
   component: Spinner,
   tags: ['autodocs'],
-} satisfies Meta<typeof Spinner>;
+} satisfies TitledMeta<typeof Spinner>;
 
 export default meta;
 
