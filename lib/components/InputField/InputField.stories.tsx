@@ -1,13 +1,14 @@
 import { useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 import { InputField } from './InputField';
 
 const meta = {
   title: 'Forms/InputField',
   component: InputField,
   tags: ['autodocs'],
-} satisfies Meta<typeof InputField>;
+} satisfies TitledMeta<typeof InputField>;
 
 export default meta;
 

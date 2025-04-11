@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 import { RoundButton } from './RoundButton';
 
 const meta = {
   title: 'Buttons/RoundButton',
   component: RoundButton,
   tags: ['autodocs'],
-} satisfies Meta<typeof RoundButton>;
+} satisfies TitledMeta<typeof RoundButton>;
 
 export default meta;
 

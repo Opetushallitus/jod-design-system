@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { Combobox } from './Combobox';
 
 const meta = {
-  title: 'Combobox',
+  title: 'Forms/Combobox',
   component: Combobox,
   tags: ['autodocs'],
-} satisfies Meta<typeof Combobox>;
+} satisfies TitledMeta<typeof Combobox>;
 
 export default meta;
 

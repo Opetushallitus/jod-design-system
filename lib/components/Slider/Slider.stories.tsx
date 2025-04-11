@@ -1,15 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import { useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import React from 'react';
+import type { TitledMeta } from '../../utils';
 import { Slider } from './Slider';
 
 const meta = {
-  title: 'Slider',
+  title: 'Misc/Slider',
   component: Slider,
   tags: ['autodocs'],
-} satisfies Meta<typeof Slider>;
+} satisfies TitledMeta<typeof Slider>;
 
 export default meta;
 

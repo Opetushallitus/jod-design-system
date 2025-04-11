@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 import { NavigationBar } from './NavigationBar';
 
 const meta = {
-  title: 'Layout/NavigationBar',
+  title: 'Navigation/NavigationBar',
   component: NavigationBar,
   tags: ['autodocs'],
-} satisfies Meta<typeof NavigationBar>;
+} satisfies TitledMeta<typeof NavigationBar>;
 
 export default meta;
 

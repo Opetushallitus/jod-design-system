@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { MdArrowBack, MdArrowForward, MdPerson } from 'react-icons/md';
+import type { TitledMeta } from '../../utils';
 
 import { Button } from './Button';
 
@@ -8,7 +9,7 @@ const meta = {
   title: 'Buttons/Button',
   component: Button,
   tags: ['autodocs'],
-} satisfies Meta<typeof Button>;
+} satisfies TitledMeta<typeof Button>;
 
 export default meta;
 

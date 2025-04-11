@@ -1,14 +1,15 @@
 import { PaginationItemLabelDetails } from '@ark-ui/react';
 import { useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 import { Pagination } from './Pagination';
 
 const meta = {
-  title: 'Pagination',
+  title: 'Content/Pagination',
   component: Pagination,
   tags: ['autodocs'],
-} satisfies Meta<typeof Pagination>;
+} satisfies TitledMeta<typeof Pagination>;
 
 export default meta;
 

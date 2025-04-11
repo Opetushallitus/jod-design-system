@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 
 import { useState } from '@storybook/preview-api';
 import { DateView, DayTableCellState } from '@zag-js/date-picker';
@@ -9,7 +10,7 @@ const meta = {
   title: 'Forms/Datepicker',
   component: Datepicker,
   tags: ['autodocs'],
-} satisfies Meta<typeof Datepicker>;
+} satisfies TitledMeta<typeof Datepicker>;
 
 export default meta;
 
