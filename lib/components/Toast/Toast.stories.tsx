@@ -1,13 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { MdCheck, MdDangerous, MdWarning } from 'react-icons/md';
 import { Toast } from './Toast';
 
 const meta = {
-  title: 'Snackbars/Toast',
+  title: 'Popups/Toast',
   component: Toast,
   tags: ['autodocs'],
-} satisfies Meta<typeof Toast>;
+} satisfies TitledMeta<typeof Toast>;
 
 export default meta;
 

@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import React from 'react';
+import type { TitledMeta } from '../../utils';
 
 import { MdOutlineInfo } from 'react-icons/md';
 import { Button } from '../Button/Button';
@@ -8,9 +9,10 @@ import { TooltipContent } from './TooltipContent';
 import { TooltipTrigger } from './TooltipTrigger';
 
 const meta = {
+  title: 'Popups/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
-} satisfies Meta<typeof Tooltip>;
+} satisfies TitledMeta<typeof Tooltip>;
 
 export default meta;
 

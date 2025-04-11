@@ -1,13 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 
 import { Note } from './Note';
 
 const meta = {
-  title: 'Snackbars/Note',
+  title: 'Content/Note',
   component: Note,
   tags: ['autodocs'],
-} satisfies Meta<typeof Note>;
+} satisfies TitledMeta<typeof Note>;
 
 export default meta;
 

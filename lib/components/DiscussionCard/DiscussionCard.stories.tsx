@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { useState } from '@storybook/preview-api';
 import { DiscussionCard } from './DiscussionCard';
@@ -7,7 +8,7 @@ const meta = {
   title: 'Cards/DiscussionCard',
   component: DiscussionCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof DiscussionCard>;
+} satisfies TitledMeta<typeof DiscussionCard>;
 
 export default meta;
 

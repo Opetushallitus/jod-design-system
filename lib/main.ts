@@ -1,12 +1,11 @@
 import './index.css';
 
 export { cva, cx } from './cva';
-export { tidyClasses } from './utils';
+export { clamp, tidyClasses } from './utils';
 
 export { useMediaQueries } from './hooks/useMediaQueries';
 
 export { Accordion } from './components/Accordion/Accordion';
-export { ActiveIndicator } from './components/ActiveIndicator/ActiveIndicator';
 export { AiInfoButton } from './components/AiInfoButton/AiInfoButton';
 export { Button } from './components/Button/Button';
 export { CardCarousel, type CardCarouselItem } from './components/CardCarousel/CardCarousel';

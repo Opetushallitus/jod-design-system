@@ -1,13 +1,14 @@
 import { action } from '@storybook/addon-actions';
 import { useArgs, useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 import { Checkbox, CheckboxProps } from './Checkbox';
 
 const meta = {
   title: 'Forms/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
-} satisfies Meta<typeof Checkbox>;
+} satisfies TitledMeta<typeof Checkbox>;
 
 export default meta;
 

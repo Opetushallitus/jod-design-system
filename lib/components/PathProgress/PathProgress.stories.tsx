@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { MdOutlineFlag } from 'react-icons/md';
-
+import type { TitledMeta } from '../../utils';
 import { PathProgress } from './PathProgress';
 
 const meta = {
-  title: 'PathProgress',
+  title: 'Lists/PathProgress',
   component: PathProgress,
   tags: ['autodocs'],
-} satisfies Meta<typeof PathProgress>;
+} satisfies TitledMeta<typeof PathProgress>;
 
 export default meta;
 

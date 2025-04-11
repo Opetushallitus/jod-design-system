@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 import { PopupList, PopupListItem } from './PopupList';
 
 const meta = {
-  title: 'PopupList',
+  title: 'Lists/PopupList',
   component: PopupList,
   tags: ['autodocs'],
-} satisfies Meta<typeof PopupList>;
+} satisfies TitledMeta<typeof PopupList>;
 
 export default meta;
 

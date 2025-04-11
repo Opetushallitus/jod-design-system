@@ -1,14 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import { useState } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
+
 import { MediaCard } from './MediaCard';
 
 const meta = {
   title: 'Cards/MediaCard',
   component: MediaCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof MediaCard>;
+} satisfies TitledMeta<typeof MediaCard>;
 
 export default meta;
 
