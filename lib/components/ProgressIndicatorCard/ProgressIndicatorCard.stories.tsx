@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { ProgressIndicatorCard } from './ProgressIndicatorCard';
 
 const meta = {
-  title: 'ProgressIndicatorCard',
+  title: 'Cards/ProgressIndicatorCard',
   component: ProgressIndicatorCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof ProgressIndicatorCard>;
+} satisfies TitledMeta<typeof ProgressIndicatorCard>;
 
 export default meta;
 

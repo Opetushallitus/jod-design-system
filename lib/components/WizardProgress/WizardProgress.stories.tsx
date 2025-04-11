@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { WizardProgress } from './WizardProgress';
 
 const meta = {
-  title: 'Wizard/WizardProgress',
+  title: 'Misc/WizardProgress',
   component: WizardProgress,
   tags: ['autodocs'],
-} satisfies Meta<typeof WizardProgress>;
+} satisfies TitledMeta<typeof WizardProgress>;
 
 export default meta;
 

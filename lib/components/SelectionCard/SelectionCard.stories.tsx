@@ -1,6 +1,7 @@
 import { useState } from '@storybook/preview-api';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { JSX } from 'react/jsx-runtime';
+import type { TitledMeta } from '../../utils';
 import { Button } from '../Button/Button';
 import { SelectionCard, SelectionCardProps } from './SelectionCard';
 
@@ -8,7 +9,7 @@ const meta = {
   title: 'Cards/SelectionCard',
   component: SelectionCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof SelectionCard>;
+} satisfies TitledMeta<typeof SelectionCard>;
 
 export default meta;
 

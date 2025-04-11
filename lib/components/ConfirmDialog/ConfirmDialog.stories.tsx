@@ -1,13 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import type { TitledMeta } from '../../utils';
 
 import { ConfirmDialog } from './ConfirmDialog';
 
 const meta = {
-  title: 'ConfirmDialog',
+  title: 'Popups/ConfirmDialog',
   component: ConfirmDialog,
   tags: ['autodocs'],
-} satisfies Meta<typeof ConfirmDialog>;
+} satisfies TitledMeta<typeof ConfirmDialog>;
 
 export default meta;
 

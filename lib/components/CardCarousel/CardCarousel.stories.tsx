@@ -1,4 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
+
 import { MediaCard } from '../MediaCard/MediaCard';
 import { CardCarousel } from './CardCarousel';
 
@@ -6,7 +8,7 @@ const meta = {
   title: 'Cards/CardCarousel',
   component: CardCarousel,
   tags: ['autodocs'],
-} satisfies Meta<typeof CardCarousel>;
+} satisfies TitledMeta<typeof CardCarousel>;
 
 export default meta;
 

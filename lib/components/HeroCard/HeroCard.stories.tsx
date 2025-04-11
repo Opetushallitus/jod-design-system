@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 
 import { HeroCard } from './HeroCard';
 
@@ -6,7 +7,7 @@ const meta = {
   title: 'Cards/HeroCard',
   component: HeroCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof HeroCard>;
+} satisfies TitledMeta<typeof HeroCard>;
 
 export default meta;
 

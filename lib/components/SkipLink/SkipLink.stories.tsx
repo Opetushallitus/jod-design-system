@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import type { StoryObj } from '@storybook/react';
+import type { TitledMeta } from '../../utils';
 import { SkipLink } from './SkipLink';
 
 const meta = {
-  title: 'SkipLink',
+  title: 'Navigation/SkipLink',
   component: SkipLink,
   tags: ['autodocs'],
-} satisfies Meta<typeof SkipLink>;
+} satisfies TitledMeta<typeof SkipLink>;
 
 export default meta;
 

@@ -1,3 +1,5 @@
+import type { Meta } from '@storybook/react';
+
 /**
  * Tidies up a string (or array of strings) of CSS class names by removing any extra whitespace and empty strings
  * @param classNames String or a list of strings
@@ -14,3 +16,18 @@ export const tidyClasses = (classNames: string | string[]): string =>
  * @returns Value clamped between min and max
  */
 export const clamp = (value: number, min: number, max: number): number => Math.min(Math.max(value, min), max);
+
+export type StoryBookCategory =
+  | 'Buttons'
+  | 'Cards'
+  | 'Content'
+  | 'Forms'
+  | 'Images'
+  | 'Misc'
+  | 'Navigation'
+  | 'Popups'
+  | 'Lists';
+export type ValidTitle = `${StoryBookCategory}/${string}`;
+export type TitledMeta<T> = Meta<T> & {
+  title: ValidTitle;
+};
