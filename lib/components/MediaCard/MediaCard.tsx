@@ -5,9 +5,9 @@ import { LazyImage } from '../LazyImage/LazyImage';
 
 type LinkComponent =
   | {
-      to: object | string;
+      to: string;
       linkComponent: React.ComponentType<{
-        to: object | string;
+        to: string;
         className?: string;
         children: React.ReactNode;
       }>;
@@ -58,12 +58,22 @@ const Tag = ({
   label: string;
   to: string;
   linkComponent?: React.ComponentType<{
-    to: object | string;
+    to: string;
     className?: string;
     children: React.ReactNode;
   }>;
 }) => {
-  return <li className="ds:px-2 ds:pb-2 ds:last:pr-0">{Link ? <Link to={to}>{label}</Link> : <>{label}</>}</li>;
+  return (
+    <li className="ds:px-2 ds:pb-2 ds:last:pr-0 ds:first:pl-0">
+      {Link ? (
+        <Link to={to} className="ds:relative ds:z-1">
+          {label}
+        </Link>
+      ) : (
+        <>{label}</>
+      )}
+    </li>
+  );
 };
 
 const LinkOrDiv = ({
@@ -72,9 +82,9 @@ const LinkOrDiv = ({
   className,
   children,
 }: {
-  to?: object | string;
+  to?: string;
   linkComponent?: React.ComponentType<{
-    to: object | string;
+    to: string;
     className?: string;
     children: React.ReactNode;
   }>;
@@ -82,18 +92,21 @@ const LinkOrDiv = ({
   children: React.ReactNode;
 }) => {
   return Link && to ? (
-    <Link to={to} className={`ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ${className}`}>
+    <Link
+      to={to}
+      className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ${className}`}
+    >
       {children}
     </Link>
   ) : (
-    <div className={`ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ${className}`}>{children}</div>
+    <div className={`${className}`}>{children}</div>
   );
 };
 
 const FavoriteButton = ({ isFavorite, favoriteLabel, onFavoriteClick }: FavoriteButtonProps) => {
   return (
     <button
-      className="ds:cursor-pointer ds:absolute ds:top-0 ds:right-0 ds:p-[12px] ds:bg-white ds:rounded-bl"
+      className="ds:cursor-pointer ds:absolute ds:top-0 ds:right-0 ds:p-[12px] ds:bg-white ds:rounded-bl ds:z-1"
       aria-label={favoriteLabel}
       onClick={onFavoriteClick}
     >
@@ -124,7 +137,7 @@ export const MediaCard = ({
       {isFavorite !== undefined && (
         <FavoriteButton isFavorite={isFavorite} favoriteLabel={favoriteLabel} onFavoriteClick={onFavoriteClick} />
       )}
-      <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3">
+      <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5">
         {tags.filter(Boolean).map((tag) => (
           <Tag key={tag.label} linkComponent={Link} {...tag} />
         ))}
@@ -165,22 +178,24 @@ const MediaCardVertical = ({
   }, [label]);
 
   return (
-    <LinkOrDiv to={to} linkComponent={Link} className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px]">
-      {imageSrc ? (
-        <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
-      ) : (
-        <span className={`ds:w-full ds:h-full ds:bg-secondary-5 ds:max-w-[265px] ${variantImageClassNames}`}></span>
-      )}
-      <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap">
-        <div className="ds:gap-3 ds:flex ds:flex-col">
-          <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2" ref={labelRef}>
-            {label}
+    <div className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5">
+      <LinkOrDiv to={to} linkComponent={Link} className="ds:grow ">
+        {imageSrc ? (
+          <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
+        ) : (
+          <span className={`ds:w-full ds:h-full ds:bg-secondary-5 ds:max-w-[265px] ${variantImageClassNames}`}></span>
+        )}
+        <div className="ds:px-5 ds:pt-4 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap">
+          <div className="ds:gap-3 ds:flex ds:flex-col">
+            <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2" ref={labelRef}>
+              {label}
+            </div>
+            <div className={`ds:text-body-sm-mobile ds:sm:text-body-sm ${lineClampClassNames}`}>{description}</div>
           </div>
-          <div className={`ds:text-body-sm-mobile ds:sm:text-body-sm ${lineClampClassNames}`}>{description}</div>
         </div>
-        {children}
-      </div>
-    </LinkOrDiv>
+      </LinkOrDiv>
+      {children}
+    </div>
   );
 };
 
@@ -196,31 +211,39 @@ const MediaCardHorizontal = ({
   const { sm } = useMediaQueries();
 
   return (
-    <LinkOrDiv to={to} linkComponent={Link} className="ds:relative ds:flex ds:flex-row ds:min-h-[137px] ds:w-full">
-      <div className="ds:shrink-0">
-        {imageSrc ? (
-          sm && (
-            <LazyImage
-              className="ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
-              src={imageSrc}
-              alt={imageAlt}
-            />
-          )
-        ) : (
-          <div className={`ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}></div>
-        )}
-      </div>
-      <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:flex-nowrap">
-        <div className="ds:gap-3 ds:flex ds:flex-col">
-          <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-3 ds:sm:line-clamp-2">
-            {label}
-          </div>
-          <div className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2">
-            {description}
+    <div className="ds:relative ds:min-h-[137px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:sm:grid-cols-[193px_1fr] ds:lg:grid-cols-[255px_1fr] ds:grid-rows-[1fr_35px]">
+      <LinkOrDiv
+        to={to}
+        linkComponent={Link}
+        className="ds:flex ds:flex-row ds:col-start-1 ds:col-end-2 ds:sm:col-end-3 ds:row-start-1 ds:row-end-3"
+      >
+        <div className="ds:shrink-0">
+          {imageSrc ? (
+            sm && (
+              <LazyImage
+                className="ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
+                src={imageSrc}
+                alt={imageAlt}
+              />
+            )
+          ) : (
+            <div
+              className={`ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}
+            ></div>
+          )}
+        </div>
+        <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:flex-nowrap">
+          <div className="ds:gap-3 ds:flex ds:flex-col">
+            <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-3 ds:sm:line-clamp-2">
+              {label}
+            </div>
+            <div className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2">
+              {description}
+            </div>
           </div>
         </div>
-        {children}
-      </div>
-    </LinkOrDiv>
+      </LinkOrDiv>
+      <div className="ds:col-start-1 ds:sm:col-start-2 ds:row-start-2">{children}</div>
+    </div>
   );
 };

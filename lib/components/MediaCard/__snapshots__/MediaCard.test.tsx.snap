@@ -2,48 +2,52 @@
 
 exports[`MediaCard > renders the MediaCard component with default vertical variant 1`] = `
 <div
-  class="ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px]"
+  class="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
 >
   <div
-    class="ds:flex ds:bg-secondary-5 ds:object-cover ds:h-[147px] ds:min-h-[147px]"
-  >
-    <img
-      alt="Image for default"
-      class="ds:w-full ds:h-full ds:object-cover"
-      style="opacity: 0; transition: opacity 0.3s;"
-    />
-  </div>
-  <div
-    class="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap"
+    class="ds:grow "
   >
     <div
-      class="ds:gap-3 ds:flex ds:flex-col"
+      class="ds:flex ds:bg-secondary-5 ds:object-cover ds:h-[147px] ds:min-h-[147px]"
+    >
+      <img
+        alt="Image for default"
+        class="ds:w-full ds:h-full ds:object-cover"
+        style="opacity: 0; transition: opacity 0.3s;"
+      />
+    </div>
+    <div
+      class="ds:px-5 ds:pt-4 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap"
     >
       <div
-        class="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2"
+        class="ds:gap-3 ds:flex ds:flex-col"
       >
-        Default
-      </div>
-      <div
-        class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3"
-      >
-        Default description
+        <div
+          class="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2"
+        >
+          Default
+        </div>
+        <div
+          class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3"
+        >
+          Default description
+        </div>
       </div>
     </div>
-    <ul
-      class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3"
-    >
-      <li
-        class="ds:px-2 ds:pb-2 ds:last:pr-0"
-      >
-        tag1
-      </li>
-      <li
-        class="ds:px-2 ds:pb-2 ds:last:pr-0"
-      >
-        tag2
-      </li>
-    </ul>
   </div>
+  <ul
+    class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5"
+  >
+    <li
+      class="ds:px-2 ds:pb-2 ds:last:pr-0 ds:first:pl-0"
+    >
+      tag1
+    </li>
+    <li
+      class="ds:px-2 ds:pb-2 ds:last:pr-0 ds:first:pl-0"
+    >
+      tag2
+    </li>
+  </ul>
 </div>
 `;

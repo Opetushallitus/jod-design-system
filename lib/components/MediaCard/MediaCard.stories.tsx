@@ -15,6 +15,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 const imageSrc = 'https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=260';
 
+const Link = ({ children, to, className }: { children: React.ReactNode; to?: string; className?: string }) => (
+  <a href={to} className={className}>
+    {children}
+  </a>
+);
+
 export const Default: Story = {
   parameters: {
     design: {
@@ -32,10 +38,12 @@ export const Default: Story = {
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
     description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
+    to: '#cardlink',
+    linkComponent: Link,
     tags: [
-      { label: 'Taglorem', to: '#' },
-      { label: 'Loremtag', to: '#' },
-      { label: 'Nonutag', to: '#' },
+      { label: 'Taglorem', to: '#tag1' },
+      { label: 'Loremtag', to: '#tag2' },
+      { label: 'Nonutag', to: '#tag3' },
     ],
   },
 };
@@ -58,10 +66,12 @@ export const Horizontal: Story = {
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Tulevaisuusmatka',
     description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
+    to: '#cardlink',
+    linkComponent: Link,
     tags: [
-      { label: 'Taglorem', to: '#' },
-      { label: 'Loremtag', to: '#' },
-      { label: 'Nonutag', to: '#' },
+      { label: 'Taglorem', to: '#tag1' },
+      { label: 'Loremtag', to: '#tag2' },
+      { label: 'Nonutag', to: '#tag3' },
     ],
   },
 };
@@ -97,13 +107,15 @@ export const Multiple: Story = {
     imageAlt: 'Woman standing in front of a colourful wall',
     label: 'Otsikko joka aina vain jatkuu ja jatkuu ja rivittyy',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam adipiscin amet consectetur.',
+    to: '#cardlink',
+    linkComponent: Link,
     tags: [
-      { label: 'Taglorem', to: '#' },
-      { label: 'Loremtag', to: '#' },
-      { label: 'Nonutag', to: '#' },
-      { label: 'Dolortag', to: '#' },
-      { label: 'Tagamet', to: '#' },
-      { label: 'Nullatag', to: '#' },
+      { label: 'Taglorem', to: '#tag1' },
+      { label: 'Loremtag', to: '#tag2' },
+      { label: 'Nonutag', to: '#tag3' },
+      { label: 'Dolortag', to: '#tag4' },
+      { label: 'Tagamet', to: '#tag5' },
+      { label: 'Nullatag', to: '#tag6' },
     ],
   },
 };
@@ -138,10 +150,12 @@ const getAbleToBeFavorite = (description: string, variant: 'horizontal' | 'verti
       imageAlt: 'Woman standing in front of a colourful wall',
       label: 'Tulevaisuusmatka',
       description: 'Tulevaisuusmatka on koulutus, joka auttaa sinua löytämään oman polkusi ja tavoitteesi.',
+      to: '#cardlink',
+      linkComponent: Link,
       tags: [
-        { label: 'Taglorem', to: '#' },
-        { label: 'Loremtag', to: '#' },
-        { label: 'Nonutag', to: '#' },
+        { label: 'Taglorem', to: '#tag1' },
+        { label: 'Loremtag', to: '#tag2' },
+        { label: 'Nonutag', to: '#tag3' },
       ],
       isFavorite: true,
       onFavoriteClick: fn(),
