@@ -3,7 +3,7 @@
 exports[`Snapshot testing > matches the snapshot 1`] = `
 <div>
   <button
-    class="ds:cursor-pointer ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-tag ds:font-arial ds:px-4 ds:py-2 ds:text-left ds:bg-tag-jotain-muuta"
+    class="ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-tag ds:font-arial ds:px-4 ds:py-2 ds:text-left ds:cursor-pointer ds:bg-tag-jotain-muuta"
     type="button"
   >
     <span

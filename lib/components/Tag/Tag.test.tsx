@@ -28,4 +28,22 @@ describe('Tag', () => {
     expect(queryByRole('button')).toBeNull();
     expect(container.querySelector('svg')).toBeNull();
   });
+
+  it('should have cursor-pointer class when variant is not presentation', () => {
+    const { container } = render(<Tag label="selectable" variant="selectable" onClick={vi.fn()} />);
+    const tagElement = container.firstChild;
+    expect(tagElement).toHaveClass('ds:cursor-pointer');
+  });
+
+  it('should not have cursor-pointer class when variant is presentation', () => {
+    const { container } = render(<Tag label="presentation" variant="presentation" />);
+    const tagElement = container.firstChild;
+    expect(tagElement).not.toHaveClass('ds:cursor-pointer');
+  });
+
+  it('should have cursor-pointer class by default (when variant not specified)', () => {
+    const { container } = render(<Tag label="default" onClick={vi.fn()} />);
+    const tagElement = container.firstChild;
+    expect(tagElement).toHaveClass('ds:cursor-pointer');
+  });
 });
