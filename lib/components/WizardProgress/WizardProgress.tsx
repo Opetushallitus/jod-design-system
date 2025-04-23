@@ -62,10 +62,7 @@ export const WizardProgress = ({
   };
 
   return (
-    <ol
-      className="ds:flex ds:gap-4 ds:text-black ds:sm:text-heading-2 ds:sm:leading-[24px] ds:text-heading-3-mobile ds:leading-[16px]"
-      aria-label={labelText}
-    >
+    <ol className="ds:flex ds:gap-4 ds:text-card-label-lg ds:text-[#333333]" aria-label={labelText}>
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
