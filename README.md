@@ -36,3 +36,11 @@ Open a new terminal window and navigate to the root directory of the project you
 npm link @jod/design-system
 npm run dev
 ```
+
+## Add as a dependency
+
+This repo is not published to the npm registry, so if you would like to have the latest version that the `main` branch has to offer then you can add it like the following:
+
+```shell
+npm i --save git+ssh://git@github.com:Opetushallitus/jod-design-system#main
+```
