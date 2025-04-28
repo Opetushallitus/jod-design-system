@@ -78,6 +78,25 @@ export const GrayDelete: Story = {
     variant: 'gray-delete',
   },
 };
+export const RedDelete: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5850&t=6CqIVQA2gz0PPxiK-4',
+    },
+    docs: {
+      description: {
+        story: 'This is a red delete button component for triggering an action.',
+      },
+    },
+    backgrounds,
+  },
+  args: {
+    label: 'Poista',
+    onClick: fn(),
+    variant: 'red-delete',
+  },
+};
 
 export const WhiteDelete: Story = {
   parameters: {
