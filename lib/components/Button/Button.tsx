@@ -12,7 +12,7 @@ export interface ButtonProps {
   /** Size of the button */
   size?: 'sm' | 'md' | 'lg';
   /** Button variant */
-  variant?: 'gray' | 'white' | 'gray-delete' | 'white-delete' | 'accent';
+  variant?: 'gray' | 'white' | 'gray-delete' | 'red-delete' | 'white-delete' | 'accent';
   /** Button disabled for any actions */
   disabled?: boolean;
   /** Icon shown on the button */
@@ -29,9 +29,9 @@ export interface ButtonProps {
 
 const getSizeClassName = (size: ButtonProps['size']) => {
   return cx({
-    'ds:text-button-sm ds:px-6 ds:rounded-[30px]': size === 'sm',
-    'ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px]': size === 'md',
-    'ds:text-button-lg ds:px-[42px] ds:rounded-[50px]': size === 'lg',
+    'ds:text-button-sm ds:px-6 ds:rounded-[30px] ds:font-poppins': size === 'sm',
+    'ds:text-button-md ds:px-6 ds:rounded-[30px] ds:font-poppins': size === 'md',
+    'ds:text-button-lg ds:px-[42px] ds:rounded-[50px] ds:font-arial': size === 'lg',
   });
 };
 
@@ -53,6 +53,7 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
     'ds:text-black ds:bg-white': variant === 'white',
     'ds:text-alert ds:bg-bg-gray ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
       variant === 'gray-delete',
+    'ds:bg-[#E35750] ds:text-white': variant === 'red-delete',
     'ds:text-alert ds:bg-white ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
       variant === 'white-delete',
     'ds:active:bg-alert ds:focus-visible:outline-alert': variant?.includes('-delete') && !disabled,

@@ -2,7 +2,7 @@
 
 exports[`Button > calls the onClick function when clicked 1`] = `
 <button
-  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:font-poppins ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
@@ -15,7 +15,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
 
 exports[`Button > renders the button as disabled 1`] = `
 <button
-  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:font-poppins ds:text-black ds:bg-bg-gray ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed"
   disabled=""
   type="button"
 >
@@ -29,7 +29,7 @@ exports[`Button > renders the button as disabled 1`] = `
 
 exports[`Button > renders the button with the correct label 1`] = `
 <button
-  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:font-poppins ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
@@ -42,7 +42,7 @@ exports[`Button > renders the button with the correct label 1`] = `
 
 exports[`Button > renders the button with the correct size 1`] = `
 <button
-  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:px-6 ds:rounded-[30px] ds:font-poppins ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
@@ -55,7 +55,7 @@ exports[`Button > renders the button with the correct size 1`] = `
 
 exports[`Button > renders the button with the correct variant 1`] = `
 <button
-  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md-mobile ds:sm:text-button-md ds:px-6 ds:rounded-[30px] ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
+  class="ds:cursor-pointer ds:flex ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:font-poppins ds:text-black ds:bg-bg-gray ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0"
   type="button"
 >
   <span
