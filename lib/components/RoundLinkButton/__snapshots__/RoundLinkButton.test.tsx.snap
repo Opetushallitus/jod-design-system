@@ -13,7 +13,7 @@ exports[`Snapshot testing > Default 1`] = `
     target
   </span>
   <span
-    class="ds:text-button-sm-mobile ds:sm:text-button-md ds:text-black ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-black ds:group-hover:text-accent ds:group-hover:underline"
   >
     Default
   </span>
@@ -33,7 +33,7 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
     target
   </span>
   <span
-    class="ds:text-button-sm-mobile ds:sm:text-button-md ds:text-black ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-black ds:group-hover:text-accent ds:group-hover:underline"
   >
     Disabled, nonselected
   </span>
@@ -53,7 +53,7 @@ exports[`Snapshot testing > Disabled, selected 1`] = `
     target
   </span>
   <span
-    class="ds:text-button-sm-mobile ds:sm:text-button-md ds:text-accent ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-accent ds:group-hover:text-accent ds:group-hover:underline"
   >
     Disabled, nonselected
   </span>
@@ -73,7 +73,7 @@ exports[`Snapshot testing > Disabled, selected 2`] = `
     target
   </span>
   <span
-    class="ds:text-button-sm-mobile ds:sm:text-button-md ds:text-accent ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-accent ds:group-hover:text-accent ds:group-hover:underline"
   >
     Disabled, nonselected
   </span>
@@ -93,7 +93,7 @@ exports[`Snapshot testing > selected 1`] = `
     target
   </span>
   <span
-    class="ds:text-button-sm-mobile ds:sm:text-button-md ds:text-accent ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-accent ds:group-hover:text-accent ds:group-hover:underline"
   >
     Selected
   </span>
