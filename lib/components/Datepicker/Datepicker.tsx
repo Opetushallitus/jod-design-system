@@ -8,7 +8,7 @@ import {
   UseDatePickerContext,
 } from '@ark-ui/react';
 import React from 'react';
-import { MdArrowBack, MdArrowForward, MdCalendarMonth } from 'react-icons/md';
+import { MdArrowBack, MdArrowForward, MdCalendarToday } from 'react-icons/md';
 import { cx } from '../../cva';
 import { tidyClasses as tc } from '../../utils';
 import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
@@ -158,7 +158,7 @@ export const Datepicker = ({
             ref={ref}
             name={name}
             placeholder={placeholder}
-            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray"
+            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:placeholder:text-body-md"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               // Handle clearing the input field to allow clearing the datepicker value
               if (e.target.value === '') {
@@ -180,7 +180,7 @@ export const Datepicker = ({
               }
             }}
           >
-            <MdCalendarMonth size={24} />
+            <MdCalendarToday size={24} />
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
