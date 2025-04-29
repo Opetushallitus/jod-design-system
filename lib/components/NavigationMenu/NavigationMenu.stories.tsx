@@ -8,7 +8,7 @@ import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
 import { LinkComponent } from './types';
 
 const meta = {
-  title: 'Layout/NavigationMenu',
+  title: 'Navigation/NavigationMenu',
   component: NavigationMenu,
   tags: ['autodocs'],
 } satisfies Meta<typeof NavigationMenu>;
