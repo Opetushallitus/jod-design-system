@@ -11,11 +11,11 @@
   --color-accent-75: #4091c6;
   --color-accent: #006db3;
 
-  --color-tag-tyopaikka: #e6a6d9;
-  --color-tag-koulutus: #80d3d9;
-  --color-tag-vapaa-ajan-toiminto: #99ceef;
-  --color-tag-jotain-muuta: #d8d8d8;
-  --color-tag-kiinnostus: #f7bda2;
+  --color-tag-tyopaikka: #e195d1;
+  --color-tag-koulutus: #66cbd1;
+  --color-tag-vapaa-ajan-toiminto: #85c4ec;
+  --color-tag-jotain-muuta: #ccc;
+  --color-tag-kiinnostus: #f5b08f;
   --color-tag-rajoitus: #f7a2a7;
 
   --color-secondary-1-25: #c2e2f5;
@@ -132,9 +132,6 @@
   --text-button-sm: 14px;
   --text-button-sm--font-weight: 600;
   --text-button-sm--line-height: 18px;
-  --text-tag: 14px;
-  --text-tag--font-weight: 400;
-  --text-tag--line-height: 16px;
   --text-attrib-title: 12px;
   --text-attrib-title--font-weight: 400;
   --text-attrib-title--line-height: 110%;
