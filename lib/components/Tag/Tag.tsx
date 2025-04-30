@@ -22,7 +22,7 @@ export type TagProps = PresentationTagProps | ActionableTagProps;
 
 const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagProps['variant']) =>
   cx(
-    'ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-tag ds:font-arial ds:px-4 ds:py-2 ds:text-left',
+    'ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-arial ds:px-4 ds:py-2 ds:text-left',
     {
       'ds:cursor-pointer': variant !== 'presentation',
       'ds:bg-tag-tyopaikka': sourceType === 'tyopaikka',
