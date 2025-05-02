@@ -114,3 +114,31 @@ export const Placeholder: Story = {
     placeholder: loremIpsum,
   },
 };
+
+export const Required: Story = {
+  render,
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    design: {
+      type: 'figma',
+      url,
+    },
+    docs: {
+      description: {
+        story: 'This is a input field component with a required text after the label.',
+      },
+    },
+  },
+  args: {
+    value: loremIpsum,
+    onChange: fn(),
+    label,
+    requiredText: 'required',
+  },
+};
