@@ -17,7 +17,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-label="Label"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
-        id=":r8:"
+        id="«r8»"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -28,7 +28,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-haspopup="listbox"
         class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
-        id="headlessui-combobox-button-:rc:"
+        id="headlessui-combobox-button-«rc»"
         tabindex="-1"
         type="button"
       >
@@ -61,7 +61,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
 >
   <label
     class="ds:text-jod-black ds:text-form-label ds:font-arial ds:mb-4"
-    for=":rg:"
+    for="«rg»"
   >
     Label
   </label>
@@ -80,7 +80,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
-        id=":rg:"
+        id="«rg»"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -93,7 +93,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
-        id="headlessui-combobox-button-:rk:"
+        id="headlessui-combobox-button-«rk»"
         tabindex="-1"
         type="button"
       >
@@ -126,7 +126,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
 >
   <label
     class="ds:text-jod-black ds:text-form-label ds:font-arial ds:mb-4"
-    for=":r0:"
+    for="«r0»"
   >
     Label
   </label>
@@ -142,7 +142,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
         aria-expanded="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
-        id=":r0:"
+        id="«r0»"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -153,7 +153,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
         aria-haspopup="listbox"
         class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
-        id="headlessui-combobox-button-:r4:"
+        id="headlessui-combobox-button-«r4»"
         tabindex="-1"
         type="button"
       >

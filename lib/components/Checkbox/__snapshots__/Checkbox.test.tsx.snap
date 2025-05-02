@@ -7,7 +7,7 @@ exports[`Checkbox > renders correctly 1`] = `
   <input
     aria-checked="false"
     class="ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-0"
-    id=":r0:"
+    id="«r0»"
     name="myCheckbox"
     type="checkbox"
     value="myValue"
@@ -47,7 +47,7 @@ exports[`Checkbox > renders correctly 1`] = `
   </svg>
   <label
     class="ds:flex ds:flex-row ds:items-center ds:text-heading-4 ds:text-black ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ds:pl-4"
-    for=":r0:"
+    for="«r0»"
   >
     My Checkbox
   </label>

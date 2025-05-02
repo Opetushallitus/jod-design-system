@@ -2,7 +2,7 @@
 
 exports[`AiInfoButton > renders the button with tooltip 1`] = `
 <button
-  aria-describedby=":r0:"
+  aria-describedby="«r0»"
   aria-label="Info button"
   class="ds:cursor-pointer"
 >
