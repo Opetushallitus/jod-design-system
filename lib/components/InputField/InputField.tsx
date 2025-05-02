@@ -18,6 +18,8 @@ interface BaseInputFieldProps {
   help?: string;
   /** Additional classes to add to the input field */
   className?: string;
+  /** Showing required text in parentheses, showing after the label */
+  requiredText?: string;
 }
 
 interface HideLabelProps extends BaseInputFieldProps {
@@ -52,11 +54,14 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     hideLabel = false,
     help,
     className = '',
+    requiredText,
   }: InputFieldProps,
   ref,
 ) {
   const inputId = React.useId();
   const helpId = React.useId();
+
+  const labelText = requiredText ? `${label} (${requiredText})` : label;
   return (
     <>
       <label
@@ -66,9 +71,11 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           'ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black',
         ])}
       >
-        {label}
+        {labelText}
       </label>
       <input
+        aria-required={!!requiredText}
+        required={!!requiredText}
         ref={ref}
         id={inputId}
         name={name}
@@ -81,7 +88,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
         className={tc([
-          'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+          'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md',
           className,
         ])}
       />
