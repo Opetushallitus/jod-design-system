@@ -7,7 +7,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   data-part="root"
   data-scope="pagination"
   dir="ltr"
-  id="pagination::r1:"
+  id="pagination:«r1»"
 >
   <button
     aria-label="Previous"
@@ -17,7 +17,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-scope="pagination"
     dir="ltr"
     disabled=""
-    id="pagination::r1::prev"
+    id="pagination:«r1»:prev"
     type="button"
   >
     <svg
@@ -47,7 +47,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-scope="pagination"
     data-selected=""
     dir="ltr"
-    id="pagination::r1::item:1"
+    id="pagination:«r1»:item:1"
     type="button"
   >
     1
@@ -59,7 +59,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::item:2"
+    id="pagination:«r1»:item:2"
     type="button"
   >
     2
@@ -71,7 +71,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::item:3"
+    id="pagination:«r1»:item:3"
     type="button"
   >
     3
@@ -83,7 +83,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::item:4"
+    id="pagination:«r1»:item:4"
     type="button"
   >
     4
@@ -95,7 +95,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::item:5"
+    id="pagination:«r1»:item:5"
     type="button"
   >
     5
@@ -105,7 +105,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="ellipsis"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::ellipsis:5"
+    id="pagination:«r1»:ellipsis:5"
   >
     <svg
       fill="currentColor"
@@ -132,7 +132,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::item:10"
+    id="pagination:«r1»:item:10"
     type="button"
   >
     10
@@ -143,7 +143,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r1::next"
+    id="pagination:«r1»:next"
     type="button"
   >
     <svg
@@ -174,7 +174,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   data-part="root"
   data-scope="pagination"
   dir="ltr"
-  id="pagination::r0:"
+  id="pagination:«r0»"
 >
   <button
     aria-label="Previous"
@@ -184,7 +184,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-scope="pagination"
     dir="ltr"
     disabled=""
-    id="pagination::r0::prev"
+    id="pagination:«r0»:prev"
     type="button"
   >
     <svg
@@ -214,7 +214,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-scope="pagination"
     data-selected=""
     dir="ltr"
-    id="pagination::r0::item:1"
+    id="pagination:«r0»:item:1"
     type="button"
   >
     1
@@ -226,7 +226,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r0::item:2"
+    id="pagination:«r0»:item:2"
     type="button"
   >
     2
@@ -238,7 +238,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r0::item:3"
+    id="pagination:«r0»:item:3"
     type="button"
   >
     3
@@ -250,7 +250,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="item"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r0::item:4"
+    id="pagination:«r0»:item:4"
     type="button"
   >
     4
@@ -261,7 +261,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
-    id="pagination::r0::next"
+    id="pagination:«r0»:next"
     type="button"
   >
     <svg

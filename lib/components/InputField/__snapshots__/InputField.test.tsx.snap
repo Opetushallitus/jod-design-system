@@ -4,22 +4,22 @@ exports[`InputField > renders help text correctly 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r4:"
+    for="«r4»"
   >
     Username
   </label>
   <input
-    aria-describedby=":r5:"
+    aria-describedby="«r5»"
     aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id=":r4:"
+    id="«r4»"
     type="text"
     value="john"
   />
   <div
     class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
-    id=":r5:"
+    id="«r5»"
   >
     Please enter your username
   </div>
@@ -30,7 +30,7 @@ exports[`InputField > renders input correctly 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r2:"
+    for="«r2»"
   >
     Username
   </label>
@@ -38,7 +38,7 @@ exports[`InputField > renders input correctly 1`] = `
     aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id=":r2:"
+    id="«r2»"
     placeholder="Enter your username"
     type="text"
     value="john"
@@ -50,7 +50,7 @@ exports[`InputField > renders label correctly 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r0:"
+    for="«r0»"
   >
     Username
   </label>
@@ -58,7 +58,7 @@ exports[`InputField > renders label correctly 1`] = `
     aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id=":r0:"
+    id="«r0»"
     type="text"
     value="john"
   />
@@ -69,7 +69,7 @@ exports[`InputField > updates input value correctly 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r6:"
+    for="«r6»"
   >
     Username
   </label>
@@ -77,7 +77,7 @@ exports[`InputField > updates input value correctly 1`] = `
     aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id=":r6:"
+    id="«r6»"
     type="text"
     value="test value"
   />

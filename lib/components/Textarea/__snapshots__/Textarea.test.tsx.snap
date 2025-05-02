@@ -4,12 +4,12 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r8:"
+    for="«r8»"
   />
   <textarea
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":r8:"
+    id="«r8»"
     placeholder="Enter text"
   />
 </div>
@@ -19,12 +19,12 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r6:"
+    for="«r6»"
   />
   <textarea
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":r6:"
+    id="«r6»"
     placeholder="Enter text"
   />
 </div>
@@ -34,18 +34,18 @@ exports[`Textarea > displays help text when provided 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":ra:"
+    for="«ra»"
   />
   <textarea
-    aria-describedby=":rb:"
+    aria-describedby="«rb»"
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":ra:"
+    id="«ra»"
     placeholder="Enter text"
   />
   <div
     class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
-    id=":rb:"
+    id="«rb»"
   >
     Help text
   </div>
@@ -56,14 +56,14 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r2:"
+    for="«r2»"
   >
     Test Label
   </label>
   <textarea
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":r2:"
+    id="«r2»"
     placeholder="Enter text"
   />
 </div>
@@ -73,12 +73,12 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
 <div>
   <label
     class="ds:hidden ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r4:"
+    for="«r4»"
   />
   <textarea
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":r4:"
+    id="«r4»"
     placeholder="Enter text"
   />
 </div>
@@ -88,12 +88,12 @@ exports[`Textarea > renders without crashing 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":r0:"
+    for="«r0»"
   />
   <textarea
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":r0:"
+    id="«r0»"
     placeholder="Enter text"
   />
 </div>
@@ -103,12 +103,12 @@ exports[`Textarea > sets the correct number of rows 1`] = `
 <div>
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black"
-    for=":rc:"
+    for="«rc»"
   />
   <textarea
     autocomplete="off"
     class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-    id=":rc:"
+    id="«rc»"
     placeholder="Enter text"
     rows="5"
   />

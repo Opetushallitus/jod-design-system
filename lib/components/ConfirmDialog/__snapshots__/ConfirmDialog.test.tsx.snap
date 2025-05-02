@@ -2,13 +2,13 @@
 
 exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
 <div
-  aria-describedby="headlessui-description-:ra:"
-  aria-labelledby="headlessui-dialog-title-:r9:"
+  aria-describedby="headlessui-description-«ra»"
+  aria-labelledby="headlessui-dialog-title-«r9»"
   aria-modal="true"
   class="ds:relative ds:z-50"
   data-headlessui-state="open"
   data-open=""
-  id="ds-confirm-dialog-:r0:"
+  id="ds-confirm-dialog-«r0»"
   role="dialog"
   tabindex="-1"
 >
@@ -26,7 +26,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
         class="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray"
         data-headlessui-state="open"
         data-open=""
-        id="ds-confirm-dialog-panel-:r0:"
+        id="ds-confirm-dialog-panel-«r0»"
       >
         <div
           class="ds:flex ds:max-w-[640px] ds:flex-col ds:p-9"
@@ -35,7 +35,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="ds:mb-5 ds:text-heading-2"
             data-headlessui-state="open"
             data-open=""
-            id="headlessui-dialog-title-:r9:"
+            id="headlessui-dialog-title-«r9»"
           >
             ConfirmDialog rendered
           </h2>
@@ -43,7 +43,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="ds:text-body-sm ds:font-arial"
             data-headlessui-state="open"
             data-open=""
-            id="headlessui-description-:ra:"
+            id="headlessui-description-«ra»"
           >
             Are you sure?
           </p>
