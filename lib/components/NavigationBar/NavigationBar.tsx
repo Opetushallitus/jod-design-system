@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { LogoIconRgb, LogoRgbEn, LogoRgbFi, LogoRgbSv } from '../../main';
+import { LogoRgbEn, LogoRgbFi, LogoRgbSv } from '../../main';
 
 export interface NavigationBarLinkProps {
   className?: string;
@@ -57,32 +57,36 @@ export const NavigationBar = ({
   logo,
   refs,
 }: NavigationBarProps) => {
-  const { sm } = useMediaQueries();
+  const { md } = useMediaQueries();
 
   return (
     <div className="ds:min-w-min ds:shadow-border ds:bg-white">
       <nav
         role="navigation"
-        className="ds:mx-auto ds:flex ds:h-11 ds:items-center ds:gap-4 ds:px-5 ds:sm:px-7 ds:py-3 ds:font-semibold ds:xl:container"
+        className="ds:flex ds:items-center ds:gap-5 ds:mx-auto ds:h-11 ds:px-6 ds:py-3 ds:font-semibold ds:xl:container"
       >
-        <Link to={logo.to} className="ds:flex">
-          <div className="ds:inline-flex ds:select-none ds:items-center ds:p-3">
-            {sm ? <LogoRgb language={logo.language} size={32} /> : <LogoIconRgb size={32} />}
-            <span className="ds:sr-only">{logo.srText}</span>
+        {menuComponent && (
+          <ul>
+            <li>{menuComponent}</li>
+          </ul>
+        )}
+        {md && (
+          <div className="ds:flex ds:grow ds:justify-center">
+            <Link to={logo.to}>
+              <div className="ds:inline-flex ds:select-none ds:items-center ds:p-3">
+                <LogoRgb language={logo.language} size={26} />
+                <span className="ds:sr-only">{logo.srText}</span>
+              </div>
+            </Link>
           </div>
-        </Link>
-        <ul className="ds:inline-flex ds:items-center ds:gap-3 ds:sm:gap-5 ds:ml-auto">
-          {menuComponent && <li className="ds:ml-3 ds:sm:ml-0">{menuComponent}</li>}
-          {sm && (
-            <>
-              {languageButtonComponent && (
-                <li className="ds:ml-5" ref={refs?.langMenuButtonRef}>
-                  {languageButtonComponent}
-                </li>
-              )}
-              {userButtonComponent && <li>{userButtonComponent}</li>}
-            </>
+        )}
+        <ul className="ds:inline-flex ds:items-center ds:gap-5 ds:ml-auto">
+          {md && languageButtonComponent && (
+            <li className="ds:ml-5" ref={refs?.langMenuButtonRef}>
+              {languageButtonComponent}
+            </li>
           )}
+          {userButtonComponent && <li>{userButtonComponent}</li>}
         </ul>
       </nav>
     </div>
