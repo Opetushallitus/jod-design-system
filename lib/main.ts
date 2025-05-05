@@ -78,6 +78,7 @@ export { Spinner } from './components/Spinner/Spinner';
 export { Tag } from './components/Tag/Tag';
 export { Textarea } from './components/Textarea/Textarea';
 export { Toast } from './components/Toast/Toast';
+export { Toggle } from './components/Toggle/Toggle';
 export { Tooltip } from './components/Tooltip/Tooltip';
 export { TooltipContent } from './components/Tooltip/TooltipContent';
 export { TooltipTrigger } from './components/Tooltip/TooltipTrigger';
