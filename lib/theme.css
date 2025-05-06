@@ -123,9 +123,9 @@
   --text-help-mobile: 14px;
   --text-help-mobile--font-weight: 400;
   --text-help-mobile--line-height: 18px;
-  --text-button-lg: 16px;
+  --text-button-lg: 26px;
   --text-button-lg--font-weight: 700;
-  --text-button-lg--line-height: 24px;
+  --text-button-lg--line-height: 110%;
   --text-button-md: 16px;
   --text-button-md--font-weight: 600;
   --text-button-md--line-height: 24px;

@@ -28,10 +28,10 @@ export interface ButtonProps {
 }
 
 const getSizeClassName = (size: ButtonProps['size']) => {
-  return cx({
-    'ds:text-button-sm ds:px-6 ds:rounded-[30px] ds:font-poppins': size === 'sm',
-    'ds:text-button-md ds:px-6 ds:rounded-[30px] ds:font-poppins': size === 'md',
-    'ds:text-button-lg ds:px-[42px] ds:rounded-[50px] ds:font-arial': size === 'lg',
+  return cx('ds:font-poppins', {
+    'ds:text-button-sm ds:px-6 ds:rounded-[30px]': size === 'sm',
+    'ds:text-button-md ds:px-6 ds:rounded-[30px]': size === 'md',
+    'ds:text-button-lg ds:px-[42px] ds:rounded-[50px]': size === 'lg',
   });
 };
 
@@ -46,7 +46,7 @@ const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIco
 
 const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
   return cx({
-    'ds:text-white ds:bg-accent ds:hover:text-white ds:active:bg-white ds:active:text-black ds:focus-visible:text-white':
+    'ds:text-white ds:bg-accent ds:hover:text-white ds:active:text-white ds:focus-visible:text-white':
       variant === 'accent' && !disabled,
     'ds:bg-accent-50 ds:disabled:text-white': variant === 'accent' && disabled,
     'ds:text-black ds:bg-bg-gray': variant === 'gray',
@@ -65,7 +65,7 @@ const getDisabledClassName = (disabled: ButtonProps['disabled'], variant: Button
     ? tc([
         'ds:hover:text-accent',
         'ds:focus-visible:text-accent',
-        'ds:active:bg-accent',
+        variant === 'accent' ? 'ds:active:bg-[#004E82]' : 'ds:active:bg-accent',
         'ds:focus-visible:outline-accent',
         'ds:focus-visible:outline',
         'ds:focus-visible:outline-[3px]',
@@ -118,9 +118,9 @@ export const Button = ({
 
   const spanClassName = cx({
     'ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline': !disabled,
-    'ds:py-3': size === 'sm',
-    'ds:py-[10px]': size === 'md',
-    'ds:py-[18px]': size === 'lg',
+    'ds:py-2': size === 'sm',
+    'ds:py-4': size === 'md',
+    'ds:py-5': size === 'lg',
   });
 
   return LinkComponent ? (
