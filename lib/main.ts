@@ -31,6 +31,7 @@ export {
   LogoTemFiSv,
 } from './components/Footer/logos';
 export { HeroCard } from './components/HeroCard/HeroCard';
+export { IconButton } from './components/IconButton/IconButton';
 export { InputField } from './components/InputField/InputField';
 export {
   LogoArrowBlack,
