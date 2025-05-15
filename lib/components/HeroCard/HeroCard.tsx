@@ -1,125 +1,79 @@
-import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { MdArrowForward } from 'react-icons/md';
+import { cx } from '../../cva';
+import { Button } from '../Button/Button';
 
-export interface HeroCardProps {
-  to?: object | string;
-  linkComponent?: React.ComponentType<{
-    to: object | string;
-    className?: string;
-    children: React.ReactNode;
-  }>;
+type ActionButtonProps =
+  | {
+      to: object | string;
+      LinkComponent: React.ComponentType<{
+        to: object | string;
+        className?: string;
+        children: React.ReactNode;
+      }>;
+      buttonLabel: string;
+      buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+    }
+  | {
+      to?: never;
+      LinkComponent?: never;
+      buttonLabel?: never;
+      buttonVariant?: never;
+    };
+
+export type HeroCardProps = {
   /** Title text shown on the card */
   title: string;
   /** Content text shown on the card */
   content?: string;
-  /** Action content shown on the card */
-  actionContent?: string;
   /** Background color of the card */
   backgroundColor?: string;
-  /** Text color */
-  textColor?: string;
   /** Size of the card. Lg is default. */
   size?: 'lg' | 'sm';
-  /** Arrow visibility. By default it's true if to or actionContent is present. */
-  arrowVisible?: boolean;
-  /** Arrow color. Defaults to text color */
-  arrowColor?: string;
-}
-
-const Arrow = ({ color }: { color: string }) => (
-  <div className="ds:sm:ml-auto" aria-hidden>
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-      <path d="M30 38L27.15 35.2L36.35 26H4V22H36.35L27.2 12.8L30 10L44 24L30 38Z" fill={color} />
-    </svg>
-  </div>
-);
-
-const ArrowSmall = ({ color }: { color: string }) => (
-  <div className="ds:sm:ml-auto" aria-hidden>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <path
-        d="M20.0003 25.3327L18.1003 23.466L24.2337 17.3327H2.66699V14.666H24.2337L18.1337 8.53268L20.0003 6.66602L29.3337 15.9993L20.0003 25.3327Z"
-        fill={color}
-      />
-    </svg>
-  </div>
-);
+} & ActionButtonProps;
 
 /** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const HeroCard = ({
   to,
-  linkComponent: Link,
+  LinkComponent,
+  buttonVariant = 'white',
   title,
   content,
-  actionContent,
-  backgroundColor = '#444BACF2',
-  textColor = '#FFF',
-  arrowColor = textColor,
-  arrowVisible = !!to || !!actionContent,
+  backgroundColor = '#006DB3',
   size = 'lg',
+
+  buttonLabel,
 }: HeroCardProps) => {
-  const { sm } = useMediaQueries();
+  const headingClassNames = cx('ds:text-pretty ds:mr-9', {
+    'ds:text-hero-mobile ds:sm:text-hero': size === 'lg',
+    'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm',
+  });
 
-  if (size === 'lg') {
-    return (
-      <div
-        className="ds:relative ds:flex ds:flex-col ds:gap-6 ds:rounded-lg ds:p-5 ds:sm:px-7 ds:sm:pb-11 ds:sm:pt-7 ds:tracking-widest"
-        style={{ backgroundColor, color: textColor }}
-      >
-        <h1 className="ds:overflow ds:text-pretty ds:text-[22px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[50px] ds:sm:text-[36px]">
-          {title}
-        </h1>
-        {sm && content && (
-          <p className="ds:tracking-normal ds:leading-[27px] ds:font-medium ds:text-[18px]">{content}</p>
-        )}
-        {actionContent && Link && to && (
-          <Link
-            to={to}
-            className="ds:absolute ds:bottom-0 ds:right-7 ds:translate-y-2/4 ds:rounded-[40px] ds:outline-hidden ds:transition-transform ds:hover:scale-105 ds:focus:scale-105"
-          >
-            <div
-              className="ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[40px] ds:bg-white ds:px-8 ds:py-[20px] ds:text-[28px] ds:font-bold ds:leading-[40px]"
-              style={{ color: backgroundColor }}
-            >
-              {actionContent}
-              {arrowVisible && <Arrow color={arrowColor} />}
-            </div>
-          </Link>
-        )}
-        {!actionContent && arrowVisible && <Arrow color={arrowColor} />}
-      </div>
-    );
-  }
-
-  return Link && to ? (
-    <Link
-      to={to}
-      className="ds:flex ds:rounded-lg ds:outline-hidden ds:transition-transform ds:hover:scale-105 ds:focus:scale-105"
-    >
-      <div
-        className="ds:relative ds:flex ds:flex-row ds:sm:flex-col ds:items-center ds:sm:items-start ds:grow ds:gap-3 ds:sm:gap-6 ds:rounded-lg ds:p-5 ds:sm:p-7 ds:sm:pb-6 ds:tracking-widest ds:justify-between"
-        style={{ backgroundColor, color: textColor }}
-      >
-        <div className="ds:flex ds:flex-col gap-4">
-          <h2 className="ds:overflow ds:text-pretty ds:text-[22px] ds:sm:text-[24px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[34px]">
-            {title}
-          </h2>
-          {content && <p className="ds:tracking-normal ds:leading-[27px] ds:font-medium ds:text-[18px]">{content}</p>}
-        </div>
-        {arrowVisible && sm ? <Arrow color={arrowColor} /> : <ArrowSmall color={arrowColor} />}
-      </div>
-    </Link>
-  ) : (
+  return (
     <div
-      className="ds:relative ds:flex ds:flex-row ds:sm:flex-col ds:items-center ds:sm:items-start ds:grow ds:gap-3 ds:sm:gap-6 ds:rounded-lg ds:p-5 ds:sm:p-7 ds:sm:pb-6 ds:tracking-widest ds:justify-between"
-      style={{ backgroundColor, color: textColor }}
+      className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
+      style={{ backgroundColor }}
     >
-      <div className="ds:flex ds:flex-col gap-4">
-        <h2 className="ds:overflow ds:text-pretty ds:text-[22px] ds:sm:text-[24px] ds:font-semibold ds:leading-[30px] ds:sm:leading-[34px]">
-          {title}
-        </h2>
-        {content && <p className="ds:tracking-normal ds:leading-[27px] ds:font-medium ds:text-[18px]">{content}</p>}
-      </div>
-      {arrowVisible && sm ? <Arrow color={arrowColor} /> : <ArrowSmall color={arrowColor} />}
+      <h2 className={headingClassNames}>{title}</h2>
+      {content && <p className="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg">{content}</p>}
+
+      {to && LinkComponent && buttonLabel && (
+        <Button
+          // eslint-disable-next-line react/no-unstable-nested-components
+          LinkComponent={({ children }) => (
+            <div>
+              <LinkComponent className="ds:group ds:outline-hidden" to={to}>
+                {children}
+              </LinkComponent>
+            </div>
+          )}
+          variant={buttonVariant}
+          size="md"
+          label={buttonLabel}
+          iconSide="right"
+          className="ds:mt-4 ds:transition-transform ds:group-hover:scale-105 ds:group-focus:scale-105 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+          icon={<MdArrowForward size={24} />}
+        />
+      )}
     </div>
   );
 };

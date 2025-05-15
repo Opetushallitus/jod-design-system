@@ -13,23 +13,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const secondaryCardArgs = {
-  title: 'Tunnista osaamistasi ja tutki mahdollisuuksia',
-  backgroundColor: '#00A8B3F2',
-  href: '/',
-  size: 'sm' as 'sm' | 'lg' | undefined,
-  textColor: '#000',
-};
-
-export const Primary: Story = {
+export const LargeWithActionButton: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2225-24513',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=11906-38871',
     },
     docs: {
       description: {
-        story: 'This is a primary hero card component.',
+        story: 'This is a large version with the action button.',
       },
     },
     backgrounds: {
@@ -37,31 +29,37 @@ export const Primary: Story = {
     },
   },
   args: {
-    title: 'Astu rohkeasti muutokseen! Tutki mahdollisuuksiasi, suunnittele polkusi ja luo tulevaisuutesi.',
+    size: 'lg',
+    title: 'Tervetuloa Osaamispolkuun!',
     content:
       'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
-    backgroundColor: '#006DB3F2',
-    actionContent: 'Kokeile palvelua',
-    arrowColor: '#006DB3',
+    backgroundColor: '#006DB3',
+    buttonLabel: 'Tutustu Osaamispolkuun',
+    to: '#',
+    LinkComponent: ({ to, children, className }) => (
+      <a className={className} href={to as string}>
+        {children}
+      </a>
+    ),
   },
   decorators: [
     (Story) => (
-      <div className="ds:mb-[30px] ds:max-w-2xl">
+      <div className="ds:max-w-2xl">
         <Story />
       </div>
     ),
   ],
 };
 
-export const PrimaryWithoutArrowsOrActions: Story = {
+export const LargeWithoutButton: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2225-24513',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=11906-38871',
     },
     docs: {
       description: {
-        story: 'This is a primary hero card component without arrows or actions.',
+        story: 'This is large version without the action button.',
       },
     },
     backgrounds: {
@@ -69,22 +67,22 @@ export const PrimaryWithoutArrowsOrActions: Story = {
     },
   },
   args: {
-    title: 'Amet sit dolor ipsum lorem',
+    size: 'lg',
+    title: 'Tutki mahdollisuuksiasi, suunnittele polkusi ja luo tulevaisuutesi Osaamispolussasi.',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui ac nunc tincidunt tincidunt. Nullam nec dui ac nunc tincidunt tincidunt.',
-    backgroundColor: '#006DB3F2',
-    arrowVisible: false,
+      'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
+    backgroundColor: '#006DB3',
   },
   decorators: [
     (Story) => (
-      <div className="ds:mb-[30px] ds:max-w-2xl">
+      <div className="ds:max-w-[716px]">
         <Story />
       </div>
     ),
   ],
 };
 
-export const SecondaryWithLink: Story = {
+export const SmallWithActionButton: Story = {
   parameters: {
     design: {
       type: 'figma',
@@ -97,50 +95,19 @@ export const SecondaryWithLink: Story = {
     },
   },
   args: {
+    size: 'sm',
     to: '#',
-    linkComponent: ({ to, children }) => <a href={to as string}>{children}</a>,
-    ...secondaryCardArgs,
+    title: 'Ohjaajan osio',
+    LinkComponent: ({ to, children }) => <a href={to as string}>{children}</a>,
+    buttonLabel: 'Ohjaajan osioon',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+    backgroundColor: '#00A8B3',
   },
   decorators: [
     (Story) => (
-      <div className="ds:max-w-xs">
+      <div className="ds:max-w-2xl">
         <Story />
-      </div>
-    ),
-  ],
-};
-
-export const MultipleSecondary: Story = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4574',
-    },
-    docs: {
-      description: {
-        story: 'Multiple hero card components.',
-      },
-    },
-  },
-  args: secondaryCardArgs,
-  decorators: [
-    (Story) => (
-      <div className="ds:flex ds:flex-row ds:gap-[32px] ds:xl:container">
-        <Story />
-        <Story
-          args={{
-            ...secondaryCardArgs,
-            title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi',
-            backgroundColor: '#EE7C45F2',
-          }}
-        />
-        <Story
-          args={{
-            ...secondaryCardArgs,
-            title: 'Luo oma profiili ja suunnittele polkusi',
-            backgroundColor: '#CD4EB3F2',
-          }}
-        />
       </div>
     ),
   ],
@@ -150,7 +117,7 @@ export const Hero: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=541%3A4574',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=11906-38871',
     },
     docs: {
       description: {
@@ -163,35 +130,25 @@ export const Hero: Story = {
     layout: 'fullscreen',
   },
   args: {
-    title: 'Astu rohkeasti muutokseen! Tutki mahdollisuuksiasi, suunnittele polkusi ja luo tulevaisuutesi.',
+    title: 'Tervetuloa Osaamispolkuun!',
     content:
-      'Elämä on jatkuvaa muutosta ja uudistumista. Olipa kyse uran vaihdosta, uuden osaamisen oppimisesta tai henkilökohtaisen elämäntilanteen parantamisesta, me tarjoamme sinulle tiedon ja inspiraation joita tarvitset.',
-    backgroundColor: '#006DB3F2',
-    actionContent: 'Kokeile palvelua',
-    arrowColor: '#006DB3',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    buttonLabel: 'Tutustu Osaamispolkuun',
+    backgroundColor: '#006DB3',
+    to: '#',
+    LinkComponent: ({ to, children, className }) => (
+      <a className={className} href={to as string}>
+        {children}
+      </a>
+    ),
   },
   decorators: [
     (Story) => (
-      <div className="ds:mx-auto ds:flex ds:flex-col ds:gap-3 ds:sm:gap-[104px] ds:bg-[url('https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=2070')] ds:bg-[length:2000px_cover] ds:bg-[top_-6rem_left_-10rem] ds:p-5 ds:sm:p-8 ds:xl:container">
-        <div className="ds:sm:mb-[30px] ds:max-w-2xl">
-          <Story />
-        </div>
-        <div className="ds:grid ds:grid-flow-row ds:auto-rows-max ds:grid-cols-1 ds:gap-3 ds:sm:gap-7 ds:md:grid-cols-3">
-          <Story args={secondaryCardArgs} />
-          <Story
-            args={{
-              ...secondaryCardArgs,
-              title: 'Tutustu miten käytät palvelua ja luot oman tulevaisuutesi',
-              backgroundColor: '#EE7C45F2',
-            }}
-          />
-          <Story
-            args={{
-              ...secondaryCardArgs,
-              title: 'Luo oma profiili ja suunnittele polkusi',
-              backgroundColor: '#CD4EB3F2',
-            }}
-          />
+      <div className="ds:h-[650px] ds:justify-center ds:mx-auto ds:flex ds:flex-row ds:items-center ds:bg-[url(@/../assets/pre-launch-1.avif)] ds:bg-[top_0rem_left_-0rem] ds:bg-cover ds:bg-size-[1500px] ds:p-5 ds:sm:p-8 ds:xl:container">
+        <div className="ds:max-w-[1140px] ds:grid ds:cols-3 ds:justify-start ds:flex-1">
+          <div className="ds:max-w-[716px] ds:col-span-3 ds:sm:col-span-2">
+            <Story />
+          </div>
         </div>
       </div>
     ),
