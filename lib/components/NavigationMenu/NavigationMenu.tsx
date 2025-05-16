@@ -30,6 +30,8 @@ export interface NavigationMenuProps {
   ariaCloseMenu: string;
   /** Text for link that brings user to the front page */
   frontPageLinkLabel: string;
+  /** Icon for the front page link */
+  frontPageIcon?: React.ReactNode;
   /** Link component to bring user to front page */
   FrontPageLinkComponent: React.ComponentType<LinkComponent>;
   /** Label for navigating back in the menu */
@@ -42,11 +44,13 @@ export interface NavigationMenuProps {
   /** Label for button to open submenu of menu item */
   openSubMenuLabel: string;
   /** External link sections */
-  externalLinkSections: ExternalLinkSection[];
+  externalLinkSections?: ExternalLinkSection[];
   /** Language selection items */
-  languageSelectionItems: LanguageSelectionItem[];
+  languageSelectionItems?: LanguageSelectionItem[];
   /** Selected language */
   selectedLanguage: string;
+  /** Extra section to be displayed at the end of the menu before the language selection */
+  extraSection?: React.ReactNode;
 }
 
 export const NavigationMenu = ({
@@ -54,6 +58,7 @@ export const NavigationMenu = ({
   open,
   ariaCloseMenu,
   frontPageLinkLabel,
+  frontPageIcon,
   FrontPageLinkComponent,
   backLabel,
   accentColor,
@@ -62,6 +67,7 @@ export const NavigationMenu = ({
   externalLinkSections,
   languageSelectionItems,
   selectedLanguage,
+  extraSection,
 }: NavigationMenuProps) => {
   const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
   const dialogRef = React.useRef<HTMLDialogElement>(null);
@@ -94,16 +100,31 @@ export const NavigationMenu = ({
             openSubMenuLabel={openSubMenuLabel}
             accentColor={accentColor}
             frontPageLinkLabel={frontPageLinkLabel}
+            frontPageIcon={frontPageIcon}
             FrontPageLinkComponent={FrontPageLinkComponent}
             onNestedMenuOpen={(menuOpen) => setNestedMenuOpen(menuOpen)}
             backLabel={backLabel}
           />
           {!nestedMenuOpen && (
             <>
-              <MenuSeparator />
-              <ExternalLinkSections sections={externalLinkSections} />
-              <MenuSeparator />
-              <LanguageSelection items={languageSelectionItems} selected={selectedLanguage} />
+              {externalLinkSections && externalLinkSections.length > 0 && (
+                <>
+                  <MenuSeparator />
+                  <ExternalLinkSections sections={externalLinkSections} />
+                </>
+              )}
+              {extraSection && (
+                <>
+                  <MenuSeparator />
+                  {extraSection}
+                </>
+              )}
+              {languageSelectionItems && languageSelectionItems.length > 0 && (
+                <>
+                  <MenuSeparator />
+                  <LanguageSelection items={languageSelectionItems} selected={selectedLanguage} />
+                </>
+              )}
             </>
           )}
         </div>

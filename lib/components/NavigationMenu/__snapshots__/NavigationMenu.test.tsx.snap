@@ -82,24 +82,6 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
           class="ds:ml-3 ds:gap-2 ds:flex ds:flex-col"
         />
       </div>
-      <span
-        class="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"
-      />
-      <div />
-      <span
-        class="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"
-      />
-      <div
-        class="ds:flex ds:flex-row"
-      >
-        <ul
-          aria-label="Language selection"
-          class="ds:flex ds:flex-1 ds:flex-col"
-        />
-        <span
-          class="ds:size-[40px]"
-        />
-      </div>
     </div>
   </nav>
 </dialog>
