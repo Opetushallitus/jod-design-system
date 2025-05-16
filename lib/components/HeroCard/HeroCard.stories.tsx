@@ -144,7 +144,7 @@ export const Hero: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="ds:h-[650px] ds:justify-center ds:mx-auto ds:flex ds:flex-row ds:items-center ds:bg-[url(@/../assets/pre-launch-1.avif)] ds:bg-[top_0rem_left_-0rem] ds:bg-cover ds:bg-size-[1500px] ds:p-5 ds:sm:p-8 ds:xl:container">
+      <div className="ds:h-[650px] ds:justify-center ds:mx-auto ds:flex ds:flex-row ds:items-center ds:p-5 ds:sm:p-8 ds:xl:container">
         <div className="ds:max-w-[1140px] ds:grid ds:cols-3 ds:justify-start ds:flex-1">
           <div className="ds:max-w-[716px] ds:col-span-3 ds:sm:col-span-2">
             <Story />
