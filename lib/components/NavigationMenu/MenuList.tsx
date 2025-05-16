@@ -7,14 +7,16 @@ import { LinkComponent } from './types';
 
 const FrontPageLink = ({
   label,
+  icon = <MdHome size={24} />,
   component: Component,
 }: {
   label: string;
+  icon?: React.ReactNode;
   component: React.ComponentType<LinkComponent>;
 }) => {
   return (
     <Component className="ds:flex ds:flex-row ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:focus:outline-accent">
-      <MdHome size={24} />
+      {icon}
       <span className="ds:text-button-md ds:group-hover:underline">{label}</span>
     </Component>
   );
@@ -72,6 +74,7 @@ export interface MenuListProps {
   menuItems: MenuItem[];
   accentColor: string;
   frontPageLinkLabel: string;
+  frontPageIcon?: React.ReactNode;
   FrontPageLinkComponent: React.ComponentType<LinkComponent>;
   onNestedMenuOpen: (insideNestedMenu: boolean) => void;
   backLabel: string;
@@ -82,6 +85,7 @@ export const MenuList = ({
   menuItems,
   accentColor,
   frontPageLinkLabel,
+  frontPageIcon,
   FrontPageLinkComponent,
   onNestedMenuOpen,
   backLabel,
@@ -148,12 +152,12 @@ export const MenuList = ({
             <span className="ds:text-button-md ds:group-hover:underline">{backLabel}</span>
           </button>
         ) : (
-          <FrontPageLink label={frontPageLinkLabel} component={FrontPageLinkComponent} />
+          <FrontPageLink label={frontPageLinkLabel} icon={frontPageIcon} component={FrontPageLinkComponent} />
         )}
         <Placeholder />
       </div>
     );
-  }, [historyMenuItems, FrontPageLinkComponent, frontPageLinkLabel, backLabel]);
+  }, [historyMenuItems, backLabel, frontPageLinkLabel, frontPageIcon, FrontPageLinkComponent]);
 
   return (
     <>
