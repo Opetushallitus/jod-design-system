@@ -71,8 +71,8 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
           class="ds:size-[40px]"
         />
       </div>
-      <span
-        class="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"
+      <hr
+        class="ds:my-3 ds:h-[1px] ds:bg-[#CCC] ds:border-0"
       />
       <div
         class="ds:border-l-[8px]"

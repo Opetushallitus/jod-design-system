@@ -108,10 +108,7 @@ export const NavigationMenu = ({
           {!nestedMenuOpen && (
             <>
               {externalLinkSections && externalLinkSections.length > 0 && (
-                <>
-                  <MenuSeparator />
-                  <ExternalLinkSections sections={externalLinkSections} />
-                </>
+                <ExternalLinkSections sections={externalLinkSections} />
               )}
               {extraSection && (
                 <>
