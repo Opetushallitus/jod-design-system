@@ -70,7 +70,7 @@ export const HeroCard = ({
           size="md"
           label={buttonLabel}
           iconSide="right"
-          className="ds:mt-4 ds:transition-transform ds:group-hover:scale-105 ds:group-focus:scale-105 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+          className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
           icon={<MdArrowForward size={24} />}
         />
       )}
