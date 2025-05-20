@@ -1,3 +1,3 @@
 export const MenuSeparator = () => {
-  return <span className="ds:my-3 ds:border-[#CCC] ds:border-b-[1px]"></span>;
+  return <hr className="ds:my-3 ds:h-[1px] ds:bg-[#CCC] ds:border-0" />;
 };
