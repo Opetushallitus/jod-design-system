@@ -36,15 +36,15 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
     </div>
   </div>
   <ul
-    class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5"
+    class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5 ds:*:px-2 ds:-mx-2"
   >
     <li
-      class="ds:px-2 ds:pb-2 ds:last:pr-0 ds:first:pl-0"
+      class="ds:pb-2"
     >
       tag1
     </li>
     <li
-      class="ds:px-2 ds:pb-2 ds:last:pr-0 ds:first:pl-0"
+      class="ds:pb-2"
     >
       tag2
     </li>

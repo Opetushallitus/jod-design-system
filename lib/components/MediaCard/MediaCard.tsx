@@ -64,7 +64,7 @@ const Tag = ({
   }>;
 }) => {
   return (
-    <li className="ds:px-2 ds:pb-2 ds:last:pr-0 ds:first:pl-0">
+    <li className="ds:pb-2">
       {Link ? (
         <Link to={to} className="ds:relative ds:z-1">
           {label}
@@ -137,7 +137,7 @@ export const MediaCard = ({
       {isFavorite !== undefined && (
         <FavoriteButton isFavorite={isFavorite} favoriteLabel={favoriteLabel} onFavoriteClick={onFavoriteClick} />
       )}
-      <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5">
+      <ul className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5 ds:*:px-2 ds:-mx-2">
         {tags.filter(Boolean).map((tag) => (
           <Tag key={tag.label} linkComponent={Link} {...tag} />
         ))}
@@ -211,7 +211,7 @@ const MediaCardHorizontal = ({
   const { sm } = useMediaQueries();
 
   return (
-    <div className="ds:relative ds:min-h-[137px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:sm:grid-cols-[193px_1fr] ds:lg:grid-cols-[255px_1fr] ds:grid-rows-[1fr_35px]">
+    <div className="ds:relative ds:min-h-[183px] ds:sm:min-h-[156px] ds:lg:min-h-[137px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:sm:grid-cols-[193px_1fr] ds:lg:grid-cols-[255px_1fr] ds:grid-rows-[1fr_auto]">
       <LinkOrDiv
         to={to}
         linkComponent={Link}
@@ -243,7 +243,7 @@ const MediaCardHorizontal = ({
           </div>
         </div>
       </LinkOrDiv>
-      <div className="ds:col-start-1 ds:sm:col-start-2 ds:row-start-2">{children}</div>
+      <div className="ds:col-start-1 ds:sm:col-start-2 ds:md-col-start-1 ds:row-start-2">{children}</div>
     </div>
   );
 };
