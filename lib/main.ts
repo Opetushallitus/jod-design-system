@@ -47,6 +47,7 @@ export { LogoIconBlack, LogoIconRgb, LogoIconWhite } from './components/Logo/Log
 export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
+export { MoreInfo } from './components/MoreInfo/MoreInfo';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export {
   ExternalLinkSections,
