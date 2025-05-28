@@ -24,13 +24,14 @@ const FrontPageLink = ({
 
 export interface MenuItem {
   label: string;
-  LinkComponent: React.ComponentType<LinkComponent>;
+  LinkComponent?: React.ComponentType<LinkComponent>;
   childItems?: MenuItem[];
   selected?: boolean;
 }
 
 type MenuListItemProps = {
   accentColor: string;
+  accentColorText?: string;
   onSubmenuClick?: () => void;
   openSubMenuLabel: string;
 } & MenuItem;
@@ -40,6 +41,7 @@ const MenuListItem = ({
   selected,
   childItems,
   accentColor,
+  accentColorText,
   LinkComponent,
   onSubmenuClick,
   openSubMenuLabel,
@@ -47,14 +49,23 @@ const MenuListItem = ({
 }: MenuListItemProps) => {
   return (
     <li className="ds:flex ds:flex-row ds:space-between ds:min-h-[40px] ds:gap-2" {...rest}>
-      <LinkComponent className="ds:flex-1 ds:flex ds:focus:outline-accent" aria-current={selected}>
+      {LinkComponent ? (
+        <LinkComponent className="ds:flex-1 ds:flex ds:focus:outline-accent" aria-current={selected}>
+          <span
+            className="ds:flex ds:items-center ds:text-button-md ds:flex-1 ds:p-3 ds:rounded ds:cursor-pointer ds:hover:underline"
+            style={{ backgroundColor: selected ? accentColor : 'transparent' }}
+          >
+            {label}
+          </span>
+        </LinkComponent>
+      ) : (
         <span
-          className="ds:flex ds:items-center ds:text-button-md ds:flex-1 ds:p-3 ds:rounded ds:cursor-pointer ds:hover:underline"
-          style={{ backgroundColor: selected ? accentColor : 'transparent' }}
+          className="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"
+          style={{ color: accentColorText ?? accentColor }}
         >
           {label}
         </span>
-      </LinkComponent>
+      )}
       {childItems && childItems.length > 0 ? (
         <button
           aria-label={openSubMenuLabel}
@@ -73,6 +84,7 @@ const MenuListItem = ({
 export interface MenuListProps {
   menuItems: MenuItem[];
   accentColor: string;
+  accentColorText?: string;
   frontPageLinkLabel: string;
   frontPageIcon?: React.ReactNode;
   FrontPageLinkComponent: React.ComponentType<LinkComponent>;
@@ -84,6 +96,7 @@ export interface MenuListProps {
 export const MenuList = ({
   menuItems,
   accentColor,
+  accentColorText,
   frontPageLinkLabel,
   frontPageIcon,
   FrontPageLinkComponent,
@@ -174,6 +187,7 @@ export const MenuList = ({
               childItems={item.childItems}
               LinkComponent={item.LinkComponent}
               accentColor={accentColor}
+              accentColorText={accentColorText}
               onSubmenuClick={() => onSubmenuItemClickHandler(item)}
               openSubMenuLabel={openSubMenuLabel}
             />
