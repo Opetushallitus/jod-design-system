@@ -39,6 +39,8 @@ export interface NavigationMenuProps {
 
   /** Menu accent color. Color used on the left part of the menus */
   accentColor: string;
+  /** Text color for the accent color */
+  accentColorText?: string;
   /** Menu items. Items can have children */
   menuItems: MenuItem[];
   /** Label for button to open submenu of menu item */
@@ -62,6 +64,7 @@ export const NavigationMenu = ({
   FrontPageLinkComponent,
   backLabel,
   accentColor,
+  accentColorText,
   menuItems,
   openSubMenuLabel,
   externalLinkSections,
@@ -99,6 +102,7 @@ export const NavigationMenu = ({
             menuItems={menuItems}
             openSubMenuLabel={openSubMenuLabel}
             accentColor={accentColor}
+            accentColorText={accentColorText}
             frontPageLinkLabel={frontPageLinkLabel}
             frontPageIcon={frontPageIcon}
             FrontPageLinkComponent={FrontPageLinkComponent}

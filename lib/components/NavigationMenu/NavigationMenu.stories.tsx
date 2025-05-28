@@ -105,7 +105,21 @@ const menuItems: MenuItem[] = [
         label: 'Kiinnostuksen kohteeni',
         LinkComponent: DummyLink,
       },
+      {
+        label: 'Väliotsikko 2',
+      },
+      {
+        label: 'Lorem ipsum 2',
+        LinkComponent: DummyLink,
+      },
     ],
+  },
+  {
+    label: 'Väliotsikko',
+  },
+  {
+    label: 'Lorem ipsum',
+    LinkComponent: DummyLink,
   },
 ];
 
@@ -181,6 +195,7 @@ export const Default: Story = {
     open: true,
     backLabel: 'Takaisin',
     accentColor: '#85C4EC',
+    accentColorText: '#006DB3',
     menuItems: menuItems,
     openSubMenuLabel: 'Avaa alivalikko',
     ariaCloseMenu: 'Sulje valikko',
