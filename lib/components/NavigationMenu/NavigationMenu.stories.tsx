@@ -150,11 +150,10 @@ const languageSelectionItems = [
 ];
 
 const DefaultRender = (props: NavigationMenuProps) => {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
       <Button label="Open menu" onClick={() => setIsOpen(true)} variant="white" />
-
       <NavigationMenu {...props} open={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
@@ -183,6 +182,46 @@ export const Default: Story = {
     accentColor: '#85C4EC',
     menuItems: menuItems,
     openSubMenuLabel: 'Avaa alivalikko',
+    ariaCloseMenu: 'Sulje valikko',
+    externalLinkSections: externalLinkSections,
+    languageSelectionItems: languageSelectionItems,
+    selectedLanguage: 'fi',
+  },
+};
+
+export const WithLogoAndActiveFrontPage: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'NavigationMenu component with a linkable logo and the front page set as active route.',
+      },
+    },
+  },
+  render: DefaultRender,
+  args: {
+    frontPageLinkLabel: 'Etusivu',
+    FrontPageLinkComponent: ({ children, className }: LinkComponent) => (
+      <a href="/#" className={`${className} ds:bg-[#85C4EC]`}>
+        {children}
+      </a>
+    ),
+    onClose: fn(),
+    open: true,
+    backLabel: 'Takaisin',
+    accentColor: '#85C4EC',
+    menuItems: menuItems.map((item) => ({ ...item, selected: false })),
+    openSubMenuLabel: 'Avaa alivalikko',
+    logo: {
+      to: window.location.href,
+      srText: 'Osaamispolku',
+      language: 'fi',
+    },
+    logoLink: ({ to, className, children }) => (
+      <a href={to as string} className={className}>
+        {children}
+      </a>
+    ),
     ariaCloseMenu: 'Sulje valikko',
     externalLinkSections: externalLinkSections,
     languageSelectionItems: languageSelectionItems,
