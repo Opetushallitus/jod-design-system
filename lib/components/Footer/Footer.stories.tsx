@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react';
 import type { TitledMeta } from '../../utils';
 
-import { Footer, type FooterProps } from './Footer';
+import { Footer } from './Footer';
 
 const meta = {
   title: 'Navigation/Footer',
@@ -20,65 +20,95 @@ const parameters = {
   },
 };
 
-const items: FooterProps['items'] = [
+const okmLabel = 'Opetus- ja kulttuuriministeriö';
+const temLabel = 'Työ- ja elinkeinoministeriö';
+const ophLabel = 'Opetushallitus';
+const kehaLabel = 'KEHA-keskus';
+const cooperationTitle = 'Osaamipolku on toteutettu yhteistyössä seuraavien tahojen toimesta.';
+const fundingTitle = 'Palvelu on rahoitettu Euroopan RFF-rahoituksella.';
+const copyright = '© Osaamispolku 2025. Kaikki oikeudet pidätetään.';
+
+const moreInfoLinks = [
   {
-    key: 'about',
-    component: ({ className }) => (
-      <a href="/about" className={className}>
-        Tietoa palvelusta ja käyttöohjeet
-      </a>
-    ),
+    to: 'ohjeet/tietoa-palvelusta',
+    label: 'Tietoa palvelusta',
   },
   {
-    key: 'cookies',
-    component: ({ className }) => (
-      <a href="/cookies" className={className}>
-        Evästekäytäntö
-      </a>
-    ),
+    to: 'perustiedot/tietosuojaseloste',
+    label: 'Tietosuojaselosteet ja evästeet',
   },
   {
-    key: 'sources',
-    component: ({ className }) => (
-      <a href="/sources" className={className}>
-        Datalähteet
-      </a>
-    ),
+    to: 'perustiedot/datalahteet',
+    label: 'Datalähteet',
   },
   {
-    key: 'terms',
-    component: ({ className }) => (
-      <a href="/terms" className={className}>
-        Käyttöehdot
-      </a>
-    ),
+    to: 'perustiedot/tietoa-tekoalysta',
+    label: 'Tietoa tekoälyn käytöstä',
   },
   {
-    key: 'accessibility',
-    component: ({ className }) => (
-      <a href="/accessibility" className={className}>
-        Saavutettavuusseloste
-      </a>
-    ),
-  },
-  {
-    key: 'privacy',
-    component: ({ className }) => (
-      <a href="/privacy" className={className}>
-        Tietosuojaseloste
-      </a>
-    ),
+    to: 'perustiedot/saavutettavuusseloste',
+    label: 'Saavutettavuusseloste',
   },
 ];
 
-const copyright = '© JOD 2024. Kaikki oikeudet pidätetään.';
+const moreInfoTitle = 'Haluatko tietää lisää Osaamispolusta?';
+const moreInfoDescription =
+  'Mietityttääkö tietosuoja tai tekoälyn hyödyntäminen palvelussa? Alta löydät kootusti yleistä tietoa palvelusta ja sen käytöstä.';
 
-export const Light: Story = {
+const feedbackTitle = 'Kerro meille mitä pidit palvelusta!';
+const feedbackContent =
+  'Haluamme kehittää Osaamispolkua vastaamaan paremmin juuri sinun tarpeita. Anna meille palautetta ja huomiomme sen kehitystyössä.';
+const feedbackButtonLabel = 'Anna palautetta';
+const feedbackTo = '#';
+const feedbackBgImageClassName =
+  'ds:bg-[url(@/../assets/home-1.avif)] ds:bg-cover ds:bg-[length:auto_auto] ds:sm:bg-[length:auto_1000px] ds:bg-[top_-0rem_right_-0rem] ds:sm:bg-[top_-21rem_right_0rem]';
+
+const LinkComponent = ({ children, to, className }: { children: React.ReactNode; className?: string; to: string }) => (
+  <a href={to} className={className}>
+    {children}
+  </a>
+);
+const AnotherLinkComponent = ({
+  children,
+  to,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  to: object | string;
+}) => (
+  <a href={to as string} className={className}>
+    {children}
+  </a>
+);
+
+const args = {
+  language: 'fi',
+  okmLabel,
+  temLabel,
+  ophLabel,
+  kehaLabel,
+  cooperationTitle,
+  fundingTitle,
+  copyright,
+  moreInfoTitle,
+  moreInfoDescription,
+  moreInfoLinks,
+  MoreInfoLinkComponent: LinkComponent,
+  feedbackTitle,
+  feedbackContent,
+  feedbackButtonLabel,
+  feedbackTo,
+  feedbackBgImageClassName,
+  FeedbackLinkComponent: AnotherLinkComponent,
+};
+
+export const Default: Story = {
   parameters: {
     ...parameters,
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8163',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=11906-38930',
     },
     docs: {
       description: {
@@ -86,39 +116,10 @@ export const Light: Story = {
       },
     },
   },
-  args: {
-    items,
-    language: 'fi',
-    copyright,
-  },
+  args: args,
 };
 
-export const Dark: Story = {
-  parameters: {
-    ...parameters,
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8189',
-    },
-    docs: {
-      description: {
-        story: 'This is a dark footer component with navigation items.',
-      },
-    },
-    backgrounds: {
-      default: 'jod-black',
-      values: [{ name: 'jod-black', value: '#000000' }],
-    },
-  },
-  args: {
-    items,
-    language: 'fi',
-    copyright,
-    variant: 'dark',
-  },
-};
-
-export const MobileDark: Story = {
+export const Mobile: Story = {
   parameters: {
     ...parameters,
     viewport: {
@@ -126,22 +127,13 @@ export const MobileDark: Story = {
     },
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=746%3A44679',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=12043-45255',
     },
     docs: {
       description: {
         story: 'This is a mobie footer component with navigation items.',
       },
     },
-    backgrounds: {
-      default: 'jod-black',
-      values: [{ name: 'jod-black', value: '#000000' }],
-    },
   },
-  args: {
-    items,
-    language: 'fi',
-    copyright,
-    variant: 'dark',
-  },
+  args: args,
 };

@@ -4,40 +4,107 @@ import { describe, expect, it } from 'vitest';
 
 import { Footer } from './Footer';
 
+const mockOkmLabel = 'Opetus- ja kulttuuriministeriö';
+const mockTemLabel = 'Työ- ja elinkeinoministeriö';
+const mockOphLabel = 'Opetushallitus';
+const mockKehaLabel = 'KEHA-keskus';
+const mockCooperationTitle = 'Osaamipolku on toteutettu yhteistyössä seuraavien tahojen toimesta.';
+const mockFundingTitle = 'Palvelu on rahoitettu Euroopan RFF-rahoituksella.';
+const mockCopyright = '© Osaamispolku 2025. Kaikki oikeudet pidätetään.';
+
+const mockMoreInfoLinks = [
+  {
+    to: 'ohjeet/tietoa-palvelusta',
+    label: 'Tietoa palvelusta',
+  },
+  {
+    to: 'perustiedot/tietosuojaseloste',
+    label: 'Tietosuojaselosteet ja evästeet',
+  },
+  {
+    to: 'perustiedot/datalahteet',
+    label: 'Datalähteet',
+  },
+  {
+    to: 'perustiedot/tietoa-tekoalysta',
+    label: 'Tietoa tekoälyn käytöstä',
+  },
+  {
+    to: 'perustiedot/saavutettavuusseloste',
+    label: 'Saavutettavuusseloste',
+  },
+];
+
+const mockMoreInfoTitle = 'Haluatko tietää lisää Osaamispolusta?';
+const mockMoreInfoDescription =
+  'Mietityttääkö tietosuoja tai tekoälyn hyödyntäminen palvelussa? Alta löydät kootusti yleistä tietoa palvelusta ja sen käytöstä.';
+
+const MoreInfoLinkComponent = ({
+  children,
+  to,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  to: string;
+}) => (
+  <a href={to} className={className}>
+    {children}
+  </a>
+);
+
+const FeedbackLinkComponent = ({
+  children,
+  to,
+  className,
+}: {
+  to: object | string;
+  className?: string;
+  children: React.ReactNode;
+}) => (
+  <a href={to as string} className={className}>
+    {children}
+  </a>
+);
+
+const mockFeedbackTitle = '';
+const mockFeedbackContent = '';
+const mockFeedbackButtonLabel = '';
+const mockFeedbackTo = '';
+const mockFeedbackBgImageClassName = '';
+
+const FooterComponent = (
+  <Footer
+    language="fi"
+    okmLabel={mockOkmLabel}
+    temLabel={mockTemLabel}
+    ophLabel={mockOphLabel}
+    kehaLabel={mockKehaLabel}
+    cooperationTitle={mockCooperationTitle}
+    fundingTitle={mockFundingTitle}
+    moreInfoLinks={mockMoreInfoLinks}
+    moreInfoTitle={mockMoreInfoTitle}
+    moreInfoDescription={mockMoreInfoDescription}
+    MoreInfoLinkComponent={MoreInfoLinkComponent}
+    copyright={mockCopyright}
+    feedbackTitle={mockFeedbackTitle}
+    feedbackContent={mockFeedbackContent}
+    feedbackButtonLabel={mockFeedbackButtonLabel}
+    feedbackTo={mockFeedbackTo}
+    feedbackBgImageClassName={mockFeedbackBgImageClassName}
+    FeedbackLinkComponent={FeedbackLinkComponent}
+  />
+);
+
 describe('Footer', () => {
-  const mockItems = [
-    { key: 'item1', component: () => <div>Item 1</div> },
-    { key: 'item2', component: () => <div>Item 2</div> },
-    { key: 'item3', component: () => <div>Item 3</div> },
-  ];
-  const mockCopyright = '© 2024';
-
-  it('renders footer with light variant', () => {
-    const { container } = render(<Footer items={mockItems} variant="light" language="fi" copyright={mockCopyright} />);
-    expect(container.firstChild).toHaveClass('ds:bg-white ds:text-black');
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders footer with dark variant', () => {
-    const { container } = render(<Footer items={mockItems} variant="dark" language="fi" copyright={mockCopyright} />);
-    expect(container.firstChild).toHaveClass('ds:bg-black ds:text-white');
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders items', () => {
-    const { container } = render(<Footer items={mockItems} variant="light" />);
-    const item1 = screen.getByText('Item 1');
-    const item2 = screen.getByText('Item 2');
-    const item3 = screen.getByText('Item 3');
-    expect(item1).toBeInTheDocument();
-    expect(item2).toBeInTheDocument();
-    expect(item3).toBeInTheDocument();
+  it('renders', () => {
+    const { container } = render(FooterComponent);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders copyright', () => {
-    const { container } = render(<Footer variant="light" copyright={mockCopyright} />);
-    const copyright = screen.getByText('© 2024');
+    const { container } = render(FooterComponent);
+    const copyright = screen.getByText('© Osaamispolku 2025. Kaikki oikeudet pidätetään.');
     expect(copyright).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
