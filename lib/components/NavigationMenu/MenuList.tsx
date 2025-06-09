@@ -15,7 +15,7 @@ const FrontPageLink = ({
   component: React.ComponentType<LinkComponent>;
 }) => {
   return (
-    <Component className="ds:flex ds:flex-row ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:focus:outline-accent">
+    <Component className="ds:flex ds:flex-row ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:focus:outline-accent ds:rounded">
       {icon}
       <span className="ds:text-button-md ds:group-hover:underline">{label}</span>
     </Component>
@@ -157,17 +157,19 @@ export const MenuList = ({
     return (
       <div className="ds:flex ds:flex-row">
         {historyMenuItems && historyMenuItems.length > 0 ? (
-          <button
-            className="ds:flex ds:flex-row ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:focus:outline-accent"
-            onClick={onNestedMenuCloseHandler}
-          >
-            <MdArrowBackIos size={24} />
-            <span className="ds:text-button-md ds:group-hover:underline">{backLabel}</span>
-          </button>
+          <>
+            <button
+              className="ds:flex ds:flex-row ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:focus:outline-accent"
+              onClick={onNestedMenuCloseHandler}
+            >
+              <MdArrowBackIos size={24} />
+              <span className="ds:text-button-md ds:group-hover:underline">{backLabel}</span>
+            </button>
+            <Placeholder />
+          </>
         ) : (
           <FrontPageLink label={frontPageLinkLabel} icon={frontPageIcon} component={FrontPageLinkComponent} />
         )}
-        <Placeholder />
       </div>
     );
   }, [historyMenuItems, backLabel, frontPageLinkLabel, frontPageIcon, FrontPageLinkComponent]);
@@ -175,7 +177,8 @@ export const MenuList = ({
   return (
     <>
       <HomeButton />
-      <MenuSeparator />
+      {/* Dont show separator if there are no menu items */}
+      {currentMenuItems.length > 0 && <MenuSeparator />}
       <div className="ds:border-l-[8px]" style={{ borderColor: accentColor }}>
         <ul className="ds:ml-3 ds:gap-2 ds:flex ds:flex-col">
           {currentMenuItems.map((item) => (

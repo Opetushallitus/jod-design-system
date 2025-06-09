@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { LogoRgbEn, LogoRgbFi, LogoRgbSv } from '../../main';
+import { LogoRgb } from '../Logo/LogoRgb';
 
 export interface NavigationBarLinkProps {
   className?: string;
@@ -34,17 +34,6 @@ export interface NavigationBarProps {
     langMenuButtonRef: React.Ref<HTMLLIElement>;
   };
 }
-
-const LogoRgb = ({ language, size }: { language: string; size: number }) => {
-  switch (language) {
-    case 'sv':
-      return <LogoRgbSv size={size} />;
-    case 'en':
-      return <LogoRgbEn size={size} />;
-    default:
-      return <LogoRgbFi size={size} />;
-  }
-};
 
 /**
  * This component is a navigation bar that displays a logo, and an avatar.

@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { MdArrowForward } from 'react-icons/md';
-import { HeroCard, LogoRgbEn, LogoRgbFi, LogoRgbSv } from '../../main';
+import { HeroCard } from '../../main';
+import { LogoRgb } from '../Logo/LogoRgb';
 import {
   LogoEuEn,
   LogoEuFi,
@@ -15,17 +16,6 @@ import {
   LogoTemEn,
   LogoTemFiSv,
 } from './logos';
-
-const LogoRgb = ({ language, size }: { language: string; size: number }) => {
-  switch (language) {
-    case 'sv':
-      return <LogoRgbSv size={size} />;
-    case 'en':
-      return <LogoRgbEn size={size} />;
-    default:
-      return <LogoRgbFi size={size} />;
-  }
-};
 
 type LinkComponent = React.ComponentType<{ children: React.ReactNode; className?: string; to: string }>;
 
