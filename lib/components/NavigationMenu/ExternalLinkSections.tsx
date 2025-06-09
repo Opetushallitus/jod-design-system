@@ -1,3 +1,4 @@
+import React from 'react';
 import { RxExternalLink } from 'react-icons/rx';
 import { MenuSeparator } from './MenuSeparator';
 import { Placeholder } from './Placeholder';
@@ -44,8 +45,9 @@ export const ExternalLinkSections = ({ sections }: { sections: ExternalLinkSecti
   return (
     <div>
       {sections.map((section) => (
-        <>
-          <div key={section.title}>
+        <React.Fragment key={section.title}>
+          {/* Only show section title if there are link items */}
+          <div>
             <MenuSeparator />
             <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{section.title}</span>
             <ul className="ds:gap-3 ds:flex ds:flex-col">
@@ -54,7 +56,7 @@ export const ExternalLinkSections = ({ sections }: { sections: ExternalLinkSecti
               ))}
             </ul>
           </div>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
