@@ -68,9 +68,8 @@ export interface FooterProps {
   feedbackTitle: string;
   feedbackContent: string;
   feedbackButtonLabel: string;
-  feedbackTo: string;
+  feedbackOnClick: () => void;
   feedbackBgImageClassName: string;
-  FeedbackLinkComponent: React.ComponentType<{ children: React.ReactNode; className?: string; to: object | string }>;
 }
 
 /**
@@ -94,9 +93,8 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     feedbackTitle,
     feedbackContent,
     feedbackButtonLabel,
-    feedbackTo,
+    feedbackOnClick,
     feedbackBgImageClassName,
-    FeedbackLinkComponent,
   }: FooterProps,
   ref,
 ) {
@@ -183,9 +181,8 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
               backgroundColor="#333"
               content={feedbackContent}
               title={feedbackTitle}
-              to={feedbackTo}
-              LinkComponent={FeedbackLinkComponent}
               buttonLabel={feedbackButtonLabel}
+              onClick={feedbackOnClick}
             />
           </div>
         </div>
