@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Footer } from './Footer';
 
@@ -53,24 +53,9 @@ const MoreInfoLinkComponent = ({
   </a>
 );
 
-const FeedbackLinkComponent = ({
-  children,
-  to,
-  className,
-}: {
-  to: object | string;
-  className?: string;
-  children: React.ReactNode;
-}) => (
-  <a href={to as string} className={className}>
-    {children}
-  </a>
-);
-
 const mockFeedbackTitle = '';
 const mockFeedbackContent = '';
 const mockFeedbackButtonLabel = '';
-const mockFeedbackTo = '';
 const mockFeedbackBgImageClassName = '';
 
 const FooterComponent = (
@@ -90,9 +75,8 @@ const FooterComponent = (
     feedbackTitle={mockFeedbackTitle}
     feedbackContent={mockFeedbackContent}
     feedbackButtonLabel={mockFeedbackButtonLabel}
-    feedbackTo={mockFeedbackTo}
+    feedbackOnClick={vi.fn()}
     feedbackBgImageClassName={mockFeedbackBgImageClassName}
-    FeedbackLinkComponent={FeedbackLinkComponent}
   />
 );
 

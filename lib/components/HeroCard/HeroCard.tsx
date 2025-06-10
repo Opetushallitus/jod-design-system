@@ -12,8 +12,17 @@ type ActionButtonProps =
       }>;
       buttonLabel: string;
       buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+      onClick?: never;
     }
   | {
+      onClick: () => void;
+      buttonLabel: string;
+      buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+      to?: never;
+      LinkComponent?: never;
+    }
+  | {
+      onClick?: never;
       to?: never;
       LinkComponent?: never;
       buttonLabel?: never;
@@ -40,13 +49,14 @@ export const HeroCard = ({
   content,
   backgroundColor = '#006DB3',
   size = 'lg',
-
   buttonLabel,
+  onClick,
 }: HeroCardProps) => {
   const headingClassNames = cx('ds:text-pretty ds:mr-9', {
     'ds:text-hero-mobile ds:sm:text-hero': size === 'lg',
     'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm',
   });
+  const shouldRenderButton = buttonLabel && ((to && LinkComponent) || onClick);
 
   return (
     <div
@@ -56,16 +66,20 @@ export const HeroCard = ({
       <h2 className={headingClassNames}>{title}</h2>
       {content && <p className="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg">{content}</p>}
 
-      {to && LinkComponent && buttonLabel && (
+      {shouldRenderButton && (
         <Button
-          // eslint-disable-next-line react/no-unstable-nested-components
-          LinkComponent={({ children }) => (
-            <div>
-              <LinkComponent className="ds:group ds:outline-hidden" to={to}>
-                {children}
-              </LinkComponent>
-            </div>
-          )}
+          {...(to &&
+            LinkComponent && {
+              // eslint-disable-next-line react/no-unstable-nested-components
+              LinkComponent: ({ children }: { children: React.ReactNode }) => (
+                <div>
+                  <LinkComponent className="ds:group ds:outline-hidden" to={to}>
+                    {children}
+                  </LinkComponent>
+                </div>
+              ),
+            })}
+          {...(onClick && { onClick })}
           variant={buttonVariant}
           size="md"
           label={buttonLabel}

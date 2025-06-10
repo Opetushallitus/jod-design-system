@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react';
 import type { TitledMeta } from '../../utils';
 
+import { fn } from '@storybook/test';
 import { Footer } from './Footer';
 
 const meta = {
@@ -59,25 +60,11 @@ const feedbackTitle = 'Kerro meille mitä pidit palvelusta!';
 const feedbackContent =
   'Haluamme kehittää Osaamispolkua vastaamaan paremmin juuri sinun tarpeita. Anna meille palautetta ja huomiomme sen kehitystyössä.';
 const feedbackButtonLabel = 'Anna palautetta';
-const feedbackTo = '#';
 const feedbackBgImageClassName =
   'ds:bg-[url(@/../assets/home-1.avif)] ds:bg-cover ds:bg-[length:auto_auto] ds:sm:bg-[length:auto_1000px] ds:bg-[top_-0rem_right_-0rem] ds:sm:bg-[top_-21rem_right_0rem]';
 
 const LinkComponent = ({ children, to, className }: { children: React.ReactNode; className?: string; to: string }) => (
   <a href={to} className={className}>
-    {children}
-  </a>
-);
-const AnotherLinkComponent = ({
-  children,
-  to,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  to: object | string;
-}) => (
-  <a href={to as string} className={className}>
     {children}
   </a>
 );
@@ -98,9 +85,8 @@ const args = {
   feedbackTitle,
   feedbackContent,
   feedbackButtonLabel,
-  feedbackTo,
+  feedbackOnClick: fn(),
   feedbackBgImageClassName,
-  FeedbackLinkComponent: AnotherLinkComponent,
 };
 
 export const Default: Story = {
