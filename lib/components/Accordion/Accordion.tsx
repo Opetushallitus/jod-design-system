@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 import { cx } from '../../cva';
+import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
   | {
@@ -18,6 +19,8 @@ type AccordionProps = {
   lang: string;
   underline?: boolean;
   initialState?: boolean;
+  // Optional function to fetch data when the accordion is opened. A loading spinner will be shown while fetching.
+  fetchData?: () => Promise<void>;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -26,9 +29,17 @@ const Caret = ({ isOpen }: { isOpen: boolean }) => (
   </span>
 );
 
-export const Accordion = ({ title, titleText, children, lang, underline, initialState = true }: AccordionProps) => {
+export const Accordion = ({
+  title,
+  titleText,
+  children,
+  lang,
+  underline,
+  initialState = true,
+  fetchData,
+}: AccordionProps) => {
   const [isOpen, setIsOpen] = React.useState(initialState);
-  const toggleOpen = () => setIsOpen(!isOpen);
+
   const isTitleValidElement = React.isValidElement(title);
   const wrapperClassnames = cx(
     'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent!',
@@ -40,8 +51,29 @@ export const Accordion = ({ title, titleText, children, lang, underline, initial
 
   // Reset the state when the children change
   React.useEffect(() => {
-    setIsOpen(initialState);
-  }, [children, initialState]);
+    // If fetchData is provided, the accordion will not open on the first try
+    if (!fetchData) {
+      setIsOpen(initialState);
+    }
+  }, [children, fetchData, initialState]);
+
+  const [loading, setLoading] = React.useState(false);
+  const [dataFetched, setDataFetched] = React.useState(false);
+
+  const toggleOpen = React.useCallback(async () => {
+    if (loading) {
+      return;
+    }
+
+    if (fetchData && !dataFetched && !isOpen) {
+      setLoading(true);
+      await fetchData();
+      setLoading(false);
+      setDataFetched(true);
+    }
+
+    setIsOpen(!isOpen);
+  }, [dataFetched, isOpen, fetchData, loading]);
 
   return (
     <>
@@ -51,26 +83,27 @@ export const Accordion = ({ title, titleText, children, lang, underline, initial
           <button
             aria-label={titleText}
             aria-expanded={isOpen}
-            onClick={toggleOpen}
+            onClick={() => void toggleOpen()}
             className="ds:cursor-pointer ds:flex"
           >
-            <Caret isOpen={isOpen} />
+            {loading ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </button>
         </div>
       ) : (
         <div className="ds:group">
-          <button aria-expanded={isOpen} onClick={toggleOpen} className={wrapperClassnames}>
+          <button aria-expanded={isOpen} onClick={() => void toggleOpen()} className={wrapperClassnames}>
             <span
               className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline"
               lang={lang}
             >
               {title}
             </span>
-            <Caret isOpen={isOpen} />
+            {loading ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </button>
         </div>
       )}
-      {isOpen && children}
+      {fetchData && dataFetched && isOpen && children}
+      {!fetchData && isOpen && children}
     </>
   );
 };

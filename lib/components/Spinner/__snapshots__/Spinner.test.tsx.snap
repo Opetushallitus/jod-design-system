@@ -2,9 +2,11 @@
 
 exports[`Spinner Component > matches snapshot 1`] = `
 <svg
+  aria-busy="true"
   class="ds:animate-spin"
   fill="none"
   height="24"
+  role="alert"
   viewBox="0 0 24 24"
   width="24"
   xmlns="http://www.w3.org/2000/svg"
