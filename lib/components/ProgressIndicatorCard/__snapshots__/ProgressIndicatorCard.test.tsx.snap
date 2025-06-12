@@ -5,9 +5,11 @@ exports[`renders ProgressIndicatorCard 1`] = `
   class="ds:shadow-border ds:rounded ds:bg-bg-gray-2-25 ds:min-h-[285px] ds:flex ds:items-center ds:justify-center"
 >
   <svg
+    aria-busy="true"
     class="ds:animate-spin ds:absolute"
     fill="none"
     height="64"
+    role="alert"
     viewBox="0 0 24 24"
     width="64"
     xmlns="http://www.w3.org/2000/svg"

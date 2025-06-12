@@ -80,3 +80,23 @@ export const WithUnderline: Story = {
     lang: 'en',
   },
 };
+
+export const WithAsync: Story = {
+  decorators,
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Accordion component that shows a loading spinner while fetching data asynchronously.',
+      },
+    },
+  },
+  args: {
+    title: 'Title',
+    children: 'Content',
+    underline: true,
+    lang: 'en',
+    initialState: false,
+    fetchData: async () => new Promise((resolve) => setTimeout(resolve, 5000)),
+  },
+};

@@ -18,6 +18,8 @@ export const Spinner = ({ size = 24, color = 'white', className }: SpinnerProps)
       height={size}
       viewBox="0 0 24 24"
       fill="none"
+      role="alert"
+      aria-busy="true"
       className={tc(['ds:animate-spin', className ?? ''])}
     >
       <path
