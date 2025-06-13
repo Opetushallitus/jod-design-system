@@ -1,7 +1,7 @@
-import { userEvent } from '@storybook/test';
 import { act, render, screen } from '@testing-library/react';
 import { DateView, DayTableCellState } from '@zag-js/date-picker';
 import React from 'react';
+import { userEvent } from 'storybook/test';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Datepicker } from './Datepicker';
 

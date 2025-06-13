@@ -1,6 +1,6 @@
-import { useState } from '@storybook/preview-api';
-import type { StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { StoryObj } from '@storybook/react-vite';
+import { useState } from 'storybook/preview-api';
+import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
 import { MediaCard } from './MediaCard';

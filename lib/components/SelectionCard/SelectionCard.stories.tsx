@@ -1,6 +1,6 @@
-import { useState } from '@storybook/preview-api';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { JSX } from 'react/jsx-runtime';
+import { useState } from 'storybook/preview-api';
 import type { TitledMeta } from '../../utils';
 import { Button } from '../Button/Button';
 import { SelectionCard, SelectionCardProps } from './SelectionCard';

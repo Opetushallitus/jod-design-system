@@ -1,9 +1,9 @@
-import type { StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
-import { useState } from '@storybook/preview-api';
 import { DateView, DayTableCellState } from '@zag-js/date-picker';
+import { useState } from 'storybook/preview-api';
 import { Datepicker } from './Datepicker';
 
 const meta = {

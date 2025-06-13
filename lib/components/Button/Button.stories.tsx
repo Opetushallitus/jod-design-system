@@ -1,6 +1,6 @@
-import type { StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { StoryObj } from '@storybook/react-vite';
 import { MdArrowBack, MdArrowForward, MdPerson } from 'react-icons/md';
+import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
 import { Button } from './Button';
