@@ -1,5 +1,5 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import React from 'react';
 import { afterEach, describe, expect, it, Mock, vi } from 'vitest';
 import { Slider } from './Slider';

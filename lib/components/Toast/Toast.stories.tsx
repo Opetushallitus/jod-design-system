@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import type { TitledMeta } from '../../utils';
 
 import { MdCheck, MdDangerous, MdWarning } from 'react-icons/md';
