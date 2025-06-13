@@ -158,7 +158,7 @@ export const Datepicker = ({
             ref={ref}
             name={name}
             placeholder={placeholder}
-            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:placeholder:text-body-md"
+            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-black ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               // Handle clearing the input field to allow clearing the datepicker value
               if (e.target.value === '') {
@@ -170,7 +170,7 @@ export const Datepicker = ({
             onBlur={onBlur}
           />
           <ArkDatePicker.Trigger
-            className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:cursor-pointer"
+            className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
             type="button"
             onKeyDown={handleEnter}
             onClick={() => {

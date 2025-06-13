@@ -12,7 +12,7 @@ exports[`InputField > renders help text correctly 1`] = `
     aria-describedby="«r5»"
     aria-required="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
     id="«r4»"
     type="text"
     value="john"
@@ -37,7 +37,7 @@ exports[`InputField > renders input correctly 1`] = `
   <input
     aria-required="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
     id="«r2»"
     placeholder="Enter your username"
     type="text"
@@ -57,7 +57,7 @@ exports[`InputField > renders label correctly 1`] = `
   <input
     aria-required="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
     id="«r0»"
     type="text"
     value="john"
@@ -76,7 +76,7 @@ exports[`InputField > updates input value correctly 1`] = `
   <input
     aria-required="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
     id="«r6»"
     type="text"
     value="test value"
