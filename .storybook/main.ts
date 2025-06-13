@@ -12,12 +12,11 @@ const config: StorybookConfig = {
 
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-themes',
     // '@storybook/addon-designs',
     '@chromatic-com/storybook',
+    '@storybook/addon-docs',
   ],
 
   framework: {

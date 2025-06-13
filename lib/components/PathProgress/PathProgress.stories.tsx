@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { MdOutlineFlag } from 'react-icons/md';
 import type { TitledMeta } from '../../utils';
 import { PathProgress } from './PathProgress';
