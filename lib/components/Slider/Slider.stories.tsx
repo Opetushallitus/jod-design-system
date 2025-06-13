@@ -1,8 +1,8 @@
-import { action } from '@storybook/addon-actions';
-import { useState } from '@storybook/preview-api';
-import type { StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
+import { action } from 'storybook/actions';
+import { useState } from 'storybook/preview-api';
+import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 import { Slider } from './Slider';
 
