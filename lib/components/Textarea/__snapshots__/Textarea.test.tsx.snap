@@ -8,7 +8,7 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
   />
   <textarea
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«r8»"
     placeholder="Enter text"
   />
@@ -23,7 +23,7 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
   />
   <textarea
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«r6»"
     placeholder="Enter text"
   />
@@ -39,7 +39,7 @@ exports[`Textarea > displays help text when provided 1`] = `
   <textarea
     aria-describedby="«rb»"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«ra»"
     placeholder="Enter text"
   />
@@ -62,7 +62,7 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
   </label>
   <textarea
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«r2»"
     placeholder="Enter text"
   />
@@ -77,7 +77,7 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
   />
   <textarea
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«r4»"
     placeholder="Enter text"
   />
@@ -92,7 +92,7 @@ exports[`Textarea > renders without crashing 1`] = `
   />
   <textarea
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«r0»"
     placeholder="Enter text"
   />
@@ -107,7 +107,7 @@ exports[`Textarea > sets the correct number of rows 1`] = `
   />
   <textarea
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     id="«rc»"
     placeholder="Enter text"
     rows="5"

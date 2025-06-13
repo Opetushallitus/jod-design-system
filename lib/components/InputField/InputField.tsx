@@ -88,7 +88,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
         className={tc([
-          'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md',
+          'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md',
           className,
         ])}
       />
