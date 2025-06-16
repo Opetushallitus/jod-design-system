@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { MdArrowForward } from 'react-icons/md';
 import { cx } from '../../cva';
 import { Button } from '../Button/Button';
@@ -32,6 +33,10 @@ type ActionButtonProps =
 export type HeroCardProps = {
   /** Title text shown on the card */
   title: string;
+  /** Title level for accessibility. Defaults to 2 */
+  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Title class name for custom styling */
+  titleClassName?: string;
   /** Content text shown on the card */
   content?: string;
   /** Background color of the card */
@@ -46,6 +51,8 @@ export const HeroCard = ({
   LinkComponent,
   buttonVariant = 'white',
   title,
+  titleLevel = 2,
+  titleClassName,
   content,
   backgroundColor = '#006DB3',
   size = 'lg',
@@ -53,17 +60,19 @@ export const HeroCard = ({
   onClick,
 }: HeroCardProps) => {
   const headingClassNames = cx('ds:text-pretty ds:mr-9', {
-    'ds:text-hero-mobile ds:sm:text-hero': size === 'lg',
-    'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm',
+    'ds:text-hero-mobile ds:sm:text-hero': size === 'lg' && titleClassName === undefined,
+    'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm' && titleClassName === undefined,
   });
   const shouldRenderButton = buttonLabel && ((to && LinkComponent) || onClick);
+
+  const TitleTag = `h${titleLevel}` as keyof JSX.IntrinsicElements;
 
   return (
     <div
       className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
       style={{ backgroundColor }}
     >
-      <h2 className={headingClassNames}>{title}</h2>
+      <TitleTag className={`${headingClassNames} ${titleClassName ? titleClassName : ''}`.trim()}>{title}</TitleTag>
       {content && <p className="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg">{content}</p>}
 
       {shouldRenderButton && (
