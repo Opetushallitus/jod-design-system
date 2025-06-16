@@ -61,9 +61,9 @@ export const Bordered: Story = {
     onChange: fn(),
     children: (
       <>
-        <RadioButton label="Lähteiden mukaan" value="a" variant="bordered" />
-        <RadioButton label="Teemoittain" value="b" variant="bordered" />
-        <RadioButton label="Aakkosellisesti" value="c" variant="bordered" />
+        <RadioButton label="Lähteiden mukaan" value="a" />
+        <RadioButton label="Teemoittain" value="b" />
+        <RadioButton label="Aakkosellisesti" value="c" />
       </>
     ),
   },
