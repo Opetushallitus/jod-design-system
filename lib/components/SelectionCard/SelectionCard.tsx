@@ -24,7 +24,7 @@ export interface SelectionCardProps {
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
-    <circle cx="20.9126" cy="20.074" r="16" fill="#00C181" />
+    <circle cx="20.9126" cy="20.074" r="16" className="ds:fill-success" />
     <path
       d="M18.5794 27.7406L30.3294 15.9906L27.9961 13.6572L18.5794 23.0739L13.8294 18.3239L11.4961 20.6572L18.5794 27.7406Z"
       fill="white"

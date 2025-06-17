@@ -96,7 +96,6 @@ export const Bordered: Story = {
     checked: false,
     label,
     ariaLabel: label,
-    variant: 'bordered',
   },
   render,
 };
@@ -117,7 +116,6 @@ export const BorderedAndDisabled: Story = {
     checked: false,
     label,
     ariaLabel: label,
-    variant: 'bordered',
   },
   render,
 };
@@ -155,7 +153,6 @@ export const WithNoVisibleLabel: Story = {
     name: 'name',
     value: 'value',
     checked: false,
-    variant: 'bordered',
     ariaLabel: label,
   },
   render,
@@ -177,7 +174,6 @@ export const DisabledAndBorderedWithNoVisibleLabel: Story = {
     value: 'value',
     checked: false,
     ariaLabel: label,
-    variant: 'bordered',
   },
   render,
 };
@@ -203,7 +199,6 @@ export const ComponentAsLabel: Story = {
       </div>
     ),
     ariaLabel: label,
-    variant: 'bordered',
   },
   render,
 };
@@ -257,7 +252,6 @@ export const IndeterminateCheckbox: Story = {
           onChange={cycleState}
           label="Indeterminate-state checkbox with Bordered"
           ariaLabel="Indeterminate-state checkbox"
-          variant="bordered"
         />
       </div>
     );
@@ -336,7 +330,6 @@ export const IndeterminateCheckboxWithChildren: Story = {
           onChange={handleParentChange}
           label="Select all items (with Bordered)"
           ariaLabel="Select all items (with Bordered)"
-          variant="bordered"
         />
         <div className="ds:ml-6 ds:flex ds:flex-col ds:gap-2">
           {['Item 1', 'Item 2', 'Item 3'].map((item, index) => (
@@ -348,7 +341,6 @@ export const IndeterminateCheckboxWithChildren: Story = {
               onChange={() => handleChildChange(index)}
               label={item}
               ariaLabel={item}
-              variant="bordered"
             />
           ))}
         </div>

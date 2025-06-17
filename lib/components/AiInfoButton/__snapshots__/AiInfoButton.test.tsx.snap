@@ -7,7 +7,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
   class="ds:cursor-pointer"
 >
   <div
-    class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-[#AD4298] ds:to-[#5359A6]"
+    class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"
     style="width: 24px; height: 24px;"
   >
     <span
@@ -38,7 +38,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
 
 exports[`AiInfoButton > renders the icon only 1`] = `
 <div
-  class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-[#AD4298] ds:to-[#5359A6]"
+  class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"
   style="width: 24px; height: 24px;"
 >
   <span

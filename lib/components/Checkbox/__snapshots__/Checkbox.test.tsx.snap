@@ -2,11 +2,11 @@
 
 exports[`Checkbox > renders correctly 1`] = `
 <div
-  class="ds:flex ds:items-center ds:text-left ds:relative"
+  class="ds:flex ds:items-center ds:text-left ds:relative ds:font-arial"
 >
   <input
     aria-checked="false"
-    class="ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-0"
+    class="ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-2 ds:border-accent"
     id="«r0»"
     name="myCheckbox"
     type="checkbox"
@@ -22,8 +22,17 @@ exports[`Checkbox > renders correctly 1`] = `
     width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <rect
+      fill="none"
+      height="16"
+      stroke="currentColor"
+      stroke-width="2"
+      width="16"
+      x="0"
+      y="0"
+    />
     <path
-      d="M4 8l3 3l5-5"
+      d="M4 8l3 3l6-6"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
@@ -40,13 +49,13 @@ exports[`Checkbox > renders correctly 1`] = `
   >
     <rect
       height="2"
-      width="10"
-      x="3"
+      width="8"
+      x="4"
       y="7"
     />
   </svg>
   <label
-    class="ds:flex ds:flex-row ds:items-center ds:text-heading-4 ds:text-black ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ds:pl-4"
+    class="ds:flex ds:flex-row ds:items-center ds:text-form-label ds:text-primary-gray ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ds:pl-4"
     for="«r0»"
   >
     My Checkbox

@@ -19,7 +19,7 @@ export const Toast = ({ text, icon, variant = 'success' }: ToastProps) => (
         ${variant === 'success' ? 'ds:bg-success' : ''}
         ${variant === 'warning' ? 'ds:bg-warning' : ''}
         ${variant === 'error' ? 'ds:bg-alert' : ''}
-        ds:inline-flex ds:h-8 ds:items-center ds:gap-3 ds:rounded-sm ds:pl-5 ds:text-black
+        ds:inline-flex ds:h-8 ds:items-center ds:gap-3 ds:rounded-sm ds:pl-5 ds:text-primary-gray
         ds:text-body-sm ds:font-arial ${icon ? 'ds:pr-7' : 'ds:pr-5'}`
       .replace(/\s+/g, ' ')
       .trim()}
