@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { MdExpandMore, MdLanguage, MdMenu, MdPersonOutline } from 'react-icons/md';
 import type { TitledMeta } from '../../utils';
 import { NavigationBar } from './NavigationBar';

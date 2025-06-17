@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 
 /**
  * Tidies up a string (or array of strings) of CSS class names by removing any extra whitespace and empty strings
