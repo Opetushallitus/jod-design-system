@@ -3,7 +3,7 @@
 exports[`WizardProgress > renders correctly 1`] = `
 <ol
   aria-label="Progress"
-  class="ds:flex ds:gap-4 ds:text-card-label-lg ds:text-[#333333]"
+  class="ds:flex ds:gap-4 ds:text-card-label-lg ds:text-primary-gray"
 >
   <li
     aria-current="false"

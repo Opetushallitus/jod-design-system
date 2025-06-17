@@ -22,23 +22,43 @@
   --color-secondary-1-50: #99ceef;
   --color-secondary-1-75: #66b5e7;
   --color-secondary-1: #339ddf;
+  --color-secondary-1-dark: #006db3;
+  --color-secondary-1-dark-2: #004e82;
+  --color-secondary-1-light-1: #85c4ec;
+  --color-secondary-1-light-2: #add8f2;
+  --color-secondary-1-light-3: #d6ebf9;
 
   --color-secondary-2-25: #bfe9ec;
   --color-secondary-2-50: #80d3d9;
   --color-secondary-2-75: #40bec6;
   --color-secondary-2: #00a8b3;
+  --color-secondary-2-dark: #00818a;
+  --color-secondary-2-dark-2: #00464a;
+  --color-secondary-2-light-1: #66cbd1;
+  --color-secondary-2-light-2: #99dce1;
+  --color-secondary-2-light-3: #cceef0;
 
   --color-secondary-3-50: #f7bda2;
   --color-secondary-3: #ee7c45;
+  --color-secondary-3-dark: #ba5b3d;
+  --color-secondary-3-dark-2: #753228;
+  --color-secondary-3-light-1: #f5b08f;
+  --color-secondary-3-light-2: #f8cbb5;
+  --color-secondary-3-light-3: #fce5da;
 
   --color-secondary-4-50: #e6a6d9;
   --color-secondary-4: #cd4eb3;
+  --color-secondary-4-dark: #ad4298;
+  --color-secondary-4-dark-2: #87327a;
+  --color-secondary-4-light-1: #e195d1;
+  --color-secondary-4-light-2: #ebb8e1;
+  --color-secondary-4-light-3: #f5dcf0;
 
   --color-secondary-5: #d8d8d8;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-primary-gray: #333333;
   --color-secondary-gray: #6e6e6e;
-  --color-link: #006db3;
   --color-inactive-gray: #a9a9a9;
   --color-border-gray: #cecece;
   --color-bg-gray: #f0f2f5;
@@ -49,6 +69,7 @@
   --color-warning: #f2c832;
   --color-alert: #e3564f;
   --color-alert-text: #de342b;
+  --color-alert-text-2: #c10000;
   --color-success: #00c181;
 
   --color-todo: #ff000066;

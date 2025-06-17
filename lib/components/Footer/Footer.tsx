@@ -187,7 +187,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
           </div>
         </div>
       </div>
-      <div className="ds:flex ds:justify-start ds:text-white ds:bg-[#333] ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto">
+      <div className="ds:flex ds:justify-start ds:text-white ds:bg-primary-gray ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto">
         <div className="ds:w-[1092px] ds:mx-auto ds:px-5">
           <div className="ds:flex ds:flex-col">
             <div className="ds:text-heading-2-mobile ds:sm:text-heading-2 ds:mb-3">{moreInfoTitle}</div>

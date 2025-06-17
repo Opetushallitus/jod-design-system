@@ -30,7 +30,7 @@ export const DiscussionCard = ({
   return (
     <div className={tc(`ds:flex ds:flex-row ds:py-5 ${className}`)}>
       <div className="ds:items-start ds:shrink-1 ds:pr-4">
-        <div className="ds:size-7 ds:rounded-full ds:bg-[#AD4298] ds:flex ds:justify-center ds:items-center ds:text-white ds:text-button-md">
+        <div className="ds:size-7 ds:rounded-full ds:bg-secondary-4-dark ds:flex ds:justify-center ds:items-center ds:text-white ds:text-button-md">
           {getInitials(author)}
         </div>
       </div>

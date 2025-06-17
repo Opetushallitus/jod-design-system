@@ -11,7 +11,7 @@ interface AiInfoButtonProps {
 
 const IconAi = ({ size }: Pick<AiInfoButtonProps, 'size'>) => (
   <div
-    className="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-[#AD4298] ds:to-[#5359A6]"
+    className="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"
     style={{ width: size, height: size }}
   >
     <span className="ds:absolute ds:top-0 ds:left-0 ds:flex ds:items-center ds:justify-center ds:w-full ds:h-full">
@@ -40,8 +40,8 @@ export const AiInfoButton = ({ size = 24, tooltipContent, ariaLabel }: AiInfoBut
         <IconAi size={size} />
       </TooltipTrigger>
       <TooltipContent
-        className="ds:text-white ds:p-6 ds:rounded-xl ds:bg-gradient-to-b ds:from-[#AD4298] ds:via-[#5359A6] ds:to-[#016DB3]"
-        arrowClassName="ds:fill-[#AD4298]"
+        className="ds:text-white ds:p-6 ds:rounded-xl ds:bg-gradient-to-b ds:from-secondary-4-dark ds:via-[#5359A6] ds:to-[#016DB3]"
+        arrowClassName="ds:fill-secondary-4-dark"
       >
         {tooltipContent}
       </TooltipContent>
