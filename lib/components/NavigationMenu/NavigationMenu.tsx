@@ -121,7 +121,7 @@ export const NavigationMenu = ({
     <Backdrop dialogRef={dialogRef} onClose={onClose}>
       <nav className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1">
         <div className="ds:px-3 ds:pt-6 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow">
-          <div className="ds:flex ds:items-center ds:justify-between">
+          <div className="ds:flex ds:items-center ds:justify-between ds:mb-5">
             <div>
               {logo && Link && (
                 <Link to={logo.to}>
