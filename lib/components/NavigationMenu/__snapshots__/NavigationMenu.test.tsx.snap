@@ -12,7 +12,7 @@ exports[`NavigationMenu > renders navigation menu with a logo 1`] = `
       class="ds:px-3 ds:pt-6 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow"
     >
       <div
-        class="ds:flex ds:items-center ds:justify-between"
+        class="ds:flex ds:items-center ds:justify-between ds:mb-5"
       >
         <div>
           <a
@@ -221,7 +221,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
       class="ds:px-3 ds:pt-6 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow"
     >
       <div
-        class="ds:flex ds:items-center ds:justify-between"
+        class="ds:flex ds:items-center ds:justify-between ds:mb-5"
       >
         <div />
         <div
