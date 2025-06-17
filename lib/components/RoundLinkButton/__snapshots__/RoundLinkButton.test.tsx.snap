@@ -8,12 +8,12 @@ exports[`Snapshot testing > Default 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds:text-black ds:bg-bg-gray-2 ds:group-hover:text-accent ds:flex ds:size-[64px] ds:select-none ds:items-center ds:justify-center ds:self-center ds:rounded-full"
+    class="ds:text-primary-gray ds:bg-bg-gray-2 ds:group-hover:text-accent ds:flex ds:size-[64px] ds:select-none ds:items-center ds:justify-center ds:self-center ds:rounded-full"
   >
     target
   </span>
   <span
-    class="ds:text-button-md ds:text-black ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-primary-gray ds:group-hover:text-accent ds:group-hover:underline"
   >
     Default
   </span>
@@ -28,12 +28,12 @@ exports[`Snapshot testing > Disabled, non-selected 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds:text-black ds:bg-bg-gray-2 ds:group-hover:text-accent ds:flex ds:size-[64px] ds:select-none ds:items-center ds:justify-center ds:self-center ds:rounded-full"
+    class="ds:text-primary-gray ds:bg-bg-gray-2 ds:group-hover:text-accent ds:flex ds:size-[64px] ds:select-none ds:items-center ds:justify-center ds:self-center ds:rounded-full"
   >
     target
   </span>
   <span
-    class="ds:text-button-md ds:text-black ds:group-hover:text-accent ds:group-hover:underline"
+    class="ds:text-button-md ds:text-primary-gray ds:group-hover:text-accent ds:group-hover:underline"
   >
     Disabled, nonselected
   </span>

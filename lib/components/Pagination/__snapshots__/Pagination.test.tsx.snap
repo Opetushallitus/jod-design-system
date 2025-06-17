@@ -11,7 +11,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
 >
   <button
     aria-label="Previous"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed ds:bg-bg-gray-2 ds:text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed ds:bg-bg-gray-2 ds:text-primary-gray"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -54,7 +54,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="page 2"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -66,7 +66,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="page 3"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -78,7 +78,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="page 4"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -90,7 +90,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="page 5"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="5"
     data-part="item"
     data-scope="pagination"
@@ -101,7 +101,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
     5
   </button>
   <div
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-default ds:bg-bg-gray-2 ds:text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-default ds:bg-bg-gray-2 ds:text-primary-gray"
     data-part="ellipsis"
     data-scope="pagination"
     dir="ltr"
@@ -127,7 +127,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </div>
   <button
     aria-label="last page, page 10"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="10"
     data-part="item"
     data-scope="pagination"
@@ -139,7 +139,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"
@@ -178,7 +178,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
 >
   <button
     aria-label="Previous"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed ds:bg-bg-gray-2 ds:text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed ds:bg-bg-gray-2 ds:text-primary-gray"
     data-disabled=""
     data-part="prev-trigger"
     data-scope="pagination"
@@ -221,7 +221,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="page 2"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="2"
     data-part="item"
     data-scope="pagination"
@@ -233,7 +233,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="page 3"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="3"
     data-part="item"
     data-scope="pagination"
@@ -245,7 +245,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="last page, page 4"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray ds:font-bold"
     data-index="4"
     data-part="item"
     data-scope="pagination"
@@ -257,7 +257,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   </button>
   <button
     aria-label="Next"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-black"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-bg-gray-2 ds:text-primary-gray"
     data-part="next-trigger"
     data-scope="pagination"
     dir="ltr"

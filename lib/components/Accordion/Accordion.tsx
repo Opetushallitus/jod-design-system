@@ -24,7 +24,7 @@ type AccordionProps = {
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
-  <span className="ds:text-black ds:group-hover:text-accent!" aria-hidden>
+  <span className="ds:text-primary-gray ds:group-hover:text-accent!" aria-hidden>
     {isOpen ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
   </span>
 );

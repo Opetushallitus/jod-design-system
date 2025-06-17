@@ -22,7 +22,7 @@ export type TagProps = PresentationTagProps | ActionableTagProps;
 
 const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagProps['variant']) =>
   cx(
-    'ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-arial ds:px-4 ds:py-2 ds:text-left',
+    'ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-poppins ds:px-4 ds:py-2 ds:text-left',
     {
       'ds:cursor-pointer': variant !== 'presentation',
       'ds:bg-tag-tyopaikka': sourceType === 'tyopaikka',
@@ -38,12 +38,12 @@ const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagPro
 export const Tag = ({ label, title, onClick, variant = 'selectable', sourceType = 'jotain-muuta' }: TagProps) => {
   return variant === 'presentation' ? (
     <div className={containerClassNames(sourceType, variant)} title={title}>
-      <span className="ds:hyphens-auto ds:text-black">{label}</span>
+      <span className="ds:hyphens-auto ds:text-primary-gray">{label}</span>
     </div>
   ) : (
     <button type="button" className={containerClassNames(sourceType, variant)} onClick={onClick} title={title}>
-      <span className="ds:hyphens-auto ds:text-black ds:group-hover:underline">{label}</span>
-      <span className="ds:pl-3 ds:text-button-md ds:text-black" aria-hidden>
+      <span className="ds:hyphens-auto ds:text-primary-gray ds:group-hover:underline">{label}</span>
+      <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray" aria-hidden>
         {variant === 'selectable' ? <MdAdd size={16} /> : <MdClose size={16} />}
       </span>
     </button>

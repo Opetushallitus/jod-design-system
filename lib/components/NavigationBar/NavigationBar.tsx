@@ -49,7 +49,7 @@ export const NavigationBar = ({
   const { md } = useMediaQueries();
 
   return (
-    <div className="ds:min-w-min ds:shadow-border ds:bg-white">
+    <div className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu">
       <nav
         role="navigation"
         className="ds:flex ds:items-center ds:gap-5 ds:mx-auto ds:h-11 ds:px-6 ds:py-3 ds:font-semibold ds:xl:container"

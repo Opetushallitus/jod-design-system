@@ -15,7 +15,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-label="Label"
-        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
         id="«r8»"
         placeholder="(placeholder text)"
@@ -26,7 +26,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
-        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
+        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
         id="headlessui-combobox-button-«rc»"
         tabindex="-1"
@@ -60,7 +60,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <label
-    class="ds:text-jod-black ds:text-form-label ds:font-arial ds:mb-4"
+    class="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4"
     for="«rg»"
   >
     Label
@@ -76,7 +76,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
-        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
@@ -89,7 +89,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
-        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
+        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
@@ -125,7 +125,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <label
-    class="ds:text-jod-black ds:text-form-label ds:font-arial ds:mb-4"
+    class="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4"
     for="«r0»"
   >
     Label
@@ -140,7 +140,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
-        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-black ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+        class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
         id="«r0»"
         placeholder="(placeholder text)"
@@ -151,7 +151,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
-        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-secondary-gray ds:disabled:text-inactive-gray"
+        class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
         id="headlessui-combobox-button-«r4»"
         tabindex="-1"

@@ -24,7 +24,7 @@ export const Note = ({ title, description, variant = 'success', onCloseClick, re
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-      className={cx('ds:text-black', {
+      className={cx('ds:text-primary-gray', {
         'ds:bg-success': variant === 'success',
         'ds:bg-warning': variant === 'warning',
         'ds:bg-alert': variant === 'error',

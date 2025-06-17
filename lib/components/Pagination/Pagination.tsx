@@ -10,7 +10,7 @@ const getClassName = ({ isActive = false, isArrowButton = true, disabled = false
       'ds:cursor-default': isEllipsis,
       'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': disabled === true,
       'ds:bg-accent ds:text-white': !isArrowButton && isActive,
-      'ds:bg-bg-gray-2 ds:text-black': !isActive,
+      'ds:bg-bg-gray-2 ds:text-primary-gray': !isActive,
       'ds:font-bold': !isArrowButton,
     },
   );
