@@ -149,7 +149,7 @@ export const Datepicker = ({
 
   return (
     <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full">
-      <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-black">
+      <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray">
         {label}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
@@ -158,7 +158,7 @@ export const Datepicker = ({
             ref={ref}
             name={name}
             placeholder={placeholder}
-            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-black ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
+            className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               // Handle clearing the input field to allow clearing the datepicker value
               if (e.target.value === '') {

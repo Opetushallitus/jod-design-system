@@ -69,7 +69,7 @@ const MenuListItem = ({
       {childItems && childItems.length > 0 ? (
         <button
           aria-label={openSubMenuLabel}
-          className="ds:rounded ds:flex ds:items-center ds:justify-center ds:cursor-pointer ds:bg-bg-gray-2 ds:size-[40px] ds:text-black ds:hover:text-accent ds:focus:text-accent"
+          className="ds:rounded ds:flex ds:items-center ds:justify-center ds:cursor-pointer ds:bg-bg-gray-2 ds:size-[40px] ds:text-primary-gray ds:hover:text-accent ds:focus:text-accent"
           onClick={onSubmenuClick}
         >
           <MdArrowForwardIos size={24} />

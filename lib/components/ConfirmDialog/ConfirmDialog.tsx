@@ -34,7 +34,7 @@ const getVariantClassNames = ({ variant }: { variant: Variant }) => {
   return cx({
     'ds:text-alert ds:bg-white ds:hover:text-alert ds:active:text-white ds:active:bg-alert ds:focus-visible:text-alert':
       variant === 'destructive',
-    'ds:text-black ds:bg-white': variant === 'normal',
+    'ds:text-primary-gray ds:bg-white': variant === 'normal',
   });
 };
 

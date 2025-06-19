@@ -185,7 +185,7 @@ const MediaCardVertical = ({
         ) : (
           <span className={`ds:w-full ds:h-full ds:bg-secondary-5 ds:max-w-[265px] ${variantImageClassNames}`}></span>
         )}
-        <div className="ds:px-5 ds:pt-4 ds:text-black ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap">
+        <div className="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap">
           <div className="ds:gap-3 ds:flex ds:flex-col">
             <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2" ref={labelRef}>
               {label}
@@ -232,7 +232,7 @@ const MediaCardHorizontal = ({
             ></div>
           )}
         </div>
-        <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-black ds:flex ds:flex-col ds:justify-between ds:flex-nowrap">
+        <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:flex-nowrap">
           <div className="ds:gap-3 ds:flex ds:flex-col">
             <div className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-3 ds:sm:line-clamp-2">
               {label}

@@ -25,7 +25,7 @@ exports[`Footer > renders 1`] = `
     </div>
   </div>
   <div
-    class="ds:flex ds:justify-start ds:text-white ds:bg-[#333] ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto"
+    class="ds:flex ds:justify-start ds:text-white ds:bg-primary-gray ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto"
   >
     <div
       class="ds:w-[1092px] ds:mx-auto ds:px-5"
@@ -186,7 +186,7 @@ exports[`Footer > renders 1`] = `
     </div>
   </div>
   <div
-    class="ds:bg-white ds:text-black"
+    class="ds:bg-white ds:text-primary-gray"
   >
     <div
       class="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5"
@@ -476,7 +476,7 @@ exports[`Footer > renders copyright 1`] = `
     </div>
   </div>
   <div
-    class="ds:flex ds:justify-start ds:text-white ds:bg-[#333] ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto"
+    class="ds:flex ds:justify-start ds:text-white ds:bg-primary-gray ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto"
   >
     <div
       class="ds:w-[1092px] ds:mx-auto ds:px-5"
@@ -637,7 +637,7 @@ exports[`Footer > renders copyright 1`] = `
     </div>
   </div>
   <div
-    class="ds:bg-white ds:text-black"
+    class="ds:bg-white ds:text-primary-gray"
   >
     <div
       class="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5"

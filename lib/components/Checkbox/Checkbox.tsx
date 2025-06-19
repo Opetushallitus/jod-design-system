@@ -18,11 +18,8 @@ export interface CheckboxProps {
   label?: React.ReactNode;
   /** Aria label for the component */
   ariaLabel: string;
-
   /** Additional class name for the component */
   className?: string;
-  /** Component variant */
-  variant?: 'default' | 'bordered';
 }
 
 /**
@@ -39,7 +36,6 @@ export const Checkbox = ({
   label,
   ariaLabel,
   className,
-  variant = 'default',
 }: CheckboxProps) => {
   const id = React.useId();
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -52,15 +48,8 @@ export const Checkbox = ({
     }
   }, [indeterminate]);
 
-  const borderVariantClassnames = {
-    'ds:border ds:border-accent': variant === 'bordered',
-    'ds:border ds:border-border-gray ': variant === 'bordered' && disabled,
-    'ds:border-0': variant === 'default',
-    'ds:bg-bg-gray-2': disabled,
-  };
-
   return (
-    <div className={cx('ds:flex ds:items-center ds:text-left ds:relative', className)}>
+    <div className={cx('ds:flex ds:items-center ds:text-left ds:relative ds:font-arial', className)}>
       <input
         ref={inputRef}
         type="checkbox"
@@ -72,9 +61,12 @@ export const Checkbox = ({
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
         aria-checked={indeterminate ? 'mixed' : checked}
-        className={cx('ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white', {
-          ...borderVariantClassnames,
-        })}
+        className={cx(
+          'ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-2 ds:border-accent',
+          {
+            'ds:border-inactive-gray': disabled,
+          },
+        )}
       />
       {/* Checked icon */}
       <svg
@@ -87,10 +79,8 @@ export const Checkbox = ({
         data-state={indeterminate ? 'hidden' : 'visible'}
         style={{ display: checked && !indeterminate ? 'block' : 'none' }}
       >
-        {variant === 'bordered' && (
-          <rect x="0" y="0" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" />
-        )}
-        <path d="M4 8l3 3l5-5" stroke="currentColor" strokeWidth="2" fill="none" />
+        <rect x="0" y="0" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M4 8l3 3l6-6" stroke="currentColor" strokeWidth="2" fill="none" />
       </svg>
       {/* Indeterminate icon */}
       <svg
@@ -102,12 +92,12 @@ export const Checkbox = ({
         className="ds:pointer-events-none ds:absolute ds:fill-accent"
         style={{ display: indeterminate ? 'block' : 'none' }}
       >
-        <rect x="3" y="7" width="10" height="2" />
+        <rect x="4" y="7" width="8" height="2" />
       </svg>
       {label && (
         <label
           htmlFor={id}
-          className={`ds:flex ds:flex-row ds:items-center ds:text-heading-4 ds:text-black ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ${!isLabelValidElement ? 'ds:pl-4' : ''}`.trim()}
+          className={`ds:flex ds:flex-row ds:items-center ds:text-form-label ds:text-primary-gray ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ${!isLabelValidElement ? 'ds:pl-4' : ''}`.trim()}
         >
           {label}
         </label>

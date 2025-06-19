@@ -49,14 +49,14 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
     'ds:text-white ds:bg-accent ds:hover:text-white ds:active:text-white ds:focus-visible:text-white':
       variant === 'accent' && !disabled,
     'ds:bg-accent-50 ds:disabled:text-white': variant === 'accent' && disabled,
-    'ds:text-black ds:bg-bg-gray': variant === 'gray',
-    'ds:text-black ds:bg-white': variant === 'white',
+    'ds:text-primary-gray ds:bg-bg-gray': variant === 'gray',
+    'ds:text-primary-gray ds:bg-white': variant === 'white',
     'ds:text-alert ds:bg-bg-gray ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
       variant === 'gray-delete',
-    'ds:bg-[#E35750] ds:text-white': variant === 'red-delete',
-    'ds:text-alert ds:bg-white ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
+    'ds:bg-[#E35750] ds:text-white ds:hover:text-white ds:focus-visible:text-white': variant === 'red-delete',
+    'ds:text-alert-text-2 ds:bg-white ds:hover:text-alert-text-2 ds:active:text-white ds:focus-visible:text-alert-text-2':
       variant === 'white-delete',
-    'ds:active:bg-alert ds:focus-visible:outline-alert': variant?.includes('-delete') && !disabled,
+    'ds:active:bg-alert-text-2 ds:focus-visible:outline-alert-text-2': variant?.includes('-delete') && !disabled,
   });
 };
 
@@ -65,7 +65,7 @@ const getDisabledClassName = (disabled: ButtonProps['disabled'], variant: Button
     ? tc([
         'ds:hover:text-accent',
         'ds:focus-visible:text-accent',
-        variant === 'accent' ? 'ds:active:bg-[#004E82]' : 'ds:active:bg-accent',
+        variant === 'accent' ? 'ds:active:bg-secondary-1-dark-2' : 'ds:active:bg-accent',
         'ds:focus-visible:outline-accent',
         'ds:focus-visible:outline',
         'ds:focus-visible:outline-[3px]',
