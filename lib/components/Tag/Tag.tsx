@@ -38,12 +38,12 @@ const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagPro
 export const Tag = ({ label, title, onClick, variant = 'selectable', sourceType = 'jotain-muuta' }: TagProps) => {
   return variant === 'presentation' ? (
     <div className={containerClassNames(sourceType, variant)} title={title}>
-      <span className="ds:hyphens-auto ds:text-black">{label}</span>
+      <span className="ds:hyphens-auto ds:text-primary-gray">{label}</span>
     </div>
   ) : (
     <button type="button" className={containerClassNames(sourceType, variant)} onClick={onClick} title={title}>
-      <span className="ds:hyphens-auto ds:text-black ds:group-hover:underline">{label}</span>
-      <span className="ds:pl-3 ds:text-button-md ds:text-black" aria-hidden>
+      <span className="ds:hyphens-auto ds:text-primary-gray ds:group-hover:underline">{label}</span>
+      <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray" aria-hidden>
         {variant === 'selectable' ? <MdAdd size={16} /> : <MdClose size={16} />}
       </span>
     </button>

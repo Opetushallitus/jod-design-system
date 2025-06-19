@@ -52,7 +52,7 @@ export const DiscussionCard = ({
             onClick={onClickLike}
           >
             <MdOutlineThumbUp size={24} />
-            {likes > 0 && <span className="ds:text-body-sm ds:font-arial ds:text-black">{likes}</span>}
+            {likes > 0 && <span className="ds:text-body-sm ds:font-arial ds:text-primary-gray">{likes}</span>}
           </button>
         </div>
       </div>

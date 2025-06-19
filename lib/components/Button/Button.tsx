@@ -49,8 +49,8 @@ const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonPr
     'ds:text-white ds:bg-accent ds:hover:text-white ds:active:text-white ds:focus-visible:text-white':
       variant === 'accent' && !disabled,
     'ds:bg-accent-50 ds:disabled:text-white': variant === 'accent' && disabled,
-    'ds:text-black ds:bg-bg-gray': variant === 'gray',
-    'ds:text-black ds:bg-white': variant === 'white',
+    'ds:text-primary-gray ds:bg-bg-gray': variant === 'gray',
+    'ds:text-primary-gray ds:bg-white': variant === 'white',
     'ds:text-alert ds:bg-bg-gray ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
       variant === 'gray-delete',
     'ds:bg-[#E35750] ds:text-white ds:hover:text-white ds:focus-visible:text-white': variant === 'red-delete',

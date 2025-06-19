@@ -186,7 +186,7 @@ exports[`Footer > renders 1`] = `
     </div>
   </div>
   <div
-    class="ds:bg-white ds:text-black"
+    class="ds:bg-white ds:text-primary-gray"
   >
     <div
       class="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5"
@@ -637,7 +637,7 @@ exports[`Footer > renders copyright 1`] = `
     </div>
   </div>
   <div
-    class="ds:bg-white ds:text-black"
+    class="ds:bg-white ds:text-primary-gray"
   >
     <div
       class="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5"

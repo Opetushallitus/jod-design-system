@@ -67,7 +67,7 @@ export const RoundButton = ({
         className={tidyClasses(`
           ${buttonSizeClass}
           ${selected ? 'ds:bg-accent' : bgColorClass}
-          ${selected ? 'ds:text-white' : 'ds:text-black ds:group-hover:text-accent'}
+          ${selected ? 'ds:text-white' : 'ds:text-primary-gray ds:group-hover:text-accent'}
           ds:rounded-full
           ds:flex
           ds:items-center
@@ -86,7 +86,7 @@ const LabelPart = ({ label, hideLabel, selected }: Pick<RoundButtonProps, 'label
   <span
     className={tidyClasses(`
       ${hideLabel ? 'ds:hidden' : ''}
-      ${selected ? 'ds:text-accent' : 'ds:text-black'}
+      ${selected ? 'ds:text-accent' : 'ds:text-primary-gray'}
       ds:text-button-md
       ds:group-hover:text-accent
       ds:group-hover:underline

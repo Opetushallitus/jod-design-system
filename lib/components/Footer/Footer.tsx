@@ -205,7 +205,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
           </div>
         </div>
       </div>
-      <div className="ds:bg-white ds:text-black">
+      <div className="ds:bg-white ds:text-primary-gray">
         <div className="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5">
           <div className="ds:flex ds:justify-start" aria-hidden>
             <LogoRgb language={language} size={37} />

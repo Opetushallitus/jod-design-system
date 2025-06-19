@@ -26,7 +26,7 @@ const StepComponent = ({ step, isLast }: { step: PathProgressStep; isLast: boole
   ]);
   const circleClasses = tc([
     'ds:min-w-8 ds:size-8 ds:rounded-full ds:appearance-none ds:z-10 ds:flex ds:items-center ds:justify-center ds:mb-6 ds:text-button-lg',
-    step.isCompleted ? 'ds:bg-accent ds:text-white' : 'ds:bg-white ds:text-black',
+    step.isCompleted ? 'ds:bg-accent ds:text-white' : 'ds:bg-white ds:text-primary-gray',
   ]);
 
   return (

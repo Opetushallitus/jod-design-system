@@ -55,7 +55,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-5 ds:sm:px-9 ds:justify-end"
           >
             <button
-              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-black ds:bg-white"
+              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
             >
               <span
                 class="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline"
@@ -64,7 +64,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
               </span>
             </button>
             <button
-              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-black ds:bg-white"
+              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
             >
               <span
                 class="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline"
