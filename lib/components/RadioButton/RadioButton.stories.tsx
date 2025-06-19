@@ -38,16 +38,16 @@ export const Default: Story = {
     onChange: fn(),
     children: (
       <>
-        <RadioButton label="Lähteiden mukaan" value="a" />
+        <RadioButton label="Lähteiden mukaan" value="a" disabled={true} />
         <RadioButton label="Teemoittain" value="b" />
-        <RadioButton label="Aakkosellisesti" value="c" />
+        <RadioButton label="Aakkosellisesti" value="c" disabled={true} />
       </>
     ),
   },
   render: DefaultStoryRender,
 };
 
-export const Bordered: Story = {
+export const WithOneDisabled: Story = {
   parameters: {
     ...parameters,
     backgrounds: {
@@ -63,7 +63,7 @@ export const Bordered: Story = {
       <>
         <RadioButton label="Lähteiden mukaan" value="a" />
         <RadioButton label="Teemoittain" value="b" />
-        <RadioButton label="Aakkosellisesti" value="c" />
+        <RadioButton label="Aakkosellisesti" value="c" disabled />
       </>
     ),
   },
