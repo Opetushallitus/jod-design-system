@@ -1,5 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { MdExpandMore, MdLanguage, MdMenu, MdPersonOutline } from 'react-icons/md';
+import { useMediaQueries } from '../../main';
 import type { TitledMeta } from '../../utils';
 import { NavigationBar } from './NavigationBar';
 
@@ -21,6 +22,14 @@ const parameters = {
 };
 
 export const Default: Story = {
+  decorators: [
+    (Story) => (
+      <div className="ds:pb-7">
+        <Story />
+      </div>
+    ),
+  ],
+
   parameters: {
     ...parameters,
     design: {
@@ -40,39 +49,42 @@ export const Default: Story = {
       language: 'fi',
       srText: 'JOD',
     },
-    menuComponent: (
+  },
+  render: (args) => {
+    const { sm } = useMediaQueries();
+    const menuComponent = (
       <button
-        className="ds:flex ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer"
+        className="ds:flex ds:sm:flex-row ds:flex-col ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer"
         aria-label="Avaa valikko"
       >
-        <span className="ds:size-7 ds:flex ds:justify-center ds:items-center">
-          {}
-          <MdMenu size={24} />
-        </span>
-        <span className="ds:py-3 ds:pr-3">Valikko</span>
+        <MdMenu size={24} className="ds:mx-auto" />
+        <span className="ds:md:pr-3 ds:sm:text-[12px] ds:text-[10px]">Valikko</span>
       </button>
-    ),
-    languageButtonComponent: (
-      <button className="ds:flex ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer">
-        <span className="ds:size-7 ds:flex ds:justify-center ds:items-center">
-          <MdLanguage size={24} />
-        </span>
-        <span className="ds:py-3 ds:whitespace-nowrap">Suomeksi</span>
-        <span className="ds:size-7 ds:flex ds:justify-center ds:items-center">
-          <MdExpandMore size={24} />
-        </span>
+    );
+
+    const languageButtonComponent = (
+      <button className="ds:flex ds:sm:flex-row ds:flex-col ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer">
+        <MdLanguage size={24} className="ds:mx-auto" />
+        <span className="ds:whitespace-nowrap ds:sm:text-[12px] ds:text-[10px]">Suomeksi</span>
+        {sm && <MdExpandMore size={20} />}
       </button>
-    ),
-    userButtonComponent: (
-      <button className="ds:flex ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer">
-        <span className="ds:size-7 ds:flex ds:justify-center ds:items-center">
-          <MdPersonOutline size={24} />
-        </span>
-        <span className="ds:py-3 ds:whitespace-nowrap">Juho Henrik Anttila</span>
-        <span className="ds:size-7 ds:flex ds:justify-center ds:items-center">
-          <MdExpandMore size={24} />
-        </span>
+    );
+
+    const userButtonComponent = (
+      <button className="ds:flex ds:sm:flex-row ds:flex-col ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer">
+        <MdPersonOutline size={24} className="ds:mx-auto" />
+        <span className="ds:whitespace-nowrap ds:sm:text-[12px] ds:text-[10px]">Juho-Henrik</span>
+        {sm && <MdExpandMore size={20} />}
       </button>
-    ),
+    );
+
+    return (
+      <NavigationBar
+        {...args}
+        userButtonComponent={userButtonComponent}
+        languageButtonComponent={languageButtonComponent}
+        menuComponent={menuComponent}
+      />
+    );
   },
 };
