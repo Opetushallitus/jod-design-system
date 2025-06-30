@@ -31,3 +31,4 @@ export type ValidTitle = `${StoryBookCategory}/${string}`;
 export type TitledMeta<T> = Meta<T> & {
   title: ValidTitle;
 };
+export type Variant = 'YKSILO' | 'OHJAAJA' | 'TIETOPALVELU';

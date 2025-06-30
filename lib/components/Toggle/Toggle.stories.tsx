@@ -33,10 +33,20 @@ export const Default: Story = {
       },
     },
   },
+  argTypes: {
+    variant: {
+      options: ['YKSILO', 'OHJAAJA', 'TIETOPALVELU'],
+      control: {
+        type: 'radio',
+      },
+    },
+  },
   args: {
     onChange: fn(),
     checked: true,
     ariaLabel: 'Toggle',
+    variant: 'YKSILO',
+    disabled: false,
   },
 };
 
@@ -57,5 +67,6 @@ export const Disabled: Story = {
     disabled: true,
     checked: true,
     ariaLabel: 'Toggle',
+    variant: 'YKSILO',
   },
 };
