@@ -45,7 +45,7 @@ export const Default: Story = {
     onChange: fn(),
     checked: true,
     ariaLabel: 'Toggle',
-    variant: 'YKSILO',
+    variant: 'yksilo',
     disabled: false,
   },
 };
@@ -67,6 +67,6 @@ export const Disabled: Story = {
     disabled: true,
     checked: true,
     ariaLabel: 'Toggle',
-    variant: 'YKSILO',
+    variant: 'yksilo',
   },
 };
