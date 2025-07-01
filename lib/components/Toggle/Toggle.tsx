@@ -1,11 +1,11 @@
 import { cx } from '../../cva';
-import { Variant } from '../../utils';
+import { ServiceVariant } from '../../utils';
 
 export interface ToggleProps {
   ariaLabel: string;
   checked?: boolean;
   disabled?: boolean;
-  variant: Variant;
+  variant: ServiceVariant;
   onChange: (newValue: boolean) => void;
 }
 export const Toggle = ({ onChange, checked, disabled, ariaLabel, variant }: ToggleProps) => {
@@ -18,9 +18,9 @@ export const Toggle = ({ onChange, checked, disabled, ariaLabel, variant }: Togg
       className={cx('ds:transition-all ds:duration-200 ds:w-[52px] ds:h-[32px] ds:relative ds:rounded-2xl ds:flex', {
         'ds:cursor-pointer': !disabled,
         'ds:bg-inactive-gray': !checked || disabled,
-        'ds:bg-accent': checked && !disabled && variant === 'YKSILO',
-        'ds:bg-secondary-2-dark': checked && !disabled && variant === 'OHJAAJA',
-        'ds:bg-secondary-4-dark': checked && !disabled && variant === 'TIETOPALVELU',
+        'ds:bg-accent': checked && !disabled && variant === 'yksilo',
+        'ds:bg-secondary-2-dark': checked && !disabled && variant === 'ohjaaja',
+        'ds:bg-secondary-4-dark': checked && !disabled && variant === 'tietopalvelu',
       })}
     >
       <span
