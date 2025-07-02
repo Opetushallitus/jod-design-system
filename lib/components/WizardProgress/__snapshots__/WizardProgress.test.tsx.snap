@@ -3,11 +3,11 @@
 exports[`WizardProgress > renders correctly 1`] = `
 <ol
   aria-label="Progress"
-  class="ds:flex ds:gap-4 ds:text-card-label-lg ds:text-primary-gray"
+  class="ds:flex ds:gap-3 ds:text-heading-4 ds:text-primary-gray"
 >
   <li
     aria-current="false"
-    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:sm:min-h-8 ds:sm:min-w-8 ds:text-secondary-gray ds:cursor-default ds:bg-bg-gray-2"
   >
     <span
       class="ds:sr-only"
@@ -15,6 +15,7 @@ exports[`WizardProgress > renders correctly 1`] = `
       Step: 1, Completed.
     </span>
     <svg
+      class="ds:text-secondary-gray"
       fill="currentColor"
       height="24"
       role="presentation"
@@ -35,7 +36,7 @@ exports[`WizardProgress > renders correctly 1`] = `
   </li>
   <li
     aria-current="false"
-    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:sm:min-h-8 ds:sm:min-w-8 ds:text-secondary-gray ds:cursor-default ds:bg-bg-gray-2"
   >
     <span
       class="ds:sr-only"
@@ -43,6 +44,7 @@ exports[`WizardProgress > renders correctly 1`] = `
       Step: 2, Completed.
     </span>
     <svg
+      class="ds:text-secondary-gray"
       fill="currentColor"
       height="24"
       role="presentation"
@@ -63,7 +65,7 @@ exports[`WizardProgress > renders correctly 1`] = `
   </li>
   <li
     aria-current="true"
-    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-accent ds:text-white ds:sm:min-h-8 ds:sm:min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:sm:min-h-8 ds:sm:min-w-8 ds:text-secondary-gray ds:cursor-default ds:bg-secondary-gray ds:text-white"
   >
     <span
       class="ds:sr-only"
@@ -83,7 +85,7 @@ exports[`WizardProgress > renders correctly 1`] = `
   </li>
   <li
     aria-current="false"
-    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:sm:min-h-8 ds:sm:min-w-8 ds:text-secondary-gray ds:cursor-default ds:bg-bg-gray-2"
   >
     <span
       class="ds:sr-only"
@@ -98,7 +100,7 @@ exports[`WizardProgress > renders correctly 1`] = `
   </li>
   <li
     aria-current="false"
-    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:bg-bg-gray-2 ds:sm:min-h-8 ds:sm:min-w-8"
+    class="ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ds:sm:min-h-8 ds:sm:min-w-8 ds:text-secondary-gray ds:cursor-default ds:bg-bg-gray-2"
   >
     <span
       class="ds:sr-only"
