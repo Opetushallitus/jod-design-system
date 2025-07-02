@@ -45,6 +45,7 @@ export { LogoBlackEn, LogoRgbEn, LogoWhiteEn } from './components/Logo/LogoEn';
 export { LogoBlackFi, LogoRgbFi, LogoWhiteFi } from './components/Logo/LogoFi';
 export { LogoIconBlack, LogoIconRgb, LogoIconWhite } from './components/Logo/LogoIcon';
 export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
+export { MatomoTracker } from './components/MatomoTracker/MatomoTracker';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
