@@ -1,4 +1,5 @@
 import { MdCheck } from 'react-icons/md';
+import { tidyClasses as tc } from '../../utils';
 
 export interface WizardProgressProps {
   /** The total number of steps in the wizard. */
@@ -28,7 +29,7 @@ const CompletedStep = ({ text, step, stepText }: { text: string; step: number; s
   return (
     <>
       <span className="ds:sr-only">{`${stepText}: ${step}, ${text}.`}</span>
-      <MdCheck role="presentation" size={24} />
+      <MdCheck role="presentation" size={24} className="ds:text-secondary-gray" />
     </>
   );
 };
@@ -62,13 +63,23 @@ export const WizardProgress = ({
   };
 
   return (
-    <ol className="ds:flex ds:gap-4 ds:text-card-label-lg ds:text-primary-gray" aria-label={labelText}>
+    <ol className="ds:flex ds:gap-3 ds:text-heading-4 ds:text-primary-gray" aria-label={labelText}>
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
-          className={`ds:flex ds:min-h-7 ds:min-w-7 ds:items-center ds:justify-center ds:rounded-full ${
-            index + 1 === currentStep ? 'ds:bg-accent ds:text-white' : 'ds:bg-bg-gray-2'
-          } ds:sm:min-h-8 ds:sm:min-w-8`}
+          className={tc([
+            'ds:flex',
+            'ds:min-h-7',
+            'ds:min-w-7',
+            'ds:items-center',
+            'ds:justify-center',
+            'ds:rounded-full',
+            'ds:sm:min-h-8',
+            'ds:sm:min-w-8',
+            'ds:text-secondary-gray',
+            'ds:cursor-default',
+            index + 1 === currentStep ? 'ds:bg-secondary-gray ds:text-white' : 'ds:bg-bg-gray-2',
+          ])}
           aria-current={index + 1 === currentStep}
         >
           {renderStep(index + 1)}
