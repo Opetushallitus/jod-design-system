@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
-import { LinkComponent } from './types';
+import type { LinkComponent } from './types';
 
 describe('NavigationMenu', () => {
   // jsdom has no support for HTMLDialogElement at the moment: https://github.com/jsdom/jsdom/issues/3294
@@ -26,11 +26,9 @@ describe('NavigationMenu', () => {
   );
 
   const menuProps: NavigationMenuProps = {
-    frontPageLinkLabel: 'Etusivu',
-    FrontPageLinkComponent: Link,
-    accentColor: '#85C4EC',
+    serviceDirectoryLinkLabel: 'Etusivu',
+    ServiceDirectoryLinkComponent: Link,
     menuItems: [],
-    backLabel: 'Takaisin',
     ariaCloseMenu: 'Sulje valikko',
     openSubMenuLabel: 'Avaa alivalikko',
     onClose: vi.fn(),
@@ -38,6 +36,8 @@ describe('NavigationMenu', () => {
     languageSelectionItems: [],
     selectedLanguage: '',
     open: true,
+    languageSelectionTitle: 'Käyttökieli',
+    serviceVariant: 'yksilo',
   };
 
   it('renders navigation menu with default state', () => {
@@ -45,24 +45,6 @@ describe('NavigationMenu', () => {
 
     const navigationMenu = screen.getByRole('navigation');
     expect(navigationMenu).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders navigation menu with a logo', () => {
-    const { container } = render(
-      <NavigationMenu
-        {...menuProps}
-        logo={{ to: '/fi', language: 'fi', srText: 'Osaamispolku' }}
-        logoLink={({ to, children }) => <a href={to as string}>{children}</a>}
-      />,
-    );
-
-    const logoLink = screen.getByRole('link', { name: 'Osaamispolku' });
-    expect(logoLink).toBeInTheDocument();
-    expect(logoLink).toHaveAttribute('href', '/fi');
-    expect(logoLink).toContainElement(screen.getByText('Osaamispolku'));
-    const svg = logoLink.querySelector('svg');
-    expect(svg).toBeDefined();
     expect(container.firstChild).toMatchSnapshot();
   });
 });
