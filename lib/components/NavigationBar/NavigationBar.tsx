@@ -1,7 +1,6 @@
 import React from 'react';
-import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { type ServiceVariant, tidyClasses as tc } from '../../utils';
+import { getAccentBgClassForService, type ServiceVariant, tidyClasses as tc } from '../../utils';
 import { LogoIconRgb } from '../Logo/LogoIcon';
 import { LogoRgb } from '../Logo/LogoRgb';
 
@@ -83,13 +82,6 @@ export const NavigationBar = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const serviceBarBackground = cx({
-    'ds:bg-secondary-1-dark': !serviceBarVariant || serviceBarVariant === 'yksilo',
-    'ds:bg-secondary-2-dark': serviceBarVariant === 'ohjaaja',
-    'ds:bg-secondary-3-dark': serviceBarVariant === 'palveluportaali',
-    'ds:bg-secondary-4-dark': serviceBarVariant === 'tietopalvelu',
-  });
-
   const serviceBarContents = (
     <>
       {serviceBarTitle ? <span>{serviceBarTitle}</span> : null}
@@ -139,7 +131,7 @@ export const NavigationBar = ({
             'ds:transition-[height]',
             'ds:duration-300',
             scrolled ? 'ds:h-2' : 'ds:h-8',
-            serviceBarBackground,
+            getAccentBgClassForService(serviceBarVariant),
           ])}
         >
           {scrolled ? null : serviceBarContents}

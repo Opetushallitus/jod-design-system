@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
+import { MdOutlineHome } from 'react-icons/md';
 import { fn } from 'storybook/test';
 import { Button } from '../Button/Button';
-import { ExternalLinkSection } from './ExternalLinkSections';
-import { MenuItem } from './MenuList';
+import { ExternalLinkSection } from './components/ExternalLinkSections';
+import { MenuItem } from './components/MenuList';
+import { ServiceVariantProvider } from './hooks/ServiceVariantProvider';
 import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
 import { LinkComponent } from './types';
 
@@ -28,6 +30,7 @@ const DummyLink = (props: LinkComponent) => <a href="/#" {...props} />;
 
 const menuItems: MenuItem[] = [
   {
+    icon: <MdOutlineHome size={24} />,
     label: 'Osaamispolkuni',
     LinkComponent: DummyLink,
     selected: true,
@@ -131,13 +134,13 @@ const externalLinkSections: ExternalLinkSection[] = [
         label: 'Ohjaajan osio',
         url: 'https://www.example.com',
         description: 'Ohjausalasta kiinnostuneille',
-        accentColor: '#66CBD1',
+        accentColor: '#00818A',
       },
       {
         label: 'Tietopalvelu',
         url: 'https://www.example.com',
         description: 'Tietoa päätöksentekijöille',
-        accentColor: '#EBB8E1',
+        accentColor: '#AD4298',
       },
     ],
   },
@@ -166,10 +169,10 @@ const languageSelectionItems = [
 const DefaultRender = (props: NavigationMenuProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <>
+    <ServiceVariantProvider value={props.serviceVariant}>
       <Button label="Open menu" onClick={() => setIsOpen(true)} variant="white" />
       <NavigationMenu {...props} open={isOpen} onClose={() => setIsOpen(false)} />
-    </>
+    </ServiceVariantProvider>
   );
 };
 
@@ -183,63 +186,28 @@ export const Default: Story = {
     },
   },
   render: DefaultRender,
+  argTypes: {
+    serviceVariant: {
+      control: { type: 'radio' },
+      options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
+    },
+  },
   args: {
-    frontPageLinkLabel: 'Etusivu',
-    FrontPageLinkComponent: ({ children, className }: LinkComponent) => (
+    serviceDirectoryLinkLabel: 'Osaamispolkuportaali',
+    ServiceDirectoryLinkComponent: ({ children, className }: LinkComponent) => (
       <a href="/#" className={className}>
         {children}
       </a>
     ),
     onClose: fn(),
     open: true,
-    backLabel: 'Takaisin',
-    accentColor: '#85C4EC',
-    accentColorText: '#006DB3',
     menuItems: menuItems,
     openSubMenuLabel: 'Avaa alivalikko',
     ariaCloseMenu: 'Sulje valikko',
     externalLinkSections: externalLinkSections,
     languageSelectionItems: languageSelectionItems,
+    languageSelectionTitle: 'Käyttökieli',
     selectedLanguage: 'fi',
-  },
-};
-
-export const WithLogoAndActiveFrontPage: Story = {
-  parameters: {
-    ...parameters,
-    docs: {
-      description: {
-        story: 'NavigationMenu component with a linkable logo and the front page set as active route.',
-      },
-    },
-  },
-  render: DefaultRender,
-  args: {
-    frontPageLinkLabel: 'Etusivu',
-    FrontPageLinkComponent: ({ children, className }: LinkComponent) => (
-      <a href="/#" className={`${className} ds:bg-[#85C4EC]`}>
-        {children}
-      </a>
-    ),
-    onClose: fn(),
-    open: true,
-    backLabel: 'Takaisin',
-    accentColor: '#85C4EC',
-    menuItems: menuItems.map((item) => ({ ...item, selected: false })),
-    openSubMenuLabel: 'Avaa alivalikko',
-    logo: {
-      to: window.location.href,
-      srText: 'Osaamispolku',
-      language: 'fi',
-    },
-    logoLink: ({ to, className, children }) => (
-      <a href={to as string} className={className}>
-        {children}
-      </a>
-    ),
-    ariaCloseMenu: 'Sulje valikko',
-    externalLinkSections: externalLinkSections,
-    languageSelectionItems: languageSelectionItems,
-    selectedLanguage: 'fi',
+    serviceVariant: 'yksilo',
   },
 };

@@ -1,4 +1,5 @@
 import type { Meta } from '@storybook/react-vite';
+import { cx } from './cva';
 
 /**
  * Tidies up a string (or array of strings) of CSS class names by removing any extra whitespace and empty strings
@@ -32,3 +33,28 @@ export type TitledMeta<T> = Meta<T> & {
   title: ValidTitle;
 };
 export type ServiceVariant = 'yksilo' | 'ohjaaja' | 'tietopalvelu' | 'palveluportaali';
+
+// Utility functions to get CSS classes based on service variant
+export const getAccentBgClassForService = (variant: ServiceVariant) =>
+  cx({
+    'ds:bg-secondary-1-dark': variant === 'yksilo',
+    'ds:bg-secondary-2-dark': variant === 'ohjaaja',
+    'ds:bg-secondary-3-dark': variant === 'palveluportaali',
+    'ds:bg-secondary-4-dark': variant === 'tietopalvelu',
+  });
+
+export const getPressedColorClassForService = (variant: ServiceVariant) =>
+  cx({
+    'ds:active:bg-secondary-1-dark-2': variant === 'yksilo',
+    'ds:active:bg-secondary-2-dark-2': variant === 'ohjaaja',
+    'ds:active:bg-secondary-3-dark-2': variant === 'palveluportaali',
+    'ds:active:bg-secondary-4-dark-2': variant === 'tietopalvelu',
+  });
+
+export const getFocusOutlineClassForService = (variant: ServiceVariant) =>
+  cx({
+    'ds:focus:outline-secondary-1-dark': variant === 'yksilo',
+    'ds:focus:outline-secondary-2-dark': variant === 'ohjaaja',
+    'ds:focus:outline-secondary-3-dark': variant === 'palveluportaali',
+    'ds:focus:outline-secondary-4-dark': variant === 'tietopalvelu',
+  });
