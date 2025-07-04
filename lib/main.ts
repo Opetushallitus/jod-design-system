@@ -7,6 +7,7 @@ export { useMediaQueries } from './hooks/useMediaQueries';
 
 export { Accordion } from './components/Accordion/Accordion';
 export { AiInfoButton } from './components/AiInfoButton/AiInfoButton';
+export { Breadcrumb, type BreadcrumbItem } from './components/Breadcrumb/Breadcrumb';
 export { Button } from './components/Button/Button';
 export { CardCarousel, type CardCarouselItem } from './components/CardCarousel/CardCarousel';
 export { Checkbox } from './components/Checkbox/Checkbox';
