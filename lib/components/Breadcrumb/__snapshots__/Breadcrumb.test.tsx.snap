@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumb > renders all breadcrumb items 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  class="ds:text-accent ds:text-[12px] ds:font-bold ds:col-span-3 ds:mb-3 ds:print:hidden ds:text-secondary-1-dark"
+>
+  <ol
+    class="ds:flex ds:flex-wrap ds:gap-y-2"
+  >
+    <li
+      class="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
+    >
+      <span
+        class="ds:underline"
+      >
+        <a
+          href="/"
+        >
+          Etusivu
+        </a>
+      </span>
+    </li>
+    <li
+      class="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
+    >
+      <span
+        class="ds:underline"
+      >
+        <a
+          href="/osaamispolkuni"
+        >
+          Osaamisprofiili
+        </a>
+      </span>
+    </li>
+    <li
+      class="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
+    >
+      <span
+        aria-current="location"
+        class="ds:text-black"
+      >
+        Työpaikkani
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
