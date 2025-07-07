@@ -10,6 +10,9 @@ const meta = {
   title: 'Misc/Slider',
   component: Slider,
   tags: ['autodocs'],
+  globals: {
+    backgrounds: { value: 'gray' },
+  },
 } satisfies TitledMeta<typeof Slider>;
 
 export default meta;
@@ -40,11 +43,7 @@ const Render = (args: Story['args']) => {
 const parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-6331',
-  },
-  backgrounds: {
-    default: 'grey-bg',
-    values: [{ name: 'grey-bg', value: '#F0F2F5' }],
+    url: 'https://www.figma.com/design/a3heEFNpoI9MRcMFtbYVfO/Osaamispolku---Design-system?node-id=241-3585&t=J8wZMyv0yYlx4J2M-4',
   },
 };
 
@@ -82,6 +81,32 @@ export const WithRightLabel: Story = {
   args: {
     label: 'Osaamiset',
     rightLabel: 'Kiinnostukset',
+    onValueChange: fn(),
+    value: 50,
+  },
+};
+
+export const HiddenLabels: Story = {
+  render: Render,
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[348px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Slider with hidden labels.',
+      },
+    },
+  },
+  args: {
+    label: 'Hidden',
+    rightLabel: 'Also hiiden!',
+    hideLabels: true,
     onValueChange: fn(),
     value: 50,
   },
