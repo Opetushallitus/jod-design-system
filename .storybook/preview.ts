@@ -1,21 +1,16 @@
-import { withThemeByClassName } from '@storybook/addon-themes';
-import type { Preview, ReactRenderer } from '@storybook/react-vite';
+import type { Preview } from '@storybook/react-vite';
 import '../lib/index.css';
 
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: 'JOD UI background',
-      values: [
-        {
-          name: 'JOD UI background',
-          value: '#f0f2f5',
-        },
-        {
-          name: 'white',
-          value: '#ffffff',
-        },
-      ],
+      options: {
+        gray: { name: 'Gray', value: '#F0F2F5' },
+        white: { name: 'White', value: '#FFFFFF' },
+      },
+    },
+    initialGlobals: {
+      backgrounds: { value: 'white' },
     },
     controls: {
       matchers: {
@@ -58,17 +53,6 @@ const preview: Preview = {
       },
     },
   },
-
-  decorators: [
-    withThemeByClassName<ReactRenderer>({
-      themes: {
-        light: 'light',
-        dark: 'dark',
-      },
-      defaultTheme: 'light',
-    }),
-  ],
-
   tags: ['autodocs'],
 };
 

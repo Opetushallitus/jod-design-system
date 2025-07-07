@@ -25,10 +25,12 @@ const ARROW_HEIGHT = 12;
 const GAP = 8;
 
 export interface SliderProps {
-  /** Label */
+  /** Label (left text) */
   label: string;
   /** Label to right side */
   rightLabel?: string;
+  /** Hides labels from UI */
+  hideLabels?: boolean;
   /** On slider value change */
   onValueChange: (value: number) => void;
   /** Current value of the slider */
@@ -44,7 +46,7 @@ const Marker = () => (
 );
 
 /** Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable. */
-export const Slider = ({ label, onValueChange, value, rightLabel, disabled }: SliderProps) => {
+export const Slider = ({ label, onValueChange, value, rightLabel, disabled, hideLabels = false }: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);
   const arrowRef = React.useRef(null);
@@ -87,7 +89,7 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled }: Sl
 
   return (
     <div
-      className={cx('ds:flex ds:h-[40px] ds:rounded-xl ds:bg-white ds:min-w-full ds:sm:min-w-[414px]', {
+      className={cx('ds:flex ds:h-[40px] ds:min-w-full ds:sm:min-w-[414px]', {
         'ds:text-inactive-gray ds:cursor-not-allowed': disabled,
       })}
     >
@@ -100,8 +102,11 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled }: Sl
         value={[value]}
         step={25}
         disabled={disabled}
+        aria-label={rightLabel ? [label, rightLabel] : [label]}
       >
-        <ArkSlider.Label className="ds:ml-6 ds:mr-5 ds:flex ds:items-center ds:text-body-xs">{label}</ArkSlider.Label>
+        {!hideLabels && (
+          <ArkSlider.Label className="ds:ml-6 ds:mr-5 ds:flex ds:items-center ds:text-body-xs">{label}</ArkSlider.Label>
+        )}
         <div className="ds:content-center ds:w-full">
           <ArkSlider.MarkerGroup
             className={cx('ds:z-10 ds:w-full', {
@@ -126,7 +131,7 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled }: Sl
             </ArkSlider.Marker>
           </ArkSlider.MarkerGroup>
           <ArkSlider.Control className="ds:flex ds:grow ds:w-full">
-            <ArkSlider.Track className="ds:flex ds:h-[5px] ds:grow ds:bg-bg-gray-2 ds:rounded-sm">
+            <ArkSlider.Track className="ds:flex ds:h-[5px] ds:grow ds:bg-white ds:rounded-sm">
               <ArkSlider.Range
                 className={cx('ds:h-[5px] ds:rounded-md', {
                   'ds:bg-accent': !disabled,
@@ -149,7 +154,7 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled }: Sl
             />
           </ArkSlider.Control>
         </div>
-        {rightLabel && (
+        {!hideLabels && rightLabel && (
           <ArkSlider.Label className="ds:ml-5 ds:mr-6 ds:flex ds:items-center ds:text-body-xs">
             {rightLabel}
           </ArkSlider.Label>
