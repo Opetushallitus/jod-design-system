@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import { MdOutlineHome } from 'react-icons/md';
 import { fn } from 'storybook/test';
+import { JodHome } from '../../icons';
 import { Button } from '../Button/Button';
 import { ExternalLinkSection } from './components/ExternalLinkSections';
 import { MenuItem } from './components/MenuList';
@@ -30,7 +30,7 @@ const DummyLink = (props: LinkComponent) => <a href="/#" {...props} />;
 
 const menuItems: MenuItem[] = [
   {
-    icon: <MdOutlineHome size={24} />,
+    icon: <JodHome size={24} />,
     label: 'Osaamispolkuni',
     LinkComponent: DummyLink,
     selected: true,

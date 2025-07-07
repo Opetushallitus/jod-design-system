@@ -1,4 +1,4 @@
-import { MdOutlineComment, MdOutlineThumbUp } from 'react-icons/md';
+import { JodComment, JodThumbUp } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
 
 export interface DiscussionCardProps {
@@ -45,13 +45,13 @@ export const DiscussionCard = ({
 
         <div className="ds:flex ds:flex-row ds:gap-5 ds:items-center ds:justify-start ds:text-accent">
           <button className="ds:cursor-pointer ds:size-6" onClick={onClickComment}>
-            <MdOutlineComment size={24} />
+            <JodComment size={24} />
           </button>
           <button
             className="ds:cursor-pointer ds:h-[24px] ds:flex ds:flex-row ds:gap-3 ds:items-center"
             onClick={onClickLike}
           >
-            <MdOutlineThumbUp size={24} />
+            <JodThumbUp size={24} />
             {likes > 0 && <span className="ds:text-body-sm ds:font-poppins ds:text-primary-gray">{likes}</span>}
           </button>
         </div>

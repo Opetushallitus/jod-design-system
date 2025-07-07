@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { JodPagerNext, JodPagerPrev } from '../../icons';
 
 export interface CardCarouselItem {
   /** Id to be used as key during iteration */
@@ -133,7 +133,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, cl
           disabled={isFirstPage}
           className="ds:size-8 ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:rounded-full ds:cursor-pointer ds:disabled:cursor-not-allowed"
         >
-          <MdChevronLeft size={24} className={isFirstPage ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'} />
+          <JodPagerPrev size={24} className={isFirstPage ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'} />
         </button>
 
         <div className="ds:flex ds:flex-row ds:gap-2 ds:justify-center">
@@ -159,7 +159,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, cl
           disabled={isLastPage}
           className="ds:size-8 ds:flex ds:justify-center ds:items-center ds:bg-bg-gray-2 ds:rounded-full ds:cursor-pointer ds:disabled:cursor-not-allowed"
         >
-          <MdChevronRight size={24} className={isLastPage ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'} />
+          <JodPagerNext size={24} className={isLastPage ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'} />
         </button>
       </div>
     </>

@@ -37,11 +37,8 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            d="M16.175 13.2964H4V11.2964H16.175L10.575 5.69639L12 4.29639L20 12.2964L12 20.2964L10.575 18.8964L16.175 13.2964Z"
+            fill="currentColor"
           />
         </svg>
       </span>

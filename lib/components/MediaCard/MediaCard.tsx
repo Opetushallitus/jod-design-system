@@ -1,6 +1,6 @@
 import React from 'react';
-import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { JodFavorite, JodFavoriteFilled } from '../../icons';
 import { LazyImage } from '../LazyImage/LazyImage';
 
 type LinkComponent =
@@ -111,9 +111,9 @@ const FavoriteButton = ({ isFavorite, favoriteLabel, onFavoriteClick }: Favorite
       onClick={onFavoriteClick}
     >
       {isFavorite ? (
-        <MdFavorite size={24} aria-hidden className="ds:text-accent" />
+        <JodFavoriteFilled size={24} aria-hidden className="ds:text-accent" />
       ) : (
-        <MdFavoriteBorder aria-hidden size={24} />
+        <JodFavorite aria-hidden size={24} />
       )}
     </button>
   );

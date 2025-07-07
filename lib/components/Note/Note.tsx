@@ -1,6 +1,6 @@
-import { MdOutlineCancel } from 'react-icons/md';
 import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { JodClose } from '../../icons';
 
 export interface NoteProps {
   /** Title shown on the note */
@@ -53,7 +53,7 @@ export const Note = ({ title, description, variant = 'success', onCloseClick, re
               aria-label="Close"
               onClick={onCloseClick}
             >
-              <MdOutlineCancel size={32} />
+              <JodClose size={32} />
             </button>
           )}
         </div>

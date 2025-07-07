@@ -1,6 +1,6 @@
 import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
-import { MdExpandMore, MdLanguage, MdMenu, MdPersonOutline } from 'react-icons/md';
 import { PartialStoryFn } from 'storybook/internal/types';
+import { JodCaretDown, JodLanguage, JodMenu, JodUser } from '../../icons';
 import { useMediaQueries } from '../../main';
 import type { TitledMeta } from '../../utils';
 import { NavigationBar, NavigationBarProps } from './NavigationBar';
@@ -71,24 +71,24 @@ export const Default: Story = {
 
     const menuComponent = (
       <button className={buttonClassNames} aria-label="Avaa valikko">
-        <MdMenu size={24} className="ds:mx-auto" />
+        <JodMenu size={24} className="ds:mx-auto" />
         <span className="ds:md:pr-3 ds:sm:text-[12px] ds:text-[10px]">Valikko</span>
       </button>
     );
 
     const languageButtonComponent = (
       <button className={buttonClassNames}>
-        <MdLanguage size={24} className="ds:mx-auto" />
+        <JodLanguage size={24} className="ds:mx-auto" />
         <span className="ds:whitespace-nowrap ds:sm:text-[12px] ds:text-[10px]">Suomeksi</span>
-        {sm && <MdExpandMore size={20} />}
+        {sm && <JodCaretDown size={20} />}
       </button>
     );
 
     const userButtonComponent = (
       <button className={buttonClassNames}>
-        <MdPersonOutline size={24} className="ds:mx-auto" />
+        <JodUser size={24} className="ds:mx-auto" />
         <span className="ds:whitespace-nowrap ds:sm:text-[12px] ds:text-[10px]">Juho-Henrik</span>
-        {sm && <MdExpandMore size={20} />}
+        {sm && <JodCaretDown size={20} />}
       </button>
     );
 

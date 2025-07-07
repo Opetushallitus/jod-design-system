@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { MdArrowForward } from 'react-icons/md';
+import { JodArrowRight } from '../../icons';
 import { HeroCard } from '../../main';
 import { LogoRgb } from '../Logo/LogoRgb';
 import {
@@ -29,7 +29,7 @@ const LinkItem = ({ to, label, LinkComponent }: InfoLinkProps) => (
   <li>
     <LinkComponent to={to} className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md">
       <span>{label}</span>
-      <MdArrowForward size={24} />
+      <JodArrowRight size={24} />
     </LinkComponent>
   </li>
 );

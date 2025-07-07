@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import type { TitledMeta } from '../../utils';
 
-import { MdCheck, MdDangerous, MdWarning } from 'react-icons/md';
+import { JodCheckmark, JodError, JodWarning } from '../../icons';
 import { Toast } from './Toast';
 
 const meta = {
@@ -31,7 +31,7 @@ export const Success: Story = {
   },
   args: {
     text,
-    icon: <MdCheck size={24} />,
+    icon: <JodCheckmark size={24} />,
   },
 };
 
@@ -49,7 +49,7 @@ export const Warning: Story = {
   },
   args: {
     text,
-    icon: <MdWarning size={24} />,
+    icon: <JodWarning size={24} />,
     variant: 'warning',
   },
 };
@@ -69,7 +69,7 @@ export const ErrorStory: Story = {
   },
   args: {
     text,
-    icon: <MdDangerous size={24} />,
+    icon: <JodError size={24} />,
     variant: 'error',
   },
 };

@@ -25,11 +25,8 @@ exports[`Snapshot testing > matches the snapshot 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          d="M11 13.2964H5V11.2964H11V5.29639H13V11.2964H19V13.2964H13V19.2964H11V13.2964Z"
+          fill="currentColor"
         />
       </svg>
     </span>

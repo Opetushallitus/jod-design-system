@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdClose } from 'react-icons/md';
+import { JodClose } from '../../icons';
 import { getFocusOutlineClassForService, type ServiceVariant } from '../../utils';
 import { Backdrop } from './components/Backdrop';
 import { ExternalLinkSection, ExternalLinkSections } from './components/ExternalLinkSections';
@@ -19,7 +19,7 @@ const CloseMenuButton = ({ onClick, ariaCloseMenu }: { onClick: () => void; aria
         onClick={onClick}
         aria-label={ariaCloseMenu}
       >
-        <MdClose size={24} />
+        <JodClose size={24} />
       </button>
     </div>
   );

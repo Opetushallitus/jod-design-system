@@ -1,6 +1,6 @@
 import { JSX } from 'react';
-import { MdArrowForward } from 'react-icons/md';
 import { cx } from '../../cva';
+import { JodArrowRight } from '../../icons';
 import { Button } from '../Button/Button';
 
 type ActionButtonProps =
@@ -94,7 +94,7 @@ export const HeroCard = ({
           label={buttonLabel}
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
-          icon={<MdArrowForward size={24} />}
+          icon={<JodArrowRight size={24} />}
         />
       )}
     </div>

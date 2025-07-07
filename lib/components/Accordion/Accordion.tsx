@@ -1,6 +1,6 @@
 import React from 'react';
-import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 import { cx } from '../../cva';
+import { JodCaretDown, JodCaretUp } from '../../icons';
 import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
@@ -25,7 +25,7 @@ type AccordionProps = {
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
   <span className="ds:text-primary-gray ds:group-hover:text-accent!" aria-hidden>
-    {isOpen ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
+    {isOpen ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
   </span>
 );
 

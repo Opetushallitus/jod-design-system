@@ -1,5 +1,5 @@
 import type { StoryObj } from '@storybook/react-vite';
-import { MdOutlineFlag } from 'react-icons/md';
+import { JodFlag } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { PathProgress } from './PathProgress';
 
@@ -23,6 +23,10 @@ export const Default: Story = {
       description: {
         story: 'Path progress component.',
       },
+    },
+    backgrounds: {
+      default: 'grey-bg',
+      values: [{ name: 'grey-bg', value: '#f0f2f5' }],
     },
   },
   args: {
@@ -59,7 +63,7 @@ export const Default: Story = {
         ),
       },
       {
-        circleComponent: <MdOutlineFlag size={24} />,
+        circleComponent: <JodFlag size={24} />,
         labelComponent: <span className="ds:bg-accent ds:text-white ds:p-3">End</span>,
       },
     ],

@@ -1,8 +1,8 @@
 import type { StoryObj } from '@storybook/react-vite';
-import { MdArrowBack, MdArrowForward, MdPerson } from 'react-icons/md';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
+import { JodArrowLeft, JodArrowRight, JodUser } from '../../icons';
 import { Button } from './Button';
 
 const meta = {
@@ -193,7 +193,7 @@ export const MediumWithLeftIcon: Story = {
     label: 'Takaisin',
     onClick: fn(),
     variant: 'white',
-    icon: <MdArrowBack size={24} />,
+    icon: <JodArrowLeft size={24} />,
   },
 };
 
@@ -214,7 +214,7 @@ export const LargeWithRightIcon: Story = {
     onClick: fn(),
     size: 'lg',
     variant: 'white',
-    icon: <MdArrowForward size={40} />,
+    icon: <JodArrowRight size={40} />,
     iconSide: 'right',
   },
 };
@@ -236,7 +236,7 @@ export const AsLink: Story = {
     label: 'Kirjaudu sisään',
     size: 'lg',
     variant: 'gray',
-    icon: <MdPerson size={40} />,
+    icon: <JodUser size={40} />,
     iconSide: 'left',
     LinkComponent: ({ children }: { children: React.ReactNode }) => <a href="/#">{children}</a>,
   },
