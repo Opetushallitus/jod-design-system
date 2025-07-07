@@ -1,5 +1,5 @@
 import { cx } from 'cva';
-import { MdAdd, MdClose } from 'react-icons/md';
+import { JodAdd, JodClose } from '../../icons';
 
 interface BaseTagProps {
   label: string;
@@ -44,7 +44,7 @@ export const Tag = ({ label, title, onClick, variant = 'selectable', sourceType 
     <button type="button" className={containerClassNames(sourceType, variant)} onClick={onClick} title={title}>
       <span className="ds:hyphens-auto ds:text-primary-gray ds:group-hover:underline">{label}</span>
       <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray" aria-hidden>
-        {variant === 'selectable' ? <MdAdd size={16} /> : <MdClose size={16} />}
+        {variant === 'selectable' ? <JodAdd size={16} /> : <JodClose size={16} />}
       </span>
     </button>
   );

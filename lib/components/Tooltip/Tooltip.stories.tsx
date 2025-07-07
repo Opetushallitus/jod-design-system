@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import type { TitledMeta } from '../../utils';
 
-import { MdOutlineInfo } from 'react-icons/md';
+import { JodInfo } from '../../icons';
 import { Button } from '../Button/Button';
 import { Tooltip, TooltipProps } from './Tooltip';
 import { TooltipContent } from './TooltipContent';
@@ -49,9 +49,9 @@ const FocusOrHoverStoryRender = (props: TooltipProps) => {
       <span className="ds:text-form-label">Important label</span>
       <Tooltip {...props}>
         <TooltipTrigger>
-          <MdOutlineInfo size={24} />
+          <JodInfo size={24} />
         </TooltipTrigger>
-        <TooltipContent>This is very informative Tooltip for important label</TooltipContent>
+        <TooltipContent>This is a very informative Tooltip for an important label</TooltipContent>
       </Tooltip>
     </div>
   );
@@ -76,7 +76,7 @@ const ButtonAsTriggerRender = (props: TooltipProps) => {
   const [open, setOpen] = React.useState(false);
   return (
     <Tooltip {...props} open={open} onOpenChange={setOpen}>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button variant="white" label="Show Tooltip" onClick={() => setOpen((v) => !v)} />
       </TooltipTrigger>
       <TooltipContent>Lorem ipsum dolor sit amet, no vis verear commodo.</TooltipContent>

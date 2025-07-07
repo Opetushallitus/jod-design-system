@@ -1,6 +1,6 @@
 import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react';
-import { MdChevronLeft, MdChevronRight, MdMoreHoriz } from 'react-icons/md';
 import { cx } from '../../cva';
+import { JodMore, JodPagerNext, JodPagerPrev } from '../../icons';
 
 const getClassName = ({ isActive = false, isArrowButton = true, disabled = false, isEllipsis = false } = {}) =>
   cx(
@@ -59,7 +59,7 @@ export const Pagination = ({
       className="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
     >
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
-        <MdChevronLeft size={24} />
+        <JodPagerPrev size={24} />
       </ArkPagination.PrevTrigger>
       <ArkPagination.Context>
         {(pagination) =>
@@ -80,14 +80,14 @@ export const Pagination = ({
                 index={index}
                 className={getClassName({ isEllipsis: true })}
               >
-                <MdMoreHoriz size={24} />
+                <JodMore size={24} />
               </ArkPagination.Ellipsis>
             ),
           )
         }
       </ArkPagination.Context>
       <ArkPagination.NextTrigger className={getClassName({ disabled: isLastPage })} disabled={isLastPage}>
-        <MdChevronRight size={24} />
+        <JodPagerNext size={24} />
       </ArkPagination.NextTrigger>
     </ArkPagination.Root>
   );

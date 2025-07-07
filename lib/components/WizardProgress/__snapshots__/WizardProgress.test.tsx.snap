@@ -26,11 +26,8 @@ exports[`WizardProgress > renders correctly 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0 0h24v24H0z"
-        fill="none"
-      />
-      <path
-        d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+        d="M9.55 18.2965L3.85 12.5965L5.275 11.1715L9.55 15.4465L18.725 6.27148L20.15 7.69648L9.55 18.2965Z"
+        fill="currentColor"
       />
     </svg>
   </li>
@@ -55,11 +52,8 @@ exports[`WizardProgress > renders correctly 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0 0h24v24H0z"
-        fill="none"
-      />
-      <path
-        d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+        d="M9.55 18.2965L3.85 12.5965L5.275 11.1715L9.55 15.4465L18.725 6.27148L20.15 7.69648L9.55 18.2965Z"
+        fill="currentColor"
       />
     </svg>
   </li>

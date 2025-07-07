@@ -6,7 +6,7 @@ import {
   Combobox as HeadlessCombobox,
 } from '@headlessui/react';
 import React from 'react';
-import { MdExpandLess, MdExpandMore } from 'react-icons/md';
+import { JodCaretDown, JodCaretUp } from '../../icons';
 
 export interface ComboboxOptionsData<T extends string = string> {
   value: T;
@@ -83,7 +83,7 @@ export const Combobox = <
                 className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
               >
-                {open ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
+                {open ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
               </ComboboxButton>
               <ComboboxOptions className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible">
                 {filteredOptions.map((option) => (

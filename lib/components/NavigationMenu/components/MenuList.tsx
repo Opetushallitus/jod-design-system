@@ -1,6 +1,6 @@
 import React from 'react';
-import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 import { cx } from '../../../cva';
+import { JodCaretDown, JodCaretUp } from '../../../icons';
 import {
   getAccentBgClassForService,
   getFocusOutlineClassForService,
@@ -142,7 +142,7 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
               setNestedMenuOpen(!nestedMenuOpen);
             }}
           >
-            {nestedMenuOpen ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
+            {nestedMenuOpen ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
           </button>
         ) : (
           <Placeholder />

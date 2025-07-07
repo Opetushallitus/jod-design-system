@@ -1,4 +1,4 @@
-import { MdCheck } from 'react-icons/md';
+import { JodCheckmark } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
 
 export interface WizardProgressProps {
@@ -29,7 +29,7 @@ const CompletedStep = ({ text, step, stepText }: { text: string; step: number; s
   return (
     <>
       <span className="ds:sr-only">{`${stepText}: ${step}, ${text}.`}</span>
-      <MdCheck role="presentation" size={24} className="ds:text-secondary-gray" />
+      <JodCheckmark role="presentation" size={24} className="ds:text-secondary-gray" />
     </>
   );
 };

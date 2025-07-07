@@ -42,11 +42,8 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            d="M12 15.6964L6 9.69639L7.4 8.29639L12 12.8964L16.6 8.29639L18 9.69639L12 15.6964Z"
+            fill="currentColor"
           />
         </svg>
       </button>
@@ -107,11 +104,8 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            d="M12 15.6964L6 9.69639L7.4 8.29639L12 12.8964L16.6 8.29639L18 9.69639L12 15.6964Z"
+            fill="currentColor"
           />
         </svg>
       </button>
@@ -167,11 +161,8 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            d="M12 15.6964L6 9.69639L7.4 8.29639L12 12.8964L16.6 8.29639L18 9.69639L12 15.6964Z"
+            fill="currentColor"
           />
         </svg>
       </button>

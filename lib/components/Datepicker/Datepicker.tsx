@@ -8,8 +8,8 @@ import {
   UseDatePickerContext,
 } from '@ark-ui/react';
 import React from 'react';
-import { MdArrowBack, MdArrowForward, MdCalendarToday } from 'react-icons/md';
 import { cx } from '../../cva';
+import { JodArrowLeft, JodArrowRight, JodCalendar } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
 import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
 
@@ -50,7 +50,7 @@ const handleEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
 const Header = () => (
   <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
     <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
-      <MdArrowBack size={24} />
+      <JodArrowLeft size={24} />
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
@@ -58,7 +58,7 @@ const Header = () => (
     </ArkDatePicker.ViewTrigger>
 
     <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
-      <MdArrowForward size={24} />
+      <JodArrowRight size={24} />
     </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
 );
@@ -180,7 +180,7 @@ export const Datepicker = ({
               }
             }}
           >
-            <MdCalendarToday size={24} />
+            <JodCalendar size={24} />
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
