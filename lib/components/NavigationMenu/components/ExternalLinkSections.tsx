@@ -1,6 +1,6 @@
 import React from 'react';
 import { JodOpenInNew } from '../../../icons';
-import { getFocusOutlineClassForService, getPressedColorClassForService, tidyClasses as tc } from '../../../utils';
+import { getFocusOutlineClassForService, getPressedBgColorClassForService, tidyClasses as tc } from '../../../utils';
 import { useServiceVariant } from '../hooks/useServiceVariant';
 import { MenuSeparator } from './MenuSeparator';
 
@@ -40,7 +40,7 @@ const ExternalLinkItem = ({ item }: { item: LinkItem }) => {
           'ds:active:text-white',
           'ds:hover:bg-bg-gray',
           getFocusOutlineClassForService(serviceVariant),
-          getPressedColorClassForService(serviceVariant),
+          getPressedBgColorClassForService(serviceVariant),
         ])}
       >
         <div className="ds:flex ds:flex-col ds:flex-1 ds:gap-3 ds:py-3 ds:group">

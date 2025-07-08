@@ -19,7 +19,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
         >
           <button
             aria-label="Sulje valikko"
-            class="ds:cursor-pointer ds:focus:outline-accent ds:p-3 ds:focus:outline-secondary-1-dark"
+            class="ds:cursor-pointer ds:focus:outline-accent ds:p-3 ds:focus-visible:outline-secondary-1-dark"
           >
             <svg
               fill="currentColor"
@@ -42,7 +42,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
         class="ds:border-l-8 ds:border-secondary-3-dark"
       >
         <a
-          class="ds:flex ds:w-full ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:rounded ds:text-black ds:hover:bg-bg-gray ds:focus:outline-secondary-1-dark"
+          class="ds:flex ds:w-full ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:rounded ds:text-black ds:hover:bg-bg-gray ds:focus-visible:outline-secondary-1-dark"
           href="/#"
         >
           <span

@@ -2,50 +2,142 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
-import { JodArrowLeft, JodArrowRight, JodUser } from '../../icons';
+import { JodArrowLeft, JodUser } from '../../icons';
 import { Button } from './Button';
 
 const meta = {
   title: 'Buttons/Button',
   component: Button,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Button component for user actions.',
+      },
+    },
+    controls: {
+      exclude: ['ref', 'className', 'LinkComponent', 'form', 'icon'],
+    },
+  },
+  argTypes: {
+    serviceVariant: {
+      control: { type: 'radio' },
+      options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
+    },
+  },
 } satisfies TitledMeta<typeof Button>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const backgrounds = {
-  default: 'jod-bg-white',
-  values: [{ name: 'jod-bg-white', value: '#fff' }],
+const design = {
+  type: 'figma',
+  url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=13745-13872&t=m7CDBHDimiM0Mjn3-4',
 };
 
-export const Gray: Story = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5869&t=6CqIVQA2gz0PPxiK-4',
-    },
-    docs: {
-      description: {
-        story: 'This is a gray button component for triggering an action.',
+export const AllVariants: Story = {
+  render: (args) => {
+    const smButtons = [
+      {
+        label: 'Default (accent)',
+        cmp: <Button {...args} variant="accent" size="sm" />,
+        cmpDisabled: <Button {...args} variant="accent" size="sm" disabled />,
       },
-    },
-    backgrounds,
+      {
+        label: 'White (secondary)',
+        cmp: <Button {...args} variant="white" size="sm" />,
+        cmpDisabled: <Button {...args} variant="white" size="sm" disabled />,
+      },
+      {
+        label: 'Plain (tertiary)',
+        cmp: <Button {...args} variant="plain" size="sm" />,
+        cmpDisabled: <Button {...args} variant="plain" size="sm" disabled />,
+      },
+      {
+        label: 'Red Delete (danger primary)',
+        cmp: <Button {...args} variant="red-delete" size="sm" />,
+        cmpDisabled: <Button {...args} variant="red-delete" size="sm" disabled />,
+      },
+      {
+        label: 'White Delete (danger secondary)',
+        cmp: <Button {...args} variant="white-delete" size="sm" />,
+        cmpDisabled: <Button {...args} variant="white-delete" size="sm" disabled />,
+      },
+    ];
+
+    const lgButtons = [
+      {
+        label: 'Default (accent)',
+        cmp: <Button {...args} variant="accent" size="lg" />,
+        cmpDisabled: <Button {...args} variant="accent" size="lg" disabled />,
+      },
+      {
+        label: 'White (secondary)',
+        cmp: <Button {...args} variant="white" size="lg" />,
+        cmpDisabled: <Button {...args} variant="white" size="lg" disabled />,
+      },
+      {
+        label: 'Plain (tertiary)',
+        cmp: <Button {...args} variant="plain" size="lg" />,
+        cmpDisabled: <Button {...args} variant="plain" size="lg" disabled />,
+      },
+      {
+        label: 'Red Delete (danger primary)',
+        cmp: <Button {...args} variant="red-delete" size="lg" />,
+        cmpDisabled: <Button {...args} variant="red-delete" size="lg" disabled />,
+      },
+      {
+        label: 'White Delete (danger secondary)',
+        cmp: <Button {...args} variant="white-delete" size="lg" />,
+        cmpDisabled: <Button {...args} variant="white-delete" size="lg" disabled />,
+      },
+    ];
+
+    return (
+      <table className="ds:table-auto ds:border-collapse ds:border-spacing-0">
+        <tbody>
+          {/* Large */}
+          <tr className="ds:border-b">
+            <td className="ds:text-heading-4 ds:text-left ds:p-3">Large (default size)</td>
+            <td className="ds:text-heading-4 ds:text-center ds:p-3">Normal</td>
+            <td className="ds:text-heading-4 ds:text-center ds:p-3">Disabled</td>
+          </tr>
+          {lgButtons.map((button) => (
+            <tr key={button.label} className="ds:border-b ds:border-b-secondary-5">
+              <td className="ds:p-3 ds:text-body-2">{button.label}</td>
+              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmp}</td>
+              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmpDisabled}</td>
+            </tr>
+          ))}
+          {/* Small */}
+          <tr className="ds:border-b">
+            <td className="ds:text-heading-4 ds:text-left ds:p-3 ds:pt-8">Small</td>
+            <td className="ds:text-heading-4 ds:text-center ds:p-3 ds:pt-8">Normal</td>
+            <td className="ds:text-heading-4 ds:text-center ds:p-3 ds:pt-8">Disabled</td>
+          </tr>
+          {smButtons.map((button) => (
+            <tr key={button.label} className="ds:border-b ds:border-b-secondary-5">
+              <td className="ds:p-3 ds:text-body-2">{button.label}</td>
+              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmp}</td>
+              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmpDisabled}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
   },
   args: {
-    label: 'Muokkaa',
+    label: 'Lorem ipsum',
     onClick: fn(),
-    variant: 'gray',
+    variant: 'accent',
+    serviceVariant: 'yksilo',
   },
 };
 
 export const White: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5829&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
         story: 'This is a white button component for triggering an action.',
@@ -59,37 +151,14 @@ export const White: Story = {
   },
 };
 
-export const GrayDelete: Story = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5850&t=6CqIVQA2gz0PPxiK-4',
-    },
-    docs: {
-      description: {
-        story: 'This is a gray delete button component for triggering an action.',
-      },
-    },
-    backgrounds,
-  },
-  args: {
-    label: 'Poista',
-    onClick: fn(),
-    variant: 'gray-delete',
-  },
-};
 export const RedDelete: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5850&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
         story: 'This is a red delete button component for triggering an action.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Poista',
@@ -100,10 +169,7 @@ export const RedDelete: Story = {
 
 export const WhiteDelete: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5847&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
         story: 'This is a white delete button component for triggering an action.',
@@ -119,16 +185,12 @@ export const WhiteDelete: Story = {
 
 export const Disabled: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5809&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
         story: 'This is a disabled button component.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -139,16 +201,12 @@ export const Disabled: Story = {
 
 export const Small: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5831&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
         story: 'This is a small button component.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Muokkaa',
@@ -157,35 +215,12 @@ export const Small: Story = {
   },
 };
 
-export const Large: Story = {
+export const LargeWithLeftIcon: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5857&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
-        story: 'This is a large button component.',
-      },
-    },
-  },
-  args: {
-    label: 'Muokkaa',
-    onClick: fn(),
-    size: 'lg',
-    variant: 'white',
-  },
-};
-
-export const MediumWithLeftIcon: Story = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5837&t=6CqIVQA2gz0PPxiK-4',
-    },
-    docs: {
-      description: {
-        story: 'This is a medium button component with an left icon.',
+        story: 'This is a large button component with an left icon.',
       },
     },
   },
@@ -193,49 +228,24 @@ export const MediumWithLeftIcon: Story = {
     label: 'Takaisin',
     onClick: fn(),
     variant: 'white',
+    iconSide: 'left',
     icon: <JodArrowLeft size={24} />,
-  },
-};
-
-export const LargeWithRightIcon: Story = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5853&t=6CqIVQA2gz0PPxiK-4',
-    },
-    docs: {
-      description: {
-        story: 'This is a large button component with an right icon.',
-      },
-    },
-  },
-  args: {
-    label: 'Kokeile palvelua',
-    onClick: fn(),
-    size: 'lg',
-    variant: 'white',
-    icon: <JodArrowRight size={40} />,
-    iconSide: 'right',
   },
 };
 
 export const AsLink: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-5869&t=6CqIVQA2gz0PPxiK-4',
-    },
+    design,
     docs: {
       description: {
         story: 'This is a link component that resembles the button component.',
       },
     },
-    backgrounds,
   },
   args: {
     label: 'Kirjaudu sisään',
     size: 'lg',
-    variant: 'gray',
+    variant: 'accent',
     icon: <JodUser size={40} />,
     iconSide: 'left',
     LinkComponent: ({ children }: { children: React.ReactNode }) => <a href="/#">{children}</a>,
