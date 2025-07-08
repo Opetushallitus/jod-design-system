@@ -20,7 +20,7 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
       href="/"
     >
       <span
-        class="ds:cursor-pointer ds:inline-flex ds:items-center ds:gap-4 ds:select-none ds:group ds:font-poppins ds:text-button-md ds:px-6 ds:rounded-[30px] ds:pr-4 ds:text-primary-gray ds:bg-white ds:hover:text-accent ds:focus-visible:text-accent ds:active:bg-accent ds:focus-visible:outline-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:active:text-white ds:active:outline-0 ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+        class="ds:inline-flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:pr-4 ds:text-button-md ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
       >
         <span
           class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-4"

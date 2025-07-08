@@ -32,9 +32,11 @@ describe('Button', () => {
   });
 
   it('renders the button with the correct variant', () => {
-    const { container } = render(<Button label="Click me" onClick={vi.fn()} variant="gray" />);
+    const { container } = render(
+      <Button label="Click me" onClick={vi.fn()} variant="accent" serviceVariant="yksilo" />,
+    );
     const button = screen.getByRole('button', { name: 'Click me' });
-    expect(button).toHaveClass('ds:bg-bg-gray');
+    expect(button).toHaveClass('ds:bg-secondary-1-dark');
     expect(container.firstChild).toMatchSnapshot();
   });
 

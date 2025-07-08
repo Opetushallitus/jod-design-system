@@ -1,6 +1,13 @@
 import React from 'react';
 import { cx } from '../../cva';
-import { tidyClasses as tc } from '../../utils';
+import {
+  getAccentBgClassForService,
+  getFocusOutlineClassForService,
+  getPressedBgColorClassForService,
+  getTextColorClassForService,
+  ServiceVariant,
+  tidyClasses as tc,
+} from '../../utils';
 
 export interface ButtonProps {
   /** Form ID to associate the button with */
@@ -10,9 +17,11 @@ export interface ButtonProps {
   /** Callback fired on tap/click of the button */
   onClick?: () => void;
   /** Size of the button */
-  size?: 'sm' | 'md' | 'lg';
-  /** Button variant */
-  variant?: 'gray' | 'white' | 'gray-delete' | 'red-delete' | 'white-delete' | 'accent';
+  size?: 'sm' | 'lg';
+  /** Button variant (primary = accent, secondary = white, tertiary = plain) */
+  variant?: 'white' | 'red-delete' | 'white-delete' | 'accent' | 'plain';
+  /** Service variant */
+  serviceVariant?: ServiceVariant;
   /** Button disabled for any actions */
   disabled?: boolean;
   /** Icon shown on the button */
@@ -27,53 +36,61 @@ export interface ButtonProps {
   className?: string;
 }
 
-const getSizeClassName = (size: ButtonProps['size']) => {
-  return cx('ds:font-poppins', {
-    'ds:text-button-sm ds:px-6 ds:rounded-[30px]': size === 'sm',
-    'ds:text-button-md ds:px-6 ds:rounded-[30px]': size === 'md',
-    'ds:text-button-lg ds:px-[42px] ds:rounded-[50px]': size === 'lg',
+const getVariantClassName = (
+  variant: ButtonProps['variant'],
+  serviceVariant: ServiceVariant,
+  disabled: ButtonProps['disabled'],
+) => {
+  const accentBg = getAccentBgClassForService(serviceVariant);
+  const pressedBg = getPressedBgColorClassForService(serviceVariant);
+  const textColor = getTextColorClassForService(serviceVariant);
+  const focusColor = getFocusOutlineClassForService(serviceVariant);
+  const hoverColor = cx({
+    'ds:hover:text-secondary-1-dark': serviceVariant === 'yksilo',
+    'ds:hover:text-secondary-2-dark': serviceVariant === 'ohjaaja',
+    'ds:hover:text-secondary-3-dark': serviceVariant === 'palveluportaali',
+    'ds:hover:text-secondary-4-dark': serviceVariant === 'tietopalvelu',
   });
-};
-
-const getIconClassName = (size: ButtonProps['size'], leftIcon: boolean, rightIcon: boolean) => {
-  return cx({
-    'ds:pl-4': (size === 'sm' || size === 'md') && leftIcon,
-    'ds:pl-[21px]': size === 'lg' && leftIcon,
-    'ds:pr-4': (size === 'sm' || size === 'md') && rightIcon,
-    'ds:pr-[21px]': size === 'lg' && rightIcon,
+  const activeTextColor = cx({
+    'ds:active:text-secondary-1-dark-2': serviceVariant === 'yksilo',
+    'ds:active:text-secondary-2-dark-2': serviceVariant === 'ohjaaja',
+    'ds:active:text-secondary-3-dark-2': serviceVariant === 'palveluportaali',
+    'ds:active:text-secondary-4-dark-2': serviceVariant === 'tietopalvelu',
   });
-};
-
-const getVariantClassName = (variant: ButtonProps['variant'], disabled: ButtonProps['disabled']) => {
-  return cx({
-    'ds:text-white ds:bg-accent ds:hover:text-white ds:active:text-white ds:focus-visible:text-white':
-      variant === 'accent' && !disabled,
-    'ds:bg-accent-50 ds:disabled:text-white': variant === 'accent' && disabled,
-    'ds:text-primary-gray ds:bg-bg-gray': variant === 'gray',
-    'ds:text-primary-gray ds:bg-white': variant === 'white',
-    'ds:text-alert ds:bg-bg-gray ds:hover:text-alert ds:active:text-white ds:focus-visible:text-alert':
-      variant === 'gray-delete',
-    'ds:bg-[#E35750] ds:text-white ds:hover:text-white ds:focus-visible:text-white': variant === 'red-delete',
-    'ds:text-alert-text-2 ds:bg-white ds:hover:text-alert-text-2 ds:active:text-white ds:focus-visible:text-alert-text-2':
-      variant === 'white-delete',
-    'ds:active:bg-alert-text-2 ds:focus-visible:outline-alert-text-2': variant?.includes('-delete') && !disabled,
+  const focusTextColor = cx({
+    'ds:focus-visible:text-secondary-1-dark': serviceVariant === 'yksilo',
+    'ds:focus-visible:text-secondary-2-dark': serviceVariant === 'ohjaaja',
+    'ds:focus-visible:text-secondary-3-dark': serviceVariant === 'palveluportaali',
+    'ds:focus-visible:text-secondary-4-dark': serviceVariant === 'tietopalvelu',
   });
-};
 
-const getDisabledClassName = (disabled: ButtonProps['disabled'], variant: ButtonProps['variant']) => {
-  return disabled === false
-    ? tc([
-        'ds:hover:text-accent',
-        'ds:focus-visible:text-accent',
-        variant === 'accent' ? 'ds:active:bg-secondary-1-dark-2' : 'ds:active:bg-accent',
-        'ds:focus-visible:outline-accent',
-        'ds:focus-visible:outline',
-        'ds:focus-visible:outline-[3px]',
-        'ds:focus-visible:outline-offset-[1.5px]',
-        variant === 'accent' ? 'ds:active:text-accent' : 'ds:active:text-white',
-        'ds:active:outline-0',
-      ])
-    : 'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed';
+  return cx(
+    'ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed',
+    {
+      // Accent
+      [`${accentBg} ${pressedBg} ${focusColor} ds:text-white`]: variant === 'accent' && !disabled,
+
+      // White
+      [`ds:bg-white ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
+        variant === 'white' && !disabled,
+
+      // Plain
+      [`${textColor} ${hoverColor} ${focusColor} ${activeTextColor}`]: variant === 'plain' && !disabled,
+      [`ds:text-inactive-gray`]: variant === 'plain' && disabled,
+
+      // Red Delete
+      'ds:bg-alert ds:active:bg-alert-text-2 ds:focus-visible:outline-alert ds:text-white': variant === 'red-delete',
+
+      // White Delete
+      'ds:bg-white ds:text-alert-text ds:active:text-alert-text-2 ds:focus-visible:text-alert-text-2 ds:focus-visible ds:outline-alert-text-2':
+        variant === 'white-delete',
+
+      // Shared disabled styles
+      [`ds:bg-white ds:text-inactive-gray`]: variant && ['red-delete', 'white'].includes(variant) && disabled,
+      [`ds:bg-inactive-gray ds:text-secondary-5-light-3`]:
+        variant && ['accent', 'red-delete'].includes(variant) && disabled,
+    },
+  );
 };
 
 const getButtonClassName = ({
@@ -83,44 +100,57 @@ const getButtonClassName = ({
   rightIcon,
   disabled,
   LinkComponent,
+  serviceVariant = 'yksilo',
 }: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) =>
   tc([
-    'ds:cursor-pointer',
     LinkComponent ? 'ds:inline-flex' : 'ds:flex',
+    'ds:cursor-pointer',
+    variant === 'plain' ? 'ds:px-1' : 'ds:px-6 ds:rounded-[30px]',
     'ds:items-center',
     'ds:gap-4',
     'ds:select-none',
     'ds:group',
-    getSizeClassName(size),
-    getIconClassName(size, leftIcon, rightIcon),
-    getVariantClassName(variant, disabled),
-    getDisabledClassName(disabled, variant),
+    cx({
+      'ds:pl-4': leftIcon,
+      'ds:pr-4': rightIcon,
+      'ds:text-button-sm': size === 'sm',
+      'ds:text-button-md': size === 'lg',
+    }),
+    getVariantClassName(variant, serviceVariant, disabled),
   ]);
 
 /** Button component for user actions. */
 export const Button = ({
-  form,
-  label,
-  onClick,
-  size = 'md',
-  variant = 'gray',
+  className,
   disabled = false,
+  form,
   icon,
   iconSide,
+  label,
   LinkComponent,
+  onClick,
   ref,
-  className,
+  serviceVariant = 'yksilo',
+  size = 'lg',
+  variant = 'white',
 }: ButtonProps) => {
   const leftIcon = icon !== undefined && iconSide === 'left';
   const rightIcon = icon !== undefined && iconSide === 'right';
   const onlyIcon = icon && !leftIcon && !rightIcon;
-  const buttonClassName = getButtonClassName({ size, variant, leftIcon, rightIcon, disabled, LinkComponent });
+  const buttonClassName = getButtonClassName({
+    size,
+    variant,
+    leftIcon,
+    rightIcon,
+    disabled,
+    LinkComponent,
+    serviceVariant,
+  });
 
   const spanClassName = cx({
     'ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline': !disabled,
     'ds:py-2': size === 'sm',
-    'ds:py-4': size === 'md',
-    'ds:py-5': size === 'lg',
+    'ds:py-4': size === 'lg' && variant !== 'plain',
   });
 
   return LinkComponent ? (

@@ -90,7 +90,6 @@ export const HeroCard = ({
             })}
           {...(onClick && { onClick })}
           variant={buttonVariant}
-          size="md"
           label={buttonLabel}
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"

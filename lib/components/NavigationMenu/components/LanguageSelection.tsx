@@ -1,7 +1,7 @@
 import {
   getAccentBgClassForService,
   getFocusOutlineClassForService,
-  getPressedColorClassForService,
+  getPressedBgColorClassForService,
   tidyClasses,
 } from '../../../utils';
 import { useServiceVariant } from '../hooks/useServiceVariant';
@@ -43,7 +43,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
                   'ds:text-black',
                   'ds:active:text-white',
                   'ds:py-3',
-                  getPressedColorClassForService(serviceVariant),
+                  getPressedBgColorClassForService(serviceVariant),
                   getFocusOutlineClassForService(serviceVariant),
                 ])}
                 aria-current={selected === item.value}

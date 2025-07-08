@@ -4,7 +4,7 @@ import { JodCaretDown, JodCaretUp } from '../../../icons';
 import {
   getAccentBgClassForService,
   getFocusOutlineClassForService,
-  getPressedColorClassForService,
+  getPressedBgColorClassForService,
   tidyClasses as tc,
 } from '../../../utils';
 import { useServiceVariant } from '../hooks/useServiceVariant';
@@ -100,7 +100,7 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
                 selected ? '' : 'ds:hover:bg-bg-gray',
                 selected ? 'ds:hover:text-white' : 'ds:hover:text-black',
                 selected ? getAccentBgClassForService(serviceVariant) : 'transparent',
-                getPressedColorClassForService(serviceVariant),
+                getPressedBgColorClassForService(serviceVariant),
               ])}
             >
               {icon}
@@ -125,7 +125,7 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
               'ds:text-primary-gray',
               'ds:hover:bg-bg-gray',
               'ds:active:text-white',
-              getPressedColorClassForService(serviceVariant),
+              getPressedBgColorClassForService(serviceVariant),
               getFocusOutlineClassForService(serviceVariant),
               // Gray bar to the left of the button
               'ds:relative',
