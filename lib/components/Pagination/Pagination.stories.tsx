@@ -9,6 +9,17 @@ const meta = {
   title: 'Content/Pagination',
   component: Pagination,
   tags: ['autodocs'],
+  parameters: {
+    controls: {
+      exclude: ['translations', 'onPageChange'],
+    },
+  },
+  argTypes: {
+    serviceVariant: {
+      control: { type: 'radio' },
+      options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
+    },
+  },
 } satisfies TitledMeta<typeof Pagination>;
 
 export default meta;
