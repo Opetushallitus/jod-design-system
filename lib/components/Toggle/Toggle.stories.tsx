@@ -8,6 +8,12 @@ const meta = {
   title: 'Forms/Toggle',
   component: Toggle,
   tags: ['autodocs'],
+  argTypes: {
+    serviceVariant: {
+      control: { type: 'radio' },
+      options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
+    },
+  },
 } satisfies TitledMeta<typeof Toggle>;
 
 export default meta;
@@ -33,19 +39,12 @@ export const Default: Story = {
       },
     },
   },
-  argTypes: {
-    variant: {
-      options: ['YKSILO', 'OHJAAJA', 'TIETOPALVELU'],
-      control: {
-        type: 'radio',
-      },
-    },
-  },
+
   args: {
     onChange: fn(),
     checked: true,
     ariaLabel: 'Toggle',
-    variant: 'yksilo',
+    serviceVariant: 'yksilo',
     disabled: false,
   },
 };
@@ -67,6 +66,6 @@ export const Disabled: Story = {
     disabled: true,
     checked: true,
     ariaLabel: 'Toggle',
-    variant: 'yksilo',
+    serviceVariant: 'yksilo',
   },
 };
