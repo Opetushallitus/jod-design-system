@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import type { TitledMeta } from '../../utils';
 
-import { JodCheckmark, JodError, JodWarning } from '../../icons';
+import { JodLoading } from '../../icons';
 import { Toast } from './Toast';
 
 const meta = {
@@ -14,14 +14,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const url = 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8824';
 const text = 'Lorem ipsum dolor';
 
 export const Success: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url,
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69766',
     },
     docs: {
       description: {
@@ -31,7 +30,6 @@ export const Success: Story = {
   },
   args: {
     text,
-    icon: <JodCheckmark size={24} />,
   },
 };
 
@@ -39,7 +37,7 @@ export const Warning: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url,
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69787',
     },
     docs: {
       description: {
@@ -48,8 +46,7 @@ export const Warning: Story = {
     },
   },
   args: {
-    text,
-    icon: <JodWarning size={24} />,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     variant: 'warning',
   },
 };
@@ -59,7 +56,7 @@ export const ErrorStory: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url,
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69801',
     },
     docs: {
       description: {
@@ -69,24 +66,59 @@ export const ErrorStory: Story = {
   },
   args: {
     text,
-    icon: <JodError size={24} />,
     variant: 'error',
   },
 };
-
-export const Iconless: Story = {
+export const Neutral: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542%3A8376',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69753',
     },
     docs: {
       description: {
-        story: 'This is a toast component for displaying a text without an icon.',
+        story: 'This is an neutral toast component for displaying a text.',
       },
     },
   },
   args: {
-    text: 'Lorem ipsum dolor',
+    text,
+    variant: 'neutral',
+  },
+};
+
+export const CustomIcon: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69753',
+    },
+    docs: {
+      description: {
+        story: 'This is an toast component with a custom icon.',
+      },
+    },
+  },
+  args: {
+    text,
+    icon: <JodLoading className="ds:text-accent ds:animate-spin" />,
+    variant: 'success',
+  },
+};
+
+export const LongText: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69973',
+    },
+    docs: {
+      description: {
+        story: 'This is a toast with a long text. It should wrap correctly and not overflow the container.',
+      },
+    },
+  },
+  args: {
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
 };
