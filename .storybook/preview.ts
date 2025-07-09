@@ -19,7 +19,7 @@ const preview: Preview = {
       },
     },
     viewport: {
-      viewports: {
+      options: {
         mobile: {
           name: 'Mobile',
           styles: {
@@ -40,7 +40,7 @@ const preview: Preview = {
           name: 'Full width',
           styles: {
             width: '100%',
-            height: '100%',
+            height: '300px',
           },
           type: 'desktop',
         },

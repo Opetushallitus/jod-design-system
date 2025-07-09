@@ -63,7 +63,7 @@ export {
   type NavigationMenuLanguageSelectionProps,
   type NavigationMenuProps,
 } from './components/NavigationMenu';
-export { Note } from './components/Note/Note';
+export { Note, NoteStack, NoteStackContext, NoteStackProvider, type NoteStackProps } from './components/Note';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';
 export { PopupList, PopupListItem } from './components/PopupList/PopupList';

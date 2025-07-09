@@ -2,12 +2,23 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
-import { Note } from './Note';
+import { Note, NoteStack, NoteStackProvider, useNoteStack } from '.';
+import { Button } from '../Button/Button';
+import { NoteProps } from './Note';
 
 const meta = {
-  title: 'Content/Note',
+  title: 'Popups/Note',
   component: Note,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+    controls: {
+      exclude: ['readMoreComponent', 'onCloseClick'],
+    },
+  },
+  globals: {
+    viewport: { value: 'fullwidth' },
+  },
 } satisfies TitledMeta<typeof Note>;
 
 export default meta;
@@ -26,27 +37,25 @@ const decorators: Story['decorators'] = [
   ),
 ];
 
+const readMoreComponent = <Button variant="plain" label="Lue lisää" className="ds:text-primary-gray!" />;
+
 export const ConfirmationNote: Story = {
   decorators,
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8714&t=XinajcpkjOyuElVJ-1',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69983',
     },
     docs: {
       description: {
-        story: 'This is a success toast component for displaying a text.',
+        story: 'This is a success note component for displaying a text.',
       },
-    },
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'desktop',
     },
   },
   args: {
     title,
     description,
-    readMoreComponent: <>Lue lisää</>,
+    readMoreComponent,
     onCloseClick: fn(),
   },
 };
@@ -56,22 +65,18 @@ export const LongTitleText: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8803&t=XinajcpkjOyuElVJ-4',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-69983',
     },
     docs: {
       description: {
-        story: 'This is a success toast component for displaying a long title text.',
+        story: 'This is a success note component for displaying a long title text.',
       },
-    },
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'desktop',
     },
   },
   args: {
     title: 'Lorem ipsum dolor est nonummy noblem ester!',
     description,
-    readMoreComponent: <>Lue lisää</>,
+    readMoreComponent,
     onCloseClick: fn(),
   },
 };
@@ -81,22 +86,19 @@ export const PermanentNote: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8725&t=XinajcpkjOyuElVJ-4',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-70141',
     },
     docs: {
       description: {
-        story: 'This is a success toast component for displaying a permanent note.',
+        story: 'This is a error note component for displaying a permanent note.',
       },
-    },
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'desktop',
     },
   },
   args: {
     title,
     description,
-    readMoreComponent: <>Lue lisää</>,
+    variant: 'error',
+    permanent: true,
   },
 };
 
@@ -105,16 +107,12 @@ export const NoCTA: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8762&t=XinajcpkjOyuElVJ-4',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-70049',
     },
     docs: {
       description: {
-        story: 'This is a success toast component for displaying a permanent note.',
+        story: 'This is a success note component without a call to action.',
       },
-    },
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'desktop',
     },
   },
   args: {
@@ -129,16 +127,12 @@ export const WarningNote: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-8790&t=XinajcpkjOyuElVJ-4',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-70005',
     },
     docs: {
       description: {
-        story: 'This is a warning toast component for displaying a text.',
+        story: 'This is a warning note component for displaying a text.',
       },
-    },
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'desktop',
     },
   },
   args: {
@@ -157,17 +151,94 @@ export const ErrorNote: Story = {
     },
     docs: {
       description: {
-        story: 'This is a warning toast component for displaying a text.',
+        story: 'This is a warning note component for displaying a text.',
       },
-    },
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'desktop',
     },
   },
   args: {
     title,
     description,
     variant: 'error',
+  },
+};
+
+export const feedback: Story = {
+  decorators,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-70080',
+    },
+    docs: {
+      description: {
+        story: 'This is a warning note component for displaying a text.',
+      },
+    },
+  },
+  args: {
+    title,
+    description,
+    variant: 'feedback',
+  },
+};
+
+export const WithNoteStack: Story = {
+  decorators: [
+    (Story) => (
+      <div className="ds:h-[400px] ds:overflow-y-auto">
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => {
+    const NoteStackDemo = () => {
+      const { addNote } = useNoteStack();
+      const variants = ['success', 'error', 'warning', 'feedback'] as NoteProps['variant'][];
+      return (
+        <div className="ds:flex ds:flex-col ds:gap-5 ds:relative">
+          <div className="ds:fixed ds:top-0 ds:w-full">
+            <NoteStack showAllText="Näytä kaikki" />
+          </div>
+          <div className="ds:mt-[200px] ds:ml-3 ds:flex ds:gap-5">
+            {variants.map((variant) => (
+              <Button
+                key={variant}
+                variant="accent"
+                size="sm"
+                label={`Add ${variant} note`}
+                onClick={() => addNote({ ...args, variant, title: variant?.toLocaleUpperCase() })}
+              />
+            ))}
+            <Button
+              variant="red-delete"
+              size="sm"
+              label={`Add permanent note`}
+              onClick={() => addNote({ ...args, variant: 'error', title: 'PERMANENT', permanent: true })}
+            />
+          </div>
+        </div>
+      );
+    };
+
+    return (
+      <NoteStackProvider>
+        <NoteStackDemo />
+      </NoteStackProvider>
+    );
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-67043',
+    },
+    docs: {
+      description: {
+        story:
+          'Notes inside a stack component. The stack uses a hook to manage the notes. Notes are sorted by variant and permanent status. When user scrolls the page down, all notes besides permanent ones will collapse. They re-appear if user scrolls to the top of the page. You can add notes by using the provided buttons.',
+      },
+    },
+  },
+  args: {
+    description,
   },
 };
