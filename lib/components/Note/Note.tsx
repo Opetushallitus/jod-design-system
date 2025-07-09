@@ -8,15 +8,24 @@ export interface NoteProps {
   /** Description shown on the note */
   description?: string;
   /** Icon shown on the note */
-  variant?: 'success' | 'warning' | 'error';
+  variant?: 'success' | 'warning' | 'error' | 'feedback';
   /** Callback fired on tap/click of the close button */
   onCloseClick?: () => void;
   /** Component inside the button container if variant is success */
   readMoreComponent?: React.ReactNode;
+  /** If true, the note will always be visible */
+  permanent?: boolean;
 }
 
 /** Dialogs display important information that users need to acknowledge. They appear over the interface and block further interactions. */
-export const Note = ({ title, description, variant = 'success', onCloseClick, readMoreComponent }: NoteProps) => {
+export const Note = ({
+  title,
+  description,
+  variant = 'success',
+  onCloseClick,
+  readMoreComponent,
+  permanent,
+}: NoteProps) => {
   const { sm } = useMediaQueries();
   const hasReadMore = variant === 'success' && readMoreComponent;
   return (
@@ -24,36 +33,25 @@ export const Note = ({ title, description, variant = 'success', onCloseClick, re
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-      className={cx('ds:text-primary-gray', {
-        'ds:bg-success': variant === 'success',
-        'ds:bg-warning': variant === 'warning',
-        'ds:bg-alert': variant === 'error',
+      className={cx('ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0', {
+        'ds:bg-success ds:text-primary-gray': variant === 'success',
+        'ds:bg-warning ds:text-primary-gray': variant === 'warning',
+        'ds:bg-alert ds:text-white': variant === 'error',
+        'ds:bg-secondary-gray ds:text-white': variant === 'feedback',
       })}
     >
-      <div className="ds:mx-auto ds:flex ds:min-h-[42px] ds:items-center ds:px-5 ds:justify-start ds:sm:min-h-11 ds:sm:pl-7 ds:sm:pr-0 ds:sm:justify-center ds:sm:gap-x-[20%]">
-        <div className="ds:flex ds:flex-col ds:flex-wrap ds:items-start ds:py-4 ds:sm:flex-row ds:sm:items-center ds:sm:gap-x-5 ds:sm:gap-y-2 ds:sm:py-5">
-          <div className="ds:text-heading-4 ds:sm:text-heading-3">{title}</div>
-          <div className="ds:mt-1 ds:sm:mt-0 ds:text-body-sm ds:font-arial">{description}</div>
-          {hasReadMore && !sm && (
-            <span className="ds:mt-4 ds:text-nowrap ds:rounded-[30px] ds:bg-white ds:px-6 ds:py-[10px] ds:text-button-md ds:hover:underline ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-white ds:active:bg-accent ds:active:text-white ds:active:no-underline">
-              {readMoreComponent}
-            </span>
-          )}
+      <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-6">
+        <div className="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6">
+          <div className="ds:text-heading-4 ds:text-pretty">{title}</div>
+          <div className="ds:text-body-md ds:font-arial ds:text-pretty">{description}</div>
+          {hasReadMore && !sm && <span className="ds:mt-3">{readMoreComponent}</span>}
         </div>
-        <div className="ds:flex ds:items-center">
-          {hasReadMore && sm && (
-            <span className="ds:mx-7 ds:text-nowrap ds:rounded-[30px] ds:bg-white ds:px-6 ds:py-[10px] ds:text-button-md ds:hover:underline ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-white ds:active:bg-accent ds:active:text-white ds:active:no-underline">
-              {readMoreComponent}
-            </span>
-          )}
-          {onCloseClick && (
-            <button
-              className={`ds:cursor-pointer ds:ml-3 ds:mr-0 ds:flex ds:sm:mr-5 ${hasReadMore ? 'ds:sm:ml-0' : 'ds:sm:ml-5'}`}
-              type="button"
-              aria-label="Close"
-              onClick={onCloseClick}
-            >
-              <JodClose size={32} />
+
+        <div className="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start">
+          {hasReadMore && sm && readMoreComponent}
+          {onCloseClick && !permanent && (
+            <button className="ds:cursor-pointer ds:flex" type="button" aria-label="Close" onClick={onCloseClick}>
+              <JodClose size={24} />
             </button>
           )}
         </div>
