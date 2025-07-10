@@ -80,5 +80,15 @@
   },
   "overrides": {
     "storybook": "$storybook"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.js"
+    },
+    "./icons": {
+      "import": "./lib/icons/index.js",
+      "require": "./lib/icons/index.js"
+    }
   }
 }
