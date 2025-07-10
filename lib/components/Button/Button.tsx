@@ -71,7 +71,7 @@ const getVariantClassName = (
       [`${accentBg} ${pressedBg} ${focusColor} ds:text-white`]: variant === 'accent' && !disabled,
 
       // White
-      [`ds:bg-white ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
+      [`ds:bg-white ds:text-black ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
         variant === 'white' && !disabled,
 
       // Plain
