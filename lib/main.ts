@@ -62,6 +62,7 @@ export {
   type LinkItem,
   type MenuItem,
   type MenuListProps,
+  type MenuSection,
   type NavigationMenuLanguageSelectionProps,
   type NavigationMenuProps,
 } from './components/NavigationMenu';
@@ -87,4 +88,3 @@ export { Tooltip } from './components/Tooltip/Tooltip';
 export { TooltipContent } from './components/Tooltip/TooltipContent';
 export { TooltipTrigger } from './components/Tooltip/TooltipTrigger';
 export { WizardProgress } from './components/WizardProgress/WizardProgress';
-export * as Icons from './icons';
