@@ -15,6 +15,7 @@ export { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
 export { ContentCard } from './components/ContentCard/ContentCard';
 export { Datepicker } from './components/Datepicker/Datepicker';
 export { DiscussionCard } from './components/DiscussionCard/DiscussionCard';
+export { EmptyState } from './components/EmptyState/EmptyState';
 export { Footer } from './components/Footer/Footer';
 export {
   LogoEuEn,
