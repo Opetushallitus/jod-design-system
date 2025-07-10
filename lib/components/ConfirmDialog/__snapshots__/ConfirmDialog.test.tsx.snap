@@ -23,16 +23,16 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
       class="ds:flex ds:w-full ds:items-center ds:justify-center"
     >
       <div
-        class="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray"
+        class="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:min-w-[630px] ds:flex ds:flex-col ds:justify-between"
         data-headlessui-state="open"
         data-open=""
         id="ds-confirm-dialog-panel-«r0»"
       >
         <div
-          class="ds:flex ds:max-w-[640px] ds:flex-col ds:p-9"
+          class="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9"
         >
           <h2
-            class="ds:mb-5 ds:text-heading-2"
+            class="ds:mb-5 ds:text-heading-1"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-dialog-title-«r9»"
@@ -40,7 +40,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             ConfirmDialog rendered
           </h2>
           <p
-            class="ds:text-body-sm ds:font-arial"
+            class="ds:text-body-sm ds:font-arial ds:min-h-[60px]"
             data-headlessui-state="open"
             data-open=""
             id="headlessui-description-«ra»"
