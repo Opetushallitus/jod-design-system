@@ -52,11 +52,9 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
           </span>
         </a>
       </div>
-      <div
-        class="ds:border-l-8 ds:border-secondary-1-dark"
-      >
+      <div>
         <ul
-          class="ds:ml-3 ds:gap-2 ds:flex ds:flex-col"
+          class="ds:gap-2 ds:flex ds:flex-col ds:border-l-8 ds:border-secondary-1-dark"
         />
       </div>
     </div>

@@ -26,9 +26,9 @@ describe('NavigationMenu', () => {
   );
 
   const menuProps: NavigationMenuProps = {
-    serviceDirectoryLinkLabel: 'Etusivu',
-    ServiceDirectoryLinkComponent: Link,
-    menuItems: [],
+    portalLinkLabel: 'Etusivu',
+    PortalLinkComponent: Link,
+    menuSection: { linkItems: [] },
     ariaCloseMenu: 'Sulje valikko',
     openSubMenuLabel: 'Avaa alivalikko',
     onClose: vi.fn(),

@@ -4,9 +4,9 @@ import { fn } from 'storybook/test';
 import { JodHome } from '../../icons';
 import { Button } from '../Button/Button';
 import { ExternalLinkSection } from './components/ExternalLinkSections';
-import { MenuItem } from './components/MenuList';
+import type { MenuSection } from './components/MenuList';
 import { ServiceVariantProvider } from './hooks/ServiceVariantProvider';
-import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
+import { NavigationMenu, type NavigationMenuProps } from './NavigationMenu';
 import { LinkComponent } from './types';
 
 const meta = {
@@ -28,103 +28,106 @@ const parameters = {
 
 const DummyLink = (props: LinkComponent) => <a href="/#" {...props} />;
 
-const menuItems: MenuItem[] = [
-  {
-    icon: <JodHome size={24} />,
-    label: 'Osaamispolkuni',
-    LinkComponent: DummyLink,
-    selected: true,
-  },
-  {
-    label: 'Kartoita tilanteesi',
-    // One left in a long form as an example to remind how to use
-    LinkComponent: ({ children, className, ...rest }: LinkComponent) => (
-      <a href="/#" className={className} {...rest}>
-        {children}
-      </a>
-    ),
-    childItems: [
-      {
-        label: 'Kartoita tilanteesi',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Osaamisen kartoitus',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Kiinnostusten kartoitus',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Työ- ja koulutusmahdollisuudet',
-        LinkComponent: DummyLink,
-      },
-    ],
-  },
-  {
-    label: 'Osaamisprofiilini',
-    LinkComponent: DummyLink,
-    childItems: [
-      {
-        label: 'Osaamisprofiilini',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Asetukseni',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Suosikkini',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Päämääräni',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Osaamiseni',
-        LinkComponent: DummyLink,
-        childItems: [
-          {
-            label: 'Työpaikkani',
-            LinkComponent: DummyLink,
-          },
-          {
-            label: 'Koulutukseni',
-            LinkComponent: DummyLink,
-          },
-          {
-            label: 'Vapaa-ajan toimintoni',
-            LinkComponent: DummyLink,
-          },
-          {
-            label: 'Muut osaamiseni',
-            LinkComponent: DummyLink,
-          },
-        ],
-      },
-      {
-        label: 'Kiinnostuksen kohteeni',
-        LinkComponent: DummyLink,
-      },
-      {
-        label: 'Väliotsikko 2',
-      },
-      {
-        label: 'Lorem ipsum 2',
-        LinkComponent: DummyLink,
-      },
-    ],
-  },
-  {
-    label: 'Väliotsikko',
-  },
-  {
-    label: 'Lorem ipsum',
-    LinkComponent: DummyLink,
-  },
-];
+const menuSection: MenuSection = {
+  title: 'Osaamispolkuni',
+  linkItems: [
+    {
+      icon: <JodHome size={24} />,
+      label: 'Osaamispolkuni',
+      LinkComponent: DummyLink,
+      selected: true,
+    },
+    {
+      label: 'Kartoita tilanteesi',
+      // One left in a long form as an example to remind how to use
+      LinkComponent: ({ children, className, ...rest }: LinkComponent) => (
+        <a href="/#" className={className} {...rest}>
+          {children}
+        </a>
+      ),
+      childItems: [
+        {
+          label: 'Kartoita tilanteesi',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Osaamisen kartoitus',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Kiinnostusten kartoitus',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Työ- ja koulutusmahdollisuudet',
+          LinkComponent: DummyLink,
+        },
+      ],
+    },
+    {
+      label: 'Osaamisprofiilini',
+      LinkComponent: DummyLink,
+      childItems: [
+        {
+          label: 'Osaamisprofiilini',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Asetukseni',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Suosikkini',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Päämääräni',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Osaamiseni',
+          LinkComponent: DummyLink,
+          childItems: [
+            {
+              label: 'Työpaikkani',
+              LinkComponent: DummyLink,
+            },
+            {
+              label: 'Koulutukseni',
+              LinkComponent: DummyLink,
+            },
+            {
+              label: 'Vapaa-ajan toimintoni',
+              LinkComponent: DummyLink,
+            },
+            {
+              label: 'Muut osaamiseni',
+              LinkComponent: DummyLink,
+            },
+          ],
+        },
+        {
+          label: 'Kiinnostuksen kohteeni',
+          LinkComponent: DummyLink,
+        },
+        {
+          label: 'Väliotsikko 2',
+        },
+        {
+          label: 'Lorem ipsum 2',
+          LinkComponent: DummyLink,
+        },
+      ],
+    },
+    {
+      label: 'Väliotsikko',
+    },
+    {
+      label: 'Lorem ipsum',
+      LinkComponent: DummyLink,
+    },
+  ],
+};
 
 const externalLinkSections: ExternalLinkSection[] = [
   {
@@ -193,15 +196,15 @@ export const Default: Story = {
     },
   },
   args: {
-    serviceDirectoryLinkLabel: 'Osaamispolkuportaali',
-    ServiceDirectoryLinkComponent: ({ children, className }: LinkComponent) => (
+    portalLinkLabel: 'Osaamispolkuportaali',
+    PortalLinkComponent: ({ children, className }: LinkComponent) => (
       <a href="/#" className={className}>
         {children}
       </a>
     ),
     onClose: fn(),
     open: true,
-    menuItems: menuItems,
+    menuSection: menuSection,
     openSubMenuLabel: 'Avaa alivalikko',
     ariaCloseMenu: 'Sulje valikko',
     externalLinkSections: externalLinkSections,

@@ -4,11 +4,11 @@ import { getFocusOutlineClassForService, type ServiceVariant } from '../../utils
 import { Backdrop } from './components/Backdrop';
 import { ExternalLinkSection, ExternalLinkSections } from './components/ExternalLinkSections';
 import { LanguageSelection, LanguageSelectionItem } from './components/LanguageSelection';
-import { MenuItem, MenuList } from './components/MenuList';
+import { MenuList, type MenuSection } from './components/MenuList';
 import { MenuSeparator } from './components/MenuSeparator';
 import { ServiceVariantProvider } from './hooks/ServiceVariantProvider';
 import { useServiceVariant } from './hooks/useServiceVariant';
-import { LinkComponent } from './types';
+import type { LinkComponent } from './types';
 
 const CloseMenuButton = ({ onClick, ariaCloseMenu }: { onClick: () => void; ariaCloseMenu: string }) => {
   const serviceVariant = useServiceVariant();
@@ -33,13 +33,13 @@ interface NavigationMenuBaseProps {
   /** Text for screenreader to have on the close menu button */
   ariaCloseMenu: string;
   /** Text for link that brings user to the front page */
-  serviceDirectoryLinkLabel: string;
+  portalLinkLabel: string;
   /** Icon for the front page link */
-  serviceDirectoryIcon?: React.ReactNode;
+  portalIcon?: React.ReactNode;
   /** Link component to bring user to front page */
-  ServiceDirectoryLinkComponent: React.ComponentType<LinkComponent>;
+  PortalLinkComponent: React.ComponentType<LinkComponent>;
   /** Menu items. Items can have children */
-  menuItems: MenuItem[];
+  menuSection: MenuSection;
   /** Label for button to open submenu of menu item */
   openSubMenuLabel: string;
   /** External link sections */
@@ -61,10 +61,10 @@ export const NavigationMenu = ({
   onClose,
   open,
   ariaCloseMenu,
-  serviceDirectoryLinkLabel,
-  serviceDirectoryIcon,
-  ServiceDirectoryLinkComponent,
-  menuItems,
+  portalLinkLabel,
+  portalIcon,
+  PortalLinkComponent,
+  menuSection,
   openSubMenuLabel,
   externalLinkSections,
   languageSelectionItems,
@@ -97,11 +97,11 @@ export const NavigationMenu = ({
               <CloseMenuButton onClick={onClose} ariaCloseMenu={ariaCloseMenu} />
             </div>
             <MenuList
-              menuItems={menuItems}
+              menuSection={menuSection}
               openSubMenuLabel={openSubMenuLabel}
-              serviceDirectoryLinkLabel={serviceDirectoryLinkLabel}
-              serviceDirectoryIcon={serviceDirectoryIcon}
-              ServiceDirectoryLinkComponent={ServiceDirectoryLinkComponent}
+              portalLinkLabel={portalLinkLabel}
+              portalIcon={portalIcon}
+              PortalLinkComponent={PortalLinkComponent}
             />
             {externalLinkSections && externalLinkSections.length > 0 && (
               <ExternalLinkSections sections={externalLinkSections} />

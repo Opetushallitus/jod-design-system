@@ -12,7 +12,7 @@ import { LinkComponent } from '../types';
 import { MenuSeparator } from './MenuSeparator';
 import { Placeholder } from './Placeholder';
 
-const ServiceDirectoryLink = ({
+const PortalLink = ({
   label,
   icon,
   selected = false,
@@ -61,6 +61,11 @@ type MenuListItemProps = {
   openSubMenuLabel: string;
 } & MenuItem;
 
+export interface MenuSection {
+  title?: string;
+  linkItems: MenuItem[];
+}
+
 const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuLabel, icon }: MenuListItemProps) => {
   const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
   const serviceVariant = useServiceVariant();
@@ -77,7 +82,7 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
 
   return (
     <li data-list-id={label}>
-      <div className="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2">
+      <div className="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3">
         {LinkComponent ? (
           <LinkComponent
             className={`ds:flex-1 ds:flex ${getFocusOutlineClassForService(serviceVariant)} ds:mr-2`}
@@ -149,40 +154,41 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
         )}
       </div>
       {nestedMenuOpen && childItems && childItems.length > 0 && (
-        <MenuList menuItems={childItems} openSubMenuLabel={openSubMenuLabel} menuRef={submenuRef} isNested />
+        <MenuList
+          menuSection={{ linkItems: childItems }}
+          openSubMenuLabel={openSubMenuLabel}
+          menuRef={submenuRef}
+          isNested
+        />
       )}
     </li>
   );
 };
 
 export interface MenuListProps {
-  menuItems: MenuItem[];
+  menuSection: MenuSection;
   menuRef?: React.RefObject<HTMLUListElement | null>;
-  serviceDirectoryLinkLabel?: string;
-  serviceDirectoryIcon?: React.ReactNode;
-  ServiceDirectoryLinkComponent?: React.ComponentType<LinkComponent>;
+  portalLinkLabel?: string;
+  portalIcon?: React.ReactNode;
+  PortalLinkComponent?: React.ComponentType<LinkComponent>;
   isNested?: boolean;
   openSubMenuLabel: string;
 }
 
 export const MenuList = ({
-  serviceDirectoryIcon,
-  ServiceDirectoryLinkComponent,
-  serviceDirectoryLinkLabel,
+  portalIcon,
+  PortalLinkComponent,
+  portalLinkLabel,
   isNested = false,
-  menuItems,
+  menuSection,
   openSubMenuLabel,
   menuRef,
 }: MenuListProps) => {
   const ServiceDirectoryButton = React.useCallback(() => {
-    return serviceDirectoryLinkLabel && ServiceDirectoryLinkComponent ? (
-      <ServiceDirectoryLink
-        label={serviceDirectoryLinkLabel}
-        icon={serviceDirectoryIcon}
-        component={ServiceDirectoryLinkComponent}
-      />
+    return portalLinkLabel && PortalLinkComponent ? (
+      <PortalLink label={portalLinkLabel} icon={portalIcon} component={PortalLinkComponent} />
     ) : null;
-  }, [serviceDirectoryLinkLabel, ServiceDirectoryLinkComponent, serviceDirectoryIcon]);
+  }, [PortalLinkComponent, portalIcon, portalLinkLabel]);
 
   const variant = useServiceVariant();
   const borderClassname = cx({
@@ -196,10 +202,21 @@ export const MenuList = ({
     <>
       {!isNested && <ServiceDirectoryButton />}
       {/* Dont show separator if there are no menu items */}
-      {menuItems.length > 0 && !isNested && <MenuSeparator />}
-      <div className={isNested ? 'ds:ml-6' : `ds:border-l-8 ${borderClassname}`}>
-        <ul className="ds:ml-3 ds:gap-2 ds:flex ds:flex-col" ref={menuRef}>
-          {menuItems.map((item) => (
+      {menuSection.linkItems.length > 0 && !isNested && <MenuSeparator />}
+      <div>
+        {menuSection.title ? (
+          <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span>
+        ) : null}
+        <ul
+          className={tc([
+            'ds:gap-2',
+            'ds:flex',
+            'ds:flex-col',
+            isNested ? 'ds:ml-6' : `ds:border-l-8 ${borderClassname}`,
+          ])}
+          ref={menuRef}
+        >
+          {menuSection.linkItems.map((item) => (
             <MenuListItem
               key={item.label}
               label={item.label}
