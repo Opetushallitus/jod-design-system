@@ -89,6 +89,8 @@
     "./icons": {
       "import": "./lib/icons/index.js",
       "require": "./lib/icons/index.js"
-    }
+    },
+    "./dist/main.css": "./dist/main.css",
+    "./lib/theme.css": "./lib/theme.css"
   }
 }
