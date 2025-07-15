@@ -1,7 +1,7 @@
 import React from 'react';
+import { useServiceVariant } from '../../../hooks/useServiceVariant/useServiceVariant';
 import { JodOpenInNew } from '../../../icons';
 import { getFocusOutlineClassForService, getPressedBgColorClassForService, tidyClasses as tc } from '../../../utils';
-import { useServiceVariant } from '../hooks/useServiceVariant';
 import { MenuSeparator } from './MenuSeparator';
 
 export interface LinkItem {

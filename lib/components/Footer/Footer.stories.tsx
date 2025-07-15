@@ -61,7 +61,7 @@ const feedbackContent =
   'Haluamme kehittää Osaamispolkua vastaamaan paremmin juuri sinun tarpeita. Anna meille palautetta ja huomiomme sen kehitystyössä.';
 const feedbackButtonLabel = 'Anna palautetta';
 const feedbackBgImageClassName =
-  'ds:bg-[url(@/../assets/home-1.avif)] ds:bg-cover ds:bg-[length:auto_auto] ds:sm:bg-[length:auto_1000px] ds:bg-[top_-0rem_right_-0rem] ds:sm:bg-[top_-21rem_right_0rem]';
+  'ds:bg-[url(/assets/home-1.avif)] ds:bg-cover ds:bg-[length:auto_auto] ds:sm:bg-[length:auto_1000px] ds:bg-[top_-0rem_right_-0rem] ds:sm:bg-[top_-21rem_right_0rem]';
 
 const LinkComponent = ({ children, to, className }: { children: React.ReactNode; className?: string; to: string }) => (
   <a href={to} className={className}>

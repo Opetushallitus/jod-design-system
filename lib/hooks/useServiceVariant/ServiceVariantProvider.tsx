@@ -1,4 +1,4 @@
-import type { ServiceVariant } from '../../../utils';
+import type { ServiceVariant } from '../../utils';
 import { ServiceVariantContext } from './ServiceVariantContext';
 
 interface ServiceVariantProviderProps {

@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageNavigation > renders with default props 1`] = `
+<div
+  class="ds:p-6 ds:bg-white ds:rounded-lg undefined"
+>
+  <div>
+    <span
+      class="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex"
+    >
+      Test Menu
+    </span>
+    <ul
+      class="ds:gap-2 ds:flex ds:flex-col"
+    >
+      <li
+        data-list-id="Home"
+      >
+        <div
+          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 undefined"
+        >
+          <span
+            class="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"
+          >
+            Home
+          </span>
+        </div>
+      </li>
+      <li
+        data-list-id="About"
+      >
+        <div
+          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 undefined"
+        >
+          <span
+            class="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"
+          >
+            About
+          </span>
+        </div>
+      </li>
+      <li
+        data-list-id="Contact"
+      >
+        <div
+          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 undefined"
+        >
+          <span
+            class="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"
+          >
+            Contact
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
