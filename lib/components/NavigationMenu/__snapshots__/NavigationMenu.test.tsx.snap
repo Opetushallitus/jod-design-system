@@ -42,7 +42,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
         class="ds:border-l-8 ds:border-secondary-3-dark"
       >
         <a
-          class="ds:flex ds:w-full ds:flex-1 ds:gap-3 ds:p-3 ds:cursor-pointer ds:group ds:rounded ds:text-black ds:hover:bg-bg-gray ds:focus-visible:outline-secondary-1-dark"
+          class="ds:flex ds:flex-1 ds:gap-3 ds:p-3 ds:ml-3 ds:mr-9 ds:cursor-pointer ds:group ds:rounded ds:active:text-white ds:text-black ds:hover:bg-bg-gray ds:active:bg-secondary-1-dark-2 ds:focus-visible:outline-secondary-1-dark"
           href="/#"
         >
           <span
@@ -52,6 +52,9 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
           </span>
         </a>
       </div>
+      <hr
+        class="ds:my-3 ds:h-1 ds:bg-bg-gray-2 ds:border-0"
+      />
       <div>
         <ul
           class="ds:gap-2 ds:flex ds:flex-col ds:border-l-8 ds:border-secondary-1-dark"

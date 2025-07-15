@@ -1,60 +1,24 @@
 import React from 'react';
 import { cx } from '../../../cva';
+import { useServiceVariant } from '../../../hooks/useServiceVariant/useServiceVariant';
 import { JodCaretDown, JodCaretUp } from '../../../icons';
 import {
   getAccentBgClassForService,
   getFocusOutlineClassForService,
   getPressedBgColorClassForService,
+  ServiceVariant,
   tidyClasses as tc,
 } from '../../../utils';
-import { useServiceVariant } from '../hooks/useServiceVariant';
 import { LinkComponent } from '../types';
-import { MenuSeparator } from './MenuSeparator';
-import { Placeholder } from './Placeholder';
-
-const PortalLink = ({
-  label,
-  icon,
-  selected = false,
-  component: Component,
-}: {
-  label: string;
-  icon?: React.ReactNode;
-  selected?: boolean;
-  component: React.ComponentType<LinkComponent>;
-}) => {
-  const variant = useServiceVariant();
-
-  return (
-    <div className="ds:border-l-8 ds:border-secondary-3-dark">
-      <Component
-        className={tc([
-          'ds:flex',
-          'ds:w-full',
-          'ds:flex-1',
-          'ds:gap-3',
-          'ds:p-3',
-          'ds:cursor-pointer',
-          'ds:group',
-          'ds:rounded',
-          selected ? 'ds:text-white' : 'ds:text-black',
-          selected ? getAccentBgClassForService(variant) : 'ds:hover:bg-bg-gray',
-          getFocusOutlineClassForService(variant),
-        ])}
-      >
-        {icon}
-        <span className="ds:text-button-md ds:group-hover:underline">{label}</span>
-      </Component>
-    </div>
-  );
-};
 
 export interface MenuItem {
+  activeIndicator?: 'dot' | 'bg';
   label: string;
   icon?: React.ReactNode;
   LinkComponent?: React.ComponentType<LinkComponent>;
   childItems?: MenuItem[];
   selected?: boolean;
+  className?: string;
 }
 
 type MenuListItemProps = {
@@ -66,7 +30,16 @@ export interface MenuSection {
   linkItems: MenuItem[];
 }
 
-const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuLabel, icon }: MenuListItemProps) => {
+const MenuListItem = ({
+  activeIndicator = 'bg',
+  childItems,
+  className,
+  icon,
+  label,
+  LinkComponent,
+  openSubMenuLabel,
+  selected,
+}: MenuListItemProps) => {
   const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
@@ -80,12 +53,39 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
     }
   }, [nestedMenuOpen, childItems]);
 
+  const getSelectedClasses = () => {
+    if (activeIndicator === 'dot') {
+      const dotColor = cx({
+        'ds:before:bg-secondary-1-dark': serviceVariant === 'yksilo',
+        'ds:before:bg-secondary-2-dark': serviceVariant === 'ohjaaja',
+        'ds:before:bg-secondary-3-dark': serviceVariant === 'palveluportaali',
+        'ds:before:bg-secondary-4-dark': serviceVariant === 'tietopalvelu',
+      });
+      return tc([
+        'ds:before:content-[""]',
+        'ds:before:absolute',
+        'ds:before:-left-5',
+        'ds:before:rounded-full',
+        'ds:before:size-4',
+        'ds:text-black',
+        'ds:active:text-white',
+        'ds:hover:bg-bg-gray',
+        'ds:hover:text-black',
+        dotColor,
+      ]);
+    } else if (activeIndicator === 'bg') {
+      return tc(['ds:text-white', getAccentBgClassForService(serviceVariant)]);
+    } else {
+      return 'ds:bg-transparent';
+    }
+  };
+
   return (
     <li data-list-id={label}>
-      <div className="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3">
+      <div className={tc(`ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 ${className}`)}>
         {LinkComponent ? (
           <LinkComponent
-            className={`ds:flex-1 ds:flex ${getFocusOutlineClassForService(serviceVariant)} ds:mr-2`}
+            className={`ds:relative ds:flex-1 ds:flex ds:mr-2 ${getFocusOutlineClassForService(serviceVariant)}`}
             aria-current={selected}
           >
             <span
@@ -101,11 +101,10 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
                 'ds:hover:underline',
                 'ds:active:underline',
                 'ds:active:text-white',
-                selected ? 'ds:text-white' : 'ds:text-black',
-                selected ? '' : 'ds:hover:bg-bg-gray',
-                selected ? 'ds:hover:text-white' : 'ds:hover:text-black',
-                selected ? getAccentBgClassForService(serviceVariant) : 'transparent',
+                !selected ? 'ds:hover:bg-bg-gray' : '',
+                selected ? getSelectedClasses() : '',
                 getPressedBgColorClassForService(serviceVariant),
+                !childItems || childItems.length === 0 ? 'ds:max-w-[calc(100%-44px)]' : '',
               ])}
             >
               {icon}
@@ -115,7 +114,7 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
         ) : (
           <span className="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3">{label}</span>
         )}
-        {childItems && childItems.length > 0 ? (
+        {childItems && childItems.length > 0 && (
           <button
             aria-label={openSubMenuLabel}
             aria-expanded={nestedMenuOpen}
@@ -147,10 +146,8 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
               setNestedMenuOpen(!nestedMenuOpen);
             }}
           >
-            {nestedMenuOpen ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
+            {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
           </button>
-        ) : (
-          <Placeholder />
         )}
       </div>
       {nestedMenuOpen && childItems && childItems.length > 0 && (
@@ -166,69 +163,63 @@ const MenuListItem = ({ label, selected, childItems, LinkComponent, openSubMenuL
 };
 
 export interface MenuListProps {
+  /** How should the active menu item be indicated */
+  activeIndicator?: 'dot' | 'bg';
+  /** Menu data */
   menuSection: MenuSection;
+  /** Reference to the menu element */
   menuRef?: React.RefObject<HTMLUListElement | null>;
-  portalLinkLabel?: string;
-  portalIcon?: React.ReactNode;
-  PortalLinkComponent?: React.ComponentType<LinkComponent>;
+  /** Whether the menu is nested */
   isNested?: boolean;
+  /** Whether to hide the accent colored border */
+  hideAccentBorder?: boolean;
+  /** Open submenu label for accessibility */
   openSubMenuLabel: string;
+  /** Classname for each menu item */
+  itemClassname?: string;
+  /** Override the service variant from the context provider */
+  serviceVariant?: ServiceVariant;
 }
 
 export const MenuList = ({
-  portalIcon,
-  PortalLinkComponent,
-  portalLinkLabel,
+  activeIndicator = 'bg',
+  hideAccentBorder,
   isNested = false,
+  itemClassname,
+  menuRef,
   menuSection,
   openSubMenuLabel,
-  menuRef,
+  serviceVariant,
 }: MenuListProps) => {
-  const ServiceDirectoryButton = React.useCallback(() => {
-    return portalLinkLabel && PortalLinkComponent ? (
-      <PortalLink label={portalLinkLabel} icon={portalIcon} component={PortalLinkComponent} />
-    ) : null;
-  }, [PortalLinkComponent, portalIcon, portalLinkLabel]);
-
-  const variant = useServiceVariant();
-  const borderClassname = cx({
-    'ds:border-secondary-1-dark': variant === 'yksilo',
-    'ds:border-secondary-2-dark': variant === 'ohjaaja',
-    'ds:border-secondary-3-dark': variant === 'palveluportaali',
-    'ds:border-secondary-4-dark': variant === 'tietopalvelu',
-  });
+  const variantFromProvider = useServiceVariant();
+  const variant = serviceVariant ?? variantFromProvider;
+  const borderClassname = hideAccentBorder
+    ? ''
+    : cx('ds:border-l-8', {
+        'ds:border-secondary-1-dark': variant === 'yksilo',
+        'ds:border-secondary-2-dark': variant === 'ohjaaja',
+        'ds:border-secondary-3-dark': variant === 'palveluportaali',
+        'ds:border-secondary-4-dark': variant === 'tietopalvelu',
+      });
 
   return (
-    <>
-      {!isNested && <ServiceDirectoryButton />}
-      {/* Dont show separator if there are no menu items */}
-      {menuSection.linkItems.length > 0 && !isNested && <MenuSeparator />}
-      <div>
-        {menuSection.title ? (
-          <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span>
-        ) : null}
-        <ul
-          className={tc([
-            'ds:gap-2',
-            'ds:flex',
-            'ds:flex-col',
-            isNested ? 'ds:ml-6' : `ds:border-l-8 ${borderClassname}`,
-          ])}
-          ref={menuRef}
-        >
-          {menuSection.linkItems.map((item) => (
-            <MenuListItem
-              key={item.label}
-              label={item.label}
-              selected={item.selected}
-              childItems={item.childItems}
-              icon={item.icon}
-              LinkComponent={item.LinkComponent}
-              openSubMenuLabel={openSubMenuLabel}
-            />
-          ))}
-        </ul>
-      </div>
-    </>
+    <div>
+      {menuSection.title ? <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span> : null}
+      <ul className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])} ref={menuRef}>
+        {menuSection.linkItems.map((item) => (
+          <MenuListItem
+            key={item.label}
+            activeIndicator={activeIndicator}
+            label={item.label}
+            selected={item.selected}
+            childItems={item.childItems}
+            icon={item.icon}
+            LinkComponent={item.LinkComponent}
+            openSubMenuLabel={openSubMenuLabel}
+            className={itemClassname}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };

@@ -1,4 +1,6 @@
 import React from 'react';
+import { ServiceVariantProvider } from '../../hooks/useServiceVariant/ServiceVariantProvider';
+import { useServiceVariant } from '../../hooks/useServiceVariant/useServiceVariant';
 import { JodClose } from '../../icons';
 import { getFocusOutlineClassForService, type ServiceVariant } from '../../utils';
 import { Backdrop } from './components/Backdrop';
@@ -6,8 +8,7 @@ import { ExternalLinkSection, ExternalLinkSections } from './components/External
 import { LanguageSelection, LanguageSelectionItem } from './components/LanguageSelection';
 import { MenuList, type MenuSection } from './components/MenuList';
 import { MenuSeparator } from './components/MenuSeparator';
-import { ServiceVariantProvider } from './hooks/ServiceVariantProvider';
-import { useServiceVariant } from './hooks/useServiceVariant';
+import { PortalLink } from './components/PortalLink';
 import type { LinkComponent } from './types';
 
 const CloseMenuButton = ({ onClick, ariaCloseMenu }: { onClick: () => void; ariaCloseMenu: string }) => {
@@ -88,6 +89,7 @@ export const NavigationMenu = ({
       onClose();
     }
   }, [dialogRef, open, onClose]);
+
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>
       <Backdrop dialogRef={dialogRef} onClose={onClose}>
@@ -96,13 +98,13 @@ export const NavigationMenu = ({
             <div className="ds:flex ds:items-center ds:justify-end ds:my-6">
               <CloseMenuButton onClick={onClose} ariaCloseMenu={ariaCloseMenu} />
             </div>
-            <MenuList
-              menuSection={menuSection}
-              openSubMenuLabel={openSubMenuLabel}
-              portalLinkLabel={portalLinkLabel}
-              portalIcon={portalIcon}
-              PortalLinkComponent={PortalLinkComponent}
-            />
+            {portalLinkLabel && PortalLinkComponent ? (
+              <>
+                <PortalLink label={portalLinkLabel} icon={portalIcon} component={PortalLinkComponent} />
+                <MenuSeparator />
+              </>
+            ) : null}
+            <MenuList menuSection={menuSection} openSubMenuLabel={openSubMenuLabel} hideAccentBorder={false} />
             {externalLinkSections && externalLinkSections.length > 0 && (
               <ExternalLinkSections sections={externalLinkSections} />
             )}

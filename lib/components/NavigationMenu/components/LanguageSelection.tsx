@@ -1,10 +1,10 @@
+import { useServiceVariant } from '../../../hooks/useServiceVariant/useServiceVariant';
 import {
   getAccentBgClassForService,
   getFocusOutlineClassForService,
   getPressedBgColorClassForService,
   tidyClasses,
 } from '../../../utils';
-import { useServiceVariant } from '../hooks/useServiceVariant';
 import { LinkComponent } from '../types';
 
 export interface LanguageSelectionItem {

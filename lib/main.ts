@@ -4,6 +4,7 @@ export { cva, cx } from './cva';
 export { clamp, tidyClasses } from './utils';
 
 export { useMediaQueries } from './hooks/useMediaQueries';
+export { ServiceVariantProvider, useServiceVariant } from './hooks/useServiceVariant';
 
 export { Accordion } from './components/Accordion/Accordion';
 export { AiInfoButton } from './components/AiInfoButton/AiInfoButton';
@@ -67,6 +68,7 @@ export {
   type NavigationMenuProps,
 } from './components/NavigationMenu';
 export { Note, NoteStack, NoteStackContext, NoteStackProvider, type NoteStackProps } from './components/Note';
+export { PageNavigation, type PageNavigationProps } from './components/PageNavigation/PageNavigation';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';
 export { PopupList, PopupListItem } from './components/PopupList/PopupList';

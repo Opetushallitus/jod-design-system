@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { fn } from 'storybook/test';
+import { ServiceVariantProvider } from '../../hooks/useServiceVariant/ServiceVariantProvider';
 import { JodHome } from '../../icons';
 import { Button } from '../Button/Button';
 import { ExternalLinkSection } from './components/ExternalLinkSections';
 import type { MenuSection } from './components/MenuList';
-import { ServiceVariantProvider } from './hooks/ServiceVariantProvider';
 import { NavigationMenu, type NavigationMenuProps } from './NavigationMenu';
 import { LinkComponent } from './types';
 
@@ -13,6 +13,12 @@ const meta = {
   title: 'Navigation/NavigationMenu',
   component: NavigationMenu,
   tags: ['autodocs'],
+  argTypes: {
+    serviceVariant: {
+      control: { type: 'radio' },
+      options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
+    },
+  },
 } satisfies Meta<typeof NavigationMenu>;
 
 export default meta;
@@ -189,12 +195,6 @@ export const Default: Story = {
     },
   },
   render: DefaultRender,
-  argTypes: {
-    serviceVariant: {
-      control: { type: 'radio' },
-      options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
-    },
-  },
   args: {
     portalLinkLabel: 'Osaamispolkuportaali',
     PortalLinkComponent: ({ children, className }: LinkComponent) => (
