@@ -9,6 +9,20 @@ const meta = {
   title: 'Navigation/NavigationBar',
   component: NavigationBar,
   tags: ['autodocs'],
+  parameters: {
+    controls: {
+      exclude: [
+        'refs',
+        'logo',
+        'renderLink',
+        'userButtonComponent',
+        'LinkComponent',
+        'serviceBarContent',
+        'languageButtonComponent',
+        'menuComponent',
+      ],
+    },
+  },
 } satisfies TitledMeta<typeof NavigationBar>;
 
 export default meta;

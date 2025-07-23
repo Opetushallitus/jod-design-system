@@ -71,15 +71,47 @@ export const NavigationBar = ({
   serviceBarContent,
 }: NavigationBarProps) => {
   const { sm } = useMediaQueries();
-
   const [scrolled, setScrolled] = React.useState(false);
+  const prevScrollYRef = React.useRef(0);
+  const animPendingRef = React.useRef(false);
 
   React.useEffect(() => {
+    let timeout: number | null = null;
+
+    const startTimer = () => {
+      const animationPending = animPendingRef.current;
+      if (animationPending) {
+        return;
+      }
+      animPendingRef.current = true;
+
+      timeout = window.setTimeout(() => {
+        animPendingRef.current = false;
+      }, 200);
+    };
     const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
+      const animationPending = animPendingRef.current;
+      const prevScrollY = prevScrollYRef.current;
+
+      if (animationPending) {
+        return;
+      }
+
+      if (prevScrollY === 0 && window.scrollY > 0) {
+        setScrolled(true);
+        startTimer();
+      } else if (prevScrollY > 0 && window.scrollY === 0) {
+        setScrolled(false);
+      }
+      prevScrollYRef.current = window.scrollY;
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
   }, []);
 
   const serviceBarContents = (
@@ -91,7 +123,7 @@ export const NavigationBar = ({
 
   return (
     <>
-      <div className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu">
+      <div className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu ds:relative">
         <nav
           role="navigation"
           className="ds:flex ds:items-center ds:justify-between ds:gap-5 ds:mx-auto ds:h-11 ds:px-5 ds:py-3 ds:font-semibold ds:xl:container"
@@ -118,7 +150,6 @@ export const NavigationBar = ({
       {showServiceBar && (
         <div
           className={tc([
-            'ds:fixed',
             'ds:w-full',
             'ds:flex',
             'ds:items-center',
@@ -129,7 +160,7 @@ export const NavigationBar = ({
             'ds:text-[12px]',
             'ds:sm:text-[14px]',
             'ds:transition-[height]',
-            'ds:duration-300',
+            'ds:duration-100',
             scrolled ? 'ds:h-2' : 'ds:h-8',
             getAccentBgClassForService(serviceBarVariant),
           ])}
