@@ -61,3 +61,41 @@ describe('NavigationBar', () => {
     });
   });
 });
+
+it('does not toggle serviceBar contents multiple times during animation pending', async () => {
+  const contentText = 'Service Bar Content';
+  render(
+    <NavigationBar
+      renderLink={({ children }) => <div>{children}</div>}
+      logo={{ to: '/', language: 'fi', srText: 'jod' }}
+      showServiceBar
+      serviceBarVariant="yksilo"
+      serviceBarTitle="Osaamispolkuni"
+      serviceBarContent={<div>{contentText}</div>}
+    />,
+  );
+
+  // Scroll down
+  window.scrollY = 100;
+  window.dispatchEvent(new Event('scroll'));
+
+  // Immediately try to scroll again before timeout
+  window.scrollY = 200;
+  window.dispatchEvent(new Event('scroll'));
+
+  // Wait for DOM update
+  await waitFor(() => {
+    expect(screen.queryByText('Osaamispolkuni')).not.toBeInTheDocument();
+    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+  });
+
+  // Scroll back to top after animation pending
+  await new Promise((r) => setTimeout(r, 250));
+  window.scrollY = 0;
+  window.dispatchEvent(new Event('scroll'));
+
+  await waitFor(() => {
+    expect(screen.getByText('Osaamispolkuni')).toBeVisible();
+    expect(screen.getByText(contentText)).toBeVisible();
+  });
+});
