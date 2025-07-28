@@ -86,7 +86,8 @@ const getVariantClassName = (
         variant === 'white-delete',
 
       // Shared disabled styles
-      [`ds:bg-white ds:text-inactive-gray`]: variant && ['red-delete', 'white'].includes(variant) && disabled,
+      [`ds:bg-white ds:text-inactive-gray`]:
+        variant && ['red-delete', 'white', 'white-delete'].includes(variant) && disabled,
       [`ds:bg-inactive-gray ds:text-secondary-5-light-3`]:
         variant && ['accent', 'red-delete'].includes(variant) && disabled,
     },

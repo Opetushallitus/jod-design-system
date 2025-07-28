@@ -4,7 +4,7 @@ exports[`Note component > renders with close button 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:bg-success ds:text-primary-gray"
+  class="ds:transition-all ds:delay-75 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8"
   role="alert"
 >
   <div
@@ -56,7 +56,7 @@ exports[`Note component > renders with default variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:bg-success ds:text-primary-gray"
+  class="ds:transition-all ds:delay-75 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8"
   role="alert"
 >
   <div
@@ -87,7 +87,7 @@ exports[`Note component > renders with error variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:bg-alert ds:text-white"
+  class="ds:transition-all ds:delay-75 ds:overflow-clip ds:bg-alert ds:text-white ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8"
   role="alert"
 >
   <div
@@ -118,7 +118,7 @@ exports[`Note component > renders with read more component 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:bg-success ds:text-primary-gray"
+  class="ds:transition-all ds:delay-75 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8"
   role="alert"
 >
   <div
@@ -154,7 +154,7 @@ exports[`Note component > renders with success variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:bg-success ds:text-primary-gray"
+  class="ds:transition-all ds:delay-75 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8"
   role="alert"
 >
   <div
@@ -185,7 +185,7 @@ exports[`Note component > renders with warning variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:bg-warning ds:text-primary-gray"
+  class="ds:transition-all ds:delay-75 ds:overflow-clip ds:bg-warning ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8"
   role="alert"
 >
   <div

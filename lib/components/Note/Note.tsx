@@ -1,3 +1,4 @@
+import React from 'react';
 import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodClose } from '../../icons';
@@ -15,29 +16,37 @@ export interface NoteProps {
   readMoreComponent?: React.ReactNode;
   /** If true, the note will always be visible */
   permanent?: boolean;
+  /** If true, the note will be collapsed */
+  collapsed?: boolean;
 }
 
 /** Dialogs display important information that users need to acknowledge. They appear over the interface and block further interactions. */
 export const Note = ({
-  title,
+  collapsed,
   description,
-  variant = 'success',
   onCloseClick,
-  readMoreComponent,
   permanent,
+  readMoreComponent,
+  title,
+  variant = 'success',
 }: NoteProps) => {
   const { sm } = useMediaQueries();
   const hasReadMore = variant === 'success' && readMoreComponent;
+
   return (
     <div
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-      className={cx('ds:text-primary-gray ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0', {
+      aria-hidden={collapsed}
+      tabIndex={collapsed ? -1 : undefined}
+      className={cx('ds:text-primary-gray ds:transition-all ds:delay-75 ds:overflow-clip', {
         'ds:bg-success ds:text-primary-gray': variant === 'success',
         'ds:bg-warning ds:text-primary-gray': variant === 'warning',
         'ds:bg-alert ds:text-white': variant === 'error',
         'ds:bg-secondary-gray ds:text-white': variant === 'feedback',
+        'ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8': !collapsed,
+        'ds:h-0': collapsed,
       })}
     >
       <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-6">

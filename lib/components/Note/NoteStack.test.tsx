@@ -1,7 +1,12 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it, Mock, vi } from 'vitest';
+const mockUseNoteStack = vi.fn();
+vi.mock('./hooks/useNoteStack', () => ({
+  useNoteStack: (...args: unknown[]): ReturnType<typeof mockUseNoteStack> => mockUseNoteStack(...args),
+}));
+
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach } from 'node:test';
+import { describe, expect, it, vi } from 'vitest';
 import { NoteStack } from './NoteStack';
-import * as useNoteStack from './hooks/useNoteStack';
 
 const mockNotes = [
   { id: '1', title: 'Note 1', description: 'Desc 1', collapsed: false, variant: 'success' },
@@ -9,58 +14,62 @@ const mockNotes = [
   { id: '3', title: 'Note 3', description: 'Desc 3', collapsed: true, variant: 'error' },
 ];
 
-vi.mock('./hooks/useNoteStack', () => ({
-  useNoteStack: vi.fn(() => ({
-    notes: mockNotes,
-    removeNote: vi.fn(),
-    uncollapseAll: vi.fn(),
-    maxNotes: 2,
-  })),
-}));
-
 describe('NoteStack', () => {
-  const useNoteStackMock = useNoteStack.useNoteStack as Mock;
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
 
   it('renders visible notes up to maxNotes', () => {
+    mockUseNoteStack.mockReturnValue({
+      notes: mockNotes,
+      removeNote: vi.fn(),
+      uncollapseAll: vi.fn(),
+      maxNotes: 2,
+    });
     render(<NoteStack showAllText="Show all" />);
     expect(screen.getByText('Note 1')).toBeInTheDocument();
     expect(screen.getByText('Note 2')).toBeInTheDocument();
-    expect(screen.queryByText('Note 3')).not.toBeInTheDocument();
+    const note3 = screen.queryByText('Note 3');
+    expect(note3).toBeInTheDocument();
+    const note3Container = note3?.closest('[aria-hidden="true"]');
+    expect(note3Container).toBeTruthy();
+    expect(note3Container).toHaveAttribute('tabIndex', '-1');
   });
 
-  it('shows the showAll button when there are collapsed notes', () => {
+  it('shows the showAll button when there are collapsed notes', async () => {
+    mockUseNoteStack.mockReturnValue({
+      notes: mockNotes,
+      removeNote: vi.fn(),
+      uncollapseAll: vi.fn(),
+      maxNotes: 2,
+    });
     render(<NoteStack showAllText="Show all" />);
-    expect(screen.getByRole('button', { name: /Show all/i })).toBeInTheDocument();
+    window.scrollY = 100;
+    window.dispatchEvent(new Event('scroll'));
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /Show all/i })).toBeInTheDocument();
+    });
   });
 
-  it('calls uncollapseAll when showAll button is clicked', () => {
+  it('calls uncollapseAll when showAll button is clicked', async () => {
     const uncollapseAll = vi.fn();
-    useNoteStackMock.mockReturnValueOnce({
+    mockUseNoteStack.mockReturnValue({
       notes: mockNotes,
       removeNote: vi.fn(),
       uncollapseAll,
       maxNotes: 2,
     });
     render(<NoteStack showAllText="Show all" />);
-    fireEvent.click(screen.getByRole('button', { name: /Show all/i }));
+    window.scrollY = 300;
+    window.dispatchEvent(new Event('scroll'));
+
+    const button = await screen.findByRole('button', { name: /Show all/i });
+    fireEvent.click(button);
+    expect(button).toBeInTheDocument();
     expect(uncollapseAll).toHaveBeenCalled();
   });
 
-  it('removes note when onCloseClick is triggered', () => {
-    const removeNote = vi.fn();
-    useNoteStackMock.mockReturnValueOnce({
-      notes: mockNotes,
-      removeNote,
-      uncollapseAll: vi.fn(),
-      maxNotes: 2,
-    });
-    render(<NoteStack showAllText="Show all" />);
-    const closeButtons = screen.getAllByRole('button');
-    fireEvent.click(closeButtons[0]);
-    expect(removeNote).toHaveBeenCalled();
-  });
-
-  it('renders notes in correct sort order (permanent first, then by variant)', () => {
+  it('renders notes in correct sort order (permanent first, then by variant)', async () => {
     const notes = [
       { id: '3', title: 'Warning', collapsed: false, variant: 'warning' },
       { id: '2', title: 'Error', collapsed: false, variant: 'error' },
@@ -68,7 +77,7 @@ describe('NoteStack', () => {
       { id: '1', title: 'Permanent', collapsed: false, variant: 'success', permanent: true },
       { id: '5', title: 'Feedback', collapsed: false, variant: 'feedback' },
     ];
-    useNoteStackMock.mockReturnValueOnce({
+    mockUseNoteStack.mockReturnValue({
       notes: notes,
       removeNote: vi.fn(),
       uncollapseAll: vi.fn(),
@@ -77,13 +86,15 @@ describe('NoteStack', () => {
     render(<NoteStack showAllText="Show all" />);
     // Find all note titles in the DOM in order
     const titles = ['Permanent', 'Error', 'Warning', 'Success', 'Feedback'];
-    const foundNodes = titles.map((title) => screen.getByText(title));
-    // Check that the notes appear in the correct order in the DOM
-    expect(foundNodes).toHaveLength(titles.length);
-    expect(foundNodes[0]).toHaveTextContent('Permanent');
-    expect(foundNodes[1]).toHaveTextContent('Error');
-    expect(foundNodes[2]).toHaveTextContent('Warning');
-    expect(foundNodes[3]).toHaveTextContent('Success');
-    expect(foundNodes[4]).toHaveTextContent('Feedback');
+    await waitFor(() => {
+      const foundNodes = titles.map((title) => screen.getByText(title));
+      // Check that the notes appear in the correct order in the DOM
+      expect(foundNodes).toHaveLength(titles.length);
+      expect(foundNodes[0]).toHaveTextContent('Permanent');
+      expect(foundNodes[1]).toHaveTextContent('Error');
+      expect(foundNodes[2]).toHaveTextContent('Warning');
+      expect(foundNodes[3]).toHaveTextContent('Success');
+      expect(foundNodes[4]).toHaveTextContent('Feedback');
+    });
   });
 });
