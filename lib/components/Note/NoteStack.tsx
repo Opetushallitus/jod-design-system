@@ -3,20 +3,34 @@ import { cx } from '../../cva';
 import { tidyClasses } from '../../utils';
 import { Note } from './Note';
 import { useNoteStack } from './hooks/useNoteStack';
-import { DEFAULT_MAX_NOTES } from './utils';
 
 export interface NoteStackProps {
   showAllText: string;
 }
 
 export const NoteStack = ({ showAllText }: NoteStackProps) => {
-  const { notes, removeNote, uncollapseAll, maxNotes } = useNoteStack();
-  const safeMaxNotes = typeof maxNotes === 'number' && !isNaN(maxNotes) ? maxNotes : DEFAULT_MAX_NOTES;
-  const visibleNotes = notes.filter((n) => !n.collapsed).slice(0, safeMaxNotes);
+  const { notes, removeNote, uncollapseAll } = useNoteStack();
+
   const collapsedCount = notes.filter((n) => n.collapsed).length;
+  const [buttonVisible, setButtonVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    if (collapsedCount > 0) {
+      setButtonVisible(false);
+      setTimeout(() => {
+        setButtonVisible(true);
+      }, 150);
+    } else {
+      setButtonVisible(true);
+      setTimeout(() => {
+        setButtonVisible(false);
+      }, 150);
+    }
+  }, [collapsedCount]);
 
   const getButtonColors = React.useCallback(() => {
-    const variant = visibleNotes.at(-1)?.variant;
+    // If any note is permanent, use error  variant, otherwise use the last note's variant
+    const variant = notes.some((n) => n.permanent) ? 'error' : notes.at(-1)?.variant;
 
     return !variant
       ? ''
@@ -26,13 +40,14 @@ export const NoteStack = ({ showAllText }: NoteStackProps) => {
           'ds:bg-success ds:text-primary-gray': variant === 'success',
           'ds:bg-secondary-gray ds:text-white': variant === 'feedback',
         });
-  }, [visibleNotes]);
+  }, [notes]);
 
   return (
     <div className="ds:z-50 ds:flex ds:flex-col ds:relative">
-      {visibleNotes.map((note) => (
+      {notes.map((note) => (
         <Note
           key={note.id}
+          collapsed={note.collapsed}
           {...note}
           onCloseClick={
             note.onCloseClick
@@ -44,9 +59,10 @@ export const NoteStack = ({ showAllText }: NoteStackProps) => {
           }
         />
       ))}
-      {collapsedCount > 0 && visibleNotes.length > 0 && (
+      {collapsedCount > 0 && buttonVisible && (
         <button
           className={tidyClasses([
+            'ds:cursor-pointer',
             'ds:absolute',
             'ds:top-full',
             'ds:right-6',
