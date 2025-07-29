@@ -19,10 +19,11 @@ export interface MenuItem {
   childItems?: MenuItem[];
   selected?: boolean;
   className?: string;
+  collapsed?: boolean;
 }
 
 type MenuListItemProps = {
-  openSubMenuLabel: string;
+  openSubMenuLabel?: string;
 } & MenuItem;
 
 export interface MenuSection {
@@ -34,6 +35,7 @@ const MenuListItem = ({
   activeIndicator = 'bg',
   childItems,
   className,
+  collapsed = true,
   icon,
   label,
   LinkComponent,
@@ -43,6 +45,14 @@ const MenuListItem = ({
   const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
+
+  React.useEffect(() => {
+    const isChildItemSelected =
+      Array.isArray(childItems) && childItems.length > 0 && childItems?.some((item) => item.selected);
+    if (isChildItemSelected || !collapsed) {
+      setNestedMenuOpen(true);
+    }
+  }, [childItems, collapsed]);
 
   React.useEffect(() => {
     if (nestedMenuOpen && childItems && childItems.length > 0 && submenuRef.current) {
@@ -174,11 +184,13 @@ export interface MenuListProps {
   /** Whether to hide the accent colored border */
   hideAccentBorder?: boolean;
   /** Open submenu label for accessibility */
-  openSubMenuLabel: string;
+  openSubMenuLabel?: string;
   /** Classname for each menu item */
   itemClassname?: string;
   /** Override the service variant from the context provider */
   serviceVariant?: ServiceVariant;
+  /** Is menu collapsed initially */
+  collapsed?: boolean;
 }
 
 export const MenuList = ({
@@ -187,6 +199,7 @@ export const MenuList = ({
   isNested = false,
   itemClassname,
   menuRef,
+  collapsed = true,
   menuSection,
   openSubMenuLabel,
   serviceVariant,
@@ -217,6 +230,7 @@ export const MenuList = ({
             LinkComponent={item.LinkComponent}
             openSubMenuLabel={openSubMenuLabel}
             className={itemClassname}
+            collapsed={collapsed}
           />
         ))}
       </ul>
