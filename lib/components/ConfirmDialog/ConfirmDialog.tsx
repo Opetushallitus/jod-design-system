@@ -97,7 +97,7 @@ export const ConfirmDialog = ({
             <div className="ds:flex ds:w-full ds:items-center ds:justify-center">
               <DialogPanel
                 id={`ds-confirm-dialog-panel-${id}`}
-                className="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:min-w-[630px] ds:flex ds:flex-col ds:justify-between"
+                className="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:w-[630px] ds:flex ds:flex-col ds:justify-between"
               >
                 <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9">
                   <DialogTitle className="ds:mb-5 ds:text-heading-1">{title}</DialogTitle>
