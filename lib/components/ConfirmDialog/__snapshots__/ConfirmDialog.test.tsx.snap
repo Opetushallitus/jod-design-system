@@ -23,7 +23,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
       class="ds:flex ds:w-full ds:items-center ds:justify-center"
     >
       <div
-        class="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:min-w-[630px] ds:flex ds:flex-col ds:justify-between"
+        class="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:w-[630px] ds:flex ds:flex-col ds:justify-between"
         data-headlessui-state="open"
         data-open=""
         id="ds-confirm-dialog-panel-«r0»"
