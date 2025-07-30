@@ -11,6 +11,7 @@ export { JodCertificate } from './JodCertificate';
 export { JodChatBot } from './JodChatBot';
 export { JodCheckCircle } from './JodCheckCircle';
 export { JodCheckmark } from './JodCheckmark';
+export { JodCheckmarkAlt } from './JodCheckmarkAlt';
 export { JodClose } from './JodClose';
 export { JodComment } from './JodComment';
 export { JodDownload } from './JodDownload';
