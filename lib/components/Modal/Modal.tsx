@@ -101,7 +101,7 @@ export const Modal = ({
                   'ds:sm:pr-0',
                 ])}
               >
-                <div className={`ds:overflow-y-auto ds:p-3 ${progress ? 'ds:mt-8' : ''}`}>{content}</div>
+                <div className={`ds:overflow-y-auto ds:p-3 ${progress ? 'ds:sm:mt-10 ds:mt-8' : ''}`}>{content}</div>
               </div>
               {/* Side panel */}
               {sm && sidePanel && !fullWidthContent && (
