@@ -251,3 +251,20 @@ export const AsLink: Story = {
     LinkComponent: ({ children }: { children: React.ReactNode }) => <a href="/#">{children}</a>,
   },
 };
+
+export const OnlyIcon: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'This is a large button component with an left icon.',
+      },
+    },
+  },
+  args: {
+    label: 'Takaisin',
+    onClick: fn(),
+    variant: 'white',
+    icon: <JodArrowLeft size={24} />,
+  },
+};
