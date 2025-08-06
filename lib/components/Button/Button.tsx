@@ -156,7 +156,7 @@ export const Button = ({
 
   return LinkComponent ? (
     <LinkComponent>
-      <span className={`${buttonClassName} ${className ?? ''}`.trim()}>
+      <span className={`${buttonClassName} ${className ?? ''}`.trim()} aria-label={label}>
         {leftIcon && icon}
         {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}
         {rightIcon && icon}
@@ -164,6 +164,7 @@ export const Button = ({
     </LinkComponent>
   ) : (
     <button
+      aria-label={label}
       form={form}
       disabled={disabled}
       type={onClick ? 'button' : 'submit'}
