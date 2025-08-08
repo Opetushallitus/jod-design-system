@@ -55,6 +55,11 @@ export const TitleComponent: Story = {
       },
     },
   },
+  argTypes: {
+    title: {
+      control: false,
+    },
+  },
   args: {
     title: <div className="ds:text-heading-1 ds:font-arial ds:text-alert ds:italic ds:tracking-widest">Title</div>,
     titleText: 'Title',

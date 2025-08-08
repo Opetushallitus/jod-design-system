@@ -99,6 +99,11 @@ export const CustomIcon: Story = {
       },
     },
   },
+  argTypes: {
+    icon: {
+      control: false,
+    },
+  },
   args: {
     text,
     icon: <JodLoading className="ds:text-accent ds:animate-spin" />,

@@ -14,6 +14,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
+  argTypes: {
+    icon: {
+      control: false,
+    },
+  },
   args: {
     label: 'Goals',
     icon: (

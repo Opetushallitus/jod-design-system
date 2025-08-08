@@ -55,6 +55,11 @@ const Content = () => (
 export const WithContent: Story = {
   render,
   parameters,
+  argTypes: {
+    content: {
+      control: false,
+    },
+  },
   args: {
     children: () => <></>,
     title: 'Lisää avatar-kuva',
