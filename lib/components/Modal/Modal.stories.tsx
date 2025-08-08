@@ -103,6 +103,17 @@ export const Default: Story = {
       },
     },
   },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    sidePanel: {
+      control: false,
+    },
+    footer: {
+      control: false,
+    },
+  },
   args: {
     open: false,
     onClose: fn(),
@@ -125,6 +136,14 @@ export const DefaultWithoutSidePanel: Story = {
       },
     },
   },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    footer: {
+      control: false,
+    },
+  },
   args: {
     open: false,
     onClose: fn(),
@@ -144,6 +163,14 @@ export const FullWidthContent: Story = {
       description: {
         story: 'This is a modal component with full width content. Should only be used without side panel.',
       },
+    },
+  },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    footer: {
+      control: false,
     },
   },
   args: {
@@ -229,6 +256,14 @@ export const DynamicContent: Story = {
       },
     },
   },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    footer: {
+      control: false,
+    },
+  },
   args: {
     open: false,
     onClose: fn(),
@@ -248,6 +283,20 @@ export const Progress: Story = {
       description: {
         story: 'This has content in progress slot.',
       },
+    },
+  },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    sidePanel: {
+      control: false,
+    },
+    footer: {
+      control: false,
+    },
+    progress: {
+      control: false,
     },
   },
   args: {
@@ -276,6 +325,17 @@ export const Mobile: Story = {
       },
     },
   },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    sidePanel: {
+      control: false,
+    },
+    footer: {
+      control: false,
+    },
+  },
   args: {
     open: false,
     onClose: fn(),
@@ -299,6 +359,20 @@ export const MobileWithProgress: Story = {
       description: {
         story: 'Mobile version of the Modal, with progress slot.',
       },
+    },
+  },
+  argTypes: {
+    content: {
+      control: false,
+    },
+    sidePanel: {
+      control: false,
+    },
+    footer: {
+      control: false,
+    },
+    progress: {
+      control: false,
     },
   },
   args: {

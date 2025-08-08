@@ -34,6 +34,11 @@ const RenderDefault = (args: JSX.IntrinsicAttributes & SelectionCardProps) => {
 export const Default: Story = {
   render: RenderDefault,
   parameters,
+  argTypes: {
+    icon: {
+      control: false,
+    },
+  },
   args: {
     label: 'Kartoittaa omaa osaamistani',
     icon: <span className="ds:text-[70px]">😎</span>,
@@ -103,6 +108,11 @@ export const MultipleWithHover: Story = {
   render: RenderMultiple,
   parameters: {
     ...parameters,
+  },
+  argTypes: {
+    icon: {
+      control: false,
+    },
   },
   args: {
     label: 'Kartoittaa omaa osaamistani',

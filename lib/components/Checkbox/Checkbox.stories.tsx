@@ -188,6 +188,11 @@ export const ComponentAsLabel: Story = {
       },
     },
   },
+  argTypes: {
+    label: {
+      control: false,
+    },
+  },
   args: {
     name: 'name',
     value: 'value',
