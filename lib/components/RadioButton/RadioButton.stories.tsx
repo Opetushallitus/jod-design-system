@@ -32,6 +32,11 @@ export const Default: Story = {
   parameters: {
     ...parameters,
   },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
   args: {
     label: 'Valitse, miten haluat ryhmitellä osaamisesi.',
     value: 'a',
@@ -53,6 +58,11 @@ export const WithOneDisabled: Story = {
     backgrounds: {
       default: 'jod-bg-white',
       values: [{ name: 'jod-bg-white', value: '#fff' }],
+    },
+  },
+  argTypes: {
+    children: {
+      control: false,
     },
   },
   args: {
