@@ -43,6 +43,7 @@ const MenuListItem = ({
   selected,
 }: MenuListItemProps) => {
   const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
+  const [shouldFocusFirstChild, setShouldFocusFirstChild] = React.useState(false);
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
 
@@ -55,13 +56,23 @@ const MenuListItem = ({
   }, [childItems, collapsed]);
 
   React.useEffect(() => {
-    if (nestedMenuOpen && childItems && childItems.length > 0 && submenuRef.current) {
+    if (shouldFocusFirstChild && nestedMenuOpen && submenuRef.current) {
       const firstChildLink = submenuRef.current.querySelector('a');
       if (firstChildLink instanceof HTMLElement) {
         firstChildLink.focus();
       }
+      setShouldFocusFirstChild(false);
     }
-  }, [nestedMenuOpen, childItems]);
+  }, [shouldFocusFirstChild, nestedMenuOpen]);
+
+  const handleNestedMenuOpen = () => {
+    const isOpening = !nestedMenuOpen;
+    setNestedMenuOpen(isOpening);
+
+    if (isOpening && childItems && childItems.length > 0) {
+      setShouldFocusFirstChild(true);
+    }
+  };
 
   const getSelectedClasses = () => {
     if (activeIndicator === 'dot') {
@@ -152,9 +163,7 @@ const MenuListItem = ({
               'ds:before:bg-bg-gray-2',
               'ds:before:pointer-events-none',
             ])}
-            onClick={() => {
-              setNestedMenuOpen(!nestedMenuOpen);
-            }}
+            onClick={handleNestedMenuOpen}
           >
             {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
           </button>
