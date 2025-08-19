@@ -13,6 +13,7 @@ exports[`Checkbox > renders correctly 1`] = `
     value="myValue"
   />
   <svg
+    aria-hidden="true"
     class="ds:pointer-events-none ds:absolute ds:hidden ds:text-accent ds:peer-checked:block"
     data-state="visible"
     fill="none"
@@ -39,6 +40,7 @@ exports[`Checkbox > renders correctly 1`] = `
     />
   </svg>
   <svg
+    aria-hidden="true"
     class="ds:pointer-events-none ds:absolute ds:fill-accent"
     fill="none"
     height="16"
