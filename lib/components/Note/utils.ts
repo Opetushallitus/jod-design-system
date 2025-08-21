@@ -5,4 +5,9 @@ export interface NoteStackNote extends NoteProps {
   collapsed?: boolean;
 }
 
+export type NewNoteStackItem = Pick<NoteProps, 'title' | 'description' | 'variant'> & {
+  id?: string;
+  permanent?: boolean;
+};
+
 export const DEFAULT_MAX_NOTES = 3;
