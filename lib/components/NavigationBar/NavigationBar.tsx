@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCollapseOnScroll } from '../../hooks/useCollapseOnScroll';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { getAccentBgClassForService, type ServiceVariant, tidyClasses as tc } from '../../utils';
 import { LogoIconRgb } from '../Logo/LogoIcon';
@@ -71,48 +72,20 @@ export const NavigationBar = ({
   serviceBarContent,
 }: NavigationBarProps) => {
   const { sm } = useMediaQueries();
-  const [scrolled, setScrolled] = React.useState(false);
-  const prevScrollYRef = React.useRef(0);
-  const animPendingRef = React.useRef(false);
+  const [serviceBarCollapsed, setServiceBarCollapsed] = React.useState(false);
 
-  React.useEffect(() => {
-    let timeout: number | null = null;
-
-    const startTimer = () => {
-      const animationPending = animPendingRef.current;
-      if (animationPending) {
-        return;
-      }
-      animPendingRef.current = true;
-
-      timeout = window.setTimeout(() => {
-        animPendingRef.current = false;
-      }, 200);
-    };
-    const handleScroll = () => {
-      const animationPending = animPendingRef.current;
-      const prevScrollY = prevScrollYRef.current;
-
-      if (animationPending) {
-        return;
-      }
-
-      if (prevScrollY === 0 && window.scrollY > 0) {
-        setScrolled(true);
-        startTimer();
-      } else if (prevScrollY > 0 && window.scrollY === 0) {
-        setScrolled(false);
-      }
-      prevScrollYRef.current = window.scrollY;
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-    };
+  const onCollapse = React.useCallback(() => {
+    setServiceBarCollapsed(true);
   }, []);
+
+  const onUncollapse = React.useCallback(() => {
+    setServiceBarCollapsed(false);
+  }, []);
+
+  useCollapseOnScroll({
+    onCollapse,
+    onUncollapse,
+  });
 
   const serviceBarContents = (
     <>
@@ -161,11 +134,11 @@ export const NavigationBar = ({
             'ds:sm:text-[14px]',
             'ds:transition-[height]',
             'ds:duration-100',
-            scrolled ? 'ds:h-2' : 'ds:h-8',
+            serviceBarCollapsed ? 'ds:h-2' : 'ds:h-8',
             getAccentBgClassForService(serviceBarVariant),
           ])}
         >
-          {scrolled ? null : serviceBarContents}
+          {serviceBarCollapsed ? null : serviceBarContents}
         </div>
       )}
     </>

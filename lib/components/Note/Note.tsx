@@ -40,7 +40,7 @@ export const Note = ({
       aria-atomic="true"
       aria-hidden={collapsed}
       tabIndex={collapsed ? -1 : undefined}
-      className={cx('ds:text-primary-gray ds:transition-all ds:delay-75 ds:overflow-clip', {
+      className={cx('ds:text-primary-gray ds:transition-[height] ds:duration-100 ds:overflow-clip', {
         'ds:bg-success ds:text-primary-gray': variant === 'success',
         'ds:bg-warning ds:text-primary-gray': variant === 'warning',
         'ds:bg-alert ds:text-white': variant === 'error',
