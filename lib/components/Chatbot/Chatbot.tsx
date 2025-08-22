@@ -31,6 +31,7 @@ export const Chatbot = ({
   eraseChatHistory,
   saveChatAsCsv,
   close,
+  zIndex = 40,
 }: {
   /** The agent's unique identifier */
   agent: string;
@@ -58,6 +59,7 @@ export const Chatbot = ({
   saveChatAsCsv: string;
   /** The text to display when closing the chat */
   close: string;
+  zIndex?: number;
 }) => {
   React.useEffect(() => {
     loadAiAgentFloat();
@@ -76,7 +78,7 @@ export const Chatbot = ({
         key={language} // Force re-render on language change
         width="30em"
         enablescroll="true"
-        zindex="1000"
+        zindex={zIndex}
         background="primary"
         backgroundpaper="true"
         language={language}
