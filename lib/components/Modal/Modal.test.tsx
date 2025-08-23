@@ -21,4 +21,21 @@ describe('Modal', () => {
     const footerElement = screen.getByText('Modal Footer');
     expect(footerElement).toBeInTheDocument();
   });
+
+  it('emits data-testid attributes when dataTestId is provided', async () => {
+    const content = <div>Modal Content</div>;
+    const footer = <div>Modal Footer</div>;
+
+    render(<Modal open={true} onClose={vi.fn()} content={content} footer={footer} dataTestId="modal" />);
+
+    await waitFor(() => expect(screen.getByTestId('modal')).toBeInTheDocument());
+    expect(screen.getByTestId('modal-backdrop')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-container')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-center')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-panel')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-content-wrapper')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-main')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-scroll')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-footer')).toBeInTheDocument();
+  });
 });

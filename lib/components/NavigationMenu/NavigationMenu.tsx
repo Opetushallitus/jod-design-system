@@ -91,7 +91,7 @@ export const NavigationMenu = ({
 
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>
-      <Backdrop dialogRef={dialogRef} onClose={onClose} data-testid={dataTestId ? `${dataTestId}-backdrop` : undefined}>
+      <Backdrop dialogRef={dialogRef} onClose={onClose} dataTestId={dataTestId ? `${dataTestId}-backdrop` : undefined}>
         <nav
           className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
           data-testid={dataTestId ? `${dataTestId}-root` : undefined}
@@ -113,7 +113,7 @@ export const NavigationMenu = ({
               menuSection={menuSection}
               openSubMenuLabel={openSubMenuLabel}
               hideAccentBorder={false}
-              data-testid={dataTestId ? `${dataTestId}-menulist` : undefined}
+              dataTestId={dataTestId ? `${dataTestId}-menulist` : undefined}
             />
             {externalLinkSections && externalLinkSections.length > 0 && (
               <ExternalLinkSections sections={externalLinkSections} />

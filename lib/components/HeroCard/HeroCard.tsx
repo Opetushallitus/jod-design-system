@@ -98,7 +98,7 @@ export const HeroCard = ({
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
           icon={<JodArrowRight size={24} />}
-          data-testid={dataTestId ? `${dataTestId}-button` : undefined}
+          dataTestId={dataTestId ? `${dataTestId}-button` : undefined}
         />
       )}
     </div>

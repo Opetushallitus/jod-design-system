@@ -101,3 +101,12 @@ it('renders children only after fetchData resolves and accordion is open', async
   await screen.findByText('Async content');
   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 });
+
+it('emits data-testid on the toggle button when dataTestId is provided', () => {
+  render(
+    <Accordion title="ID Title" titleText="Toggle" lang="fi" dataTestId="acc">
+      <div>Child</div>
+    </Accordion>,
+  );
+  expect(screen.getByTestId('acc')).toBeInTheDocument();
+});

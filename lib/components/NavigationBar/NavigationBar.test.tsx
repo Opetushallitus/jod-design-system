@@ -18,11 +18,13 @@ describe('NavigationBar', () => {
       <NavigationBar
         renderLink={({ children }) => <div>{children}</div>}
         logo={{ to: '/', language: 'fi', srText: 'jod' }}
+        dataTestId="nav"
       />,
     );
 
     // Assert snapshot
     expect(container.firstChild).toMatchSnapshot();
+    expect(screen.getByTestId('nav')).toBeInTheDocument();
 
     // Assert user is not rendered
     const userAvatar = screen.queryByTitle(user.name);

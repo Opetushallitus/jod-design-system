@@ -67,9 +67,13 @@ describe('Datepicker', () => {
         value={value}
         onChange={onChange}
         translations={translations}
+        dataTestId="dp"
       />,
     );
     expect(screen.getByText(label)).toBeInTheDocument();
+    expect(screen.getByTestId('dp')).toBeInTheDocument();
+    expect(screen.getByTestId('dp-input')).toBeInTheDocument();
+    expect(screen.getByTestId('dp-trigger')).toBeInTheDocument();
   });
 
   it('renders the correct initial value', () => {

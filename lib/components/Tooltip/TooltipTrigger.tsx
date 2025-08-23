@@ -18,18 +18,20 @@ export const TooltipTrigger = React.forwardRef<
   ).ref;
   const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
 
+  // Extract dataTestId so we don't leak it as an unknown DOM attribute ("datatestid")
+  const { dataTestId, ...rest } = props as TestIdProps & React.HTMLProps<HTMLElement>;
+
   if (asChild && React.isValidElement(children)) {
     const merged = {
-      ...props,
+      ...rest,
       ref,
-    } as React.HTMLProps<HTMLElement> & TestIdProps;
-    // ensure DOM gets data-testid attr when provided
-    const withTestId = props.dataTestId ? { ...merged, 'data-testid': props.dataTestId } : merged;
-    return React.cloneElement(children, context.getReferenceProps(withTestId));
+      ...(dataTestId ? { 'data-testid': dataTestId } : {}),
+    } as React.HTMLProps<HTMLElement> & TestIdProps & { 'data-testid'?: string };
+    return React.cloneElement(children, context.getReferenceProps(merged));
   }
 
   return (
-    <button ref={ref} {...context.getReferenceProps(props)} className="ds:cursor-pointer">
+    <button ref={ref} {...context.getReferenceProps(rest)} data-testid={dataTestId} className="ds:cursor-pointer">
       {children}
     </button>
   );

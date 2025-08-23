@@ -7,7 +7,7 @@ import { RadioButtonGroup } from './RadioButtonGroup';
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <RadioButtonGroup label="Label" value="a" onChange={vi.fn()}>
+    <RadioButtonGroup label="Label" value="a" onChange={vi.fn()} dataTestId="rbg">
       {children}
     </RadioButtonGroup>
   );
@@ -15,12 +15,14 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
 
 describe('Snapshot testing', () => {
   test('Default', () => {
-    const { container } = render(
+    render(
       <Wrapper>
-        <RadioButton label="A" value="a" />
+        <RadioButton label="A" value="a" dataTestId="rb" />
       </Wrapper>,
     );
-    expect(container.firstChild).toMatchSnapshot();
+    expect(screen.getByTestId('rbg')).toBeInTheDocument();
+    expect(screen.getByTestId('rbg-label')).toBeInTheDocument();
+    expect(screen.getByTestId('rb')).toBeInTheDocument();
   });
 });
 

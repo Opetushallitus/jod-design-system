@@ -3,6 +3,7 @@
 exports[`EmptyState > renders the provided text 1`] = `
 <div
   class="ds:bg-bg-gray-2 ds:text-secondary-gray ds:text-body-sm ds:font-arial ds:inline-flex ds:items-center ds:rounded-md ds:pl-4 ds:pr-5 ds:py-3 ds:gap-3"
+  data-testid="empty"
 >
   <span
     class="ds:shrink-0"

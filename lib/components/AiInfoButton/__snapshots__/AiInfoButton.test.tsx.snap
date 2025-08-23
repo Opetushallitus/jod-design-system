@@ -5,6 +5,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
   aria-describedby="«r0»"
   aria-label="Info button"
   class="ds:cursor-pointer"
+  data-testid="aiinfo"
 >
   <div
     class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"

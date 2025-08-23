@@ -88,4 +88,30 @@ describe('ConfirmDialog', () => {
     expect(screen.queryByText('ConfirmDialog closes')).not.toBeInTheDocument();
     expect(screen.queryByText('Are you sure?')).not.toBeInTheDocument();
   });
+
+  it('emits data-testid attributes when dataTestId is provided', async () => {
+    const user = userEvent.setup();
+    render(
+      <ConfirmDialog
+        title="IDs"
+        description="Desc"
+        onConfirm={vi.fn()}
+        confirmText="Confirm"
+        cancelText="Cancel"
+        dataTestId="cd"
+      >
+        {(showDialog) => (
+          <button onClick={showDialog} className="ds:cursor-pointer">
+            Open
+          </button>
+        )}
+      </ConfirmDialog>,
+    );
+    await act(async () => {
+      await user.click(screen.getByText('Open'));
+    });
+    expect(screen.getByTestId('cd')).toBeInTheDocument();
+    expect(screen.getByTestId('cd-backdrop')).toBeInTheDocument();
+    expect(screen.getByTestId('cd-panel')).toBeInTheDocument();
+  });
 });

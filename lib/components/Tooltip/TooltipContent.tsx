@@ -15,6 +15,8 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       return null;
     }
 
+    const { dataTestId, ...rest } = props;
+
     return (
       <FloatingPortal>
         <div
@@ -23,8 +25,8 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           style={{
             ...tooltipContext.floatingStyles,
           }}
-          data-testid={props.dataTestId}
-          {...tooltipContext.getFloatingProps(props)}
+          data-testid={dataTestId}
+          {...tooltipContext.getFloatingProps(rest)}
         >
           {props.children}
           <FloatingArrow
@@ -33,7 +35,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
             className={props.arrowClassName ?? 'ds:fill-black'}
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
-            data-testid={props.dataTestId ? `${props.dataTestId}-arrow` : undefined}
+            data-testid={dataTestId ? `${dataTestId}-arrow` : undefined}
           />
         </div>
       </FloatingPortal>

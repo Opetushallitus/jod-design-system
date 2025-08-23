@@ -28,8 +28,10 @@ describe('Checkbox', () => {
         onChange={handleChange}
         value={myValue}
         checked={false}
+        dataTestId="cb"
       />,
     );
+    expect(screen.getByTestId('cb')).toBeInTheDocument();
     const checkbox = screen.getByLabelText(label);
     fireEvent.click(checkbox);
     expect(handleChange).toHaveBeenCalledTimes(1);
