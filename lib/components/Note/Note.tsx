@@ -18,6 +18,7 @@ export interface NoteProps {
   permanent?: boolean;
   /** If true, the note will be collapsed */
   collapsed?: boolean;
+  dataTestId?: string;
 }
 
 /** Dialogs display important information that users need to acknowledge. They appear over the interface and block further interactions. */
@@ -29,6 +30,7 @@ export const Note = ({
   readMoreComponent,
   title,
   variant = 'success',
+  dataTestId,
 }: NoteProps) => {
   const { sm } = useMediaQueries();
   const hasReadMore = variant === 'success' && readMoreComponent;
@@ -48,6 +50,7 @@ export const Note = ({
         'ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8': !collapsed,
         'ds:h-0': collapsed,
       })}
+      data-testid={dataTestId}
     >
       <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-6">
         <div className="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6">
@@ -59,7 +62,13 @@ export const Note = ({
         <div className="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start">
           {hasReadMore && sm && readMoreComponent}
           {onCloseClick && !permanent && (
-            <button className="ds:cursor-pointer ds:flex" type="button" aria-label="Close" onClick={onCloseClick}>
+            <button
+              className="ds:cursor-pointer ds:flex"
+              type="button"
+              aria-label="Close"
+              onClick={onCloseClick}
+              data-testid={dataTestId ? `${dataTestId}-close` : undefined}
+            >
               <JodClose size={24} />
             </button>
           )}

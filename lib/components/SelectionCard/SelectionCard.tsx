@@ -20,6 +20,8 @@ export interface SelectionCardProps {
   onMouseLeave?: () => void;
   onFocus?: () => void;
   onBlur?: () => void;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 const CheckIcon = () => (
@@ -45,6 +47,7 @@ export const SelectionCard = ({
   onMouseLeave,
   orientation = 'vertical',
   selected,
+  dataTestId,
 }: SelectionCardProps) => {
   const eventProps = { onClick, onMouseEnter, onMouseLeave, onFocus, onBlur };
   const horizontalCard = (
@@ -53,6 +56,7 @@ export const SelectionCard = ({
       className="ds:cursor-pointer ds:flex ds:grow ds:items-center ds:relative ds:p-3 ds:pr-0"
       aria-pressed={selected}
       aria-label={label}
+      data-testid={dataTestId}
       {...eventProps}
     >
       <span className="ds:absolute ds:left-0 ds:top-0 ds:-m-3" aria-hidden>
@@ -78,6 +82,7 @@ export const SelectionCard = ({
       )}
       aria-pressed={selected}
       aria-label={label}
+      data-testid={dataTestId}
       {...eventProps}
     >
       <span
@@ -96,7 +101,10 @@ export const SelectionCard = ({
   return orientation === 'vertical' ? (
     verticalCard
   ) : (
-    <div className={tc(`ds:flex ds:flex-row ds:rounded-md ds:hover:bg-secondary-1-25 ${className ?? ''}`)}>
+    <div
+      className={tc(`ds:flex ds:flex-row ds:rounded-md ds:hover:bg-secondary-1-25 ${className ?? ''}`)}
+      data-testid={dataTestId ? `${dataTestId}-container` : undefined}
+    >
       {horizontalCard}
       {actionComponent ?? null}
     </div>

@@ -73,4 +73,10 @@ describe('CardCarousel', () => {
     fireEvent.keyDown(nextButton, { key: 'Enter' });
     expect(nextButton).toBeDisabled();
   });
+
+  it('emits data-testid when dataTestId is provided', () => {
+    const { container } = renderComponent({ dataTestId: 'cc' });
+    expect(container.querySelector('[data-testid="cc-list"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-testid="cc-controls"]')).toBeInTheDocument();
+  });
 });

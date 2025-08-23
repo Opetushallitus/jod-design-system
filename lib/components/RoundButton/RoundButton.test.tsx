@@ -40,6 +40,11 @@ it('has the correct label', () => {
   expect(screen.getByRole('button', { name: 'Label' })).not.toBeNull();
 });
 
+it('renders with data-testid when provided', () => {
+  render(<RoundButton label="With id" onClick={vi.fn()} icon="target" dataTestId="rbtn" />);
+  expect(screen.getByTestId('rbtn')).toBeInTheDocument();
+});
+
 it('calls the callback on click', async () => {
   const mockCallback = vi.fn();
   const user = userEvent.setup();

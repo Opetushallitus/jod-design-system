@@ -94,4 +94,9 @@ describe('Chatbot', () => {
     expect(embedElement).toHaveAttribute('greeting', 'Hello! How can I help you?');
     expect(embedElement).toHaveAttribute('textinputplaceholder', 'Type your message...');
   });
+
+  it('emits data-testid when dataTestId is provided', () => {
+    const { container } = render(<Chatbot {...defaultProps} dataTestId="chat" />);
+    expect(container.querySelector('[data-testid="chat"]')).toBeInTheDocument();
+  });
 });

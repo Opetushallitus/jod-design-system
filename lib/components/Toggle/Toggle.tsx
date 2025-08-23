@@ -3,13 +3,22 @@ import { ServiceVariant } from '../../utils';
 
 export interface ToggleProps {
   ariaLabel: string;
-  checked?: boolean;
+  checked: boolean;
   disabled?: boolean;
   serviceVariant: ServiceVariant;
   onChange: (newValue: boolean) => void;
   type?: 'button' | 'submit' | 'reset';
+  dataTestId?: string;
 }
-export const Toggle = ({ onChange, checked, disabled, ariaLabel, serviceVariant = 'yksilo', type }: ToggleProps) => {
+export const Toggle = ({
+  onChange,
+  checked,
+  disabled,
+  ariaLabel,
+  serviceVariant = 'yksilo',
+  type,
+  dataTestId,
+}: ToggleProps) => {
   return (
     <button
       type={type}
@@ -17,6 +26,7 @@ export const Toggle = ({ onChange, checked, disabled, ariaLabel, serviceVariant 
       disabled={disabled}
       aria-label={ariaLabel}
       aria-pressed={checked}
+      data-testid={dataTestId}
       className={cx('ds:transition-all ds:duration-200 ds:w-[52px] ds:h-[32px] ds:relative ds:rounded-2xl ds:flex', {
         'ds:cursor-pointer': !disabled,
         'ds:bg-inactive-gray': !checked || disabled,

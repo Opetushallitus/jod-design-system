@@ -6,6 +6,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   class="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
   data-part="root"
   data-scope="pagination"
+  data-testid="pagination"
   dir="ltr"
   id="pagination:«r1»"
 >
@@ -165,6 +166,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   class="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
   data-part="root"
   data-scope="pagination"
+  data-testid="pagination"
   dir="ltr"
   id="pagination:«r0»"
 >

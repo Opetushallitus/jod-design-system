@@ -33,6 +33,8 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   placeholder: string;
   /** Classname to wrapper **/
   className?: string;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 export const Combobox = <
@@ -48,6 +50,7 @@ export const Combobox = <
   selected,
   disabled = false,
   className = '',
+  dataTestId,
 }: ComboboxProps<T, U>) => {
   const inputId = React.useId();
 
@@ -60,7 +63,7 @@ export const Combobox = <
         });
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative', className])}>
+    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={dataTestId}>
       {!hideLabel && (
         <label htmlFor={inputId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
           {label}
@@ -82,15 +85,20 @@ export const Combobox = <
                 className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
+                data-testid={dataTestId ? `${dataTestId}-input` : undefined}
               />
               <ComboboxButton
                 aria-label={label}
                 className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
+                data-testid={dataTestId ? `${dataTestId}-button` : undefined}
               >
                 {open ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
               </ComboboxButton>
-              <ComboboxOptions className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible">
+              <ComboboxOptions
+                className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
+                data-testid={dataTestId ? `${dataTestId}-options` : undefined}
+              >
                 {filteredOptions.map((option) => (
                   <ComboboxOption
                     key={option.value}

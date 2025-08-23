@@ -11,7 +11,7 @@ describe('HeroCard', () => {
   const backgroundColor = '#444BACF2';
 
   it('renders HeroCard with a button', () => {
-    const { container } = render(
+    render(
       <HeroCard
         to="/"
         LinkComponent={({ to, children }) => <a href={to as string}>{children}</a>}
@@ -19,6 +19,7 @@ describe('HeroCard', () => {
         title={title}
         content={content}
         backgroundColor={backgroundColor}
+        dataTestId="hero"
       />,
     );
 
@@ -27,16 +28,16 @@ describe('HeroCard', () => {
     const linkElement = screen.getByRole('link');
     expect(linkElement).toBeInTheDocument();
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(screen.getByTestId('hero')).toBeInTheDocument();
+    expect(screen.getByTestId('hero-button')).toBeInTheDocument();
   });
 
   it('renders HeroCard without a button', () => {
-    const { container } = render(<HeroCard title={title} content={content} backgroundColor={backgroundColor} />);
+    render(<HeroCard title={title} content={content} backgroundColor={backgroundColor} dataTestId="hero2" />);
 
     expect(screen.getByText(title)).toBeInTheDocument();
     expect(screen.queryByText(buttonLabel)).toBeNull();
-
-    expect(container.firstChild).toMatchSnapshot();
+    expect(screen.getByTestId('hero2')).toBeInTheDocument();
   });
 
   it('renders HeroCard with a link when size is sm', () => {

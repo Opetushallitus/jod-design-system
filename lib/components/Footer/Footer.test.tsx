@@ -93,3 +93,29 @@ describe('Footer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 });
+
+it('emits data-testid when provided', () => {
+  render(
+    <Footer
+      language="fi"
+      okmLabel={mockOkmLabel}
+      temLabel={mockTemLabel}
+      ophLabel={mockOphLabel}
+      kehaLabel={mockKehaLabel}
+      cooperationTitle={mockCooperationTitle}
+      fundingTitle={mockFundingTitle}
+      moreInfoLinks={mockMoreInfoLinks}
+      moreInfoTitle={mockMoreInfoTitle}
+      moreInfoDescription={mockMoreInfoDescription}
+      MoreInfoLinkComponent={MoreInfoLinkComponent}
+      copyright={mockCopyright}
+      feedbackTitle={mockFeedbackTitle}
+      feedbackContent={mockFeedbackContent}
+      feedbackButtonLabel={mockFeedbackButtonLabel}
+      feedbackOnClick={vi.fn()}
+      feedbackBgImageClassName={mockFeedbackBgImageClassName}
+      dataTestId="footer"
+    />,
+  );
+  expect(screen.getByTestId('footer')).toBeInTheDocument();
+});

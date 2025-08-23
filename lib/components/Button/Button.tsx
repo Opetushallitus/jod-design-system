@@ -34,6 +34,8 @@ export interface ButtonProps {
   ref?: React.Ref<HTMLButtonElement>;
   /** Additional class names */
   className?: string;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 const getVariantClassName = (
@@ -127,6 +129,7 @@ const getButtonClassName = ({
 
 /** Button component for user actions. */
 export const Button = ({
+  dataTestId,
   className,
   disabled = false,
   form,
@@ -161,7 +164,7 @@ export const Button = ({
 
   return LinkComponent ? (
     <LinkComponent>
-      <span className={`${buttonClassName} ${className ?? ''}`.trim()} aria-label={label}>
+      <span className={`${buttonClassName} ${className ?? ''}`.trim()} aria-label={label} data-testid={dataTestId}>
         {leftIcon && icon}
         {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}
         {rightIcon && icon}
@@ -176,6 +179,7 @@ export const Button = ({
       onClick={onClick}
       className={`${buttonClassName} ${className ?? ''}`.trim()}
       ref={ref}
+      data-testid={dataTestId}
     >
       {leftIcon && icon}
       {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}

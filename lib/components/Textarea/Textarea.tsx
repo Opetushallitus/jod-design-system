@@ -22,6 +22,8 @@ interface BaseTextareaProps {
   rows?: number;
   /** Additional classes to add to the textarea */
   className?: string;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 interface HideLabelProps extends BaseTextareaProps {
@@ -58,6 +60,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
     maxLength,
     rows,
     className = '',
+    dataTestId,
   }: TextareaProps,
   ref,
 ) {
@@ -87,6 +90,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         placeholder={placeholder}
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
+        data-testid={dataTestId}
         className={tc([
           'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
           className,

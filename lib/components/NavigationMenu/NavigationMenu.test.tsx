@@ -47,4 +47,14 @@ describe('NavigationMenu', () => {
     expect(navigationMenu).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('emits data-testid attributes when dataTestId is provided', () => {
+    render(<NavigationMenu {...menuProps} dataTestId="navmenu" />);
+
+    // Root wrappers (backdrop is a dialog wrapper, presence may vary in jsdom)
+    expect(screen.getByTestId('navmenu-root')).toBeInTheDocument();
+    expect(screen.getByTestId('navmenu-body')).toBeInTheDocument();
+    // Menu list container
+    expect(screen.getByTestId('navmenu-menulist')).toBeInTheDocument();
+  });
 });

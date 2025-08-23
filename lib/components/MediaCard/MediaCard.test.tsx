@@ -16,6 +16,7 @@ describe('MediaCard', () => {
         label="Vertical"
         description="Vertical description"
         tags={mockTags}
+        dataTestId="m"
       />,
     );
 
@@ -24,6 +25,13 @@ describe('MediaCard', () => {
     expect(screen.getByText('Vertical description')).toBeInTheDocument();
     expect(screen.getByText('tag1')).toBeInTheDocument();
     expect(screen.getByText('tag2')).toBeInTheDocument();
+
+    // data-testid assertions
+    expect(screen.getByTestId('m')).toBeInTheDocument();
+    expect(screen.getByTestId('m-link')).toBeInTheDocument();
+    expect(screen.getByTestId('m-label')).toBeInTheDocument();
+    expect(screen.getByTestId('m-description')).toBeInTheDocument();
+    expect(screen.getByTestId('m-tags')).toBeInTheDocument();
   });
 
   it('renders the MediaCard component with horizontal variant', () => {
@@ -38,6 +46,7 @@ describe('MediaCard', () => {
         label="Horizontal"
         description="Horizontal description"
         tags={mockTags}
+        dataTestId="mh"
       />,
     );
 
@@ -46,6 +55,14 @@ describe('MediaCard', () => {
     expect(screen.getByText('Horizontal description')).toBeInTheDocument();
     expect(screen.getByText('tag1')).toBeInTheDocument();
     expect(screen.getByText('tag2')).toBeInTheDocument();
+
+    // data-testid assertions
+    expect(screen.getByTestId('mh')).toBeInTheDocument();
+    expect(screen.getByTestId('mh-link')).toBeInTheDocument();
+    expect(screen.getByTestId('mh-label')).toBeInTheDocument();
+    expect(screen.getByTestId('mh-description')).toBeInTheDocument();
+    expect(screen.getByTestId('mh-tags')).toBeInTheDocument();
+    expect(screen.getByTestId('mh-footer')).toBeInTheDocument();
   });
 
   it('renders the MediaCard component with default vertical variant', () => {
@@ -56,6 +73,7 @@ describe('MediaCard', () => {
         label="Default"
         description="Default description"
         tags={mockTags}
+        dataTestId="md"
       />,
     );
 
@@ -66,5 +84,24 @@ describe('MediaCard', () => {
     expect(screen.getByText('tag2')).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('emits data-testid attributes when dataTestId is provided (vertical)', () => {
+    render(
+      <MediaCard
+        imageSrc="default.jpg"
+        imageAlt="Image for default"
+        label="Default"
+        description="Default description"
+        tags={mockTags}
+        dataTestId="md"
+      />,
+    );
+
+    expect(screen.getByTestId('md')).toBeInTheDocument();
+    expect(screen.getByTestId('md-link')).toBeInTheDocument();
+    expect(screen.getByTestId('md-label')).toBeInTheDocument();
+    expect(screen.getByTestId('md-description')).toBeInTheDocument();
+    expect(screen.getByTestId('md-tags')).toBeInTheDocument();
   });
 });

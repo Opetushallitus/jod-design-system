@@ -21,6 +21,7 @@ type AccordionProps = {
   initialState?: boolean;
   // Optional function to fetch data when the accordion is opened. A loading spinner will be shown while fetching.
   fetchData?: () => Promise<void>;
+  dataTestId?: string;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -37,6 +38,7 @@ export const Accordion = ({
   underline,
   initialState = true,
   fetchData,
+  dataTestId,
 }: AccordionProps) => {
   const [isOpen, setIsOpen] = React.useState(initialState);
 
@@ -85,13 +87,19 @@ export const Accordion = ({
             aria-expanded={isOpen}
             onClick={() => void toggleOpen()}
             className="ds:cursor-pointer ds:flex"
+            data-testid={dataTestId}
           >
             {loading ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </button>
         </div>
       ) : (
         <div className="ds:group">
-          <button aria-expanded={isOpen} onClick={() => void toggleOpen()} className={wrapperClassnames}>
+          <button
+            aria-expanded={isOpen}
+            onClick={() => void toggleOpen()}
+            className={wrapperClassnames}
+            data-testid={dataTestId}
+          >
             <span
               className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline"
               lang={lang}

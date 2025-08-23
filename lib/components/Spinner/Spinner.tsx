@@ -7,8 +7,10 @@ export interface SpinnerProps {
   color: 'white' | 'accent';
   // Optional CSS class names for the SVG element
   className?: string;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
-export const Spinner = ({ size = 24, color = 'white', className }: SpinnerProps) => {
+export const Spinner = ({ size = 24, color = 'white', className, dataTestId }: SpinnerProps) => {
   const fillClass = color === 'white' ? 'ds:fill-white' : 'ds:fill-accent';
 
   return (
@@ -20,6 +22,7 @@ export const Spinner = ({ size = 24, color = 'white', className }: SpinnerProps)
       fill="none"
       role="alert"
       aria-busy="true"
+      data-testid={dataTestId}
       className={tc(['ds:animate-spin', className ?? ''])}
     >
       <path
