@@ -11,6 +11,7 @@ describe('ContentCard', () => {
       { label: 'Tag1', to: '/tag1' },
       { label: 'Tag2', to: '/tag2' },
     ],
+    dataTestId: 'contentcard',
   };
 
   test('renders basic content card without link component', () => {
@@ -20,6 +21,7 @@ describe('ContentCard', () => {
     expect(screen.getByText('test / path')).toBeInTheDocument();
     expect(screen.getByText('Tag1')).toBeInTheDocument();
     expect(screen.getByText('Tag2')).toBeInTheDocument();
+    expect(screen.getByTestId('contentcard')).toBeInTheDocument();
   });
 
   test('renders with custom link component', () => {

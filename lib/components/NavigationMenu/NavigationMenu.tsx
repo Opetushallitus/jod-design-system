@@ -26,7 +26,7 @@ const CloseMenuButton = ({ onClick, ariaCloseMenu }: { onClick: () => void; aria
   );
 };
 
-interface NavigationMenuBaseProps {
+export interface NavigationMenuProps {
   /** Function to emit onClose event for user when the menu is closed */
   onClose: () => void;
   /** Open state of the NavigationMenu */
@@ -55,9 +55,9 @@ interface NavigationMenuBaseProps {
   extraSection?: React.ReactNode;
   /** Service variant for color scheme (yksilö, ohjaaja etc.) */
   serviceVariant: ServiceVariant;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
-
-export type NavigationMenuProps = NavigationMenuBaseProps;
 export const NavigationMenu = ({
   onClose,
   open,
@@ -73,6 +73,7 @@ export const NavigationMenu = ({
   extraSection,
   languageSelectionTitle,
   serviceVariant,
+  dataTestId,
 }: NavigationMenuProps) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
 
@@ -92,9 +93,15 @@ export const NavigationMenu = ({
 
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>
-      <Backdrop dialogRef={dialogRef} onClose={onClose}>
-        <nav className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1">
-          <div className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow">
+      <Backdrop dialogRef={dialogRef} onClose={onClose} dataTestId={dataTestId ? `${dataTestId}-backdrop` : undefined}>
+        <nav
+          className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
+          data-testid={dataTestId ? `${dataTestId}-root` : undefined}
+        >
+          <div
+            className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow"
+            data-testid={dataTestId ? `${dataTestId}-body` : undefined}
+          >
             <div className="ds:flex ds:items-center ds:justify-end ds:my-6">
               <CloseMenuButton onClick={onClose} ariaCloseMenu={ariaCloseMenu} />
             </div>
@@ -104,7 +111,12 @@ export const NavigationMenu = ({
                 <MenuSeparator />
               </>
             ) : null}
-            <MenuList menuSection={menuSection} openSubMenuLabel={openSubMenuLabel} hideAccentBorder={false} />
+            <MenuList
+              menuSection={menuSection}
+              openSubMenuLabel={openSubMenuLabel}
+              hideAccentBorder={false}
+              dataTestId={dataTestId ? `${dataTestId}-menulist` : undefined}
+            />
             {externalLinkSections && externalLinkSections.length > 0 && (
               <ExternalLinkSections sections={externalLinkSections} />
             )}

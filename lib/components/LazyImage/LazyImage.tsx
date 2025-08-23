@@ -5,6 +5,7 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   /** The alt text for the image */
   alt: string;
+  dataTestId?: string;
 }
 
 /**
@@ -27,7 +28,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, ...props }) => {
   }, [src]);
 
   return (
-    <div className={`ds:flex ds:bg-secondary-5 ${props.className}`.trim()}>
+    <div className={`ds:flex ds:bg-secondary-5 ${props.className}`.trim()} data-testid={props.dataTestId}>
       <img
         src={loaded ? src : undefined}
         alt={alt}

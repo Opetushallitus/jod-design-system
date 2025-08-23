@@ -56,3 +56,8 @@ describe('disabled', () => {
     expect(getByRole('button')).toHaveProperty('disabled', true);
   });
 });
+
+it('renders with data-testid when provided', () => {
+  render(<IconButton label="Has test id" onClick={vi.fn()} icon="target" dataTestId="iconbtn" />);
+  expect(screen.getByTestId('iconbtn')).toBeInTheDocument();
+});

@@ -38,4 +38,17 @@ describe('Breadcrumb', () => {
     const nav = screen.getByLabelText('Custom label');
     expect(nav).toBeInTheDocument();
   });
+
+  it('emits data-testid when dataTestId is provided', () => {
+    render(
+      <Breadcrumb
+        items={items}
+        LinkComponent={LinkComponent}
+        ariaLabel="Crumbs"
+        serviceVariant="yksilo"
+        dataTestId="crumbs"
+      />,
+    );
+    expect(screen.getByTestId('crumbs')).toBeInTheDocument();
+  });
 });

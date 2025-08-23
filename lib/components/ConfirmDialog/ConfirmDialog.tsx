@@ -28,7 +28,7 @@ export type ConfirmDialogProps = {
   title: string;
   description: string;
   content?: React.ReactNode;
-} & FooterProps;
+} & FooterProps & { dataTestId?: string };
 
 const getVariantClassNames = ({ variant }: { variant: Variant }) => {
   return cx({
@@ -63,6 +63,7 @@ export const ConfirmDialog = ({
   confirmText,
   variant = 'normal',
   cancelText,
+  dataTestId,
 }: ConfirmDialogProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const id = React.useId();
@@ -91,13 +92,19 @@ export const ConfirmDialog = ({
             /* unused on purpose to prevent close on ESC or clicking the dimmed area */
           }}
           className="ds:relative ds:z-50"
+          data-testid={dataTestId}
         >
-          <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden />
+          <div
+            className="ds:fixed ds:inset-0 ds:bg-black/30"
+            aria-hidden
+            data-testid={dataTestId ? `${dataTestId}-backdrop` : undefined}
+          />
           <div className="ds:fixed ds:inset-0 ds:flex ds:w-screen ds:py-[96px]">
             <div className="ds:flex ds:w-full ds:items-center ds:justify-center">
               <DialogPanel
                 id={`ds-confirm-dialog-panel-${id}`}
                 className="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:w-[630px] ds:flex ds:flex-col ds:justify-between"
+                data-testid={dataTestId ? `${dataTestId}-panel` : undefined}
               >
                 <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9">
                   <DialogTitle className="ds:mb-5 ds:text-heading-1">{title}</DialogTitle>

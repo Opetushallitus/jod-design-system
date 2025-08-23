@@ -7,6 +7,7 @@ interface AiInfoButtonProps {
   size?: number;
   tooltipContent?: React.ReactNode;
   ariaLabel?: string;
+  dataTestId?: string;
 }
 
 const IconAi = ({ size }: Pick<AiInfoButtonProps, 'size'>) => (
@@ -31,12 +32,12 @@ const IconAi = ({ size }: Pick<AiInfoButtonProps, 'size'>) => (
   </div>
 );
 
-export const AiInfoButton = ({ size = 24, tooltipContent, ariaLabel }: AiInfoButtonProps) => {
+export const AiInfoButton = ({ size = 24, tooltipContent, ariaLabel, dataTestId }: AiInfoButtonProps) => {
   const [open, setOpen] = React.useState(false);
 
   return tooltipContent ? (
     <Tooltip open={open} onOpenChange={setOpen} placement="bottom-end">
-      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel}>
+      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} dataTestId={dataTestId}>
         <IconAi size={size} />
       </TooltipTrigger>
       <TooltipContent

@@ -22,8 +22,16 @@ export interface CardCarouselProps {
     indicator: (index: number) => string;
   };
   className?: string;
+  dataTestId?: string;
 }
-export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, className = '' }: CardCarouselProps) => {
+export const CardCarousel = ({
+  items = [],
+  translations,
+  itemWidth,
+  gap = 16,
+  className = '',
+  dataTestId,
+}: CardCarouselProps) => {
   const containerRef = React.createRef<HTMLUListElement>();
   const [itemsPerPage, setItemsPerPage] = React.useState(1);
   const [pageNr, setPageNr] = React.useState(0);
@@ -100,6 +108,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, cl
         aria-roledescription="carousel"
         className={`ds:flex ds:flex-row ds:overflow-hidden ${className}`.trim()}
         style={{ gap }}
+        data-testid={dataTestId ? `${dataTestId}-list` : undefined}
       >
         {items.map((item, index) => {
           // Change the page according to focused item during tab navigation
@@ -125,7 +134,10 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, cl
           );
         })}
       </ul>
-      <div className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3">
+      <div
+        className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3"
+        data-testid={dataTestId ? `${dataTestId}-controls` : undefined}
+      >
         <button
           onClick={goToPreviousPage}
           onKeyDown={handleEnterPress(goToPreviousPage)}

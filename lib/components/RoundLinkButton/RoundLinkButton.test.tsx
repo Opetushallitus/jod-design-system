@@ -67,3 +67,10 @@ it('has the correct label', () => {
   render(<RoundLinkButton component={(props) => <DummyLink {...props} />} label="label" icon="target" />);
   expect(screen.getByRole('link', { name: 'label' })).not.toBeNull();
 });
+
+it('renders with data-testid when provided', () => {
+  render(
+    <RoundLinkButton component={(props) => <DummyLink {...props} />} label="Has id" icon="target" dataTestId="rlbtn" />,
+  );
+  expect(screen.getByTestId('rlbtn')).toBeInTheDocument();
+});

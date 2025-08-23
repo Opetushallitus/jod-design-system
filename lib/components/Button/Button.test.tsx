@@ -53,4 +53,9 @@ describe('Button', () => {
     const button = screen.getByRole('button', { name: 'Click me' });
     expect(ref).toHaveBeenCalledWith(button);
   });
+
+  it('emits data-testid attribute on the root element when dataTestId is provided', () => {
+    render(<Button label="Click me" onClick={vi.fn()} dataTestId="btn" />);
+    expect(screen.getByTestId('btn')).toBeInTheDocument();
+  });
 });

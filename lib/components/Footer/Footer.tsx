@@ -70,6 +70,7 @@ export interface FooterProps {
   feedbackButtonLabel: string;
   feedbackOnClick: () => void;
   feedbackBgImageClassName: string;
+  dataTestId?: string;
 }
 
 /**
@@ -95,6 +96,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     feedbackButtonLabel,
     feedbackOnClick,
     feedbackBgImageClassName,
+    dataTestId,
   }: FooterProps,
   ref,
 ) {
@@ -172,7 +174,11 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
   }, [language]);
 
   return (
-    <footer ref={ref} className={`ds:text-body-md-mobile ds:sm:text-body-md ds:print:hidden ${className}`.trim()}>
+    <footer
+      ref={ref}
+      className={`ds:text-body-md-mobile ds:sm:text-body-md ds:print:hidden ${className}`.trim()}
+      data-testid={dataTestId}
+    >
       <div className={`ds:h-auto ${feedbackBgImageClassName} ds:py-8 ds:sm:max-w-[1440px] ds:mx-auto`}>
         <div className="ds:max-w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6">
           <div className="ds:max-w-[716px]">

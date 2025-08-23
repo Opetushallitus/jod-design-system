@@ -20,6 +20,8 @@ interface BaseInputFieldProps {
   className?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 interface HideLabelProps extends BaseInputFieldProps {
@@ -55,6 +57,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     help,
     className = '',
     requiredText,
+    dataTestId,
   }: InputFieldProps,
   ref,
 ) {
@@ -87,6 +90,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         placeholder={placeholder}
         autoComplete="off"
         aria-describedby={help ? helpId : undefined}
+        data-testid={dataTestId}
         className={tc([
           'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md',
           className,

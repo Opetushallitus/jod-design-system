@@ -32,6 +32,7 @@ export const Chatbot = ({
   saveChatAsCsv,
   close,
   zIndex = 40,
+  dataTestId,
 }: {
   /** The agent's unique identifier */
   agent: string;
@@ -60,6 +61,7 @@ export const Chatbot = ({
   /** The text to display when closing the chat */
   close: string;
   zIndex?: number;
+  dataTestId?: string;
 }) => {
   React.useEffect(() => {
     loadAiAgentFloat();
@@ -85,6 +87,7 @@ export const Chatbot = ({
         agenticon={agentIcon}
         openwindowtext={openWindowText}
         openchatsize="large"
+        data-testid={dataTestId}
       >
         <div slot="header" className="ds:flex ds:flex-row ds:items-center ds:justify-between ds:grow ds:gap-3 ds:p-5">
           <ai-agent-text>{header}</ai-agent-text>

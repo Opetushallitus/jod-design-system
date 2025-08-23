@@ -41,7 +41,8 @@ const MenuListItem = ({
   LinkComponent,
   openSubMenuLabel,
   selected,
-}: MenuListItemProps) => {
+  dataTestId,
+}: MenuListItemProps & { dataTestId?: string }) => {
   const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
   const [shouldFocusFirstChild, setShouldFocusFirstChild] = React.useState(false);
   const serviceVariant = useServiceVariant();
@@ -102,12 +103,13 @@ const MenuListItem = ({
   };
 
   return (
-    <li data-list-id={label}>
+    <li data-list-id={label} data-testid={dataTestId ? `${dataTestId}-item` : undefined}>
       <div className={tc(`ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 ${className}`)}>
         {LinkComponent ? (
           <LinkComponent
             className={`ds:relative ds:flex-1 ds:flex ds:mr-2 ${getFocusOutlineClassForService(serviceVariant)}`}
             aria-current={selected}
+            data-testid={dataTestId ? `${dataTestId}-link` : undefined}
           >
             <span
               className={tc([
@@ -164,6 +166,7 @@ const MenuListItem = ({
               'ds:before:pointer-events-none',
             ])}
             onClick={handleNestedMenuOpen}
+            data-testid={dataTestId ? `${dataTestId}-toggle` : undefined}
           >
             {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
           </button>
@@ -175,6 +178,7 @@ const MenuListItem = ({
           openSubMenuLabel={openSubMenuLabel}
           menuRef={submenuRef}
           isNested
+          data-testid={dataTestId ? `${dataTestId}-submenu` : undefined}
         />
       )}
     </li>
@@ -200,6 +204,8 @@ export interface MenuListProps {
   serviceVariant?: ServiceVariant;
   /** Is menu collapsed initially */
   collapsed?: boolean;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 export const MenuList = ({
@@ -212,6 +218,7 @@ export const MenuList = ({
   menuSection,
   openSubMenuLabel,
   serviceVariant,
+  dataTestId,
 }: MenuListProps) => {
   const variantFromProvider = useServiceVariant();
   const variant = serviceVariant ?? variantFromProvider;
@@ -225,9 +232,13 @@ export const MenuList = ({
       });
 
   return (
-    <div>
+    <div data-testid={dataTestId}>
       {menuSection.title ? <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span> : null}
-      <ul className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])} ref={menuRef}>
+      <ul
+        className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])}
+        ref={menuRef}
+        data-testid={dataTestId ? `${dataTestId}-list` : undefined}
+      >
         {menuSection.linkItems.map((item) => (
           <MenuListItem
             key={item.label}
@@ -240,6 +251,7 @@ export const MenuList = ({
             openSubMenuLabel={openSubMenuLabel}
             className={itemClassname}
             collapsed={collapsed}
+            data-testid={dataTestId ? `${dataTestId}-item-${item.label.replace(/\s+/g, '-').toLowerCase()}` : undefined}
           />
         ))}
       </ul>

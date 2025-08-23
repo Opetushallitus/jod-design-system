@@ -9,12 +9,13 @@ export interface ToastProps {
   icon?: React.ReactNode;
   /** Variant of the toast */
   variant?: 'success' | 'warning' | 'error' | 'neutral';
+  dataTestId?: string; // Added dataTestId property
 }
 
 /**
  * Toasts display brief, temporary notifications. They are noticeable but do not disrupt the user experience and do not require an action to be taken.
  */
-export const Toast = ({ text, icon, variant = 'success' }: ToastProps) => {
+export const Toast = ({ text, icon, variant = 'success', dataTestId }: ToastProps) => {
   const getDefaultIcon = () => {
     switch (variant) {
       case 'success':
@@ -34,6 +35,7 @@ export const Toast = ({ text, icon, variant = 'success' }: ToastProps) => {
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
+      data-testid={dataTestId}
       className={tidyClasses([
         cx({
           'ds:text-secondary-gray': variant === 'neutral',

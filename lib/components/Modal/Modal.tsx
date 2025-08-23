@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/cognitive-complexity */
 import { Dialog, DialogPanel } from '@headlessui/react';
 import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
@@ -12,6 +13,8 @@ export interface ModalProps {
   /** Slot is not used on mobile. */
   sidePanel?: React.ReactNode;
   fullWidthContent?: boolean;
+  /** Test id for querying in tests */
+  dataTestId?: string;
 }
 
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
@@ -23,6 +26,7 @@ export const Modal = ({
   sidePanel,
   footer,
   fullWidthContent = false,
+  dataTestId,
 }: ModalProps) => {
   const { sm } = useMediaQueries();
   const id = React.useId();
@@ -48,13 +52,21 @@ export const Modal = ({
         }
       }}
       className="ds:relative ds:z-50"
+      data-testid={dataTestId}
     >
       {/* Backdrop */}
-      <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden />
+      <div
+        className="ds:fixed ds:inset-0 ds:bg-black/30"
+        aria-hidden
+        data-testid={dataTestId ? `${dataTestId}-backdrop` : undefined}
+      />
       {/* Wrapper container paddings and margins */}
-      <div className="ds:fixed ds:inset-0">
+      <div className="ds:fixed ds:inset-0" data-testid={dataTestId ? `${dataTestId}-container` : undefined}>
         {/* Wrapper for container centering */}
-        <div className="ds:flex ds:items-center ds:justify-center ds:h-full">
+        <div
+          className="ds:flex ds:items-center ds:justify-center ds:h-full"
+          data-testid={dataTestId ? `${dataTestId}-center` : undefined}
+        >
           {/* Modal container */}
           <DialogPanel
             id={`ds-modal-panel-${id}`}
@@ -68,6 +80,7 @@ export const Modal = ({
               'ds:max-w-[1092px]',
               'ds:sm:rounded-lg',
             ])}
+            data-testid={dataTestId ? `${dataTestId}-panel` : undefined}
           >
             {/* Content wrapper */}
             <div
@@ -84,9 +97,17 @@ export const Modal = ({
                 'ds:md:px-9',
                 'ds:relative',
               ])}
+              data-testid={dataTestId ? `${dataTestId}-content-wrapper` : undefined}
             >
               {/* Main content */}
-              {progress && <div className="ds:absolute ds:top-0 ds:right-5 ds:md:right-9">{progress}</div>}
+              {progress && (
+                <div
+                  className="ds:absolute ds:top-0 ds:right-5 ds:md:right-9"
+                  data-testid={dataTestId ? `${dataTestId}-progress` : undefined}
+                >
+                  {progress}
+                </div>
+              )}
               <div
                 className={tc([
                   heightClasses,
@@ -102,22 +123,35 @@ export const Modal = ({
                   'ds:sm:pr-0',
                   sidePanel && progress ? 'ds:sm:mt-8' : '',
                 ])}
+                data-testid={dataTestId ? `${dataTestId}-main` : undefined}
               >
-                <div className={`ds:overflow-y-auto ds:p-0 ds:px-3 sm:ds:p-3 ${progress ? 'ds:sm:mt-0 ds:mt-5' : ''}`}>
+                <div
+                  className={`ds:overflow-y-auto ds:p-0 ds:px-3 sm:ds:p-3 ${progress ? 'ds:sm:mt-0 ds:mt-5' : ''}`}
+                  data-testid={dataTestId ? `${dataTestId}-scroll` : undefined}
+                >
                   {content}
                 </div>
               </div>
               {/* Side panel */}
               {sm && sidePanel && !fullWidthContent && (
-                <div className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}>
-                  <div className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}>
+                <div
+                  className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}
+                  data-testid={dataTestId ? `${dataTestId}-side` : undefined}
+                >
+                  <div
+                    className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
+                    data-testid={dataTestId ? `${dataTestId}-side-scroll` : undefined}
+                  >
                     {sidePanel}
                   </div>
                 </div>
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50">
+            <div
+              className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
+              data-testid={dataTestId ? `${dataTestId}-footer` : undefined}
+            >
               {footer}
             </div>
           </DialogPanel>

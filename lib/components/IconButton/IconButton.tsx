@@ -13,9 +13,11 @@ export interface IconButtonProps {
   icon: React.ReactNode;
   /** Background color */
   bgColor?: 'gray' | 'white';
+  dataTestId?: string;
 }
 
 export const IconButton = ({
+  dataTestId,
   label,
   hideLabel = false,
   onClick,
@@ -34,6 +36,7 @@ export const IconButton = ({
       type="button"
       onClick={onClick}
       disabled={disabled}
+      data-testid={dataTestId}
       className={tidyClasses(`
         ${disabled ? 'ds:cursor-not-allowed ds:opacity-50' : 'ds:cursor-pointer'}
         ds:group

@@ -3,9 +3,10 @@ import { tidyClasses } from '../../utils';
 
 export interface EmptyStateProps {
   text: string;
+  dataTestId?: string;
 }
 
-export const EmptyState = ({ text }: EmptyStateProps) => {
+export const EmptyState = ({ text, dataTestId }: EmptyStateProps) => {
   return (
     <div
       className={tidyClasses([
@@ -21,6 +22,7 @@ export const EmptyState = ({ text }: EmptyStateProps) => {
         'ds:py-3',
         'ds:gap-3',
       ])}
+      data-testid={dataTestId}
     >
       <span className="ds:shrink-0">
         <JodInfo className="ds:text-secondary-gray" />

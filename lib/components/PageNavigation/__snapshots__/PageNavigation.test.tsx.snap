@@ -3,8 +3,11 @@
 exports[`PageNavigation > renders with default props 1`] = `
 <div
   class="ds:p-6 ds:bg-white ds:rounded-lg undefined"
+  data-testid="pnav"
 >
-  <div>
+  <div
+    data-testid="pnav"
+  >
     <span
       class="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex"
     >
@@ -12,6 +15,7 @@ exports[`PageNavigation > renders with default props 1`] = `
     </span>
     <ul
       class="ds:gap-2 ds:flex ds:flex-col"
+      data-testid="pnav-list"
     >
       <li
         data-list-id="Home"
