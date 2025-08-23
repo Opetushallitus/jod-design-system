@@ -1,7 +1,7 @@
 import React from 'react';
-import { tidyClasses as tc } from '../../utils';
+import { tidyClasses as tc, type TestIdProps } from '../../utils';
 
-export interface SelectionCardProps {
+export type SelectionCardProps = TestIdProps & {
   /** Card label */
   label: string;
   /** Icon content */
@@ -20,7 +20,7 @@ export interface SelectionCardProps {
   onMouseLeave?: () => void;
   onFocus?: () => void;
   onBlur?: () => void;
-}
+};
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
@@ -45,6 +45,7 @@ export const SelectionCard = ({
   onMouseLeave,
   orientation = 'vertical',
   selected,
+  dataTestId,
 }: SelectionCardProps) => {
   const eventProps = { onClick, onMouseEnter, onMouseLeave, onFocus, onBlur };
   const horizontalCard = (
@@ -53,6 +54,7 @@ export const SelectionCard = ({
       className="ds:cursor-pointer ds:flex ds:grow ds:items-center ds:relative ds:p-3 ds:pr-0"
       aria-pressed={selected}
       aria-label={label}
+      data-testid={dataTestId}
       {...eventProps}
     >
       <span className="ds:absolute ds:left-0 ds:top-0 ds:-m-3" aria-hidden>
@@ -78,6 +80,7 @@ export const SelectionCard = ({
       )}
       aria-pressed={selected}
       aria-label={label}
+      data-testid={dataTestId}
       {...eventProps}
     >
       <span
@@ -96,7 +99,10 @@ export const SelectionCard = ({
   return orientation === 'vertical' ? (
     verticalCard
   ) : (
-    <div className={tc(`ds:flex ds:flex-row ds:rounded-md ds:hover:bg-secondary-1-25 ${className ?? ''}`)}>
+    <div
+      className={tc(`ds:flex ds:flex-row ds:rounded-md ds:hover:bg-secondary-1-25 ${className ?? ''}`)}
+      data-testid={dataTestId ? `${dataTestId}-container` : undefined}
+    >
       {horizontalCard}
       {actionComponent ?? null}
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { cx } from '../../cva';
+import type { TestIdProps } from '../../utils';
 import { type ServiceVariant } from '../../utils';
 
 export interface BreadcrumbItem {
@@ -8,14 +9,14 @@ export interface BreadcrumbItem {
   to?: string;
 }
 
-export interface BreadcrumbProps {
+export type BreadcrumbProps = TestIdProps & {
   items: BreadcrumbItem[];
   LinkComponent: React.ComponentType<{ to: string; children: React.ReactNode; className?: string }>;
   ariaLabel?: string;
   serviceVariant: ServiceVariant;
-}
+};
 
-export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant }: BreadcrumbProps) => {
+export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant, dataTestId }: BreadcrumbProps) => {
   const textColorClass = cx({
     'ds:text-secondary-1-dark': serviceVariant === 'yksilo',
     'ds:text-secondary-2-dark': serviceVariant === 'ohjaaja',
@@ -26,6 +27,7 @@ export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant }: 
     <nav
       aria-label={ariaLabel}
       className={`ds:text-accent ds:text-[12px] ds:font-bold ds:col-span-3 ds:mb-3 ds:print:hidden ${textColorClass}`}
+      data-testid={dataTestId}
     >
       <ol className="ds:flex ds:flex-wrap ds:gap-y-2">
         {items.map((item, idx) => {

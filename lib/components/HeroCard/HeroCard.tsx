@@ -1,6 +1,7 @@
 import { JSX } from 'react';
 import { cx } from '../../cva';
 import { JodArrowRight } from '../../icons';
+import type { TestIdProps } from '../../utils';
 import { Button } from '../Button/Button';
 
 type ActionButtonProps =
@@ -43,7 +44,8 @@ export type HeroCardProps = {
   backgroundColor?: string;
   /** Size of the card. Lg is default. */
   size?: 'lg' | 'sm';
-} & ActionButtonProps;
+} & ActionButtonProps &
+  TestIdProps;
 
 /** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const HeroCard = ({
@@ -58,6 +60,7 @@ export const HeroCard = ({
   size = 'lg',
   buttonLabel,
   onClick,
+  dataTestId,
 }: HeroCardProps) => {
   const headingClassNames = cx('ds:text-pretty ds:mr-9', {
     'ds:text-hero-mobile ds:sm:text-hero': size === 'lg' && titleClassName === undefined,
@@ -71,6 +74,7 @@ export const HeroCard = ({
     <div
       className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
       style={{ backgroundColor }}
+      data-testid={dataTestId}
     >
       <TitleTag className={`${headingClassNames} ${titleClassName ? titleClassName : ''}`.trim()}>{title}</TitleTag>
       {content && <p className="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg">{content}</p>}
@@ -94,6 +98,7 @@ export const HeroCard = ({
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
           icon={<JodArrowRight size={24} />}
+          data-testid={dataTestId ? `${dataTestId}-button` : undefined}
         />
       )}
     </div>

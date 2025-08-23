@@ -10,6 +10,7 @@ import {
 import React from 'react';
 import { cx } from '../../cva';
 import { JodArrowLeft, JodArrowRight, JodCalendar } from '../../icons';
+import type { TestIdProps } from '../../utils';
 import { tidyClasses as tc } from '../../utils';
 import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
 
@@ -70,7 +71,7 @@ type ArkTranslationsInUse = Pick<
 
 type RefCallback<T> = (instance: T | null) => void;
 
-export interface DatepickerProps {
+export type DatepickerProps = TestIdProps & {
   /** Name of the input field */
   name?: string;
   /** Initial value, the internal format is 'yyyy-mm-dd' */
@@ -87,7 +88,7 @@ export interface DatepickerProps {
   help?: string;
   translations: ArkTranslationsInUse;
   ref?: React.RefObject<HTMLInputElement> | RefCallback<HTMLInputElement>;
-}
+};
 
 /** Datepicker component for selecting a date. */
 export const Datepicker = ({
@@ -100,6 +101,7 @@ export const Datepicker = ({
   onBlur,
   onChange,
   translations,
+  dataTestId,
 }: DatepickerProps) => {
   const helpId = React.useId();
   const timeZone = 'Europe/Helsinki';
@@ -148,7 +150,7 @@ export const Datepicker = ({
   });
 
   return (
-    <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full">
+    <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full" data-testid={dataTestId}>
       <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray">
         {label}
       </ArkDatePicker.Label>
@@ -168,6 +170,7 @@ export const Datepicker = ({
               }
             }}
             onBlur={onBlur}
+            data-testid={dataTestId && `${dataTestId}-input`}
           />
           <ArkDatePicker.Trigger
             className="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
@@ -179,6 +182,7 @@ export const Datepicker = ({
                 datePicker.setValue([verifyCalendarDate(value[0])]);
               }
             }}
+            data-testid={dataTestId && `${dataTestId}-trigger`}
           >
             <JodCalendar size={24} />
           </ArkDatePicker.Trigger>

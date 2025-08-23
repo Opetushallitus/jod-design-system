@@ -1,5 +1,6 @@
 import React from 'react';
 import { cx } from '../../cva';
+import type { TestIdProps } from '../../utils';
 import {
   getAccentBgClassForService,
   getFocusOutlineClassForService,
@@ -9,7 +10,7 @@ import {
   tidyClasses as tc,
 } from '../../utils';
 
-export interface ButtonProps {
+export type ButtonProps = TestIdProps & {
   /** Form ID to associate the button with */
   form?: string;
   /** Text shown on the button */
@@ -34,7 +35,7 @@ export interface ButtonProps {
   ref?: React.Ref<HTMLButtonElement>;
   /** Additional class names */
   className?: string;
-}
+};
 
 const getVariantClassName = (
   variant: ButtonProps['variant'],
@@ -122,6 +123,7 @@ const getButtonClassName = ({
 
 /** Button component for user actions. */
 export const Button = ({
+  dataTestId,
   className,
   disabled = false,
   form,
@@ -156,7 +158,7 @@ export const Button = ({
 
   return LinkComponent ? (
     <LinkComponent>
-      <span className={`${buttonClassName} ${className ?? ''}`.trim()} aria-label={label}>
+      <span className={`${buttonClassName} ${className ?? ''}`.trim()} aria-label={label} data-testid={dataTestId}>
         {leftIcon && icon}
         {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}
         {rightIcon && icon}
@@ -171,6 +173,7 @@ export const Button = ({
       onClick={onClick}
       className={`${buttonClassName} ${className ?? ''}`.trim()}
       ref={ref}
+      data-testid={dataTestId}
     >
       {leftIcon && icon}
       {onlyIcon ? icon : <span className={spanClassName}>{label}</span>}

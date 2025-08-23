@@ -1,7 +1,8 @@
 import React from 'react';
 import { cx } from '../../cva';
+import type { TestIdProps } from '../../utils';
 
-export interface CheckboxProps {
+export type CheckboxProps = TestIdProps & {
   /** Name for the component */
   name: string;
   /** Disabled state for the component */
@@ -20,7 +21,7 @@ export interface CheckboxProps {
   ariaLabel: string;
   /** Additional class name for the component */
   className?: string;
-}
+};
 
 /**
  * Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
@@ -36,6 +37,7 @@ export const Checkbox = ({
   label,
   ariaLabel,
   className,
+  dataTestId,
 }: CheckboxProps) => {
   const id = React.useId();
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -61,6 +63,7 @@ export const Checkbox = ({
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
         aria-checked={indeterminate ? 'mixed' : checked}
+        data-testid={dataTestId}
         className={cx(
           'ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-2 ds:border-accent',
           {

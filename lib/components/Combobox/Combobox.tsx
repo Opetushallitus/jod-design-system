@@ -7,13 +7,14 @@ import {
 } from '@headlessui/react';
 import React from 'react';
 import { JodCaretDown, JodCaretUp } from '../../icons';
+import type { TestIdProps } from '../../utils';
 
 export interface ComboboxOptionsData<T extends string = string> {
   value: T;
   label: string;
 }
 
-interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string> {
+type ComboboxProps<T extends ComboboxOptionsData, U extends string = string> = TestIdProps & {
   /** Label for the component */
   label: string;
   /** Hide label. Still available for screenreaders */
@@ -30,7 +31,7 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   disabled?: boolean;
   /** Placeholder text */
   placeholder: string;
-}
+};
 
 export const Combobox = <
   U extends string = string,
@@ -44,6 +45,7 @@ export const Combobox = <
   placeholder,
   selected,
   disabled = false,
+  dataTestId,
 }: ComboboxProps<T, U>) => {
   const labelId = React.useId();
 
@@ -56,7 +58,7 @@ export const Combobox = <
         });
 
   return (
-    <div className="ds:flex ds:flex-col ds:relative">
+    <div className="ds:flex ds:flex-col ds:relative" data-testid={dataTestId}>
       {!hideLabel && (
         <label htmlFor={labelId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
           {label}
@@ -78,14 +80,19 @@ export const Combobox = <
                 className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
+                data-testid={dataTestId && `${dataTestId}-input`}
               />
               <ComboboxButton
                 className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
+                data-testid={dataTestId && `${dataTestId}-button`}
               >
                 {open ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
               </ComboboxButton>
-              <ComboboxOptions className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible">
+              <ComboboxOptions
+                className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
+                data-testid={dataTestId && `${dataTestId}-options`}
+              >
                 {filteredOptions.map((option) => (
                   <ComboboxOption
                     key={option.value}

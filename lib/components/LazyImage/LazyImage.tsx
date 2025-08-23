@@ -1,6 +1,7 @@
 import React from 'react';
+import type { TestIdProps } from '../../utils';
 
-interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, TestIdProps {
   /** The source of the image to be loaded */
   src: string;
   /** The alt text for the image */
@@ -27,7 +28,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, ...props }) => {
   }, [src]);
 
   return (
-    <div className={`ds:flex ds:bg-secondary-5 ${props.className}`.trim()}>
+    <div className={`ds:flex ds:bg-secondary-5 ${props.className}`.trim()} data-testid={props.dataTestId}>
       <img
         src={loaded ? src : undefined}
         alt={alt}

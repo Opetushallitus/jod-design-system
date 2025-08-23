@@ -1,3 +1,5 @@
+import type { TestIdProps } from '../../utils';
+
 interface LinkProps {
   className?: string;
   children: React.ReactNode;
@@ -5,7 +7,7 @@ interface LinkProps {
 
 type RoundLinkButtonLink = React.ComponentType<LinkProps>;
 
-export interface RoundLinkButtonProps {
+export type RoundLinkButtonProps = TestIdProps & {
   /** Text shown on the link */
   label: string;
   /** Hide label */
@@ -17,10 +19,11 @@ export interface RoundLinkButtonProps {
   component: RoundLinkButtonLink;
   /** Icon shown on the link */
   icon: React.ReactNode;
-}
+};
 
 /** Button component for single-step user actions. */
 export const RoundLinkButton = ({
+  dataTestId,
   label,
   hideLabel = false,
   selected = false,
@@ -33,6 +36,7 @@ export const RoundLinkButton = ({
     <Component
       {...rest}
       aria-label={label}
+      data-testid={dataTestId}
       className={`${className ? className : ''} ds:group ds:inline-flex ds:min-w-[64px] ds:sm:min-w-[124px] ds:flex-col ds:items-center ds:justify-center ds:gap-2 ds:border ds:border-none ds:no-underline`.trim()}
     >
       <span

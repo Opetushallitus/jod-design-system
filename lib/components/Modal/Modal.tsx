@@ -1,9 +1,10 @@
 import { Dialog, DialogPanel } from '@headlessui/react';
 import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import type { TestIdProps } from '../../utils';
 import { tidyClasses as tc } from '../../utils';
 
-export interface ModalProps {
+export type ModalProps = TestIdProps & {
   open: boolean;
   onClose?: () => void;
   content: React.ReactNode;
@@ -12,7 +13,7 @@ export interface ModalProps {
   /** Slot is not used on mobile. */
   sidePanel?: React.ReactNode;
   fullWidthContent?: boolean;
-}
+};
 
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
 export const Modal = ({
@@ -23,6 +24,7 @@ export const Modal = ({
   sidePanel,
   footer,
   fullWidthContent = false,
+  dataTestId,
 }: ModalProps) => {
   const { sm } = useMediaQueries();
   const id = React.useId();
@@ -48,13 +50,21 @@ export const Modal = ({
         }
       }}
       className="ds:relative ds:z-50"
+      data-testid={dataTestId}
     >
       {/* Backdrop */}
-      <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden />
+      <div
+        className="ds:fixed ds:inset-0 ds:bg-black/30"
+        aria-hidden
+        data-testid={dataTestId && `${dataTestId}-backdrop`}
+      />
       {/* Wrapper container paddings and margins */}
-      <div className="ds:fixed ds:inset-0">
+      <div className="ds:fixed ds:inset-0" data-testid={dataTestId && `${dataTestId}-container`}>
         {/* Wrapper for container centering */}
-        <div className="ds:flex ds:items-center ds:justify-center ds:h-full">
+        <div
+          className="ds:flex ds:items-center ds:justify-center ds:h-full"
+          data-testid={dataTestId && `${dataTestId}-center`}
+        >
           {/* Modal container */}
           <DialogPanel
             id={`ds-modal-panel-${id}`}
@@ -68,6 +78,7 @@ export const Modal = ({
               'ds:max-w-[1092px]',
               'ds:sm:rounded-lg',
             ])}
+            data-testid={dataTestId && `${dataTestId}-panel`}
           >
             {/* Content wrapper */}
             <div
@@ -83,9 +94,14 @@ export const Modal = ({
                 'ds:md:pl-9',
                 'ds:relative',
               ])}
+              data-testid={dataTestId && `${dataTestId}-content-wrapper`}
             >
               {/* Main content */}
-              {progress && <div className="ds:absolute ds:top-0 ds:right-5">{progress}</div>}
+              {progress && (
+                <div className="ds:absolute ds:top-0 ds:right-5" data-testid={dataTestId && `${dataTestId}-progress`}>
+                  {progress}
+                </div>
+              )}
               <div
                 className={tc([
                   heightClasses,
@@ -100,20 +116,35 @@ export const Modal = ({
                   progress && !sm ? 'ds:mt-6 ds:sm:mt-8' : '',
                   'ds:sm:pr-0',
                 ])}
+                data-testid={dataTestId && `${dataTestId}-main`}
               >
-                <div className={`ds:overflow-y-auto ds:p-3 ${progress ? 'ds:sm:mt-10 ds:mt-8' : ''}`}>{content}</div>
+                <div
+                  className={`ds:overflow-y-auto ds:p-3 ${progress ? 'ds:sm:mt-10 ds:mt-8' : ''}`}
+                  data-testid={dataTestId && `${dataTestId}-scroll`}
+                >
+                  {content}
+                </div>
               </div>
               {/* Side panel */}
               {sm && sidePanel && !fullWidthContent && (
-                <div className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}>
-                  <div className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}>
+                <div
+                  className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}
+                  data-testid={dataTestId && `${dataTestId}-side`}
+                >
+                  <div
+                    className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
+                    data-testid={dataTestId && `${dataTestId}-side-scroll`}
+                  >
                     {sidePanel}
                   </div>
                 </div>
               )}
             </div>
             {/* Footer, button area */}
-            <div className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50">
+            <div
+              className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
+              data-testid={dataTestId && `${dataTestId}-footer`}
+            >
               {footer}
             </div>
           </DialogPanel>

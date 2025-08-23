@@ -1,3 +1,4 @@
+import type { TestIdProps } from '../../utils';
 type LinkComponent =
   | {
       to: string;
@@ -20,7 +21,8 @@ export type ContentCardProps = {
     to: string;
   }[];
   className?: string;
-} & LinkComponent;
+} & LinkComponent &
+  TestIdProps;
 
 const Tag = ({
   label,
@@ -81,9 +83,10 @@ export const ContentCard = ({
   linkComponent: Link,
   to,
   className = '',
+  dataTestId,
 }: ContentCardProps) => {
   return (
-    <div className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`}>
+    <div className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`} data-testid={dataTestId}>
       <LinkOrDiv to={to} linkComponent={Link}>
         <div>
           <div className="ds:text-body-xs ds:text-secondary-gray ds:font-semibold">{path.join(' / ')}</div>

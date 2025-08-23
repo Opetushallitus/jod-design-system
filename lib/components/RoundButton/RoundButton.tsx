@@ -1,6 +1,7 @@
+import type { TestIdProps } from '../../utils';
 import { tidyClasses } from '../../utils';
 
-export interface RoundButtonProps {
+export type RoundButtonProps = TestIdProps & {
   /** Text shown on the button */
   label: string;
   /** Hide label */
@@ -17,12 +18,14 @@ export interface RoundButtonProps {
   icon: React.ReactNode;
   /** Icon size: sm = 32px, md = 40px, lg = 64px  */
   size?: 'sm' | 'md' | 'lg';
+  /** Selected */
   /** Background color */
   bgColor?: 'gray' | 'white';
-}
+};
 
 /** Round button component for single-step user actions. */
 export const RoundButton = ({
+  dataTestId,
   label,
   hideLabel = false,
   onClick,
@@ -50,6 +53,7 @@ export const RoundButton = ({
       disabled={disabled}
       type="button"
       onClick={onClick}
+      data-testid={dataTestId}
       className={tidyClasses(`
         ds:cursor-pointer
         ${className ?? ''}

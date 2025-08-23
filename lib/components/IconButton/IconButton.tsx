@@ -1,6 +1,7 @@
+import type { TestIdProps } from '../../utils';
 import { tidyClasses } from '../../utils';
 
-export interface IconButtonProps {
+export type IconButtonProps = TestIdProps & {
   /** Text shown on the button */
   label: string;
   /** Hide label */
@@ -13,9 +14,10 @@ export interface IconButtonProps {
   icon: React.ReactNode;
   /** Background color */
   bgColor?: 'gray' | 'white';
-}
+};
 
 export const IconButton = ({
+  dataTestId,
   label,
   hideLabel = false,
   onClick,
@@ -34,6 +36,7 @@ export const IconButton = ({
       type="button"
       onClick={onClick}
       disabled={disabled}
+      data-testid={dataTestId}
       className={tidyClasses(`
         ${disabled ? 'ds:cursor-not-allowed ds:opacity-50' : 'ds:cursor-pointer'}
         ds:group

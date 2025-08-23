@@ -1,6 +1,7 @@
 import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react';
 import { cx } from '../../cva';
 import { JodMore, JodPagerNext, JodPagerPrev } from '../../icons';
+import type { TestIdProps } from '../../utils';
 import { getAccentBgClassForService, ServiceVariant } from '../../utils';
 
 interface GetClassNameProps {
@@ -34,7 +35,7 @@ export interface PageChangeDetails {
   pageSize: number;
 }
 
-export interface PaginationProps {
+export type PaginationProps = TestIdProps & {
   totalItems: number;
   pageSize: number;
   siblingCount: number;
@@ -44,7 +45,7 @@ export interface PaginationProps {
   type?: 'button' | 'link';
   ariaLabel?: string;
   serviceVariant?: ServiceVariant;
-}
+};
 
 /** Pagination component for navigating through a list of items. */
 export const Pagination = ({
@@ -57,6 +58,7 @@ export const Pagination = ({
   ariaLabel,
   onPageChange,
   serviceVariant = 'yksilo',
+  dataTestId,
 }: PaginationProps) => {
   const lastPage = Math.ceil(totalItems / pageSize);
   const isFirstPage = currentPage === 1;
@@ -73,6 +75,7 @@ export const Pagination = ({
       type={type}
       aria-label={ariaLabel}
       className="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
+      data-testid={dataTestId}
     >
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
         <JodPagerPrev size={24} />
