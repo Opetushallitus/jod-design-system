@@ -1,8 +1,9 @@
 import { FloatingArrow, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import React from 'react';
+import type { TestIdProps } from '../../utils';
 import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
-type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
+type TooltipContentProps = (React.HTMLProps<HTMLDivElement> & TestIdProps) & {
   arrowClassName?: string;
 };
 export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
@@ -14,6 +15,8 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       return null;
     }
 
+    const { dataTestId, ...rest } = props;
+
     return (
       <FloatingPortal>
         <div
@@ -22,7 +25,8 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           style={{
             ...tooltipContext.floatingStyles,
           }}
-          {...tooltipContext.getFloatingProps(props)}
+          data-testid={dataTestId}
+          {...tooltipContext.getFloatingProps(rest)}
         >
           {props.children}
           <FloatingArrow
@@ -31,6 +35,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
             className={props.arrowClassName ?? 'ds:fill-black'}
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
+            data-testid={dataTestId ? `${dataTestId}-arrow` : undefined}
           />
         </div>
       </FloatingPortal>

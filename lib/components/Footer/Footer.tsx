@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { JodArrowRight } from '../../icons';
 import { HeroCard } from '../../main';
+import type { TestIdProps } from '../../utils';
 import { LogoRgb } from '../Logo/LogoRgb';
 import {
   LogoEuEn,
@@ -39,7 +40,7 @@ interface Link {
   label: string;
 }
 
-export interface FooterProps {
+export type FooterProps = TestIdProps & {
   /** Language of the logos */
   language: string;
 
@@ -70,7 +71,7 @@ export interface FooterProps {
   feedbackButtonLabel: string;
   feedbackOnClick: () => void;
   feedbackBgImageClassName: string;
-}
+};
 
 /**
  * This component is a footer that displays navigation items, logos, and a copyright.
@@ -95,6 +96,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     feedbackButtonLabel,
     feedbackOnClick,
     feedbackBgImageClassName,
+    dataTestId,
   }: FooterProps,
   ref,
 ) {
@@ -172,7 +174,11 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
   }, [language]);
 
   return (
-    <footer ref={ref} className={`ds:text-body-md-mobile ds:sm:text-body-md ds:print:hidden ${className}`.trim()}>
+    <footer
+      ref={ref}
+      className={`ds:text-body-md-mobile ds:sm:text-body-md ds:print:hidden ${className}`.trim()}
+      data-testid={dataTestId}
+    >
       <div className={`ds:h-auto ${feedbackBgImageClassName} ds:py-8 ds:sm:max-w-[1440px] ds:mx-auto`}>
         <div className="ds:max-w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6">
           <div className="ds:max-w-[716px]">

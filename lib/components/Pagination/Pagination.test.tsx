@@ -23,6 +23,7 @@ describe('Pagination', () => {
         currentPage={props.currentPage}
         translations={props.translations}
         onPageChange={mockOnPageChange}
+        dataTestId="pagination"
       />,
     );
 
@@ -37,6 +38,7 @@ describe('Pagination', () => {
     };
 
     const { container } = renderPagination(props);
+    expect(screen.getByTestId('pagination')).toBeInTheDocument();
 
     const pageElements = screen.getAllByRole('button', { name: /\d+/ });
     expect(pageElements.length).toBe(4);

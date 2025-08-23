@@ -3,9 +3,11 @@
 exports[`MediaCard > renders the MediaCard component with default vertical variant 1`] = `
 <div
   class="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
+  data-testid="md"
 >
   <div
     class="ds:grow "
+    data-testid="md-link"
   >
     <div
       class="ds:flex ds:bg-secondary-5 ds:object-cover ds:h-[147px] ds:min-h-[147px]"
@@ -24,11 +26,13 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
       >
         <div
           class="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2"
+          data-testid="md-label"
         >
           Default
         </div>
         <div
           class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3"
+          data-testid="md-description"
         >
           Default description
         </div>
@@ -37,6 +41,7 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
   </div>
   <ul
     class="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5 ds:*:px-2 ds:-mx-2"
+    data-testid="md-tags"
   >
     <li
       class="ds:pb-2"

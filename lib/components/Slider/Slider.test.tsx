@@ -89,4 +89,18 @@ describe('Slider', () => {
     expect(screen.getByText('Osaamiset')).toBeInTheDocument();
     expect(screen.getByText('Kiinnostukset')).toBeInTheDocument();
   });
+
+  it('emits data-testid attributes when dataTestId is provided', async () => {
+    render(<Slider label="Osaamiset" rightLabel="Kiinnostukset" onValueChange={vi.fn()} value={50} dataTestId="s" />);
+    expect(screen.getByTestId('s')).toBeInTheDocument();
+    expect(screen.getByTestId('s-label')).toBeInTheDocument();
+    expect(screen.getByTestId('s-rightLabel')).toBeInTheDocument();
+
+    const [thumb] = screen.getAllByRole('slider', { hidden: true });
+    await waitFor(() => thumb.focus());
+    // Tooltip appears when focused
+    expect(screen.getByTestId('s-tooltip')).toBeInTheDocument();
+    expect(screen.getByTestId('s-tooltip-arrow')).toBeInTheDocument();
+    expect(screen.getByTestId('s-thumb')).toBeInTheDocument();
+  });
 });

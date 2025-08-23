@@ -18,6 +18,11 @@ export const tidyClasses = (classNames: string | string[]): string =>
  */
 export const clamp = (value: number, min: number, max: number): number => Math.min(Math.max(value, min), max);
 
+// Common test id prop for components to support testing-library queries
+export interface TestIdProps {
+  dataTestId?: string;
+}
+
 export type StoryBookCategory =
   | 'Buttons'
   | 'Cards'

@@ -1,7 +1,8 @@
 import { Label, RadioGroup } from '@headlessui/react';
 import React from 'react';
+import type { TestIdProps } from '../../utils';
 
-export interface RadioButtonGroupProps {
+export type RadioButtonGroupProps = TestIdProps & {
   /** Text for the component */
   label: string;
   /** Hide label */
@@ -14,7 +15,7 @@ export interface RadioButtonGroupProps {
   children: React.ReactNode;
   /** CSS classes for custom styles */
   className?: string;
-}
+};
 
 /** Radio buttons allow users to select a single option from a list of mutually exclusive options. All possible options are exposed up front for users to compare. */
 export const RadioButtonGroup = ({
@@ -24,15 +25,18 @@ export const RadioButtonGroup = ({
   onChange,
   children,
   className,
+  dataTestId,
 }: RadioButtonGroupProps) => {
   return (
     <RadioGroup
       value={value}
       onChange={onChange}
       className={`${className ? className : ''} ds:flex ds:flex-col ds:space-y-3`.trim()}
+      data-testid={dataTestId}
     >
       <Label
         className={`ds:mb-5 ds:text-heading-3 ds:font-poppins ds:text-primary-gray ${hideLabel ? 'ds:hidden' : ''}`.trim()}
+        data-testid={dataTestId ? `${dataTestId}-label` : undefined}
       >
         {label}
       </Label>

@@ -1,12 +1,13 @@
 import React from 'react';
+import type { TestIdProps } from '../../../utils';
 
-export interface BackdropProps {
+export type BackdropProps = TestIdProps & {
   children: React.ReactNode;
   dialogRef: React.RefObject<HTMLDialogElement | null>;
   onClose: () => void;
-}
+};
 
-export const Backdrop = ({ children, dialogRef, onClose }: BackdropProps) => {
+export const Backdrop = ({ children, dialogRef, onClose, dataTestId }: BackdropProps) => {
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Escape') {
       onClose();
@@ -26,6 +27,7 @@ export const Backdrop = ({ children, dialogRef, onClose }: BackdropProps) => {
       className="ds:-z-1 ds:flex ds:backdrop:bg-black/20 ds:w-[370px] ds:max-w-full ds:max-h-screen ds:min-h-full ds:overflow-auto ds:overscroll-contain ds:hyphens-auto"
       onKeyDown={handleKeyDown}
       onClick={handleClickOutside}
+      data-testid={dataTestId}
     >
       {children}
     </dialog>

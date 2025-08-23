@@ -1,6 +1,7 @@
 import React from 'react';
 import { cx } from '../../cva';
 import { JodCaretDown, JodCaretUp } from '../../icons';
+import type { TestIdProps } from '../../utils';
 import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
@@ -21,7 +22,8 @@ type AccordionProps = {
   initialState?: boolean;
   // Optional function to fetch data when the accordion is opened. A loading spinner will be shown while fetching.
   fetchData?: () => Promise<void>;
-} & TitleProps;
+} & TitleProps &
+  TestIdProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
   <span className="ds:text-primary-gray ds:group-hover:text-accent!" aria-hidden>
@@ -37,6 +39,7 @@ export const Accordion = ({
   underline,
   initialState = true,
   fetchData,
+  dataTestId,
 }: AccordionProps) => {
   const [isOpen, setIsOpen] = React.useState(initialState);
 
@@ -85,13 +88,19 @@ export const Accordion = ({
             aria-expanded={isOpen}
             onClick={() => void toggleOpen()}
             className="ds:cursor-pointer ds:flex"
+            data-testid={dataTestId}
           >
             {loading ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </button>
         </div>
       ) : (
         <div className="ds:group">
-          <button aria-expanded={isOpen} onClick={() => void toggleOpen()} className={wrapperClassnames}>
+          <button
+            aria-expanded={isOpen}
+            onClick={() => void toggleOpen()}
+            className={wrapperClassnames}
+            data-testid={dataTestId}
+          >
             <span
               className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline"
               lang={lang}

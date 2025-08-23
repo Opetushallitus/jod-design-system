@@ -10,13 +10,15 @@ const menuSection = {
 
 const WrappedPageNavigation = (props?: Partial<PageNavigationProps>) => (
   <ServiceVariantProvider value="yksilo">
-    <PageNavigation menuSection={menuSection} openSubMenuLabel="Open submenu" {...props} />
+    <PageNavigation menuSection={menuSection} openSubMenuLabel="Open submenu" dataTestId="pnav" {...props} />
   </ServiceVariantProvider>
 );
 
 describe('PageNavigation', () => {
   it('renders with default props', () => {
     const { container } = render(<WrappedPageNavigation />);
+    // root and inner list both tagged; just assert at least one exists
+    expect(screen.getAllByTestId('pnav').length).toBeGreaterThan(0);
     expect(screen.getByText('Test Menu')).toBeInTheDocument();
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();

@@ -19,12 +19,12 @@ import {
 } from '@floating-ui/react';
 import { cx } from 'cva';
 import React from 'react';
-import { tidyClasses as tc } from '../../utils';
+import { tidyClasses as tc, type TestIdProps } from '../../utils';
 
 const ARROW_HEIGHT = 12;
 const GAP = 8;
 
-export interface SliderProps {
+export type SliderProps = TestIdProps & {
   /** Label (left text) */
   label: string;
   /** Label to right side */
@@ -37,7 +37,7 @@ export interface SliderProps {
   value: number;
   /** Disabled state */
   disabled?: boolean;
-}
+};
 
 const Marker = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" width={5} height={5}>
@@ -46,7 +46,15 @@ const Marker = () => (
 );
 
 /** Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable. */
-export const Slider = ({ label, onValueChange, value, rightLabel, disabled, hideLabels = false }: SliderProps) => {
+export const Slider = ({
+  label,
+  onValueChange,
+  value,
+  rightLabel,
+  disabled,
+  hideLabels = false,
+  dataTestId,
+}: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);
   const arrowRef = React.useRef(null);
@@ -103,9 +111,15 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled, hide
         step={25}
         disabled={disabled}
         aria-label={rightLabel ? [label, rightLabel] : [label]}
+        data-testid={dataTestId}
       >
         {!hideLabels && (
-          <ArkSlider.Label className="ds:ml-6 ds:mr-5 ds:flex ds:items-center ds:text-body-xs">{label}</ArkSlider.Label>
+          <ArkSlider.Label
+            className="ds:ml-6 ds:mr-5 ds:flex ds:items-center ds:text-body-xs"
+            data-testid={dataTestId ? `${dataTestId}-label` : undefined}
+          >
+            {label}
+          </ArkSlider.Label>
         )}
         <div className="ds:content-center ds:w-full">
           <ArkSlider.MarkerGroup
@@ -151,11 +165,15 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled, hide
                   'ds:bg-inactive-gray': disabled,
                 },
               )}
+              data-testid={dataTestId ? `${dataTestId}-thumb` : undefined}
             />
           </ArkSlider.Control>
         </div>
         {!hideLabels && rightLabel && (
-          <ArkSlider.Label className="ds:ml-5 ds:mr-6 ds:flex ds:items-center ds:text-body-xs">
+          <ArkSlider.Label
+            className="ds:ml-5 ds:mr-6 ds:flex ds:items-center ds:text-body-xs"
+            data-testid={dataTestId ? `${dataTestId}-rightLabel` : undefined}
+          >
             {rightLabel}
           </ArkSlider.Label>
         )}
@@ -166,6 +184,7 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled, hide
           className="ds:max-w-[292px] ds:rounded-md ds:bg-black ds:px-6 ds:py-3 ds:text-button-md ds:text-white ds:sm:text-body-md ds:font-arial"
           style={floatingStyles}
           {...getFloatingProps()}
+          data-testid={dataTestId ? `${dataTestId}-tooltip` : undefined}
         >
           {getTooltipValue()}
           <FloatingArrow
@@ -174,6 +193,7 @@ export const Slider = ({ label, onValueChange, value, rightLabel, disabled, hide
             className="ds:fill-black"
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
+            data-testid={dataTestId ? `${dataTestId}-tooltip-arrow` : undefined}
           />
         </div>
       )}

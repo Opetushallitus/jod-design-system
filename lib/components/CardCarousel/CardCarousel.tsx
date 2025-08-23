@@ -1,5 +1,6 @@
 import React from 'react';
 import { JodPagerNext, JodPagerPrev } from '../../icons';
+import type { TestIdProps } from '../../utils';
 
 export interface CardCarouselItem {
   /** Id to be used as key during iteration */
@@ -8,7 +9,7 @@ export interface CardCarouselItem {
   component: React.ReactNode;
 }
 
-export interface CardCarouselProps {
+export type CardCarouselProps = TestIdProps & {
   /** Items to show in the carousel */
   items?: CardCarouselItem[];
   /** Width of each item in the carousel */
@@ -22,8 +23,15 @@ export interface CardCarouselProps {
     indicator: (index: number) => string;
   };
   className?: string;
-}
-export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, className = '' }: CardCarouselProps) => {
+};
+export const CardCarousel = ({
+  items = [],
+  translations,
+  itemWidth,
+  gap = 16,
+  className = '',
+  dataTestId,
+}: CardCarouselProps) => {
   const containerRef = React.createRef<HTMLUListElement>();
   const [itemsPerPage, setItemsPerPage] = React.useState(1);
   const [pageNr, setPageNr] = React.useState(0);
@@ -100,6 +108,7 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, cl
         aria-roledescription="carousel"
         className={`ds:flex ds:flex-row ds:overflow-hidden ${className}`.trim()}
         style={{ gap }}
+        data-testid={dataTestId && `${dataTestId}-list`}
       >
         {items.map((item, index) => {
           // Change the page according to focused item during tab navigation
@@ -125,7 +134,10 @@ export const CardCarousel = ({ items = [], translations, itemWidth, gap = 16, cl
           );
         })}
       </ul>
-      <div className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3">
+      <div
+        className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3"
+        data-testid={dataTestId && `${dataTestId}-controls`}
+      >
         <button
           onClick={goToPreviousPage}
           onKeyDown={handleEnterPress(goToPreviousPage)}
