@@ -2,7 +2,7 @@
 
 exports[`NavigationMenu > renders navigation menu with default state 1`] = `
 <dialog
-  class="ds:-z-1 ds:flex ds:backdrop:bg-black/20 ds:w-[370px] ds:max-w-full ds:max-h-screen ds:min-h-full ds:overflow-auto ds:overscroll-contain ds:hyphens-auto"
+  class="ds:fixed ds:left-auto ds:right-0 ds:-z-1 ds:flex ds:backdrop:bg-black/20 ds:w-[370px] ds:max-w-full ds:max-h-screen ds:min-h-full ds:overflow-auto ds:overscroll-contain ds:hyphens-auto"
   open=""
 >
   <nav
