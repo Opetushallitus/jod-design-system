@@ -29,11 +29,7 @@ describe('NoteStack', () => {
     render(<NoteStack showAllText="Show all" />);
     expect(screen.getByText('Note 1')).toBeInTheDocument();
     expect(screen.getByText('Note 2')).toBeInTheDocument();
-    const note3 = screen.queryByText('Note 3');
-    expect(note3).toBeInTheDocument();
-    const note3Container = note3?.closest('[aria-hidden="true"]');
-    expect(note3Container).toBeTruthy();
-    expect(note3Container).toHaveAttribute('tabIndex', '-1');
+    expect(screen.queryByText('Note 3')).not.toBeInTheDocument();
   });
 
   it('shows the showAll button when there are collapsed notes', async () => {

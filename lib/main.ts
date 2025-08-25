@@ -74,7 +74,7 @@ export {
   NoteStackContext,
   NoteStackProvider,
   useNoteStack,
-  type NoteStackProps,
+  type NoteStackNote,
 } from './components/Note';
 export { PageNavigation, type PageNavigationProps } from './components/PageNavigation/PageNavigation';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';

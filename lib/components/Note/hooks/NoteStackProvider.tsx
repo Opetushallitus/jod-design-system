@@ -1,16 +1,17 @@
 import React from 'react';
 import { NoteProps } from '../Note';
-import { DEFAULT_MAX_NOTES, NoteStackNote } from '../utils';
+import { DEFAULT_MAX_NOTES, type NewNoteStackItem, type NoteStackNote } from '../utils';
 import { NoteStackContext } from './NoteStackContext';
 
-interface NoteStackProviderProps {
+export interface NoteStackProviderProps {
   children: React.ReactNode;
-  // Maximum number of notes
   maxNotes?: number;
 }
 export const NoteStackProvider = ({ children, maxNotes = DEFAULT_MAX_NOTES }: NoteStackProviderProps) => {
   const [notes, setNotes] = React.useState<NoteStackNote[]>([]);
   const idRef = React.useRef(0);
+  const queueRef = React.useRef<NoteStackNote[]>([]);
+  const processingRef = React.useRef(false);
 
   // Sort function to sort notes by variant. Permanent notes always come first.
   const sortNotes = (a: NoteStackNote, b: NoteStackNote) => {
@@ -18,13 +19,38 @@ export const NoteStackProvider = ({ children, maxNotes = DEFAULT_MAX_NOTES }: No
     return a.permanent ? -1 : order.indexOf(a.variant) - order.indexOf(b.variant);
   };
 
+  // Add notes using a queue system to effectively prevent duplicates
+  const processQueue = React.useCallback(() => {
+    if (processingRef.current === true || queueRef.current.length === 0) {
+      return;
+    }
+    processingRef.current = true;
+
+    while (queueRef.current.length > 0) {
+      const nextNote = queueRef.current.shift();
+      setNotes((prevNotes) => {
+        if (!nextNote?.id || prevNotes.some((n) => n.id === nextNote.id)) {
+          return prevNotes;
+        }
+        return [...prevNotes, nextNote].sort(sortNotes);
+      });
+    }
+
+    processingRef.current = false;
+  }, []);
+
   const addNote = React.useCallback(
-    (note: Omit<NoteStackNote, 'id'>) => {
-      const id = `note-${idRef.current++}`;
-      setNotes((prev) => (notes.length < maxNotes ? [{ ...note, id }, ...prev] : prev).sort(sortNotes));
-      return id;
+    (note: NewNoteStackItem) => {
+      if (notes.length >= maxNotes) {
+        return;
+      }
+      const id = note.id ?? `ds-note-${idRef.current}`;
+      queueRef.current.push({ ...note, id });
+      processQueue();
+
+      idRef.current += 1;
     },
-    [maxNotes, notes.length],
+    [maxNotes, notes.length, processQueue],
   );
 
   const removeNote = React.useCallback(
@@ -41,25 +67,8 @@ export const NoteStackProvider = ({ children, maxNotes = DEFAULT_MAX_NOTES }: No
     setNotes((prev) => prev.map((n) => ({ ...n, collapsed: false })));
   }, []);
 
-  // Collapse all non-permanent notes on scroll
-  const collapseMapper = (collapsed: boolean) => (prev: NoteStackNote[]) =>
-    prev.map((n) => (!n.permanent ? { ...n, collapsed } : n));
-
-  React.useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY === 0) {
-        // If at the top, uncollapse all notes
-        setNotes(collapseMapper(false));
-      } else {
-        setNotes(collapseMapper(true));
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   const memoizedValue = React.useMemo(
-    () => ({ notes, addNote, removeNote, uncollapseAll, maxNotes }),
+    () => ({ notes, setNotes, addNote, removeNote, uncollapseAll, maxNotes }),
     [addNote, maxNotes, notes, removeNote, uncollapseAll],
   );
 
