@@ -14,6 +14,7 @@ export { JodCheckmark } from './JodCheckmark';
 export { JodCheckmarkAlt } from './JodCheckmarkAlt';
 export { JodClose } from './JodClose';
 export { JodComment } from './JodComment';
+export { JodCompass } from './JodCompass';
 export { JodDownload } from './JodDownload';
 export { JodEdit } from './JodEdit';
 export { JodError } from './JodError';
