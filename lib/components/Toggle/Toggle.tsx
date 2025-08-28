@@ -7,10 +7,12 @@ export interface ToggleProps {
   disabled?: boolean;
   serviceVariant: ServiceVariant;
   onChange: (newValue: boolean) => void;
+  type?: 'button' | 'submit' | 'reset';
 }
-export const Toggle = ({ onChange, checked, disabled, ariaLabel, serviceVariant = 'yksilo' }: ToggleProps) => {
+export const Toggle = ({ onChange, checked, disabled, ariaLabel, serviceVariant = 'yksilo', type }: ToggleProps) => {
   return (
     <button
+      type={type}
       onClick={() => !disabled && onChange(!checked)}
       disabled={disabled}
       aria-label={ariaLabel}
