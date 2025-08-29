@@ -63,12 +63,12 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
 
   const labelText = requiredText ? `${label} (${requiredText})` : label;
   return (
-    <>
+    <div className="ds:w-full">
       <label
         htmlFor={inputId}
         className={tc([
-          hideLabel ? 'ds:hidden' : '',
-          'ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
+          hideLabel ? 'ds:hidden' : 'ds:inline-block',
+          'ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
         ])}
       >
         {labelText}
@@ -97,6 +97,6 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           {help}
         </div>
       )}
-    </>
+    </div>
   );
 });
