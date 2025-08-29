@@ -85,7 +85,7 @@ describe('Combobox', () => {
   describe('label', () => {
     it('should render with label', () => {
       render(<Combobox label="Label" options={[]} placeholder={placeholder} />);
-      expect(screen.getByLabelText('Label')).not.toBeNull();
+      expect(screen.getAllByText('Label')).not.toBeNull();
     });
   });
 

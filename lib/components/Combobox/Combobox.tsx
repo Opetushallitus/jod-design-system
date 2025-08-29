@@ -7,6 +7,7 @@ import {
 } from '@headlessui/react';
 import React from 'react';
 import { JodCaretDown, JodCaretUp } from '../../icons';
+import { tidyClasses as tc } from '../../utils';
 
 export interface ComboboxOptionsData<T extends string = string> {
   value: T;
@@ -30,6 +31,8 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   disabled?: boolean;
   /** Placeholder text */
   placeholder: string;
+  /** Classname to wrapper **/
+  className?: string;
 }
 
 export const Combobox = <
@@ -44,8 +47,9 @@ export const Combobox = <
   placeholder,
   selected,
   disabled = false,
+  className = '',
 }: ComboboxProps<T, U>) => {
-  const labelId = React.useId();
+  const inputId = React.useId();
 
   const [query, setQuery] = React.useState('');
   const filteredOptions =
@@ -56,9 +60,9 @@ export const Combobox = <
         });
 
   return (
-    <div className="ds:flex ds:flex-col ds:relative">
+    <div className={tc(['ds:flex ds:flex-col ds:relative', className])}>
       {!hideLabel && (
-        <label htmlFor={labelId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
+        <label htmlFor={inputId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
           {label}
         </label>
       )}
@@ -72,7 +76,7 @@ export const Combobox = <
           {({ open }) => (
             <div className="ds:flex ds:flex-row ds:w-full">
               <ComboboxInput
-                id={labelId}
+                id={inputId}
                 aria-label={hideLabel ? label : undefined}
                 displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
                 className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
@@ -80,6 +84,7 @@ export const Combobox = <
                 placeholder={`(${placeholder})`}
               />
               <ComboboxButton
+                aria-label={label}
                 className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
               >
