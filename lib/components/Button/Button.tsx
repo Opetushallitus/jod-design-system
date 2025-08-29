@@ -19,7 +19,7 @@ export interface ButtonProps {
   /** Size of the button */
   size?: 'sm' | 'lg';
   /** Button variant (primary = accent, secondary = white, tertiary = plain) */
-  variant?: 'white' | 'red-delete' | 'white-delete' | 'accent' | 'plain';
+  variant?: 'white' | 'red-delete' | 'white-delete' | 'accent' | 'plain' | 'gray';
   /** Service variant */
   serviceVariant?: ServiceVariant;
   /** Button disabled for any actions */
@@ -74,6 +74,10 @@ const getVariantClassName = (
       [`ds:bg-white ds:text-black ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
         variant === 'white' && !disabled,
 
+      // Gray
+      [`ds:bg-bg-gray ds:text-black ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
+        variant === 'gray' && !disabled,
+
       // Plain
       [`${textColor} ${hoverColor} ${focusColor} ${activeTextColor}`]: variant === 'plain' && !disabled,
       [`ds:text-inactive-gray`]: variant === 'plain' && disabled,
@@ -90,6 +94,7 @@ const getVariantClassName = (
         variant && ['red-delete', 'white', 'white-delete'].includes(variant) && disabled,
       [`ds:bg-inactive-gray ds:text-secondary-5-light-3`]:
         variant && ['accent', 'red-delete'].includes(variant) && disabled,
+      [`ds:bg-bg-gray ds:text-secondary-gray`]: variant === 'gray' && disabled,
     },
   );
 };
@@ -150,7 +155,7 @@ export const Button = ({
 
   const spanClassName = cx({
     'ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline': !disabled,
-    'ds:py-2': size === 'sm',
+    'ds:py-3 ds:h-7': size === 'sm',
     'ds:py-4': size === 'lg' && variant !== 'plain',
   });
 

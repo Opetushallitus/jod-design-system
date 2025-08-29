@@ -50,7 +50,7 @@ exports[`Button > renders the button with the correct size 1`] = `
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-2"
+    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-3 ds:h-7"
   >
     Click me
   </span>
