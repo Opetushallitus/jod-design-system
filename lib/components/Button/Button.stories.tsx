@@ -64,6 +64,11 @@ export const AllVariants: Story = {
         cmp: <Button {...args} variant="white-delete" size="sm" />,
         cmpDisabled: <Button {...args} variant="white-delete" size="sm" disabled />,
       },
+      {
+        label: 'Gray',
+        cmp: <Button {...args} variant="gray" size="sm" />,
+        cmpDisabled: <Button {...args} variant="gray" size="sm" disabled />,
+      },
     ];
 
     const lgButtons = [
@@ -91,6 +96,11 @@ export const AllVariants: Story = {
         label: 'White Delete (danger secondary)',
         cmp: <Button {...args} variant="white-delete" size="lg" />,
         cmpDisabled: <Button {...args} variant="white-delete" size="lg" disabled />,
+      },
+      {
+        label: 'Gray',
+        cmp: <Button {...args} variant="gray" size="sm" />,
+        cmpDisabled: <Button {...args} variant="gray" size="sm" disabled />,
       },
     ];
 
@@ -148,6 +158,22 @@ export const White: Story = {
     label: 'Muokkaa',
     onClick: fn(),
     variant: 'white',
+  },
+};
+
+export const Gray: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'This is a gray button component for triggering an action.',
+      },
+    },
+  },
+  args: {
+    label: 'Muokkaa',
+    onClick: fn(),
+    variant: 'gray',
   },
 };
 
