@@ -2,84 +2,100 @@
 
 exports[`InputField > renders help text correctly 1`] = `
 <div>
-  <label
-    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«r4»"
-  >
-    Username
-  </label>
-  <input
-    aria-describedby="«r5»"
-    aria-required="false"
-    autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id="«r4»"
-    type="text"
-    value="john"
-  />
   <div
-    class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
-    id="«r5»"
+    class="ds:w-full"
   >
-    Please enter your username
+    <label
+      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      for="«r4»"
+    >
+      Username
+    </label>
+    <input
+      aria-describedby="«r5»"
+      aria-required="false"
+      autocomplete="off"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      id="«r4»"
+      type="text"
+      value="john"
+    />
+    <div
+      class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
+      id="«r5»"
+    >
+      Please enter your username
+    </div>
   </div>
 </div>
 `;
 
 exports[`InputField > renders input correctly 1`] = `
 <div>
-  <label
-    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«r2»"
+  <div
+    class="ds:w-full"
   >
-    Username
-  </label>
-  <input
-    aria-required="false"
-    autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id="«r2»"
-    placeholder="Enter your username"
-    type="text"
-    value="john"
-  />
+    <label
+      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      for="«r2»"
+    >
+      Username
+    </label>
+    <input
+      aria-required="false"
+      autocomplete="off"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      id="«r2»"
+      placeholder="Enter your username"
+      type="text"
+      value="john"
+    />
+  </div>
 </div>
 `;
 
 exports[`InputField > renders label correctly 1`] = `
 <div>
-  <label
-    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«r0»"
+  <div
+    class="ds:w-full"
   >
-    Username
-  </label>
-  <input
-    aria-required="false"
-    autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id="«r0»"
-    type="text"
-    value="john"
-  />
+    <label
+      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      for="«r0»"
+    >
+      Username
+    </label>
+    <input
+      aria-required="false"
+      autocomplete="off"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      id="«r0»"
+      type="text"
+      value="john"
+    />
+  </div>
 </div>
 `;
 
 exports[`InputField > updates input value correctly 1`] = `
 <div>
-  <label
-    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«r6»"
+  <div
+    class="ds:w-full"
   >
-    Username
-  </label>
-  <input
-    aria-required="false"
-    autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
-    id="«r6»"
-    type="text"
-    value="test value"
-  />
+    <label
+      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      for="«r6»"
+    >
+      Username
+    </label>
+    <input
+      aria-required="false"
+      autocomplete="off"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      id="«r6»"
+      type="text"
+      value="test value"
+    />
+  </div>
 </div>
 `;
