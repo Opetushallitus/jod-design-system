@@ -77,15 +77,16 @@ export const Modal = ({
                 'ds:max-w-[1092px]',
                 'ds:grid-cols-1',
                 'ds:gap-6',
-                'ds:my-6',
+                'ds:sm:my-8',
+                'ds:my-5',
                 'ds:sm:grid-cols-3',
-                'ds:pl-5',
-                'ds:md:pl-9',
+                'ds:px-3',
+                'ds:md:px-9',
                 'ds:relative',
               ])}
             >
               {/* Main content */}
-              {progress && <div className="ds:absolute ds:top-0 ds:right-5">{progress}</div>}
+              {progress && <div className="ds:absolute ds:top-0 ds:right-5 ds:md:right-9">{progress}</div>}
               <div
                 className={tc([
                   heightClasses,
@@ -93,20 +94,23 @@ export const Modal = ({
                   'ds:flex',
                   'ds:flex-col',
                   'ds:gap-y-6',
-                  'ds:pr-5',
+                  'ds:pr-0 sm:ds:pr-5',
                   sidePanel || !fullWidthContent
                     ? 'ds:sm:col-span-2'
-                    : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-9',
-                  progress && !sm ? 'ds:mt-6 ds:sm:mt-8' : '',
+                    : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-0',
+                  progress && !sm ? 'ds:mt-7 ds:sm:mt-8' : '',
                   'ds:sm:pr-0',
+                  sidePanel && progress ? 'ds:sm:mt-8' : '',
                 ])}
               >
-                <div className={`ds:overflow-y-auto ds:p-3 ${progress ? 'ds:sm:mt-10 ds:mt-8' : ''}`}>{content}</div>
+                <div className={`ds:overflow-y-auto ds:p-0 ds:px-3 sm:ds:p-3 ${progress ? 'ds:sm:mt-0 ds:mt-5' : ''}`}>
+                  {content}
+                </div>
               </div>
               {/* Side panel */}
               {sm && sidePanel && !fullWidthContent && (
                 <div className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}>
-                  <div className={`ds:mr-5 ds:sm:mr-9 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}>
+                  <div className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}>
                     {sidePanel}
                   </div>
                 </div>
