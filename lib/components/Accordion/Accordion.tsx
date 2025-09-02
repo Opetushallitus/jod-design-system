@@ -6,6 +6,7 @@ import { Spinner } from '../Spinner/Spinner';
 type TitleProps =
   | {
       title: React.ReactNode;
+      /** If the title is a component, titleText should be provided for a11y */
       titleText: string;
     }
   | {
@@ -14,13 +15,25 @@ type TitleProps =
     };
 
 type AccordionProps = {
+  /** Accordion title, can be a component or a string */
   title: React.ReactNode | string;
+  /** Accordion contents */
   children: React.ReactNode;
+  /** Language code for the accordion */
   lang: string;
+  /** Show underline on the title */
   underline?: boolean;
+  /** The initial open state of the accordion */
   initialState?: boolean;
-  // Optional function to fetch data when the accordion is opened. A loading spinner will be shown while fetching.
+  /** The position of the caret icon */
+  caretPosition?: 'top' | 'center';
+  /** Is the accordion open (controlled mode) */
+  isOpen?: boolean;
+  /** Function to update the open state (controlled mode) */
+  setIsOpen?: (isOpen: boolean) => void;
+  /** Async function to fetch data when the accordion is opened. A loading spinner will be shown while fetching. */
   fetchData?: () => Promise<void>;
+  /** Test id for querying in tests */
   dataTestId?: string;
 } & TitleProps;
 
@@ -34,17 +47,22 @@ export const Accordion = ({
   title,
   titleText,
   children,
+  caretPosition = 'center',
   lang,
   underline,
   initialState = true,
   fetchData,
   dataTestId,
+  isOpen: controlledIsOpen,
+  setIsOpen: controlledSetIsOpen,
 }: AccordionProps) => {
-  const [isOpen, setIsOpen] = React.useState(initialState);
-
+  const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = isControlled && controlledSetIsOpen ? controlledSetIsOpen : setInternalIsOpen;
   const isTitleValidElement = React.isValidElement(title);
   const wrapperClassnames = cx(
-    'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent!',
+    'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group',
     {
       'ds:border-b ds:border-border-gray': underline,
       'ds:mb-2': isOpen,
@@ -54,28 +72,30 @@ export const Accordion = ({
   // Reset the state when the children change
   React.useEffect(() => {
     // If fetchData is provided, the accordion will not open on the first try
-    if (!fetchData) {
-      setIsOpen(initialState);
+    if (!isControlled && !fetchData) {
+      setInternalIsOpen(initialState);
     }
-  }, [children, fetchData, initialState]);
+  }, [children, fetchData, initialState, isControlled]);
 
-  const [loading, setLoading] = React.useState(false);
-  const [dataFetched, setDataFetched] = React.useState(false);
+  const [fetchStatus, setFetchStatus] = React.useState<'idle' | 'loading' | 'done'>('idle');
 
   const toggleOpen = React.useCallback(async () => {
-    if (loading) {
+    if (fetchStatus === 'loading') {
       return;
     }
 
-    if (fetchData && !dataFetched && !isOpen) {
-      setLoading(true);
-      await fetchData();
-      setLoading(false);
-      setDataFetched(true);
+    if (fetchData && fetchStatus === 'idle' && !isOpen) {
+      try {
+        setFetchStatus('loading');
+        await fetchData();
+        setFetchStatus('done');
+      } catch {
+        setFetchStatus('idle');
+      }
     }
 
     setIsOpen(!isOpen);
-  }, [dataFetched, isOpen, fetchData, loading]);
+  }, [fetchData, fetchStatus, isOpen, setIsOpen]);
 
   return (
     <>
@@ -86,10 +106,11 @@ export const Accordion = ({
             aria-label={titleText}
             aria-expanded={isOpen}
             onClick={() => void toggleOpen()}
+            style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}
             className="ds:cursor-pointer ds:flex"
             data-testid={dataTestId}
           >
-            {loading ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
+            {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </button>
         </div>
       ) : (
@@ -106,12 +127,11 @@ export const Accordion = ({
             >
               {title}
             </span>
-            {loading ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
+            {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </button>
         </div>
       )}
-      {fetchData && dataFetched && isOpen && children}
-      {!fetchData && isOpen && children}
+      {isOpen && (!fetchData || fetchStatus === 'done') && children}
     </>
   );
 };

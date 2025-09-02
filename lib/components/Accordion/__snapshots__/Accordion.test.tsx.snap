@@ -6,7 +6,7 @@ exports[`Accordion > renders accordion with open state by default 1`] = `
 >
   <button
     aria-expanded="true"
-    class="ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:mb-2"
+    class="ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group ds:mb-2"
   >
     <span
       class="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline"
