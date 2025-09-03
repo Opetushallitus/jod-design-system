@@ -86,6 +86,7 @@ export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
 export { RoundButton } from './components/RoundButton/RoundButton';
 export { RoundLinkButton } from './components/RoundLinkButton/RoundLinkButton';
+export { Select } from './components/Select/Select';
 export { SelectionCard } from './components/SelectionCard/SelectionCard';
 export { SkipLink } from './components/SkipLink/SkipLink';
 export { Slider } from './components/Slider/Slider';
