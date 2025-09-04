@@ -8,8 +8,10 @@ export const TooltipTrigger = React.forwardRef<
     asChild?: boolean;
     children: React.ReactNode | { ref: React.ForwardedRef<HTMLElement> };
     dataTestId?: string;
+    ariaLabel?: string;
+    open?: boolean;
   }
->(function TooltipTrigger({ children, asChild = false, ...props }, propRef) {
+>(function TooltipTrigger({ children, open, asChild = false, ariaLabel, ...props }, propRef) {
   const context = useTooltipContext();
   const childrenRef = (
     children as {
@@ -31,7 +33,14 @@ export const TooltipTrigger = React.forwardRef<
   }
 
   return (
-    <button ref={ref} {...context.getReferenceProps(rest)} data-testid={dataTestId} className="ds:cursor-pointer">
+    <button
+      aria-label={ariaLabel}
+      ref={ref}
+      {...context.getReferenceProps(rest)}
+      data-testid={dataTestId}
+      className="ds:cursor-pointer"
+      aria-expanded={open}
+    >
       {children}
     </button>
   );

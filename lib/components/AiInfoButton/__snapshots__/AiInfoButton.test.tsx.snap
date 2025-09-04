@@ -3,15 +3,17 @@
 exports[`AiInfoButton > renders the button with tooltip 1`] = `
 <button
   aria-describedby="«r0»"
+  aria-expanded="true"
   aria-label="Info button"
   class="ds:cursor-pointer"
   data-testid="aiinfo"
 >
   <div
-    class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"
+    class="ds:relative ds:rounded-full ds:bg-secondary-gray"
     style="width: 24px; height: 24px;"
   >
     <span
+      aria-hidden="true"
       class="ds:absolute ds:top-0 ds:left-0 ds:flex ds:items-center ds:justify-center ds:w-full ds:h-full"
     >
       <svg
@@ -39,10 +41,11 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
 
 exports[`AiInfoButton > renders the icon only 1`] = `
 <div
-  class="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"
+  class="ds:relative ds:rounded-full ds:bg-secondary-gray"
   style="width: 24px; height: 24px;"
 >
   <span
+    aria-hidden="true"
     class="ds:absolute ds:top-0 ds:left-0 ds:flex ds:items-center ds:justify-center ds:w-full ds:h-full"
   >
     <svg

@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react-vite';
+import { JodOpenInNew } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { AiInfoButton } from './AiInfoButton';
 
@@ -16,7 +17,7 @@ export const Default: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=10595-33227',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=15832-149139',
     },
     docs: {
       description: {
@@ -44,5 +45,36 @@ export const WithoutTooltip: Story = {
   },
   args: {
     size: 24,
+    ariaLabel: 'AI generated content',
+  },
+};
+
+export const WithComponent: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=10595-33227',
+    },
+    docs: {
+      description: {
+        story: 'This is a info button with more complex component as content.',
+      },
+    },
+  },
+  args: {
+    size: 24,
+    ariaLabel: 'Tekoälyn avulla generoitu sisältö',
+    tooltipContent: (
+      <div className="ds:max-w-[275px] ds:text-body-xs">
+        <p className="ds:font-bold ds:mb-2">{'Tekoälyn avulla generoitu sisältö'}</p>
+        <p>
+          {'Olemme käyttäneet tämän sisällön luomisessa hyödyksi kielimallia. Lisää tietoa voit lukea'}{' '}
+          <a href="#" className="ds:underline">
+            {'Tekoälyä ja Osaamispolku -sivulta'}
+            <JodOpenInNew className="ds:inline-block" />
+          </a>
+        </p>
+      </div>
+    ),
   },
 };
