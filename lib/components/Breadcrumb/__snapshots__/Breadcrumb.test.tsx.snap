@@ -3,16 +3,16 @@
 exports[`Breadcrumb > renders all breadcrumb items 1`] = `
 <nav
   aria-label="Breadcrumb"
-  class="ds:text-accent ds:text-[12px] ds:font-bold ds:col-span-3 ds:mb-3 ds:print:hidden ds:text-secondary-1-dark"
+  class="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:col-span-3 ds:h-5 ds:print:hidden ds:content-center"
 >
   <ol
     class="ds:flex ds:flex-wrap ds:gap-y-2"
   >
     <li
-      class="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
+      class="ds:flex ds:items-center"
     >
       <span
-        class="ds:underline"
+        class="ds:hover:underline"
       >
         <a
           href="/"
@@ -22,10 +22,16 @@ exports[`Breadcrumb > renders all breadcrumb items 1`] = `
       </span>
     </li>
     <li
-      class="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
+      class="ds:flex ds:items-center"
     >
       <span
-        class="ds:underline"
+        aria-hidden="true"
+        class="ds:mx-2 ds:text-secondary-5"
+      >
+        /
+      </span>
+      <span
+        class="ds:hover:underline"
       >
         <a
           href="/osaamispolkuni"
@@ -35,11 +41,17 @@ exports[`Breadcrumb > renders all breadcrumb items 1`] = `
       </span>
     </li>
     <li
-      class="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
+      class="ds:flex ds:items-center"
     >
       <span
+        aria-hidden="true"
+        class="ds:mx-2 ds:text-secondary-5"
+      >
+        /
+      </span>
+      <span
         aria-current="location"
-        class="ds:text-black"
+        class="ds:text-secondary-1-dark"
       >
         Työpaikkani
       </span>
