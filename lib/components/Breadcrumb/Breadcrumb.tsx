@@ -26,7 +26,7 @@ export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant, da
   return (
     <nav
       aria-label={ariaLabel}
-      className={`ds:text-accent ds:text-[12px] ds:font-bold ds:col-span-3 ds:mb-3 ds:print:hidden ${textColorClass}`}
+      className="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:col-span-3 ds:h-5 ds:print:hidden ds:content-center"
       data-testid={dataTestId}
     >
       <ol className="ds:flex ds:flex-wrap ds:gap-y-2">
@@ -34,16 +34,18 @@ export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant, da
           const isLast = idx === items.length - 1;
 
           return (
-            <li
-              key={item.id ?? item.to ?? item.label}
-              className="ds:not-first:before:content-['/'] ds:before:mx-2 ds:before:text-secondary-5"
-            >
+            <li key={item.id ?? item.to ?? item.label} className="ds:flex ds:items-center">
+              {idx > 0 && (
+                <span aria-hidden="true" className="ds:mx-2 ds:text-secondary-5">
+                  {'/'}
+                </span>
+              )}
               {item.to && !isLast ? (
-                <span className="ds:underline">
+                <span className="ds:hover:underline">
                   <LinkComponent to={item.to}>{item.label}</LinkComponent>
                 </span>
               ) : (
-                <span className="ds:text-black" aria-current="location">
+                <span className={textColorClass} aria-current="location">
                   {item.label}
                 </span>
               )}
