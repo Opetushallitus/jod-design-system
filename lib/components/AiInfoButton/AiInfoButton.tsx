@@ -10,12 +10,16 @@ interface AiInfoButtonProps {
   dataTestId?: string;
 }
 
-const IconAi = ({ size }: Pick<AiInfoButtonProps, 'size'>) => (
+const IconAi = ({ size, ariaLabel }: Pick<AiInfoButtonProps, 'size' | 'ariaLabel'>) => (
   <div
-    className="ds:relative ds:rounded-full ds:bg-gradient-to-b ds:from-secondary-4-dark ds:to-[#5359A6]"
+    className="ds:relative ds:rounded-full ds:bg-secondary-gray"
     style={{ width: size, height: size }}
+    aria-label={ariaLabel}
   >
-    <span className="ds:absolute ds:top-0 ds:left-0 ds:flex ds:items-center ds:justify-center ds:w-full ds:h-full">
+    <span
+      className="ds:absolute ds:top-0 ds:left-0 ds:flex ds:items-center ds:justify-center ds:w-full ds:h-full"
+      aria-hidden={!ariaLabel}
+    >
       <svg width="80%" height="80%" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
           <path
@@ -37,17 +41,17 @@ export const AiInfoButton = ({ size = 24, tooltipContent, ariaLabel, dataTestId 
 
   return tooltipContent ? (
     <Tooltip open={open} onOpenChange={setOpen} placement="bottom-end">
-      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} dataTestId={dataTestId}>
+      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} dataTestId={dataTestId} open={open}>
         <IconAi size={size} />
       </TooltipTrigger>
       <TooltipContent
-        className="ds:text-white ds:p-6 ds:rounded-xl ds:bg-gradient-to-b ds:from-secondary-4-dark ds:via-[#5359A6] ds:to-[#016DB3]"
-        arrowClassName="ds:fill-secondary-4-dark"
+        className="ds:text-white ds:p-4 ds:rounded-xl ds:bg-primary-gray ds:font-arial"
+        arrowClassName="ds:fill-primary-gray"
       >
         {tooltipContent}
       </TooltipContent>
     </Tooltip>
   ) : (
-    <IconAi size={size} />
+    <IconAi size={size} ariaLabel={ariaLabel} />
   );
 };
