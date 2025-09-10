@@ -19,7 +19,6 @@ import {
 } from '@floating-ui/react';
 import { cx } from 'cva';
 import React from 'react';
-import { tidyClasses as tc } from '../../utils';
 
 const ARROW_HEIGHT = 12;
 const GAP = 8;
@@ -37,6 +36,7 @@ export interface SliderProps {
   value: number;
   /** Disabled state */
   disabled?: boolean;
+  /** Data-testid attribute */
   dataTestId?: string;
 }
 
@@ -105,7 +105,7 @@ export const Slider = ({
       <ArkSlider.Root
         id={inputId}
         name={`slider-${inputId}`}
-        className={tc([rightLabel ? '' : 'ds:mr-6', 'ds:flex ds:flex-row ds:justify-between ds:w-full'])}
+        className="ds:flex ds:flex-col ds:w-full ds:gap-3"
         onValueChange={onValueChangeHandler}
         onFocusChange={onFocusChangeHandler}
         value={[value]}
@@ -114,41 +114,33 @@ export const Slider = ({
         aria-label={rightLabel ? [label, rightLabel] : [label]}
         data-testid={dataTestId}
       >
-        {!hideLabels && (
-          <ArkSlider.Label
-            className="ds:ml-6 ds:mr-5 ds:flex ds:items-center ds:text-body-xs"
-            data-testid={dataTestId ? `${dataTestId}-label` : undefined}
-          >
-            {label}
-          </ArkSlider.Label>
-        )}
         <div className="ds:content-center ds:w-full">
-          <ArkSlider.MarkerGroup
-            className={cx('ds:z-10 ds:w-full', {
-              'ds:text-[#71A9CB]': !disabled,
-              'ds:text-inactive-gray': disabled,
-            })}
-          >
-            <ArkSlider.Marker value={0}>
-              <Marker />
-            </ArkSlider.Marker>
-            <ArkSlider.Marker value={25}>
-              <Marker />
-            </ArkSlider.Marker>
-            <ArkSlider.Marker value={50}>
-              <Marker />
-            </ArkSlider.Marker>
-            <ArkSlider.Marker value={75}>
-              <Marker />
-            </ArkSlider.Marker>
-            <ArkSlider.Marker value={100}>
-              <Marker />
-            </ArkSlider.Marker>
-          </ArkSlider.MarkerGroup>
           <ArkSlider.Control className="ds:flex ds:grow ds:w-full">
-            <ArkSlider.Track className="ds:flex ds:h-[5px] ds:grow ds:bg-white ds:rounded-sm">
+            <ArkSlider.Track className="ds:flex ds:h-[10px] ds:grow ds:bg-white ds:rounded-sm">
+              <ArkSlider.MarkerGroup
+                className={cx('ds:z-10 ds:w-full ds:flex ds:items-center ds:mx-2', {
+                  'ds:text-[#71A9CB]': !disabled,
+                  'ds:text-inactive-gray': disabled,
+                })}
+              >
+                <ArkSlider.Marker value={0}>
+                  <Marker />
+                </ArkSlider.Marker>
+                <ArkSlider.Marker value={25}>
+                  <Marker />
+                </ArkSlider.Marker>
+                <ArkSlider.Marker value={50}>
+                  <Marker />
+                </ArkSlider.Marker>
+                <ArkSlider.Marker value={75}>
+                  <Marker />
+                </ArkSlider.Marker>
+                <ArkSlider.Marker value={100}>
+                  <Marker />
+                </ArkSlider.Marker>
+              </ArkSlider.MarkerGroup>
               <ArkSlider.Range
-                className={cx('ds:h-[5px] ds:rounded-md', {
+                className={cx('ds:h-[10px] ds:rounded-md', {
                   'ds:bg-accent': !disabled,
                   'ds:bg-inactive-gray': disabled,
                 })}
@@ -159,25 +151,32 @@ export const Slider = ({
               {...getReferenceProps()}
               aria-label={rightLabel ? `${label} - ${rightLabel}` : label}
               index={0}
-              className={cx(
-                'ds:absolute ds:-top-[6px] ds:flex ds:size-[17px] ds:justify-center ds:rounded-full ds:z-20',
-                {
-                  'ds:bg-accent': !disabled,
-                  'ds:bg-inactive-gray': disabled,
-                },
-              )}
+              className={cx('ds:absolute ds:-top-4 ds:flex ds:size-7 ds:justify-center ds:rounded-full ds:z-20', {
+                'ds:bg-accent': !disabled,
+                'ds:bg-inactive-gray': disabled,
+              })}
               data-testid={dataTestId ? `${dataTestId}-thumb` : undefined}
             />
           </ArkSlider.Control>
         </div>
-        {!hideLabels && rightLabel && (
-          <ArkSlider.Label
-            className="ds:ml-5 ds:mr-6 ds:flex ds:items-center ds:text-body-xs"
-            data-testid={dataTestId ? `${dataTestId}-rightLabel` : undefined}
-          >
-            {rightLabel}
-          </ArkSlider.Label>
-        )}
+        <div className="ds:flex ds:justify-between ">
+          {!hideLabels && (
+            <ArkSlider.Label
+              className="ds:flex ds:items-center ds:text-menu"
+              data-testid={dataTestId ? `${dataTestId}-label` : undefined}
+            >
+              {label}
+            </ArkSlider.Label>
+          )}
+          {!hideLabels && rightLabel && (
+            <ArkSlider.Label
+              className="ds:flex ds:items-center ds:text-menu"
+              data-testid={dataTestId ? `${dataTestId}-rightLabel` : undefined}
+            >
+              {rightLabel}
+            </ArkSlider.Label>
+          )}
+        </div>
       </ArkSlider.Root>
       {focused && (
         <div

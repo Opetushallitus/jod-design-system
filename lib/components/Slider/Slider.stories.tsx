@@ -105,7 +105,7 @@ export const HiddenLabels: Story = {
   },
   args: {
     label: 'Hidden',
-    rightLabel: 'Also hiiden!',
+    rightLabel: 'Also hidden!',
     hideLabels: true,
     onValueChange: fn(),
     value: 50,
