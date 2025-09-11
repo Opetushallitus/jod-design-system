@@ -15,7 +15,7 @@ import React from 'react';
 import { TooltipOptions } from './Tooltip';
 import { TooltipContext } from './TooltipContext';
 
-export const ARROW_HEIGHT = 12;
+export const ARROW_HEIGHT = 8;
 export const GAP = 0;
 const BORDER_RADIUS_OFFSET = 18;
 

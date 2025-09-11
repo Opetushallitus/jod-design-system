@@ -1,5 +1,6 @@
 import { FloatingArrow, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import React from 'react';
+import { tidyClasses } from '../../utils';
 import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
 type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
@@ -20,7 +21,16 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
     return (
       <FloatingPortal>
         <div
-          className="ds:max-w-[292px] ds:rounded ds:bg-black ds:px-6 ds:py-5 ds:text-body-sm ds:font-arial ds:text-white ds:sm:text-body-md"
+          className={tidyClasses([
+            'ds:max-w-[280px]',
+            'ds:sm:max-w-[320px]',
+            'ds:rounded',
+            'ds:p-4',
+            'ds:bg-primary-gray',
+            'ds:text-body-xs',
+            'ds:font-arial',
+            'ds:text-white',
+          ])}
           ref={ref}
           style={{
             ...tooltipContext.floatingStyles,
@@ -32,7 +42,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           <FloatingArrow
             ref={tooltipContext.arrowRef}
             context={tooltipContext.context}
-            className={props.arrowClassName ?? 'ds:fill-black'}
+            className={props.arrowClassName ?? 'ds:fill-primary-gray'}
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
             data-testid={dataTestId ? `${dataTestId}-arrow` : undefined}
