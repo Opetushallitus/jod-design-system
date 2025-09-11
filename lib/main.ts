@@ -83,6 +83,7 @@ export { PopupList, PopupListItem } from './components/PopupList/PopupList';
 export { ProgressIndicatorCard } from './components/ProgressIndicatorCard/ProgressIndicatorCard';
 export { RadioButton } from './components/RadioButton/RadioButton';
 export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
+export { RangeSlider, type RangeSliderProps, type RangeSliderValue } from './components/RangeSlider/RangeSlider';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
 export { RoundButton } from './components/RoundButton/RoundButton';
 export { RoundLinkButton } from './components/RoundLinkButton/RoundLinkButton';
