@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 const parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=542-8065',
+    url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=15899-157704',
   },
 };
 
@@ -49,7 +49,7 @@ const FocusOrHoverStoryRender = (props: TooltipProps) => {
       <span className="ds:text-form-label">Important label</span>
       <Tooltip {...props}>
         <TooltipTrigger>
-          <JodInfo size={24} />
+          <JodInfo />
         </TooltipTrigger>
         <TooltipContent>This is a very informative Tooltip for an important label</TooltipContent>
       </Tooltip>
@@ -77,9 +77,16 @@ const ButtonAsTriggerRender = (props: TooltipProps) => {
   return (
     <Tooltip {...props} open={open} onOpenChange={setOpen}>
       <TooltipTrigger asChild>
-        <Button variant="white" label="Show Tooltip" onClick={() => setOpen((v) => !v)} />
+        <Button variant="accent" label="Show Tooltip" onClick={() => setOpen((v) => !v)} />
       </TooltipTrigger>
-      <TooltipContent>Lorem ipsum dolor sit amet, no vis verear commodo.</TooltipContent>
+      <TooltipContent>
+        <div className="ds:font-bold ds:text-body-xs ds:mb-2">Tooltip Title</div>
+        <div className="ds:text-body-xs">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </TooltipContent>
     </Tooltip>
   );
 };
