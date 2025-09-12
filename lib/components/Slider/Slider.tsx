@@ -19,6 +19,7 @@ import {
 } from '@floating-ui/react';
 import { cx } from 'cva';
 import React from 'react';
+import { JodCircle } from '../../icons';
 
 const ARROW_HEIGHT = 12;
 const GAP = 8;
@@ -40,11 +41,7 @@ export interface SliderProps {
   dataTestId?: string;
 }
 
-const Marker = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 5" width={5} height={5}>
-    <circle cx="2.5" cy="2.5" r="1.5" fill="currentColor" />
-  </svg>
-);
+const Marker = () => <JodCircle size={6} className="ds:text-inactive-gray" />;
 
 /** Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable. */
 export const Slider = ({
