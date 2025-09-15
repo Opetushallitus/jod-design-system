@@ -1,6 +1,7 @@
 import React from 'react';
 import { cx } from '../../cva';
 import { JodCaretDown, JodCaretUp } from '../../icons';
+import { tidyClasses } from '../../utils';
 import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
@@ -35,6 +36,8 @@ type AccordionProps = {
   fetchData?: () => Promise<void>;
   /** Test id for querying in tests */
   dataTestId?: string;
+  /**  className for wrapper */
+  className?: string;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -55,6 +58,7 @@ export const Accordion = ({
   dataTestId,
   isOpen: controlledIsOpen,
   setIsOpen: controlledSetIsOpen,
+  className,
 }: AccordionProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
   const isControlled = controlledIsOpen !== undefined;
@@ -98,7 +102,7 @@ export const Accordion = ({
   }, [fetchData, fetchStatus, isOpen, setIsOpen]);
 
   return (
-    <>
+    <div className={tidyClasses(className || '')}>
       {isTitleValidElement ? (
         <div className={wrapperClassnames}>
           {title}
@@ -132,6 +136,6 @@ export const Accordion = ({
         </div>
       )}
       {isOpen && (!fetchData || fetchStatus === 'done') && children}
-    </>
+    </div>
   );
 };
