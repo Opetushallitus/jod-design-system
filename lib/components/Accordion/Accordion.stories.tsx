@@ -105,3 +105,22 @@ export const WithAsync: Story = {
     fetchData: async () => new Promise((resolve) => setTimeout(resolve, 5000)),
   },
 };
+
+export const GrayClosedByDefault: Story = {
+  decorators,
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Accordion that is closed by default and is gray variant',
+      },
+    },
+  },
+  args: {
+    title: 'Title',
+    children: <div className="ds:bg-bg-gray-2 ds:px-5 ds:pb-3">{'Content'}</div>,
+    lang: 'en',
+    initialState: false,
+    className: 'ds:bg-bg-gray-2 ds:p-3',
+  },
+};
