@@ -1,4 +1,5 @@
 export { JodAdd } from './JodAdd';
+export { JodAi } from './JodAi';
 export { JodArrowLeft } from './JodArrowLeft';
 export { JodArrowRight } from './JodArrowRight';
 export { JodArticle } from './JodArticle';
