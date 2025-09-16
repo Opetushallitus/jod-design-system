@@ -1,73 +1,37 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import themeSource from '../theme.css?raw';
+import { getOrderedColorGroups, partitionLeftovers } from './colorTokens';
 
 <Meta title="Colors" />
 
 # Colors
 
-<ColorPalette>
-  <ColorItem title="Accent" subtitle="accent" colors={['#006db3', '#4091c6', '#80b6d9', '#bfdbec']} />
-  <ColorItem title="Item indication" subtitle="secondary-1" colors={['#339ddf', '#66b5e7', '#99ceef', '#c2e2f5']} />
-  <ColorItem
-    title="Item indication"
-    subtitle="secondary-2"
-    colors={['#00a8b3', '#00a8b3bf', '#00a8b37f', '#00a8b33f']}
-  />
-  <ColorItem
-    title="Item indication"
-    subtitle="secondary-3"
-    colors={['#ee7c45', '#ee7c45bf', '#ee7c457f', '#ee7c453f']}
-  />
-  <ColorItem
-    title="Item indication"
-    subtitle="secondary-4"
-    colors={['#cd4eb3', '#cd4eb3bf', '#cd4eb37f', '#cd4eb33f']}
-  />
-  <ColorItem
-    title="Item indication"
-    subtitle="secondary-5"
-    colors={['#d8d8d8', '#d8d8d8bf', '#d8d8d87f', '#d8d8d83f']}
-  />
-  <ColorItem
-    title="Default background color"
-    subtitle="white"
-    colors={['#ffffff', '#ffffffbf', '#ffffff7f', '#ffffff3f']}
-  />
-  <ColorItem
-    title="Invert background color"
-    subtitle="black"
-    colors={['#000000', '#000000bf', '#0000007f', '#0000003f']}
-  />
-  <ColorItem
-    title="Secondary text"
-    subtitle="secondary-gray"
-    colors={['#6e6e6e', '#6e6e6ebf', '#6e6e6e7f', '#6e6e6e3f']}
-  />
-  <ColorItem title="Text link color" subtitle="link" colors={['#006db3', '#006db3bf', '#006db37f', '#006db33f']} />
-  <ColorItem
-    title="Inactive item"
-    subtitle="inactive-gray"
-    colors={['#a9a9a9', '#a9a9a9bf', '#a9a9a97f', '#a9a9a93f']}
-  />
-  <ColorItem
-    title="Graphics border"
-    subtitle="border-gray"
-    colors={['#cecece', '#cececebf', '#cecece7f', '#cecece3f']}
-  />
-  <ColorItem
-    title="Background color 1"
-    subtitle="bg-gray"
-    colors={['#f0f2f5', '#f0f2f5bf', '#f0f2f57f', '#f0f2f53f']}
-  />
-  <ColorItem
-    title="Background color 2"
-    subtitle="bg-gray-2"
-    colors={['#e4e6ec', '#e4e6ecbf', '#e4e6ec7f', '#e4e6ec3f']}
-  />
-  <ColorItem title="Alert indication" subtitle="alert" colors={['#e3564f', '#e3564fbf', '#e3564f7f', '#e3564f3f']} />
-  <ColorItem title="Alert text" subtitle="alert-text" colors={['#de342b', '#de342bbf', '#de342b7f', '#de342b3f']} />
-  <ColorItem
-    title="Success indication"
-    subtitle="success"
-    colors={['#00c181', '#00c181bf', '#00c1817f', '#00c1813f']}
-  />
-</ColorPalette>
+export const ColorsOverview = () => {
+  const groups = getOrderedColorGroups(themeSource);
+  if (!groups.length) {
+    return <p>No color tokens matched.</p>;
+  }
+
+return (
+
+<>
+  {groups.map(({ group, items }) => {
+    const { scale, light, dark, leftovers } = partitionLeftovers(items);
+    return (
+      <div key={group} style={{ marginBottom: 32 }}>
+        <h3>{group}</h3>
+        <ColorPalette>
+          {scale && <ColorItem title="Scale" colors={scale} />}
+          {light && <ColorItem title="Light" colors={light} />}
+          {dark && <ColorItem title="Dark" colors={dark} />}
+          {leftovers.map((it) => (
+            <ColorItem key={it.name} title={it.name} colors={{ [it.name]: it.value }} />
+          ))}
+        </ColorPalette>
+      </div>
+    );
+  })}
+</>
+); };
+
+<ColorsOverview />
