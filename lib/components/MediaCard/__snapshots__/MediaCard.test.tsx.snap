@@ -2,11 +2,11 @@
 
 exports[`MediaCard > renders the MediaCard component with default vertical variant 1`] = `
 <div
-  class="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
+  class="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[380px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
   data-testid="md"
 >
   <div
-    class="ds:grow "
+    class="ds:flex ds:flex-col ds:grow "
     data-testid="md-link"
   >
     <div
@@ -19,23 +19,25 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
       />
     </div>
     <div
-      class="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap"
+      class="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap ds:gap-3"
     >
-      <div
-        class="ds:gap-3 ds:flex ds:flex-col"
-      >
-        <div
-          class="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2"
+      <div>
+        <p
+          class="ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-3"
           data-testid="md-label"
         >
           Default
-        </div>
-        <div
-          class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3"
+        </p>
+      </div>
+      <div
+        class="ds:flex-grow ds:content-center"
+      >
+        <p
+          class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
           data-testid="md-description"
         >
           Default description
-        </div>
+        </p>
       </div>
     </div>
   </div>
