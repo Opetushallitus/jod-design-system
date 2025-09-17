@@ -180,53 +180,42 @@ const MediaCardVertical = ({
   dataTestId,
 }: MediaCardImplProps & { dataTestId?: string }) => {
   const variantImageClassNames = 'ds:object-cover ds:h-[147px] ds:min-h-[147px]';
-  const labelRef = React.useRef<HTMLDivElement>(null);
-  const SINGLE_LINE_LABEL_HEIGHT = 27;
-  const [lineClampClassNames, setLineClampClassNames] = React.useState('ds:line-clamp-3');
-
-  React.useEffect(() => {
-    const labelHeight = labelRef.current?.clientHeight ?? 0;
-    if (labelHeight > SINGLE_LINE_LABEL_HEIGHT) {
-      setLineClampClassNames('ds:line-clamp-2');
-    } else {
-      setLineClampClassNames('ds:line-clamp-3');
-    }
-  }, [label]);
 
   return (
     <div
-      className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[299px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
+      className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[380px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
       data-testid={dataTestId}
     >
       <LinkOrDiv
         to={to}
         linkComponent={Link}
-        className="ds:grow "
+        className="ds:flex ds:flex-col ds:grow "
         dataTestId={dataTestId ? `${dataTestId}-link` : undefined}
       >
         {imageSrc ? (
           <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
         ) : (
           <span
-            className={`ds:w-full ds:h-full ds:bg-secondary-5 ds:max-w-[265px] ${variantImageClassNames}`}
+            className={`ds:w-full ds:h-full ds:bg-secondary-5 ${variantImageClassNames}`}
             data-testid={dataTestId ? `${dataTestId}-image-placeholder` : undefined}
           ></span>
         )}
-        <div className="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap">
-          <div className="ds:gap-3 ds:flex ds:flex-col">
-            <div
-              className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-2"
-              ref={labelRef}
+        <div className="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap ds:gap-3">
+          <div>
+            <p
+              className="ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-3"
               data-testid={dataTestId ? `${dataTestId}-label` : undefined}
             >
               {label}
-            </div>
-            <div
-              className={`ds:text-body-sm-mobile ds:sm:text-body-sm ${lineClampClassNames}`}
+            </p>
+          </div>
+          <div className="ds:flex-grow ds:content-center">
+            <p
+              className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
               data-testid={dataTestId ? `${dataTestId}-description` : undefined}
             >
               {description}
-            </div>
+            </p>
           </div>
         </div>
       </LinkOrDiv>
@@ -246,10 +235,30 @@ const MediaCardHorizontal = ({
   dataTestId,
 }: MediaCardImplProps & { dataTestId?: string }) => {
   const { sm } = useMediaQueries();
+  const textContainerRef = React.useRef<HTMLDivElement>(null);
+  const childrenContainerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (!textContainerRef.current || !childrenContainerRef.current) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target.isSameNode(childrenContainerRef.current) && textContainerRef.current) {
+          textContainerRef.current.style.paddingBottom = `${entry.target.clientHeight}px`;
+        }
+      }
+    });
+
+    resizeObserver.observe(childrenContainerRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   return (
     <div
-      className="ds:relative ds:min-h-[183px] ds:sm:min-h-[156px] ds:lg:min-h-[137px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:sm:grid-cols-[193px_1fr] ds:lg:grid-cols-[255px_1fr] ds:grid-rows-[1fr_auto]"
+      className="ds:relative ds:sm:min-h-[143px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:grid-rows-[1fr_auto] ds:sm:grid-cols-[255px_1fr]"
       data-testid={dataTestId}
     >
       <LinkOrDiv
@@ -262,38 +271,46 @@ const MediaCardHorizontal = ({
           {imageSrc ? (
             sm && (
               <LazyImage
-                className="ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
+                className="ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
                 src={imageSrc}
                 alt={imageAlt}
               />
             )
           ) : (
             <div
-              className={`ds:sm:w-[193px] ds:lg:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}
+              className={`ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}
               data-testid={dataTestId ? `${dataTestId}-image-placeholder` : undefined}
             ></div>
           )}
         </div>
-        <div className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:flex-nowrap">
-          <div className="ds:gap-3 ds:flex ds:flex-col">
-            <div
-              className="ds:text-heading-3-mobile ds:sm:text-heading-3 ds:line-clamp-3 ds:sm:line-clamp-2"
-              data-testid={dataTestId ? `${dataTestId}-label` : undefined}
-            >
-              {label}
+        <div
+          className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:flex-nowrap"
+          ref={textContainerRef}
+        >
+          <div className="ds:gap-3 ds:flex ds:flex-col ds:flex-grow">
+            <div>
+              <p
+                className="ds:pr-6 ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-4 ds:sm:line-clamp-2"
+                data-testid={dataTestId ? `${dataTestId}-label` : undefined}
+              >
+                {label}
+              </p>
             </div>
-            <div
-              className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2"
-              data-testid={dataTestId ? `${dataTestId}-description` : undefined}
-            >
-              {description}
+            <div className="ds:flex-grow ds:content-center">
+              <p
+                className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2"
+                data-testid={dataTestId ? `${dataTestId}-description` : undefined}
+              >
+                {description}
+              </p>
             </div>
           </div>
         </div>
       </LinkOrDiv>
       <div
-        className="ds:col-start-1 ds:sm:col-start-2 ds:md-col-start-1 ds:row-start-2"
+        className="ds:pb-5 ds:col-start-1 ds:sm:col-start-2 ds:md-col-start-1 ds:row-start-2"
         data-testid={dataTestId ? `${dataTestId}-footer` : undefined}
+        ref={childrenContainerRef}
       >
         {children}
       </div>
