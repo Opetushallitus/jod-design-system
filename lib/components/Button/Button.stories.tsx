@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
-import { JodArrowLeft, JodUser } from '../../icons';
+import { JodArrowLeft, JodEdit, JodUser } from '../../icons';
 import { Button } from './Button';
 
 const meta = {
@@ -290,7 +290,9 @@ export const OnlyIcon: Story = {
   args: {
     label: 'Takaisin',
     onClick: fn(),
-    variant: 'white',
-    icon: <JodArrowLeft size={24} />,
+    variant: 'accent',
+    size: 'lg',
+    serviceVariant: 'ohjaaja',
+    icon: <JodEdit />,
   },
 };
