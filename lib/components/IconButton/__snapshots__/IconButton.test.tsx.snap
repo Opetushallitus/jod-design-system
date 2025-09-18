@@ -1,41 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snapshot testing > Default 1`] = `
+exports[`IconButton > matches snapshot 1`] = `
 <button
-  aria-label="Default"
-  class="ds:cursor-pointer ds:group ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-4"
+  aria-label="Test button"
+  class="ds:cursor-pointer ds:focus-visible:outline-secondary-1-dark ds:outline-offset-2 ds:rounded-full ds:flex ds:content-center"
   type="button"
 >
   <span
-    class="ds:text-button-md ds:group-hover:text-accent ds:group-hover:underline"
-  >
-    Default
-  </span>
-  <div
     aria-hidden="true"
-    class="ds:bg-white ds:rounded-full ds:flex ds:items-center ds:justify-center ds:select-none ds:size-7"
+    class="ds:hover:bg-bg-gray-2 ds:active:bg-secondary-1-dark-2 ds:active:text-white ds:flex ds:rounded-full ds:items-center ds:justify-center ds:select-none ds:size-8"
   >
-    target
-  </div>
-</button>
-`;
-
-exports[`Snapshot testing > Disabled 1`] = `
-<button
-  aria-label="Disabled, non-selected"
-  class="ds:cursor-pointer ds:group ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-4"
-  type="button"
->
-  <span
-    class="ds:text-button-md ds:group-hover:text-accent ds:group-hover:underline"
-  >
-    Disabled, non-selected
+    <svg
+      data-testid="icon-svg"
+    />
   </span>
-  <div
-    aria-hidden="true"
-    class="ds:bg-white ds:rounded-full ds:flex ds:items-center ds:justify-center ds:select-none ds:size-7"
-  >
-    target
-  </div>
 </button>
 `;

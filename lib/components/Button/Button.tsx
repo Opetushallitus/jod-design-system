@@ -108,8 +108,9 @@ const getButtonClassName = ({
   rightIcon,
   disabled,
   LinkComponent,
+  onlyIcon,
   serviceVariant = 'yksilo',
-}: Partial<ButtonProps> & { leftIcon: boolean; rightIcon: boolean }) =>
+}: Partial<ButtonProps> & { leftIcon?: boolean; rightIcon?: boolean; onlyIcon?: boolean }) =>
   tc([
     LinkComponent ? 'ds:inline-flex' : 'ds:flex',
     'ds:cursor-pointer',
@@ -123,6 +124,7 @@ const getButtonClassName = ({
       'ds:pr-4': rightIcon,
       'ds:text-button-sm': size === 'sm',
       'ds:text-button-md': size === 'lg',
+      'ds:rounded-full ds:aspect-square ds:p-1! ds:justify-center ds:size-8': onlyIcon,
     }),
     getVariantClassName(variant, serviceVariant, disabled),
   ]);
@@ -145,7 +147,7 @@ export const Button = ({
 }: ButtonProps) => {
   const leftIcon = icon !== undefined && iconSide === 'left';
   const rightIcon = icon !== undefined && iconSide === 'right';
-  const onlyIcon = icon && !leftIcon && !rightIcon;
+  const onlyIcon = !!icon && !leftIcon && !rightIcon;
   const buttonClassName = getButtonClassName({
     size,
     variant,
@@ -154,6 +156,7 @@ export const Button = ({
     disabled,
     LinkComponent,
     serviceVariant,
+    onlyIcon,
   });
 
   const spanClassName = cx({

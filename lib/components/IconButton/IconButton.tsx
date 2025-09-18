@@ -1,76 +1,104 @@
-import { tidyClasses } from '../../utils';
+import { cx } from '../../cva';
+import {
+  getAccentBgClassForService,
+  getFocusOutlineClassForService,
+  getPressedBgColorClassForService,
+  ServiceVariant,
+  tidyClasses as tc,
+} from '../../utils';
 
-export interface IconButtonProps {
-  /** Text shown on the button */
-  label: string;
-  /** Hide label */
-  hideLabel?: boolean;
+interface IndicativeProps {
+  /** Render a span with no interactivity instead of a button */
+  indicative: true;
   /** Callback fired on tap/click of the button */
+  onClick?: never;
+}
+interface InteractiveProps {
+  indicative?: false;
   onClick: () => void;
+}
+
+interface BaseProps {
+  /** Aria label for screen readers */
+  ariaLabel: string;
   /** Button disabled for any actions */
   disabled?: boolean;
   /** Icon shown on the button. Icon size should be 18px */
   icon: React.ReactNode;
-  /** Background color */
-  bgColor?: 'gray' | 'white';
+  /** Color variant */
+  variant?: 'white' | 'gray' | 'plain';
+  /** Data-testid attribute */
   dataTestId?: string;
+  /** Selected status */
+  selected?: boolean;
+  /** Service variant for coloring */
+  serviceVariant?: ServiceVariant;
 }
 
+export type IconButtonProps = BaseProps & (InteractiveProps | IndicativeProps);
+
 export const IconButton = ({
+  ariaLabel,
   dataTestId,
-  label,
-  hideLabel = false,
-  onClick,
   disabled = false,
   icon,
-  bgColor = 'white',
+  indicative,
+  onClick,
+  selected,
+  variant = 'plain',
+  serviceVariant = 'yksilo',
 }: IconButtonProps) => {
-  const buttonBgColorClass = tidyClasses(`
-    ${bgColor === 'gray' ? 'ds:bg-gray-500' : ''}
-    ${bgColor === 'white' ? 'ds:bg-white' : ''}
-  `);
+  const serviceBgClasses = getAccentBgClassForService(serviceVariant);
 
-  return (
+  const spanElement = (
+    <span
+      aria-hidden
+      data-testid={dataTestId}
+      className={tc([
+        // BG color
+        cx({
+          'ds:bg-white': variant === 'white',
+          'ds:bg-secondary-5-light-3': variant === 'gray',
+          [`${serviceBgClasses} ds:text-white`]: !indicative && selected && !disabled,
+          'ds:bg-secondary-gray ds:text-white': indicative && selected,
+          'ds:bg-bg-gray-2': indicative && !selected,
+        }),
+        cx({ 'ds:text-inactive-gray': disabled }),
+        cx({
+          'ds:hover:bg-bg-gray-2': !indicative && !selected,
+          [getPressedBgColorClassForService(serviceVariant)]: !indicative && !disabled,
+          'ds:active:text-white': !indicative && !disabled,
+        }),
+        'ds:flex',
+        'ds:rounded-full',
+        'ds:items-center',
+        'ds:justify-center',
+        'ds:select-none',
+        'ds:size-8',
+      ])}
+    >
+      {icon}
+    </span>
+  );
+
+  return indicative ? (
+    spanElement
+  ) : (
     <button
-      aria-label={label}
+      aria-label={ariaLabel}
       type="button"
       onClick={onClick}
       disabled={disabled}
-      data-testid={dataTestId}
-      className={tidyClasses(`
-        ${disabled ? 'ds:cursor-not-allowed ds:opacity-50' : 'ds:cursor-pointer'}
-        ds:group
-        ds:flex
-        ds:flex-row
-        ds:justify-center 
-        ds:items-center
-        ds:gap-4
-      `)}
+      className={tc([
+        disabled ? 'ds:cursor-not-allowed ds:opacity-50' : 'ds:cursor-pointer',
+        getFocusOutlineClassForService(serviceVariant),
+        'ds:outline-offset-2',
+        'ds:rounded-full',
+        'ds:flex',
+        'ds:content-center',
+      ])}
     >
-      {!hideLabel && (
-        <span
-          className={tidyClasses(
-            `ds:text-button-md ${disabled ? '' : 'ds:group-hover:text-accent ds:group-hover:underline'}`,
-          )}
-        >
-          {label}
-        </span>
-      )}
-
-      <div
-        aria-hidden
-        className={tidyClasses(`
-            ${buttonBgColorClass}    
-            ds:rounded-full
-            ds:flex
-            ds:items-center
-            ds:justify-center
-            ds:select-none
-            ds:size-7
-          `)}
-      >
-        {icon}
-      </div>
+      {spanElement}
     </button>
   );
 };
