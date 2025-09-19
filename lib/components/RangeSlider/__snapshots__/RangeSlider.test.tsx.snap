@@ -1,0 +1,237 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RangeSlider > matches snapshot 1`] = `
+<div
+  class="ds:flex ds:h-[40px] ds:min-w-full ds:sm:min-w-[414px]"
+>
+  <div
+    class="ds:flex ds:flex-col ds:w-full ds:gap-3"
+    data-orientation="horizontal"
+    data-part="root"
+    data-scope="slider"
+    data-testid="slider"
+    dir="ltr"
+    id="slider:«r0»"
+    style="--slider-thumb-offset-0: calc(0% - -16px); --slider-thumb-offset-1: calc(100% - 16px); --slider-thumb-width: 32px; --slider-thumb-height: 32px; --slider-thumb-transform: translateX(-50%); --slider-range-start: 0%; --slider-range-end: 0%;"
+  >
+    <div
+      class="ds:content-center ds:w-full"
+    >
+      <div
+        class="ds:flex ds:grow ds:w-full"
+        data-orientation="horizontal"
+        data-part="control"
+        data-scope="slider"
+        dir="ltr"
+        id="slider:«r0»:control"
+        style="user-select: none; position: relative;"
+      >
+        <div
+          class="ds:flex ds:h-[10px] ds:grow ds:bg-white ds:rounded-sm"
+          data-orientation="horizontal"
+          data-part="track"
+          data-scope="slider"
+          dir="ltr"
+          id="slider:«r0»:track"
+          style="position: relative;"
+        >
+          <div
+            aria-hidden="true"
+            class="ds:z-10 ds:w-full ds:flex ds:items-center ds:justify-between ds:text-[#71A9CB]"
+            data-orientation="horizontal"
+            data-part="marker-group"
+            data-scope="slider"
+            dir="ltr"
+            role="presentation"
+            style="user-select: none; pointer-events: none; position: relative;"
+          >
+            <span
+              data-orientation="horizontal"
+              data-part="marker"
+              data-scope="slider"
+              data-state="at-value"
+              data-value="0"
+              dir="ltr"
+              id="slider:«r0»:marker:0"
+              role="presentation"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(0% - -16px); translate: var(--tx) var(--ty); --tx: -50%; --ty: 0%;"
+            >
+              <div
+                class="ds:relative"
+              >
+                <svg
+                  class="ds:text-inactive-gray"
+                  fill="currentColor"
+                  height="3"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 3 3"
+                  width="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="1.5"
+                    cy="1.5"
+                    fill="currentColor"
+                    r="1.5"
+                  />
+                </svg>
+                <div
+                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap"
+                >
+                  Min
+                </div>
+              </div>
+            </span>
+            <span
+              data-orientation="horizontal"
+              data-part="marker"
+              data-scope="slider"
+              data-state="at-value"
+              data-value="1"
+              dir="ltr"
+              id="slider:«r0»:marker:1"
+              role="presentation"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(50% - 0px); translate: var(--tx) var(--ty); --tx: -50%; --ty: 0%;"
+            >
+              <div
+                class="ds:relative"
+              >
+                <svg
+                  class="ds:text-inactive-gray"
+                  fill="currentColor"
+                  height="3"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 3 3"
+                  width="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="1.5"
+                    cy="1.5"
+                    fill="currentColor"
+                    r="1.5"
+                  />
+                </svg>
+                <div
+                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap"
+                >
+                  Mid
+                </div>
+              </div>
+            </span>
+            <span
+              data-orientation="horizontal"
+              data-part="marker"
+              data-scope="slider"
+              data-state="at-value"
+              data-value="2"
+              dir="ltr"
+              id="slider:«r0»:marker:2"
+              role="presentation"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(100% - 16px); translate: var(--tx) var(--ty); --tx: -50%; --ty: 0%;"
+            >
+              <div
+                class="ds:relative"
+              >
+                <svg
+                  class="ds:text-inactive-gray"
+                  fill="currentColor"
+                  height="3"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 3 3"
+                  width="3"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="1.5"
+                    cy="1.5"
+                    fill="currentColor"
+                    r="1.5"
+                  />
+                </svg>
+                <div
+                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap"
+                >
+                  Max
+                </div>
+              </div>
+            </span>
+          </div>
+          <div
+            class="ds:h-[10px] ds:rounded-md ds:bg-accent"
+            data-orientation="horizontal"
+            data-part="range"
+            data-scope="slider"
+            dir="ltr"
+            id="slider:«r0»:range"
+            style="position: absolute; left: var(--slider-range-start); right: var(--slider-range-end);"
+          />
+        </div>
+        <div
+          aria-description="Minimun value description"
+          aria-label="Min"
+          aria-labelledby="slider:«r0»:label"
+          aria-orientation="horizontal"
+          aria-valuemax="2"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="Min"
+          class="ds:absolute ds:-top-4 ds:flex ds:size-7 ds:justify-center ds:rounded-full ds:z-20 ds:bg-accent"
+          data-index="0"
+          data-orientation="horizontal"
+          data-part="thumb"
+          data-scope="slider"
+          data-testid="slider-thumb-0"
+          dir="ltr"
+          draggable="false"
+          id="slider:«r0»:thumb:0"
+          role="slider"
+          style="visibility: visible; position: absolute; transform: var(--slider-thumb-transform); inset-inline-start: var(--slider-thumb-offset-0);"
+          tabindex="0"
+        >
+          <input
+            hidden=""
+            id="slider:«r0»:input:0"
+            name="range-slider-«r0»[]"
+            type="text"
+            value="0"
+          />
+        </div>
+        <div
+          aria-description="Maximum value description"
+          aria-label="1"
+          aria-labelledby="slider:«r0»:label"
+          aria-orientation="horizontal"
+          aria-valuemax="2"
+          aria-valuemin="0"
+          aria-valuenow="1"
+          aria-valuetext="1"
+          class="ds:absolute ds:-top-4 ds:flex ds:size-7 ds:justify-center ds:rounded-full ds:z-20 ds:bg-accent"
+          data-index="1"
+          data-orientation="horizontal"
+          data-part="thumb"
+          data-scope="slider"
+          data-testid="slider-thumb-1"
+          dir="ltr"
+          draggable="false"
+          id="slider:«r0»:thumb:1"
+          role="slider"
+          style="visibility: visible; position: absolute; transform: var(--slider-thumb-transform); inset-inline-start: var(--slider-thumb-offset-1);"
+          tabindex="0"
+        >
+          <input
+            hidden=""
+            id="slider:«r0»:input:1"
+            name="range-slider-«r0»[]"
+            type="text"
+            value="2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -13,6 +13,7 @@ export { JodChatBot } from './JodChatBot';
 export { JodCheckCircle } from './JodCheckCircle';
 export { JodCheckmark } from './JodCheckmark';
 export { JodCheckmarkAlt } from './JodCheckmarkAlt';
+export { JodCircle } from './JodCircle';
 export { JodClose } from './JodClose';
 export { JodComment } from './JodComment';
 export { JodCompass } from './JodCompass';
