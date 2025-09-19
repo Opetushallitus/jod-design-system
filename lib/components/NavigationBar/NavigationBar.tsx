@@ -74,7 +74,7 @@ export const NavigationBar = ({
   serviceBarContent,
   dataTestId,
 }: NavigationBarProps) => {
-  const { sm } = useMediaQueries();
+  const { sm, lg, xl } = useMediaQueries();
   const [serviceBarCollapsed, setServiceBarCollapsed] = React.useState(false);
 
   const onCollapse = React.useCallback(() => {
@@ -109,7 +109,7 @@ export const NavigationBar = ({
           data-testid={dataTestId ? `${dataTestId}-nav` : undefined}
         >
           <div>
-            <div className="ds:flex ds:grow ds:justify-center">
+            <div className="ds:flex ds:grow ds:justify-center ds:items-center ds:flex-direction-row">
               <Link to={logo.to}>
                 <div
                   className="ds:inline-flex ds:select-none ds:items-center ds:p-3"
@@ -119,6 +119,10 @@ export const NavigationBar = ({
                   <span className="ds:sr-only">{logo.srText}</span>
                 </div>
               </Link>
+              <div className="ds:flex ds:items-center ds:bg-secondary-3 ds:rounded ds:px-3 ds:mx-2 ds:h-6 ds:text-[12px]">
+                {'Beta'}
+              </div>
+              {(lg || xl) && <div className="ds:text-secondary-gray ds:font-normal ds:ml-2">{'Testausversio'}</div>}
             </div>
           </div>
           <div className="ds:flex ds:items-center">
