@@ -161,7 +161,7 @@ export const Button = ({
 
   const spanClassName = cx({
     'ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline': !disabled,
-    'ds:py-3 ds:h-7': size === 'sm',
+    'ds:py-3 ds:min-h-7': size === 'sm',
     'ds:py-4': size === 'lg' && variant !== 'plain',
   });
 
