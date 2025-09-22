@@ -31,23 +31,23 @@ const copyright = '© Osaamispolku 2025. Kaikki oikeudet pidätetään.';
 
 const moreInfoLinks = [
   {
-    to: 'ohjeet/tietoa-palvelusta',
+    href: '/tietoa-palvelusta',
     label: 'Tietoa palvelusta',
   },
   {
-    to: 'perustiedot/tietosuojaseloste',
+    href: 'perustiedot/tietosuojaseloste',
     label: 'Tietosuojaselosteet ja evästeet',
   },
   {
-    to: 'perustiedot/datalahteet',
+    href: 'perustiedot/datalahteet',
     label: 'Datalähteet',
   },
   {
-    to: 'perustiedot/tietoa-tekoalysta',
+    href: 'perustiedot/tietoa-tekoalysta',
     label: 'Tietoa tekoälyn käytöstä',
   },
   {
-    to: 'perustiedot/saavutettavuusseloste',
+    href: 'perustiedot/saavutettavuusseloste',
     label: 'Saavutettavuusseloste',
   },
 ];
@@ -63,12 +63,6 @@ const feedbackButtonLabel = 'Anna palautetta';
 const feedbackBgImageClassName =
   'ds:bg-[url(/assets/home-1.avif)] ds:bg-cover ds:bg-[length:auto_auto] ds:sm:bg-[length:auto_1000px] ds:bg-[top_-0rem_right_-0rem] ds:sm:bg-[top_-21rem_right_0rem]';
 
-const LinkComponent = ({ children, to, className }: { children: React.ReactNode; className?: string; to: string }) => (
-  <a href={to} className={className}>
-    {children}
-  </a>
-);
-
 const args = {
   language: 'fi',
   okmLabel,
@@ -81,7 +75,6 @@ const args = {
   moreInfoTitle,
   moreInfoDescription,
   moreInfoLinks,
-  MoreInfoLinkComponent: LinkComponent,
   feedbackTitle,
   feedbackContent,
   feedbackButtonLabel,

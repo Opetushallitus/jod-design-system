@@ -14,23 +14,23 @@ const mockCopyright = '© Osaamispolku 2025. Kaikki oikeudet pidätetään.';
 
 const mockMoreInfoLinks = [
   {
-    to: 'ohjeet/tietoa-palvelusta',
+    href: '/fi/tietoa-palvelusta',
     label: 'Tietoa palvelusta',
   },
   {
-    to: 'perustiedot/tietosuojaseloste',
+    href: '/fi/tietosuojaseloste-ja-evasteet',
     label: 'Tietosuojaselosteet ja evästeet',
   },
   {
-    to: 'perustiedot/datalahteet',
+    href: '/fi/datalahteet',
     label: 'Datalähteet',
   },
   {
-    to: 'perustiedot/tietoa-tekoalysta',
+    href: '/fi/tietoa-tekoalyn-kaytosta',
     label: 'Tietoa tekoälyn käytöstä',
   },
   {
-    to: 'perustiedot/saavutettavuusseloste',
+    href: '/fi/tietoa-saavutettavuudesta',
     label: 'Saavutettavuusseloste',
   },
 ];
@@ -38,20 +38,6 @@ const mockMoreInfoLinks = [
 const mockMoreInfoTitle = 'Haluatko tietää lisää Osaamispolusta?';
 const mockMoreInfoDescription =
   'Mietityttääkö tietosuoja tai tekoälyn hyödyntäminen palvelussa? Alta löydät kootusti yleistä tietoa palvelusta ja sen käytöstä.';
-
-const MoreInfoLinkComponent = ({
-  children,
-  to,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  to: string;
-}) => (
-  <a href={to} className={className}>
-    {children}
-  </a>
-);
 
 const mockFeedbackTitle = '';
 const mockFeedbackContent = '';
@@ -70,7 +56,6 @@ const FooterComponent = (
     moreInfoLinks={mockMoreInfoLinks}
     moreInfoTitle={mockMoreInfoTitle}
     moreInfoDescription={mockMoreInfoDescription}
-    MoreInfoLinkComponent={MoreInfoLinkComponent}
     copyright={mockCopyright}
     feedbackTitle={mockFeedbackTitle}
     feedbackContent={mockFeedbackContent}
@@ -107,7 +92,6 @@ it('emits data-testid when provided', () => {
       moreInfoLinks={mockMoreInfoLinks}
       moreInfoTitle={mockMoreInfoTitle}
       moreInfoDescription={mockMoreInfoDescription}
-      MoreInfoLinkComponent={MoreInfoLinkComponent}
       copyright={mockCopyright}
       feedbackTitle={mockFeedbackTitle}
       feedbackContent={mockFeedbackContent}
