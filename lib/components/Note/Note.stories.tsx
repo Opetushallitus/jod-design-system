@@ -3,6 +3,7 @@ import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
 import { Note, NoteStack, NoteStackProvider, useNoteStack } from '.';
+import { JodOpenInNew } from '../../icons';
 import { Button } from '../Button/Button';
 import { NoteProps } from './Note';
 
@@ -56,6 +57,7 @@ export const ConfirmationNote: Story = {
     title,
     description,
     readMoreComponent,
+    variant: 'success',
     onCloseClick: fn(),
   },
 };
@@ -77,6 +79,7 @@ export const LongTitleText: Story = {
     title: 'Lorem ipsum dolor est nonummy noblem ester!',
     description,
     readMoreComponent,
+    variant: 'success',
     onCloseClick: fn(),
   },
 };
@@ -171,14 +174,18 @@ export const feedback: Story = {
     },
     docs: {
       description: {
-        story: 'This is a warning note component for displaying a text.',
+        story: 'This is a feedback note component for displaying a text.',
       },
     },
   },
   args: {
-    title,
-    description,
+    title: 'Kokeile palvelua',
+    description: 'Kerro mielipiteesi ja auta meitä kehittämään palvelua.',
     variant: 'feedback',
+    readMoreComponent: (
+      <Button variant="white" label="Siirry kyselyyn" icon={<JodOpenInNew />} iconSide="right" size="sm" />
+    ),
+    onCloseClick: fn(),
   },
 };
 
