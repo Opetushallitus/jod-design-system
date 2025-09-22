@@ -12,7 +12,7 @@ export interface NoteProps {
   variant?: 'success' | 'warning' | 'error' | 'feedback';
   /** Callback fired on tap/click of the close button */
   onCloseClick?: () => void;
-  /** Component inside the button container if variant is success */
+  /** Call to action (CTA) component */
   readMoreComponent?: React.ReactNode;
   /** If true, the note will always be visible */
   permanent?: boolean;
@@ -33,7 +33,6 @@ export const Note = ({
   dataTestId,
 }: NoteProps) => {
   const { sm } = useMediaQueries();
-  const hasReadMore = variant === 'success' && readMoreComponent;
 
   return (
     <div
@@ -46,21 +45,21 @@ export const Note = ({
         'ds:bg-success ds:text-primary-gray': variant === 'success',
         'ds:bg-warning ds:text-primary-gray': variant === 'warning',
         'ds:bg-alert ds:text-white': variant === 'error',
-        'ds:bg-secondary-gray ds:text-white': variant === 'feedback',
-        'ds:px-5 ds:py-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:h-8': !collapsed,
+        'ds:bg-secondary-3 ds:text-primary-gray': variant === 'feedback',
+        'ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 sm:ds:h-8': !collapsed,
         'ds:h-0': collapsed,
       })}
       data-testid={dataTestId}
     >
-      <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-6">
+      <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6">
         <div className="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6">
           <div className="ds:text-heading-4 ds:text-pretty">{title}</div>
           <div className="ds:text-body-md ds:font-arial ds:text-pretty">{description}</div>
-          {hasReadMore && !sm && <span className="ds:mt-3">{readMoreComponent}</span>}
+          {readMoreComponent && !sm && <span className="ds:mt-3">{readMoreComponent}</span>}
         </div>
 
         <div className="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start">
-          {hasReadMore && sm && readMoreComponent}
+          {sm && readMoreComponent}
           {onCloseClick && !permanent && (
             <button
               className="ds:cursor-pointer ds:flex"
