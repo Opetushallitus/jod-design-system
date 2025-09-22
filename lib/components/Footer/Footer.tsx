@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { JodArrowRight } from '../../icons';
+import { JodOpenInNew } from '../../icons';
 import { HeroCard } from '../../main';
 import { LogoRgb } from '../Logo/LogoRgb';
 import {
@@ -16,28 +16,6 @@ import {
   LogoTemEn,
   LogoTemFiSv,
 } from './logos';
-
-type LinkComponent = React.ComponentType<{ children: React.ReactNode; className?: string; to: string }>;
-
-interface InfoLinkProps {
-  to: string;
-  label: string;
-  LinkComponent: LinkComponent;
-}
-
-const LinkItem = ({ to, label, LinkComponent }: InfoLinkProps) => (
-  <li>
-    <LinkComponent to={to} className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md">
-      <span>{label}</span>
-      <JodArrowRight size={24} />
-    </LinkComponent>
-  </li>
-);
-
-interface Link {
-  to: string;
-  label: string;
-}
 
 export interface FooterProps {
   /** Language of the logos */
@@ -61,8 +39,10 @@ export interface FooterProps {
   /** More info */
   moreInfoTitle: string;
   moreInfoDescription: string;
-  moreInfoLinks: Link[];
-  MoreInfoLinkComponent: LinkComponent;
+  moreInfoLinks: {
+    href: string;
+    label: string;
+  }[];
 
   /** Feedback */
   feedbackTitle: string;
@@ -90,7 +70,6 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     moreInfoTitle,
     moreInfoDescription,
     moreInfoLinks,
-    MoreInfoLinkComponent,
     feedbackTitle,
     feedbackContent,
     feedbackButtonLabel,
@@ -200,12 +179,17 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
             <p className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:mb-6">{moreInfoDescription}</p>
             <ul className="ds:flex ds:flex-col ds:gap-3 ds:justify-start ds:items-start">
               {moreInfoLinks.map((link) => (
-                <LinkItem
-                  key={link.label}
-                  to={`/${language}/${link.to}`}
-                  label={link.label}
-                  LinkComponent={MoreInfoLinkComponent}
-                />
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
+                  >
+                    <span>{link.label}</span>
+                    <JodOpenInNew size={24} />
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
