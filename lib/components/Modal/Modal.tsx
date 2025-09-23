@@ -8,7 +8,7 @@ export interface ModalProps {
   open: boolean;
   onClose?: () => void;
   content: React.ReactNode;
-  footer: React.ReactNode;
+  footer?: React.ReactNode;
   progress?: React.ReactNode;
   /** Slot is not used on mobile. */
   sidePanel?: React.ReactNode;
@@ -148,12 +148,14 @@ export const Modal = ({
               )}
             </div>
             {/* Footer, button area */}
-            <div
-              className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
-              data-testid={dataTestId ? `${dataTestId}-footer` : undefined}
-            >
-              {footer}
-            </div>
+            {footer && (
+              <div
+                className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
+                data-testid={dataTestId ? `${dataTestId}-footer` : undefined}
+              >
+                {footer}
+              </div>
+            )}
           </DialogPanel>
         </div>
       </div>
