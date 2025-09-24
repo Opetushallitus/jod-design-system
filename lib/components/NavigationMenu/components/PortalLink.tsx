@@ -20,7 +20,7 @@ export const PortalLink = ({
   const variant = useServiceVariant();
 
   return (
-    <div className="ds:border-l-8 ds:border-secondary-3-dark">
+    <div className="ds:border-l-8 ds:border-secondary-gray">
       <Component
         className={tidyClasses([
           'ds:flex',

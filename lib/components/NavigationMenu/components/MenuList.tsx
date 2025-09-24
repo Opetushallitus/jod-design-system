@@ -189,7 +189,7 @@ export interface MenuListProps {
   /** How should the active menu item be indicated */
   activeIndicator?: 'dot' | 'bg';
   /** Menu data */
-  menuSection: MenuSection;
+  menuSection?: MenuSection;
   /** Reference to the menu element */
   menuRef?: React.RefObject<HTMLUListElement | null>;
   /** Whether the menu is nested */
@@ -227,34 +227,40 @@ export const MenuList = ({
     : cx('ds:border-l-8', {
         'ds:border-secondary-1-dark': variant === 'yksilo',
         'ds:border-secondary-2-dark': variant === 'ohjaaja',
-        'ds:border-secondary-3-dark': variant === 'palveluportaali',
+        'ds:border-secondary-gray': variant === 'palveluportaali',
         'ds:border-secondary-4-dark': variant === 'tietopalvelu',
       });
 
   return (
-    <div data-testid={dataTestId}>
-      {menuSection.title ? <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span> : null}
-      <ul
-        className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])}
-        ref={menuRef}
-        data-testid={dataTestId ? `${dataTestId}-list` : undefined}
-      >
-        {menuSection.linkItems.map((item) => (
-          <MenuListItem
-            key={item.label}
-            activeIndicator={activeIndicator}
-            label={item.label}
-            selected={item.selected}
-            childItems={item.childItems}
-            icon={item.icon}
-            LinkComponent={item.LinkComponent}
-            openSubMenuLabel={openSubMenuLabel}
-            className={itemClassname}
-            collapsed={collapsed}
-            data-testid={dataTestId ? `${dataTestId}-item-${item.label.replace(/\s+/g, '-').toLowerCase()}` : undefined}
-          />
-        ))}
-      </ul>
-    </div>
+    menuSection && (
+      <div data-testid={dataTestId}>
+        {menuSection.title ? (
+          <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span>
+        ) : null}
+        <ul
+          className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])}
+          ref={menuRef}
+          data-testid={dataTestId ? `${dataTestId}-list` : undefined}
+        >
+          {menuSection.linkItems.map((item) => (
+            <MenuListItem
+              key={item.label}
+              activeIndicator={activeIndicator}
+              label={item.label}
+              selected={item.selected}
+              childItems={item.childItems}
+              icon={item.icon}
+              LinkComponent={item.LinkComponent}
+              openSubMenuLabel={openSubMenuLabel}
+              className={itemClassname}
+              collapsed={collapsed}
+              data-testid={
+                dataTestId ? `${dataTestId}-item-${item.label.replace(/\s+/g, '-').toLowerCase()}` : undefined
+              }
+            />
+          ))}
+        </ul>
+      </div>
+    )
   );
 };
