@@ -127,7 +127,6 @@ const MenuListItem = ({
                 !selected ? 'ds:hover:bg-bg-gray' : '',
                 selected ? getSelectedClasses() : '',
                 getPressedBgColorClassForService(serviceVariant),
-                !childItems || childItems.length === 0 ? 'ds:max-w-[calc(100%-44px)]' : '',
               ])}
             >
               {icon}
