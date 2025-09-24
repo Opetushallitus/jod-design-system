@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { JodOpenInNew } from '../../icons';
+import { JodArrowRight, JodOpenInNew } from '../../icons';
 import { HeroCard } from '../../main';
 import { LogoRgb } from '../Logo/LogoRgb';
 import {
@@ -43,6 +43,7 @@ export interface FooterProps {
     href: string;
     label: string;
   }[];
+  moreInfoComponent?: React.ComponentType<{ children: React.ReactNode; className: string; to: string }>;
 
   /** Feedback */
   feedbackTitle: string;
@@ -70,6 +71,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
     moreInfoTitle,
     moreInfoDescription,
     moreInfoLinks,
+    moreInfoComponent: MoreInfoLinkComponent,
     feedbackTitle,
     feedbackContent,
     feedbackButtonLabel,
@@ -180,15 +182,25 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
             <ul className="ds:flex ds:flex-col ds:gap-3 ds:justify-start ds:items-start">
               {moreInfoLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
-                  >
-                    <span>{link.label}</span>
-                    <JodOpenInNew size={24} />
-                  </a>
+                  {MoreInfoLinkComponent ? (
+                    <MoreInfoLinkComponent
+                      to={link.href}
+                      className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
+                    >
+                      <span>{link.label}</span>
+                      <JodArrowRight size={24} />
+                    </MoreInfoLinkComponent>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
+                    >
+                      <span>{link.label}</span>
+                      <JodOpenInNew size={24} />
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

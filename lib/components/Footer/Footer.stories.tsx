@@ -25,8 +25,8 @@ const okmLabel = 'Opetus- ja kulttuuriministeriö';
 const temLabel = 'Työ- ja elinkeinoministeriö';
 const ophLabel = 'Opetushallitus';
 const kehaLabel = 'KEHA-keskus';
-const cooperationTitle = 'Osaamipolku on toteutettu yhteistyössä seuraavien tahojen toimesta.';
-const fundingTitle = 'Palvelu on rahoitettu Euroopan RFF-rahoituksella.';
+const cooperationTitle = 'Osaamispolku on toteutettu yhteistyössä seuraavien tahojen toimesta';
+const fundingTitle = 'Palvelu on rahoitettu EU:n elpymis- ja palautumistukivälineellä (RRF)';
 const copyright = '© Osaamispolku 2025. Kaikki oikeudet pidätetään.';
 
 const moreInfoLinks = [
