@@ -39,7 +39,7 @@ export const getAccentBgClassForService = (variant: ServiceVariant) =>
   cx({
     'ds:bg-secondary-1-dark': variant === 'yksilo',
     'ds:bg-secondary-2-dark': variant === 'ohjaaja',
-    'ds:bg-secondary-3-dark': variant === 'palveluportaali',
+    'ds:bg-secondary-gray': variant === 'palveluportaali',
     'ds:bg-secondary-4-dark': variant === 'tietopalvelu',
   });
 
@@ -47,7 +47,7 @@ export const getPressedBgColorClassForService = (variant: ServiceVariant) =>
   cx({
     'ds:active:bg-secondary-1-dark-2': variant === 'yksilo',
     'ds:active:bg-secondary-2-dark-2': variant === 'ohjaaja',
-    'ds:active:bg-secondary-3-dark-2': variant === 'palveluportaali',
+    'ds:active:bg-primary-gray': variant === 'palveluportaali',
     'ds:active:bg-secondary-4-dark-2': variant === 'tietopalvelu',
   });
 
@@ -55,7 +55,7 @@ export const getTextColorClassForService = (variant: ServiceVariant) =>
   cx({
     'ds:text-secondary-1-dark': variant === 'yksilo',
     'ds:text-secondary-2-dark': variant === 'ohjaaja',
-    'ds:text-secondary-3-dark': variant === 'palveluportaali',
+    'ds:text-secondary-gray': variant === 'palveluportaali',
     'ds:text-secondary-4-dark': variant === 'tietopalvelu',
   });
 
@@ -63,6 +63,6 @@ export const getFocusOutlineClassForService = (variant: ServiceVariant) =>
   cx({
     'ds:focus-visible:outline-secondary-1-dark': variant === 'yksilo',
     'ds:focus-visible:outline-secondary-2-dark': variant === 'ohjaaja',
-    'ds:focus-visible:outline-secondary-3-dark': variant === 'palveluportaali',
+    'ds:focus-visible:outline-secondary-gray': variant === 'palveluportaali',
     'ds:focus-visible:outline-secondary-4-dark': variant === 'tietopalvelu',
   });

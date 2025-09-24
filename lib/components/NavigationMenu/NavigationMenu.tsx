@@ -40,7 +40,7 @@ export interface NavigationMenuProps {
   /** Link component to bring user to front page */
   PortalLinkComponent: React.ComponentType<LinkComponent>;
   /** Menu items. Items can have children */
-  menuSection: MenuSection;
+  menuSection?: MenuSection;
   /** Label for button to open submenu of menu item */
   openSubMenuLabel: string;
   /** External link sections */
@@ -108,7 +108,7 @@ export const NavigationMenu = ({
             {portalLinkLabel && PortalLinkComponent ? (
               <>
                 <PortalLink label={portalLinkLabel} icon={portalIcon} component={PortalLinkComponent} />
-                <MenuSeparator />
+                {menuSection && <MenuSeparator />}
               </>
             ) : null}
             <MenuList

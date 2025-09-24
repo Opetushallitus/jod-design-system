@@ -39,7 +39,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
         </div>
       </div>
       <div
-        class="ds:border-l-8 ds:border-secondary-3-dark"
+        class="ds:border-l-8 ds:border-secondary-gray"
       >
         <a
           class="ds:flex ds:flex-1 ds:gap-3 ds:p-3 ds:ml-3 ds:mr-9 ds:cursor-pointer ds:group ds:rounded ds:active:text-white ds:text-black ds:hover:bg-bg-gray ds:active:bg-secondary-1-dark-2 ds:focus-visible:outline-secondary-1-dark"

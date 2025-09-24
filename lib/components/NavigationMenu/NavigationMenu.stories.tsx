@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 const parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=10543-34956',
+    url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=16193-157159',
   },
 };
 
@@ -175,6 +175,25 @@ const languageSelectionItems = [
   },
 ];
 
+const baseProps: NavigationMenuProps = {
+  portalLinkLabel: 'Osaamispolkuportaali',
+  PortalLinkComponent: ({ children, className }: LinkComponent) => (
+    <a href="/#" className={className}>
+      {children}
+    </a>
+  ),
+  onClose: fn(),
+  open: true,
+  menuSection: menuSection,
+  openSubMenuLabel: 'Avaa alivalikko',
+  ariaCloseMenu: 'Sulje valikko',
+  externalLinkSections: externalLinkSections,
+  languageSelectionItems: languageSelectionItems,
+  languageSelectionTitle: 'Käyttökieli',
+  selectedLanguage: 'fi',
+  serviceVariant: 'yksilo',
+};
+
 const DefaultRender = (props: NavigationMenuProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -196,21 +215,22 @@ export const Default: Story = {
   },
   render: DefaultRender,
   args: {
-    portalLinkLabel: 'Osaamispolkuportaali',
-    PortalLinkComponent: ({ children, className }: LinkComponent) => (
-      <a href="/#" className={className}>
-        {children}
-      </a>
-    ),
-    onClose: fn(),
-    open: true,
-    menuSection: menuSection,
-    openSubMenuLabel: 'Avaa alivalikko',
-    ariaCloseMenu: 'Sulje valikko',
-    externalLinkSections: externalLinkSections,
-    languageSelectionItems: languageSelectionItems,
-    languageSelectionTitle: 'Käyttökieli',
-    selectedLanguage: 'fi',
-    serviceVariant: 'yksilo',
+    ...baseProps,
+  },
+};
+
+export const WithoutMenuSection: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'NavigationMenu component without the the main menu section.',
+      },
+    },
+  },
+  render: DefaultRender,
+  args: {
+    ...baseProps,
+    menuSection: undefined,
   },
 };
