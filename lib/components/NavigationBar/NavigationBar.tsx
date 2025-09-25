@@ -142,10 +142,6 @@ export const NavigationBar = ({
           className={tc([
             'ds:w-full',
             'ds:flex',
-            'ds:items-center',
-            'ds:justify-between',
-            'ds:px-5',
-            'ds:sm:px-9',
             'ds:text-white',
             'ds:text-[12px]',
             'ds:sm:text-[14px]',
@@ -156,7 +152,9 @@ export const NavigationBar = ({
           ])}
           data-testid={dataTestId ? `${dataTestId}-servicebar` : undefined}
         >
-          {serviceBarCollapsed ? null : serviceBarContents}
+          <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
+            {serviceBarCollapsed ? null : serviceBarContents}
+          </div>
         </div>
       )}
     </>
