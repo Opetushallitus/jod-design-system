@@ -127,7 +127,7 @@ export const NavigationBar = ({
           </div>
           <div className="ds:flex ds:items-center">
             <ul
-              className="ds:inline-flex ds:items-center ds:gap-5 ds:ml-auto"
+              className="ds:inline-flex ds:items-center ds:gap-5 ds:sm:gap-7 ds:ml-auto"
               data-testid={dataTestId ? `${dataTestId}-actions` : undefined}
             >
               {languageButtonComponent && <li ref={refs?.langMenuButtonRef}>{languageButtonComponent}</li>}

@@ -3,7 +3,7 @@
 exports[`PopupList > renders the PopupList component correctly 1`] = `
 <div>
   <div
-    class="ds:inline-flex ds:flex-col ds:items-start ds:rounded ds:bg-white ds:py-6 ds:px-[20px] ds:shadow-border ds:w-[257px]"
+    class="ds:inline-flex ds:flex-col ds:items-start ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px]"
     data-testid="plist"
   >
     <div

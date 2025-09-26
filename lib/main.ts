@@ -50,6 +50,7 @@ export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MatomoTracker } from './components/MatomoTracker/MatomoTracker';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
+export { LanguageButton } from './components/NavigationBar/LanguageButton';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
 export {
   ExternalLinkSections,
