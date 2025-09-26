@@ -8,7 +8,7 @@ export interface PopupListProps {
 export const PopupList = ({ children, classNames = '', dataTestId }: PopupListProps) => {
   return (
     <div
-      className={`ds:inline-flex ds:flex-col ds:items-start ds:rounded ds:bg-white ds:py-6 ds:px-[20px] ds:shadow-border ds:w-[257px] ${classNames}`.trim()}
+      className={`ds:inline-flex ds:flex-col ds:items-start ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px] ${classNames}`.trim()}
       data-testid={dataTestId}
     >
       {children}

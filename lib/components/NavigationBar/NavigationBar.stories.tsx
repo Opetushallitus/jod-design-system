@@ -1,8 +1,10 @@
 import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
 import { PartialStoryFn } from 'storybook/internal/types';
-import { JodCaretDown, JodLanguage, JodMenu, JodUser } from '../../icons';
+import { useRef, useState } from 'storybook/preview-api';
+import { JodCaretDown, JodMenu, JodUser } from '../../icons';
 import { useMediaQueries } from '../../main';
 import type { TitledMeta } from '../../utils';
+import { LanguageButton } from './LanguageButton';
 import { NavigationBar, NavigationBarProps } from './NavigationBar';
 
 const meta = {
@@ -50,7 +52,7 @@ const parameters = {
 // Common decorators and props for stories to avoid SonarQube duplication issues
 const decorators = [
   (Story: PartialStoryFn<ReactRenderer, NavigationBarProps>) => (
-    <div className="ds:pb-11">
+    <div className="ds:pb-11 ds:h-[280px]">
       <Story />
     </div>
   ),
@@ -79,30 +81,50 @@ export const Default: Story = {
     showServiceBar: false,
   },
   render: (args) => {
-    const { sm } = useMediaQueries();
+    const { md } = useMediaQueries();
+
+    const [langMenuOpen, setLangMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement | null>(null);
+    const handleBlur = () => setLangMenuOpen(false);
+
     const buttonClassNames =
-      'ds:flex ds:sm:flex-row ds:flex-col ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer';
+      'ds:flex ds:md:flex-row ds:flex-col ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer';
 
     const menuComponent = (
       <button className={buttonClassNames} aria-label="Avaa valikko">
         <JodMenu size={24} className="ds:mx-auto" />
-        <span className="ds:md:pr-3 ds:sm:text-[12px] ds:text-[10px]">Valikko</span>
+        <span className="ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px]">Valikko</span>
       </button>
     );
 
     const languageButtonComponent = (
-      <button className={buttonClassNames}>
-        <JodLanguage size={24} className="ds:mx-auto" />
-        <span className="ds:whitespace-nowrap ds:sm:text-[12px] ds:text-[10px]">Suomeksi</span>
-        {sm && <JodCaretDown size={20} />}
-      </button>
+      <LanguageButton
+        supportedLanguageCodes={['fi', 'sv', 'en']}
+        onClick={() => setLangMenuOpen(!langMenuOpen)}
+        langMenuOpen={langMenuOpen}
+        menuRef={menuRef}
+        language="fi"
+        onMenuBlur={handleBlur}
+        onMenuClick={() => setLangMenuOpen(false)}
+        translations={{
+          fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
+          sv: { change: 'Andra språk.', label: 'På svenska' },
+          en: { change: 'Change language.', label: 'In English' },
+        }}
+        generateLocalizedPath={(code: string) => `/${code}`}
+        LinkComponent={({ children, className, ...rest }) => (
+          <a href="/#" className={className} {...rest}>
+            {children}
+          </a>
+        )}
+      />
     );
 
     const userButtonComponent = (
       <button className={buttonClassNames}>
         <JodUser size={24} className="ds:mx-auto" />
-        <span className="ds:whitespace-nowrap ds:sm:text-[12px] ds:text-[10px]">Juho-Henrik</span>
-        {sm && <JodCaretDown size={20} />}
+        <span className="ds:whitespace-nowrap ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px]">Juho-Henrik</span>
+        {md && <JodCaretDown size={20} />}
       </button>
     );
 

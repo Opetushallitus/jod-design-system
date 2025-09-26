@@ -88,7 +88,7 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
       class="ds:flex ds:items-center"
     >
       <ul
-        class="ds:inline-flex ds:items-center ds:gap-5 ds:ml-auto"
+        class="ds:inline-flex ds:items-center ds:gap-5 ds:sm:gap-7 ds:ml-auto"
         data-testid="nav-actions"
       />
     </div>
