@@ -37,6 +37,7 @@ export {
 export { HeroCard } from './components/HeroCard/HeroCard';
 export { IconButton } from './components/IconButton/IconButton';
 export { InputField } from './components/InputField/InputField';
+export { LanguageButton } from './components/LanguageButton/LanguageButton';
 export {
   LogoArrowBlack,
   LogoArrowBlue,
