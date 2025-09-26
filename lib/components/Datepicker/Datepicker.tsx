@@ -22,7 +22,7 @@ const tableCellClasses = tc([
   'ds:m-3',
   'ds:font-arial',
   'ds:size-[28px]',
-  'ds:sm:size-[32px]',
+  'ds:sm:size-7',
   'ds:hover:underline',
   'ds:focus:left-auto ds:capitalize',
   'ds:data-selected:bg-secondary-1-50',
@@ -54,7 +54,7 @@ const Header = () => (
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
-      <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold ds:cursor-pointer" />
+      <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold ds:cursor-pointer ds:hover:underline" />
     </ArkDatePicker.ViewTrigger>
 
     <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
@@ -207,7 +207,7 @@ export const Datepicker = ({
                           {datePicker.weekDays.map((weekDay) => (
                             <ArkDatePicker.TableHeader
                               key={weekDay.long}
-                              className="ds:capitalize ds:size-[28px] ds:sm:size-[32px]"
+                              className="ds:capitalize ds:size-[28px] ds:sm:size-7"
                             >
                               {weekDay.short}
                             </ArkDatePicker.TableHeader>
