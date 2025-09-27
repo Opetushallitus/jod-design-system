@@ -30,7 +30,7 @@
     "react-dom": "^19"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.18.3",
+    "@ark-ui/react": "^5.18.4",
     "@floating-ui/react": "^0.27.15",
     "@headlessui/react": "^2.2.7",
     "@testing-library/user-event": "^14.6.1",
