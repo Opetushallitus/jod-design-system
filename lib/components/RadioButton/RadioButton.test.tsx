@@ -15,7 +15,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
 
 describe('Snapshot testing', () => {
   test('Default', () => {
-    render(
+    const { container } = render(
       <Wrapper>
         <RadioButton label="A" value="a" dataTestId="rb" />
       </Wrapper>,
@@ -23,6 +23,7 @@ describe('Snapshot testing', () => {
     expect(screen.getByTestId('rbg')).toBeInTheDocument();
     expect(screen.getByTestId('rbg-label')).toBeInTheDocument();
     expect(screen.getByTestId('rb')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
 

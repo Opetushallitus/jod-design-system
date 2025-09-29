@@ -5,27 +5,28 @@ import { Note } from './Note';
 
 describe('Note component', () => {
   it('renders with default variant', () => {
-    render(<Note title="Test Title" description="Test Description" dataTestId="note" />);
+    const { container } = render(<Note title="Test Title" description="Test Description" dataTestId="note" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-success');
     expect(screen.getByTestId('note')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders with success variant', () => {
-    render(<Note title="Test Title" description="Test Description" variant="success" />);
+    const { container } = render(<Note title="Test Title" description="Test Description" variant="success" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-success');
-    // no snapshot to avoid churn from attributes
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders with warning variant', () => {
-    render(<Note title="Test Title" description="Test Description" variant="warning" />);
+    const { container } = render(<Note title="Test Title" description="Test Description" variant="warning" />);
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-warning');
-    // no snapshot to avoid churn from attributes
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders with error variant', () => {

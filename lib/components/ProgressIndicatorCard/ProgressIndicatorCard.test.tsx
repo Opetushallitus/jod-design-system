@@ -6,5 +6,5 @@ import { ProgressIndicatorCard } from './ProgressIndicatorCard';
 test('renders ProgressIndicatorCard', () => {
   const { container } = render(<ProgressIndicatorCard dataTestId="pic" />);
   expect(container.querySelector('[data-testid="pic"]')).toBeInTheDocument();
-  // avoid snapshot churn due to attributes
+  expect(container.firstChild).toMatchSnapshot();
 });

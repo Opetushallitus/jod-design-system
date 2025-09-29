@@ -54,6 +54,38 @@ exports[`Note component > renders with close button 1`] = `
 </div>
 `;
 
+exports[`Note component > renders with default variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 sm:ds:h-8"
+  data-testid="note"
+  role="alert"
+>
+  <div
+    class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
+  >
+    <div
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+    >
+      <div
+        class="ds:text-heading-4 ds:text-pretty"
+      >
+        Test Title
+      </div>
+      <div
+        class="ds:text-body-md ds:font-arial ds:text-pretty"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start"
+    />
+  </div>
+</div>
+`;
+
 exports[`Note component > renders with error variant 1`] = `
 <div
   aria-atomic="true"
@@ -114,6 +146,68 @@ exports[`Note component > renders with read more component 1`] = `
       >
         Read more
       </span>
+    </div>
+    <div
+      class="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start"
+    />
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with success variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 sm:ds:h-8"
+  role="alert"
+>
+  <div
+    class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
+  >
+    <div
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+    >
+      <div
+        class="ds:text-heading-4 ds:text-pretty"
+      >
+        Test Title
+      </div>
+      <div
+        class="ds:text-body-md ds:font-arial ds:text-pretty"
+      >
+        Test Description
+      </div>
+    </div>
+    <div
+      class="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start"
+    />
+  </div>
+</div>
+`;
+
+exports[`Note component > renders with warning variant 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="assertive"
+  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-warning ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 sm:ds:h-8"
+  role="alert"
+>
+  <div
+    class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
+  >
+    <div
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+    >
+      <div
+        class="ds:text-heading-4 ds:text-pretty"
+      >
+        Test Title
+      </div>
+      <div
+        class="ds:text-body-md ds:font-arial ds:text-pretty"
+      >
+        Test Description
+      </div>
     </div>
     <div
       class="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start"

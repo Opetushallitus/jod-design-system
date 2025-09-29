@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshot testing > Default 1`] = `
+<div
+  aria-labelledby="headlessui-label-«r1»"
+  class="ds:flex ds:flex-col ds:space-y-3"
+  data-testid="rbg2"
+  id="headlessui-radiogroup-«r0»"
+  role="radiogroup"
+>
+  <div
+    class="ds:mb-5 ds:text-heading-3 ds:font-poppins ds:text-primary-gray"
+    data-headlessui-state=""
+    data-testid="rbg2-label"
+    id="headlessui-label-«r1»"
+  >
+    A
+  </div>
+  <span
+    aria-checked="false"
+    class="flex h-7"
+    data-headlessui-state=""
+    id="headlessui-radio-«r2»"
+    role="radio"
+    tabindex="0"
+  >
+    <div
+      class="ds:flex-start ds:flex ds:space-x-4 ds:text-form-label"
+    >
+      <svg
+        class="ds:self-center"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          class="ds:fill-accent"
+          cx="8"
+          cy="8"
+          r="8"
+        />
+        <circle
+          class="ds:fill-white"
+          cx="8"
+          cy="8"
+          r="6"
+        />
+      </svg>
+      <span
+        class="ds:flex ds:items-center ds:text-primary-gray ds:font-arial ds:hover:text-accent ds:hover:underline ds:hyphens-auto"
+      >
+        Option 1
+      </span>
+    </div>
+  </span>
+</div>
+`;
