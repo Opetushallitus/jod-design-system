@@ -7,14 +7,14 @@ import { RadioButton } from './RadioButton';
 
 describe('Snapshot testing', () => {
   test('Default', () => {
-    render(
+    const { container } = render(
       <RadioButtonGroup label="A" value="a" onChange={vi.fn()} dataTestId="rbg2">
         <RadioButton value="option1" label="Option 1" />
       </RadioButtonGroup>,
     );
     expect(screen.getByTestId('rbg2')).toBeInTheDocument();
     expect(screen.getByTestId('rbg2-label')).toBeInTheDocument();
-    // no snapshot; presence checks above are enough
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
 

@@ -13,7 +13,8 @@ describe('SkipLink', () => {
 
   it('renders the component correctly', () => {
     const label = 'Skip to main content';
-    render(<SkipLink label={label} hash={'#'} dataTestId="skip2" />);
+    const { container } = render(<SkipLink label={label} hash={'#'} dataTestId="skip2" />);
     expect(document.querySelector('[data-testid="skip2"]')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

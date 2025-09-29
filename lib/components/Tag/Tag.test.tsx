@@ -2,9 +2,12 @@ import { fireEvent, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Tag } from './Tag';
 
-// Snapshot removed to avoid churn due to data-testid attributes
-
 describe('Tag', () => {
+  it('matches the snapshot', () => {
+    const { container } = render(<Tag label="Label here" onClick={vi.fn()} />);
+    expect(container).toMatchSnapshot();
+  });
+
   it('renders the label correctly', () => {
     const label = 'Test Label';
     const { getByText } = render(<Tag label={label} onClick={vi.fn()} dataTestId="tag1" />);

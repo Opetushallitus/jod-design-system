@@ -19,6 +19,6 @@ describe('PopupList', () => {
     );
     expect(container.querySelector('[data-testid="plist"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="plist-item-1"]')).toBeInTheDocument();
-    // avoid snapshot churn from attributes
+    expect(container).toMatchSnapshot();
   });
 });

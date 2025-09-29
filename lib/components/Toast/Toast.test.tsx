@@ -5,18 +5,20 @@ import { Toast } from './Toast';
 
 describe('Toast', () => {
   it('renders the toast component with text', () => {
-    render(<Toast text="This is a toast message" dataTestId="toast" />);
+    const { container } = render(<Toast text="This is a toast message" dataTestId="toast" />);
     const toastElement = screen.getByRole('alert');
     expect(toastElement).toBeInTheDocument();
     expect(toastElement).toHaveTextContent('This is a toast message');
     expect(screen.getByTestId('toast')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('renders the toast component with icon', () => {
-    render(<Toast text="This is a toast message" icon="mood" dataTestId="toast2" />);
+    const { container } = render(<Toast text="This is a toast message" icon="mood" dataTestId="toast2" />);
     const toastElement = screen.getByRole('alert');
     expect(toastElement).toBeInTheDocument();
     expect(toastElement).toHaveTextContent('This is a toast message');
     expect(screen.getByTestId('toast2')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

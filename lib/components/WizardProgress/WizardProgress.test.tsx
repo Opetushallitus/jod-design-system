@@ -22,6 +22,6 @@ describe('WizardProgress', () => {
     );
     expect(container.querySelector('[data-testid="wiz"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="wiz-step-3"]')).toBeInTheDocument();
-    // avoid snapshot churn due to attributes
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
