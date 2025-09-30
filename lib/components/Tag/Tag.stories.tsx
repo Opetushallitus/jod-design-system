@@ -76,3 +76,12 @@ export const Multiline: Story = {
     variant: 'presentation',
   },
 };
+
+export const Tooltip: Story = {
+  args: {
+    label: 'This tag has a tooltip',
+    tooltip: 'This is the tooltip text',
+    sourceType: 'kiinnostus',
+    variant: 'presentation',
+  },
+};
