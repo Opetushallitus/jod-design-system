@@ -317,6 +317,7 @@ exports[`Footer > renders 1`] = `
             <svg
               aria-label="Opetus- ja kulttuuriministeriö"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 264.695 40.8"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -333,6 +334,7 @@ exports[`Footer > renders 1`] = `
             <svg
               aria-label="Työ- ja elinkeinoministeriö"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 33.077 7.316"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -354,6 +356,7 @@ exports[`Footer > renders 1`] = `
             <svg
               aria-label="Opetushallitus"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 321.294 90.723"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -377,6 +380,7 @@ exports[`Footer > renders 1`] = `
             <svg
               aria-label="KEHA-keskus"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 44.278 15.648"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -417,6 +421,7 @@ exports[`Footer > renders 1`] = `
             <svg
               class="ds:h-9 ds:max-w-full"
               fill="#100f0d"
+              role="img"
               viewBox="0 0 1094.035 267.045"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -763,6 +768,7 @@ exports[`Footer > renders copyright 1`] = `
             <svg
               aria-label="Opetus- ja kulttuuriministeriö"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 264.695 40.8"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -779,6 +785,7 @@ exports[`Footer > renders copyright 1`] = `
             <svg
               aria-label="Työ- ja elinkeinoministeriö"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 33.077 7.316"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -800,6 +807,7 @@ exports[`Footer > renders copyright 1`] = `
             <svg
               aria-label="Opetushallitus"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 321.294 90.723"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -823,6 +831,7 @@ exports[`Footer > renders copyright 1`] = `
             <svg
               aria-label="KEHA-keskus"
               class="ds:h-9 ds:max-w-full"
+              role="img"
               viewBox="0 0 44.278 15.648"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -863,6 +872,7 @@ exports[`Footer > renders copyright 1`] = `
             <svg
               class="ds:h-9 ds:max-w-full"
               fill="#100f0d"
+              role="img"
               viewBox="0 0 1094.035 267.045"
               xmlns="http://www.w3.org/2000/svg"
             >
