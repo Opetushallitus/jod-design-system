@@ -30,6 +30,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
             'ds:text-body-xs',
             'ds:font-arial',
             'ds:text-white',
+            'ds:z-50',
           ])}
           ref={ref}
           style={{
