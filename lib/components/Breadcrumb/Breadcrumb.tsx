@@ -45,7 +45,7 @@ export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant, da
                   <LinkComponent to={item.to}>{item.label}</LinkComponent>
                 </span>
               ) : (
-                <span className={textColorClass} aria-current="location">
+                <span className={textColorClass} aria-current={isLast ? 'page' : undefined}>
                   {item.label}
                 </span>
               )}

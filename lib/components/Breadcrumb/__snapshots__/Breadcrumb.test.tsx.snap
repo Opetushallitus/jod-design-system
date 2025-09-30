@@ -50,7 +50,7 @@ exports[`Breadcrumb > renders all breadcrumb items 1`] = `
         /
       </span>
       <span
-        aria-current="location"
+        aria-current="page"
         class="ds:text-secondary-1-dark"
       >
         Työpaikkani
