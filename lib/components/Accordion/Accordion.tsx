@@ -1,18 +1,17 @@
 import React from 'react';
 import { cx } from '../../cva';
 import { JodCaretDown, JodCaretUp } from '../../icons';
-import { tidyClasses } from '../../utils';
 import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
   | {
       title: React.ReactNode;
-      /** If the title is a component, titleText should be provided for a11y */
-      titleText: string;
+      /** If the title is a component, ariaLabel should be provided for a11y */
+      ariaLabel: string;
     }
   | {
       title: string;
-      titleText?: never;
+      ariaLabel?: never;
     };
 
 type AccordionProps = {
@@ -20,13 +19,11 @@ type AccordionProps = {
   title: React.ReactNode | string;
   /** Accordion contents */
   children: React.ReactNode;
-  /** Language code for the accordion */
-  lang: string;
   /** Show underline on the title */
   underline?: boolean;
   /** The initial open state of the accordion */
   initialState?: boolean;
-  /** The position of the caret icon */
+  /** The vertical position of the caret icon */
   caretPosition?: 'top' | 'center';
   /** Is the accordion open (controlled mode) */
   isOpen?: boolean;
@@ -36,42 +33,33 @@ type AccordionProps = {
   fetchData?: () => Promise<void>;
   /** Test id for querying in tests */
   dataTestId?: string;
-  /**  className for wrapper */
+  /** Classnames for wrapper */
   className?: string;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
   <span className="ds:text-primary-gray ds:group-hover:text-accent!" aria-hidden>
-    {isOpen ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
+    {isOpen ? <JodCaretUp /> : <JodCaretDown />}
   </span>
 );
 
 export const Accordion = ({
   title,
-  titleText,
+  ariaLabel,
   children,
   caretPosition = 'center',
-  lang,
   underline,
   initialState = true,
   fetchData,
   dataTestId,
   isOpen: controlledIsOpen,
   setIsOpen: controlledSetIsOpen,
-  className,
+  className = '',
 }: AccordionProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
   const isControlled = controlledIsOpen !== undefined;
   const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
   const setIsOpen = isControlled && controlledSetIsOpen ? controlledSetIsOpen : setInternalIsOpen;
-  const isTitleValidElement = React.isValidElement(title);
-  const wrapperClassnames = cx(
-    'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group',
-    {
-      'ds:border-b ds:border-border-gray': underline,
-      'ds:mb-2': isOpen,
-    },
-  );
 
   // Reset the state when the children change
   React.useEffect(() => {
@@ -102,39 +90,29 @@ export const Accordion = ({
   }, [fetchData, fetchStatus, isOpen, setIsOpen]);
 
   return (
-    <div className={tidyClasses(className || '')}>
-      {isTitleValidElement ? (
-        <div className={wrapperClassnames}>
-          {title}
-          <button
-            aria-label={titleText}
-            aria-expanded={isOpen}
-            onClick={() => void toggleOpen()}
-            style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}
-            className="ds:cursor-pointer ds:flex"
-            data-testid={dataTestId}
-          >
+    <div className={className}>
+      <div className="ds:group">
+        <button
+          aria-expanded={isOpen}
+          aria-label={typeof title === 'string' ? title : ariaLabel}
+          onClick={() => void toggleOpen()}
+          className={cx(
+            'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group',
+            {
+              'ds:border-b ds:border-border-gray': underline,
+              'ds:mb-2': isOpen,
+            },
+          )}
+          data-testid={dataTestId}
+        >
+          <span className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline">
+            {title}
+          </span>
+          <span style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
             {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
-          </button>
-        </div>
-      ) : (
-        <div className="ds:group">
-          <button
-            aria-expanded={isOpen}
-            onClick={() => void toggleOpen()}
-            className={wrapperClassnames}
-            data-testid={dataTestId}
-          >
-            <span
-              className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline"
-              lang={lang}
-            >
-              {title}
-            </span>
-            {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
-          </button>
-        </div>
-      )}
+          </span>
+        </button>
+      </div>
       {isOpen && (!fetchData || fetchStatus === 'done') && children}
     </div>
   );

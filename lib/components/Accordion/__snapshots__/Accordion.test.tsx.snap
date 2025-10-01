@@ -9,32 +9,36 @@ exports[`Accordion > renders accordion with open state by default 1`] = `
   >
     <button
       aria-expanded="true"
+      aria-label="Accordion Title"
       class="ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group ds:mb-2"
     >
       <span
         class="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline"
-        lang="en"
       >
         Accordion Title
       </span>
       <span
-        aria-hidden="true"
-        class="ds:text-primary-gray ds:group-hover:text-accent!"
+        style="align-self: center;"
       >
-        <svg
-          fill="currentColor"
-          height="24"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          aria-hidden="true"
+          class="ds:text-primary-gray ds:group-hover:text-accent!"
         >
-          <path
-            d="M12 11.0964L7.4 15.6964L6 14.2964L12 8.29639L18 14.2964L16.6 15.6964L12 11.0964Z"
+          <svg
             fill="currentColor"
-          />
-        </svg>
+            height="24"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 11.0964L7.4 15.6964L6 14.2964L12 8.29639L18 14.2964L16.6 15.6964L12 11.0964Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
       </span>
     </button>
   </div>

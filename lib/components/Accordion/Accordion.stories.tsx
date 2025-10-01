@@ -41,7 +41,6 @@ export const Default: Story = {
   args: {
     title: 'Title',
     children: 'Content',
-    lang: 'en',
   },
 };
 
@@ -62,9 +61,8 @@ export const TitleComponent: Story = {
   },
   args: {
     title: <div className="ds:text-heading-1 ds:font-arial ds:text-alert ds:italic ds:tracking-widest">Title</div>,
-    titleText: 'Title',
+    ariaLabel: 'Title',
     children: 'Content',
-    lang: 'en',
   },
 };
 
@@ -82,7 +80,6 @@ export const WithUnderline: Story = {
     title: 'Title',
     children: 'Content',
     underline: true,
-    lang: 'en',
   },
 };
 
@@ -100,7 +97,6 @@ export const WithAsync: Story = {
     title: 'Title',
     children: 'Content',
     underline: true,
-    lang: 'en',
     initialState: false,
     fetchData: async () => new Promise((resolve) => setTimeout(resolve, 5000)),
   },
@@ -119,7 +115,6 @@ export const GrayClosedByDefault: Story = {
   args: {
     title: 'Title',
     children: <div className="ds:bg-bg-gray-2 ds:px-5 ds:pb-3">{'Content'}</div>,
-    lang: 'en',
     initialState: false,
     className: 'ds:bg-bg-gray-2 ds:p-3',
   },
