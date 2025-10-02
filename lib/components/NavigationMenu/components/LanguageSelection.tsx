@@ -27,7 +27,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
 
   return (
     <>
-      <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{title}</span>
+      <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{title}</h2>
       <div className="ds:flex">
         <ul className="ds:flex ds:flex-1 ds:flex-col">
           {items.map((item: LanguageSelectionItem) => (

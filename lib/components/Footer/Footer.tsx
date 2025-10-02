@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { JodArrowRight, JodOpenInNew } from '../../icons';
 import { HeroCard } from '../../main';
 import { LogoRgb } from '../Logo/LogoRgb';
@@ -6,9 +6,7 @@ import {
   LogoEuEn,
   LogoEuFi,
   LogoEuSv,
-  LogoKehaEn,
-  LogoKehaFi,
-  LogoKehaSv,
+  LogoKehaFiSv,
   LogoOkmEn,
   LogoOkmFiSv,
   LogoOphEn,
@@ -18,6 +16,7 @@ import {
 } from './logos';
 
 export interface FooterProps {
+  ref?: React.Ref<HTMLDivElement>;
   /** Language of the logos */
   language: string;
 
@@ -52,52 +51,60 @@ export interface FooterProps {
   feedbackOnClick: () => void;
   feedbackBgImageClassName: string;
   dataTestId?: string;
+
+  /** Heading level for the footer title, h2 is the default */
+  headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 /**
  * This component is a footer that displays navigation items, logos, and a copyright.
  */
-export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
-  {
-    language,
-    okmLabel,
-    temLabel,
-    ophLabel,
-    kehaLabel,
-    cooperationTitle,
-    fundingTitle,
-    copyright,
-    className = '',
-    moreInfoTitle,
-    moreInfoDescription,
-    moreInfoLinks,
-    moreInfoComponent: MoreInfoLinkComponent,
-    feedbackTitle,
-    feedbackContent,
-    feedbackButtonLabel,
-    feedbackOnClick,
-    feedbackBgImageClassName,
-    dataTestId,
-  }: FooterProps,
+export const Footer = ({
+  language,
+  okmLabel,
+  temLabel,
+  ophLabel,
+  kehaLabel,
+  cooperationTitle,
+  fundingTitle,
+  copyright,
+  className = '',
+  moreInfoTitle,
+  moreInfoDescription,
+  moreInfoLinks,
+  moreInfoComponent: MoreInfoLinkComponent,
+  feedbackTitle,
+  feedbackContent,
+  feedbackButtonLabel,
+  feedbackOnClick,
+  feedbackBgImageClassName,
+  dataTestId,
   ref,
-) {
+  headingLevel = 'h2',
+}: FooterProps) => {
+  const HeadingTag = headingLevel;
+  const defaultCooperationLogos = React.useMemo(
+    () => [
+      <li key="LogoOkmFiSv" className="ds:flex">
+        <LogoOkmFiSv className="ds:h-9 ds:max-w-full" aria-label={okmLabel} />
+      </li>,
+      <li key="LogoTemFiSv" className="ds:flex">
+        <LogoTemFiSv className="ds:h-9 ds:max-w-full" aria-label={temLabel} />
+      </li>,
+      <li key="LogoOphFiSv" className="ds:flex">
+        <LogoOphFiSv className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
+      </li>,
+      <li key="LogoKehaFiSv" className="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3">
+        <LogoKehaFiSv className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
+      </li>,
+    ],
+    [okmLabel, temLabel, ophLabel, kehaLabel],
+  );
+
   const cooperationLogos = React.useMemo(() => {
     switch (language) {
       case 'sv':
-        return [
-          <li key="LogoOkmFiSv" className="ds:flex">
-            <LogoOkmFiSv className="ds:h-9 ds:max-w-full" aria-label={okmLabel} />
-          </li>,
-          <li key="LogoTemFiSv" className="ds:flex">
-            <LogoTemFiSv className="ds:h-9 ds:max-w-full" aria-label={temLabel} />
-          </li>,
-          <li key="LogoOphFiSv" className="ds:flex">
-            <LogoOphFiSv className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
-          </li>,
-          <li key="LogoKehaSv" className="ds:flex">
-            <LogoKehaSv className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
-          </li>,
-        ];
+        return defaultCooperationLogos;
       case 'en':
         return [
           <li key="LogoOkmEn" className="ds:flex">
@@ -109,27 +116,14 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
           <li key="LogoOphEn" className="ds:flex">
             <LogoOphEn className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
           </li>,
-          <li key="LogoKehaEn" className="ds:flex">
-            <LogoKehaEn className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
+          <li key="LogoKehaFiSv" className="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3">
+            <LogoKehaFiSv className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
           </li>,
         ];
       default:
-        return [
-          <li key="LogoOkmFiSv" className="ds:flex">
-            <LogoOkmFiSv className="ds:h-9 ds:max-w-full" aria-label={okmLabel} />
-          </li>,
-          <li key="LogoTemFiSv" className="ds:flex">
-            <LogoTemFiSv className="ds:h-9 ds:max-w-full" aria-label={temLabel} />
-          </li>,
-          <li key="LogoOphFiSv" className="ds:flex">
-            <LogoOphFiSv className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
-          </li>,
-          <li key="LogoKehaFi" className="ds:flex">
-            <LogoKehaFi className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
-          </li>,
-        ];
+        return defaultCooperationLogos;
     }
-  }, [language, okmLabel, temLabel, ophLabel, kehaLabel]);
+  }, [language, defaultCooperationLogos, okmLabel, temLabel, ophLabel, kehaLabel]);
 
   const fundingLogo = React.useMemo(() => {
     switch (language) {
@@ -177,7 +171,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
       <div className="ds:flex ds:justify-start ds:text-white ds:bg-primary-gray ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto">
         <div className="ds:w-[1092px] ds:mx-auto ds:px-5">
           <div className="ds:flex ds:flex-col">
-            <div className="ds:text-heading-2-mobile ds:sm:text-heading-2 ds:mb-3">{moreInfoTitle}</div>
+            <HeadingTag className="ds:text-heading-2-mobile ds:sm:text-heading-2 ds:mb-3">{moreInfoTitle}</HeadingTag>
             <p className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:mb-6">{moreInfoDescription}</p>
             <ul className="ds:flex ds:flex-col ds:gap-3 ds:justify-start ds:items-start">
               {moreInfoLinks.map((link) => (
@@ -188,7 +182,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
                       className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
                     >
                       <span>{link.label}</span>
-                      <JodArrowRight size={24} />
+                      <JodArrowRight />
                     </MoreInfoLinkComponent>
                   ) : (
                     <a
@@ -198,7 +192,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
                       className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
                     >
                       <span>{link.label}</span>
-                      <JodOpenInNew size={24} />
+                      <JodOpenInNew />
                     </a>
                   )}
                 </li>
@@ -230,4 +224,4 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(function Footer(
       </div>
     </footer>
   );
-});
+};

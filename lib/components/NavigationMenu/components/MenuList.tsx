@@ -233,9 +233,7 @@ export const MenuList = ({
   return (
     menuSection && (
       <div data-testid={dataTestId}>
-        {menuSection.title ? (
-          <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</span>
-        ) : null}
+        {menuSection.title ? <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</h2> : null}
         <ul
           className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])}
           ref={menuRef}
