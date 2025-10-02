@@ -63,7 +63,7 @@ export const ExternalLinkSections = ({ sections }: { sections: ExternalLinkSecti
           {/* Only show section title if there are link items */}
           <div>
             <MenuSeparator />
-            <span className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{section.title}</span>
+            <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{section.title}</h2>
             <ul className="ds:gap-3 ds:flex ds:flex-col">
               {section.linkItems.map((item) => (
                 <ExternalLinkItem key={item.label} item={item} />
