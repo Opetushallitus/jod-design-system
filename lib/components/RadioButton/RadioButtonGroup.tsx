@@ -14,7 +14,10 @@ export interface RadioButtonGroupProps {
   children: React.ReactNode;
   /** CSS classes for custom styles */
   className?: string;
+  /** Test id for querying in tests */
   dataTestId?: string;
+  /** Showing required text in parentheses, showing after the label */
+  requiredText?: string;
 }
 
 /** Radio buttons allow users to select a single option from a list of mutually exclusive options. All possible options are exposed up front for users to compare. */
@@ -26,10 +29,14 @@ export const RadioButtonGroup = ({
   children,
   className,
   dataTestId,
+  requiredText,
 }: RadioButtonGroupProps) => {
+  const labelText = requiredText ? `${label} (${requiredText})` : label;
+
   return (
     <RadioGroup
       value={value}
+      aria-required={!!requiredText}
       onChange={onChange}
       className={`${className ? className : ''} ds:flex ds:flex-col ds:space-y-3`.trim()}
       data-testid={dataTestId}
@@ -38,7 +45,7 @@ export const RadioButtonGroup = ({
         className={`ds:mb-5 ds:text-heading-3 ds:font-poppins ds:text-primary-gray ${hideLabel ? 'ds:hidden' : ''}`.trim()}
         data-testid={dataTestId ? `${dataTestId}-label` : undefined}
       >
-        {label}
+        {labelText}
       </Label>
       {children}
     </RadioGroup>

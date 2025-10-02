@@ -15,6 +15,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-label="Label"
+        aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
         id="«r8»"
@@ -74,6 +75,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
+        aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-disabled=""
         data-headlessui-state="disabled"
@@ -136,6 +138,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
+        aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
         id="«r0»"

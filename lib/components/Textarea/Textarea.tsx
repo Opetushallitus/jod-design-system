@@ -24,6 +24,8 @@ interface BaseTextareaProps {
   className?: string;
   /** Test id for querying in tests */
   dataTestId?: string;
+  /** Showing required text in parentheses, showing after the label */
+  requiredText?: string;
 }
 
 interface HideLabelProps extends BaseTextareaProps {
@@ -61,11 +63,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
     rows,
     className = '',
     dataTestId,
+    requiredText,
   }: TextareaProps,
   ref,
 ) {
   const inputId = React.useId();
   const helpId = React.useId();
+  const labelText = requiredText ? `${label} (${requiredText})` : label;
+
   return (
     <>
       <label
@@ -75,7 +80,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
           'ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
         ])}
       >
-        {label}
+        {labelText}
       </label>
       <textarea
         ref={ref}

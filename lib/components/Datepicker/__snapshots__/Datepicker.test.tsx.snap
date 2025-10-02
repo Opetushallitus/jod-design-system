@@ -31,6 +31,7 @@ exports[`Datepicker > renders correctly 1`] = `
       class="ds:flex ds:w-full"
     >
       <input
+        aria-required="false"
         autocomplete="off"
         autocorrect="off"
         class="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"

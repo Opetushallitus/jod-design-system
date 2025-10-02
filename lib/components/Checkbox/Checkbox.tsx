@@ -22,6 +22,8 @@ export interface CheckboxProps {
   className?: string;
   /** Test id for querying in tests */
   dataTestId?: string;
+  /** Showing required text in parentheses, showing after the label */
+  requiredText?: string;
 }
 
 /**
@@ -39,6 +41,7 @@ export const Checkbox = ({
   ariaLabel,
   className,
   dataTestId,
+  requiredText,
 }: CheckboxProps) => {
   const id = React.useId();
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -51,6 +54,27 @@ export const Checkbox = ({
     }
   }, [indeterminate]);
 
+  const labelContent = React.useMemo(() => {
+    // Handle component label
+    if (isLabelValidElement) {
+      if (requiredText) {
+        return (
+          <>
+            <span>{label}</span>
+            <span className="ds:ml-4">{`(${requiredText})`}</span>
+          </>
+        );
+      } else {
+        return <span>{label}</span>;
+      }
+    } else if (typeof label === 'string') {
+      const text = requiredText ? `${label} (${requiredText})` : label;
+      return <span>{text}</span>;
+    } else {
+      return <span>{label}</span>;
+    }
+  }, [isLabelValidElement, label, requiredText]);
+
   return (
     <div className={cx('ds:flex ds:items-center ds:text-left ds:relative ds:font-arial', className)}>
       <input
@@ -61,6 +85,8 @@ export const Checkbox = ({
         disabled={disabled}
         value={value}
         checked={checked}
+        required={!!requiredText}
+        aria-required={!!requiredText}
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
         aria-checked={indeterminate ? 'mixed' : checked}
@@ -105,7 +131,7 @@ export const Checkbox = ({
           htmlFor={id}
           className={`ds:flex ds:flex-row ds:items-center ds:text-form-label ds:text-primary-gray ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ${!isLabelValidElement ? 'ds:pl-4' : ''}`.trim()}
         >
-          {label}
+          {labelContent}
         </label>
       )}
     </div>
