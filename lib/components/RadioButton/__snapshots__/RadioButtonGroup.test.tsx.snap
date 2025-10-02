@@ -3,6 +3,7 @@
 exports[`Snapshot testing > Default 1`] = `
 <div
   aria-labelledby="headlessui-label-«r1»"
+  aria-required="false"
   class="ds:flex ds:flex-col ds:space-y-3"
   data-testid="rbg2"
   id="headlessui-radiogroup-«r0»"

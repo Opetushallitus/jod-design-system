@@ -85,9 +85,14 @@ export interface DatepickerProps {
   placeholder?: string;
   /** Help text to display below the input field */
   help?: string;
+  /** Translations required by Ark-UI datepicker */
   translations: ArkTranslationsInUse;
+  /** Ref for the input element */
   ref?: React.RefObject<HTMLInputElement> | RefCallback<HTMLInputElement>;
+  /** Test id for querying in tests */
   dataTestId?: string;
+  /** Showing required text in parentheses, showing after the label */
+  requiredText?: string;
 }
 
 /** Datepicker component for selecting a date. */
@@ -102,9 +107,11 @@ export const Datepicker = ({
   onChange,
   translations,
   dataTestId,
+  requiredText,
 }: DatepickerProps) => {
   const helpId = React.useId();
   const timeZone = 'Europe/Helsinki';
+  const labelText = requiredText ? `${label} (${requiredText})` : label;
 
   const arkTranslations: DatePickerRootProps['translations'] = {
     ...translations,
@@ -152,7 +159,7 @@ export const Datepicker = ({
   return (
     <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full" data-testid={dataTestId}>
       <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray">
-        {label}
+        {labelText}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
         <div className="ds:flex ds:w-full">
@@ -160,6 +167,9 @@ export const Datepicker = ({
             ref={ref}
             name={name}
             placeholder={placeholder}
+            required={!!requiredText}
+            aria-required={!!requiredText}
+            aria-describedby={help ? helpId : undefined}
             className="ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               // Handle clearing the input field to allow clearing the datepicker value

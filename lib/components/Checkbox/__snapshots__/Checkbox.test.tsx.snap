@@ -6,6 +6,7 @@ exports[`Checkbox > renders correctly 1`] = `
 >
   <input
     aria-checked="false"
+    aria-required="false"
     class="ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-2 ds:border-accent"
     id="«r0»"
     name="myCheckbox"
@@ -60,7 +61,9 @@ exports[`Checkbox > renders correctly 1`] = `
     class="ds:flex ds:flex-row ds:items-center ds:text-form-label ds:text-primary-gray ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ds:pl-4"
     for="«r0»"
   >
-    My Checkbox
+    <span>
+      My Checkbox
+    </span>
   </label>
 </div>
 `;

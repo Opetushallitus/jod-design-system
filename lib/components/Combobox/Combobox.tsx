@@ -35,6 +35,8 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   className?: string;
   /** Test id for querying in tests */
   dataTestId?: string;
+  /** Showing required text in parentheses, showing after the label */
+  requiredText?: string;
 }
 
 export const Combobox = <
@@ -51,8 +53,10 @@ export const Combobox = <
   disabled = false,
   className = '',
   dataTestId,
+  requiredText,
 }: ComboboxProps<T, U>) => {
   const inputId = React.useId();
+  const labelText = requiredText ? `${label} (${requiredText})` : label;
 
   const [query, setQuery] = React.useState('');
   const filteredOptions =
@@ -66,7 +70,7 @@ export const Combobox = <
     <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={dataTestId}>
       {!hideLabel && (
         <label htmlFor={inputId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
-          {label}
+          {labelText}
         </label>
       )}
       <div className="ds:flex ds:flex-row ds:relative">
@@ -80,6 +84,8 @@ export const Combobox = <
             <div className="ds:flex ds:flex-row ds:w-full">
               <ComboboxInput
                 id={inputId}
+                required={!!requiredText}
+                aria-required={!!requiredText}
                 aria-label={hideLabel ? label : undefined}
                 displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
                 className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
