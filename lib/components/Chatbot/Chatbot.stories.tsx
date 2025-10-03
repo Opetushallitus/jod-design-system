@@ -29,5 +29,6 @@ export const Default: Story = {
     errorMessage: 'Tapahtui jokin virhe.',
     greeting: 'Hei, olen Osaamispolun neuvontabotti.',
     textInputPlaceholder: 'Kirjoita kysymyksesi tähän',
+    disclaimer: 'Älä syötä henkilötietojasi neuvontabotille.',
   },
 };

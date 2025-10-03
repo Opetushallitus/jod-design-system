@@ -24,6 +24,7 @@ export const Chatbot = ({
   errorMessage,
   greeting,
   textInputPlaceholder,
+  disclaimer,
 }: {
   /** The agent's unique identifier */
   agent: string;
@@ -43,6 +44,8 @@ export const Chatbot = ({
   greeting: string;
   /** The placeholder text for the text input */
   textInputPlaceholder: string;
+  /** The disclaimer text to display above the text input*/
+  disclaimer: string;
 }) => {
   React.useEffect(() => {
     loadAiAgentFloat();
@@ -69,6 +72,7 @@ export const Chatbot = ({
           waitingmessage={waitingmessage}
           errormessage={errorMessage}
           textinputplaceholder={textInputPlaceholder}
+          disclaimer={disclaimer}
         >
           <ai-agent-dialog-row
             slot="pre-chat-messages"
