@@ -145,8 +145,6 @@ export const NavigationBar = ({
             'ds:text-white',
             'ds:text-[12px]',
             'ds:sm:text-[14px]',
-            'ds:transition-[height]',
-            'ds:duration-100',
             serviceBarCollapsed ? 'ds:h-2' : 'ds:h-8',
             getAccentBgClassForService(serviceBarVariant),
           ])}

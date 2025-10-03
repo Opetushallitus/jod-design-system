@@ -46,7 +46,7 @@ export const Note = ({
         'ds:bg-warning ds:text-primary-gray': variant === 'warning',
         'ds:bg-alert ds:text-white': variant === 'error',
         'ds:bg-secondary-3 ds:text-primary-gray': variant === 'feedback',
-        'ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 sm:ds:h-8': !collapsed,
+        'ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0': !collapsed,
         'ds:h-0': collapsed,
       })}
       data-testid={dataTestId}
