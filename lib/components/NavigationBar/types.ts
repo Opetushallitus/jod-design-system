@@ -14,8 +14,7 @@ export type LanguageMenuLinkComponent = React.ComponentType<{
   className?: string;
 }>;
 
-export interface LanguageMenuProps {
-  onClick: () => void;
+export interface LanguageButtonProps {
   /** Current language in use */
   language: LangCode;
   /** Languages that are in use from supported ones  */
@@ -24,6 +23,10 @@ export interface LanguageMenuProps {
   LinkComponent: LanguageMenuLinkComponent;
   translations: LanguageTranslations;
   dataTestId?: string;
+}
+
+export interface LanguageMenuProps extends LanguageButtonProps {
+  onClick: () => void;
 }
 
 export type LanguageTranslations = Record<LangCode, LanguageMeta>;
