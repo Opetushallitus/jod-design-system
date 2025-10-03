@@ -1,8 +1,6 @@
 import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
 import { PartialStoryFn } from 'storybook/internal/types';
-import { useRef, useState } from 'storybook/preview-api';
-import { JodCaretDown, JodMenu, JodUser } from '../../icons';
-import { useMediaQueries } from '../../main';
+import { MenuButton, UserButton } from '../../main';
 import type { TitledMeta } from '../../utils';
 import { LanguageButton } from './LanguageButton';
 import { NavigationBar, NavigationBarProps } from './NavigationBar';
@@ -81,59 +79,47 @@ export const Default: Story = {
     showServiceBar: false,
   },
   render: (args) => {
-    const { md } = useMediaQueries();
-
-    const [langMenuOpen, setLangMenuOpen] = useState(false);
-    const menuRef = useRef<HTMLDivElement | null>(null);
-    const handleBlur = () => setLangMenuOpen(false);
-
-    const buttonClassNames =
-      'ds:flex ds:md:flex-row ds:flex-col ds:gap-2 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer';
-
-    const menuComponent = (
-      <button className={buttonClassNames} aria-label="Avaa valikko">
-        <JodMenu size={24} className="ds:mx-auto" />
-        <span className="ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px]">Valikko</span>
-      </button>
-    );
-
-    const languageButtonComponent = (
-      <LanguageButton
-        supportedLanguageCodes={['fi', 'sv', 'en']}
-        onClick={() => setLangMenuOpen(!langMenuOpen)}
-        langMenuOpen={langMenuOpen}
-        menuRef={menuRef}
-        language="fi"
-        onMenuBlur={handleBlur}
-        onMenuClick={() => setLangMenuOpen(false)}
-        translations={{
-          fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
-          sv: { change: 'Andra språk.', label: 'På svenska' },
-          en: { change: 'Change language.', label: 'In English' },
-        }}
-        generateLocalizedPath={(code: string) => `/${code}`}
-        LinkComponent={({ children, className, ...rest }) => (
-          <a href="/#" className={className} {...rest}>
-            {children}
-          </a>
-        )}
-      />
-    );
-
-    const userButtonComponent = (
-      <button className={buttonClassNames}>
-        <JodUser size={24} className="ds:mx-auto" />
-        <span className="ds:whitespace-nowrap ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px]">Juho-Henrik</span>
-        {md && <JodCaretDown size={20} />}
-      </button>
-    );
-
     return (
       <NavigationBar
         {...args}
-        userButtonComponent={userButtonComponent}
-        languageButtonComponent={languageButtonComponent}
-        menuComponent={menuComponent}
+        userButtonComponent={
+          <UserButton
+            firstName="Juho-Henrik"
+            isLoggedIn
+            loginLabel="Kirjaudu"
+            profileLabel="Osaamisprofiilini"
+            logoutLabel="Kirjaudu ulos"
+            onLogout={() => console.log('logout')}
+            ProfileLinkComponent={({ children, className, ...rest }) => (
+              <a href="/#" className={className} {...rest}>
+                {children}
+              </a>
+            )}
+            LoginLinkComponent={({ children, className, ...rest }) => (
+              <a href="/#" className={className} {...rest}>
+                {children}
+              </a>
+            )}
+          />
+        }
+        languageButtonComponent={
+          <LanguageButton
+            supportedLanguageCodes={['fi', 'sv', 'en']}
+            language="fi"
+            translations={{
+              fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
+              sv: { change: 'Andra språk.', label: 'På svenska' },
+              en: { change: 'Change language.', label: 'In English' },
+            }}
+            generateLocalizedPath={(code: string) => `/${code}`}
+            LinkComponent={({ children, className, ...rest }) => (
+              <a href="/#" className={className} {...rest}>
+                {children}
+              </a>
+            )}
+          />
+        }
+        menuComponent={<MenuButton ariaLabel="Avaa valikko" label="Valikko" onClick={() => console.log('open menu')} />}
       />
     );
   },
