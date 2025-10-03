@@ -24,6 +24,7 @@ export {
   LogoEuEn,
   LogoEuFi,
   LogoEuSv,
+  LogoKehaEn,
   LogoKehaFiSv,
   LogoOkmEn,
   LogoOkmFiSv,

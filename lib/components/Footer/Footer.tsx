@@ -6,6 +6,7 @@ import {
   LogoEuEn,
   LogoEuFi,
   LogoEuSv,
+  LogoKehaEn,
   LogoKehaFiSv,
   LogoOkmEn,
   LogoOkmFiSv,
@@ -117,7 +118,7 @@ export const Footer = ({
             <LogoOphEn className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
           </li>,
           <li key="LogoKehaFiSv" className="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3">
-            <LogoKehaFiSv className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
+            <LogoKehaEn className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
           </li>,
         ];
       default:
