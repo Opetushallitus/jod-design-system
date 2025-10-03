@@ -206,7 +206,7 @@ export const WithNoteStack: Story = {
           <div className="ds:fixed ds:top-0 ds:w-full">
             <NoteStack showAllText="Näytä kaikki" />
           </div>
-          <div className="ds:mt-[200px] ds:ml-3 ds:flex ds:gap-5">
+          <div className="ds:mt-[200px] ds:flex ds:gap-5 ds:justify-center">
             {variants.map((variant) => (
               <Button
                 key={variant}

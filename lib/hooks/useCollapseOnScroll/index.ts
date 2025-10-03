@@ -1,69 +1,73 @@
 import React from 'react';
 
-export interface UseCollapseOnScrollProps {
+interface UseCollapseOnScrollProps {
   onCollapse: () => void;
   onUncollapse: () => void;
-  ignoreScroll?: boolean;
-  animationDuration?: number;
-  topThreshold?: number;
 }
+export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
+  const lastScrollY = React.useRef(0);
+  const isCollapsed = React.useRef(false);
+  const ignoreScroll = React.useRef(false);
+  const SCROLL_THRESHOLD = 10;
 
-export const useCollapseOnScroll = ({
-  onCollapse,
-  onUncollapse,
-  ignoreScroll = false,
-  animationDuration = 100,
-  topThreshold = 0,
-}: UseCollapseOnScrollProps) => {
-  const animPendingRef = React.useRef(false);
-  const timeoutRef = React.useRef<number | null>(null);
-  const requestAnimationFrameRef = React.useRef<number | null>(null);
-  const isCollapsedRef = React.useRef(false);
-  const ticking = React.useRef(false);
+  // Function to reset the scroll state. Handy when the collapsing
+  // state is set elsewhere (e.g., the "show all" button click in NoteStack).
+  const resetCollapseState = () => {
+    lastScrollY.current = globalThis.scrollY;
+    isCollapsed.current = false;
+    ignoreScroll.current = false;
+  };
 
-  React.useEffect(() => {
-    // Call collapse/uncollapse based on the scroll position
-    const checkScroll = () => {
-      ticking.current = false;
+  const ignoreScrollChecksForMs = (ms: number) => {
+    ignoreScroll.current = true;
+    globalThis.setTimeout(() => {
+      ignoreScroll.current = false;
+    }, ms);
+  };
 
-      if (ignoreScroll || animPendingRef.current) {
+  // Throttle scroll handler with requestAnimationFrame
+  const rafId = React.useRef<number | null>(null);
+
+  const handleScroll = React.useCallback(() => {
+    if (rafId.current) {
+      return;
+    }
+    // Use requestAnimationFrame for better performance
+    rafId.current = globalThis.requestAnimationFrame(() => {
+      rafId.current = null;
+      if (ignoreScroll.current) {
         return;
       }
+      const currentScrollY = globalThis.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
 
-      const atTop = window.scrollY <= topThreshold;
-
-      if (!atTop && !isCollapsedRef.current) {
-        onCollapse();
-        isCollapsedRef.current = true;
-        animPendingRef.current = true;
-        timeoutRef.current = window.setTimeout(() => {
-          animPendingRef.current = false;
-        }, animationDuration);
-      } else if (atTop && isCollapsedRef.current) {
-        onUncollapse();
-        isCollapsedRef.current = false;
+      if (scrollDelta > SCROLL_THRESHOLD && !isCollapsed.current) {
+        props.onCollapse();
+        isCollapsed.current = true;
+        ignoreScrollChecksForMs(100);
+      } else if (scrollDelta < -SCROLL_THRESHOLD && isCollapsed.current) {
+        props.onUncollapse();
+        isCollapsed.current = false;
+        ignoreScrollChecksForMs(100);
       }
-    };
 
-    // Use requestAnimationFrame for more precise scroll position detection
-    const handleScroll = () => {
-      if (!ticking.current) {
-        requestAnimationFrameRef.current = window.requestAnimationFrame(checkScroll);
-        ticking.current = true;
+      if (Math.abs(scrollDelta) >= SCROLL_THRESHOLD) {
+        lastScrollY.current = currentScrollY;
       }
-    };
+    });
+  }, [props]);
 
-    window.addEventListener('scroll', handleScroll);
+  React.useEffect(() => {
+    lastScrollY.current = globalThis.scrollY;
+    globalThis.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timeoutRef.current) {
-        window.clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-      if (requestAnimationFrameRef.current) {
-        window.cancelAnimationFrame(requestAnimationFrameRef.current);
-        requestAnimationFrameRef.current = null;
+      globalThis.removeEventListener('scroll', handleScroll);
+      if (rafId.current) {
+        globalThis.cancelAnimationFrame(rafId.current);
       }
     };
-  }, [animationDuration, ignoreScroll, onCollapse, onUncollapse, topThreshold]);
+  }, [handleScroll]);
+
+  return { resetCollapseState };
 };
