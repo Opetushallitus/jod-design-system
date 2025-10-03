@@ -33,7 +33,7 @@ export const UserButton = ({
   const carets = md ? <>{userMenuOpen ? <JodCaretUp size={20} /> : <JodCaretDown size={20} />}</> : null;
 
   return isLoggedIn ? (
-    <div className="relative" data-testid="user-button">
+    <div className="ds:relative" data-testid="user-button">
       <button
         {...triggerProps}
         className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-2 ds:md:gap-3"
@@ -49,7 +49,7 @@ export const UserButton = ({
           className="ds:z-60 ds:absolute ds:right-0 ds:min-w-max ds:translate-y-8 ds:transform"
           data-testid="user-menu"
         >
-          <PopupList classNames="gap-2">
+          <PopupList classNames="ds:gap-2">
             <ProfileLinkComponent onClick={closeUserMenu} className="" data-testid="user-menu-profile">
               <PopupListItem>{profileLabel}</PopupListItem>
             </ProfileLinkComponent>
