@@ -19,7 +19,7 @@ export const PopupList = ({ children, classNames = '', dataTestId }: PopupListPr
 export const PopupListItem = ({ children, classNames = '', dataTestId }: PopupListProps) => {
   return (
     <div
-      className={`ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:text-accent ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded ${classNames}`.trim()}
+      className={`ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded ${classNames}`.trim()}
       data-testid={dataTestId}
     >
       {children}

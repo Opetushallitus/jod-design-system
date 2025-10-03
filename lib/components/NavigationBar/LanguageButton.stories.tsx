@@ -1,8 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
-import { useRef, useState } from 'storybook/preview-api';
 import type { TitledMeta } from '../../utils';
 
-import React from 'react';
 import { LanguageButton } from './LanguageButton';
 
 const meta = {
@@ -14,22 +12,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-const Render = (args: Story['args']) => {
-  const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const handleBlur = () => setLangMenuOpen(false);
-  return (
-    <LanguageButton
-      {...args}
-      onClick={() => setLangMenuOpen(!langMenuOpen)}
-      langMenuOpen={langMenuOpen}
-      menuRef={menuRef}
-      onMenuBlur={handleBlur}
-      onMenuClick={() => setLangMenuOpen(false)}
-    />
-  );
-};
 
 export const Default: Story = {
   parameters: {
@@ -44,17 +26,13 @@ export const Default: Story = {
     },
   },
   args: {
+    serviceVariant: 'yksilo',
     supportedLanguageCodes: ['fi', 'sv', 'en'],
     translations: {
       fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
       sv: { change: 'Andra språk.', label: 'På svenska' },
       en: { change: 'Change language.', label: 'In English' },
     },
-    onClick: () => {},
-    langMenuOpen: false,
-    menuRef: React.createRef(),
-    onMenuBlur: () => {},
-    onMenuClick: () => {},
     language: 'fi',
     generateLocalizedPath: (code: string) => `/${code}`,
     LinkComponent: ({ children, className, ...rest }) => (
@@ -70,5 +48,4 @@ export const Default: Story = {
       </div>
     ),
   ],
-  render: Render,
 };

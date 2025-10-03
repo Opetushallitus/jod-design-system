@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { LanguageButton } from './LanguageButton';
-import { LangCode } from './types';
+import { LanguageButtonProps } from './types';
 
 const translations = {
   fi: { label: 'Suomi', change: 'Vaihda kieleksi suomi' },
@@ -18,45 +18,44 @@ const LinkComponent = ({ href = '#', children }: { href?: string; children: Reac
 
 const generateLocalizedPath = (lang: string) => `/${lang}/path`;
 
+const baseProps: LanguageButtonProps = {
+  serviceVariant: 'yksilo',
+  language: 'fi' as const,
+  supportedLanguageCodes: ['fi', 'en', 'sv'],
+  generateLocalizedPath,
+  LinkComponent,
+  translations,
+  dataTestId: 'language-button',
+};
+
 describe('LanguageButton', () => {
-  const baseProps = () => ({
-    onClick: vi.fn(),
-    langMenuOpen: false,
-    menuRef: React.createRef<HTMLDivElement>(),
-    onMenuBlur: vi.fn(),
-    onMenuClick: vi.fn(),
-    language: 'fi' as const,
-    supportedLanguageCodes: ['fi', 'en', 'sv'] as LangCode[],
-    generateLocalizedPath,
-    LinkComponent,
-    translations,
-    dataTestId: 'language-button',
+  it('should toggle menu open and closed on consecutive clicks', () => {
+    const { getByTestId, queryByTestId } = render(<LanguageButton {...baseProps} />);
+    const trigger = getByTestId('language-button-trigger');
+    fireEvent.click(trigger);
+    expect(getByTestId('language-button-menu')).not.toBeNull();
+    fireEvent.click(trigger);
+    expect(queryByTestId('language-button-menu')).toBeNull();
   });
 
-  it('invokes onClick when trigger button is clicked', () => {
-    const mockOnClick = vi.fn();
-    render(<LanguageButton {...baseProps()} onClick={mockOnClick} />);
-    fireEvent.click(screen.getByTestId('language-button-trigger'));
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+  it('should display current language label', () => {
+    const { getByText } = render(<LanguageButton {...baseProps} language="sv" />);
+    expect(getByText('Svenska')).not.toBeNull();
+  });
+});
+
+describe('Snapshot', () => {
+  it('should render with defaults', () => {
+    const { container } = render(<LanguageButton {...baseProps} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('fires onMenuBlur when menu loses focus', () => {
-    const mockOnMenuBlur = vi.fn();
-    render(<LanguageButton {...baseProps()} onMenuBlur={mockOnMenuBlur} langMenuOpen={true} />);
-    const menuWrapper = screen.getByTestId('language-button-menu');
-    fireEvent.blur(menuWrapper);
-    expect(mockOnMenuBlur).toHaveBeenCalledTimes(1);
-  });
-
-  describe('Snapshot', () => {
-    it('should render with defaults', () => {
-      const { container } = render(<LanguageButton {...baseProps()} />);
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it('should render with menu open', () => {
-      const { container } = render(<LanguageButton {...baseProps()} langMenuOpen />);
-      expect(container.firstChild).toMatchSnapshot();
-    });
+  it('should render with menu open (after click)', () => {
+    const { container, getByTestId } = render(<LanguageButton {...baseProps} />);
+    const trigger = getByTestId('language-button-trigger');
+    fireEvent.click(trigger);
+    const menu = getByTestId('language-button-menu');
+    expect(menu).not.toBeNull();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

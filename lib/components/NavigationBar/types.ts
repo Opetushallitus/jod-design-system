@@ -1,3 +1,5 @@
+import { ServiceVariant } from '../../utils';
+
 export type LangCode = 'fi' | 'sv' | 'en';
 
 export const langLabels: Record<LangCode, string> = {
@@ -14,8 +16,9 @@ export type LanguageMenuLinkComponent = React.ComponentType<{
   className?: string;
 }>;
 
-export interface LanguageMenuProps {
-  onClick: () => void;
+export interface LanguageButtonProps {
+  /** Service variant */
+  serviceVariant: ServiceVariant;
   /** Current language in use */
   language: LangCode;
   /** Languages that are in use from supported ones  */
@@ -24,6 +27,10 @@ export interface LanguageMenuProps {
   LinkComponent: LanguageMenuLinkComponent;
   translations: LanguageTranslations;
   dataTestId?: string;
+}
+
+export interface LanguageMenuProps extends LanguageButtonProps {
+  onClick: () => void;
 }
 
 export type LanguageTranslations = Record<LangCode, LanguageMeta>;
