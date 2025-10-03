@@ -7,7 +7,7 @@ exports[`PopupList > renders the PopupList component correctly 1`] = `
     data-testid="plist"
   >
     <div
-      class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:text-accent ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
+      class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
       data-testid="plist-item-1"
     >
       <a
@@ -17,7 +17,7 @@ exports[`PopupList > renders the PopupList component correctly 1`] = `
       </a>
     </div>
     <div
-      class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:text-accent ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
+      class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
     >
       <a
         href="/bar"
@@ -26,7 +26,7 @@ exports[`PopupList > renders the PopupList component correctly 1`] = `
       </a>
     </div>
     <div
-      class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:text-accent ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
+      class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
     >
       <a
         href="/baz"

@@ -1,11 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`LanguageButton > Snapshot > should render with defaults 1`] = `
+exports[`Snapshot > should render with defaults 1`] = `
 <div
   class="ds:relative"
   data-testid="language-button"
 >
   <button
+    aria-expanded="false"
+    aria-haspopup="true"
     class="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
     data-testid="language-button-trigger"
   >
@@ -54,12 +56,14 @@ exports[`LanguageButton > Snapshot > should render with defaults 1`] = `
 </div>
 `;
 
-exports[`LanguageButton > Snapshot > should render with menu open 1`] = `
+exports[`Snapshot > should render with menu open (after click) 1`] = `
 <div
   class="ds:relative"
   data-testid="language-button"
 >
   <button
+    aria-expanded="true"
+    aria-haspopup="true"
     class="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
     data-testid="language-button-trigger"
   >
@@ -116,15 +120,18 @@ exports[`LanguageButton > Snapshot > should render with menu open 1`] = `
         class="ds:inline-flex ds:flex-col ds:items-start ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px] ds:gap-2"
       >
         <div
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+          aria-current="true"
+          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
+          lang="fi"
         >
           <div
             class="ds:w-5 ds:px-2"
           >
             <svg
-              class="ds:text-secondary-1"
+              class="ds:text-secondary-1-dark"
               fill="currentColor"
               height="12"
+              role="presentation"
               stroke="currentColor"
               stroke-width="0"
               viewBox="0 0 12 12"
@@ -147,7 +154,9 @@ exports[`LanguageButton > Snapshot > should render with menu open 1`] = `
           </a>
         </div>
         <div
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+          aria-current="false"
+          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
+          lang="en"
         >
           <div
             class="ds:w-5 ds:px-2"
@@ -160,7 +169,9 @@ exports[`LanguageButton > Snapshot > should render with menu open 1`] = `
           </a>
         </div>
         <div
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+          aria-current="false"
+          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
+          lang="sv"
         >
           <div
             class="ds:w-5 ds:px-2"
