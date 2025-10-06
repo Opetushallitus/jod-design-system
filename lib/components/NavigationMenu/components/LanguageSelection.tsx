@@ -31,7 +31,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
       <div className="ds:flex">
         <ul className="ds:flex ds:flex-1 ds:flex-col">
           {items.map((item: LanguageSelectionItem) => (
-            <li key={item.label} className="ds:flex ds:min-h-8 ds:items-center ds:hover:underline">
+            <li key={item.label} className="ds:flex ds:min-h-8 ds:items-center ds:hover:underline" lang={item.value}>
               <item.linkComponent
                 className={tidyClasses([
                   'ds:flex',
