@@ -11,12 +11,14 @@ type ActionButtonProps =
         className?: string;
         children: React.ReactNode;
       }>;
+      buttonIcon?: JSX.Element;
       buttonLabel: string;
       buttonVariant?: React.ComponentProps<typeof Button>['variant'];
       onClick?: never;
     }
   | {
       onClick: () => void;
+      buttonIcon?: JSX.Element;
       buttonLabel: string;
       buttonVariant?: React.ComponentProps<typeof Button>['variant'];
       to?: never;
@@ -26,6 +28,7 @@ type ActionButtonProps =
       onClick?: never;
       to?: never;
       LinkComponent?: never;
+      buttonIcon?: JSX.Element;
       buttonLabel?: never;
       buttonVariant?: never;
     };
@@ -50,6 +53,7 @@ export const HeroCard = ({
   to,
   LinkComponent,
   buttonVariant = 'white',
+  buttonIcon = <JodArrowRight size={24} />,
   title,
   titleLevel = 2,
   titleClassName,
@@ -95,7 +99,7 @@ export const HeroCard = ({
           label={buttonLabel}
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
-          icon={<JodArrowRight size={24} />}
+          icon={buttonIcon ?? <JodArrowRight size={24} />}
           dataTestId={dataTestId ? `${dataTestId}-button` : undefined}
         />
       )}
