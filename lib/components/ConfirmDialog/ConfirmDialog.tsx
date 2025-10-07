@@ -42,7 +42,7 @@ const Button = ({ label, onClick, variant = 'normal' }: { label: string; onClick
   const variantClassNames = getVariantClassNames({ variant });
   return (
     <button
-      className={`ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ${variantClassNames}`.trim()}
+      className={`ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ${variantClassNames}`.trim()}
       onClick={onClick}
     >
       <span className="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline">
@@ -88,6 +88,7 @@ export const ConfirmDialog = ({
       {children(showDialog)}
       {isOpen && (
         <Dialog
+          arial-labelledby={`ds-confirm-dialog-title-${id}`}
           id={`ds-confirm-dialog-${id}`}
           open={isOpen}
           onClose={() => {
@@ -109,7 +110,9 @@ export const ConfirmDialog = ({
                 data-testid={dataTestId ? `${dataTestId}-panel` : undefined}
               >
                 <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9">
-                  <DialogTitle className="ds:mb-5 ds:text-heading-1">{title}</DialogTitle>
+                  <DialogTitle id={`ds-confirm-dialog-title-${id}`} className="ds:mb-5 ds:text-heading-1">
+                    {title}
+                  </DialogTitle>
                   <Description as={descriptionTag} className="ds:text-body-sm ds:font-arial ds:min-h-[60px]">
                     {description}
                   </Description>

@@ -5,6 +5,8 @@ import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { tidyClasses as tc } from '../../utils';
 
 export interface ModalProps {
+  /** Required name for the screenreader */
+  name: string;
   open: boolean;
   onClose?: () => void;
   content: React.ReactNode;
@@ -19,6 +21,7 @@ export interface ModalProps {
 
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
 export const Modal = ({
+  name,
   open,
   onClose,
   content,
@@ -44,6 +47,7 @@ export const Modal = ({
 
   return (
     <Dialog
+      aria-label={name}
       id={`ds-modal-${id}`}
       open={open}
       onClose={() => {

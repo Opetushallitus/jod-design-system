@@ -3,8 +3,9 @@
 exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
 <div
   aria-describedby="headlessui-description-«r9»"
-  aria-labelledby="headlessui-dialog-title-«r8»"
+  aria-labelledby="ds-confirm-dialog-title-«r0»"
   aria-modal="true"
+  arial-labelledby="ds-confirm-dialog-title-«r0»"
   class="ds:relative ds:z-50"
   data-headlessui-state="open"
   data-open=""
@@ -35,7 +36,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="ds:mb-5 ds:text-heading-1"
             data-headlessui-state="open"
             data-open=""
-            id="headlessui-dialog-title-«r8»"
+            id="ds-confirm-dialog-title-«r0»"
           >
             ConfirmDialog rendered
           </h2>
@@ -55,7 +56,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-5 ds:sm:px-9 ds:justify-end"
           >
             <button
-              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
+              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
             >
               <span
                 class="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline"
@@ -64,7 +65,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
               </span>
             </button>
             <button
-              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
+              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
             >
               <span
                 class="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline"
