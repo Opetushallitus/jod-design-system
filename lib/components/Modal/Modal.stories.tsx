@@ -3,7 +3,7 @@ import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 import { WizardProgress } from '../WizardProgress/WizardProgress';
-import { Modal } from './Modal';
+import { Modal, ModalProps } from './Modal';
 
 const meta = {
   title: 'Popups/Modal',
@@ -40,6 +40,26 @@ const LoremIpsum = ({ heading, length = 10 }: { heading: string; length?: number
     </>
   );
 };
+
+const commonDesignParams = {
+  type: 'figma',
+  url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
+} as const;
+
+const commonArgTypes = {
+  content: { control: false },
+  sidePanel: { control: false },
+  footer: { control: false },
+  progress: { control: false },
+} as const;
+
+const commonArgs: ModalProps = {
+  name: 'Modal example',
+  open: false,
+  onClose: fn(),
+  content: <>/</>,
+  footer: <>/</>,
+} as const;
 
 const render = (args: Story['args']) => {
   const { open, onClose, ...rest } = args;
@@ -80,7 +100,7 @@ const render = (args: Story['args']) => {
 const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
   return (
     <button
-      className="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:bg-white ds:px-6 ds:text-button-md ds:text-primary-gray ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0"
+      className="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:bg-white ds:px-6 ds:text-button-md ds:text-primary-gray ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0"
       onClick={onClick}
     >
       <span className="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline">
@@ -93,91 +113,52 @@ const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => 
 export const Default: Story = {
   render,
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
-    },
+    design: commonDesignParams,
     docs: {
       description: {
         story: 'This is a modal component.',
       },
     },
   },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    sidePanel: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-  },
+  argTypes: { ...commonArgTypes },
   args: {
-    open: false,
-    onClose: fn(),
+    ...commonArgs,
     content: <LoremIpsum heading="Content" />,
     sidePanel: <LoremIpsum heading="Side panel" />,
-    footer: <>/</>,
   },
 };
 
 export const DefaultWithoutSidePanel: Story = {
   render,
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
-    },
+    design: commonDesignParams,
     docs: {
       description: {
         story: 'This is a modal component without side panel.',
       },
     },
   },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-  },
+  argTypes: { ...commonArgTypes },
   args: {
-    open: false,
-    onClose: fn(),
+    ...commonArgs,
     content: <LoremIpsum heading="Content" />,
-    footer: <>/</>,
   },
 };
 
 export const FullWidthContent: Story = {
   render,
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-7639&t=b8o6NAta57e3aj8E-1',
-    },
+    design: commonDesignParams,
     docs: {
       description: {
         story: 'This is a modal component with full width content. Should only be used without side panel.',
       },
     },
   },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-  },
+  argTypes: { ...commonArgTypes },
   args: {
-    open: false,
-    onClose: fn(),
+    ...commonArgs,
     content: <LoremIpsum heading="Content" />,
-    footer: <>/</>,
     fullWidthContent: true,
   },
 };
@@ -256,15 +237,9 @@ export const DynamicContent: Story = {
       },
     },
   },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-  },
+  argTypes: { ...commonArgTypes },
   args: {
+    ...commonArgs,
     open: false,
     onClose: fn(),
     content: <>/</>,
@@ -285,102 +260,11 @@ export const Progress: Story = {
       },
     },
   },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    sidePanel: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-    progress: {
-      control: false,
-    },
-  },
+  argTypes: { ...commonArgTypes },
   args: {
-    open: false,
-    onClose: fn(),
+    ...commonArgs,
     content: <LoremIpsum heading="Content" />,
     sidePanel: <LoremIpsum heading="Side panel" />,
-    footer: <>/</>,
-    progress: <ProgressComponent />,
-  },
-};
-
-export const Mobile: Story = {
-  render,
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile',
-    },
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729-23078',
-    },
-    docs: {
-      description: {
-        story: 'Mobile version of the modal.',
-      },
-    },
-  },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    sidePanel: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-  },
-  args: {
-    open: false,
-    onClose: fn(),
-    content: <LoremIpsum heading="Content" />,
-    sidePanel: <LoremIpsum heading="Side panel" />,
-    footer: <>/</>,
-  },
-};
-
-export const MobileWithProgress: Story = {
-  render,
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile',
-    },
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=729-23000',
-    },
-    docs: {
-      description: {
-        story: 'Mobile version of the Modal, with progress slot.',
-      },
-    },
-  },
-  argTypes: {
-    content: {
-      control: false,
-    },
-    sidePanel: {
-      control: false,
-    },
-    footer: {
-      control: false,
-    },
-    progress: {
-      control: false,
-    },
-  },
-  args: {
-    open: false,
-    onClose: fn(),
-    content: <LoremIpsum heading="Content" />,
-    sidePanel: <LoremIpsum heading="Side panel" />,
-    footer: <>/</>,
     progress: <ProgressComponent />,
   },
 };

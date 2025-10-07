@@ -7,7 +7,7 @@ describe('Modal', () => {
     const content = <div>Modal Content</div>;
     const footer = <div>Modal Footer</div>;
 
-    render(<Modal open={true} onClose={vi.fn()} content={content} footer={footer} />);
+    render(<Modal name="Modal name" open={true} onClose={vi.fn()} content={content} footer={footer} />);
 
     // Assert that the modal is rendered
     const modalElement = screen.getByRole('dialog');
@@ -26,7 +26,9 @@ describe('Modal', () => {
     const content = <div>Modal Content</div>;
     const footer = <div>Modal Footer</div>;
 
-    render(<Modal open={true} onClose={vi.fn()} content={content} footer={footer} dataTestId="modal" />);
+    render(
+      <Modal name="Modal name" open={true} onClose={vi.fn()} content={content} footer={footer} dataTestId="modal" />,
+    );
 
     await waitFor(() => expect(screen.getByTestId('modal')).toBeInTheDocument());
     expect(screen.getByTestId('modal-backdrop')).toBeInTheDocument();
