@@ -27,6 +27,10 @@ type AccordionProps = {
   caretPosition?: 'top' | 'center';
   /** Is the accordion open (controlled mode) */
   isOpen?: boolean;
+  /** Id of the button that triggers the accordion, for a11y */
+  triggerId?: string;
+  /** Aria controls attribute */
+  ariaControls?: string;
   /** Function to update the open state (controlled mode) */
   setIsOpen?: (isOpen: boolean) => void;
   /** Async function to fetch data when the accordion is opened. A loading spinner will be shown while fetching. */
@@ -46,10 +50,12 @@ const Caret = ({ isOpen }: { isOpen: boolean }) => (
 export const Accordion = ({
   title,
   ariaLabel,
+  ariaControls,
   children,
   caretPosition = 'center',
   underline,
   initialState = true,
+  triggerId,
   fetchData,
   dataTestId,
   isOpen: controlledIsOpen,
@@ -93,6 +99,8 @@ export const Accordion = ({
     <div className={className}>
       <div className="ds:group">
         <button
+          {...(triggerId ? { id: triggerId } : {})}
+          {...(ariaControls ? { 'aria-controls': ariaControls } : {})}
           aria-expanded={isOpen}
           aria-label={typeof title === 'string' ? title : ariaLabel}
           onClick={() => void toggleOpen()}
