@@ -92,7 +92,7 @@ it('does not toggle serviceBar contents multiple times during animation pending'
   });
 
   // Scroll back to top after animation pending
-  await new Promise((r) => setTimeout(r, 250));
+  await new Promise((resolve) => setTimeout(resolve, 350));
   window.scrollY = 0;
   window.dispatchEvent(new Event('scroll'));
 

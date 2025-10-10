@@ -8,7 +8,12 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
   const lastScrollY = React.useRef(0);
   const isCollapsed = React.useRef(false);
   const ignoreScroll = React.useRef(false);
+  const scrollHeightDelta = React.useRef(0);
   const SCROLL_THRESHOLD = 10;
+
+  const getScrollY = () => {
+    return globalThis.scrollY - scrollHeightDelta.current;
+  };
 
   // Function to reset the scroll state. Handy when the collapsing
   // state is set elsewhere (e.g., the "show all" button click in NoteStack).
@@ -20,8 +25,11 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
 
   const ignoreScrollChecksForMs = (ms: number) => {
     ignoreScroll.current = true;
+    const startScrollHeight = globalThis.document.body.scrollHeight;
+
     globalThis.setTimeout(() => {
       ignoreScroll.current = false;
+      scrollHeightDelta.current = globalThis.document.body.scrollHeight - startScrollHeight;
     }, ms);
   };
 
@@ -38,17 +46,17 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
       if (ignoreScroll.current) {
         return;
       }
-      const currentScrollY = globalThis.scrollY;
+      const currentScrollY = getScrollY();
       const scrollDelta = currentScrollY - lastScrollY.current;
 
       if (scrollDelta > SCROLL_THRESHOLD && !isCollapsed.current) {
         props.onCollapse();
         isCollapsed.current = true;
-        ignoreScrollChecksForMs(100);
+        ignoreScrollChecksForMs(350);
       } else if (scrollDelta < -SCROLL_THRESHOLD && isCollapsed.current) {
         props.onUncollapse();
         isCollapsed.current = false;
-        ignoreScrollChecksForMs(100);
+        ignoreScrollChecksForMs(350);
       }
 
       if (Math.abs(scrollDelta) >= SCROLL_THRESHOLD) {
