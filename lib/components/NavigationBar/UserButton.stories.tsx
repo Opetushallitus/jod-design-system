@@ -15,6 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultProps: UserButtonProps = {
+  serviceVariant: 'yksilo',
   firstName: 'Henrik-Petteri',
   isProfileActive: false,
   profileLabel: 'Osaamisprofiilini',

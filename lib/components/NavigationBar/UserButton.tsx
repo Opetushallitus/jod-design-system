@@ -3,6 +3,12 @@ import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodUser } from '../../icons';
 import { LinkComponent } from '../../main';
+import {
+  getAccentBgClassForService,
+  getPressedBgColorClassForService,
+  ServiceVariant,
+  tidyClasses as tc,
+} from '../../utils';
 import { PopupList, PopupListItem } from '../PopupList/PopupList';
 
 interface UserButtonLinkComponent extends LinkComponent {
@@ -10,21 +16,20 @@ interface UserButtonLinkComponent extends LinkComponent {
 }
 
 export interface UserButtonProps {
+  serviceVariant: ServiceVariant;
   firstName?: string;
-
   isProfileActive: boolean;
   profileLabel: string;
   profileLinkComponent: (props: { onClick: () => void } & UserButtonLinkComponent) => React.ReactElement;
-
   isLoggedIn: boolean;
   loginLabel: string;
   loginLinkComponent: (props: UserButtonLinkComponent) => React.ReactElement;
-
   logoutLabel: string;
   onLogout: () => void;
 }
 
 export const UserButton = ({
+  serviceVariant,
   firstName,
   isProfileActive,
   profileLabel,
@@ -42,6 +47,8 @@ export const UserButton = ({
   const carets = md ? <>{userMenuOpen ? <JodCaretUp size={20} /> : <JodCaretDown size={20} />}</> : null;
 
   const username = firstName && firstName.length > 10 ? `${firstName.slice(0, 10)}…` : firstName;
+
+  const profileLinkActiveClasses = `ds:text-white ${getPressedBgColorClassForService(serviceVariant)} ${getAccentBgClassForService(serviceVariant)}`;
 
   return isLoggedIn ? (
     <div className="ds:relative" data-testid="user-button">
@@ -69,7 +76,13 @@ export const UserButton = ({
             {profileLinkComponent({
               onClick: closeUserMenu,
               'data-testid': 'user-menu-profile',
-              className: `ds:w-full ${isProfileActive ? 'ds:bg-secondary-1-50 ds:rounded-sm' : ''}`,
+              className: tc([
+                'ds:w-full',
+                'ds:rounded-sm',
+                'ds:hover:underline',
+                !isProfileActive ? 'ds:hover:bg-bg-gray ds:hover:text-black' : '',
+                isProfileActive ? profileLinkActiveClasses : '',
+              ]),
               children: <PopupListItem>{profileLabel}</PopupListItem>,
             })}
             <button

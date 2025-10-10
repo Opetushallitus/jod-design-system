@@ -100,6 +100,7 @@ const DefaultRender = (props: NavigationBarProps) => {
         {...props}
         userButtonComponent={
           <UserButton
+            serviceVariant="yksilo"
             firstName="Juho-Henrik"
             isLoggedIn
             isProfileActive={false}
