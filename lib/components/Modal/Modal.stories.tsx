@@ -115,6 +115,7 @@ export const Default: Story = {
     },
   },
   args: {
+    name: 'Modal example',
     open: false,
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
@@ -145,6 +146,7 @@ export const DefaultWithoutSidePanel: Story = {
     },
   },
   args: {
+    name: 'Modal without side panel',
     open: false,
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
@@ -174,6 +176,7 @@ export const FullWidthContent: Story = {
     },
   },
   args: {
+    name: 'Full width modal.',
     open: false,
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
@@ -265,6 +268,7 @@ export const DynamicContent: Story = {
     },
   },
   args: {
+    name: 'Modal with dynamic content',
     open: false,
     onClose: fn(),
     content: <>/</>,
@@ -300,6 +304,7 @@ export const Progress: Story = {
     },
   },
   args: {
+    name: 'Modal with progress indicator',
     open: false,
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
@@ -337,6 +342,7 @@ export const Mobile: Story = {
     },
   },
   args: {
+    name: 'Mobile version of the modal.',
     open: false,
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
@@ -376,6 +382,7 @@ export const MobileWithProgress: Story = {
     },
   },
   args: {
+    name: 'Mobile version of the modal with a progress indicator.',
     open: false,
     onClose: fn(),
     content: <LoremIpsum heading="Content" />,
