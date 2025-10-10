@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshot > should render with defaults 1`] = `
+<button
+  aria-haspopup="dialog"
+  class="ds:flex ds:flex-col ds:md:flex-row ds:gap-2 ds:md:gap-3 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer"
+  data-testid="open-nav-menu"
+>
+  <svg
+    class="ds:mx-auto"
+    fill="currentColor"
+    height="24"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 18.2964V16.2964H21V18.2964H3ZM3 13.2964V11.2964H21V13.2964H3ZM3 8.29639V6.29639H21V8.29639H3Z"
+      fill="currentColor"
+    />
+  </svg>
+  <span
+    class="ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px] ds:font-semibold"
+  >
+    Valikko
+  </span>
+</button>
+`;

@@ -11,9 +11,14 @@ const ListItems = ({
   dataTestId,
 }: LanguageMenuProps) => {
   return supportedLanguageCodes.map((lng) => (
-    <div className="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full" key={lng}>
+    <div
+      className="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+      key={lng}
+      aria-current={lng === language}
+      lang={lng}
+    >
       <div className="ds:w-5 ds:px-2">
-        {lng === language && <JodCircle size={12} className="ds:text-secondary-1" />}
+        {lng === language && <JodCircle role="presentation" size={12} className="ds:text-secondary-1" />}
       </div>
       <LinkComponent
         to={generateLocalizedPath(lng)}
