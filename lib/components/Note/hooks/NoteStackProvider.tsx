@@ -1,5 +1,5 @@
 import React from 'react';
-import { NoteProps } from '../Note';
+import type { NoteProps } from '../Note';
 import { DEFAULT_MAX_NOTES, type NewNoteStackItem, type NoteStackNote } from '../utils';
 import { NoteStackContext } from './NoteStackContext';
 
@@ -53,15 +53,9 @@ export const NoteStackProvider = ({ children, maxNotes = DEFAULT_MAX_NOTES }: No
     [maxNotes, notes.length, processQueue],
   );
 
-  const removeNote = React.useCallback(
-    (id: string) => {
-      // If the note is permanent, do not remove it
-      if (!notes.find((n) => n.id === id)?.permanent) {
-        setNotes((prev) => prev.filter((n) => n.id !== id));
-      }
-    },
-    [notes],
-  );
+  const removeNote = React.useCallback((id: string) => {
+    setNotes((prev) => prev.filter((n) => n.id !== id));
+  }, []);
 
   const uncollapseAll = React.useCallback(() => {
     setNotes((prev) => prev.map((n) => ({ ...n, collapsed: false })));
