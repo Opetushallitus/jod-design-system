@@ -1,13 +1,11 @@
-import { NoteProps } from './Note';
+import type { NoteProps } from './Note';
 
-export interface NoteStackNote extends NoteProps {
+export type NoteStackNote = NoteProps & {
   id: string;
-  collapsed?: boolean;
-}
+};
 
-export type NewNoteStackItem = Pick<NoteProps, 'title' | 'description' | 'variant'> & {
+export type NewNoteStackItem = NoteProps & {
   id?: string;
-  permanent?: boolean;
 };
 
 export const DEFAULT_MAX_NOTES = 3;
