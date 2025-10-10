@@ -25,6 +25,7 @@ const getLanguageOrder = (current: LangCode, translations: LanguageTranslations)
 };
 
 export const LanguageButton = ({
+  serviceVariant,
   language,
   supportedLanguageCodes,
   generateLocalizedPath,
@@ -59,6 +60,7 @@ export const LanguageButton = ({
           data-testid={dataTestId ? `${dataTestId}-menu` : undefined}
         >
           <LanguageMenu
+            serviceVariant={serviceVariant}
             supportedLanguageCodes={supportedLanguageCodes}
             language={language}
             generateLocalizedPath={generateLocalizedPath}

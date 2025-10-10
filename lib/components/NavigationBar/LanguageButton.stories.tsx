@@ -26,6 +26,7 @@ export const Default: Story = {
     },
   },
   args: {
+    serviceVariant: 'yksilo',
     supportedLanguageCodes: ['fi', 'sv', 'en'],
     translations: {
       fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },

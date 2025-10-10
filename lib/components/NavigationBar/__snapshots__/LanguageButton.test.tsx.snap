@@ -128,7 +128,7 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
             class="ds:w-5 ds:px-2"
           >
             <svg
-              class="ds:text-secondary-1"
+              class="ds:text-secondary-1-dark"
               fill="currentColor"
               height="12"
               role="presentation"

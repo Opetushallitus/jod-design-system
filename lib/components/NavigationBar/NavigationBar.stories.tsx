@@ -113,6 +113,7 @@ const DefaultRender = (props: NavigationBarProps) => {
         }
         languageButtonComponent={
           <LanguageButton
+            serviceVariant="yksilo"
             supportedLanguageCodes={['fi', 'sv', 'en']}
             language="fi"
             translations={{
