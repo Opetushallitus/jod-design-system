@@ -14,21 +14,26 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const render = (args: Story['args']) => {
+  const { value, onChange, ...rest } = args;
+  const [textareaValue, setTextareaValue] = useState(value);
+  return (
+    <Textarea
+      value={textareaValue}
+      onChange={(event) => {
+        setTextareaValue(event.target.value);
+        onChange(event);
+      }}
+      {...rest}
+    />
+  );
+};
+const url = 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=5805-3164';
+const label = 'Label text';
+const loremIpsum = 'Lorem ipsum dolor sit amet';
+
 export const Default: Story = {
-  render: (args: Story['args']) => {
-    const { value, onChange, ...rest } = args;
-    const [textareaValue, setTextareaValue] = useState(value);
-    return (
-      <Textarea
-        value={textareaValue}
-        onChange={(event) => {
-          setTextareaValue(event.target.value);
-          onChange(event);
-        }}
-        {...rest}
-      />
-    );
-  },
+  render,
   decorators: [
     (Story) => (
       <div className="ds:max-w-[480px]">
@@ -39,7 +44,7 @@ export const Default: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=5805-3164',
+      url,
     },
     docs: {
       description: {
@@ -48,8 +53,36 @@ export const Default: Story = {
     },
   },
   args: {
-    value: 'Lorem ipsum dolor sit amet',
+    value: loremIpsum,
     onChange: fn(),
-    label: 'Label text',
+    label,
+  },
+};
+
+export const ErrorMessage: Story = {
+  render,
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[480px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    design: {
+      type: 'figma',
+      url,
+    },
+    docs: {
+      description: {
+        story: 'This is a textarea component for displaying and editing a value with a label and error text.',
+      },
+    },
+  },
+  args: {
+    value: loremIpsum,
+    onChange: fn(),
+    label,
+    errorMessage: 'Error message',
   },
 };

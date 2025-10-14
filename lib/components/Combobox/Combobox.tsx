@@ -8,6 +8,9 @@ import {
 import React from 'react';
 import { JodCaretDown, JodCaretUp } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
+import { InputError } from '../internal/InputError/InputError';
+import { InputHelp } from '../internal/InputHelp/InputHelp';
+import { InputLabel } from '../internal/InputLabel/InputLabel';
 
 export interface ComboboxOptionsData<T extends string = string> {
   value: T;
@@ -37,6 +40,10 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   dataTestId?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
+  /** The error message to display below the input field */
+  errorMessage?: string;
+  /** The help text to display below the input field */
+  help?: string;
 }
 
 export const Combobox = <
@@ -54,8 +61,12 @@ export const Combobox = <
   className = '',
   dataTestId,
   requiredText,
+  errorMessage,
+  help,
 }: ComboboxProps<T, U>) => {
   const inputId = React.useId();
+  const helpId = React.useId();
+  const errorId = React.useId();
   const labelText = requiredText ? `${label} (${requiredText})` : label;
 
   const [query, setQuery] = React.useState('');
@@ -68,11 +79,7 @@ export const Combobox = <
 
   return (
     <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={dataTestId}>
-      {!hideLabel && (
-        <label htmlFor={inputId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
-          {labelText}
-        </label>
-      )}
+      <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={labelText} />
       <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
           defaultValue={defaultValue ?? (options[0]?.value as U)}
@@ -92,6 +99,7 @@ export const Combobox = <
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
                 data-testid={dataTestId ? `${dataTestId}-input` : undefined}
+                aria-invalid={!!errorMessage}
               />
               <ComboboxButton
                 aria-label={label}
@@ -119,6 +127,12 @@ export const Combobox = <
           )}
         </HeadlessCombobox>
       </div>
+      <InputHelp id={helpId} helpText={help} dataTestId={dataTestId ? `${dataTestId}-help` : undefined} />
+      <InputError
+        id={errorId}
+        errorMessage={errorMessage}
+        dataTestId={dataTestId ? `${dataTestId}-error` : undefined}
+      />
     </div>
   );
 };

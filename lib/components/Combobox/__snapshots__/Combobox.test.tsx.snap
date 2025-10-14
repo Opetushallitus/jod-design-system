@@ -4,6 +4,12 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative"
 >
+  <label
+    class="ds:hidden ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="«ra»"
+  >
+    Label
+  </label>
   <div
     class="ds:flex ds:flex-row ds:relative"
   >
@@ -14,11 +20,12 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
+        aria-invalid="false"
         aria-label="Label"
         aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
-        id="«r8»"
+        id="«ra»"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -30,7 +37,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
-        id="headlessui-combobox-button-«rc»"
+        id="headlessui-combobox-button-«rg»"
         tabindex="-1"
         type="button"
       >
@@ -59,8 +66,8 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <label
-    class="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4"
-    for="«rg»"
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="«rk»"
   >
     Label
   </label>
@@ -75,12 +82,13 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
+        aria-invalid="false"
         aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
-        id="«rg»"
+        id="«rk»"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -94,7 +102,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
-        id="headlessui-combobox-button-«rk»"
+        id="headlessui-combobox-button-«rq»"
         tabindex="-1"
         type="button"
       >
@@ -123,7 +131,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <label
-    class="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4"
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
     for="«r0»"
   >
     Label
@@ -138,6 +146,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
       <input
         aria-autocomplete="list"
         aria-expanded="false"
+        aria-invalid="false"
         aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
@@ -153,7 +162,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
-        id="headlessui-combobox-button-«r4»"
+        id="headlessui-combobox-button-«r6»"
         tabindex="-1"
         type="button"
       >

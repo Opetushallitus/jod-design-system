@@ -139,12 +139,12 @@
   --text-form-label: 16px;
   --text-form-label--font-weight: 700;
   --text-form-label--line-height: 24px;
-  --text-help: 16px;
+  --text-form-error: 14px;
+  --text-form-error--font-weight: 400;
+  --text-form-error--line-height: 16px;
+  --text-help: 14px;
   --text-help--font-weight: 400;
-  --text-help--line-height: 24px;
-  --text-help-mobile: 14px;
-  --text-help-mobile--font-weight: 400;
-  --text-help-mobile--line-height: 18px;
+  --text-help--line-height: 16px;
   --text-button-lg: 26px;
   --text-button-lg--font-weight: 700;
   --text-button-lg--line-height: 110%;

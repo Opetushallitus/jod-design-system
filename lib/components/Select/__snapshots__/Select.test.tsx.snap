@@ -4,6 +4,12 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative"
 >
+  <label
+    class="ds:hidden ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="«r9»"
+  >
+    Label
+  </label>
   <div
     class="ds:flex ds:flex-row ds:relative"
   >
@@ -14,10 +20,11 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-invalid="false"
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
         data-headlessui-state=""
-        id="headlessui-listbox-button-«ra»"
+        id="«r9»"
         type="button"
       >
         <span
@@ -50,8 +57,8 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <label
-    class="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4"
-    for="«re»"
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="«ri»"
   >
     Label
   </label>
@@ -66,12 +73,13 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-invalid="false"
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
-        id="headlessui-listbox-button-«rh»"
+        id="«ri»"
         type="button"
       >
         <span
@@ -104,7 +112,7 @@ exports[`Select > Snapshot testing > should render with defaults 1`] = `
   class="ds:flex ds:flex-col ds:relative"
 >
   <label
-    class="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4"
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
     for="«r0»"
   >
     Label
@@ -119,10 +127,11 @@ exports[`Select > Snapshot testing > should render with defaults 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-invalid="false"
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
         data-headlessui-state=""
-        id="headlessui-listbox-button-«r3»"
+        id="«r0»"
         type="button"
       >
         <span

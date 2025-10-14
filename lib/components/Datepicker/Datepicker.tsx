@@ -11,6 +11,7 @@ import React from 'react';
 import { cx } from '../../cva';
 import { JodArrowLeft, JodArrowRight, JodCalendar } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
+import { InputHelp } from '../internal/InputHelp/InputHelp';
 import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
 
 const tableCellClasses = tc([
@@ -198,11 +199,7 @@ export const Datepicker = ({
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
-      {help && (
-        <div id={helpId} className="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial">
-          {help}
-        </div>
-      )}
+      <InputHelp id={helpId} helpText={help} dataTestId={dataTestId ? `${dataTestId}-help` : undefined} />
       <Portal>
         <ArkDatePicker.Positioner>
           <ArkDatePicker.Content className="ds:z-50 ds:rounded ds:shadow-border ds:bg-white ds:p-4">

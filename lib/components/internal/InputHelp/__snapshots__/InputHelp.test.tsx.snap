@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputHelp > applies the provided dataTestId to the help text element 1`] = `
+<div>
+  <div
+    class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
+    data-testid="custom-help-text"
+    id="help-text"
+  >
+    This is some helpful text
+  </div>
+</div>
+`;
+
+exports[`InputHelp > applies the provided id to the help text element 1`] = `
+<div>
+  <div
+    class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
+    id="help-text"
+  >
+    This is some helpful text
+  </div>
+</div>
+`;
+
+exports[`InputHelp > does not render when helpText is undefined 1`] = `<div />`;
+
+exports[`InputHelp > renders help text correctly 1`] = `
+<div>
+  <div
+    class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
+    id="help-text"
+  >
+    This is some helpful text
+  </div>
+</div>
+`;
