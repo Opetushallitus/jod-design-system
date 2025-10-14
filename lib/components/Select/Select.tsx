@@ -2,6 +2,9 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headless
 import React from 'react';
 import { JodCaretDown, JodCaretUp } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
+import { InputError } from '../internal/InputError/InputError';
+import { InputHelp } from '../internal/InputHelp/InputHelp';
+import { InputLabel } from '../internal/InputLabel/InputLabel';
 
 export interface SelectOptionsData<T extends string = string> {
   value: T;
@@ -27,6 +30,10 @@ interface SelectProps<T extends SelectOptionsData, U extends string = string> {
   className?: string;
   /** Test id for querying in tests */
   dataTestId?: string;
+  /** The help text to display below the input field */
+  help?: string;
+  /** The error message to display below the input field */
+  errorMessage?: string;
 }
 
 export const Select = <U extends string = string, T extends SelectOptionsData<string> = SelectOptionsData<string>>({
@@ -39,8 +46,12 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   disabled = false,
   className = '',
   dataTestId,
+  help,
+  errorMessage,
 }: SelectProps<T, U>) => {
   const inputId = React.useId();
+  const helpId = React.useId();
+  const errorId = React.useId();
 
   const [value, setValue] = React.useState<U | undefined>(selected);
 
@@ -57,20 +68,18 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
 
   return (
     <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={dataTestId}>
-      {!hideLabel && (
-        <label htmlFor={inputId} className="ds:text-primary-gray ds:text-form-label ds:font-arial ds:mb-4">
-          {label}
-        </label>
-      )}
+      <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={label} />
       <div className="ds:flex ds:flex-row ds:relative">
         <Listbox onChange={onChange} disabled={disabled} value={value}>
           {({ open }) => (
             <div className="ds:flex ds:flex-row ds:w-full">
               <ListboxButton
+                id={inputId}
                 aria-label={label}
                 className="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
                 disabled={disabled}
                 data-testid={dataTestId ? `${dataTestId}-button` : undefined}
+                aria-invalid={!!errorMessage}
               >
                 {selectedOption ? (
                   <span className="ds:font-arial">{selectedOption.label}</span>
@@ -98,6 +107,12 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
           )}
         </Listbox>
       </div>
+      <InputHelp id={helpId} helpText={help} dataTestId={dataTestId ? `${dataTestId}-help` : undefined} />
+      <InputError
+        id={errorId}
+        errorMessage={errorMessage}
+        dataTestId={dataTestId ? `${dataTestId}-error` : undefined}
+      />
     </div>
   );
 };

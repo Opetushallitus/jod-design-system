@@ -1,5 +1,6 @@
 import React from 'react';
-import { tidyClasses as tc } from '../../utils';
+import { getTruthyValuesAsString, tidyClasses as tc } from '../../utils';
+import { Field } from '../internal/Field/Field';
 
 interface BaseInputFieldProps {
   /** The name of the input field */
@@ -22,6 +23,8 @@ interface BaseInputFieldProps {
   requiredText?: string;
   /** Test id for querying in tests */
   dataTestId?: string;
+  /** The error message to display below the input field */
+  errorMessage?: string;
 }
 
 interface HideLabelProps extends BaseInputFieldProps {
@@ -58,49 +61,49 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     className = '',
     requiredText,
     dataTestId,
+    errorMessage,
   }: InputFieldProps,
   ref,
 ) {
   const inputId = React.useId();
   const helpId = React.useId();
+  const errorId = React.useId();
 
-  const labelText = requiredText ? `${label} (${requiredText})` : label;
   return (
     <div className="ds:w-full">
-      <label
+      <Field
+        label={label}
+        hideLabel={hideLabel}
         htmlFor={inputId}
-        className={tc([
-          hideLabel ? 'ds:hidden' : 'ds:inline-block',
-          'ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
-        ])}
+        requiredText={requiredText}
+        helpId={helpId}
+        help={help}
+        dataTestId={dataTestId}
+        errorId={errorId}
+        errorMessage={errorMessage}
       >
-        {labelText}
-      </label>
-      <input
-        aria-required={!!requiredText}
-        required={!!requiredText}
-        ref={ref}
-        id={inputId}
-        name={name}
-        type="text"
-        value={value}
-        onBlur={onBlur}
-        onChange={onChange}
-        maxLength={maxLength}
-        placeholder={placeholder}
-        autoComplete="off"
-        aria-describedby={help ? helpId : undefined}
-        data-testid={dataTestId}
-        className={tc([
-          'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md',
-          className,
-        ])}
-      />
-      {help && (
-        <div id={helpId} className="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial">
-          {help}
-        </div>
-      )}
+        <input
+          aria-required={!!requiredText}
+          required={!!requiredText}
+          ref={ref}
+          id={inputId}
+          name={name}
+          type="text"
+          value={value}
+          onBlur={onBlur}
+          onChange={onChange}
+          maxLength={maxLength}
+          placeholder={placeholder}
+          autoComplete="off"
+          aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
+          aria-invalid={!!errorMessage}
+          data-testid={dataTestId}
+          className={tc([
+            'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+            className,
+          ])}
+        />
+      </Field>
     </div>
   );
 });

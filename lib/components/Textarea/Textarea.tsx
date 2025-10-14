@@ -1,5 +1,6 @@
 import React from 'react';
-import { tidyClasses as tc } from '../../utils';
+import { getTruthyValuesAsString, tidyClasses as tc } from '../../utils';
+import { Field } from '../internal/Field/Field';
 
 interface BaseTextareaProps {
   /** The name of the textarea */
@@ -26,6 +27,8 @@ interface BaseTextareaProps {
   dataTestId?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
+  /** The error message to display below the input field */
+  errorMessage?: string;
 }
 
 interface HideLabelProps extends BaseTextareaProps {
@@ -64,24 +67,26 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
     className = '',
     dataTestId,
     requiredText,
+    errorMessage,
   }: TextareaProps,
   ref,
 ) {
   const inputId = React.useId();
   const helpId = React.useId();
-  const labelText = requiredText ? `${label} (${requiredText})` : label;
+  const errorId = React.useId();
 
   return (
-    <>
-      <label
-        htmlFor={inputId}
-        className={tc([
-          hideLabel ? 'ds:hidden' : '',
-          'ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
-        ])}
-      >
-        {labelText}
-      </label>
+    <Field
+      label={label}
+      hideLabel={hideLabel}
+      htmlFor={inputId}
+      requiredText={requiredText}
+      helpId={helpId}
+      help={help}
+      dataTestId={dataTestId}
+      errorId={errorId}
+      errorMessage={errorMessage}
+    >
       <textarea
         ref={ref}
         id={inputId}
@@ -94,18 +99,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         rows={rows}
         placeholder={placeholder}
         autoComplete="off"
-        aria-describedby={help ? helpId : undefined}
+        aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
+        aria-invalid={!!errorMessage}
         data-testid={dataTestId}
         className={tc([
           'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
           className,
         ])}
       />
-      {help && (
-        <div id={helpId} className="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial">
-          {help}
-        </div>
-      )}
-    </>
+    </Field>
   );
 });

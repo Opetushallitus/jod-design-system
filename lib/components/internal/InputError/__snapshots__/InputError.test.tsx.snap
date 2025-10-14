@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputError > does not render when errorMessage is undefined 1`] = `<div />`;
+
+exports[`InputError > renders error message correctly 1`] = `
+<div>
+  <div
+    class="ds:mt-2 ds:block ds:text-form-error ds:text-alert-text-2 ds:font-arial"
+    data-testid="input-error"
+    id="error-message"
+    role="alert"
+  >
+    This is an error message
+  </div>
+</div>
+`;

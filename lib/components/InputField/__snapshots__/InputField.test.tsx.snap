@@ -7,23 +7,25 @@ exports[`InputField > renders help text correctly 1`] = `
   >
     <label
       class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-      for="«r4»"
+      for="«r6»"
     >
       Username
     </label>
     <input
-      aria-describedby="«r5»"
+      aria-describedby="«r7»"
+      aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input3"
-      id="«r4»"
+      id="«r6»"
       type="text"
       value="john"
     />
     <div
       class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
-      id="«r5»"
+      data-testid="input3-help"
+      id="«r7»"
     >
       Please enter your username
     </div>
@@ -38,16 +40,17 @@ exports[`InputField > renders input correctly 1`] = `
   >
     <label
       class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-      for="«r2»"
+      for="«r3»"
     >
       Username
     </label>
     <input
+      aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input2"
-      id="«r2»"
+      id="«r3»"
       placeholder="Enter your username"
       type="text"
       value="john"
@@ -68,9 +71,10 @@ exports[`InputField > renders label correctly 1`] = `
       Username
     </label>
     <input
+      aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input"
       id="«r0»"
       type="text"
@@ -87,16 +91,17 @@ exports[`InputField > updates input value correctly 1`] = `
   >
     <label
       class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-      for="«r6»"
+      for="«r9»"
     >
       Username
     </label>
     <input
+      aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-inactive-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input4"
-      id="«r6»"
+      id="«r9»"
       type="text"
       value="test value"
     />

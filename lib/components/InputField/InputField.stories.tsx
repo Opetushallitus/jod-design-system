@@ -142,3 +142,31 @@ export const Required: Story = {
     requiredText: 'required',
   },
 };
+
+export const ErrorMessage: Story = {
+  render,
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    design: {
+      type: 'figma',
+      url,
+    },
+    docs: {
+      description: {
+        story: 'This is a input field component for displaying and editing a value with a label and error text.',
+      },
+    },
+  },
+  args: {
+    value: loremIpsum,
+    onChange: fn(),
+    label,
+    errorMessage: 'Error message',
+  },
+};

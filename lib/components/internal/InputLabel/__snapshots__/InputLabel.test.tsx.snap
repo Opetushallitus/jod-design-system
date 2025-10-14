@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputLabel > applies the provided htmlFor to the label element 1`] = `
+<div>
+  <label
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="test-input"
+  >
+    Test Label
+  </label>
+</div>
+`;
+
+exports[`InputLabel > hides label when hideLabel is true 1`] = `
+<div>
+  <label
+    class="ds:hidden ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="test-input"
+  >
+    Test Label
+  </label>
+</div>
+`;
+
+exports[`InputLabel > renders label correctly 1`] = `
+<div>
+  <label
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="test-input"
+  >
+    Test Label
+  </label>
+</div>
+`;
+
+exports[`InputLabel > renders without labelText 1`] = `
+<div>
+  <label
+    class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    for="test-input"
+  />
+</div>
+`;

@@ -66,3 +66,8 @@ export const getFocusOutlineClassForService = (variant: ServiceVariant) =>
     'ds:focus-visible:outline-secondary-gray': variant === 'palveluportaali',
     'ds:focus-visible:outline-secondary-4-dark': variant === 'tietopalvelu',
   });
+
+export const getTruthyValuesAsString = (...ids: string[]) => {
+  const filteredIds = ids.filter(Boolean);
+  return filteredIds.length > 0 ? filteredIds.join(' ') : undefined;
+};
