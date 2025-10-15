@@ -12,6 +12,7 @@ import { cx } from '../../cva';
 import { JodArrowLeft, JodArrowRight, JodCalendar } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
 import { InputHelp } from '../internal/InputHelp/InputHelp';
+import { DatepickerFocusTrap } from './DatePickerFocusTrap';
 import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
 
 const tableCellClasses = tc([
@@ -51,7 +52,7 @@ const handleEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
 const Header = () => (
   <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
     <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
-      <JodArrowLeft size={24} />
+      <JodArrowLeft />
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
@@ -59,7 +60,7 @@ const Header = () => (
     </ArkDatePicker.ViewTrigger>
 
     <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
-      <JodArrowRight size={24} />
+      <JodArrowRight />
     </ArkDatePicker.NextTrigger>
   </ArkDatePicker.ViewControl>
 );
@@ -195,7 +196,7 @@ export const Datepicker = ({
             }}
             data-testid={dataTestId ? `${dataTestId}-trigger` : undefined}
           >
-            <JodCalendar size={24} />
+            <JodCalendar />
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
@@ -206,98 +207,108 @@ export const Datepicker = ({
             <ArkDatePicker.View view="day">
               <ArkDatePicker.Context>
                 {(datePicker) => (
-                  <>
-                    <Header />
-                    <ArkDatePicker.Table>
-                      <ArkDatePicker.TableHead>
-                        <ArkDatePicker.TableRow>
-                          {datePicker.weekDays.map((weekDay) => (
-                            <ArkDatePicker.TableHeader
-                              key={weekDay.long}
-                              className="ds:capitalize ds:size-[28px] ds:sm:size-7"
-                            >
-                              {weekDay.short}
-                            </ArkDatePicker.TableHeader>
-                          ))}
-                        </ArkDatePicker.TableRow>
-                      </ArkDatePicker.TableHead>
-                      <ArkDatePicker.TableBody>
-                        {datePicker.weeks.map((week) => (
-                          <ArkDatePicker.TableRow key={week[0].toDate(timeZone).toISOString()}>
-                            {week.map((day) => (
-                              <ArkDatePicker.TableCell key={day.day} value={day}>
-                                <ArkDatePicker.TableCellTrigger className={getDayCellClasses(datePicker, day)} asChild>
-                                  <button
-                                    type="button"
-                                    disabled={datePicker.isUnavailable(day)}
-                                    className="ds:cursor-pointer"
-                                  >
-                                    {day.day}
-                                  </button>
-                                </ArkDatePicker.TableCellTrigger>
-                              </ArkDatePicker.TableCell>
+                  <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'day'}>
+                    <div>
+                      <Header />
+                      <ArkDatePicker.Table>
+                        <ArkDatePicker.TableHead>
+                          <ArkDatePicker.TableRow>
+                            {datePicker.weekDays.map((weekDay) => (
+                              <ArkDatePicker.TableHeader
+                                key={weekDay.long}
+                                className="ds:capitalize ds:size-[28px] ds:sm:size-7"
+                              >
+                                {weekDay.short}
+                              </ArkDatePicker.TableHeader>
                             ))}
                           </ArkDatePicker.TableRow>
-                        ))}
-                      </ArkDatePicker.TableBody>
-                    </ArkDatePicker.Table>
-                  </>
+                        </ArkDatePicker.TableHead>
+                        <ArkDatePicker.TableBody>
+                          {datePicker.weeks.map((week) => (
+                            <ArkDatePicker.TableRow key={week[0].toDate(timeZone).toISOString()}>
+                              {week.map((day) => (
+                                <ArkDatePicker.TableCell key={day.day} value={day}>
+                                  <ArkDatePicker.TableCellTrigger
+                                    className={getDayCellClasses(datePicker, day)}
+                                    asChild
+                                  >
+                                    <button
+                                      type="button"
+                                      disabled={datePicker.isUnavailable(day)}
+                                      className="ds:cursor-pointer"
+                                    >
+                                      {day.day}
+                                    </button>
+                                  </ArkDatePicker.TableCellTrigger>
+                                </ArkDatePicker.TableCell>
+                              ))}
+                            </ArkDatePicker.TableRow>
+                          ))}
+                        </ArkDatePicker.TableBody>
+                      </ArkDatePicker.Table>
+                    </div>
+                  </DatepickerFocusTrap>
                 )}
               </ArkDatePicker.Context>
             </ArkDatePicker.View>
+
             <ArkDatePicker.View view="month">
               <ArkDatePicker.Context>
                 {(datePicker) => (
-                  <>
-                    <Header />
-                    <ArkDatePicker.Table>
-                      <ArkDatePicker.TableBody>
-                        {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months) => (
-                          <ArkDatePicker.TableRow key={months[0].label}>
-                            {months.map((month) => (
-                              <ArkDatePicker.TableCell key={`_${month.label}`} value={month.value}>
-                                <ArkDatePicker.TableCellTrigger className={tableCellClasses}>
-                                  <button type="button" className="ds:cursor-pointer">
-                                    {month.label}
-                                  </button>
-                                </ArkDatePicker.TableCellTrigger>
-                              </ArkDatePicker.TableCell>
-                            ))}
-                          </ArkDatePicker.TableRow>
-                        ))}
-                      </ArkDatePicker.TableBody>
-                    </ArkDatePicker.Table>
-                  </>
+                  <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'month'}>
+                    <div>
+                      <Header />
+                      <ArkDatePicker.Table>
+                        <ArkDatePicker.TableBody>
+                          {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months) => (
+                            <ArkDatePicker.TableRow key={months[0].label}>
+                              {months.map((month) => (
+                                <ArkDatePicker.TableCell key={`_${month.label}`} value={month.value}>
+                                  <ArkDatePicker.TableCellTrigger className={tableCellClasses}>
+                                    <button type="button" className="ds:cursor-pointer">
+                                      {month.label}
+                                    </button>
+                                  </ArkDatePicker.TableCellTrigger>
+                                </ArkDatePicker.TableCell>
+                              ))}
+                            </ArkDatePicker.TableRow>
+                          ))}
+                        </ArkDatePicker.TableBody>
+                      </ArkDatePicker.Table>
+                    </div>
+                  </DatepickerFocusTrap>
                 )}
               </ArkDatePicker.Context>
             </ArkDatePicker.View>
             <ArkDatePicker.View view="year">
               <ArkDatePicker.Context>
                 {(datePicker) => (
-                  <>
-                    <Header />
-                    <ArkDatePicker.Table>
-                      <ArkDatePicker.TableBody>
-                        {datePicker.getYearsGrid({ columns: 4 }).map((years) => (
-                          <ArkDatePicker.TableRow key={years[0].label}>
-                            {years.map((year) => (
-                              <ArkDatePicker.TableCell key={`_${year.label}`} value={year.value}>
-                                <ArkDatePicker.TableCellTrigger className={getYearCellClasses(year)} asChild>
-                                  <button
-                                    type="button"
-                                    disabled={isInvalidYear(year.value)}
-                                    className="ds:cursor-pointer"
-                                  >
-                                    {year.label}
-                                  </button>
-                                </ArkDatePicker.TableCellTrigger>
-                              </ArkDatePicker.TableCell>
-                            ))}
-                          </ArkDatePicker.TableRow>
-                        ))}
-                      </ArkDatePicker.TableBody>
-                    </ArkDatePicker.Table>
-                  </>
+                  <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'year'}>
+                    <div>
+                      <Header />
+                      <ArkDatePicker.Table>
+                        <ArkDatePicker.TableBody>
+                          {datePicker.getYearsGrid({ columns: 4 }).map((years) => (
+                            <ArkDatePicker.TableRow key={years[0].label}>
+                              {years.map((year) => (
+                                <ArkDatePicker.TableCell key={`_${year.label}`} value={year.value}>
+                                  <ArkDatePicker.TableCellTrigger className={getYearCellClasses(year)} asChild>
+                                    <button
+                                      type="button"
+                                      disabled={isInvalidYear(year.value)}
+                                      className="ds:cursor-pointer"
+                                    >
+                                      {year.label}
+                                    </button>
+                                  </ArkDatePicker.TableCellTrigger>
+                                </ArkDatePicker.TableCell>
+                              ))}
+                            </ArkDatePicker.TableRow>
+                          ))}
+                        </ArkDatePicker.TableBody>
+                      </ArkDatePicker.Table>
+                    </div>
+                  </DatepickerFocusTrap>
                 )}
               </ArkDatePicker.Context>
             </ArkDatePicker.View>
