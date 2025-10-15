@@ -86,6 +86,7 @@ export const ConfirmDialog = ({
       {children(showDialog)}
       {isOpen && (
         <Dialog
+          arial-labelledby={`ds-confirm-dialog-title-${id}`}
           id={`ds-confirm-dialog-${id}`}
           open={isOpen}
           onClose={() => {
@@ -107,7 +108,9 @@ export const ConfirmDialog = ({
                 data-testid={dataTestId ? `${dataTestId}-panel` : undefined}
               >
                 <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9">
-                  <DialogTitle className="ds:mb-5 ds:text-heading-1">{title}</DialogTitle>
+                  <DialogTitle id={`ds-confirm-dialog-title-${id}`} className="ds:mb-5 ds:text-heading-1">
+                    {title}
+                  </DialogTitle>
                   <Description className="ds:text-body-sm ds:font-arial ds:min-h-[60px]">{description}</Description>
                   {content && <div className="ds:mt-7">{content}</div>}
                 </div>
