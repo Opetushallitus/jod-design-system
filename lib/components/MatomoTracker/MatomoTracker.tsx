@@ -1,4 +1,5 @@
 import React from 'react';
+import { useServiceVariant } from '../../main';
 import { loadMatomo } from './loadMatomo';
 
 declare global {
@@ -20,14 +21,17 @@ export const MatomoTracker = ({ trackerUrl, siteId, pathname }: TrackerProps) =>
     loadMatomo(trackerUrl, siteId);
   }, [trackerUrl, siteId]);
 
+  const serviceVariant = useServiceVariant();
+
   React.useEffect(() => {
     if (window._paq && pathname !== oldPathname) {
       window._paq.push(['setCustomUrl', window.location.href]);
       window._paq.push(['setDocumentTitle', document.title]);
+      window._paq.push(['setCustomDimension', 1, serviceVariant]);
       window._paq.push(['trackPageView']);
       oldPathname = pathname;
     }
-  }, [pathname]);
+  }, [pathname, serviceVariant]);
 
   return null;
 };
