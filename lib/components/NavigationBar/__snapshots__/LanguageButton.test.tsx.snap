@@ -121,7 +121,7 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
       >
         <div
           aria-current="true"
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
           lang="fi"
         >
           <div
@@ -155,7 +155,7 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
         </div>
         <div
           aria-current="false"
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
           lang="en"
         >
           <div
@@ -170,7 +170,7 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
         </div>
         <div
           aria-current="false"
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
           lang="sv"
         >
           <div

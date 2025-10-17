@@ -80,7 +80,7 @@ export const UserButton = ({
                 'ds:w-full',
                 'ds:rounded-sm',
                 'ds:hover:underline',
-                !isProfileActive ? 'ds:hover:bg-bg-gray ds:hover:text-black' : '',
+                !isProfileActive ? 'ds:hover:bg-bg-gray' : '',
                 isProfileActive ? profileLinkActiveClasses : '',
               ]),
               children: <PopupListItem>{profileLabel}</PopupListItem>,
@@ -91,7 +91,7 @@ export const UserButton = ({
                 closeUserMenu();
                 onLogout();
               }}
-              className="ds:cursor-pointer ds:w-full"
+              className="ds:cursor-pointer ds:w-full ds:hover:bg-bg-gray"
               data-testid="user-menu-logout"
             >
               <PopupListItem classNames="ds:w-full">{logoutLabel}</PopupListItem>

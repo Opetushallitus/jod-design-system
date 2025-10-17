@@ -16,7 +16,7 @@ const ListItems = ({
 
   return supportedLanguageCodes.map((lng) => (
     <div
-      className="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full"
+      className="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
       key={lng}
       aria-current={lng === language}
       lang={lng}
