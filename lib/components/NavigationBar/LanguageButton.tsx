@@ -1,15 +1,9 @@
 import React, { JSX } from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodLanguage } from '../../icons';
 import { LanguageMenu } from './LanguageMenu';
-import { LangCode, LanguageMenuProps, LanguageTranslations } from './types';
-
-interface LanguageButtonProps extends LanguageMenuProps {
-  langMenuOpen: boolean;
-  menuRef: React.RefObject<HTMLDivElement | null>;
-  onMenuBlur: (event: React.FocusEvent<HTMLDivElement>) => void;
-  onMenuClick: () => void;
-}
+import { LangCode, LanguageButtonProps, LanguageTranslations } from './types';
 
 const getLanguageOrder = (current: LangCode, translations: LanguageTranslations): JSX.Element => {
   const orderMap: Record<LangCode, LangCode[]> = {
@@ -31,11 +25,7 @@ const getLanguageOrder = (current: LangCode, translations: LanguageTranslations)
 };
 
 export const LanguageButton = ({
-  onClick,
-  langMenuOpen,
-  menuRef,
-  onMenuBlur,
-  onMenuClick,
+  serviceVariant,
   language,
   supportedLanguageCodes,
   generateLocalizedPath,
@@ -44,6 +34,7 @@ export const LanguageButton = ({
   dataTestId,
 }: LanguageButtonProps) => {
   const { md, sm } = useMediaQueries();
+  const { isOpen: langMenuOpen, close: closeLanguageMenu, triggerProps, menuProps } = usePopupMenu();
   const carets = md ? <>{langMenuOpen ? <JodCaretUp size={20} /> : <JodCaretDown size={20} />}</> : null;
 
   const positionClass = sm ? 'ds:absolute ds:right-0' : 'ds:fixed ds:left-4 ds:right-4';
@@ -51,7 +42,7 @@ export const LanguageButton = ({
   return (
     <div className="ds:relative" data-testid={dataTestId}>
       <button
-        onClick={onClick}
+        {...triggerProps}
         className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
         data-testid={dataTestId ? `${dataTestId}-trigger` : undefined}
       >
@@ -64,17 +55,17 @@ export const LanguageButton = ({
       </button>
       {langMenuOpen && (
         <div
-          ref={menuRef}
-          onBlur={onMenuBlur}
+          {...menuProps}
           className={`ds:z-60 ds:flex ds:justify-center ds:translate-y-8 ${positionClass}`}
           data-testid={dataTestId ? `${dataTestId}-menu` : undefined}
         >
           <LanguageMenu
+            serviceVariant={serviceVariant}
             supportedLanguageCodes={supportedLanguageCodes}
             language={language}
             generateLocalizedPath={generateLocalizedPath}
             LinkComponent={LinkComponent}
-            onClick={onMenuClick}
+            onClick={closeLanguageMenu}
             translations={translations}
             dataTestId={dataTestId}
           />

@@ -52,7 +52,9 @@ export { MatomoTracker } from './components/MatomoTracker/MatomoTracker';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
 export { LanguageButton } from './components/NavigationBar/LanguageButton';
+export { MenuButton } from './components/NavigationBar/MenuButton';
 export { NavigationBar } from './components/NavigationBar/NavigationBar';
+export { UserButton } from './components/NavigationBar/UserButton';
 export {
   ExternalLinkSections,
   LanguageSelection,
