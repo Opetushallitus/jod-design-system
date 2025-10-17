@@ -199,7 +199,7 @@ export const WithNoteStack: Story = {
   ],
   render: (args) => {
     const NoteStackDemo = () => {
-      const { addNote } = useNoteStack();
+      const { addNote, removeNote, notes } = useNoteStack();
       const variants = ['success', 'error', 'warning', 'feedback'] as NoteProps['variant'][];
       return (
         <div className="ds:flex ds:flex-col ds:gap-5 ds:relative">
@@ -212,15 +212,22 @@ export const WithNoteStack: Story = {
                 key={variant}
                 variant="accent"
                 size="sm"
-                label={`Add ${variant} note`}
+                label={variant!}
+                className="ds:capitalize"
                 onClick={() => addNote({ ...args, variant, title: variant?.toLocaleUpperCase() })}
               />
             ))}
             <Button
+              variant="accent"
+              size="sm"
+              label="Permanent"
+              onClick={() => addNote({ ...args, variant: 'error', title: 'PERMANENT', permanent: true })}
+            />
+            <Button
               variant="red-delete"
               size="sm"
-              label={`Add permanent note`}
-              onClick={() => addNote({ ...args, variant: 'error', title: 'PERMANENT', permanent: true })}
+              label="Clear"
+              onClick={() => notes.forEach((n) => removeNote(n.id))}
             />
           </div>
         </div>
@@ -241,7 +248,7 @@ export const WithNoteStack: Story = {
     docs: {
       description: {
         story:
-          'Notes inside a stack component. The stack uses a hook to manage the notes. Notes are sorted by variant and permanent status. When user scrolls the page down, all notes besides permanent ones will collapse. They re-appear if user scrolls to the top of the page. You can add notes by using the provided buttons.',
+          'Notes inside a stack component. The stack uses a hook to manage the notes. Notes are sorted by variant and permanent status. When user scrolls the page down, all notes besides permanent ones will collapse. Notes uncollapse when scrolling up. You can add and clear notes by using the provided buttons.',
       },
     },
   },

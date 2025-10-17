@@ -52,6 +52,9 @@ describe('NavigationBar', () => {
     expect(content).toBeInTheDocument();
     expect(content).toBeVisible();
 
+    // Wait 500ms for startup delay before collapseOnScroll hook starts detecting scroll events
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
     // Simulate scroll
     window.scrollY = 100;
     window.dispatchEvent(new Event('scroll'));
@@ -77,6 +80,9 @@ it('does not toggle serviceBar contents multiple times during animation pending'
     />,
   );
 
+  // Wait 500ms for startup delay before collapseOnScroll hook starts detecting scroll events
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
   // Scroll down
   window.scrollY = 100;
   window.dispatchEvent(new Event('scroll'));
@@ -92,7 +98,7 @@ it('does not toggle serviceBar contents multiple times during animation pending'
   });
 
   // Scroll back to top after animation pending
-  await new Promise((r) => setTimeout(r, 250));
+  await new Promise((resolve) => setTimeout(resolve, 350));
   window.scrollY = 0;
   window.dispatchEvent(new Event('scroll'));
 
