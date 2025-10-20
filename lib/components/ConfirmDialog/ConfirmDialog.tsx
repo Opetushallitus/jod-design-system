@@ -25,8 +25,8 @@ type FooterProps =
 
 export type ConfirmDialogProps = {
   children: (showDialog: () => void) => JSX.Element;
-  title: string;
-  description: string;
+  title: string | React.ReactNode;
+  description: string | React.ReactNode;
   content?: React.ReactNode;
 } & FooterProps & { dataTestId?: string };
 
@@ -81,6 +81,8 @@ export const ConfirmDialog = ({
     hideDialog();
   };
 
+  const descriptionTag = React.useMemo(() => (typeof description === 'string' ? undefined : 'div'), [description]);
+
   return (
     <>
       {children(showDialog)}
@@ -108,7 +110,9 @@ export const ConfirmDialog = ({
               >
                 <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9">
                   <DialogTitle className="ds:mb-5 ds:text-heading-1">{title}</DialogTitle>
-                  <Description className="ds:text-body-sm ds:font-arial ds:min-h-[60px]">{description}</Description>
+                  <Description as={descriptionTag} className="ds:text-body-sm ds:font-arial ds:min-h-[60px]">
+                    {description}
+                  </Description>
                   {content && <div className="ds:mt-7">{content}</div>}
                 </div>
 

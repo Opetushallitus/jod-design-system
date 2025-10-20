@@ -84,6 +84,7 @@ export { ProgressIndicatorCard } from './components/ProgressIndicatorCard/Progre
 export { RadioButton } from './components/RadioButton/RadioButton';
 export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
 export { RangeSlider, type RangeSliderProps, type RangeSliderValue } from './components/RangeSlider/RangeSlider';
+export { RateAiContentCard } from './components/RateAiContentCard/RateAiContentCard';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
 export { Select } from './components/Select/Select';
 export { SelectionCard } from './components/SelectionCard/SelectionCard';
