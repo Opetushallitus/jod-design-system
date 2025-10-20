@@ -37,6 +37,7 @@ describe('NavigationBar', () => {
       <NavigationBar
         renderLink={({ children }) => <div>{children}</div>}
         logo={{ to: '/', language: 'fi', srText: 'jod' }}
+        dataTestId="test"
         showServiceBar
         serviceBarVariant="yksilo"
         serviceBarTitle="Osaamispolkuni"
@@ -47,10 +48,16 @@ describe('NavigationBar', () => {
     const title = screen.getByText('Osaamispolkuni');
     expect(title).toBeInTheDocument();
     expect(title).toBeVisible();
+    const serviceBar = screen.getByTestId('test-servicebar');
+    expect(serviceBar).toBeInTheDocument();
+    expect(serviceBar).toHaveClass('ds:translate-y-0');
 
     const content = screen.getByText(contentText);
     expect(content).toBeInTheDocument();
     expect(content).toBeVisible();
+
+    // Wait 500ms for startup delay before collapseOnScroll hook starts detecting scroll events
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     // Simulate scroll
     window.scrollY = 100;
@@ -58,8 +65,7 @@ describe('NavigationBar', () => {
 
     // Wait for DOM update and assert elements are removed
     await waitFor(() => {
-      expect(screen.queryByText('Osaamispolkuni')).not.toBeInTheDocument();
-      expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+      expect(serviceBar).toHaveClass('ds:-translate-y-full');
     });
   });
 });
@@ -73,9 +79,13 @@ it('does not toggle serviceBar contents multiple times during animation pending'
       showServiceBar
       serviceBarVariant="yksilo"
       serviceBarTitle="Osaamispolkuni"
+      dataTestId="test"
       serviceBarContent={<div>{contentText}</div>}
     />,
   );
+
+  // Wait 500ms for startup delay before collapseOnScroll hook starts detecting scroll events
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Scroll down
   window.scrollY = 100;
@@ -87,17 +97,15 @@ it('does not toggle serviceBar contents multiple times during animation pending'
 
   // Wait for DOM update
   await waitFor(() => {
-    expect(screen.queryByText('Osaamispolkuni')).not.toBeInTheDocument();
-    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+    expect(screen.queryByTestId('test-servicebar')).toHaveClass('ds:-translate-y-full');
   });
 
   // Scroll back to top after animation pending
-  await new Promise((r) => setTimeout(r, 250));
+  await new Promise((resolve) => setTimeout(resolve, 350));
   window.scrollY = 0;
   window.dispatchEvent(new Event('scroll'));
 
   await waitFor(() => {
-    expect(screen.getByText('Osaamispolkuni')).toBeVisible();
-    expect(screen.getByText(contentText)).toBeVisible();
+    expect(screen.queryByTestId('test-servicebar')).toHaveClass('ds:translate-y-0');
   });
 });

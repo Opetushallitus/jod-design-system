@@ -4,7 +4,7 @@ exports[`Note component > renders with close button 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
   data-testid="note3"
   role="alert"
 >
@@ -58,7 +58,7 @@ exports[`Note component > renders with default variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
   data-testid="note"
   role="alert"
 >
@@ -90,7 +90,7 @@ exports[`Note component > renders with error variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-alert ds:text-white ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-alert ds:text-white ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
   role="alert"
 >
   <div
@@ -121,7 +121,7 @@ exports[`Note component > renders with read more component 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
   data-testid="note2"
   role="alert"
 >
@@ -158,7 +158,7 @@ exports[`Note component > renders with success variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-success ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
   role="alert"
 >
   <div
@@ -189,7 +189,7 @@ exports[`Note component > renders with warning variant 1`] = `
 <div
   aria-atomic="true"
   aria-live="assertive"
-  class="ds:transition-[height] ds:duration-100 ds:overflow-clip ds:bg-warning ds:text-primary-gray ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-warning ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
   role="alert"
 >
   <div

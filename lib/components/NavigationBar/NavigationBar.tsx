@@ -88,6 +88,7 @@ export const NavigationBar = ({
   useCollapseOnScroll({
     onCollapse,
     onUncollapse,
+    startupDelayMs: 500,
   });
 
   const serviceBarContents = (
@@ -100,7 +101,7 @@ export const NavigationBar = ({
   return (
     <>
       <div
-        className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu ds:relative"
+        className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10"
         data-testid={dataTestId}
       >
         <nav
@@ -145,13 +146,16 @@ export const NavigationBar = ({
             'ds:text-white',
             'ds:text-[12px]',
             'ds:sm:text-[14px]',
-            serviceBarCollapsed ? 'ds:h-2' : 'ds:h-8',
+            'ds:transition-all',
+            'ds:duration-300',
+            'ds:h-8',
+            serviceBarCollapsed ? 'ds:-translate-y-full ds:mt-2' : 'ds:translate-y-0',
             getAccentBgClassForService(serviceBarVariant),
           ])}
           data-testid={dataTestId ? `${dataTestId}-servicebar` : undefined}
         >
           <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
-            {serviceBarCollapsed ? null : serviceBarContents}
+            {serviceBarContents}
           </div>
         </div>
       )}

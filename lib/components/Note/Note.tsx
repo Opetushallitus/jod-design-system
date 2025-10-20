@@ -2,6 +2,7 @@ import React from 'react';
 import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodClose } from '../../icons';
+import { tidyClasses as tc } from '../../utils';
 
 export interface NoteProps {
   /** Title shown on the note */
@@ -18,7 +19,10 @@ export interface NoteProps {
   permanent?: boolean;
   /** If true, the note will be collapsed */
   collapsed?: boolean;
+  /** Data-testid attribute for querying in tests */
   dataTestId?: string;
+  /** Additional CSS classnames */
+  className?: string;
 }
 
 /** Dialogs display important information that users need to acknowledge. They appear over the interface and block further interactions. */
@@ -30,6 +34,7 @@ export const Note = ({
   readMoreComponent,
   title,
   variant = 'success',
+  className = '',
   dataTestId,
 }: NoteProps) => {
   const { sm } = useMediaQueries();
@@ -41,14 +46,17 @@ export const Note = ({
       aria-atomic="true"
       aria-hidden={collapsed}
       tabIndex={collapsed ? -1 : undefined}
-      className={cx('ds:text-primary-gray ds:transition-[height] ds:duration-100 ds:overflow-clip', {
-        'ds:bg-success ds:text-primary-gray': variant === 'success',
-        'ds:bg-warning ds:text-primary-gray': variant === 'warning',
-        'ds:bg-alert ds:text-white': variant === 'error',
-        'ds:bg-secondary-3 ds:text-primary-gray': variant === 'feedback',
-        'ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0': !collapsed,
-        'ds:h-0': collapsed,
-      })}
+      className={cx(
+        tc(`ds:text-primary-gray ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ${className}`),
+        {
+          'ds:bg-success ds:text-primary-gray': variant === 'success',
+          'ds:bg-warning ds:text-primary-gray': variant === 'warning',
+          'ds:bg-alert ds:text-white': variant === 'error',
+          'ds:bg-secondary-3 ds:text-primary-gray': variant === 'feedback',
+          'ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0': !collapsed,
+          'ds:max-h-0 ds:py-0': collapsed,
+        },
+      )}
       data-testid={dataTestId}
     >
       <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6">
@@ -68,7 +76,7 @@ export const Note = ({
               onClick={onCloseClick}
               data-testid={dataTestId ? `${dataTestId}-close` : undefined}
             >
-              <JodClose size={24} />
+              <JodClose />
             </button>
           )}
         </div>
