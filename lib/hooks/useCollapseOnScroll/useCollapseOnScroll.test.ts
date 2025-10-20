@@ -41,7 +41,7 @@ describe('useCollapseOnScroll', () => {
   const simulateScroll = (scrollYValue: number) => {
     Object.defineProperty(globalThis, 'scrollY', { value: scrollYValue });
     globalThis.dispatchEvent(new Event('scroll'));
-    vi.advanceTimersByTime(100);
+    vi.advanceTimersByTime(400);
   };
 
   it('should not collapse on initial render', () => {

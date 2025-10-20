@@ -1,14 +1,24 @@
 import React from 'react';
 
 interface UseCollapseOnScrollProps {
+  /** onCollapse callback (scrolling down) */
   onCollapse: () => void;
+  /** onUncollapse callback (scrolling up) */
   onUncollapse: () => void;
+  /** Optional delay (ms) to ignore scroll events after mount */
+  startupDelayMs?: number;
 }
 export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
   const lastScrollY = React.useRef(0);
   const isCollapsed = React.useRef(false);
   const ignoreScroll = React.useRef(false);
+  const scrollHeightDelta = React.useRef(0);
   const SCROLL_THRESHOLD = 10;
+  const ANIMATION_IGNORE_DELAY = 350;
+
+  const getScrollY = () => {
+    return globalThis.scrollY - scrollHeightDelta.current;
+  };
 
   // Function to reset the scroll state. Handy when the collapsing
   // state is set elsewhere (e.g., the "show all" button click in NoteStack).
@@ -16,12 +26,16 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
     lastScrollY.current = globalThis.scrollY;
     isCollapsed.current = false;
     ignoreScroll.current = false;
+    ignoreScrollChecksForMs();
   };
 
-  const ignoreScrollChecksForMs = (ms: number) => {
+  const ignoreScrollChecksForMs = (ms = ANIMATION_IGNORE_DELAY) => {
     ignoreScroll.current = true;
+    const startScrollHeight = globalThis.document.body.scrollHeight;
+
     globalThis.setTimeout(() => {
       ignoreScroll.current = false;
+      scrollHeightDelta.current = globalThis.document.body.scrollHeight - startScrollHeight;
     }, ms);
   };
 
@@ -38,17 +52,17 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
       if (ignoreScroll.current) {
         return;
       }
-      const currentScrollY = globalThis.scrollY;
+      const currentScrollY = getScrollY();
       const scrollDelta = currentScrollY - lastScrollY.current;
 
       if (scrollDelta > SCROLL_THRESHOLD && !isCollapsed.current) {
         props.onCollapse();
         isCollapsed.current = true;
-        ignoreScrollChecksForMs(100);
+        ignoreScrollChecksForMs();
       } else if (scrollDelta < -SCROLL_THRESHOLD && isCollapsed.current) {
         props.onUncollapse();
         isCollapsed.current = false;
-        ignoreScrollChecksForMs(100);
+        ignoreScrollChecksForMs();
       }
 
       if (Math.abs(scrollDelta) >= SCROLL_THRESHOLD) {
@@ -59,6 +73,11 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
 
   React.useEffect(() => {
     lastScrollY.current = globalThis.scrollY;
+
+    if (props.startupDelayMs) {
+      ignoreScrollChecksForMs(props.startupDelayMs);
+    }
+
     globalThis.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -67,7 +86,7 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
         globalThis.cancelAnimationFrame(rafId.current);
       }
     };
-  }, [handleScroll]);
+  }, [handleScroll, props.startupDelayMs]);
 
   return { resetCollapseState };
 };
