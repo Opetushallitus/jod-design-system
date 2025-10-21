@@ -80,6 +80,7 @@ const args = {
   feedbackButtonLabel,
   feedbackOnClick: fn(),
   feedbackBgImageClassName,
+  externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
 };
 
 export const Default: Story = {

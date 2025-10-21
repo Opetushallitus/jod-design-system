@@ -38,6 +38,7 @@ describe('NavigationMenu', () => {
     open: true,
     languageSelectionTitle: 'Käyttökieli',
     serviceVariant: 'yksilo',
+    externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
   };
 
   it('renders navigation menu with default state', () => {

@@ -16,7 +16,13 @@ export interface ExternalLinkSection {
   linkItems: LinkItem[];
 }
 
-const ExternalLinkItem = ({ item }: { item: LinkItem }) => {
+const ExternalLinkItem = ({
+  item,
+  externalLinkIconAriaLabel,
+}: {
+  item: LinkItem;
+  externalLinkIconAriaLabel: string;
+}) => {
   const serviceVariant = useServiceVariant();
 
   return (
@@ -46,7 +52,7 @@ const ExternalLinkItem = ({ item }: { item: LinkItem }) => {
         <div className="ds:flex ds:flex-col ds:flex-1 ds:gap-3 ds:py-3 ds:group">
           <div className="ds:flex ds:flex-row ds:gap-3 ds:pr-3">
             <span className="ds:flex ds:flex-1 ds:group-hover:underline">{item.label}</span>
-            <JodOpenInNew size={24} role="presentation" />
+            <JodOpenInNew size={24} ariaLabel={externalLinkIconAriaLabel} />
           </div>
           {item.description && <span className="ds:text-body-sm">{item.description}</span>}
         </div>
@@ -55,7 +61,13 @@ const ExternalLinkItem = ({ item }: { item: LinkItem }) => {
   );
 };
 
-export const ExternalLinkSections = ({ sections }: { sections: ExternalLinkSection[] }) => {
+export const ExternalLinkSections = ({
+  sections,
+  externalLinkIconAriaLabel,
+}: {
+  sections: ExternalLinkSection[];
+  externalLinkIconAriaLabel: string;
+}) => {
   return (
     <div>
       {sections.map((section) => (
@@ -66,7 +78,7 @@ export const ExternalLinkSections = ({ sections }: { sections: ExternalLinkSecti
             <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{section.title}</h2>
             <ul className="ds:gap-3 ds:flex ds:flex-col">
               {section.linkItems.map((item) => (
-                <ExternalLinkItem key={item.label} item={item} />
+                <ExternalLinkItem key={item.label} item={item} externalLinkIconAriaLabel={externalLinkIconAriaLabel} />
               ))}
             </ul>
           </div>

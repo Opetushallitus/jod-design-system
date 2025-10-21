@@ -71,7 +71,7 @@ export const WithComponent: Story = {
           {'Olemme käyttäneet tämän sisällön luomisessa hyödyksi kielimallia. Lisää tietoa voit lukea'}{' '}
           <a href="#" className="ds:underline">
             {'Tekoälyä ja Osaamispolku -sivulta'}
-            <JodOpenInNew className="ds:inline-block" />
+            <JodOpenInNew className="ds:inline-block" ariaLabel="Linkki johtaa palvelun ulkopuolelle" />
           </a>
         </p>
       </div>

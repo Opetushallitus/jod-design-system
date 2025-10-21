@@ -56,7 +56,13 @@ exports[`Footer > renders 1`] = `
               <span>
                 Tietoa palvelusta
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -82,7 +88,13 @@ exports[`Footer > renders 1`] = `
               <span>
                 Tietosuojaselosteet ja evästeet
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -108,7 +120,13 @@ exports[`Footer > renders 1`] = `
               <span>
                 Datalähteet
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -134,7 +152,13 @@ exports[`Footer > renders 1`] = `
               <span>
                 Tietoa tekoälyn käytöstä
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -160,7 +184,13 @@ exports[`Footer > renders 1`] = `
               <span>
                 Saavutettavuusseloste
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -575,7 +605,13 @@ exports[`Footer > renders copyright 1`] = `
               <span>
                 Tietoa palvelusta
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -601,7 +637,13 @@ exports[`Footer > renders copyright 1`] = `
               <span>
                 Tietosuojaselosteet ja evästeet
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -627,7 +669,13 @@ exports[`Footer > renders copyright 1`] = `
               <span>
                 Datalähteet
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -653,7 +701,13 @@ exports[`Footer > renders copyright 1`] = `
               <span>
                 Tietoa tekoälyn käytöstä
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"
@@ -679,7 +733,13 @@ exports[`Footer > renders copyright 1`] = `
               <span>
                 Saavutettavuusseloste
               </span>
+              <span
+                class="ds:sr-only"
+              >
+                Linkki johtaa palvelun ulkopuolelle
+              </span>
               <svg
+                aria-hidden="true"
                 fill="currentColor"
                 height="24"
                 stroke="currentColor"

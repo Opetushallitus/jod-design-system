@@ -62,6 +62,7 @@ const FooterComponent = (
     feedbackButtonLabel={mockFeedbackButtonLabel}
     feedbackOnClick={vi.fn()}
     feedbackBgImageClassName={mockFeedbackBgImageClassName}
+    externalLinkIconAriaLabel="Linkki johtaa palvelun ulkopuolelle"
   />
 );
 
@@ -98,6 +99,7 @@ it('emits data-testid when provided', () => {
       feedbackButtonLabel={mockFeedbackButtonLabel}
       feedbackOnClick={vi.fn()}
       feedbackBgImageClassName={mockFeedbackBgImageClassName}
+      externalLinkIconAriaLabel="Linkki johtaa palvelun ulkopuolelle"
       dataTestId="footer"
     />,
   );

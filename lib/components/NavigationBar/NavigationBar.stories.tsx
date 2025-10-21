@@ -57,6 +57,7 @@ const menuProps: NavigationMenuProps = {
   languageSelectionTitle: 'Käyttökieli',
   selectedLanguage: 'fi',
   serviceVariant: 'yksilo',
+  externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
 };
 
 const argTypes: Partial<ArgTypes<NavigationBarProps>> = {
