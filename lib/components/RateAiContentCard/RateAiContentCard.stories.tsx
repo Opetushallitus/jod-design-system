@@ -37,7 +37,7 @@ export const Default: Story = {
         title: 'Arvioi sinulle ehdotettuja mahdollisuuksia',
         aiLabel: 'Tekoälyn tuottamaa sisältöä',
         content:
-          'Tällä sivulla ehdotetaan syöttämiesi tietojen perusteella sinulle sopivia mahdollisuuksia. Kerro miten onnistuimme',
+          'Tällä sivulla ehdotetaan syöttämiesi tietojen perusteella sinulle sopivia mahdollisuuksia. Kerro miten onnistuimme.',
         likeLabel: 'Tykkää painike',
         dislikeLabel: 'Älä tykkää painike',
       },
@@ -48,17 +48,16 @@ export const Default: Story = {
         title: 'Tarkenna palautettasi',
         description: (
           <>
-            <p>Olemme käyttäneet tämän sivun sisällön luomisessa hyödyksi kielimallia seuraavissa kohdissa:</p>
+            <p>Olemme käyttäneet tämän sivun sisällön luomisessa hyödyksi tekoälyä seuraavissa kohdissa:</p>
             <ul className="ds:list-disc ds:ml-5">
               <li>työmahdollisuudet,</li>
               <li>koulutusmahdollisuudet,</li>
               <li>mahdollisuuksien sopivuuden laskeminen.</li>
             </ul>
             <br />
-            <p>
-              Voisitko kertoa tarkemmin, mikä ei toiminut? Palautteesi auttaa meitä kehittämään sekä sisällön laatua
-              että tekoälyn toimintaa.
-            </p>
+            <p>Voisitko kertoa tarkemmin, mikä ei toiminut?</p>
+            <br />
+            <p>Palautteesi auttaa meitä kehittämään sekä sisällön laatua että tekoälyn toimintaa.</p>
           </>
         ),
         placeholder: 'Esim. sisältö epätarkkaa, ei vastannut tarvetta, väärä sävy...',

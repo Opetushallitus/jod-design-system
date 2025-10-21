@@ -103,7 +103,7 @@ export const RateAiContentCard = ({ translations, onSubmit, dataTestId }: RateAi
       data-testid={dataTestId}
     >
       <div className="ds:flex ds:gap-3 ds:text-heading-2">
-        <h2 className="ds:grow ds:text-shadow-[0_4px_4px_rgb(0_0_0_/_0.25)]">{translations.card.title}</h2>
+        <h2 className="ds:grow">{translations.card.title}</h2>
         <JodAi aria-label={translations.card.aiLabel} size={32} className="ds:flex-none" />
       </div>
       <div className="ds:flex ds:flex-col ds:gap-6">
