@@ -55,6 +55,8 @@ export interface FooterProps {
 
   /** Heading level for the footer title, h2 is the default */
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+  externalLinkIconAriaLabel: string;
 }
 
 /**
@@ -82,6 +84,7 @@ export const Footer = ({
   dataTestId,
   ref,
   headingLevel = 'h2',
+  externalLinkIconAriaLabel,
 }: FooterProps) => {
   const HeadingTag = headingLevel;
   const defaultCooperationLogos = React.useMemo(
@@ -193,7 +196,7 @@ export const Footer = ({
                       className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
                     >
                       <span>{link.label}</span>
-                      <JodOpenInNew />
+                      <JodOpenInNew ariaLabel={externalLinkIconAriaLabel} />
                     </a>
                   )}
                 </li>

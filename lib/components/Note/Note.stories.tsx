@@ -183,7 +183,13 @@ export const feedback: Story = {
     description: 'Kerro mielipiteesi ja auta meitä kehittämään palvelua.',
     variant: 'feedback',
     readMoreComponent: (
-      <Button variant="white" label="Siirry kyselyyn" icon={<JodOpenInNew />} iconSide="right" size="sm" />
+      <Button
+        variant="white"
+        label="Siirry kyselyyn"
+        icon={<JodOpenInNew ariaLabel="Linkki johtaa palvelun ulkopuolelle" />}
+        iconSide="right"
+        size="sm"
+      />
     ),
     onCloseClick: fn(),
   },

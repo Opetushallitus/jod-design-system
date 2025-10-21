@@ -55,6 +55,8 @@ export interface NavigationMenuProps {
   extraSection?: React.ReactNode;
   /** Service variant for color scheme (yksilö, ohjaaja etc.) */
   serviceVariant: ServiceVariant;
+  /** Aria label for external link icons */
+  externalLinkIconAriaLabel: string;
   /** Test id for querying in tests */
   dataTestId?: string;
 }
@@ -73,6 +75,7 @@ export const NavigationMenu = ({
   extraSection,
   languageSelectionTitle,
   serviceVariant,
+  externalLinkIconAriaLabel,
   dataTestId,
 }: NavigationMenuProps) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
@@ -118,7 +121,10 @@ export const NavigationMenu = ({
               dataTestId={dataTestId ? `${dataTestId}-menulist` : undefined}
             />
             {externalLinkSections && externalLinkSections.length > 0 && (
-              <ExternalLinkSections sections={externalLinkSections} />
+              <ExternalLinkSections
+                sections={externalLinkSections}
+                externalLinkIconAriaLabel={externalLinkIconAriaLabel}
+              />
             )}
             {extraSection && (
               <>
