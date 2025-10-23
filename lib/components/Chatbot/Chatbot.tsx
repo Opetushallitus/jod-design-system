@@ -83,7 +83,7 @@ export const Chatbot = ({
           ></ai-agent-dialog-row>
         </ai-agent-embed>
       </ai-agent-view-switch>
-      <span slot="open-chat-button-content" className="ds:rounded-full" aria-label={openWindowText}>
+      <span slot="open-chat-button-content" className="ds:flex" aria-label={openWindowText}>
         <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
           <path d="M27.6667 19.2793H25V24.1326H27.6667V19.2793Z" fill="black" />
           <path d="M19.6667 19.2793H17V24.1326H19.6667V19.2793Z" fill="black" />
