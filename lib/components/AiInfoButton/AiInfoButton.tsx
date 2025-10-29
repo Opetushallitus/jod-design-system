@@ -1,3 +1,4 @@
+import type { Placement } from '@floating-ui/react';
 import React from 'react';
 import { JodAi } from '../../icons';
 import { Tooltip } from '../Tooltip/Tooltip';
@@ -9,18 +10,25 @@ interface AiInfoButtonProps {
   tooltipContent?: React.ReactNode;
   ariaLabel?: string;
   dataTestId?: string;
+  placement?: Placement;
 }
 
-export const AiInfoButton = ({ size = 24, tooltipContent, ariaLabel, dataTestId }: AiInfoButtonProps) => {
+export const AiInfoButton = ({
+  size = 24,
+  tooltipContent,
+  ariaLabel,
+  dataTestId,
+  placement = 'bottom-start',
+}: AiInfoButtonProps) => {
   const [open, setOpen] = React.useState(false);
 
   return tooltipContent ? (
-    <Tooltip open={open} onOpenChange={setOpen} placement="bottom-end">
+    <Tooltip open={open} onOpenChange={setOpen} placement={placement}>
       <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} dataTestId={dataTestId} open={open}>
-        <JodAi className="ds:text-secondary-gray" aria-label={ariaLabel} size={size} />
+        <JodAi className="ds:text-secondary-gray ds:mb-2" aria-label={ariaLabel} size={size} />
       </TooltipTrigger>
       <TooltipContent
-        className="ds:text-white ds:p-4 ds:rounded-xl ds:bg-primary-gray ds:font-arial"
+        className="ds:text-white ds:p-4 ds:rounded ds:bg-primary-gray ds:font-arial"
         arrowClassName="ds:fill-primary-gray"
       >
         {tooltipContent}

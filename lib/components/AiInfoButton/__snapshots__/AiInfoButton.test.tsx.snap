@@ -10,7 +10,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
 >
   <svg
     aria-label="Info button"
-    class="ds:text-secondary-gray"
+    class="ds:text-secondary-gray ds:mb-2"
     fill="currentColor"
     height="24"
     stroke="currentColor"
