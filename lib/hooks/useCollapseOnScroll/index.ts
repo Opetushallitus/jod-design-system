@@ -13,8 +13,8 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
   const isCollapsed = React.useRef(false);
   const ignoreScroll = React.useRef(false);
   const scrollHeightDelta = React.useRef(0);
-  const SCROLL_THRESHOLD = 10;
-  const ANIMATION_IGNORE_DELAY = 350;
+  const SCROLL_THRESHOLD = 5;
+  const ANIMATION_IGNORE_DELAY = 400;
 
   const getScrollY = () => {
     return globalThis.scrollY - scrollHeightDelta.current;
@@ -71,15 +71,16 @@ export const useCollapseOnScroll = (props: UseCollapseOnScrollProps) => {
     });
   }, [props]);
 
+  // Initial ignore on mount
   React.useEffect(() => {
-    lastScrollY.current = globalThis.scrollY;
-
     if (props.startupDelayMs) {
       ignoreScrollChecksForMs(props.startupDelayMs);
     }
+  }, [props.startupDelayMs]);
 
+  React.useEffect(() => {
+    lastScrollY.current = globalThis.scrollY;
     globalThis.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => {
       globalThis.removeEventListener('scroll', handleScroll);
       if (rafId.current) {

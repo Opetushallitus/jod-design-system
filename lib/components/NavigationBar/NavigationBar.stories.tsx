@@ -1,4 +1,4 @@
-import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
+import type { ReactRenderer, StoryObj } from '@storybook/react-vite';
 import { PartialStoryFn } from 'storybook/internal/types';
 import { fn } from 'storybook/test';
 import {
@@ -58,13 +58,6 @@ const menuProps: NavigationMenuProps = {
   selectedLanguage: 'fi',
   serviceVariant: 'yksilo',
   externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
-};
-
-const argTypes: Partial<ArgTypes<NavigationBarProps>> = {
-  serviceBarVariant: {
-    control: { type: 'radio' },
-    options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
-  },
 };
 
 const parameters = {
@@ -148,38 +141,9 @@ export const Default: Story = {
       },
     },
   },
-  argTypes,
   args: {
     renderLink,
     logo,
-    showServiceBar: false,
   },
   render: DefaultRender,
-};
-
-export const WithServiceBar: Story = {
-  decorators,
-  parameters: {
-    ...parameters,
-    docs: {
-      description: {
-        story: 'Navigation bar with a customizable service bar below it. Collapses when page is scrolled down.',
-      },
-    },
-  },
-  argTypes,
-  args: {
-    renderLink,
-    logo,
-    showServiceBar: true,
-    serviceBarVariant: 'yksilo',
-    serviceBarTitle: 'Osaamispolkuni',
-    serviceBarContent: (
-      <input
-        type="text"
-        className="ds:bg-white ds:h-7 ds:placeholder:text-[#777] ds:px-4 ds:rounded"
-        placeholder="Hae"
-      />
-    ),
-  },
 };
