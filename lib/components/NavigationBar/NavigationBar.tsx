@@ -1,7 +1,5 @@
 import React from 'react';
-import { useCollapseOnScroll } from '../../hooks/useCollapseOnScroll';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { getAccentBgClassForService, type ServiceVariant, tidyClasses as tc } from '../../utils';
 import { LogoIconRgb } from '../Logo/LogoIcon';
 import { LogoRgb } from '../Logo/LogoRgb';
 
@@ -12,27 +10,9 @@ export interface NavigationBarLinkProps {
   children: React.ReactNode;
 }
 
-type ServiceBarProps =
-  | {
-      /** Should the service bar be displayed under the navigation bar */
-      showServiceBar: true;
-      /** Service variant for styling */
-      serviceBarVariant: ServiceVariant;
-      /** Service bar title */
-      serviceBarTitle?: string;
-      /** Component to display on the right side of the service bar */
-      serviceBarContent?: React.ReactNode;
-    }
-  | {
-      showServiceBar?: false;
-      serviceBarVariant?: never;
-      serviceBarTitle?: never;
-      serviceBarContent?: never;
-    };
-
 export type NavigationBarLink = React.ComponentType<NavigationBarLinkProps>;
 
-export type NavigationBarProps = {
+export interface NavigationBarProps {
   /** Place for menu opener button */
   menuComponent?: React.ReactNode;
   /** For language selection button **/
@@ -56,7 +36,7 @@ export type NavigationBarProps = {
   };
   /** Test id for querying in tests */
   dataTestId?: string;
-} & ServiceBarProps;
+}
 
 /**
  * This component is a navigation bar that displays a logo, and an avatar.
@@ -68,35 +48,9 @@ export const NavigationBar = ({
   renderLink: Link,
   logo,
   refs,
-  showServiceBar,
-  serviceBarVariant,
-  serviceBarTitle,
-  serviceBarContent,
   dataTestId,
 }: NavigationBarProps) => {
   const { sm, lg, xl } = useMediaQueries();
-  const [serviceBarCollapsed, setServiceBarCollapsed] = React.useState(false);
-
-  const onCollapse = React.useCallback(() => {
-    setServiceBarCollapsed(true);
-  }, []);
-
-  const onUncollapse = React.useCallback(() => {
-    setServiceBarCollapsed(false);
-  }, []);
-
-  useCollapseOnScroll({
-    onCollapse,
-    onUncollapse,
-    startupDelayMs: 500,
-  });
-
-  const serviceBarContents = (
-    <>
-      {serviceBarTitle ? <span>{serviceBarTitle}</span> : null}
-      {serviceBarContent ? <div>{serviceBarContent}</div> : null}
-    </>
-  );
 
   return (
     <>
@@ -138,27 +92,6 @@ export const NavigationBar = ({
           </div>
         </nav>
       </div>
-      {showServiceBar && (
-        <div
-          className={tc([
-            'ds:w-full',
-            'ds:flex',
-            'ds:text-white',
-            'ds:text-[12px]',
-            'ds:sm:text-[14px]',
-            'ds:transition-all',
-            'ds:duration-300',
-            'ds:h-8',
-            serviceBarCollapsed ? 'ds:-translate-y-full ds:mt-2' : 'ds:translate-y-0',
-            getAccentBgClassForService(serviceBarVariant),
-          ])}
-          data-testid={dataTestId ? `${dataTestId}-servicebar` : undefined}
-        >
-          <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
-            {serviceBarContents}
-          </div>
-        </div>
-      )}
     </>
   );
 };

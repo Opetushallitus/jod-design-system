@@ -32,7 +32,10 @@ export const NoteStackProvider = ({ children, maxNotes = DEFAULT_MAX_NOTES }: No
         if (!nextNote?.id || prevNotes.some((n) => n.id === nextNote.id)) {
           return prevNotes;
         }
-        return [...prevNotes, nextNote].sort(sortNotes);
+        return [...prevNotes, nextNote].sort(sortNotes).map((note, index) => ({
+          ...note,
+          collapsed: note.permanent ? false : index > 0,
+        }));
       });
     }
 
