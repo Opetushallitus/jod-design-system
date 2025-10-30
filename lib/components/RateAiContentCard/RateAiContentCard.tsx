@@ -37,11 +37,13 @@ export interface RateAiContentCardProps {
   };
   /** Callback function when user submits feedback */
   onSubmit: ({ rating, message }: { rating: number; message?: string }) => Promise<void> | void;
+  /** Size of the card */
+  size?: 'md' | 'lg';
   /** Test id for querying in tests */
   dataTestId?: string;
 }
 
-export const RateAiContentCard = ({ translations, onSubmit, dataTestId }: RateAiContentCardProps) => {
+export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTestId }: RateAiContentCardProps) => {
   const [value, setValue] = React.useState('');
   const [isLikeSubmitting, setIsLikeSubmitting] = React.useState(false);
   const [isDislikeSubmitting, setIsDislikeSubmitting] = React.useState(false);
@@ -99,7 +101,10 @@ export const RateAiContentCard = ({ translations, onSubmit, dataTestId }: RateAi
 
   return (
     <div
-      className="ds:flex ds:flex-col ds:gap-3 ds:bg-accent ds:text-white ds:rounded-md ds:px-5 ds:py-6"
+      className={cx('ds:flex ds:flex-col ds:gap-3 ds:bg-accent ds:text-white', {
+        'ds:rounded-md ds:px-5 ds:py-6': size === 'md',
+        'ds:rounded-lg ds:p-6': size === 'lg',
+      })}
       data-testid={dataTestId}
     >
       <div className="ds:flex ds:gap-3 ds:text-heading-2">
