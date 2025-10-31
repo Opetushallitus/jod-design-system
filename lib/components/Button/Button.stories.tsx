@@ -274,7 +274,11 @@ export const AsLink: Story = {
     variant: 'accent',
     icon: <JodUser size={40} />,
     iconSide: 'left',
-    LinkComponent: ({ children }: { children: React.ReactNode }) => <a href="/#">{children}</a>,
+    linkComponent: ({ children, className, ariaLabel, dataTestId }) => (
+      <a href="/#" className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+        {children}
+      </a>
+    ),
   },
 };
 

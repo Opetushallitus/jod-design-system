@@ -3,11 +3,11 @@
 exports[`Button > calls the onClick function when clicked 1`] = `
 <button
   aria-label="Click me"
-  class="ds:flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
+  class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-4"
+    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
   >
     Click me
   </span>
@@ -17,7 +17,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
 exports[`Button > renders the button as disabled 1`] = `
 <button
   aria-label="Click me"
-  class="ds:flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-inactive-gray"
+  class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-inactive-gray"
   disabled=""
   type="button"
 >
@@ -32,11 +32,11 @@ exports[`Button > renders the button as disabled 1`] = `
 exports[`Button > renders the button with the correct label 1`] = `
 <button
   aria-label="Click me"
-  class="ds:flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
+  class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-4"
+    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
   >
     Click me
   </span>
@@ -46,11 +46,11 @@ exports[`Button > renders the button with the correct label 1`] = `
 exports[`Button > renders the button with the correct size 1`] = `
 <button
   aria-label="Click me"
-  class="ds:flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
+  class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-3 ds:min-h-7"
+    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-3 ds:min-h-7"
   >
     Click me
   </span>
@@ -60,11 +60,11 @@ exports[`Button > renders the button with the correct size 1`] = `
 exports[`Button > renders the button with the correct variant 1`] = `
 <button
   aria-label="Click me"
-  class="ds:flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-secondary-1-dark ds:active:bg-secondary-1-dark-2 ds:focus-visible:outline-secondary-1-dark ds:text-white"
+  class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-secondary-1-dark ds:active:bg-secondary-1-dark-2 ds:focus-visible:outline-secondary-1-dark ds:text-white"
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-4"
+    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
   >
     Click me
   </span>

@@ -36,8 +36,8 @@ export const LargeWithActionButton: Story = {
     backgroundColor: '#006DB3',
     buttonLabel: 'Tutustu Osaamispolkuun',
     to: '#',
-    LinkComponent: ({ to, children, className }) => (
-      <a className={className} href={to as string}>
+    linkComponent: ({ to, children, className, ariaLabel, dataTestId }) => (
+      <a className={className} href={to as string} aria-label={ariaLabel} data-testid={dataTestId}>
         {children}
       </a>
     ),
@@ -98,7 +98,11 @@ export const SmallWithActionButton: Story = {
     size: 'sm',
     to: '#',
     title: 'Ohjaajan osio',
-    LinkComponent: ({ to, children }) => <a href={to as string}>{children}</a>,
+    linkComponent: ({ to, children, className, ariaLabel, dataTestId }) => (
+      <a className={className} href={to as string} aria-label={ariaLabel} data-testid={dataTestId}>
+        {children}
+      </a>
+    ),
     buttonLabel: 'Ohjaajan osioon',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
@@ -136,8 +140,8 @@ export const Hero: Story = {
     buttonLabel: 'Tutustu Osaamispolkuun',
     backgroundColor: '#006DB3',
     to: '#',
-    LinkComponent: ({ to, children, className }) => (
-      <a className={className} href={to as string}>
+    linkComponent: ({ to, children, className, ariaLabel, dataTestId }) => (
+      <a className={className} href={to as string} aria-label={ariaLabel} data-testid={dataTestId}>
         {children}
       </a>
     ),

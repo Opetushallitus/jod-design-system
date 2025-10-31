@@ -14,7 +14,11 @@ describe('HeroCard', () => {
     const { container } = render(
       <HeroCard
         to="/"
-        LinkComponent={({ to, children }) => <a href={to as string}>{children}</a>}
+        linkComponent={({ children, to, className, ariaLabel, dataTestId }) => (
+          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+            {children}
+          </a>
+        )}
         buttonLabel={buttonLabel}
         title={title}
         content={content}
@@ -48,7 +52,11 @@ describe('HeroCard', () => {
     render(
       <HeroCard
         to="/"
-        LinkComponent={({ to, children }) => <a href={to as string}>{children}</a>}
+        linkComponent={({ children, to, className, ariaLabel, dataTestId }) => (
+          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+            {children}
+          </a>
+        )}
         buttonLabel={buttonLabel}
         title={title}
         content={content}
@@ -65,7 +73,11 @@ describe('HeroCard', () => {
     render(
       <HeroCard
         to="/"
-        LinkComponent={({ to, children }) => <a href={to as string}>{children}</a>}
+        linkComponent={({ children, to, className, ariaLabel, dataTestId }) => (
+          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+            {children}
+          </a>
+        )}
         buttonLabel={buttonLabel}
         title={title}
         content={content}

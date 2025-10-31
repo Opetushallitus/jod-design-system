@@ -3,35 +3,20 @@ import { cx } from '../../cva';
 import { JodArrowRight } from '../../icons';
 import { Button } from '../Button/Button';
 
-type ActionButtonProps =
-  | {
-      to: object | string;
-      LinkComponent: React.ComponentType<{
-        to: object | string;
-        className?: string;
-        children: React.ReactNode;
-      }>;
-      buttonIcon?: JSX.Element;
-      buttonLabel: string;
-      buttonVariant?: React.ComponentProps<typeof Button>['variant'];
-      onClick?: never;
-    }
-  | {
-      onClick: () => void;
-      buttonIcon?: JSX.Element;
-      buttonLabel: string;
-      buttonVariant?: React.ComponentProps<typeof Button>['variant'];
-      to?: never;
-      LinkComponent?: never;
-    }
-  | {
-      onClick?: never;
-      to?: never;
-      LinkComponent?: never;
-      buttonIcon?: JSX.Element;
-      buttonLabel?: never;
-      buttonVariant?: never;
-    };
+interface ActionButtonProps {
+  to?: object | string;
+  linkComponent?: React.ComponentType<{
+    children: React.ReactNode;
+    to: object | string;
+    className: string;
+    ariaLabel?: string;
+    dataTestId?: string;
+  }>;
+  buttonIcon?: JSX.Element;
+  buttonLabel?: string;
+  buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+  onClick?: () => void;
+}
 
 export type HeroCardProps = {
   /** Title text shown on the card */
@@ -46,12 +31,14 @@ export type HeroCardProps = {
   backgroundColor?: string;
   /** Size of the card. Lg is default. */
   size?: 'lg' | 'sm';
-} & ActionButtonProps & { dataTestId?: string };
+  /** Test id for querying in tests */
+  dataTestId?: string;
+} & ActionButtonProps;
 
 /** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const HeroCard = ({
   to,
-  LinkComponent,
+  linkComponent,
   buttonVariant = 'white',
   buttonIcon = <JodArrowRight size={24} />,
   title,
@@ -68,6 +55,7 @@ export const HeroCard = ({
     'ds:text-hero-mobile ds:sm:text-hero': size === 'lg' && titleClassName === undefined,
     'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm' && titleClassName === undefined,
   });
+  const LinkComponent = linkComponent;
   const shouldRenderButton = buttonLabel && ((to && LinkComponent) || onClick);
 
   const TitleTag = `h${titleLevel}` as keyof JSX.IntrinsicElements;
@@ -86,9 +74,24 @@ export const HeroCard = ({
           {...(to &&
             LinkComponent && {
               // eslint-disable-next-line react/no-unstable-nested-components
-              LinkComponent: ({ children }: { children: React.ReactNode }) => (
+              linkComponent: ({
+                children,
+                className,
+                ariaLabel,
+                dataTestId,
+              }: {
+                children: React.ReactNode;
+                className: string;
+                ariaLabel?: string;
+                dataTestId?: string;
+              }) => (
                 <div>
-                  <LinkComponent className="ds:group ds:outline-hidden" to={to}>
+                  <LinkComponent
+                    className={`${className} ds:group ds:outline-hidden`}
+                    to={to}
+                    ariaLabel={ariaLabel}
+                    dataTestId={dataTestId}
+                  >
                     {children}
                   </LinkComponent>
                 </div>
