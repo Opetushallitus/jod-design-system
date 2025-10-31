@@ -18,33 +18,30 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
   </p>
   <div>
     <a
+      aria-label="Test Button Label"
+      class="ds:inline-flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent ds:group ds:outline-hidden"
+      data-testid="hero-button"
       href="/"
     >
       <span
-        aria-label="Test Button Label"
-        class="ds:inline-flex ds:cursor-pointer ds:px-6 ds:rounded-[30px] ds:items-center ds:gap-4 ds:select-none ds:group ds:pr-4 ds:text-button-md ds:active:underline ds:focus-visible:underline ds:hover:not-disabled:underline ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
-        data-testid="hero-button"
+        class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
       >
-        <span
-          class="ds:group-hover:underline ds:group-active:no-underline ds:group-focus-visible:no-underline ds:py-4"
-        >
-          Test Button Label
-        </span>
-        <svg
-          fill="currentColor"
-          height="24"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16.175 13.2964H4V11.2964H16.175L10.575 5.69639L12 4.29639L20 12.2964L12 20.2964L10.575 18.8964L16.175 13.2964Z"
-            fill="currentColor"
-          />
-        </svg>
+        Test Button Label
       </span>
+      <svg
+        fill="currentColor"
+        height="24"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.175 13.2964H4V11.2964H16.175L10.575 5.69639L12 4.29639L20 12.2964L12 20.2964L10.575 18.8964L16.175 13.2964Z"
+          fill="currentColor"
+        />
+      </svg>
     </a>
   </div>
 </div>
