@@ -8,7 +8,7 @@ const ListItems = ({
   onClick,
   language,
   supportedLanguageCodes,
-  LinkComponent,
+  linkComponent: LinkComponent,
   generateLocalizedPath,
   dataTestId,
 }: LanguageMenuProps) => {
@@ -43,7 +43,7 @@ export const LanguageMenu = ({
   language,
   supportedLanguageCodes,
   generateLocalizedPath,
-  LinkComponent,
+  linkComponent: LinkComponent,
   translations,
   dataTestId,
 }: LanguageMenuProps) => {
@@ -56,7 +56,7 @@ export const LanguageMenu = ({
           supportedLanguageCodes={supportedLanguageCodes}
           language={language}
           generateLocalizedPath={generateLocalizedPath}
-          LinkComponent={LinkComponent}
+          linkComponent={LinkComponent}
           translations={translations}
           dataTestId={dataTestId}
         />

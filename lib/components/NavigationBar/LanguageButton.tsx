@@ -29,7 +29,7 @@ export const LanguageButton = ({
   language,
   supportedLanguageCodes,
   generateLocalizedPath,
-  LinkComponent,
+  linkComponent: LinkComponent,
   translations,
   dataTestId,
 }: LanguageButtonProps) => {
@@ -64,7 +64,7 @@ export const LanguageButton = ({
             supportedLanguageCodes={supportedLanguageCodes}
             language={language}
             generateLocalizedPath={generateLocalizedPath}
-            LinkComponent={LinkComponent}
+            linkComponent={LinkComponent}
             onClick={closeLanguageMenu}
             translations={translations}
             dataTestId={dataTestId}

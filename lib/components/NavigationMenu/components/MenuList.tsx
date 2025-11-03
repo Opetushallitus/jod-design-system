@@ -15,7 +15,7 @@ export interface MenuItem {
   activeIndicator?: 'dot' | 'bg';
   label: string;
   icon?: React.ReactNode;
-  LinkComponent?: React.ComponentType<LinkComponent>;
+  linkComponent?: React.ComponentType<LinkComponent>;
   childItems?: MenuItem[];
   selected?: boolean;
   className?: string;
@@ -38,7 +38,7 @@ const MenuListItem = ({
   collapsed = true,
   icon,
   label,
-  LinkComponent,
+  linkComponent: LinkComponent,
   openSubMenuLabel,
   selected,
   dataTestId,
@@ -247,7 +247,7 @@ export const MenuList = ({
               selected={item.selected}
               childItems={item.childItems}
               icon={item.icon}
-              LinkComponent={item.LinkComponent}
+              linkComponent={item.linkComponent}
               openSubMenuLabel={openSubMenuLabel}
               className={itemClassname}
               collapsed={collapsed}

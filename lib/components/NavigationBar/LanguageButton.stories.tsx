@@ -35,7 +35,7 @@ export const Default: Story = {
     },
     language: 'fi',
     generateLocalizedPath: (code: string) => `/${code}`,
-    LinkComponent: ({ children, className, ...rest }) => (
+    linkComponent: ({ children, className, ...rest }) => (
       <a href="/#" className={className} {...rest}>
         {children}
       </a>

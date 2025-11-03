@@ -23,7 +23,7 @@ const baseProps: LanguageButtonProps = {
   language: 'fi' as const,
   supportedLanguageCodes: ['fi', 'en', 'sv'],
   generateLocalizedPath,
-  LinkComponent,
+  linkComponent: LinkComponent,
   translations,
   dataTestId: 'language-button',
 };

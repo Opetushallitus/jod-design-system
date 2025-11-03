@@ -32,7 +32,7 @@ const parameters = {
 
 const baseProps: NavigationMenuProps = {
   portalLinkLabel: 'Osaamispolkuportaali',
-  PortalLinkComponent: ({ children, className }: LinkComponent) => (
+  portalLinkComponent: ({ children, className }: LinkComponent) => (
     <a href="/#" className={className}>
       {children}
     </a>
