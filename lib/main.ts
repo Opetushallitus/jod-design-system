@@ -70,14 +70,7 @@ export {
   type NavigationMenuLanguageSelectionProps,
   type NavigationMenuProps,
 } from './components/NavigationMenu';
-export {
-  Note,
-  NoteStack,
-  NoteStackContext,
-  NoteStackProvider,
-  useNoteStack,
-  type NoteStackNote,
-} from './components/Note';
+export { Note } from './components/Note';
 export { PageNavigation, type PageNavigationProps } from './components/PageNavigation/PageNavigation';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';

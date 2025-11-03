@@ -1,19 +1,22 @@
-import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
+import type { ReactRenderer, StoryObj } from '@storybook/react-vite';
 import { PartialStoryFn } from 'storybook/internal/types';
 import { fn } from 'storybook/test';
 import {
+  cx,
   LinkComponent,
   MenuButton,
   NavigationMenu,
   NavigationMenuProps,
+  Note,
   ServiceVariantProvider,
   UserButton,
 } from '../../main';
-import type { TitledMeta } from '../../utils';
+import { getAccentBgClassForService, type TitledMeta } from '../../utils';
 import { externalLinkSections, languageSelectionItems, menuSection } from '../NavigationMenu/commonStoriesData';
 import { LanguageButton } from './LanguageButton';
 import { NavigationBar, NavigationBarProps } from './NavigationBar';
 
+import React from 'react';
 import { useState } from 'storybook/preview-api';
 
 const meta = {
@@ -58,13 +61,6 @@ const menuProps: NavigationMenuProps = {
   selectedLanguage: 'fi',
   serviceVariant: 'yksilo',
   externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
-};
-
-const argTypes: Partial<ArgTypes<NavigationBarProps>> = {
-  serviceBarVariant: {
-    control: { type: 'radio' },
-    options: ['yksilo', 'ohjaaja', 'tietopalvelu', 'palveluportaali'],
-  },
 };
 
 const parameters = {
@@ -148,38 +144,141 @@ export const Default: Story = {
       },
     },
   },
-  argTypes,
   args: {
     renderLink,
     logo,
-    showServiceBar: false,
   },
   render: DefaultRender,
 };
 
-export const WithServiceBar: Story = {
-  decorators,
+export const WithServiceBarAndNoteStack: Story = {
+  render: (args) => {
+    const [dummy, setDummy] = React.useState<string[]>(new Array(20).fill('Tämä on esimerkkisisältöä sivulla.'));
+
+    const [direction, setDirection] = React.useState<'up' | 'down'>('up');
+
+    React.useEffect(() => {
+      let lastScrollY = window.scrollY;
+
+      const onScroll = () => {
+        const currentScrollY = window.scrollY;
+        if (Math.abs(currentScrollY - lastScrollY) > 5) {
+          setDirection(currentScrollY > lastScrollY ? 'down' : 'up');
+          lastScrollY = currentScrollY;
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    return (
+      <div className="ds:flex ds:flex-col ds:min-h-screen ds:bg-bg-gray">
+        <header role="banner" className="ds:sticky ds:top-0 ds:z-10">
+          <NavigationBar {...args} />
+        </header>
+        <div className="ds:sticky ds:top-[64px] ds:z-[5]">
+          <div className="ds:absolute ds:top-0 ds:w-full ds:flex ds:flex-col">
+            <div
+              className={cx(
+                'ds:flex',
+                'ds:text-white',
+                'ds:text-[12px]',
+                'ds:sm:text-[14px]',
+                'ds:h-8',
+                'ds:transition-[margin]',
+                'ds:duration-1000',
+                getAccentBgClassForService('yksilo'),
+                { 'ds:-mt-[36px]': direction === 'down' }, // 40px height - 4px buffer
+              )}
+            >
+              <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
+                Osaamispolkuni
+              </div>
+            </div>
+
+            <Note
+              title="1. Piilotettava varoitusilmoitus"
+              description="Tämä ilmoitus katoaa sivun vierittäessä."
+              variant="warning"
+              className="ds:-z-[1]"
+              direction={direction}
+            />
+
+            <Note
+              title="2. Pysyvä ilmoitus"
+              description="Tämä ilmoitus pysyy näkyvissä vaikka sivua vieritettäisiin."
+              variant="feedback"
+              className="ds:-z-[2]"
+            />
+
+            <Note
+              title="3. Piilotettava varoitusilmoitus"
+              description="Tämä ilmoitus katoaa sivun vierittäessä."
+              variant="success"
+              className="ds:-z-[3]"
+              direction={direction}
+            />
+
+            <Note
+              title="4. Piilotettava varoitusilmoitus"
+              description="Tämä ilmoitus katoaa sivun vierittäessä."
+              variant="warning"
+              className="ds:-z-[4]"
+              direction={direction}
+            />
+
+            <Note
+              title="5. Pysyvä ilmoitus"
+              description="Tämä ilmoitus pysyy näkyvissä vaikka sivua vieritettäisiin."
+              variant="error"
+              className="ds:-z-[5]"
+            />
+
+            <Note
+              title="6. Piilotettava varoitusilmoitus"
+              description="Tämä ilmoitus katoaa sivun vierittäessä."
+              variant="warning"
+              className="ds:-z-[6]"
+              direction={direction}
+            />
+          </div>
+        </div>
+        <main role="main" className="ds:bg-white">
+          {new Array(10).fill('Tämä on esimerkkisisältöä sivulla.').map((item, index) => (
+            <p key={index} className="ds:p-5">
+              {item}
+            </p>
+          ))}
+          <button onClick={() => setDummy([...dummy, 'Tämä on esimerkkisisältöä sivulla.'])} className="ds:p-5">
+            Lisää sisältöä sivulle
+          </button>
+          <button onClick={() => setDummy(dummy.slice(0, -1))} className="ds:p-5">
+            Poista sisältöä sivulta
+          </button>
+          <button onClick={() => setDummy([])} className="ds:p-5">
+            Poista kaikki sisältö
+          </button>
+          {dummy.map((item, index) => (
+            <p key={index} className="ds:p-5">
+              {item}
+            </p>
+          ))}
+        </main>
+      </div>
+    );
+  },
   parameters: {
     ...parameters,
     docs: {
       description: {
-        story: 'Navigation bar with a customizable service bar below it. Collapses when page is scrolled down.',
+        story:
+          'Navigation bar with a customizable service bar and note stack below it. Collapses when page is scrolled down.',
       },
     },
   },
-  argTypes,
   args: {
     renderLink,
     logo,
-    showServiceBar: true,
-    serviceBarVariant: 'yksilo',
-    serviceBarTitle: 'Osaamispolkuni',
-    serviceBarContent: (
-      <input
-        type="text"
-        className="ds:bg-white ds:h-7 ds:placeholder:text-[#777] ds:px-4 ds:rounded"
-        placeholder="Hae"
-      />
-    ),
   },
 };
