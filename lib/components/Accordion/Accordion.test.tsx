@@ -99,9 +99,9 @@ describe('Accordion', () => {
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
-  it('emits data-testid on the toggle button when dataTestId is provided', () => {
+  it('emits data-testid on the toggle button when testId is provided', () => {
     render(
-      <Accordion title="ID Title" dataTestId="acc">
+      <Accordion title="ID Title" testId="acc">
         <div>Child</div>
       </Accordion>,
     );

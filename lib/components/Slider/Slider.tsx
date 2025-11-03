@@ -38,7 +38,7 @@ export interface SliderProps {
   /** Disabled state */
   disabled?: boolean;
   /** Data-testid attribute */
-  dataTestId?: string;
+  testId?: string;
 }
 
 const Marker = () => <JodCircle size={6} className="ds:text-inactive-gray" />;
@@ -51,7 +51,7 @@ export const Slider = ({
   rightLabel,
   disabled,
   hideLabels = false,
-  dataTestId,
+  testId,
 }: SliderProps) => {
   const inputId = React.useId();
   const [focused, setFocused] = React.useState(false);
@@ -109,7 +109,7 @@ export const Slider = ({
         step={25}
         disabled={disabled}
         aria-label={rightLabel ? [label, rightLabel] : [label]}
-        data-testid={dataTestId}
+        data-testid={testId}
       >
         <div className="ds:content-center ds:w-full">
           <ArkSlider.Control className="ds:flex ds:grow ds:w-full">
@@ -152,7 +152,7 @@ export const Slider = ({
                 'ds:bg-accent': !disabled,
                 'ds:bg-inactive-gray': disabled,
               })}
-              data-testid={dataTestId ? `${dataTestId}-thumb` : undefined}
+              data-testid={testId ? `${testId}-thumb` : undefined}
             />
           </ArkSlider.Control>
         </div>
@@ -160,7 +160,7 @@ export const Slider = ({
           {!hideLabels && (
             <ArkSlider.Label
               className="ds:flex ds:items-center ds:text-menu"
-              data-testid={dataTestId ? `${dataTestId}-label` : undefined}
+              data-testid={testId ? `${testId}-label` : undefined}
             >
               {label}
             </ArkSlider.Label>
@@ -168,7 +168,7 @@ export const Slider = ({
           {!hideLabels && rightLabel && (
             <ArkSlider.Label
               className="ds:flex ds:items-center ds:text-menu"
-              data-testid={dataTestId ? `${dataTestId}-rightLabel` : undefined}
+              data-testid={testId ? `${testId}-rightLabel` : undefined}
             >
               {rightLabel}
             </ArkSlider.Label>
@@ -181,7 +181,7 @@ export const Slider = ({
           className="ds:max-w-[292px] ds:rounded-md ds:bg-black ds:px-6 ds:py-3 ds:text-button-md ds:text-white ds:sm:text-body-md ds:font-arial"
           style={floatingStyles}
           {...getFloatingProps()}
-          data-testid={dataTestId ? `${dataTestId}-tooltip` : undefined}
+          data-testid={testId ? `${testId}-tooltip` : undefined}
         >
           {getTooltipValue()}
           <FloatingArrow
@@ -190,7 +190,7 @@ export const Slider = ({
             className="ds:fill-black"
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
-            data-testid={dataTestId ? `${dataTestId}-tooltip-arrow` : undefined}
+            data-testid={testId ? `${testId}-tooltip-arrow` : undefined}
           />
         </div>
       )}

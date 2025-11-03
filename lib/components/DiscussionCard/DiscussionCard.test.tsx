@@ -12,7 +12,7 @@ describe('DiscussionCard data-testid', () => {
         likes={3}
         onClickComment={vi.fn()}
         onClickLike={vi.fn()}
-        dataTestId="disc"
+        testId="disc"
       />,
     );
 

@@ -23,7 +23,7 @@ describe('Pagination', () => {
         currentPage={props.currentPage}
         translations={props.translations}
         onPageChange={mockOnPageChange}
-        dataTestId="pagination"
+        testId="pagination"
       />,
     );
 

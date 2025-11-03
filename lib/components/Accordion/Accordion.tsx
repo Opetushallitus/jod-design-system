@@ -36,7 +36,7 @@ type AccordionProps = {
   /** Async function to fetch data when the accordion is opened. A loading spinner will be shown while fetching. */
   fetchData?: () => Promise<void>;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** Classnames for wrapper */
   className?: string;
 } & TitleProps;
@@ -57,7 +57,7 @@ export const Accordion = ({
   initialState = true,
   triggerId,
   fetchData,
-  dataTestId,
+  testId,
   isOpen: controlledIsOpen,
   setIsOpen: controlledSetIsOpen,
   className = '',
@@ -111,7 +111,7 @@ export const Accordion = ({
               'ds:mb-2': isOpen,
             },
           )}
-          data-testid={dataTestId}
+          data-testid={testId}
         >
           <span className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline">
             {title}

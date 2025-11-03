@@ -10,7 +10,7 @@ describe('InputField', () => {
   it('renders label correctly', () => {
     const value = 'john';
     const onChange = vi.fn();
-    const { container } = render(<InputField value={value} onChange={onChange} label={label} dataTestId="input" />);
+    const { container } = render(<InputField value={value} onChange={onChange} label={label} testId="input" />);
     expect(screen.getByTestId('input')).toBeInTheDocument();
     const labelElement = screen.getByText(label);
     expect(labelElement).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('InputField', () => {
     const value = 'john';
     const onChange = vi.fn();
     const { container } = render(
-      <InputField value={value} onChange={onChange} label={label} placeholder={placeholder} dataTestId="input2" />,
+      <InputField value={value} onChange={onChange} label={label} placeholder={placeholder} testId="input2" />,
     );
     expect(screen.getByTestId('input2')).toBeInTheDocument();
     const inputElement = screen.getByPlaceholderText(placeholder);
@@ -35,7 +35,7 @@ describe('InputField', () => {
     const value = 'john';
     const onChange = vi.fn();
     const { container } = render(
-      <InputField value={value} onChange={onChange} label={label} help={helpText} dataTestId="input3" />,
+      <InputField value={value} onChange={onChange} label={label} help={helpText} testId="input3" />,
     );
     expect(screen.getByTestId('input3')).toBeInTheDocument();
     const helpElement = screen.getByText(helpText);
@@ -46,7 +46,7 @@ describe('InputField', () => {
   it('updates input value correctly', () => {
     const onChange = vi.fn();
     const value = 'test value';
-    const { container } = render(<InputField value={value} onChange={onChange} label={label} dataTestId="input4" />);
+    const { container } = render(<InputField value={value} onChange={onChange} label={label} testId="input4" />);
     expect(screen.getByTestId('input4')).toBeInTheDocument();
     const inputElement = screen.getByRole('textbox');
     fireEvent.change(inputElement, { target: { value: 'new value' } });

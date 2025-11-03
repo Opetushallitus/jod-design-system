@@ -4,7 +4,7 @@ import { expect, test } from 'vitest';
 import { ProgressIndicatorCard } from './ProgressIndicatorCard';
 
 test('renders ProgressIndicatorCard', () => {
-  const { container } = render(<ProgressIndicatorCard dataTestId="pic" />);
+  const { container } = render(<ProgressIndicatorCard testId="pic" />);
   expect(container.querySelector('[data-testid="pic"]')).toBeInTheDocument();
   expect(container.firstChild).toMatchSnapshot();
 });

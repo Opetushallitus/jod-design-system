@@ -11,7 +11,7 @@ describe('ContentCard', () => {
       { label: 'Tag1', to: '/tag1' },
       { label: 'Tag2', to: '/tag2' },
     ],
-    dataTestId: 'contentcard',
+    testId: 'contentcard',
   };
 
   test('renders basic content card without link component', () => {

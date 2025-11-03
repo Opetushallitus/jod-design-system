@@ -40,7 +40,7 @@ export type MediaCardProps = {
     to: string;
   }[];
 } & LinkComponent &
-  FavoriteButtonProps & { dataTestId?: string };
+  FavoriteButtonProps & { testId?: string };
 
 type MediaCardImplProps = {
   imageSrc: string;
@@ -81,7 +81,7 @@ const LinkOrDiv = ({
   linkComponent: Link,
   className,
   children,
-  dataTestId,
+  testId,
 }: {
   to?: string;
   linkComponent?: React.ComponentType<{
@@ -91,7 +91,7 @@ const LinkOrDiv = ({
   }>;
   className?: string;
   children: React.ReactNode;
-  dataTestId?: string;
+  testId?: string;
 }) => {
   return Link && to ? (
     <Link
@@ -101,7 +101,7 @@ const LinkOrDiv = ({
       {children}
     </Link>
   ) : (
-    <div className={`${className}`} data-testid={dataTestId}>
+    <div className={`${className}`} data-testid={testId}>
       {children}
     </div>
   );
@@ -135,7 +135,7 @@ export const MediaCard = ({
   isFavorite,
   onFavoriteClick,
   favoriteLabel,
-  dataTestId,
+  testId,
 }: MediaCardProps) => {
   const favoriteButtonAndTags = (
     <>
@@ -144,7 +144,7 @@ export const MediaCard = ({
       )}
       <ul
         className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5 ds:*:px-2 ds:-mx-2"
-        data-testid={dataTestId ? `${dataTestId}-tags` : undefined}
+        data-testid={testId ? `${testId}-tags` : undefined}
       >
         {tags.filter(Boolean).map((tag) => (
           <Tag key={tag.label} linkComponent={Link} {...tag} />
@@ -162,7 +162,7 @@ export const MediaCard = ({
       label={label}
       description={description}
       {...linkProps}
-      dataTestId={dataTestId}
+      testId={testId}
     >
       {favoriteButtonAndTags}
     </MediaCardComponent>
@@ -177,34 +177,34 @@ const MediaCardVertical = ({
   linkComponent: Link,
   to,
   children,
-  dataTestId,
-}: MediaCardImplProps & { dataTestId?: string }) => {
+  testId,
+}: MediaCardImplProps & { testId?: string }) => {
   const variantImageClassNames = 'ds:object-cover ds:h-[147px] ds:min-h-[147px]';
 
   return (
     <div
       className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[380px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <LinkOrDiv
         to={to}
         linkComponent={Link}
         className="ds:flex ds:flex-col ds:grow "
-        dataTestId={dataTestId ? `${dataTestId}-link` : undefined}
+        testId={testId ? `${testId}-link` : undefined}
       >
         {imageSrc ? (
           <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
         ) : (
           <span
             className={`ds:w-full ds:h-full ds:bg-secondary-5 ${variantImageClassNames}`}
-            data-testid={dataTestId ? `${dataTestId}-image-placeholder` : undefined}
+            data-testid={testId ? `${testId}-image-placeholder` : undefined}
           ></span>
         )}
         <div className="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap ds:gap-3">
           <div>
             <p
               className="ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-3"
-              data-testid={dataTestId ? `${dataTestId}-label` : undefined}
+              data-testid={testId ? `${testId}-label` : undefined}
             >
               {label}
             </p>
@@ -212,7 +212,7 @@ const MediaCardVertical = ({
           <div className="ds:flex-grow ds:content-center">
             <p
               className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
-              data-testid={dataTestId ? `${dataTestId}-description` : undefined}
+              data-testid={testId ? `${testId}-description` : undefined}
             >
               {description}
             </p>
@@ -232,8 +232,8 @@ const MediaCardHorizontal = ({
   linkComponent: Link,
   to,
   children,
-  dataTestId,
-}: MediaCardImplProps & { dataTestId?: string }) => {
+  testId,
+}: MediaCardImplProps & { testId?: string }) => {
   const { sm } = useMediaQueries();
   const textContainerRef = React.useRef<HTMLDivElement>(null);
   const childrenContainerRef = React.useRef<HTMLDivElement>(null);
@@ -259,13 +259,13 @@ const MediaCardHorizontal = ({
   return (
     <div
       className="ds:relative ds:sm:min-h-[143px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:grid-rows-[1fr_auto] ds:sm:grid-cols-[255px_1fr]"
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <LinkOrDiv
         to={to}
         linkComponent={Link}
         className="ds:flex ds:flex-row ds:col-start-1 ds:col-end-2 ds:sm:col-end-3 ds:row-start-1 ds:row-end-3"
-        dataTestId={dataTestId ? `${dataTestId}-link` : undefined}
+        testId={testId ? `${testId}-link` : undefined}
       >
         <div className="ds:shrink-0">
           {imageSrc ? (
@@ -279,7 +279,7 @@ const MediaCardHorizontal = ({
           ) : (
             <div
               className={`ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}
-              data-testid={dataTestId ? `${dataTestId}-image-placeholder` : undefined}
+              data-testid={testId ? `${testId}-image-placeholder` : undefined}
             ></div>
           )}
         </div>
@@ -291,7 +291,7 @@ const MediaCardHorizontal = ({
             <div>
               <p
                 className="ds:pr-6 ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-4 ds:sm:line-clamp-2"
-                data-testid={dataTestId ? `${dataTestId}-label` : undefined}
+                data-testid={testId ? `${testId}-label` : undefined}
               >
                 {label}
               </p>
@@ -299,7 +299,7 @@ const MediaCardHorizontal = ({
             <div className="ds:flex-grow ds:content-center">
               <p
                 className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2"
-                data-testid={dataTestId ? `${dataTestId}-description` : undefined}
+                data-testid={testId ? `${testId}-description` : undefined}
               >
                 {description}
               </p>
@@ -309,7 +309,7 @@ const MediaCardHorizontal = ({
       </LinkOrDiv>
       <div
         className="ds:pb-5 ds:col-start-1 ds:sm:col-start-2 ds:md-col-start-1 ds:row-start-2"
-        data-testid={dataTestId ? `${dataTestId}-footer` : undefined}
+        data-testid={testId ? `${testId}-footer` : undefined}
         ref={childrenContainerRef}
       >
         {children}

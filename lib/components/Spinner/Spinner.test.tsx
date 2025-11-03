@@ -5,7 +5,7 @@ import { Spinner } from './Spinner';
 
 describe('Spinner Component', () => {
   it('renders without crashing', () => {
-    const { container } = render(<Spinner size={24} color="white" dataTestId="spinner" />);
+    const { container } = render(<Spinner size={24} color="white" testId="spinner" />);
     expect(screen.getByTestId('spinner')).toBeInTheDocument();
     expect(container).toBeInTheDocument();
   });

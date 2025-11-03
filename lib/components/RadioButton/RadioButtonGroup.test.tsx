@@ -8,7 +8,7 @@ import { RadioButton } from './RadioButton';
 describe('Snapshot testing', () => {
   test('Default', () => {
     const { container } = render(
-      <RadioButtonGroup label="A" value="a" onChange={vi.fn()} dataTestId="rbg2">
+      <RadioButtonGroup label="A" value="a" onChange={vi.fn()} testId="rbg2">
         <RadioButton value="option1" label="Option 1" />
       </RadioButtonGroup>,
     );
@@ -21,7 +21,7 @@ describe('Snapshot testing', () => {
 describe('RadioButtonGroup', () => {
   it('renders the label correctly', () => {
     render(
-      <RadioButtonGroup label="Test Label" value="" onChange={vi.fn()} dataTestId="rbg3">
+      <RadioButtonGroup label="Test Label" value="" onChange={vi.fn()} testId="rbg3">
         <RadioButton value="option1" label="Option 1" />
       </RadioButtonGroup>,
     );
@@ -32,7 +32,7 @@ describe('RadioButtonGroup', () => {
 
   it('renders the children correctly', () => {
     render(
-      <RadioButtonGroup label="Test Label" value="" onChange={vi.fn()} dataTestId="rbg4">
+      <RadioButtonGroup label="Test Label" value="" onChange={vi.fn()} testId="rbg4">
         <RadioButton value="option1" label="Option 1" />
       </RadioButtonGroup>,
     );
@@ -46,7 +46,7 @@ describe('RadioButtonGroup', () => {
     const mockOnChange = vi.fn();
 
     render(
-      <RadioButtonGroup label="Test Label" value="" onChange={mockOnChange} dataTestId="rbg5">
+      <RadioButtonGroup label="Test Label" value="" onChange={mockOnChange} testId="rbg5">
         <RadioButton value="option1" label="Option 1" />
       </RadioButtonGroup>,
     );
@@ -59,7 +59,7 @@ describe('RadioButtonGroup', () => {
 
   it('hides the label correctly', () => {
     render(
-      <RadioButtonGroup label="Label that is now hidden" value="" onChange={vi.fn()} hideLabel dataTestId="rbg6">
+      <RadioButtonGroup label="Label that is now hidden" value="" onChange={vi.fn()} hideLabel testId="rbg6">
         <RadioButton value="option1" label="Option 1" />
       </RadioButtonGroup>,
     );

@@ -80,7 +80,7 @@ describe('Select', () => {
 
   describe('label', () => {
     it('should render with label', () => {
-      render(<Select label="Label" options={[]} placeholder={placeholder} dataTestId="cb" />);
+      render(<Select label="Label" options={[]} placeholder={placeholder} testId="cb" />);
       expect(screen.getAllByText('Label')).not.toBeNull();
       expect(screen.getByTestId('cb')).toBeInTheDocument();
     });

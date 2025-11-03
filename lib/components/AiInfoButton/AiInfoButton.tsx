@@ -9,7 +9,7 @@ interface AiInfoButtonProps {
   size?: number;
   tooltipContent?: React.ReactNode;
   ariaLabel?: string;
-  dataTestId?: string;
+  testId?: string;
   placement?: Placement;
 }
 
@@ -17,14 +17,14 @@ export const AiInfoButton = ({
   size = 24,
   tooltipContent,
   ariaLabel,
-  dataTestId,
+  testId,
   placement = 'bottom-start',
 }: AiInfoButtonProps) => {
   const [open, setOpen] = React.useState(false);
 
   return tooltipContent ? (
     <Tooltip open={open} onOpenChange={setOpen} placement={placement}>
-      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} dataTestId={dataTestId} open={open}>
+      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} testId={testId} open={open}>
         <JodAi className="ds:text-secondary-gray ds:mb-2" aria-label={ariaLabel} size={size} />
       </TooltipTrigger>
       <TooltipContent

@@ -40,10 +40,10 @@ export interface RateAiContentCardProps {
   /** Size of the card */
   size?: 'md' | 'lg';
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
 }
 
-export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTestId }: RateAiContentCardProps) => {
+export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId }: RateAiContentCardProps) => {
   const [value, setValue] = React.useState('');
   const [isLikeSubmitting, setIsLikeSubmitting] = React.useState(false);
   const [isDislikeSubmitting, setIsDislikeSubmitting] = React.useState(false);
@@ -85,7 +85,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTes
       <Button
         onClick={() => cancelDislike(hideDialog)}
         label={translations.modal.close}
-        dataTestId={dataTestId ? `${dataTestId}-cancel-button` : undefined}
+        testId={testId ? `${testId}-cancel-button` : undefined}
       />
       <Button
         variant="accent"
@@ -94,7 +94,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTes
         label={isDislikeSending ? translations.modal.sending : translations.modal.send}
         icon={isDislikeSending ? <Spinner color="white" size={20} /> : undefined}
         iconSide={isDislikeSending ? 'right' : undefined}
-        dataTestId={dataTestId ? `${dataTestId}-send-button` : undefined}
+        testId={testId ? `${testId}-send-button` : undefined}
       />
     </div>
   );
@@ -105,7 +105,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTes
         'ds:rounded-md ds:px-5 ds:py-6': size === 'md',
         'ds:rounded-lg ds:p-6': size === 'lg',
       })}
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <div className="ds:flex ds:gap-3 ds:text-heading-2">
         <h2 className="ds:grow">{translations.card.title}</h2>
@@ -122,7 +122,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTes
             aria-label={translations.card.likeLabel}
             onClick={() => void like()}
             disabled={isLikeSubmitting}
-            data-testid={dataTestId ? `${dataTestId}-like-button` : undefined}
+            data-testid={testId ? `${testId}-like-button` : undefined}
           >
             {isLikeSubmitting ? (
               <JodThumbUpFilled className="ds:text-accent" />
@@ -148,10 +148,10 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTes
                 }}
                 placeholder={translations.modal.placeholder}
                 maxLength={5000}
-                dataTestId={dataTestId ? `${dataTestId}-feedback-textarea` : undefined}
+                testId={testId ? `${testId}-feedback-textarea` : undefined}
               />
             }
-            dataTestId={dataTestId ? `${dataTestId}-dialog` : undefined}
+            testId={testId ? `${testId}-dialog` : undefined}
           >
             {(showDialog) => (
               <button
@@ -165,7 +165,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', dataTes
                   setIsDislikeSubmitting(true);
                   showDialog();
                 }}
-                data-testid={dataTestId ? `${dataTestId}-dislike-button` : undefined}
+                data-testid={testId ? `${testId}-dislike-button` : undefined}
               >
                 {isDislikeSubmitting ? (
                   <JodThumbDownFilled className="ds:text-accent" />

@@ -7,7 +7,7 @@ interface BaseTagProps {
   tooltip?: string;
   variant?: 'selectable' | 'added' | 'presentation';
   sourceType?: 'tyopaikka' | 'koulutus' | 'vapaa-ajan-toiminto' | 'kiinnostus' | 'jotain-muuta' | 'rajoitus';
-  dataTestId?: string;
+  testId?: string;
 }
 
 interface PresentationTagProps extends BaseTagProps {
@@ -43,7 +43,7 @@ export const Tag = ({
   onClick,
   variant = 'selectable',
   sourceType = 'jotain-muuta',
-  dataTestId,
+  testId,
 }: TagProps) => {
   return (
     <Tooltip>
@@ -51,7 +51,7 @@ export const Tag = ({
         {variant === 'presentation' ? (
           <div
             className={containerClassNames(sourceType, variant)}
-            data-testid={dataTestId}
+            data-testid={testId}
             role={tooltip ? 'button' : undefined}
             tabIndex={tooltip ? 0 : undefined}
           >
@@ -62,7 +62,7 @@ export const Tag = ({
             type="button"
             className={containerClassNames(sourceType, variant)}
             onClick={onClick}
-            data-testid={dataTestId}
+            data-testid={testId}
           >
             <span className="ds:hyphens-auto ds:text-primary-gray ds:group-hover:underline">{label}</span>
             <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray" aria-hidden>

@@ -70,9 +70,9 @@ describe('RateAiContentCard', () => {
     expect(onSubmit).not.toHaveBeenCalled();
   });
 
-  it('exposes data-testids when dataTestId is provided', async () => {
+  it('exposes data-testids when testId is provided', async () => {
     const user = userEvent.setup();
-    render(<RateAiContentCard translations={translations} onSubmit={vi.fn()} dataTestId="rate-ai-card" />);
+    render(<RateAiContentCard translations={translations} onSubmit={vi.fn()} testId="rate-ai-card" />);
 
     expect(screen.getByTestId('rate-ai-card')).toBeInTheDocument();
     const likeButton = screen.getByTestId('rate-ai-card-like-button');

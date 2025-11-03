@@ -5,8 +5,8 @@ import { PopupList, PopupListItem } from './PopupList';
 describe('PopupList', () => {
   it('renders the PopupList component correctly', () => {
     const { container } = render(
-      <PopupList dataTestId="plist">
-        <PopupListItem dataTestId="plist-item-1">
+      <PopupList testId="plist">
+        <PopupListItem testId="plist-item-1">
           <a href="/foo">Item 1</a>
         </PopupListItem>
         <PopupListItem>

@@ -8,7 +8,7 @@ describe('AiInfoButton', () => {
   it('renders the button with tooltip', async () => {
     const user = userEvent.setup();
     const label = 'Info button';
-    const { container } = render(<AiInfoButton ariaLabel={label} tooltipContent={<p>Hello.</p>} dataTestId="aiinfo" />);
+    const { container } = render(<AiInfoButton ariaLabel={label} tooltipContent={<p>Hello.</p>} testId="aiinfo" />);
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
     expect(screen.getByTestId('aiinfo')).toBeInTheDocument();

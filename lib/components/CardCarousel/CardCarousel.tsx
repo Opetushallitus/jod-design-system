@@ -22,7 +22,7 @@ export interface CardCarouselProps {
     indicator: (index: number) => string;
   };
   className?: string;
-  dataTestId?: string;
+  testId?: string;
 }
 export const CardCarousel = ({
   items = [],
@@ -30,7 +30,7 @@ export const CardCarousel = ({
   itemWidth,
   gap = 16,
   className = '',
-  dataTestId,
+  testId,
 }: CardCarouselProps) => {
   const containerRef = React.createRef<HTMLUListElement>();
   const [itemsPerPage, setItemsPerPage] = React.useState(1);
@@ -108,7 +108,7 @@ export const CardCarousel = ({
         aria-roledescription="carousel"
         className={`ds:flex ds:flex-row ds:overflow-hidden ${className}`.trim()}
         style={{ gap }}
-        data-testid={dataTestId ? `${dataTestId}-list` : undefined}
+        data-testid={testId ? `${testId}-list` : undefined}
       >
         {items.map((item, index) => {
           // Change the page according to focused item during tab navigation
@@ -136,7 +136,7 @@ export const CardCarousel = ({
       </ul>
       <div
         className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3"
-        data-testid={dataTestId ? `${dataTestId}-controls` : undefined}
+        data-testid={testId ? `${testId}-controls` : undefined}
       >
         <button
           onClick={goToPreviousPage}

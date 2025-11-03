@@ -29,7 +29,7 @@ interface SelectProps<T extends SelectOptionsData, U extends string = string> {
   /** Classname to wrapper **/
   className?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** The help text to display below the input field */
   help?: string;
   /** The error message to display below the input field */
@@ -45,7 +45,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   selected,
   disabled = false,
   className = '',
-  dataTestId,
+  testId,
   help,
   errorMessage,
 }: SelectProps<T, U>) => {
@@ -67,7 +67,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   const selectedOption = options.find((option) => (option.value as U) === value);
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={dataTestId}>
+    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={testId}>
       <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={label} />
       <div className="ds:flex ds:flex-row ds:relative">
         <Listbox onChange={onChange} disabled={disabled} value={value}>
@@ -78,7 +78,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
                 aria-label={label}
                 className="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
                 disabled={disabled}
-                data-testid={dataTestId ? `${dataTestId}-button` : undefined}
+                data-testid={testId ? `${testId}-button` : undefined}
                 aria-invalid={!!errorMessage}
               >
                 {selectedOption ? (
@@ -91,7 +91,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxOptions
                 modal={false}
                 className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
-                data-testid={dataTestId ? `${dataTestId}-options` : undefined}
+                data-testid={testId ? `${testId}-options` : undefined}
               >
                 {options.map((option) => (
                   <ListboxOption
@@ -107,12 +107,8 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
           )}
         </Listbox>
       </div>
-      <InputHelp id={helpId} helpText={help} dataTestId={dataTestId ? `${dataTestId}-help` : undefined} />
-      <InputError
-        id={errorId}
-        errorMessage={errorMessage}
-        dataTestId={dataTestId ? `${dataTestId}-error` : undefined}
-      />
+      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
     </div>
   );
 };

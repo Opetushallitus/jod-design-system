@@ -22,7 +22,7 @@ export interface NoteProps {
   /** If true, the note will be collapsed */
   collapsed?: boolean;
   /** Data-testid attribute for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** Additional CSS classnames */
   className?: string;
 }
@@ -37,8 +37,8 @@ export const Note = ({
   title,
   variant = 'success',
   className = '',
-  dataTestId,
   ariaClose,
+  testId,
 }: NoteProps) => {
   const { sm } = useMediaQueries();
 
@@ -60,7 +60,7 @@ export const Note = ({
           'ds:max-h-0 ds:py-0': collapsed,
         },
       )}
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <div className="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6">
         <div className="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6">
@@ -77,7 +77,7 @@ export const Note = ({
               type="button"
               aria-label={ariaClose}
               onClick={onCloseClick}
-              data-testid={dataTestId ? `${dataTestId}-close` : undefined}
+              data-testid={testId ? `${testId}-close` : undefined}
             >
               <JodClose />
             </button>

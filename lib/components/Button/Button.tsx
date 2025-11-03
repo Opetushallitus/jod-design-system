@@ -33,14 +33,14 @@ export interface ButtonProps {
     children: React.ReactNode;
     className: string;
     ariaLabel?: string;
-    dataTestId?: string;
+    testId?: string;
   }>;
   /** Ref to the button element */
   ref?: React.Ref<HTMLButtonElement>;
   /** Additional class names */
   className?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
 }
 
 const getVariantClassName = (
@@ -134,7 +134,7 @@ const getButtonClassName = ({
 
 /** Button component for user actions. */
 export const Button = ({
-  dataTestId,
+  testId,
   className,
   disabled = false,
   form,
@@ -178,7 +178,7 @@ export const Button = ({
   const classNameTrimmed = `${buttonClassName} ${className ?? ''}`.trim();
 
   return LinkComponent ? (
-    <LinkComponent ariaLabel={label} className={classNameTrimmed} dataTestId={dataTestId}>
+    <LinkComponent ariaLabel={label} className={classNameTrimmed} testId={testId}>
       {buttonContent}
     </LinkComponent>
   ) : (
@@ -190,7 +190,7 @@ export const Button = ({
       type={onClick ? 'button' : 'submit'}
       onClick={onClick}
       className={classNameTrimmed}
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       {buttonContent}
     </button>

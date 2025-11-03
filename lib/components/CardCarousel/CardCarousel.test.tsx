@@ -74,8 +74,8 @@ describe('CardCarousel', () => {
     expect(nextButton).toBeDisabled();
   });
 
-  it('emits data-testid when dataTestId is provided', () => {
-    const { container } = renderComponent({ dataTestId: 'cc' });
+  it('emits data-testid when testId is provided', () => {
+    const { container } = renderComponent({ testId: 'cc' });
     expect(container.querySelector('[data-testid="cc-list"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="cc-controls"]')).toBeInTheDocument();
   });

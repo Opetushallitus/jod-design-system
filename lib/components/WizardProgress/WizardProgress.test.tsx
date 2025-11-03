@@ -17,7 +17,7 @@ describe('WizardProgress', () => {
         currentStep={currentStep}
         completedText={completedText}
         currentText={currentText}
-        dataTestId="wiz"
+        testId="wiz"
       />,
     );
     expect(container.querySelector('[data-testid="wiz"]')).toBeInTheDocument();

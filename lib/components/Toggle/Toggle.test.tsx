@@ -51,10 +51,8 @@ describe('Toggle', () => {
     expect(button).toHaveAttribute('aria-label', 'Custom label');
   });
 
-  it('emits data-testid when dataTestId is provided', () => {
-    render(
-      <Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle id" serviceVariant="yksilo" dataTestId="tgl" />,
-    );
+  it('emits data-testid when testId is provided', () => {
+    render(<Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle id" serviceVariant="yksilo" testId="tgl" />);
     expect(screen.getByTestId('tgl')).toBeInTheDocument();
   });
 });

@@ -10,7 +10,7 @@ const menuSection = {
 
 const WrappedPageNavigation = (props?: Partial<PageNavigationProps>) => (
   <ServiceVariantProvider value="yksilo">
-    <PageNavigation menuSection={menuSection} openSubMenuLabel="Open submenu" dataTestId="pnav" {...props} />
+    <PageNavigation menuSection={menuSection} openSubMenuLabel="Open submenu" testId="pnav" {...props} />
   </ServiceVariantProvider>
 );
 

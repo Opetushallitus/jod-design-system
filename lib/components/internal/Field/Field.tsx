@@ -17,7 +17,7 @@ interface FieldProps {
   /** The help text to display below the input field */
   help?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** The id of the error message element */
   errorId: string;
   /** The error message to display below the input field */
@@ -32,7 +32,7 @@ export const Field = ({
   requiredText,
   helpId,
   help,
-  dataTestId,
+  testId,
   errorId,
   errorMessage,
   children,
@@ -43,12 +43,8 @@ export const Field = ({
     <>
       <InputLabel htmlFor={htmlFor} labelText={labelText} hideLabel={hideLabel} />
       {children}
-      <InputHelp id={helpId} helpText={help} dataTestId={dataTestId ? `${dataTestId}-help` : undefined} />
-      <InputError
-        id={errorId}
-        errorMessage={errorMessage}
-        dataTestId={dataTestId ? `${dataTestId}-error` : undefined}
-      />
+      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
     </>
   );
 };

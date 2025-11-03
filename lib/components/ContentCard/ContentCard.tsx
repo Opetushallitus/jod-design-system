@@ -20,7 +20,7 @@ export type ContentCardProps = {
     to: string;
   }[];
   className?: string;
-  dataTestId?: string;
+  testId?: string;
 } & LinkComponent;
 
 const Tag = ({
@@ -82,10 +82,10 @@ export const ContentCard = ({
   linkComponent: Link,
   to,
   className = '',
-  dataTestId,
+  testId,
 }: ContentCardProps) => {
   return (
-    <div className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`} data-testid={dataTestId}>
+    <div className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`} data-testid={testId}>
       <LinkOrDiv to={to} linkComponent={Link}>
         <div>
           <div className="ds:text-body-xs ds:text-secondary-gray ds:font-semibold">{path.join(' / ')}</div>

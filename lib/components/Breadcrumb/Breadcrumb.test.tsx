@@ -39,14 +39,14 @@ describe('Breadcrumb', () => {
     expect(nav).toBeInTheDocument();
   });
 
-  it('emits data-testid when dataTestId is provided', () => {
+  it('emits data-testid when testId is provided', () => {
     render(
       <Breadcrumb
         items={items}
         linkComponent={LinkComponent}
         ariaLabel="Crumbs"
         serviceVariant="yksilo"
-        dataTestId="crumbs"
+        testId="crumbs"
       />,
     );
     expect(screen.getByTestId('crumbs')).toBeInTheDocument();

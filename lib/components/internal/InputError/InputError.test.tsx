@@ -6,11 +6,11 @@ import { InputError } from './InputError';
 describe('InputError', () => {
   const errorMessage = 'This is an error message';
   const id = 'error-message';
-  const dataTestId = 'input-error';
+  const testId = 'input-error';
 
   it('renders error message correctly', () => {
-    const { container } = render(<InputError errorMessage={errorMessage} id={id} dataTestId={dataTestId} />);
-    expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
+    const { container } = render(<InputError errorMessage={errorMessage} id={id} testId={testId} />);
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
     const errorElement = screen.getByText(errorMessage);
     expect(errorElement).toBeInTheDocument();
     expect(errorElement).toHaveAttribute('id', id);

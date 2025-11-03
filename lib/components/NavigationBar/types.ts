@@ -26,7 +26,7 @@ export interface LanguageButtonProps {
   generateLocalizedPath: (lng: string) => string;
   linkComponent: LanguageMenuLinkComponent;
   translations: LanguageTranslations;
-  dataTestId?: string;
+  testId?: string;
 }
 
 export interface LanguageMenuProps extends LanguageButtonProps {

@@ -31,7 +31,7 @@ export const LanguageButton = ({
   generateLocalizedPath,
   linkComponent: LinkComponent,
   translations,
-  dataTestId,
+  testId,
 }: LanguageButtonProps) => {
   const { md, sm } = useMediaQueries();
   const { isOpen: langMenuOpen, close: closeLanguageMenu, triggerProps, menuProps } = usePopupMenu();
@@ -40,11 +40,11 @@ export const LanguageButton = ({
   const positionClass = sm ? 'ds:absolute ds:right-0' : 'ds:fixed ds:left-4 ds:right-4';
 
   return (
-    <div className="ds:relative" data-testid={dataTestId}>
+    <div className="ds:relative" data-testid={testId}>
       <button
         {...triggerProps}
         className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
-        data-testid={dataTestId ? `${dataTestId}-trigger` : undefined}
+        data-testid={testId ? `${testId}-trigger` : undefined}
       >
         <JodLanguage className="mx-auto" />
         <span className="ds:whitespace-nowrap ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px] ds:font-semibold">
@@ -57,7 +57,7 @@ export const LanguageButton = ({
         <div
           {...menuProps}
           className={`ds:z-60 ds:flex ds:justify-center ds:translate-y-8 ${positionClass}`}
-          data-testid={dataTestId ? `${dataTestId}-menu` : undefined}
+          data-testid={testId ? `${testId}-menu` : undefined}
         >
           <LanguageMenu
             serviceVariant={serviceVariant}
@@ -67,7 +67,7 @@ export const LanguageButton = ({
             linkComponent={LinkComponent}
             onClick={closeLanguageMenu}
             translations={translations}
-            dataTestId={dataTestId}
+            testId={testId}
           />
         </div>
       )}

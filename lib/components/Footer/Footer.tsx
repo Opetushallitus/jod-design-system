@@ -51,7 +51,7 @@ export interface FooterProps {
   feedbackButtonLabel: string;
   feedbackOnClick: () => void;
   feedbackBgImageClassName: string;
-  dataTestId?: string;
+  testId?: string;
 
   /** Heading level for the footer title, h2 is the default */
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -81,7 +81,7 @@ export const Footer = ({
   feedbackButtonLabel,
   feedbackOnClick,
   feedbackBgImageClassName,
-  dataTestId,
+  testId,
   ref,
   headingLevel = 'h2',
   externalLinkIconAriaLabel,
@@ -156,7 +156,7 @@ export const Footer = ({
     <footer
       ref={ref}
       className={`ds:text-body-md-mobile ds:sm:text-body-md ds:print:hidden ${className}`.trim()}
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <div className={`ds:h-auto ${feedbackBgImageClassName} ds:py-8 ds:sm:max-w-[1440px] ds:mx-auto`}>
         <div className="ds:max-w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6">
