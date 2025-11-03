@@ -10,13 +10,19 @@ export interface BreadcrumbItem {
 
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
-  LinkComponent: React.ComponentType<{ to: string; children: React.ReactNode; className?: string }>;
+  linkComponent: React.ComponentType<{ to: string; children: React.ReactNode; className?: string }>;
   ariaLabel?: string;
   serviceVariant: ServiceVariant;
   dataTestId?: string;
 }
 
-export const Breadcrumb = ({ items, ariaLabel, LinkComponent, serviceVariant, dataTestId }: BreadcrumbProps) => {
+export const Breadcrumb = ({
+  items,
+  ariaLabel,
+  linkComponent: LinkComponent,
+  serviceVariant,
+  dataTestId,
+}: BreadcrumbProps) => {
   const textColorClass = cx({
     'ds:text-secondary-1-dark': serviceVariant === 'yksilo',
     'ds:text-secondary-2-dark': serviceVariant === 'ohjaaja',

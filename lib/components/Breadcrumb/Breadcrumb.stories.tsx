@@ -40,7 +40,7 @@ export const Default: Story = {
       { label: 'Osaamisprofiili', to: '/osaamispolkuni' },
       { label: 'Työpaikkani' },
     ],
-    LinkComponent: ({ to, children }) => <a href={to}>{children}</a>,
+    linkComponent: ({ to, children }) => <a href={to}>{children}</a>,
     ariaLabel: 'Breadcrumb',
     serviceVariant: 'yksilo',
   },

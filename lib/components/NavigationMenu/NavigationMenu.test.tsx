@@ -27,7 +27,7 @@ describe('NavigationMenu', () => {
 
   const menuProps: NavigationMenuProps = {
     portalLinkLabel: 'Etusivu',
-    PortalLinkComponent: Link,
+    portalLinkComponent: Link,
     menuSection: { linkItems: [] },
     ariaCloseMenu: 'Sulje valikko',
     openSubMenuLabel: 'Avaa alivalikko',

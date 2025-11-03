@@ -23,7 +23,7 @@ describe('MenuListItem', () => {
     render(
       <MenuList
         menuSection={{
-          linkItems: [{ label: 'Lorem', LinkComponent: DummyLink }],
+          linkItems: [{ label: 'Lorem', linkComponent: DummyLink }],
         }}
         openSubMenuLabel="Open submenu"
       />,
@@ -74,7 +74,7 @@ describe('MenuListItem', () => {
       <MenuList
         activeIndicator="bg"
         menuSection={{
-          linkItems: [{ label: 'Selected', selected: true, LinkComponent: DummyLink }],
+          linkItems: [{ label: 'Selected', selected: true, linkComponent: DummyLink }],
         }}
         openSubMenuLabel="Open submenu"
       />,
@@ -89,7 +89,7 @@ describe('MenuListItem', () => {
       <MenuList
         activeIndicator="dot"
         menuSection={{
-          linkItems: [{ label: 'Selected', selected: true, LinkComponent: DummyLink }],
+          linkItems: [{ label: 'Selected', selected: true, linkComponent: DummyLink }],
         }}
         openSubMenuLabel="Open submenu"
       />,
@@ -105,7 +105,7 @@ describe('MenuListItem', () => {
           linkItems: [
             {
               label: 'Parent',
-              childItems: [{ label: 'Child', selected: true, LinkComponent: DummyLink }],
+              childItems: [{ label: 'Child', selected: true, linkComponent: DummyLink }],
             },
           ],
         }}
@@ -126,7 +126,7 @@ describe('MenuListItem', () => {
           linkItems: [
             {
               label: 'Parent',
-              childItems: [{ label: 'Child', selected: false, LinkComponent: DummyLink }],
+              childItems: [{ label: 'Child', selected: false, linkComponent: DummyLink }],
             },
           ],
         }}
@@ -147,7 +147,7 @@ describe('MenuListItem', () => {
           linkItems: [
             {
               label: 'Parent',
-              childItems: [{ label: 'Child', LinkComponent: DummyLink }],
+              childItems: [{ label: 'Child', linkComponent: DummyLink }],
             },
           ],
         }}

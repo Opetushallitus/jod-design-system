@@ -44,12 +44,12 @@ const menuSection: MenuSection = {
   linkItems: labels.map((label, index) => ({
     label,
     selected: index === 0,
-    LinkComponent: DummyLink,
+    linkComponent: DummyLink,
     childItems:
       label === 'Osaamiseni'
         ? osaamiseniLabels.map((osaaminenLabel) => ({
             label: osaaminenLabel,
-            LinkComponent: DummyLink,
+            linkComponent: DummyLink,
           }))
         : undefined,
   })),

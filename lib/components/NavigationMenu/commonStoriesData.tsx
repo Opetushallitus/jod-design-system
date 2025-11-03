@@ -10,13 +10,13 @@ export const menuSection: MenuSection = {
     {
       icon: <JodHome size={24} />,
       label: 'Osaamispolkuni',
-      LinkComponent: DummyLink,
+      linkComponent: DummyLink,
       selected: true,
     },
     {
       label: 'Kartoita tilanteesi',
       // One left in a long form as an example to remind how to use
-      LinkComponent: ({ children, className, ...rest }: LinkComponent) => (
+      linkComponent: ({ children, className, ...rest }: LinkComponent) => (
         <a href="/#" className={className} {...rest}>
           {children}
         </a>
@@ -24,74 +24,74 @@ export const menuSection: MenuSection = {
       childItems: [
         {
           label: 'Kartoita tilanteesi',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Osaamisen kartoitus',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Kiinnostusten kartoitus',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Työ- ja koulutusmahdollisuudet',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
       ],
     },
     {
       label: 'Osaamisprofiilini',
-      LinkComponent: DummyLink,
+      linkComponent: DummyLink,
       childItems: [
         {
           label: 'Osaamisprofiilini',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Asetukseni',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Suosikkini',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Päämääräni',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Osaamiseni',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
           childItems: [
             {
               label: 'Työpaikkani',
-              LinkComponent: DummyLink,
+              linkComponent: DummyLink,
             },
             {
               label: 'Koulutukseni',
-              LinkComponent: DummyLink,
+              linkComponent: DummyLink,
             },
             {
               label: 'Vapaa-ajan toimintoni',
-              LinkComponent: DummyLink,
+              linkComponent: DummyLink,
             },
             {
               label: 'Muut osaamiseni',
-              LinkComponent: DummyLink,
+              linkComponent: DummyLink,
             },
           ],
         },
         {
           label: 'Kiinnostuksen kohteeni',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
         {
           label: 'Väliotsikko 2',
         },
         {
           label: 'Lorem ipsum 2',
-          LinkComponent: DummyLink,
+          linkComponent: DummyLink,
         },
       ],
     },
@@ -100,7 +100,7 @@ export const menuSection: MenuSection = {
     },
     {
       label: 'Lorem ipsum',
-      LinkComponent: DummyLink,
+      linkComponent: DummyLink,
     },
   ],
 };

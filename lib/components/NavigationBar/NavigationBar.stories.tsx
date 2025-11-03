@@ -42,7 +42,7 @@ type Story = StoryObj<typeof meta>;
 
 const menuProps: NavigationMenuProps = {
   portalLinkLabel: 'Osaamispolkuportaali',
-  PortalLinkComponent: ({ children, className }: LinkComponent) => (
+  portalLinkComponent: ({ children, className }: LinkComponent) => (
     <a href="/#" className={className}>
       {children}
     </a>
@@ -124,7 +124,7 @@ const DefaultRender = (props: NavigationBarProps) => {
               en: { change: 'Change language.', label: 'In English' },
             }}
             generateLocalizedPath={(code: string) => `/${code}`}
-            LinkComponent={({ children, className, ...rest }) => (
+            linkComponent={({ children, className, ...rest }) => (
               <a href="/#" className={className} {...rest}>
                 {children}
               </a>
