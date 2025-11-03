@@ -44,7 +44,7 @@ export interface PaginationProps {
   type?: 'button' | 'link';
   ariaLabel?: string;
   serviceVariant?: ServiceVariant;
-  dataTestId?: string;
+  testId?: string;
 }
 
 /** Pagination component for navigating through a list of items. */
@@ -58,7 +58,7 @@ export const Pagination = ({
   ariaLabel,
   onPageChange,
   serviceVariant = 'yksilo',
-  dataTestId,
+  testId,
 }: PaginationProps) => {
   const lastPage = Math.ceil(totalItems / pageSize);
   const isFirstPage = currentPage === 1;
@@ -75,7 +75,7 @@ export const Pagination = ({
       type={type}
       aria-label={ariaLabel}
       className="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
         <JodPagerPrev size={24} />

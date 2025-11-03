@@ -21,12 +21,12 @@ export type PathProgressStep = {
 const StepComponent = ({
   step,
   isLast,
-  dataTestId,
+  testId,
   index,
 }: {
   step: PathProgressStep;
   isLast: boolean;
-  dataTestId?: string;
+  testId?: string;
   index: number;
 }) => {
   const baseClasses = tc(['ds:flex ds:flex-row ds:relative ds:h-full ds:w-full', isLast ? '' : 'ds:pb-9']);
@@ -37,25 +37,21 @@ const StepComponent = ({
   ]);
 
   return (
-    <div className={baseClasses} data-testid={dataTestId ? `${dataTestId}-step-${index + 1}` : undefined}>
+    <div className={baseClasses} data-testid={testId ? `${testId}-step-${index + 1}` : undefined}>
       {!isLast && <span className={lineClasses} />}
-      <span className={circleClasses} data-testid={dataTestId ? `${dataTestId}-circle-${index + 1}` : undefined}>
+      <span className={circleClasses} data-testid={testId ? `${testId}-circle-${index + 1}` : undefined}>
         {step.circleComponent}
       </span>
       <div className="ds:flex ds:flex-col ds:ml-7 ds:mt-3 ds:gap-5 ds:w-full">
         {step.label && (
-          <span className="ds:text-heading-2" data-testid={dataTestId ? `${dataTestId}-label-${index + 1}` : undefined}>
+          <span className="ds:text-heading-2" data-testid={testId ? `${testId}-label-${index + 1}` : undefined}>
             {step.label}
           </span>
         )}
         {step.labelComponent && (
-          <div data-testid={dataTestId ? `${dataTestId}-labelComponent-${index + 1}` : undefined}>
-            {step.labelComponent}
-          </div>
+          <div data-testid={testId ? `${testId}-labelComponent-${index + 1}` : undefined}>{step.labelComponent}</div>
         )}
-        {step.content && (
-          <div data-testid={dataTestId ? `${dataTestId}-content-${index + 1}` : undefined}>{step.content}</div>
-        )}
+        {step.content && <div data-testid={testId ? `${testId}-content-${index + 1}` : undefined}>{step.content}</div>}
       </div>
     </div>
   );
@@ -63,18 +59,18 @@ const StepComponent = ({
 
 export interface PathProgressProps {
   steps: PathProgressStep[];
-  dataTestId?: string;
+  testId?: string;
 }
 
-export const PathProgress = ({ steps, dataTestId }: PathProgressProps) => {
+export const PathProgress = ({ steps, testId }: PathProgressProps) => {
   return (
-    <div className="ds:inline-flex ds:flex-col ds:h-full ds:place-content-between ds:relative" data-testid={dataTestId}>
+    <div className="ds:inline-flex ds:flex-col ds:h-full ds:place-content-between ds:relative" data-testid={testId}>
       {steps.map((step, index) => (
         <StepComponent
           key={index} // eslint-disable-line react/no-array-index-key
           step={step}
           isLast={index == steps.length - 1}
-          dataTestId={dataTestId}
+          testId={testId}
           index={index}
         />
       ))}

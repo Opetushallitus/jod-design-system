@@ -25,7 +25,7 @@ describe('RangeSlider', () => {
         markers={markers}
         value={[0, 100]}
         onValueChange={onValueChange}
-        dataTestId="slider"
+        testId="slider"
         minValueDescription={minDescription}
         maxValueDescription={maxDescription}
       />,
@@ -39,7 +39,7 @@ describe('RangeSlider', () => {
         markers={markers}
         value={[0, 100]}
         onValueChange={onValueChange}
-        dataTestId="slider"
+        testId="slider"
         minValueDescription={minDescription}
         maxValueDescription={maxDescription}
       />,
@@ -58,7 +58,7 @@ describe('RangeSlider', () => {
         markers={markers}
         value={[0, 2]}
         onValueChange={handleChange}
-        dataTestId="slider"
+        testId="slider"
         minValueDescription={minDescription}
         maxValueDescription={maxDescription}
       />,
@@ -81,7 +81,7 @@ describe('RangeSlider', () => {
         value={[0, 100]}
         onValueChange={onValueChange}
         disabled
-        dataTestId="slider"
+        testId="slider"
         minValueDescription={minDescription}
         maxValueDescription={maxDescription}
       />,
@@ -95,7 +95,7 @@ describe('RangeSlider', () => {
         markers={markers}
         value={[0, 100]}
         onValueChange={onValueChange}
-        dataTestId="slider"
+        testId="slider"
         minValueDescription={minDescription}
         maxValueDescription={maxDescription}
       />,
@@ -110,7 +110,7 @@ describe('RangeSlider', () => {
         markers={markers}
         value={[0, 100]}
         onValueChange={onValueChange}
-        dataTestId="slider"
+        testId="slider"
         minValueDescription={minDescription}
         maxValueDescription={maxDescription}
       />,

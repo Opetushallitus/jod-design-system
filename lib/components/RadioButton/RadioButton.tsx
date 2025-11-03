@@ -10,16 +10,16 @@ export interface RadioButtonProps {
   className?: string;
   /** Disabled state for the component */
   disabled?: boolean;
-  dataTestId?: string;
+  testId?: string;
 }
 
-export const RadioButton = ({ label, value, className, disabled = false, dataTestId }: RadioButtonProps) => {
+export const RadioButton = ({ label, value, className, disabled = false, testId }: RadioButtonProps) => {
   return (
     <Radio
       value={value}
       className={`${className ? className : ''} flex h-7`.trim()}
       disabled={disabled}
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       {({ checked }) => (
         <div className="ds:flex-start ds:flex ds:space-x-4 ds:text-form-label">

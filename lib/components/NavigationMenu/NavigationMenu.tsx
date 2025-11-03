@@ -58,7 +58,7 @@ export interface NavigationMenuProps {
   /** Aria label for external link icons */
   externalLinkIconAriaLabel: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
 }
 export const NavigationMenu = ({
   onClose,
@@ -76,7 +76,7 @@ export const NavigationMenu = ({
   languageSelectionTitle,
   serviceVariant,
   externalLinkIconAriaLabel,
-  dataTestId,
+  testId,
 }: NavigationMenuProps) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
 
@@ -96,14 +96,14 @@ export const NavigationMenu = ({
 
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>
-      <Backdrop dialogRef={dialogRef} onClose={onClose} dataTestId={dataTestId ? `${dataTestId}-backdrop` : undefined}>
+      <Backdrop dialogRef={dialogRef} onClose={onClose} testId={testId ? `${testId}-backdrop` : undefined}>
         <nav
           className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
-          data-testid={dataTestId ? `${dataTestId}-root` : undefined}
+          data-testid={testId ? `${testId}-root` : undefined}
         >
           <div
             className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow"
-            data-testid={dataTestId ? `${dataTestId}-body` : undefined}
+            data-testid={testId ? `${testId}-body` : undefined}
           >
             <div className="ds:flex ds:items-center ds:justify-end ds:my-6">
               <CloseMenuButton onClick={onClose} ariaCloseMenu={ariaCloseMenu} />
@@ -118,7 +118,7 @@ export const NavigationMenu = ({
               menuSection={menuSection}
               openSubMenuLabel={openSubMenuLabel}
               hideAccentBorder={false}
-              dataTestId={dataTestId ? `${dataTestId}-menulist` : undefined}
+              testId={testId ? `${testId}-menulist` : undefined}
             />
             {externalLinkSections && externalLinkSections.length > 0 && (
               <ExternalLinkSections

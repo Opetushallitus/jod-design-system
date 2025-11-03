@@ -9,7 +9,7 @@ export interface DiscussionCardProps {
   className?: string;
   onClickLike?: () => void;
   onClickComment?: () => void;
-  dataTestId?: string;
+  testId?: string;
 }
 
 export const DiscussionCard = ({
@@ -20,7 +20,7 @@ export const DiscussionCard = ({
   className,
   onClickLike,
   onClickComment,
-  dataTestId,
+  testId,
 }: DiscussionCardProps) => {
   const getInitials = (name: string) =>
     name
@@ -30,7 +30,7 @@ export const DiscussionCard = ({
       .join('');
 
   return (
-    <div className={tc(`ds:flex ds:flex-row ds:py-5 ds:text-primary-gray ${className}`)} data-testid={dataTestId}>
+    <div className={tc(`ds:flex ds:flex-row ds:py-5 ds:text-primary-gray ${className}`)} data-testid={testId}>
       <div className="ds:items-start ds:shrink-1 ds:pr-4">
         <div className="ds:size-7 ds:rounded-full ds:bg-secondary-4-dark ds:flex ds:justify-center ds:items-center ds:text-white ds:text-button-md">
           {getInitials(author)}
@@ -43,10 +43,7 @@ export const DiscussionCard = ({
           <div className="ds:text-body-sm ds:font-arial">{date}</div>
         </div>
 
-        <div
-          className="ds:text-body-sm ds:font-poppins ds:pr-7"
-          data-testid={dataTestId ? `${dataTestId}-message` : undefined}
-        >
+        <div className="ds:text-body-sm ds:font-poppins ds:pr-7" data-testid={testId ? `${testId}-message` : undefined}>
           {message}
         </div>
 
@@ -54,20 +51,20 @@ export const DiscussionCard = ({
           <button
             className="ds:cursor-pointer ds:size-6"
             onClick={onClickComment}
-            data-testid={dataTestId ? `${dataTestId}-comment` : undefined}
+            data-testid={testId ? `${testId}-comment` : undefined}
           >
             <JodComment size={24} />
           </button>
           <button
             className="ds:cursor-pointer ds:h-[24px] ds:flex ds:flex-row ds:gap-3 ds:items-center"
             onClick={onClickLike}
-            data-testid={dataTestId ? `${dataTestId}-like` : undefined}
+            data-testid={testId ? `${testId}-like` : undefined}
           >
             <JodThumbUp size={24} />
             {likes > 0 && (
               <span
                 className="ds:text-body-sm ds:font-poppins ds:text-primary-gray"
-                data-testid={dataTestId ? `${dataTestId}-likes` : undefined}
+                data-testid={testId ? `${testId}-likes` : undefined}
               >
                 {likes}
               </span>

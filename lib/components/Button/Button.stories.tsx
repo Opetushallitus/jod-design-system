@@ -274,8 +274,8 @@ export const AsLink: Story = {
     variant: 'accent',
     icon: <JodUser size={40} />,
     iconSide: 'left',
-    linkComponent: ({ children, className, ariaLabel, dataTestId }) => (
-      <a href="/#" className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+    linkComponent: ({ children, className, ariaLabel, testId }) => (
+      <a href="/#" className={className} aria-label={ariaLabel} data-testid={testId}>
         {children}
       </a>
     ),

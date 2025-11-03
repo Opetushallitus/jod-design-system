@@ -21,7 +21,7 @@ export interface CheckboxProps {
   /** Additional class name for the component */
   className?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
 }
@@ -40,7 +40,7 @@ export const Checkbox = ({
   label,
   ariaLabel,
   className,
-  dataTestId,
+  testId,
   requiredText,
 }: CheckboxProps) => {
   const id = React.useId();
@@ -90,7 +90,7 @@ export const Checkbox = ({
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
         aria-checked={indeterminate ? 'mixed' : checked}
-        data-testid={dataTestId}
+        data-testid={testId}
         className={cx(
           'ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-2 ds:border-accent',
           {

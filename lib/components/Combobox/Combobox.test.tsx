@@ -84,7 +84,7 @@ describe('Combobox', () => {
 
   describe('label', () => {
     it('should render with label', () => {
-      render(<Combobox label="Label" options={[]} placeholder={placeholder} dataTestId="cb" />);
+      render(<Combobox label="Label" options={[]} placeholder={placeholder} testId="cb" />);
       expect(screen.getAllByText('Label')).not.toBeNull();
       expect(screen.getByTestId('cb')).toBeInTheDocument();
     });

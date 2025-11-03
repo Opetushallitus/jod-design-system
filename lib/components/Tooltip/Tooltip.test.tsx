@@ -8,8 +8,8 @@ describe('Tooltip', () => {
   it('emits data-testid for trigger and content (including arrow)', () => {
     render(
       <Tooltip open={true}>
-        <TooltipTrigger dataTestId="tt">Trigger</TooltipTrigger>
-        <TooltipContent dataTestId="tc">Tip</TooltipContent>
+        <TooltipTrigger testId="tt">Trigger</TooltipTrigger>
+        <TooltipContent testId="tc">Tip</TooltipContent>
       </Tooltip>,
     );
 
@@ -21,10 +21,10 @@ describe('Tooltip', () => {
   it('applies data-testid to underlying element when using asChild', () => {
     render(
       <Tooltip open={true}>
-        <TooltipTrigger asChild dataTestId="tt2">
+        <TooltipTrigger asChild testId="tt2">
           <button type="button">child</button>
         </TooltipTrigger>
-        <TooltipContent dataTestId="tc2">Tip</TooltipContent>
+        <TooltipContent testId="tc2">Tip</TooltipContent>
       </Tooltip>,
     );
 

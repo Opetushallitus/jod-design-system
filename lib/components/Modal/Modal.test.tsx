@@ -22,13 +22,11 @@ describe('Modal', () => {
     expect(footerElement).toBeInTheDocument();
   });
 
-  it('emits data-testid attributes when dataTestId is provided', async () => {
+  it('emits data-testid attributes when testId is provided', async () => {
     const content = <div>Modal Content</div>;
     const footer = <div>Modal Footer</div>;
 
-    render(
-      <Modal name="Modal name" open={true} onClose={vi.fn()} content={content} footer={footer} dataTestId="modal" />,
-    );
+    render(<Modal name="Modal name" open={true} onClose={vi.fn()} content={content} footer={footer} testId="modal" />);
 
     await waitFor(() => expect(screen.getByTestId('modal')).toBeInTheDocument());
     expect(screen.getByTestId('modal-backdrop')).toBeInTheDocument();

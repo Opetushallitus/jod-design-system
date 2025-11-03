@@ -10,20 +10,20 @@ describe('Tag', () => {
 
   it('renders the label correctly', () => {
     const label = 'Test Label';
-    const { getByText } = render(<Tag label={label} onClick={vi.fn()} dataTestId="tag1" />);
+    const { getByText } = render(<Tag label={label} onClick={vi.fn()} testId="tag1" />);
     expect(document.querySelector('[data-testid="tag1"]')).toBeInTheDocument();
     expect(getByText(label)).toBeInTheDocument();
   });
 
   it('calls the onClick function when clicked', () => {
     const onClick = vi.fn();
-    const { getByRole } = render(<Tag label="onClick testing" onClick={onClick} dataTestId="tag2" />);
+    const { getByRole } = render(<Tag label="onClick testing" onClick={onClick} testId="tag2" />);
     fireEvent.click(getByRole('button'));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should not be a button and no icons are present when using presentation variant', () => {
-    const { container, queryByRole } = render(<Tag label="presentation" variant="presentation" dataTestId="tag3" />);
+    const { container, queryByRole } = render(<Tag label="presentation" variant="presentation" testId="tag3" />);
     expect(document.querySelector('[data-testid="tag3"]')).toBeInTheDocument();
     expect(queryByRole('button')).toBeNull();
     expect(container.querySelector('svg')).toBeNull();

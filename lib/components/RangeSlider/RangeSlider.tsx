@@ -19,20 +19,20 @@ export interface RangeSliderProps {
   /** Disabled state */
   disabled?: boolean;
   /** Data-testid attribute */
-  dataTestId?: string;
+  testId?: string;
   /** Aria description for minimum slider value */
   minValueDescription: string;
   /** Aria description for maximum slider value */
   maxValueDescription: string;
 }
 
-type ThumbProps = Pick<RangeSliderProps, 'disabled' | 'dataTestId'> & {
+type ThumbProps = Pick<RangeSliderProps, 'disabled' | 'testId'> & {
   index: number;
   value: RangeSliderValue;
   description: string;
 };
 
-const Thumb = ({ disabled, dataTestId, index, value, description }: ThumbProps) => {
+const Thumb = ({ disabled, testId, index, value, description }: ThumbProps) => {
   return (
     <ArkSlider.Thumb
       index={index}
@@ -40,7 +40,7 @@ const Thumb = ({ disabled, dataTestId, index, value, description }: ThumbProps) 
         'ds:bg-accent': !disabled,
         'ds:bg-inactive-gray': disabled,
       })}
-      data-testid={dataTestId ? `${dataTestId}-thumb-${index}` : undefined}
+      data-testid={testId ? `${testId}-thumb-${index}` : undefined}
       aria-valuenow={value.value}
       aria-valuetext={value.label}
       aria-label={value.label}
@@ -66,7 +66,7 @@ export const RangeSlider = ({
   onValueChange,
   value,
   disabled,
-  dataTestId,
+  testId,
   markers,
   minValueDescription,
   maxValueDescription,
@@ -112,7 +112,7 @@ export const RangeSlider = ({
         value={value}
         defaultValue={value ?? [markers[0]?.value ?? 0, markers[markers.length - 1]?.value ?? 100]}
         disabled={disabled}
-        data-testid={dataTestId}
+        data-testid={testId}
       >
         <div className="ds:content-center ds:w-full">
           <ArkSlider.Control className="ds:flex ds:grow ds:w-full">
@@ -139,14 +139,14 @@ export const RangeSlider = ({
             <Thumb
               index={0}
               disabled={disabled}
-              dataTestId={dataTestId}
+              testId={testId}
               value={getThumbValue(0)}
               description={minValueDescription}
             />
             <Thumb
               index={1}
               disabled={disabled}
-              dataTestId={dataTestId}
+              testId={testId}
               value={getThumbValue(1)}
               description={maxValueDescription}
             />

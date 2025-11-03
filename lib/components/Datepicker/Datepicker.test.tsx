@@ -67,7 +67,7 @@ describe('Datepicker', () => {
         value={value}
         onChange={onChange}
         translations={translations}
-        dataTestId="dp"
+        testId="dp"
       />,
     );
     expect(screen.getByText(label)).toBeInTheDocument();

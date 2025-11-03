@@ -8,7 +8,7 @@ export interface ToggleProps {
   serviceVariant: ServiceVariant;
   onChange: (newValue: boolean) => void;
   type?: 'button' | 'submit' | 'reset';
-  dataTestId?: string;
+  testId?: string;
 }
 export const Toggle = ({
   onChange,
@@ -17,7 +17,7 @@ export const Toggle = ({
   ariaLabel,
   serviceVariant = 'yksilo',
   type,
-  dataTestId,
+  testId,
 }: ToggleProps) => {
   return (
     <button
@@ -26,7 +26,7 @@ export const Toggle = ({
       disabled={disabled}
       aria-label={ariaLabel}
       aria-pressed={checked}
-      data-testid={dataTestId}
+      data-testid={testId}
       className={cx('ds:transition-all ds:duration-200 ds:w-[52px] ds:h-[32px] ds:relative ds:rounded-2xl ds:flex', {
         'ds:cursor-pointer': !disabled,
         'ds:bg-inactive-gray': !checked || disabled,

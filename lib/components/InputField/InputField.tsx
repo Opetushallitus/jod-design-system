@@ -22,7 +22,7 @@ interface BaseInputFieldProps {
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** The error message to display below the input field */
   errorMessage?: string;
 }
@@ -60,7 +60,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     help,
     className = '',
     requiredText,
-    dataTestId,
+    testId,
     errorMessage,
   }: InputFieldProps,
   ref,
@@ -78,7 +78,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
         requiredText={requiredText}
         helpId={helpId}
         help={help}
-        dataTestId={dataTestId}
+        testId={testId}
         errorId={errorId}
         errorMessage={errorMessage}
       >
@@ -97,7 +97,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           autoComplete="off"
           aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
           aria-invalid={!!errorMessage}
-          data-testid={dataTestId}
+          data-testid={testId}
           className={tc([
             'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
             className,

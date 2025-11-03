@@ -18,7 +18,7 @@ describe('NavigationBar', () => {
       <NavigationBar
         renderLink={({ children }) => <div>{children}</div>}
         logo={{ to: '/', language: 'fi', srText: 'jod' }}
-        dataTestId="nav"
+        testId="nav"
       />,
     );
 
@@ -37,7 +37,7 @@ describe('NavigationBar', () => {
       <NavigationBar
         renderLink={({ children }) => <div>{children}</div>}
         logo={{ to: '/', language: 'fi', srText: 'jod' }}
-        dataTestId="test"
+        testId="test"
         showServiceBar
         serviceBarVariant="yksilo"
         serviceBarTitle="Osaamispolkuni"
@@ -79,7 +79,7 @@ it('does not toggle serviceBar contents multiple times during animation pending'
       showServiceBar
       serviceBarVariant="yksilo"
       serviceBarTitle="Osaamispolkuni"
-      dataTestId="test"
+      testId="test"
       serviceBarContent={<div>{contentText}</div>}
     />,
   );

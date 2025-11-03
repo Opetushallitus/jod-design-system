@@ -55,7 +55,7 @@ export type NavigationBarProps = {
     langMenuButtonRef: React.Ref<HTMLLIElement>;
   };
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
 } & ServiceBarProps;
 
 /**
@@ -72,7 +72,7 @@ export const NavigationBar = ({
   serviceBarVariant,
   serviceBarTitle,
   serviceBarContent,
-  dataTestId,
+  testId,
 }: NavigationBarProps) => {
   const { sm, lg, xl } = useMediaQueries();
   const [serviceBarCollapsed, setServiceBarCollapsed] = React.useState(false);
@@ -102,19 +102,19 @@ export const NavigationBar = ({
     <>
       <div
         className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10"
-        data-testid={dataTestId}
+        data-testid={testId}
       >
         <nav
           role="navigation"
           className="ds:flex ds:items-center ds:justify-between ds:gap-5 ds:mx-auto ds:h-11 ds:px-5 ds:py-3 ds:font-semibold ds:xl:container"
-          data-testid={dataTestId ? `${dataTestId}-nav` : undefined}
+          data-testid={testId ? `${testId}-nav` : undefined}
         >
           <div>
             <div className="ds:flex ds:grow ds:justify-center ds:items-center ds:flex-direction-row">
               <Link to={logo.to}>
                 <div
                   className="ds:inline-flex ds:select-none ds:items-center ds:p-3"
-                  data-testid={dataTestId ? `${dataTestId}-logo` : undefined}
+                  data-testid={testId ? `${testId}-logo` : undefined}
                 >
                   {sm ? <LogoRgb language={logo.language} size={26} /> : <LogoIconRgb size={39} />}
                   <span className="ds:sr-only">{logo.srText}</span>
@@ -129,7 +129,7 @@ export const NavigationBar = ({
           <div className="ds:flex ds:items-center">
             <ul
               className="ds:inline-flex ds:items-center ds:gap-5 ds:sm:gap-7 ds:ml-auto"
-              data-testid={dataTestId ? `${dataTestId}-actions` : undefined}
+              data-testid={testId ? `${testId}-actions` : undefined}
             >
               {languageButtonComponent && <li ref={refs?.langMenuButtonRef}>{languageButtonComponent}</li>}
               {userButtonComponent && <li>{userButtonComponent}</li>}
@@ -152,7 +152,7 @@ export const NavigationBar = ({
             serviceBarCollapsed ? 'ds:-translate-y-full ds:mt-2' : 'ds:translate-y-0',
             getAccentBgClassForService(serviceBarVariant),
           ])}
-          data-testid={dataTestId ? `${dataTestId}-servicebar` : undefined}
+          data-testid={testId ? `${testId}-servicebar` : undefined}
         >
           <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
             {serviceBarContents}

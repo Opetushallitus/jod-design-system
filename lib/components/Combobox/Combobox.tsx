@@ -37,7 +37,7 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   /** Classname to wrapper **/
   className?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
   /** The error message to display below the input field */
@@ -59,7 +59,7 @@ export const Combobox = <
   selected,
   disabled = false,
   className = '',
-  dataTestId,
+  testId,
   requiredText,
   errorMessage,
   help,
@@ -78,7 +78,7 @@ export const Combobox = <
         });
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={dataTestId}>
+    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={testId}>
       <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={labelText} />
       <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
@@ -98,20 +98,20 @@ export const Combobox = <
                 className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
-                data-testid={dataTestId ? `${dataTestId}-input` : undefined}
+                data-testid={testId ? `${testId}-input` : undefined}
                 aria-invalid={!!errorMessage}
               />
               <ComboboxButton
                 aria-label={label}
                 className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
-                data-testid={dataTestId ? `${dataTestId}-button` : undefined}
+                data-testid={testId ? `${testId}-button` : undefined}
               >
                 {open ? <JodCaretUp size={24} /> : <JodCaretDown size={24} />}
               </ComboboxButton>
               <ComboboxOptions
                 className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
-                data-testid={dataTestId ? `${dataTestId}-options` : undefined}
+                data-testid={testId ? `${testId}-options` : undefined}
               >
                 {filteredOptions.map((option) => (
                   <ComboboxOption
@@ -127,12 +127,8 @@ export const Combobox = <
           )}
         </HeadlessCombobox>
       </div>
-      <InputHelp id={helpId} helpText={help} dataTestId={dataTestId ? `${dataTestId}-help` : undefined} />
-      <InputError
-        id={errorId}
-        errorMessage={errorMessage}
-        dataTestId={dataTestId ? `${dataTestId}-error` : undefined}
-      />
+      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
     </div>
   );
 };

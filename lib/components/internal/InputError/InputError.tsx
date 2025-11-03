@@ -4,16 +4,16 @@ interface InputErrorProps {
   /** The id for the error message element */
   id: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
 }
 
-export const InputError = ({ errorMessage, id, dataTestId }: InputErrorProps) => {
+export const InputError = ({ errorMessage, id, testId }: InputErrorProps) => {
   return errorMessage !== undefined ? (
     <div
       id={id}
       className="ds:mt-2 ds:block ds:text-form-error ds:text-alert-text-2 ds:font-arial"
       role="alert"
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       {errorMessage}
     </div>

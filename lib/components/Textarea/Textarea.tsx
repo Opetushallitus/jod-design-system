@@ -24,7 +24,7 @@ interface BaseTextareaProps {
   /** Additional classes to add to the textarea */
   className?: string;
   /** Test id for querying in tests */
-  dataTestId?: string;
+  testId?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
   /** The error message to display below the input field */
@@ -65,7 +65,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
     maxLength,
     rows,
     className = '',
-    dataTestId,
+    testId,
     requiredText,
     errorMessage,
   }: TextareaProps,
@@ -83,7 +83,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
       requiredText={requiredText}
       helpId={helpId}
       help={help}
-      dataTestId={dataTestId}
+      testId={testId}
       errorId={errorId}
       errorMessage={errorMessage}
     >
@@ -101,7 +101,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         autoComplete="off"
         aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
         aria-invalid={!!errorMessage}
-        data-testid={dataTestId}
+        data-testid={testId}
         className={tc([
           'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
           className,

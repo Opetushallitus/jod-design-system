@@ -14,7 +14,7 @@ export interface WizardProgressProps {
   stepText: string;
   /** The text for telling screenreader what the component is all about */
   labelText: string;
-  dataTestId?: string;
+  testId?: string;
 }
 
 const Step = ({ step, stepText }: { step: number; stepText: string }) => {
@@ -52,7 +52,7 @@ export const WizardProgress = ({
   currentText,
   stepText,
   labelText,
-  dataTestId,
+  testId,
 }: WizardProgressProps) => {
   const renderStep = (step: number) => {
     if (step < currentStep) {
@@ -65,11 +65,7 @@ export const WizardProgress = ({
   };
 
   return (
-    <ol
-      className="ds:flex ds:gap-3 ds:text-heading-4 ds:text-primary-gray"
-      aria-label={labelText}
-      data-testid={dataTestId}
-    >
+    <ol className="ds:flex ds:gap-3 ds:text-heading-4 ds:text-primary-gray" aria-label={labelText} data-testid={testId}>
       {Array.from({ length: steps }, (_, index) => (
         <li
           key={index + 1}
@@ -87,7 +83,7 @@ export const WizardProgress = ({
             index + 1 === currentStep ? 'ds:bg-secondary-gray ds:text-white' : 'ds:bg-bg-gray-2',
           ])}
           aria-current={index + 1 === currentStep}
-          data-testid={dataTestId ? `${dataTestId}-step-${index + 1}` : undefined}
+          data-testid={testId ? `${testId}-step-${index + 1}` : undefined}
         >
           {renderStep(index + 1)}
         </li>

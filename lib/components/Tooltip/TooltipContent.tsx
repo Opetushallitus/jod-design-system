@@ -5,7 +5,7 @@ import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
 type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
   arrowClassName?: string;
-  dataTestId?: string;
+  testId?: string;
 };
 export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
   function TooltipContent(props, propRef) {
@@ -16,7 +16,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       return null;
     }
 
-    const { dataTestId, ...rest } = props;
+    const { testId, ...rest } = props;
 
     return (
       <FloatingPortal>
@@ -36,7 +36,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           style={{
             ...tooltipContext.floatingStyles,
           }}
-          data-testid={dataTestId}
+          data-testid={testId}
           {...tooltipContext.getFloatingProps(rest)}
         >
           {props.children}
@@ -46,7 +46,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
             className={props.arrowClassName ?? 'ds:fill-primary-gray'}
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
-            data-testid={dataTestId ? `${dataTestId}-arrow` : undefined}
+            data-testid={testId ? `${testId}-arrow` : undefined}
           />
         </div>
       </FloatingPortal>

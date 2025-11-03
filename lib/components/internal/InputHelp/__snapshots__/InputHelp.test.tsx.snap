@@ -1,10 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InputHelp > applies the provided dataTestId to the help text element 1`] = `
+exports[`InputHelp > applies the provided id to the help text element 1`] = `
 <div>
   <div
     class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
-    data-testid="custom-help-text"
     id="help-text"
   >
     This is some helpful text
@@ -12,10 +11,11 @@ exports[`InputHelp > applies the provided dataTestId to the help text element 1`
 </div>
 `;
 
-exports[`InputHelp > applies the provided id to the help text element 1`] = `
+exports[`InputHelp > applies the provided testId to the help text element 1`] = `
 <div>
   <div
     class="ds:mt-2 ds:block ds:text-help ds:text-secondary-gray ds:font-arial"
+    data-testid="custom-help-text"
     id="help-text"
   >
     This is some helpful text

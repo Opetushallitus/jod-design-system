@@ -16,7 +16,7 @@ describe('MediaCard', () => {
         label="Vertical"
         description="Vertical description"
         tags={mockTags}
-        dataTestId="m"
+        testId="m"
       />,
     );
 
@@ -46,7 +46,7 @@ describe('MediaCard', () => {
         label="Horizontal"
         description="Horizontal description"
         tags={mockTags}
-        dataTestId="mh"
+        testId="mh"
       />,
     );
 
@@ -73,7 +73,7 @@ describe('MediaCard', () => {
         label="Default"
         description="Default description"
         tags={mockTags}
-        dataTestId="md"
+        testId="md"
       />,
     );
 
@@ -86,7 +86,7 @@ describe('MediaCard', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('emits data-testid attributes when dataTestId is provided (vertical)', () => {
+  it('emits data-testid attributes when testId is provided (vertical)', () => {
     render(
       <MediaCard
         imageSrc="default.jpg"
@@ -94,7 +94,7 @@ describe('MediaCard', () => {
         label="Default"
         description="Default description"
         tags={mockTags}
-        dataTestId="md"
+        testId="md"
       />,
     );
 

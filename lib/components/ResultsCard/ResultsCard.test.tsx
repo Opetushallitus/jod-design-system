@@ -8,14 +8,14 @@ describe('ResultsCard', () => {
   const label = 'Dolor sit amet';
 
   it('renders the text and the label', () => {
-    const { container } = render(<ResultsCard value={text} label={label} dataTestId="res" />);
+    const { container } = render(<ResultsCard value={text} label={label} testId="res" />);
     expect(screen.getByText(text)).toBeInTheDocument();
     expect(screen.getByText(label)).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('emits data-testid attributes when dataTestId is provided', () => {
-    render(<ResultsCard value={text} label={label} dataTestId="res" />);
+  it('emits data-testid attributes when testId is provided', () => {
+    render(<ResultsCard value={text} label={label} testId="res" />);
     expect(screen.getByTestId('res')).toBeInTheDocument();
     expect(screen.getByTestId('res-label')).toBeInTheDocument();
     expect(screen.getByTestId('res-value')).toBeInTheDocument();

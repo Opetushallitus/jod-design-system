@@ -28,7 +28,7 @@ describe('Checkbox', () => {
         onChange={handleChange}
         value={myValue}
         checked={false}
-        dataTestId="cb"
+        testId="cb"
       />,
     );
     expect(screen.getByTestId('cb')).toBeInTheDocument();

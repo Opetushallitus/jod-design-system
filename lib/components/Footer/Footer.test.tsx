@@ -100,7 +100,7 @@ it('emits data-testid when provided', () => {
       feedbackOnClick={vi.fn()}
       feedbackBgImageClassName={mockFeedbackBgImageClassName}
       externalLinkIconAriaLabel="Linkki johtaa palvelun ulkopuolelle"
-      dataTestId="footer"
+      testId="footer"
     />,
   );
   expect(screen.getByTestId('footer')).toBeInTheDocument();

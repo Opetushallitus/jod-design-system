@@ -28,7 +28,7 @@ interface BaseProps {
   /** Color variant */
   variant?: 'white' | 'gray' | 'plain';
   /** Data-testid attribute */
-  dataTestId?: string;
+  testId?: string;
   /** Selected status */
   selected?: boolean;
   /** Service variant for coloring */
@@ -39,7 +39,7 @@ export type IconButtonProps = BaseProps & (InteractiveProps | IndicativeProps);
 
 export const IconButton = ({
   ariaLabel,
-  dataTestId,
+  testId,
   disabled = false,
   icon,
   indicative,
@@ -53,7 +53,7 @@ export const IconButton = ({
   const spanElement = (
     <span
       aria-hidden
-      data-testid={dataTestId}
+      data-testid={testId}
       className={tc([
         // BG color
         cx({

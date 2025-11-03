@@ -33,7 +33,7 @@ const baseProps: IconButtonProps = {
   disabled: false,
   selected: false,
   serviceVariant: 'yksilo',
-  dataTestId: 'icon-button',
+  testId: 'icon-button',
 };
 
 export const Default: Story = {

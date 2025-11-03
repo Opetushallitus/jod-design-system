@@ -13,7 +13,7 @@ export interface BreadcrumbProps {
   linkComponent: React.ComponentType<{ to: string; children: React.ReactNode; className?: string }>;
   ariaLabel?: string;
   serviceVariant: ServiceVariant;
-  dataTestId?: string;
+  testId?: string;
 }
 
 export const Breadcrumb = ({
@@ -21,7 +21,7 @@ export const Breadcrumb = ({
   ariaLabel,
   linkComponent: LinkComponent,
   serviceVariant,
-  dataTestId,
+  testId,
 }: BreadcrumbProps) => {
   const textColorClass = cx({
     'ds:text-secondary-1-dark': serviceVariant === 'yksilo',
@@ -33,7 +33,7 @@ export const Breadcrumb = ({
     <nav
       aria-label={ariaLabel}
       className="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:col-span-3 ds:h-5 ds:print:hidden ds:content-center"
-      data-testid={dataTestId}
+      data-testid={testId}
     >
       <ol className="ds:flex ds:flex-wrap ds:gap-y-2">
         {items.map((item, idx) => {

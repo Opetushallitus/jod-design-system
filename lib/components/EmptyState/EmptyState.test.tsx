@@ -4,13 +4,13 @@ import { EmptyState } from './EmptyState';
 
 describe('EmptyState', () => {
   it('renders the provided text', () => {
-    const { container } = render(<EmptyState text="No data available" dataTestId="empty" />);
+    const { container } = render(<EmptyState text="No data available" testId="empty" />);
     expect(screen.getByText('No data available')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('emits data-testid when dataTestId is provided', () => {
-    render(<EmptyState text="No data available" dataTestId="empty" />);
+  it('emits data-testid when testId is provided', () => {
+    render(<EmptyState text="No data available" testId="empty" />);
     expect(screen.getByTestId('empty')).toBeInTheDocument();
   });
 });

@@ -49,8 +49,8 @@ describe('NavigationMenu', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('emits data-testid attributes when dataTestId is provided', () => {
-    render(<NavigationMenu {...menuProps} dataTestId="navmenu" />);
+  it('emits data-testid attributes when testId is provided', () => {
+    render(<NavigationMenu {...menuProps} testId="navmenu" />);
 
     // Root wrappers (backdrop is a dialog wrapper, presence may vary in jsdom)
     expect(screen.getByTestId('navmenu-root')).toBeInTheDocument();

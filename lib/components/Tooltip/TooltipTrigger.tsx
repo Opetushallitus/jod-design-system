@@ -7,7 +7,7 @@ export const TooltipTrigger = React.forwardRef<
   React.HTMLProps<HTMLElement> & {
     asChild?: boolean;
     children: React.ReactNode | { ref: React.ForwardedRef<HTMLElement> };
-    dataTestId?: string;
+    testId?: string;
     ariaLabel?: string;
     open?: boolean;
   }
@@ -20,14 +20,13 @@ export const TooltipTrigger = React.forwardRef<
   ).ref;
   const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
 
-  // Extract dataTestId so we don't leak it as an unknown DOM attribute ("datatestid")
-  const { dataTestId, ...rest } = props as { dataTestId?: string } & React.HTMLProps<HTMLElement>;
+  const { testId, ...rest } = props as { testId?: string } & React.HTMLProps<HTMLElement>;
 
   if (asChild && React.isValidElement(children)) {
     const merged = {
       ...rest,
       ref,
-      ...(dataTestId ? { 'data-testid': dataTestId } : {}),
+      ...(testId ? { 'data-testid': testId } : {}),
     } as React.HTMLProps<HTMLElement> & { 'data-testid'?: string };
     return React.cloneElement(children, context.getReferenceProps(merged));
   }
@@ -37,7 +36,7 @@ export const TooltipTrigger = React.forwardRef<
       aria-label={ariaLabel}
       ref={ref}
       {...context.getReferenceProps(rest)}
-      data-testid={dataTestId}
+      data-testid={testId}
       className="ds:cursor-pointer"
       aria-expanded={open}
     >

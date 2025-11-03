@@ -89,7 +89,7 @@ describe('ConfirmDialog', () => {
     expect(screen.queryByText('Are you sure?')).not.toBeInTheDocument();
   });
 
-  it('emits data-testid attributes when dataTestId is provided', async () => {
+  it('emits data-testid attributes when testId is provided', async () => {
     const user = userEvent.setup();
     render(
       <ConfirmDialog
@@ -98,7 +98,7 @@ describe('ConfirmDialog', () => {
         onConfirm={vi.fn()}
         confirmText="Confirm"
         cancelText="Cancel"
-        dataTestId="cd"
+        testId="cd"
       >
         {(showDialog) => (
           <button onClick={showDialog} className="ds:cursor-pointer">

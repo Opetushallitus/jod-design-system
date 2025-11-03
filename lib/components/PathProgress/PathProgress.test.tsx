@@ -18,7 +18,7 @@ describe('PathProgress data-testid', () => {
       },
     ];
 
-    render(<PathProgress steps={steps} dataTestId="path" />);
+    render(<PathProgress steps={steps} testId="path" />);
 
     expect(screen.getByTestId('path')).toBeInTheDocument();
     // Step 1

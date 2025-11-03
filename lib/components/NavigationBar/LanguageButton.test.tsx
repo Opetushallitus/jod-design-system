@@ -25,7 +25,7 @@ const baseProps: LanguageButtonProps = {
   generateLocalizedPath,
   linkComponent: LinkComponent,
   translations,
-  dataTestId: 'language-button',
+  testId: 'language-button',
 };
 
 describe('LanguageButton', () => {

@@ -54,8 +54,8 @@ describe('Button', () => {
     expect(ref).toHaveBeenCalledWith(button);
   });
 
-  it('emits data-testid attribute on the root element when dataTestId is provided', () => {
-    render(<Button label="Click me" onClick={vi.fn()} dataTestId="btn" />);
+  it('emits data-testid attribute on the root element when testId is provided', () => {
+    render(<Button label="Click me" onClick={vi.fn()} testId="btn" />);
     expect(screen.getByTestId('btn')).toBeInTheDocument();
   });
 });

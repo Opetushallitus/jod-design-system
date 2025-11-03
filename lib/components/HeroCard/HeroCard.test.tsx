@@ -14,8 +14,8 @@ describe('HeroCard', () => {
     const { container } = render(
       <HeroCard
         to="/"
-        linkComponent={({ children, to, className, ariaLabel, dataTestId }) => (
-          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+        linkComponent={({ children, to, className, ariaLabel, testId }) => (
+          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={testId}>
             {children}
           </a>
         )}
@@ -23,7 +23,7 @@ describe('HeroCard', () => {
         title={title}
         content={content}
         backgroundColor={backgroundColor}
-        dataTestId="hero"
+        testId="hero"
       />,
     );
 
@@ -39,7 +39,7 @@ describe('HeroCard', () => {
 
   it('renders HeroCard without a button', () => {
     const { container } = render(
-      <HeroCard title={title} content={content} backgroundColor={backgroundColor} dataTestId="hero2" />,
+      <HeroCard title={title} content={content} backgroundColor={backgroundColor} testId="hero2" />,
     );
 
     expect(screen.getByText(title)).toBeInTheDocument();
@@ -52,8 +52,8 @@ describe('HeroCard', () => {
     render(
       <HeroCard
         to="/"
-        linkComponent={({ children, to, className, ariaLabel, dataTestId }) => (
-          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+        linkComponent={({ children, to, className, ariaLabel, testId }) => (
+          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={testId}>
             {children}
           </a>
         )}
@@ -73,8 +73,8 @@ describe('HeroCard', () => {
     render(
       <HeroCard
         to="/"
-        linkComponent={({ children, to, className, ariaLabel, dataTestId }) => (
-          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={dataTestId}>
+        linkComponent={({ children, to, className, ariaLabel, testId }) => (
+          <a href={to as string} className={className} aria-label={ariaLabel} data-testid={testId}>
             {children}
           </a>
         )}

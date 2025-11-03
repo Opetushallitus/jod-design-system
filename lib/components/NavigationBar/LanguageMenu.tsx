@@ -10,7 +10,7 @@ const ListItems = ({
   supportedLanguageCodes,
   linkComponent: LinkComponent,
   generateLocalizedPath,
-  dataTestId,
+  testId,
 }: LanguageMenuProps) => {
   const textColorClassName = getTextColorClassForService(serviceVariant);
 
@@ -29,7 +29,7 @@ const ListItems = ({
         onClick={onClick}
         type="button"
         className="ds:w-full ds:text-menu ds:hover:underline ds:p-3"
-        data-testid={dataTestId ? `${dataTestId}-menu-item-${lng}` : undefined}
+        data-testid={testId ? `${testId}-menu-item-${lng}` : undefined}
       >
         {langLabels[lng] ?? lng}
       </LinkComponent>
@@ -45,10 +45,10 @@ export const LanguageMenu = ({
   generateLocalizedPath,
   linkComponent: LinkComponent,
   translations,
-  dataTestId,
+  testId,
 }: LanguageMenuProps) => {
   return (
-    <div data-testid={dataTestId ? `${dataTestId}-menu-popup` : undefined}>
+    <div data-testid={testId ? `${testId}-menu-popup` : undefined}>
       <PopupList classNames="ds:gap-2">
         <ListItems
           serviceVariant={serviceVariant}
@@ -58,7 +58,7 @@ export const LanguageMenu = ({
           generateLocalizedPath={generateLocalizedPath}
           linkComponent={LinkComponent}
           translations={translations}
-          dataTestId={dataTestId}
+          testId={testId}
         />
       </PopupList>
     </div>

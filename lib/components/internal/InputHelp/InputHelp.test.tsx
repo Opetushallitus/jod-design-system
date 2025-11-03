@@ -25,10 +25,10 @@ describe('InputHelp', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('applies the provided dataTestId to the help text element', () => {
-    const dataTestId = 'custom-help-text';
-    const { getByTestId, container } = render(<InputHelp helpText={helpText} id={id} dataTestId={dataTestId} />);
-    expect(getByTestId(dataTestId)).toBeInTheDocument();
+  it('applies the provided testId to the help text element', () => {
+    const testId = 'custom-help-text';
+    const { getByTestId, container } = render(<InputHelp helpText={helpText} id={id} testId={testId} />);
+    expect(getByTestId(testId)).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 });

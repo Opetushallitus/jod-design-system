@@ -6,7 +6,7 @@ import { Note } from './Note';
 describe('Note component', () => {
   it('renders with default variant', () => {
     const { container } = render(
-      <Note title="Test Title" description="Test Description" dataTestId="note" ariaClose="Close" />,
+      <Note title="Test Title" description="Test Description" testId="note" ariaClose="Close" />,
     );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
@@ -52,7 +52,7 @@ describe('Note component', () => {
         description="Test Description"
         variant="success"
         readMoreComponent={<>Read more</>}
-        dataTestId="note2"
+        testId="note2"
         ariaClose="Close"
       />,
     );
@@ -70,7 +70,7 @@ describe('Note component', () => {
         description="Test Description"
         variant="success"
         onCloseClick={onCloseClick}
-        dataTestId="note3"
+        testId="note3"
         ariaClose="Close"
       />,
     );
