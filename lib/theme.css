@@ -14,7 +14,6 @@
   --color-tag-tyopaikka: #e195d1;
   --color-tag-koulutus: #66cbd1;
   --color-tag-vapaa-ajan-toiminto: #85c4ec;
-  --color-tag-jotain-muuta: #ccc;
   --color-tag-kiinnostus: #f5b08f;
   --color-tag-rajoitus: #f7a2a7;
 
@@ -60,6 +59,7 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-primary-gray: #333333;
+  --color-primary-light-2: #cccccc;
   --color-secondary-gray: #6e6e6e;
   --color-inactive-gray: #a9a9a9;
   --color-border-gray: #cecece;

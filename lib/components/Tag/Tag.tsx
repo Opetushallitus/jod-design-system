@@ -30,7 +30,7 @@ const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagPro
       'ds:bg-tag-tyopaikka': sourceType === 'tyopaikka',
       'ds:bg-tag-koulutus': sourceType === 'koulutus',
       'ds:bg-tag-vapaa-ajan-toiminto': sourceType === 'vapaa-ajan-toiminto',
-      'ds:bg-tag-jotain-muuta': sourceType === 'jotain-muuta',
+      'ds:bg-primary-light-2': sourceType === 'jotain-muuta',
       'ds:bg-tag-kiinnostus': sourceType === 'kiinnostus',
       'ds:bg-tag-rajoitus': sourceType === 'rajoitus',
     },

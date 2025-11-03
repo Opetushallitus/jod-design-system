@@ -3,7 +3,7 @@
 exports[`Tag > matches the snapshot 1`] = `
 <div>
   <button
-    class="ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-poppins ds:px-4 ds:py-2 ds:text-left ds:cursor-pointer ds:bg-tag-jotain-muuta"
+    class="ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-poppins ds:px-4 ds:py-2 ds:text-left ds:cursor-pointer ds:bg-primary-light-2"
     type="button"
   >
     <span
