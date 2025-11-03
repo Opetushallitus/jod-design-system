@@ -13,6 +13,8 @@ export interface NoteProps {
   variant?: 'success' | 'warning' | 'error' | 'feedback';
   /** Callback fired on tap/click of the close button */
   onCloseClick?: () => void;
+  /** Label for the close button */
+  ariaClose: string;
   /** Call to action (CTA) component */
   readMoreComponent?: React.ReactNode;
   /** If true, the note will always be visible */
@@ -36,6 +38,7 @@ export const Note = ({
   variant = 'success',
   className = '',
   dataTestId,
+  ariaClose,
 }: NoteProps) => {
   const { sm } = useMediaQueries();
 
@@ -72,7 +75,7 @@ export const Note = ({
             <button
               className="ds:cursor-pointer ds:flex"
               type="button"
-              aria-label="Close"
+              aria-label={ariaClose}
               onClick={onCloseClick}
               data-testid={dataTestId ? `${dataTestId}-close` : undefined}
             >

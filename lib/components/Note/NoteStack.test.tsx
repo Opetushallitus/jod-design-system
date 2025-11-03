@@ -23,9 +23,9 @@ describe('NoteStack', () => {
   });
 
   const mockNotes: NoteStackNote[] = [
-    { id: '1', title: 'Note 1', description: 'Desc 1', collapsed: false, variant: 'success' },
-    { id: '2', title: 'Note 2', description: 'Desc 2', collapsed: false, variant: 'warning' },
-    { id: '3', title: 'Note 3', description: 'Desc 3', collapsed: false, variant: 'error' },
+    { id: '1', title: 'Note 1', description: 'Desc 1', collapsed: false, variant: 'success', ariaClose: 'Close' },
+    { id: '2', title: 'Note 2', description: 'Desc 2', collapsed: false, variant: 'warning', ariaClose: 'Close' },
+    { id: '3', title: 'Note 3', description: 'Desc 3', collapsed: false, variant: 'error', ariaClose: 'Close' },
   ];
 
   it('renders visible notes up to maxNotes', async () => {
@@ -72,11 +72,11 @@ describe('NoteStack', () => {
 
   it('renders notes in correct sort order (permanent first, then by variant)', async () => {
     const notes: NoteStackNote[] = [
-      { id: '3', title: 'Warning', collapsed: false, variant: 'warning' },
-      { id: '2', title: 'Error', collapsed: false, variant: 'error' },
-      { id: '4', title: 'Success', collapsed: false, variant: 'success' },
-      { id: '1', title: 'Permanent', collapsed: false, variant: 'success', permanent: true },
-      { id: '5', title: 'Feedback', collapsed: false, variant: 'feedback' },
+      { id: '3', title: 'Warning', collapsed: false, variant: 'warning', ariaClose: 'Close' },
+      { id: '2', title: 'Error', collapsed: false, variant: 'error', ariaClose: 'Close' },
+      { id: '4', title: 'Success', collapsed: false, variant: 'success', ariaClose: 'Close' },
+      { id: '1', title: 'Permanent', collapsed: false, variant: 'success', permanent: true, ariaClose: 'Close' },
+      { id: '5', title: 'Feedback', collapsed: false, variant: 'feedback', ariaClose: 'Close' },
     ];
     render(
       <NoteStackProvider maxNotes={5}>

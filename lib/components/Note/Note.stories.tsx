@@ -59,6 +59,7 @@ export const ConfirmationNote: Story = {
     readMoreComponent,
     variant: 'success',
     onCloseClick: fn(),
+    ariaClose: 'Close',
   },
 };
 
@@ -81,6 +82,7 @@ export const LongTitleText: Story = {
     readMoreComponent,
     variant: 'success',
     onCloseClick: fn(),
+    ariaClose: 'Close',
   },
 };
 
@@ -102,6 +104,7 @@ export const PermanentNote: Story = {
     description,
     variant: 'error',
     permanent: true,
+    ariaClose: 'Close',
   },
 };
 
@@ -122,6 +125,7 @@ export const NoCTA: Story = {
     title,
     description,
     onCloseClick: fn(),
+    ariaClose: 'Close',
   },
 };
 
@@ -142,6 +146,7 @@ export const WarningNote: Story = {
     title,
     description,
     variant: 'warning',
+    ariaClose: 'Close',
   },
 };
 
@@ -162,6 +167,7 @@ export const ErrorNote: Story = {
     title,
     description,
     variant: 'error',
+    ariaClose: 'Close',
   },
 };
 
@@ -192,6 +198,7 @@ export const feedback: Story = {
       />
     ),
     onCloseClick: fn(),
+    ariaClose: 'Close',
   },
 };
 
@@ -260,5 +267,6 @@ export const WithNoteStack: Story = {
   },
   args: {
     description,
+    ariaClose: 'Close',
   },
 };

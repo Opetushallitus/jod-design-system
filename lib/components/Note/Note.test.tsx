@@ -5,7 +5,9 @@ import { Note } from './Note';
 
 describe('Note component', () => {
   it('renders with default variant', () => {
-    const { container } = render(<Note title="Test Title" description="Test Description" dataTestId="note" />);
+    const { container } = render(
+      <Note title="Test Title" description="Test Description" dataTestId="note" ariaClose="Close" />,
+    );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-success');
@@ -14,7 +16,9 @@ describe('Note component', () => {
   });
 
   it('renders with success variant', () => {
-    const { container } = render(<Note title="Test Title" description="Test Description" variant="success" />);
+    const { container } = render(
+      <Note title="Test Title" description="Test Description" variant="success" ariaClose="Close" />,
+    );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-success');
@@ -22,7 +26,9 @@ describe('Note component', () => {
   });
 
   it('renders with warning variant', () => {
-    const { container } = render(<Note title="Test Title" description="Test Description" variant="warning" />);
+    const { container } = render(
+      <Note title="Test Title" description="Test Description" variant="warning" ariaClose="Close" />,
+    );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-warning');
@@ -30,7 +36,9 @@ describe('Note component', () => {
   });
 
   it('renders with error variant', () => {
-    const { container } = render(<Note title="Test Title" description="Test Description" variant="error" />);
+    const { container } = render(
+      <Note title="Test Title" description="Test Description" variant="error" ariaClose="Close" />,
+    );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
     expect(noteElement).toHaveClass('ds:bg-alert');
@@ -45,6 +53,7 @@ describe('Note component', () => {
         variant="success"
         readMoreComponent={<>Read more</>}
         dataTestId="note2"
+        ariaClose="Close"
       />,
     );
     const readMoreLink = screen.getByText(/Read more/);
@@ -62,6 +71,7 @@ describe('Note component', () => {
         variant="success"
         onCloseClick={onCloseClick}
         dataTestId="note3"
+        ariaClose="Close"
       />,
     );
     const closeButton = screen.getByLabelText('Close');
