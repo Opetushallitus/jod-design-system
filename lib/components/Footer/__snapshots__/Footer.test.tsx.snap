@@ -405,11 +405,11 @@ exports[`Footer > renders 1`] = `
             </svg>
           </li>
           <li
-            class="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3"
+            class="ds:flex"
           >
             <svg
               aria-label="KEHA-keskus"
-              class="ds:h-9 ds:max-w-full"
+              class="ds:scale-[125%] ds:origin-left ds:mr-auto ds:-ml-3 ds:h-9 ds:max-w-full"
               role="img"
               viewBox="0 0 300 136"
               xmlns="http://www.w3.org/2000/svg"
@@ -954,11 +954,11 @@ exports[`Footer > renders copyright 1`] = `
             </svg>
           </li>
           <li
-            class="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3"
+            class="ds:flex"
           >
             <svg
               aria-label="KEHA-keskus"
-              class="ds:h-9 ds:max-w-full"
+              class="ds:scale-[125%] ds:origin-left ds:mr-auto ds:-ml-3 ds:h-9 ds:max-w-full"
               role="img"
               viewBox="0 0 300 136"
               xmlns="http://www.w3.org/2000/svg"

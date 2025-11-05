@@ -98,8 +98,11 @@ export const Footer = ({
       <li key="LogoOphFiSv" className="ds:flex">
         <LogoOphFiSv className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
       </li>,
-      <li key="LogoKehaFiSv" className="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3">
-        <LogoKehaFiSv className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
+      <li key="LogoKehaFiSv" className="ds:flex">
+        <LogoKehaFiSv
+          className="ds:scale-[125%] ds:origin-left ds:mr-auto ds:-ml-3 ds:h-9 ds:max-w-full"
+          aria-label={kehaLabel}
+        />
       </li>,
     ],
     [okmLabel, temLabel, ophLabel, kehaLabel],
@@ -120,8 +123,11 @@ export const Footer = ({
           <li key="LogoOphEn" className="ds:flex">
             <LogoOphEn className="ds:h-9 ds:max-w-full" aria-label={ophLabel} />
           </li>,
-          <li key="LogoKehaFiSv" className="ds:flex ds:origin-left ds:scale-[125%] ds:mr-auto ds:-ml-3">
-            <LogoKehaEn className="ds:h-9 ds:max-w-full" aria-label={kehaLabel} />
+          <li key="LogoKehaFiSv" className="ds:flex">
+            <LogoKehaEn
+              className="ds:scale-[125%] ds:origin-left ds:mr-auto ds:-ml-3 ds:h-9 ds:max-w-full"
+              aria-label={kehaLabel}
+            />
           </li>,
         ];
       default:
