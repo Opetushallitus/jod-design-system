@@ -5,6 +5,7 @@ import { ServiceVariantProvider } from '../../hooks/useServiceVariant/ServiceVar
 import { Button } from '../Button/Button';
 import { externalLinkSections, languageSelectionItems, menuSection } from './commonStoriesData';
 import { NavigationMenu, type NavigationMenuProps } from './NavigationMenu';
+import { DummyLink } from './storyDummyLinks';
 import { LinkComponent } from './types';
 
 const meta = {
@@ -88,5 +89,40 @@ export const WithoutMenuSection: Story = {
   args: {
     ...baseProps,
     menuSection: undefined,
+  },
+};
+
+export const SubmenuWithoutParentLink: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story:
+          'NavigationMenu component where a menu item is not a link, but has child items. The whole menu item acts as a button to toggle the submenu.',
+      },
+    },
+  },
+  render: DefaultRender,
+  args: {
+    ...baseProps,
+    serviceVariant: 'tietopalvelu',
+    menuSection: {
+      title: 'Tietoa päätöksenteon tueksi',
+      linkItems: [
+        {
+          label: 'Osaaminen',
+          childItems: [
+            {
+              label: 'Osaamistarpeiden muutos',
+              linkComponent: DummyLink,
+            },
+            {
+              label: 'Osaamisen kysyntä',
+              linkComponent: DummyLink,
+            },
+          ],
+        },
+      ],
+    },
   },
 };

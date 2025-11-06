@@ -2,7 +2,7 @@
 
 exports[`PageNavigation > renders with default props 1`] = `
 <div
-  class="ds:p-6 ds:bg-white ds:rounded-lg undefined"
+  class="ds:p-6 ds:bg-white ds:rounded-lg"
   data-testid="pnav"
 >
   <div
@@ -22,7 +22,7 @@ exports[`PageNavigation > renders with default props 1`] = `
         data-testid="pnav-item-home-item"
       >
         <div
-          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 undefined"
+          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3"
         >
           <span
             class="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"
@@ -36,7 +36,7 @@ exports[`PageNavigation > renders with default props 1`] = `
         data-testid="pnav-item-about-item"
       >
         <div
-          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 undefined"
+          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3"
         >
           <span
             class="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"
@@ -50,7 +50,7 @@ exports[`PageNavigation > renders with default props 1`] = `
         data-testid="pnav-item-contact-item"
       >
         <div
-          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 undefined"
+          class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3"
         >
           <span
             class="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3"

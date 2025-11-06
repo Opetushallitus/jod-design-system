@@ -8,7 +8,7 @@ export interface PageNavigationProps extends MenuListProps {
 
 export const PageNavigation = (props: PageNavigationProps) => {
   return (
-    <div className={tc(`ds:p-6 ds:bg-white ds:rounded-lg ${props.className}`)} data-testid={props.testId}>
+    <div className={tc(`ds:p-6 ds:bg-white ds:rounded-lg ${props.className ?? ''}`)} data-testid={props.testId}>
       <MenuList hideAccentBorder={props.hideAccentBorder ?? true} {...props} />
     </div>
   );

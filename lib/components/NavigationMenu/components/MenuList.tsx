@@ -34,7 +34,7 @@ export interface MenuSection {
 const MenuListItem = ({
   activeIndicator = 'bg',
   childItems,
-  className,
+  className = '',
   collapsed = true,
   icon,
   label,
@@ -66,16 +66,16 @@ const MenuListItem = ({
     }
   }, [shouldFocusFirstChild, nestedMenuOpen]);
 
-  const handleNestedMenuOpen = () => {
+  const handleNestedMenuOpen = React.useCallback(() => {
     const isOpening = !nestedMenuOpen;
     setNestedMenuOpen(isOpening);
 
     if (isOpening && childItems && childItems.length > 0) {
       setShouldFocusFirstChild(true);
     }
-  };
+  }, [nestedMenuOpen, childItems]);
 
-  const getSelectedClasses = () => {
+  const getSelectedClasses = React.useCallback(() => {
     if (activeIndicator === 'dot') {
       const dotColor = cx({
         'ds:before:bg-secondary-1-dark': serviceVariant === 'yksilo',
@@ -100,76 +100,117 @@ const MenuListItem = ({
     } else {
       return 'ds:bg-transparent';
     }
-  };
+  }, [activeIndicator, serviceVariant]);
 
-  return (
-    <li data-list-id={label} data-testid={testId ? `${testId}-item` : undefined}>
-      <div className={tc(`ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3 ${className}`)}>
-        {LinkComponent ? (
+  // eslint-disable-next-line sonarjs/cognitive-complexity
+  const listItemContent = React.useMemo(() => {
+    const linkItemClasses = tc([
+      'ds:flex',
+      'ds:items-center',
+      'ds:text-button-md',
+      'ds:flex-1',
+      'ds:p-3',
+      'ds:gap-3',
+      'ds:rounded',
+      'ds:cursor-pointer',
+      'ds:hover:underline',
+      'ds:active:underline',
+      'ds:active:text-white',
+      'ds:select-none',
+      !selected ? 'ds:hover:bg-bg-gray' : '',
+      selected ? getSelectedClasses() : '',
+      getPressedBgColorClassForService(serviceVariant),
+    ]);
+    const submenuToggleButtonClasses = tc([
+      'ds:rounded',
+      'ds:flex',
+      'ds:items-center',
+      'ds:justify-center',
+      'ds:cursor-pointer',
+      'ds:bg-white',
+      'ds:size-8',
+      'ds:text-primary-gray',
+      'ds:hover:bg-bg-gray',
+      'ds:active:text-white',
+      getPressedBgColorClassForService(serviceVariant),
+      getFocusOutlineClassForService(serviceVariant),
+      // Gray bar to the left of the submenu toggle button
+      'ds:relative',
+      'ds:before:content-[""]',
+      'ds:before:absolute',
+      'ds:before:-left-2',
+      'ds:before:top-[12.5%]',
+      'ds:before:h-3/4',
+      'ds:before:w-1',
+      'ds:before:bg-bg-gray-2',
+      'ds:before:pointer-events-none',
+    ]);
+
+    if (LinkComponent) {
+      // Default case: The menu item is a link and has an optional nested menu toggle
+      return (
+        <>
           <LinkComponent
-            className={`ds:relative ds:flex-1 ds:flex ds:mr-2 ${getFocusOutlineClassForService(serviceVariant)}`}
+            className={tc(['ds:relative ds:flex-1 ds:flex ds:mr-2', getFocusOutlineClassForService(serviceVariant)])}
             aria-current={selected}
             data-testid={testId ? `${testId}-link` : undefined}
           >
-            <span
-              className={tc([
-                'ds:flex',
-                'ds:items-center',
-                'ds:text-button-md',
-                'ds:flex-1',
-                'ds:p-3',
-                'ds:gap-3',
-                'ds:rounded',
-                'ds:cursor-pointer',
-                'ds:hover:underline',
-                'ds:active:underline',
-                'ds:active:text-white',
-                !selected ? 'ds:hover:bg-bg-gray' : '',
-                selected ? getSelectedClasses() : '',
-                getPressedBgColorClassForService(serviceVariant),
-              ])}
-            >
+            <span className={linkItemClasses}>
               {icon}
               {label}
             </span>
           </LinkComponent>
-        ) : (
-          <span className="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3">{label}</span>
-        )}
-        {childItems && childItems.length > 0 && (
-          <button
-            aria-label={openSubMenuLabel}
-            aria-expanded={nestedMenuOpen}
-            className={tc([
-              'ds:rounded',
-              'ds:flex',
-              'ds:items-center',
-              'ds:justify-center',
-              'ds:cursor-pointer',
-              'ds:bg-white',
-              'ds:size-8',
-              'ds:text-primary-gray',
-              'ds:hover:bg-bg-gray',
-              'ds:active:text-white',
-              getPressedBgColorClassForService(serviceVariant),
-              getFocusOutlineClassForService(serviceVariant),
-              // Gray bar to the left of the button
-              'ds:relative',
-              'ds:before:content-[""]',
-              'ds:before:absolute',
-              'ds:before:-left-2',
-              'ds:before:top-[12.5%]',
-              'ds:before:h-3/4',
-              'ds:before:w-1',
-              'ds:before:bg-bg-gray-2',
-              'ds:before:pointer-events-none',
-            ])}
-            onClick={handleNestedMenuOpen}
-            data-testid={testId ? `${testId}-toggle` : undefined}
-          >
-            {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
-          </button>
-        )}
+          {childItems && childItems.length > 0 && (
+            <button
+              type="button"
+              aria-label={openSubMenuLabel}
+              aria-expanded={nestedMenuOpen}
+              className={submenuToggleButtonClasses}
+              onClick={handleNestedMenuOpen}
+              data-testid={testId ? `${testId}-toggle` : undefined}
+            >
+              {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
+            </button>
+          )}
+        </>
+      );
+    } else if (!LinkComponent && childItems) {
+      // The whole menu item is a button that opens a nested menu
+      return (
+        <button
+          type="button"
+          aria-label={openSubMenuLabel}
+          aria-expanded={nestedMenuOpen}
+          className={tc([linkItemClasses, 'ds:justify-between'])}
+          onClick={handleNestedMenuOpen}
+          data-testid={testId ? `${testId}-toggle` : undefined}
+        >
+          {label}
+          <span>{nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}</span>
+        </button>
+      );
+    } else {
+      // Plain section title
+      return <span className="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3">{label}</span>;
+    }
+  }, [
+    LinkComponent,
+    childItems,
+    getSelectedClasses,
+    handleNestedMenuOpen,
+    icon,
+    label,
+    nestedMenuOpen,
+    openSubMenuLabel,
+    selected,
+    serviceVariant,
+    testId,
+  ]);
+
+  return (
+    <li data-list-id={label} data-testid={testId ? `${testId}-item` : undefined}>
+      <div className={tc(['ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3', className])}>
+        {listItemContent}
       </div>
       {nestedMenuOpen && childItems && childItems.length > 0 && (
         <MenuList
