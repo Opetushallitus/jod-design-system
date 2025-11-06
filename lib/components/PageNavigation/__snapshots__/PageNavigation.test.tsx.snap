@@ -2,7 +2,7 @@
 
 exports[`PageNavigation > renders with default props 1`] = `
 <div
-  class="ds:p-6 ds:bg-white ds:rounded-lg"
+  class="ds:p-4 ds:bg-white ds:rounded-md"
   data-testid="pnav"
 >
   <div

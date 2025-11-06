@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ServiceVariantProvider } from '../../hooks/useServiceVariant/ServiceVariantProvider';
-import { LinkComponent, MenuListProps, MenuSection } from '../NavigationMenu';
+import type { LinkComponent, MenuListProps, MenuSection } from '../NavigationMenu';
 import { PageNavigation } from './PageNavigation';
 
 const meta = {
@@ -76,6 +76,28 @@ export const Default: Story = {
 
   args: {
     activeIndicator: 'bg',
+    isNested: false,
+    itemClassname: '',
+    menuRef: undefined,
+    menuSection,
+    openSubMenuLabel: 'Avaa alivalikko',
+    serviceVariant: 'yksilo',
+  },
+};
+
+export const Collapsed: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'PageNavigation for internal pages in a collapsed state.',
+      },
+    },
+  },
+  render: DefaultRender,
+
+  args: {
+    collapsed: true,
     isNested: false,
     itemClassname: '',
     menuRef: undefined,
