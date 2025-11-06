@@ -48,13 +48,20 @@ const MenuListItem = ({
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
 
+  const hasSelectedDescendant = React.useCallback(
+    (items?: MenuItem[]): boolean =>
+      Array.isArray(items) && items.some((item) => item.selected || hasSelectedDescendant(item.childItems)),
+    [],
+  );
+
   React.useEffect(() => {
-    const isChildItemSelected =
-      Array.isArray(childItems) && childItems.length > 0 && childItems?.some((item) => item.selected);
-    if (isChildItemSelected || !collapsed) {
+    const isChildItemSelected = hasSelectedDescendant(childItems);
+    const shouldOpenForSelectedParent = Boolean(selected && Array.isArray(childItems) && childItems.length > 0);
+
+    if (isChildItemSelected || shouldOpenForSelectedParent || !collapsed) {
       setNestedMenuOpen(true);
     }
-  }, [childItems, collapsed]);
+  }, [childItems, collapsed, hasSelectedDescendant, selected]);
 
   React.useEffect(() => {
     if (shouldFocusFirstChild && nestedMenuOpen && submenuRef.current) {
