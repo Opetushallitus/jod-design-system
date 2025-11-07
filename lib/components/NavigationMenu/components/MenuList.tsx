@@ -222,6 +222,9 @@ const MenuListItem = ({
       {nestedMenuOpen && childItems && childItems.length > 0 && (
         <MenuList
           menuSection={{ linkItems: childItems }}
+          activeIndicator={activeIndicator}
+          serviceVariant={serviceVariant}
+          collapsed={collapsed}
           openSubMenuLabel={openSubMenuLabel}
           menuRef={submenuRef}
           isNested
