@@ -99,7 +99,7 @@ export const Accordion = ({
     <div className={className}>
       <div className="ds:group">
         <button
-          type={"button"}
+          type="button"
           {...(triggerId ? { id: triggerId } : {})}
           {...(ariaControls ? { 'aria-controls': ariaControls } : {})}
           aria-expanded={isOpen}
