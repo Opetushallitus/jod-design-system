@@ -16,7 +16,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       return null;
     }
 
-    const { testId, ...rest } = props;
+    const { testId, arrowClassName, ...rest } = props;
 
     return (
       <FloatingPortal>
@@ -43,7 +43,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           <FloatingArrow
             ref={tooltipContext.arrowRef}
             context={tooltipContext.context}
-            className={props.arrowClassName ?? 'ds:fill-primary-gray'}
+            className={arrowClassName ?? 'ds:fill-primary-gray'}
             width={ARROW_HEIGHT * 2}
             height={ARROW_HEIGHT}
             data-testid={testId ? `${testId}-arrow` : undefined}

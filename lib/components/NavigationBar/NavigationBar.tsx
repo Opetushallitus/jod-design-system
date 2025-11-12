@@ -1,9 +1,13 @@
 import React from 'react';
-import { useCollapseOnScroll } from '../../hooks/useCollapseOnScroll';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { getAccentBgClassForService, type ServiceVariant, tidyClasses as tc } from '../../utils';
+import { cx, Note } from '../../main';
+import { getAccentBgClassForService, getAccentBorderClassForService, type ServiceVariant } from '../../utils';
 import { LogoIconRgb } from '../Logo/LogoIcon';
 import { LogoRgb } from '../Logo/LogoRgb';
+import { getBgClassForNoteVariant } from '../Note/utils';
+import { useNoteStack } from './useNoteStack';
+
+const MAX_Z_INDEX = 9;
 
 export interface NavigationBarLinkProps {
   className?: string;
@@ -12,27 +16,9 @@ export interface NavigationBarLinkProps {
   children: React.ReactNode;
 }
 
-type ServiceBarProps =
-  | {
-      /** Should the service bar be displayed under the navigation bar */
-      showServiceBar: true;
-      /** Service variant for styling */
-      serviceBarVariant: ServiceVariant;
-      /** Service bar title */
-      serviceBarTitle?: string;
-      /** Component to display on the right side of the service bar */
-      serviceBarContent?: React.ReactNode;
-    }
-  | {
-      showServiceBar?: false;
-      serviceBarVariant?: never;
-      serviceBarTitle?: never;
-      serviceBarContent?: never;
-    };
-
 export type NavigationBarLink = React.ComponentType<NavigationBarLinkProps>;
 
-export type NavigationBarProps = {
+export interface NavigationBarProps {
   /** Place for menu opener button */
   menuComponent?: React.ReactNode;
   /** For language selection button **/
@@ -54,9 +40,20 @@ export type NavigationBarProps = {
   refs?: {
     langMenuButtonRef: React.Ref<HTMLLIElement>;
   };
+  /** Service variant for styling */
+  serviceBarVariant: ServiceVariant;
+  /** Service bar title */
+  serviceBarTitle?: string;
+  /** Component to display on the right side of the service bar */
+  serviceBarContent?: React.ReactNode;
+  /** Object containing translations */
+  translations: {
+    showAllNotesLabel: string;
+    ariaLabelCloseNote: string;
+  };
   /** Test id for querying in tests */
   testId?: string;
-} & ServiceBarProps;
+}
 
 /**
  * This component is a navigation bar that displays a logo, and an avatar.
@@ -68,40 +65,47 @@ export const NavigationBar = ({
   renderLink: Link,
   logo,
   refs,
-  showServiceBar,
   serviceBarVariant,
   serviceBarTitle,
   serviceBarContent,
+  translations,
   testId,
 }: NavigationBarProps) => {
   const { sm, lg, xl } = useMediaQueries();
-  const [serviceBarCollapsed, setServiceBarCollapsed] = React.useState(false);
+  const { permanentNotes, temporaryNotes, setTemporaryNotes, permanentNotesHeight, setPermanentNotesRef, isCollapsed } =
+    useNoteStack();
 
-  const onCollapse = React.useCallback(() => {
-    setServiceBarCollapsed(true);
-  }, []);
+  const permanentNotesRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (!permanentNotesRef.current) {
+      return;
+    }
+    setPermanentNotesRef(permanentNotesRef.current);
+  }, [permanentNotesRef, setPermanentNotesRef]);
 
-  const onUncollapse = React.useCallback(() => {
-    setServiceBarCollapsed(false);
-  }, []);
+  React.useEffect(() => {
+    if (isCollapsed) {
+      setTemporaryNotes((prevNotes) => prevNotes.map((n) => ({ ...n, isCollapsed })));
+    } else {
+      setTemporaryNotes((prevNotes) => {
+        if (prevNotes.length === 0) {
+          return prevNotes;
+        }
+        const [first, ...rest] = prevNotes;
+        return [{ ...first, isCollapsed }, ...rest];
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCollapsed]);
 
-  useCollapseOnScroll({
-    onCollapse,
-    onUncollapse,
-    startupDelayMs: 500,
-  });
-
-  const serviceBarContents = (
-    <>
-      {serviceBarTitle ? <span>{serviceBarTitle}</span> : null}
-      {serviceBarContent ? <div>{serviceBarContent}</div> : null}
-    </>
-  );
+  const isAnyTemporaryNoteCollapsed = React.useMemo(() => {
+    return temporaryNotes.length > 0 && temporaryNotes.some((n) => n.isCollapsed);
+  }, [temporaryNotes]);
 
   return (
     <>
       <div
-        className="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10"
+        className={`ds:min-w-min ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10 ds:shadow-border ds:border-b-4 ${getAccentBorderClassForService(serviceBarVariant)}`}
         data-testid={testId}
       >
         <nav
@@ -138,27 +142,85 @@ export const NavigationBar = ({
           </div>
         </nav>
       </div>
-      {showServiceBar && (
+
+      <div
+        className="ds:relative ds:h-[36px]"
+        style={{ height: `${permanentNotesHeight}px` }}
+        data-testid={testId ? `${testId}-service-bar-and-notes-wrapper` : undefined}
+      >
         <div
-          className={tc([
-            'ds:w-full',
-            'ds:flex',
-            'ds:text-white',
-            'ds:text-[12px]',
-            'ds:sm:text-[14px]',
-            'ds:transition-all',
-            'ds:duration-300',
-            'ds:h-8',
-            serviceBarCollapsed ? 'ds:-translate-y-full ds:mt-2' : 'ds:translate-y-0',
-            getAccentBgClassForService(serviceBarVariant),
-          ])}
-          data-testid={testId ? `${testId}-servicebar` : undefined}
+          className={cx(
+            'ds:absolute ds:w-full ds:transition-[top] ds-duration-300',
+            isCollapsed ? 'ds:-top-[36px]' : 'ds:top-0',
+          )}
         >
-          <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
-            {serviceBarContents}
+          <div
+            className={cx(
+              `ds:flex ${getAccentBgClassForService(serviceBarVariant)} ds:text-white ds:sm:text-[14px] ds:text-[12px] ds:h-[36px]`,
+            )}
+            data-testid={testId ? `${testId}-service-bar` : undefined}
+          >
+            <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
+              {serviceBarTitle ? <span>{serviceBarTitle}</span> : null}
+              {serviceBarContent ? <div>{serviceBarContent}</div> : null}
+            </div>
           </div>
+          <div ref={permanentNotesRef} data-testid={testId ? `${testId}-permanent-notes` : undefined}>
+            {permanentNotes.map((note) => (
+              <Note
+                key={note.title}
+                variant={note.variant}
+                title={note.title}
+                description={note.description}
+                permanent={true}
+                readMoreComponent={note.readMoreComponent}
+                ariaClose={translations.ariaLabelCloseNote}
+                zIndex={MAX_Z_INDEX}
+                className="ds:relative"
+              />
+            ))}
+          </div>
+          {temporaryNotes.map((note) => (
+            <Note
+              key={note.title}
+              variant={note.variant}
+              title={note.title}
+              description={note.description}
+              permanent={false}
+              onCloseClick={() => setTemporaryNotes(temporaryNotes.filter((n) => n !== note))}
+              readMoreComponent={note.readMoreComponent}
+              ariaClose={translations.ariaLabelCloseNote}
+              zIndex={MAX_Z_INDEX - temporaryNotes.indexOf(note) - 1}
+              isCollapsed={note.isCollapsed}
+              className="ds:relative"
+            />
+          ))}
+          {temporaryNotes.length > 0 && (
+            <div
+              className={cx(
+                'ds:flex ds:flex-row-reverse ds:xl:container ds:mx-auto ds:w-full ds:transition-[margin] ds:duration-300',
+                isAnyTemporaryNoteCollapsed && !isCollapsed ? 'ds:mt-0' : 'ds:-mt-7',
+              )}
+              style={{
+                zIndex: temporaryNotes.length + 1,
+              }}
+            >
+              <button
+                className={cx(
+                  'ds:px-6 ds:py-2 ds:h-7 ds:rounded-b-md ds:cursor-pointer ds:group ds:mr-6',
+                  getBgClassForNoteVariant(temporaryNotes[0].variant),
+                  'ds:text-button-sm',
+                )}
+                onClick={() => setTemporaryNotes((prevNotes) => prevNotes.map((n) => ({ ...n, isCollapsed: false })))}
+                inert={!isAnyTemporaryNoteCollapsed}
+              >
+                <span className="ds:group-hover:underline">{translations.showAllNotesLabel}</span> (
+                {permanentNotes.length + temporaryNotes.length})
+              </button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };

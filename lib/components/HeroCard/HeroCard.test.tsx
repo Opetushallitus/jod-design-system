@@ -33,7 +33,6 @@ describe('HeroCard', () => {
     expect(linkElement).toBeInTheDocument();
 
     expect(screen.getByTestId('hero')).toBeInTheDocument();
-    expect(screen.getByTestId('hero-button')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 

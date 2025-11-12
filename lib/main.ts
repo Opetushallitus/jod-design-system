@@ -51,10 +51,16 @@ export { LogoBlackSv, LogoRgbSv, LogoWhiteSv } from './components/Logo/LogoSv';
 export { MatomoTracker } from './components/MatomoTracker/MatomoTracker';
 export { MediaCard } from './components/MediaCard/MediaCard';
 export { Modal } from './components/Modal/Modal';
-export { LanguageButton } from './components/NavigationBar/LanguageButton';
-export { MenuButton } from './components/NavigationBar/MenuButton';
-export { NavigationBar } from './components/NavigationBar/NavigationBar';
-export { UserButton } from './components/NavigationBar/UserButton';
+export {
+  LanguageButton,
+  MenuButton,
+  NavigationBar,
+  NoteStackProvider,
+  UserButton,
+  useNoteStack,
+  type PermanentNoteStackElement,
+  type TemporaryNoteStackElement,
+} from './components/NavigationBar';
 export {
   ExternalLinkSections,
   LanguageSelection,
@@ -70,14 +76,7 @@ export {
   type NavigationMenuLanguageSelectionProps,
   type NavigationMenuProps,
 } from './components/NavigationMenu';
-export {
-  Note,
-  NoteStack,
-  NoteStackContext,
-  NoteStackProvider,
-  useNoteStack,
-  type NoteStackNote,
-} from './components/Note';
+export { Note } from './components/Note';
 export { PageNavigation, type PageNavigationProps } from './components/PageNavigation/PageNavigation';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';

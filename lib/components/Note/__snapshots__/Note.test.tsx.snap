@@ -3,8 +3,9 @@
 exports[`Note component > renders with close button 1`] = `
 <div
   aria-atomic="true"
+  aria-hidden="false"
   aria-live="assertive"
-  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:transition-[margin] ds:duration-300 ds:bg-success ds:text-primary-gray"
   data-testid="note3"
   role="alert"
 >
@@ -12,7 +13,7 @@ exports[`Note component > renders with close button 1`] = `
     class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
   >
     <div
-      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full"
     >
       <div
         class="ds:text-heading-4 ds:text-pretty"
@@ -30,7 +31,7 @@ exports[`Note component > renders with close button 1`] = `
     >
       <button
         aria-label="Close"
-        class="ds:cursor-pointer ds:flex"
+        class="ds:flex ds:cursor-pointer"
         data-testid="note3-close"
         type="button"
       >
@@ -57,8 +58,9 @@ exports[`Note component > renders with close button 1`] = `
 exports[`Note component > renders with default variant 1`] = `
 <div
   aria-atomic="true"
+  aria-hidden="false"
   aria-live="assertive"
-  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:transition-[margin] ds:duration-300 ds:bg-success ds:text-primary-gray"
   data-testid="note"
   role="alert"
 >
@@ -66,7 +68,7 @@ exports[`Note component > renders with default variant 1`] = `
     class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
   >
     <div
-      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full"
     >
       <div
         class="ds:text-heading-4 ds:text-pretty"
@@ -89,15 +91,16 @@ exports[`Note component > renders with default variant 1`] = `
 exports[`Note component > renders with error variant 1`] = `
 <div
   aria-atomic="true"
+  aria-hidden="false"
   aria-live="assertive"
-  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-alert ds:text-white ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:transition-[margin] ds:duration-300 ds:bg-alert ds:text-white"
   role="alert"
 >
   <div
     class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
   >
     <div
-      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full"
     >
       <div
         class="ds:text-heading-4 ds:text-pretty"
@@ -120,8 +123,9 @@ exports[`Note component > renders with error variant 1`] = `
 exports[`Note component > renders with read more component 1`] = `
 <div
   aria-atomic="true"
+  aria-hidden="false"
   aria-live="assertive"
-  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:transition-[margin] ds:duration-300 ds:bg-success ds:text-primary-gray"
   data-testid="note2"
   role="alert"
 >
@@ -129,7 +133,7 @@ exports[`Note component > renders with read more component 1`] = `
     class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
   >
     <div
-      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full"
     >
       <div
         class="ds:text-heading-4 ds:text-pretty"
@@ -157,15 +161,16 @@ exports[`Note component > renders with read more component 1`] = `
 exports[`Note component > renders with success variant 1`] = `
 <div
   aria-atomic="true"
+  aria-hidden="false"
   aria-live="assertive"
-  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-success ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:transition-[margin] ds:duration-300 ds:bg-success ds:text-primary-gray"
   role="alert"
 >
   <div
     class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
   >
     <div
-      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full"
     >
       <div
         class="ds:text-heading-4 ds:text-pretty"
@@ -188,15 +193,16 @@ exports[`Note component > renders with success variant 1`] = `
 exports[`Note component > renders with warning variant 1`] = `
 <div
   aria-atomic="true"
+  aria-hidden="false"
   aria-live="assertive"
-  class="ds:transition-all ds:duration-300 ds:overflow-clip ds:z-50 ds:bg-warning ds:text-primary-gray ds:max-h-[128px] ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0"
+  class="ds:px-5 ds:pt-4 ds:pb-3 ds:sm:py-2 ds:md:py-1 ds:lg:py-0 ds:transition-[margin] ds:duration-300 ds:bg-warning ds:text-primary-gray"
   role="alert"
 >
   <div
     class="ds:mx-auto ds:flex ds:min-h-8 ds:items-center ds:justify-center ds:gap-3 ds:sm:gap-6"
   >
     <div
-      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6"
+      class="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full"
     >
       <div
         class="ds:text-heading-4 ds:text-pretty"

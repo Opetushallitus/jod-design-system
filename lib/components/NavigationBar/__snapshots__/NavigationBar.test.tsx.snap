@@ -2,7 +2,7 @@
 
 exports[`NavigationBar > renders no navigation items and no user 1`] = `
 <div
-  class="ds:min-w-min ds:shadow-border ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10"
+  class="ds:min-w-min ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10 ds:shadow-border ds:border-b-4 ds:border-secondary-1-dark"
   data-testid="nav"
 >
   <nav

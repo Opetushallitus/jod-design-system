@@ -1,5 +1,6 @@
 import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
 import { PartialStoryFn } from 'storybook/internal/types';
+import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 import {
   LinkComponent,
@@ -13,8 +14,8 @@ import type { TitledMeta } from '../../utils';
 import { externalLinkSections, languageSelectionItems, menuSection } from '../NavigationMenu/commonStoriesData';
 import { LanguageButton } from './LanguageButton';
 import { NavigationBar, NavigationBarProps } from './NavigationBar';
-
-import { useState } from 'storybook/preview-api';
+import { NoteStackProvider } from './NoteStackProvider';
+import { useNoteStack } from './useNoteStack';
 
 const meta = {
   title: 'Navigation/NavigationBar',
@@ -81,9 +82,18 @@ const parameters = {
 // Common decorators and props for stories to avoid SonarQube duplication issues
 const decorators = [
   (Story: PartialStoryFn<ReactRenderer, NavigationBarProps>) => (
-    <div className="ds:pb-11 ds:h-[280px]">
-      <Story />
-    </div>
+    <NoteStackProvider>
+      <div className="ds:pb-11 ds:bg-bg-gray">
+        <header role="banner" className="ds:sticky ds:top-0 ds:z-30">
+          <Story />
+        </header>
+        {new Array(30).fill('Lorem ipsum dolor sit amet, consectetur adipiscing elit.').map((text, index) => (
+          <p key={index} className="ds:p-4 ds:text-sm">
+            {index + 1}. {text}
+          </p>
+        ))}
+      </div>
+    </NoteStackProvider>
   ),
 ];
 const renderLink: NavigationBarProps['renderLink'] = ({ children }) => <a href="#">{children}</a>;
@@ -93,53 +103,7 @@ const logo: NavigationBarProps['logo'] = {
   srText: 'JOD',
 };
 
-const DefaultRender = (props: NavigationBarProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <ServiceVariantProvider value="yksilo">
-      <NavigationBar
-        {...props}
-        userButtonComponent={
-          <UserButton
-            serviceVariant="yksilo"
-            firstName="Juho-Henrik"
-            isLoggedIn
-            isProfileActive={false}
-            loginLabel="Kirjaudu"
-            profileLabel="Osaamisprofiilini"
-            logoutLabel="Kirjaudu ulos"
-            onLogout={() => console.log('logout')}
-            profileLinkComponent={(props) => <a {...props} href="/#" />}
-            loginLinkComponent={(props) => <a {...props} href="/#" />}
-          />
-        }
-        languageButtonComponent={
-          <LanguageButton
-            serviceVariant="yksilo"
-            supportedLanguageCodes={['fi', 'sv', 'en']}
-            language="fi"
-            translations={{
-              fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
-              sv: { change: 'Andra språk.', label: 'På svenska' },
-              en: { change: 'Change language.', label: 'In English' },
-            }}
-            generateLocalizedPath={(code: string) => `/${code}`}
-            linkComponent={({ children, className, ...rest }) => (
-              <a href="/#" className={className} {...rest}>
-                {children}
-              </a>
-            )}
-          />
-        }
-        menuComponent={<MenuButton label="Valikko" onClick={() => setIsOpen(true)} />}
-      />
-      <NavigationMenu {...menuProps} open={isOpen} onClose={() => setIsOpen(false)} />
-    </ServiceVariantProvider>
-  );
-};
-
 export const Default: Story = {
-  decorators,
   parameters: {
     ...parameters,
     docs: {
@@ -152,9 +116,59 @@ export const Default: Story = {
   args: {
     renderLink,
     logo,
-    showServiceBar: false,
+    serviceBarVariant: 'yksilo',
+    serviceBarTitle: 'Osaamispolkuni',
+    translations: {
+      showAllNotesLabel: 'Näytä kaikki',
+      ariaLabelCloseNote: 'Sulje ilmoitus',
+    },
   },
-  render: DefaultRender,
+  render: (props: NavigationBarProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <NoteStackProvider>
+        <ServiceVariantProvider value="yksilo">
+          <NavigationBar
+            {...props}
+            userButtonComponent={
+              <UserButton
+                serviceVariant="yksilo"
+                firstName="Juho-Henrik"
+                isLoggedIn
+                isProfileActive={false}
+                loginLabel="Kirjaudu"
+                profileLabel="Osaamisprofiilini"
+                logoutLabel="Kirjaudu ulos"
+                onLogout={() => console.log('logout')}
+                profileLinkComponent={(props) => <a {...props} href="/#" />}
+                loginLinkComponent={(props) => <a {...props} href="/#" />}
+              />
+            }
+            languageButtonComponent={
+              <LanguageButton
+                serviceVariant="yksilo"
+                supportedLanguageCodes={['fi', 'sv', 'en']}
+                language="fi"
+                translations={{
+                  fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
+                  sv: { change: 'Andra språk.', label: 'På svenska' },
+                  en: { change: 'Change language.', label: 'In English' },
+                }}
+                generateLocalizedPath={(code: string) => `/${code}`}
+                linkComponent={({ children, className, ...rest }) => (
+                  <a href="/#" className={className} {...rest}>
+                    {children}
+                  </a>
+                )}
+              />
+            }
+            menuComponent={<MenuButton label="Valikko" onClick={() => setIsOpen(true)} />}
+          />
+          <NavigationMenu {...menuProps} open={isOpen} onClose={() => setIsOpen(false)} />
+        </ServiceVariantProvider>
+      </NoteStackProvider>
+    );
+  },
 };
 
 export const WithServiceBar: Story = {
@@ -167,19 +181,81 @@ export const WithServiceBar: Story = {
       },
     },
   },
+  render: (props: NavigationBarProps) => {
+    const { permanentNotes, setPermanentNotes, addPermanentNote, temporaryNotes, setTemporaryNotes, addTemporaryNote } =
+      useNoteStack();
+
+    return (
+      <>
+        <NavigationBar
+          {...props}
+          languageButtonComponent={
+            <LanguageButton
+              serviceVariant="yksilo"
+              supportedLanguageCodes={['fi', 'sv', 'en']}
+              language="fi"
+              translations={{
+                fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
+                sv: { change: 'Andra språk.', label: 'På svenska' },
+                en: { change: 'Change language.', label: 'In English' },
+              }}
+              generateLocalizedPath={(code: string) => `/${code}`}
+              linkComponent={({ children, className, ...rest }) => (
+                <a href="/#" className={className} {...rest}>
+                  {children}
+                </a>
+              )}
+            />
+          }
+        />
+        <div className="ds:fixed ds:bottom-0 ds:flex ds:flex-row ds:gap-7 ds:bg-white ds:w-full ds:p-5 ds:justify-center">
+          <button
+            onClick={() => {
+              addPermanentNote({
+                title: `${permanentNotes.length + permanentNotes.length + 1}. Uusi pysyvä ilmoitus palkissa`,
+                description: 'Tämä on ilmoituksen lisätekstiä.',
+                variant: 'feedback',
+              });
+            }}
+            className="ds:cursor-pointer ds:hover:underline"
+          >
+            Lisää pysyvä ilmoitus palkkiin
+          </button>
+          <button
+            onClick={() => {
+              addTemporaryNote({
+                title: `${permanentNotes.length + temporaryNotes.length + 1}. Uusi ilmoitus palkissa`,
+                description: 'Tämä on ilmoituksen lisätekstiä.',
+                variant: 'warning',
+                isCollapsed: false,
+              });
+            }}
+            className="ds:cursor-pointer ds:hover:underline"
+          >
+            Lisää ilmoitus palkkiin
+          </button>
+          <button
+            onClick={() => {
+              setPermanentNotes([]);
+              setTemporaryNotes([]);
+            }}
+            className="ds:cursor-pointer ds:hover:underline"
+          >
+            Tyhjennä ilmoitukset
+          </button>
+        </div>
+      </>
+    );
+  },
   argTypes,
   args: {
     renderLink,
     logo,
-    showServiceBar: true,
     serviceBarVariant: 'yksilo',
     serviceBarTitle: 'Osaamispolkuni',
-    serviceBarContent: (
-      <input
-        type="text"
-        className="ds:bg-white ds:h-7 ds:placeholder:text-[#777] ds:px-4 ds:rounded"
-        placeholder="Hae"
-      />
-    ),
+    translations: {
+      showAllNotesLabel: 'Näytä kaikki',
+      ariaLabelCloseNote: 'Sulje ilmoitus',
+    },
   },
 };
