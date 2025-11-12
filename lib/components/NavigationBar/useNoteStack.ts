@@ -1,5 +1,5 @@
 import React from 'react';
-import { NoteStackContext, type NoteStackContextType } from './NoteStackContext';
+import { NoteStackContext, NoteStackContextType } from './NoteStackContext';
 
 export const useNoteStack = (): NoteStackContextType => {
   const ctx = React.useContext(NoteStackContext);

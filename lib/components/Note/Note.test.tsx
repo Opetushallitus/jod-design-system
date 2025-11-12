@@ -6,7 +6,7 @@ import { Note } from './Note';
 describe('Note component', () => {
   it('renders with default variant', () => {
     const { container } = render(
-      <Note title="Test Title" description="Test Description" testId="note" ariaClose="Close" />,
+      <Note title="Test Title" description="Test Description" variant="success" ariaClose="Close" testId="note" />,
     );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();

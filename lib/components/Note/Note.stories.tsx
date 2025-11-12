@@ -2,10 +2,9 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
-import { Note, NoteStack, NoteStackProvider, useNoteStack } from '.';
 import { JodOpenInNew } from '../../icons';
 import { Button } from '../Button/Button';
-import { NoteProps } from './Note';
+import { Note } from './Note';
 
 const meta = {
   title: 'Popups/Note',
@@ -124,6 +123,7 @@ export const NoCTA: Story = {
   args: {
     title,
     description,
+    variant: 'success',
     onCloseClick: fn(),
     ariaClose: 'Close',
   },
@@ -198,75 +198,6 @@ export const feedback: Story = {
       />
     ),
     onCloseClick: fn(),
-    ariaClose: 'Close',
-  },
-};
-
-export const WithNoteStack: Story = {
-  decorators: [
-    (Story) => (
-      <div className="ds:h-[400px] ds:overflow-y-auto">
-        <Story />
-      </div>
-    ),
-  ],
-  render: (args) => {
-    const NoteStackDemo = () => {
-      const { addNote, removeNote, notes } = useNoteStack();
-      const variants = ['success', 'error', 'warning', 'feedback'] as NoteProps['variant'][];
-      return (
-        <div className="ds:flex ds:flex-col ds:gap-5 ds:relative">
-          <div className="ds:fixed ds:top-0 ds:w-full">
-            <NoteStack showAllText="Näytä kaikki" />
-          </div>
-          <div className="ds:mt-[200px] ds:flex ds:gap-5 ds:justify-center">
-            {variants.map((variant) => (
-              <Button
-                key={variant}
-                variant="accent"
-                size="sm"
-                label={variant!}
-                className="ds:capitalize"
-                onClick={() => addNote({ ...args, variant, title: variant?.toLocaleUpperCase() })}
-              />
-            ))}
-            <Button
-              variant="accent"
-              size="sm"
-              label="Permanent"
-              onClick={() => addNote({ ...args, variant: 'error', title: 'PERMANENT', permanent: true })}
-            />
-            <Button
-              variant="red-delete"
-              size="sm"
-              label="Clear"
-              onClick={() => notes.forEach((n) => removeNote(n.id))}
-            />
-          </div>
-        </div>
-      );
-    };
-
-    return (
-      <NoteStackProvider>
-        <NoteStackDemo />
-      </NoteStackProvider>
-    );
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=14337-67043',
-    },
-    docs: {
-      description: {
-        story:
-          'Notes inside a stack component. The stack uses a hook to manage the notes. Notes are sorted by variant and permanent status. When user scrolls the page down, all notes besides permanent ones will collapse. Notes uncollapse when scrolling up. You can add and clear notes by using the provided buttons.',
-      },
-    },
-  },
-  args: {
-    description,
     ariaClose: 'Close',
   },
 };

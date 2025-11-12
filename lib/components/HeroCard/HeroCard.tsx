@@ -38,7 +38,7 @@ export type HeroCardProps = {
 /** Cards group information into flexible containers that allow users to browse a collection of related items and actions. */
 export const HeroCard = ({
   to,
-  linkComponent,
+  linkComponent: LinkComponent,
   buttonVariant = 'white',
   buttonIcon = <JodArrowRight size={24} />,
   title,
@@ -55,7 +55,6 @@ export const HeroCard = ({
     'ds:text-hero-mobile ds:sm:text-hero': size === 'lg' && titleClassName === undefined,
     'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm' && titleClassName === undefined,
   });
-  const LinkComponent = linkComponent;
   const shouldRenderButton = buttonLabel && ((to && LinkComponent) || onClick);
 
   const TitleTag = `h${titleLevel}` as keyof JSX.IntrinsicElements;
@@ -74,24 +73,9 @@ export const HeroCard = ({
           {...(to &&
             LinkComponent && {
               // eslint-disable-next-line react/no-unstable-nested-components
-              linkComponent: ({
-                children,
-                className,
-                ariaLabel,
-                testId,
-              }: {
-                children: React.ReactNode;
-                className: string;
-                ariaLabel?: string;
-                testId?: string;
-              }) => (
+              linkComponent: ({ children, className }: { children: React.ReactNode; className: string }) => (
                 <div>
-                  <LinkComponent
-                    className={`${className} ds:group ds:outline-hidden`}
-                    to={to}
-                    ariaLabel={ariaLabel}
-                    testId={testId}
-                  >
+                  <LinkComponent className={`${className} ds:group ds:outline-hidden`} to={to}>
                     {children}
                   </LinkComponent>
                 </div>

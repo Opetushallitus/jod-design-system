@@ -35,12 +35,21 @@ export type TitledMeta<T> = Meta<T> & {
 export type ServiceVariant = 'yksilo' | 'ohjaaja' | 'tietopalvelu' | 'palveluportaali';
 
 // Utility functions to get CSS classes based on service variant
+
 export const getAccentBgClassForService = (variant: ServiceVariant) =>
   cx({
     'ds:bg-secondary-1-dark': variant === 'yksilo',
     'ds:bg-secondary-2-dark': variant === 'ohjaaja',
     'ds:bg-secondary-gray': variant === 'palveluportaali',
     'ds:bg-secondary-4-dark': variant === 'tietopalvelu',
+  });
+
+export const getAccentBorderClassForService = (variant: ServiceVariant) =>
+  cx({
+    'ds:border-secondary-1-dark': variant === 'yksilo',
+    'ds:border-secondary-2-dark': variant === 'ohjaaja',
+    'ds:border-secondary-gray': variant === 'palveluportaali',
+    'ds:border-secondary-4-dark': variant === 'tietopalvelu',
   });
 
 export const getPressedBgColorClassForService = (variant: ServiceVariant) =>
