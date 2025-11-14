@@ -87,3 +87,24 @@ export const WithValue: Story = {
     value: '2024-06-01',
   },
 };
+
+export const WithMinAndMaxDate: Story = {
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters,
+  render: (args) => {
+    const [value, setValue] = useState(args.value);
+    return <Datepicker {...args} value={value} onChange={(e) => setValue(e.target.value)} />;
+  },
+  args: {
+    ...args,
+    value: '2024-06-01',
+    minDate: new Date(),
+    maxDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days from now
+  },
+};

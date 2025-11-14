@@ -39,6 +39,8 @@ type AccordionProps = {
   testId?: string;
   /** Classnames for wrapper */
   className?: string;
+  /** Content to show when accordion is collapsed */
+  collapsedContent?: React.ReactNode;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -60,6 +62,7 @@ export const Accordion = ({
   testId,
   isOpen: controlledIsOpen,
   setIsOpen: controlledSetIsOpen,
+  collapsedContent,
   className = '',
 }: AccordionProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
@@ -114,15 +117,14 @@ export const Accordion = ({
           )}
           data-testid={testId}
         >
-          <span className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3 ds:group-hover:underline">
-            {title}
-          </span>
+          <span className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3">{title}</span>
           <span style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
             {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </span>
         </button>
       </div>
       {isOpen && (!fetchData || fetchStatus === 'done') && children}
+      {!isOpen && collapsedContent}
     </div>
   );
 };

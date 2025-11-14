@@ -119,3 +119,23 @@ export const GrayClosedByDefault: Story = {
     className: 'ds:bg-bg-gray-2 ds:p-3',
   },
 };
+
+export const CollapsedContent: Story = {
+  decorators,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=18476-74978',
+    },
+    docs: {
+      description: {
+        story: 'Accordion that has content to show when collapsed',
+      },
+    },
+  },
+  args: {
+    title: 'Accordion title',
+    children: 'Accordion expanded content',
+    collapsedContent: <div className="ds:text-md ds:text-primary-gray ds:mt-5">Collapsed content</div>,
+  },
+};

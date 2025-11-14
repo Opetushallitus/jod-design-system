@@ -95,6 +95,10 @@ export interface DatepickerProps {
   testId?: string;
   /** Showing required text in parentheses, showing after the label */
   requiredText?: string;
+  /** Minimum selectable date */
+  minDate?: Date;
+  /** Maximum selectable date */
+  maxDate?: Date;
 }
 
 /** Datepicker component for selecting a date. */
@@ -110,6 +114,8 @@ export const Datepicker = ({
   translations,
   testId,
   requiredText,
+  minDate,
+  maxDate,
 }: DatepickerProps) => {
   const helpId = React.useId();
   const timeZone = 'Europe/Helsinki';
@@ -156,6 +162,8 @@ export const Datepicker = ({
     isDateUnavailable: (date) => isInvalidYear(date.year),
     parse: parseInputValue,
     format: formatValue,
+    min: minDate ? parseDate(minDate) : undefined,
+    max: maxDate ? parseDate(maxDate) : undefined,
   });
 
   return (
