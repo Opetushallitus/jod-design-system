@@ -211,11 +211,11 @@ export const WithServiceBar: Story = {
         <div className="ds:fixed ds:bottom-0 ds:flex ds:flex-row ds:gap-7 ds:bg-white ds:w-full ds:p-5 ds:justify-center">
           <button
             onClick={() => {
-              addPermanentNote({
+              addPermanentNote(() => ({
                 title: `${permanentNotes.length + permanentNotes.length + 1}. Uusi pysyvä ilmoitus palkissa`,
                 description: 'Tämä on ilmoituksen lisätekstiä.',
                 variant: 'feedback',
-              });
+              }));
             }}
             className="ds:cursor-pointer ds:hover:underline"
           >
@@ -223,12 +223,12 @@ export const WithServiceBar: Story = {
           </button>
           <button
             onClick={() => {
-              addTemporaryNote({
+              addTemporaryNote(() => ({
                 title: `${permanentNotes.length + temporaryNotes.length + 1}. Uusi ilmoitus palkissa`,
                 description: 'Tämä on ilmoituksen lisätekstiä.',
                 variant: 'warning',
                 isCollapsed: false,
-              });
+              }));
             }}
             className="ds:cursor-pointer ds:hover:underline"
           >

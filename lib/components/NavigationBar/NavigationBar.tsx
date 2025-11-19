@@ -55,6 +55,10 @@ export interface NavigationBarProps {
   testId?: string;
 }
 
+const setNotesCollapsedValue = <T extends { isCollapsed: boolean }>(notes: (() => T)[], isCollapsed: boolean) => {
+  return notes.map((n) => () => ({ ...n(), isCollapsed }));
+};
+
 /**
  * This component is a navigation bar that displays a logo, and an avatar.
  */
@@ -85,21 +89,21 @@ export const NavigationBar = ({
 
   React.useEffect(() => {
     if (isCollapsed) {
-      setTemporaryNotes((prevNotes) => prevNotes.map((n) => ({ ...n, isCollapsed })));
+      setTemporaryNotes((prevNotes) => setNotesCollapsedValue(prevNotes, isCollapsed));
     } else {
       setTemporaryNotes((prevNotes) => {
         if (prevNotes.length === 0) {
           return prevNotes;
         }
         const [first, ...rest] = prevNotes;
-        return [{ ...first, isCollapsed }, ...rest];
+        return [() => ({ ...first(), isCollapsed }), ...rest];
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCollapsed]);
 
   const isAnyTemporaryNoteCollapsed = React.useMemo(() => {
-    return temporaryNotes.length > 0 && temporaryNotes.some((n) => n.isCollapsed);
+    return temporaryNotes.some((n) => n().isCollapsed);
   }, [temporaryNotes]);
 
   return (
@@ -166,35 +170,41 @@ export const NavigationBar = ({
             </div>
           </div>
           <div ref={permanentNotesRef} data-testid={testId ? `${testId}-permanent-notes` : undefined}>
-            {permanentNotes.map((note) => (
+            {permanentNotes.map((note) => {
+              const { title, description, variant, readMoreComponent } = note();
+              return (
+                <Note
+                  key={title}
+                  variant={variant}
+                  title={title}
+                  description={description}
+                  permanent={true}
+                  readMoreComponent={readMoreComponent}
+                  ariaClose={translations.ariaLabelCloseNote}
+                  zIndex={MAX_Z_INDEX}
+                  className="ds:relative"
+                />
+              );
+            })}
+          </div>
+          {temporaryNotes.map((note) => {
+            const { title, description, variant, readMoreComponent, isCollapsed } = note();
+            return (
               <Note
-                key={note.title}
-                variant={note.variant}
-                title={note.title}
-                description={note.description}
-                permanent={true}
-                readMoreComponent={note.readMoreComponent}
+                key={title}
+                variant={variant}
+                title={title}
+                description={description}
+                permanent={false}
+                onCloseClick={() => setTemporaryNotes(temporaryNotes.filter((n) => n !== note))}
+                readMoreComponent={readMoreComponent}
                 ariaClose={translations.ariaLabelCloseNote}
-                zIndex={MAX_Z_INDEX}
+                zIndex={MAX_Z_INDEX - temporaryNotes.indexOf(note) - 1}
+                isCollapsed={isCollapsed}
                 className="ds:relative"
               />
-            ))}
-          </div>
-          {temporaryNotes.map((note) => (
-            <Note
-              key={note.title}
-              variant={note.variant}
-              title={note.title}
-              description={note.description}
-              permanent={false}
-              onCloseClick={() => setTemporaryNotes(temporaryNotes.filter((n) => n !== note))}
-              readMoreComponent={note.readMoreComponent}
-              ariaClose={translations.ariaLabelCloseNote}
-              zIndex={MAX_Z_INDEX - temporaryNotes.indexOf(note) - 1}
-              isCollapsed={note.isCollapsed}
-              className="ds:relative"
-            />
-          ))}
+            );
+          })}
           {temporaryNotes.length > 0 && (
             <div
               className={cx(
@@ -208,10 +218,10 @@ export const NavigationBar = ({
               <button
                 className={cx(
                   'ds:px-6 ds:py-2 ds:h-7 ds:rounded-b-md ds:cursor-pointer ds:group ds:mr-6',
-                  getBgClassForNoteVariant(temporaryNotes[0].variant),
+                  getBgClassForNoteVariant(temporaryNotes[0]().variant),
                   'ds:text-button-sm',
                 )}
-                onClick={() => setTemporaryNotes((prevNotes) => prevNotes.map((n) => ({ ...n, isCollapsed: false })))}
+                onClick={() => setTemporaryNotes((prevNotes) => setNotesCollapsedValue(prevNotes, false))}
                 inert={!isAnyTemporaryNoteCollapsed}
               >
                 <span className="ds:group-hover:underline">{translations.showAllNotesLabel}</span> (
