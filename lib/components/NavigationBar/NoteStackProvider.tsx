@@ -2,9 +2,27 @@ import React from 'react';
 import { NoteStackContext, PermanentNoteStackElement, TemporaryNoteStackElement } from './NoteStackContext';
 import { useCollapseOnScroll } from './utils';
 
+const addOrUpdateNote = <T extends { id?: string }>(noteFns: (() => T)[], noteFn: () => T): (() => T)[] => {
+  if (!noteFn().id) {
+    return [...noteFns, noteFn];
+  }
+  const noteIndex = noteFns.findIndex((n) => n().id === noteFn().id);
+  if (noteIndex >= 0) {
+    const newNotes = [...noteFns];
+    newNotes[noteIndex] = noteFn;
+    return newNotes;
+  } else {
+    return [...noteFns, noteFn];
+  }
+};
+
+const removeNote = <T extends { id?: string }>(noteFns: (() => T)[], id: string): (() => T)[] => {
+  return noteFns.filter((noteFn) => noteFn().id !== id);
+};
+
 export const NoteStackProvider = ({ children }: { children: React.ReactNode }) => {
-  const [permanentNotes, setPermanentNotes] = React.useState<PermanentNoteStackElement[]>([]);
-  const [temporaryNotes, setTemporaryNotes] = React.useState<TemporaryNoteStackElement[]>([]);
+  const [permanentNotes, setPermanentNotes] = React.useState<(() => PermanentNoteStackElement)[]>([]);
+  const [temporaryNotes, setTemporaryNotes] = React.useState<(() => TemporaryNoteStackElement)[]>([]);
 
   const permanentNotesRef = React.useRef<HTMLDivElement | null>(null);
   const [permanentNotesHeight, setPermanentNotesHeight] = React.useState(0);
@@ -24,39 +42,52 @@ export const NoteStackProvider = ({ children }: { children: React.ReactNode }) =
 
   const isCollapsed = useCollapseOnScroll();
 
-  return (
-    <NoteStackContext.Provider
-      value={{
-        permanentNotes,
-        setPermanentNotes: (notes) => {
-          setPermanentNotes(notes);
-        },
-        addPermanentNote(note) {
-          setPermanentNotes((prevNotes) => [...prevNotes, note]);
-        },
-        removePermanentNote: (id: string) => {
-          setPermanentNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
-        },
+  const setPermanentNotesRef = React.useCallback((element: HTMLDivElement | null) => {
+    permanentNotesRef.current = element;
+  }, []);
 
-        temporaryNotes,
-        setTemporaryNotes: (notes) => {
-          setTemporaryNotes(notes);
-        },
-        addTemporaryNote(note) {
-          setTemporaryNotes((prevNotes) => [...prevNotes, note]);
-        },
-        removeTemporaryNote: (id: string) => {
-          setTemporaryNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
-        },
+  const addTemporaryNote = React.useCallback((note: () => TemporaryNoteStackElement) => {
+    setTemporaryNotes((prevNotes) => addOrUpdateNote(prevNotes, note));
+  }, []);
 
-        permanentNotesHeight,
-        setPermanentNotesRef: (element) => {
-          permanentNotesRef.current = element;
-        },
-        isCollapsed,
-      }}
-    >
-      {children}
-    </NoteStackContext.Provider>
+  const removeTemporaryNote = React.useCallback((id: string) => {
+    setTemporaryNotes((prevNotes) => removeNote(prevNotes, id));
+  }, []);
+
+  const addPermanentNote = React.useCallback((note: () => PermanentNoteStackElement) => {
+    setPermanentNotes((prevNotes) => addOrUpdateNote(prevNotes, note));
+  }, []);
+
+  const removePermanentNote = React.useCallback((id: string) => {
+    setPermanentNotes((prevNotes) => removeNote(prevNotes, id));
+  }, []);
+
+  const contextValue = React.useMemo(
+    () => ({
+      permanentNotes,
+      setPermanentNotes,
+      addPermanentNote,
+      removePermanentNote,
+      temporaryNotes,
+      setTemporaryNotes,
+      addTemporaryNote,
+      removeTemporaryNote,
+      permanentNotesHeight,
+      setPermanentNotesRef,
+      isCollapsed,
+    }),
+    [
+      permanentNotes,
+      addPermanentNote,
+      removePermanentNote,
+      temporaryNotes,
+      addTemporaryNote,
+      removeTemporaryNote,
+      permanentNotesHeight,
+      setPermanentNotesRef,
+      isCollapsed,
+    ],
   );
+
+  return <NoteStackContext.Provider value={contextValue}>{children}</NoteStackContext.Provider>;
 };
