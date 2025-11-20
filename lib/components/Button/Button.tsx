@@ -162,7 +162,7 @@ export const Button = ({
     onlyIcon,
   });
 
-  const spanClassName = cx({
+  const spanClassName = cx('ds:text-center', {
     'ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline': !disabled,
     'ds:py-3 ds:min-h-7': size === 'sm',
     'ds:py-4': size === 'lg' && variant !== 'plain',

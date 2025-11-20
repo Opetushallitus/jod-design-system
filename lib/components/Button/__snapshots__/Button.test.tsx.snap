@@ -7,7 +7,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
+    class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
   >
     Click me
   </span>
@@ -22,7 +22,7 @@ exports[`Button > renders the button as disabled 1`] = `
   type="button"
 >
   <span
-    class="ds:py-4"
+    class="ds:text-center ds:py-4"
   >
     Click me
   </span>
@@ -36,7 +36,7 @@ exports[`Button > renders the button with the correct label 1`] = `
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
+    class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
   >
     Click me
   </span>
@@ -50,7 +50,7 @@ exports[`Button > renders the button with the correct size 1`] = `
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-3 ds:min-h-7"
+    class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-3 ds:min-h-7"
   >
     Click me
   </span>
@@ -64,7 +64,7 @@ exports[`Button > renders the button with the correct variant 1`] = `
   type="button"
 >
   <span
-    class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
+    class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
   >
     Click me
   </span>

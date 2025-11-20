@@ -22,7 +22,7 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
       href="/"
     >
       <span
-        class="ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
+        class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
       >
         Test Button Label
       </span>
