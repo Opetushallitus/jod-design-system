@@ -160,8 +160,9 @@ export const NavigationBar = ({
         >
           <div
             className={cx(
-              `ds:flex ${getAccentBgClassForService(serviceBarVariant)} ds:text-white ds:sm:text-[14px] ds:text-[12px] ds:h-[36px]`,
+              `ds:flex ${getAccentBgClassForService(serviceBarVariant)} ds:relative ds:text-white ds:sm:text-[14px] ds:text-[12px] ds:h-[36px]`,
             )}
+            style={{ zIndex: MAX_Z_INDEX }}
             data-testid={testId ? `${testId}-service-bar` : undefined}
           >
             <div className="ds:flex ds:xl:container ds:mx-auto ds:items-center ds:justify-between ds:w-full ds:sm:px-9 ds:px-5">
@@ -169,24 +170,26 @@ export const NavigationBar = ({
               {serviceBarContent ? <div>{serviceBarContent}</div> : null}
             </div>
           </div>
-          <div ref={permanentNotesRef} data-testid={testId ? `${testId}-permanent-notes` : undefined}>
-            {permanentNotes.map((note) => {
-              const { title, description, variant, readMoreComponent } = note();
-              return (
-                <Note
-                  key={title}
-                  variant={variant}
-                  title={title}
-                  description={description}
-                  permanent={true}
-                  readMoreComponent={readMoreComponent}
-                  ariaClose={translations.ariaLabelCloseNote}
-                  zIndex={MAX_Z_INDEX}
-                  className="ds:relative"
-                />
-              );
-            })}
-          </div>
+          {permanentNotes.length > 0 && (
+            <div ref={permanentNotesRef} data-testid={testId ? `${testId}-permanent-notes` : undefined}>
+              {permanentNotes.map((note) => {
+                const { title, description, variant, readMoreComponent } = note();
+                return (
+                  <Note
+                    key={title}
+                    variant={variant}
+                    title={title}
+                    description={description}
+                    permanent={true}
+                    readMoreComponent={readMoreComponent}
+                    ariaClose={translations.ariaLabelCloseNote}
+                    zIndex={MAX_Z_INDEX}
+                    className="ds:relative"
+                  />
+                );
+              })}
+            </div>
+          )}
           {temporaryNotes.map((note) => {
             const { title, description, variant, readMoreComponent, isCollapsed } = note();
             return (
