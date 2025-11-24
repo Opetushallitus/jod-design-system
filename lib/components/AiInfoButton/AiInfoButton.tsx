@@ -20,11 +20,9 @@ export const AiInfoButton = ({
   testId,
   placement = 'bottom-start',
 }: AiInfoButtonProps) => {
-  const [open, setOpen] = React.useState(false);
-
   return tooltipContent ? (
-    <Tooltip open={open} onOpenChange={setOpen} placement={placement}>
-      <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} testId={testId} open={open}>
+    <Tooltip initialOpen={false} placement={placement}>
+      <TooltipTrigger ariaLabel={ariaLabel} testId={testId}>
         <JodAiGradient className="ds:text-secondary-gray ds:mb-2" aria-label={ariaLabel} size={size} />
       </TooltipTrigger>
       <TooltipContent

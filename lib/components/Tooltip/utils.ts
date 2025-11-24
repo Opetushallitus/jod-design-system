@@ -3,7 +3,9 @@ import {
   autoUpdate,
   flip,
   offset,
+  safePolygon,
   shift,
+  useClick,
   useDismiss,
   useFloating,
   useFocus,
@@ -24,6 +26,7 @@ export function useTooltip({
   placement = 'top',
   open: controlledOpen,
   onOpenChange: setControlledOpen,
+  clickToToggle = true,
 }: TooltipOptions = {}) {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(initialOpen);
   const arrowRef = React.useRef(null);
@@ -56,6 +59,8 @@ export function useTooltip({
   const hover = useHover(context, {
     move: false,
     enabled: controlledOpen == null,
+    delay: { open: 0, close: 150 },
+    handleClose: safePolygon({ buffer: 4 }),
   });
 
   const focus = useFocus(context, {
@@ -64,8 +69,10 @@ export function useTooltip({
 
   const dismiss = useDismiss(context);
   const role = useRole(context, { role: 'tooltip' });
-
-  const interactions = useInteractions([hover, focus, dismiss, role]);
+  const click = useClick(context, {
+    enabled: clickToToggle && controlledOpen == null,
+  });
+  const interactions = useInteractions([hover, focus, click, dismiss, role]);
 
   return React.useMemo(
     () => ({
