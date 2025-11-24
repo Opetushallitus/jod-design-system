@@ -85,3 +85,25 @@ export const Tooltip: Story = {
     variant: 'presentation',
   },
 };
+
+export const SelectableWithTooltipNoClickToggle: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Clickable tag with tooltip: click performs the tag action only; tooltip opens via hover/focus (no click toggle).',
+      },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-6028',
+    },
+  },
+  args: {
+    label: 'selectable',
+    tooltip: 'This is the tooltip text',
+    onClick: fn(),
+    sourceType: 'kiinnostus',
+    variant: 'selectable',
+  },
+};

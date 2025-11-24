@@ -21,6 +21,8 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
     return (
       <FloatingPortal>
         <div
+          aria-hidden="true"
+          role="tooltip"
           className={tidyClasses([
             'ds:max-w-[280px]',
             'ds:sm:max-w-[320px]',

@@ -48,7 +48,7 @@ const FocusOrHoverStoryRender = (props: TooltipProps) => {
     <div className="ds:flex">
       <span className="ds:text-form-label">Important label</span>
       <Tooltip {...props}>
-        <TooltipTrigger>
+        <TooltipTrigger toggleOnClick>
           <JodInfo />
         </TooltipTrigger>
         <TooltipContent>This is a very informative Tooltip for an important label</TooltipContent>

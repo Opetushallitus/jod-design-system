@@ -7,6 +7,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
   aria-label="Info button"
   class="ds:cursor-pointer"
   data-testid="aiinfo"
+  type="button"
 >
   <svg
     aria-label="Info button"
