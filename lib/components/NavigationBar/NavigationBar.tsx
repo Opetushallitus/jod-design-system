@@ -48,6 +48,7 @@ export interface NavigationBarProps {
   serviceBarContent?: React.ReactNode;
   /** Object containing translations */
   translations: {
+    versionLabel?: string;
     showAllNotesLabel: string;
     ariaLabelCloseNote: string;
   };
@@ -131,7 +132,9 @@ export const NavigationBar = ({
               <div className="ds:flex ds:items-center ds:bg-secondary-3 ds:rounded ds:px-3 ds:mx-2 ds:h-6 ds:text-[12px]">
                 {'Beta'}
               </div>
-              {(lg || xl) && <div className="ds:text-secondary-gray ds:font-normal ds:ml-2">{'Testausversio'}</div>}
+              {(lg || xl) && translations.versionLabel && (
+                <div className="ds:text-secondary-gray ds:font-normal ds:ml-2">{translations.versionLabel}</div>
+              )}
             </div>
           </div>
           <div className="ds:flex ds:items-center">

@@ -119,6 +119,7 @@ export const Default: Story = {
     serviceBarVariant: 'yksilo',
     serviceBarTitle: 'Osaamispolkuni',
     translations: {
+      versionLabel: 'Testausversio',
       showAllNotesLabel: 'Näytä kaikki',
       ariaLabelCloseNote: 'Sulje ilmoitus',
     },
@@ -254,6 +255,7 @@ export const WithServiceBar: Story = {
     serviceBarVariant: 'yksilo',
     serviceBarTitle: 'Osaamispolkuni',
     translations: {
+      versionLabel: 'Testausversio',
       showAllNotesLabel: 'Näytä kaikki',
       ariaLabelCloseNote: 'Sulje ilmoitus',
     },
