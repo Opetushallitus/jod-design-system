@@ -101,7 +101,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId 
 
   return (
     <div
-      className={cx('ds:flex ds:flex-col ds:gap-3 ds:bg-accent ds:text-white', {
+      className={cx('ds:flex ds:flex-col ds:gap-3 ds:bg-ai ds:text-white', {
         'ds:rounded-md ds:px-5 ds:py-6': size === 'md',
         'ds:rounded-lg ds:p-6': size === 'lg',
       })}
@@ -124,11 +124,7 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId 
             disabled={isLikeSubmitting}
             data-testid={testId ? `${testId}-like-button` : undefined}
           >
-            {isLikeSubmitting ? (
-              <JodThumbUpFilled className="ds:text-accent" />
-            ) : (
-              <JodThumbUp className="ds:text-accent" />
-            )}
+            {isLikeSubmitting ? <JodThumbUpFilled className="ds:text-ai" /> : <JodThumbUp className="ds:text-ai" />}
           </button>
           <div className="ds:h-9 ds:min-w-1 ds:bg-border-gray" aria-hidden="true" />
           <ConfirmDialog
@@ -168,9 +164,9 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId 
                 data-testid={testId ? `${testId}-dislike-button` : undefined}
               >
                 {isDislikeSubmitting ? (
-                  <JodThumbDownFilled className="ds:text-accent" />
+                  <JodThumbDownFilled className="ds:text-ai" />
                 ) : (
-                  <JodThumbDown className="ds:text-accent" />
+                  <JodThumbDown className="ds:text-ai" />
                 )}
               </button>
             )}

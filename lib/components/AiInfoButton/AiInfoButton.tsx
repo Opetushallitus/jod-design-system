@@ -1,6 +1,6 @@
 import type { Placement } from '@floating-ui/react';
 import React from 'react';
-import { JodAi } from '../../icons';
+import { JodAiGradient } from '../../icons';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { TooltipContent } from '../Tooltip/TooltipContent';
 import { TooltipTrigger } from '../Tooltip/TooltipTrigger';
@@ -25,7 +25,7 @@ export const AiInfoButton = ({
   return tooltipContent ? (
     <Tooltip open={open} onOpenChange={setOpen} placement={placement}>
       <TooltipTrigger onClick={() => setOpen((v) => !v)} aria-label={ariaLabel} testId={testId} open={open}>
-        <JodAi className="ds:text-secondary-gray ds:mb-2" aria-label={ariaLabel} size={size} />
+        <JodAiGradient className="ds:text-secondary-gray ds:mb-2" aria-label={ariaLabel} size={size} />
       </TooltipTrigger>
       <TooltipContent
         className="ds:text-white ds:p-4 ds:rounded ds:bg-primary-gray ds:font-arial"
@@ -35,6 +35,6 @@ export const AiInfoButton = ({
       </TooltipContent>
     </Tooltip>
   ) : (
-    <JodAi className="ds:text-secondary-gray" aria-label={ariaLabel} size={size} />
+    <JodAiGradient className="ds:text-secondary-gray" aria-label={ariaLabel} size={size} />
   );
 };
