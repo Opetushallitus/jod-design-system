@@ -40,6 +40,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.0",
+    "@lavamoat/allow-scripts": "^3.4.1",
+    "@lavamoat/preinstall-always-fail": "^2.1.1",
     "@singlestore/eslint-plugin-react-hooks-disable-import": "^1.0.2",
     "@storybook/addon-a11y": "^9.1.1",
     "@storybook/addon-docs": "^9.1.1",
@@ -93,5 +95,13 @@
     },
     "./dist/main.css": "./dist/main.css",
     "./lib/theme.css": "./lib/theme.css"
+  },
+  "lavamoat": {
+    "allowScripts": {
+      "@lavamoat/preinstall-always-fail": false,
+      "@tailwindcss/vite>@tailwindcss/oxide": true,
+      "@vitejs/plugin-react-swc>@swc/core": true,
+      "vite>esbuild": true
+    }
   }
 }
