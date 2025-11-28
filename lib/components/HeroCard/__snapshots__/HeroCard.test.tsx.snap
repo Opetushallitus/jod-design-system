@@ -18,11 +18,11 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
   </p>
   <div>
     <a
-      class="ds:inline-flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent ds:group ds:outline-hidden"
+      class="ds:inline-flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-md ds:px-6 ds:min-h-9 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent ds:group ds:outline-hidden"
       href="/"
     >
       <span
-        class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline ds:py-4"
+        class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline"
       >
         Test Button Label
       </span>

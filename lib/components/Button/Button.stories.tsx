@@ -99,8 +99,8 @@ export const AllVariants: Story = {
       },
       {
         label: 'Gray',
-        cmp: <Button {...args} variant="gray" size="sm" />,
-        cmpDisabled: <Button {...args} variant="gray" size="sm" disabled />,
+        cmp: <Button {...args} variant="gray" size="lg" />,
+        cmpDisabled: <Button {...args} variant="gray" size="lg" disabled />,
       },
     ];
 
@@ -129,8 +129,8 @@ export const AllVariants: Story = {
           {smButtons.map((button) => (
             <tr key={button.label} className="ds:border-b ds:border-b-secondary-5">
               <td className="ds:p-3 ds:text-body-2">{button.label}</td>
-              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmp}</td>
-              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmpDisabled}</td>
+              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-6' : ''}`}>{button.cmp}</td>
+              <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-6' : ''}`}>{button.cmpDisabled}</td>
             </tr>
           ))}
         </tbody>
@@ -287,7 +287,7 @@ export const OnlyIcon: Story = {
     design,
     docs: {
       description: {
-        story: 'This is a large button component with an left icon.',
+        story: 'This is large button with only a icon',
       },
     },
   },

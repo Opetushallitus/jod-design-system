@@ -125,9 +125,12 @@ const getButtonClassName = ({
       'ds:pl-4': leftIcon,
       'ds:pr-4': rightIcon && variant !== 'plain',
       'ds:text-button-sm': size === 'sm',
+      'ds:px-5 ds:min-h-7': size === 'sm' && variant !== 'plain',
       'ds:text-button-md': size === 'lg',
-      'ds:rounded-full ds:aspect-square ds:p-1! ds:justify-center ds:size-8': onlyIcon,
-      'ds:px-6 ds:rounded-[30px]': variant !== 'plain',
+      'ds:px-6 ds:min-h-9': size === 'lg' && variant !== 'plain',
+      'ds:rounded-full ds:aspect-square ds:p-1! ds:justify-center ds:min-w-[56px]': onlyIcon,
+      'ds:rounded-[30px]': variant !== 'plain',
+      'ds:px-0': variant === 'plain',
     }),
     getVariantClassName(variant, serviceVariant, disabled),
   ]);
@@ -164,8 +167,6 @@ export const Button = ({
 
   const spanClassName = cx('ds:text-center', {
     'ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline': !disabled,
-    'ds:py-3 ds:min-h-7': size === 'sm',
-    'ds:py-4': size === 'lg' && variant !== 'plain',
   });
 
   const buttonContent = (
