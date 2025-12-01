@@ -35,6 +35,8 @@ type AccordionProps = {
   setIsOpen?: (isOpen: boolean) => void;
   /** Async function to fetch data when the accordion is opened. A loading spinner will be shown while fetching. */
   fetchData?: () => Promise<void>;
+  /** Override open status and force the accordion to be open */
+  forceOpen?: boolean;
   /** Test id for querying in tests */
   testId?: string;
   /** Classnames for wrapper */
@@ -64,10 +66,19 @@ export const Accordion = ({
   setIsOpen: controlledSetIsOpen,
   collapsedContent,
   className = '',
+  forceOpen,
 }: AccordionProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
   const isControlled = controlledIsOpen !== undefined;
-  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+  const isOpen = React.useMemo(() => {
+    if (forceOpen) {
+      return true;
+    } else if (isControlled) {
+      return controlledIsOpen;
+    } else {
+      return internalIsOpen;
+    }
+  }, [controlledIsOpen, internalIsOpen, isControlled, forceOpen]);
   const setIsOpen = isControlled && controlledSetIsOpen ? controlledSetIsOpen : setInternalIsOpen;
 
   // Reset the state when the children change
