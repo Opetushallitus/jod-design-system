@@ -29,7 +29,7 @@ interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string
   /** Controlled mode */
   selected?: U;
   /** Callback on selection change */
-  onChange?: (value: U) => void;
+  onChange?: (value: U | null) => void;
   /** Component is disabled for user interaction */
   disabled?: boolean;
   /** Placeholder text */
