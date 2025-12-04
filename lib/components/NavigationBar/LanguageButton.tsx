@@ -3,6 +3,7 @@ import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodLanguage } from '../../icons';
 import { LanguageMenu } from './LanguageMenu';
+import { PopupMenuWrapper } from './PopupMenuWrapper';
 import { LangCode, LanguageButtonProps, LanguageTranslations } from './types';
 
 const getLanguageOrder = (current: LangCode, translations: LanguageTranslations): JSX.Element => {
@@ -33,11 +34,9 @@ export const LanguageButton = ({
   translations,
   testId,
 }: LanguageButtonProps) => {
-  const { md, sm } = useMediaQueries();
+  const { md } = useMediaQueries();
   const { isOpen: langMenuOpen, close: closeLanguageMenu, triggerProps, menuProps } = usePopupMenu();
   const carets = md ? <>{langMenuOpen ? <JodCaretUp size={20} /> : <JodCaretDown size={20} />}</> : null;
-
-  const positionClass = sm ? 'ds:absolute ds:right-0' : 'ds:fixed ds:left-4 ds:right-4';
 
   return (
     <div className="ds:relative" data-testid={testId}>
@@ -54,11 +53,7 @@ export const LanguageButton = ({
         {carets}
       </button>
       {langMenuOpen && (
-        <div
-          {...menuProps}
-          className={`ds:z-60 ds:flex ds:justify-center ds:translate-y-8 ${positionClass}`}
-          data-testid={testId ? `${testId}-menu` : undefined}
-        >
+        <PopupMenuWrapper menuProps={menuProps} testId={testId ? `${testId}-menu` : undefined}>
           <LanguageMenu
             serviceVariant={serviceVariant}
             supportedLanguageCodes={supportedLanguageCodes}
@@ -69,7 +64,7 @@ export const LanguageButton = ({
             translations={translations}
             testId={testId}
           />
-        </div>
+        </PopupMenuWrapper>
       )}
     </div>
   );

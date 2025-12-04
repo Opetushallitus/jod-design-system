@@ -10,6 +10,7 @@ import {
   tidyClasses as tc,
 } from '../../utils';
 import { PopupList, PopupListItem } from '../PopupList/PopupList';
+import { PopupMenuWrapper } from './PopupMenuWrapper';
 
 interface UserButtonLinkComponent extends LinkComponent {
   'data-testid': string;
@@ -67,11 +68,7 @@ export const UserButton = ({
         {carets}
       </button>
       {userMenuOpen && (
-        <div
-          {...menuProps}
-          className="ds:z-60 ds:absolute ds:right-0 ds:min-w-max ds:translate-y-8 ds:transform"
-          data-testid="user-menu"
-        >
+        <PopupMenuWrapper menuProps={menuProps} testId="user-menu">
           <PopupList classNames="ds:gap-2">
             {profileLinkComponent({
               onClick: closeUserMenu,
@@ -97,7 +94,7 @@ export const UserButton = ({
               <PopupListItem classNames="ds:w-full">{logoutLabel}</PopupListItem>
             </button>
           </PopupList>
-        </div>
+        </PopupMenuWrapper>
       )}
     </div>
   ) : (
