@@ -54,7 +54,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
               dir="ltr"
               id="slider:«r0»:marker:0"
               role="presentation"
-              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(0% - -16px); translate: var(--tx) var(--ty); --tx: -50%; --ty: 0%;"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(0% - -16px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
             >
               <div
                 class="ds:relative"
@@ -92,7 +92,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
               dir="ltr"
               id="slider:«r0»:marker:1"
               role="presentation"
-              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(50% - 0px); translate: var(--tx) var(--ty); --tx: -50%; --ty: 0%;"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(50% - 0px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
             >
               <div
                 class="ds:relative"
@@ -130,7 +130,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
               dir="ltr"
               id="slider:«r0»:marker:2"
               role="presentation"
-              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(100% - 16px); translate: var(--tx) var(--ty); --tx: -50%; --ty: 0%;"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(100% - 16px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
             >
               <div
                 class="ds:relative"
