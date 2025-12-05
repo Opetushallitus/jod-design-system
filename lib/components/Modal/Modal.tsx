@@ -34,16 +34,17 @@ export const Modal = ({
   const { sm } = useMediaQueries();
   const id = React.useId();
 
-  /* 204px =   
-  40px (gap on top of the screen)
-+ 24px (content top padding) 
-+ 24px (content bottom padding) 
-+ 76px (footer height) 
-+ 40px (gap on bottom of the screen)
-
-  ds:sm:max-h-[calc(100vh-204px)] is then the maximum height for the actual content of Modal for desktop
-*/
-  const heightClasses = `ds:max-h-[calc(100vh-172px)] ds:min-h-[calc(100vh-344px)] ds:sm:max-h-[calc(100vh-204px)]`;
+  /* Modal content height constraints:
+     Mobile: max-h-[calc(100vh-172px)], min-h-[calc(100vh-344px)]
+     Desktop (sm+): max-h-[calc(100vh-204px)]
+     
+     204px breakdown:
+     - 40px gap on top of screen
+     - 24px content top padding
+     - 24px content bottom padding
+     - 76px footer height
+     - 40px gap on bottom of screen
+  */
 
   return (
     <Dialog
@@ -65,10 +66,10 @@ export const Modal = ({
         data-testid={testId ? `${testId}-backdrop` : undefined}
       />
       {/* Wrapper container paddings and margins */}
-      <div className="ds:fixed ds:inset-0" data-testid={testId ? `${testId}-container` : undefined}>
+      <div className="ds:fixed ds:inset-0 ds:pt-5 ds:sm:p-10" data-testid={testId ? `${testId}-container` : undefined}>
         {/* Wrapper for container centering */}
         <div
-          className="ds:flex ds:items-center ds:justify-center ds:h-full"
+          className="ds:flex ds:items-end ds:sm:items-center ds:justify-center ds:h-full"
           data-testid={testId ? `${testId}-center` : undefined}
         >
           {/* Modal container */}
@@ -79,19 +80,21 @@ export const Modal = ({
               'ds:flex-col',
               'ds:bg-bg-gray',
               'ds:overflow-hidden',
-              'ds:rounded',
+              'ds:rounded-t',
+              'ds:sm:rounded-lg',
               'ds:w-full',
               'ds:max-w-[1092px]',
-              'ds:sm:rounded-lg',
+              'ds:max-h-full',
             ])}
             data-testid={testId ? `${testId}-panel` : undefined}
           >
-            {/* Content wrapper */}
+            {/* Content wrapper - height is controlled here */}
             <div
               className={tc([
-                heightClasses,
                 'ds:grid',
                 'ds:max-w-[1092px]',
+                'ds:flex-1',
+                'ds:min-h-0',
                 'ds:grid-cols-1',
                 'ds:gap-6',
                 'ds:sm:my-8',
@@ -100,6 +103,7 @@ export const Modal = ({
                 'ds:px-3',
                 'ds:md:px-9',
                 'ds:relative',
+                'ds:overflow-hidden',
               ])}
               data-testid={testId ? `${testId}-content-wrapper` : undefined}
             >
@@ -114,11 +118,11 @@ export const Modal = ({
               )}
               <div
                 className={tc([
-                  heightClasses,
                   'ds:col-span-1',
                   'ds:flex',
                   'ds:flex-col',
-                  'ds:gap-y-6',
+                  'ds:min-h-0',
+                  'ds:overflow-hidden',
                   'ds:pr-0 sm:ds:pr-5',
                   sidePanel || !fullWidthContent
                     ? 'ds:sm:col-span-2'
@@ -130,7 +134,7 @@ export const Modal = ({
                 data-testid={testId ? `${testId}-main` : undefined}
               >
                 <div
-                  className={`ds:overflow-y-auto ds:p-0 ds:px-3 sm:ds:p-3 ${progress ? 'ds:sm:mt-0 ds:mt-5' : ''}`}
+                  className={`ds:overflow-y-auto ds:flex-1 ds:p-0 ds:px-3 sm:ds:p-3 ${progress ? 'ds:sm:mt-0 ds:mt-5' : ''}`}
                   data-testid={testId ? `${testId}-scroll` : undefined}
                 >
                   {content}
@@ -139,11 +143,11 @@ export const Modal = ({
               {/* Side panel */}
               {sm && sidePanel && !fullWidthContent && (
                 <div
-                  className={`ds:col-span-1 ds:flex ds:flex-col ${heightClasses}`}
+                  className={tc(['ds:col-span-1', 'ds:flex', 'ds:flex-col', 'ds:min-h-0', 'ds:overflow-hidden'])}
                   data-testid={testId ? `${testId}-side` : undefined}
                 >
                   <div
-                    className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
+                    className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ds:flex-1 ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
                     data-testid={testId ? `${testId}-side-scroll` : undefined}
                   >
                     {sidePanel}
@@ -154,7 +158,7 @@ export const Modal = ({
             {/* Footer, button area */}
             {footer && (
               <div
-                className="ds:flex ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
+                className="ds:flex ds:flex-shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
                 data-testid={testId ? `${testId}-footer` : undefined}
               >
                 {footer}
