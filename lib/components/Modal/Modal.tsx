@@ -33,9 +33,12 @@ export const Modal = ({
 }: ModalProps) => {
   const { sm } = useMediaQueries();
   const id = React.useId();
+  const panelRef = React.useRef<HTMLDivElement>(null);
+  const [mobileHeight, setMobileHeight] = React.useState<'45vh' | '90vh'>('45vh');
+  const [isMeasuring, setIsMeasuring] = React.useState(false);
 
   /* Modal content height constraints:
-     Mobile: max-h-[calc(100vh-172px)], min-h-[calc(100vh-344px)]
+     Mobile: 45vh (small) or 90vh (large) depending on content
      Desktop (sm+): max-h-[calc(100vh-204px)]
      
      204px breakdown:
@@ -45,6 +48,53 @@ export const Modal = ({
      - 76px footer height
      - 40px gap on bottom of screen
   */
+
+  // Handle mobile height measurement when modal opens
+  React.useEffect(() => {
+    if (!sm) {
+      // First render: allow content to expand naturally for measurement
+      setIsMeasuring(true);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (panelRef.current) {
+            // Measure the natural height of the entire panel
+            const naturalHeight = panelRef.current.scrollHeight;
+
+            // Compare to 45vh
+            const smallHeightThreshold = window.innerHeight * 0.45;
+
+            // Determine which height to use
+            const height = naturalHeight > smallHeightThreshold ? '90vh' : '45vh';
+            setMobileHeight(height);
+            setIsMeasuring(false);
+          }
+        });
+      });
+    }
+  }, [open, sm, content, footer]);
+
+  // Reset state when switching to desktop
+  React.useEffect(() => {
+    if (sm) {
+      setMobileHeight('45vh');
+      setIsMeasuring(false);
+    }
+  }, [sm]);
+
+  // Determine panel height classes based on mobile state
+  const getPanelHeightClasses = () => {
+    if (isMeasuring) {
+      return 'ds:max-h-[90vh] ds:opacity-0 ds:sm:opacity-100';
+    }
+    if (mobileHeight === '45vh') {
+      return 'ds:h-[45vh] ds:opacity-100 ds:sm:h-auto';
+    }
+    if (mobileHeight === '90vh') {
+      return 'ds:h-[90vh] ds:opacity-100 ds:sm:h-auto';
+    }
+    return '';
+  };
 
   return (
     <Dialog
@@ -74,6 +124,7 @@ export const Modal = ({
         >
           {/* Modal container */}
           <DialogPanel
+            ref={panelRef}
             id={`ds-modal-panel-${id}`}
             className={tc([
               'ds:flex',
@@ -84,7 +135,10 @@ export const Modal = ({
               'ds:sm:rounded-lg',
               'ds:w-full',
               'ds:max-w-[1092px]',
-              'ds:max-h-full',
+              'ds:transition-opacity',
+              'ds:duration-0',
+              'ds:sm:max-h-full',
+              getPanelHeightClasses(),
             ])}
             data-testid={testId ? `${testId}-panel` : undefined}
           >
