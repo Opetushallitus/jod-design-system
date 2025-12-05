@@ -137,7 +137,7 @@ export const Modal = ({
               'ds:max-w-[1092px]',
               'ds:transition-opacity',
               'ds:duration-0',
-              'ds:sm:max-h-full',
+              'ds:sm:max-h-[80vh]',
               getPanelHeightClasses(),
             ])}
             data-testid={testId ? `${testId}-panel` : undefined}
