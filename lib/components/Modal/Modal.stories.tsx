@@ -1,7 +1,10 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
+import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { JodArrowLeft, JodCheckmark } from '../../icons';
 import type { TitledMeta } from '../../utils';
+import { Button } from '../Button/Button';
 import { WizardProgress } from '../WizardProgress/WizardProgress';
 import { Modal, ModalProps } from './Modal';
 
@@ -64,6 +67,7 @@ const commonArgs: ModalProps = {
 const render = (args: Story['args']) => {
   const { open, onClose, ...rest } = args;
   const [isOpen, setIsOpen] = useState(open);
+  const { sm } = useMediaQueries();
 
   return (
     <>
@@ -80,33 +84,24 @@ const render = (args: Story['args']) => {
           setIsOpen(false);
         }}
         footer={
-          <div className="ds:flex ds:flex-row ds:justify-between ds:gap-5">
+          <div className="ds:flex ds:flex-row ds:justify-between ds:gap-5 ds:flex-1">
             <div className="ds:flex ds:flex-row ds:gap-5">
-              <Button label="Sulje" onClick={() => setIsOpen(false)} />
-              <Button label="Lisää" />
+              <Button label="Sulje" onClick={() => setIsOpen(false)} size={sm ? 'lg' : 'sm'} />
+              <Button label="Lisää" size={sm ? 'lg' : 'sm'} />
             </div>
             <div className="ds:flex ds:flex-row ds:gap-5">
-              <Button label="Edellinen" />
-              <Button label="Seuraava" />
-              <Button label="Tallenna" />
+              <Button label="Edellinen" size={sm ? 'lg' : 'sm'} icon={sm ? undefined : <JodArrowLeft />} />
+              <Button
+                variant="accent"
+                label="Tallenna"
+                size={sm ? 'lg' : 'sm'}
+                icon={sm ? undefined : <JodCheckmark />}
+              />
             </div>
           </div>
         }
       />
     </>
-  );
-};
-
-const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
-  return (
-    <button
-      className="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:bg-white ds:px-6 ds:text-button-md ds:text-primary-gray ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0"
-      onClick={onClick}
-    >
-      <span className="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline">
-        {label}
-      </span>
-    </button>
   );
 };
 
