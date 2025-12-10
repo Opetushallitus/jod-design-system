@@ -109,8 +109,11 @@ export const ConfirmDialog = ({
                 className="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:w-[630px] ds:flex ds:flex-col ds:justify-between"
                 data-testid={testId ? `${testId}-panel` : undefined}
               >
-                <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:pb-9 ds:px-9">
-                  <DialogTitle id={`ds-confirm-dialog-title-${id}`} className="ds:mb-5 ds:text-heading-1">
+                <div className="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:sm:pb-9 ds:py-6 ds:sm:px-9 ds:px-5">
+                  <DialogTitle
+                    id={`ds-confirm-dialog-title-${id}`}
+                    className="ds:mb-5 ds:sm:text-[32px] ds:text-[29px] ds:sm:leading-[40px] ds:leading-[26px] ds:font-semibold"
+                  >
                     {title}
                   </DialogTitle>
                   <Description as={descriptionTag} className="ds:text-body-sm ds:font-arial ds:min-h-[60px]">
