@@ -11,6 +11,8 @@ interface BaseInputFieldProps {
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** The function to call when the value of the input field changes */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** The function to call when a key is pressed in the input field */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   /** The maximum number of characters that can be entered into the input field */
   maxLength?: number;
   /** The placeholder text to display in the input field */
@@ -53,6 +55,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     value,
     onBlur,
     onChange,
+    onKeyDown,
     maxLength,
     placeholder,
     label,
@@ -92,6 +95,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           value={value}
           onBlur={onBlur}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           maxLength={maxLength}
           placeholder={placeholder}
           autoComplete="off"

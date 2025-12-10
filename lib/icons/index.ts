@@ -48,6 +48,7 @@ export { JodPrint } from './JodPrint';
 export { JodRemove } from './JodRemove';
 export { JodRoute } from './JodRoute';
 export { JodSearch } from './JodSearch';
+export { JodSend } from './JodSend';
 export { JodSettings } from './JodSettings';
 export { JodShare } from './JodShare';
 export { JodSkills } from './JodSkills';
