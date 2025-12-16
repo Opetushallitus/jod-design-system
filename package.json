@@ -74,10 +74,10 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "storybook": "^10.1.4",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^4.1.17",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.39.0",
-    "vite": "^7.1.0",
+    "typescript-eslint": "^8.48.1",
+    "vite": "^7.2.7",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"
   },
