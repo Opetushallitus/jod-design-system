@@ -61,5 +61,7 @@ export { JodThumbUpFilled } from './JodThumbUpFilled';
 export { JodTrendingUp } from './JodTrendingUp';
 export { JodUser } from './JodUser';
 export { JodWarning } from './JodWarning';
+export { JodWavingHand } from './JodWavingHand';
+export { JodWavingHandModified } from './JodWavingHandModified';
 export { JodWork } from './JodWork';
 export { JodWorkPossibilities } from './JodWorkPossibilities';
