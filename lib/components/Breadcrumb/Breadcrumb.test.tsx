@@ -1,6 +1,21 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { Breadcrumb } from './Breadcrumb';
+
+// Mock useMediaQueries hook
+const mockUseMediaQueries = vi.hoisted(() => vi.fn());
+
+vi.mock('../../hooks/useMediaQueries', () => ({
+  useMediaQueries: mockUseMediaQueries,
+}));
+
+// Default mock return value
+mockUseMediaQueries.mockReturnValue({
+  sm: true,
+  md: true,
+  lg: true,
+  xl: true,
+});
 
 const items = [
   { label: 'Etusivu', to: '/' },
@@ -50,5 +65,17 @@ describe('Breadcrumb', () => {
       />,
     );
     expect(screen.getByTestId('crumbs')).toBeInTheDocument();
+  });
+
+  it('does not render last item at all on small screens', () => {
+    mockUseMediaQueries.mockReturnValueOnce({
+      sm: true,
+      md: false,
+      lg: false,
+      xl: false,
+    });
+
+    render(<Breadcrumb items={items} linkComponent={LinkComponent} ariaLabel="Breadcrumb" serviceVariant="yksilo" />);
+    expect(screen.queryByText('Työpaikkani')).not.toBeInTheDocument();
   });
 });

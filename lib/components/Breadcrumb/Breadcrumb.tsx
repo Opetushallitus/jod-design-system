@@ -1,5 +1,6 @@
 import React from 'react';
 import { cx } from '../../cva';
+import { useMediaQueries } from '../../main';
 import { type ServiceVariant } from '../../utils';
 
 export interface BreadcrumbItem {
@@ -16,6 +17,10 @@ export interface BreadcrumbProps {
   testId?: string;
 }
 
+const shouldRenderLink = (item: BreadcrumbItem, isLast: boolean): item is BreadcrumbItem & { to: string } => {
+  return Boolean(item.to && !isLast);
+};
+
 export const Breadcrumb = ({
   items,
   ariaLabel,
@@ -29,6 +34,15 @@ export const Breadcrumb = ({
     'ds:text-secondary-3-dark': serviceVariant === 'palveluportaali',
     'ds:text-secondary-4-dark': serviceVariant === 'tietopalvelu',
   });
+  const { md } = useMediaQueries();
+
+  const shouldRenderText = React.useCallback(
+    (item: BreadcrumbItem, isLast: boolean) => {
+      return (md && isLast) || (!item.to && !isLast);
+    },
+    [md],
+  );
+
   return (
     <nav
       aria-label={ariaLabel}
@@ -46,14 +60,16 @@ export const Breadcrumb = ({
                   {'/'}
                 </span>
               )}
-              {item.to && !isLast ? (
+              {shouldRenderLink(item, isLast) ? (
                 <span className="ds:hover:underline">
                   <LinkComponent to={item.to}>{item.label}</LinkComponent>
                 </span>
               ) : (
-                <span className={textColorClass} aria-current={isLast ? 'page' : undefined}>
-                  {item.label}
-                </span>
+                shouldRenderText(item, isLast) && (
+                  <span className={textColorClass} aria-current={isLast ? 'page' : undefined}>
+                    {item.label}
+                  </span>
+                )
               )}
             </li>
           );
