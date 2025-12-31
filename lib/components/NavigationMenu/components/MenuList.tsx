@@ -50,6 +50,7 @@ const MenuListItem = ({
 
   const hasSelectedDescendant = React.useCallback(
     (items?: MenuItem[]): boolean =>
+      // eslint-disable-next-line react-hooks/immutability
       Array.isArray(items) && items.some((item) => item.selected || hasSelectedDescendant(item.childItems)),
     [],
   );

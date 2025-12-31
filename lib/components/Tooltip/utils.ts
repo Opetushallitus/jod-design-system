@@ -47,6 +47,7 @@ export function useTooltip({
         padding: 5,
       }),
       shift({ padding: 5 }),
+      // eslint-disable-next-line react-hooks/refs
       arrow({
         element: arrowRef,
         padding: BORDER_RADIUS_OFFSET,

@@ -11,7 +11,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
     data-scope="slider"
     data-testid="slider"
     dir="ltr"
-    id="slider:«r0»"
+    id="slider:_r_0_"
     style="--slider-thumb-offset-0: calc(0% - -16px); --slider-thumb-offset-1: calc(100% - 16px); --slider-thumb-width: 32px; --slider-thumb-height: 32px; --slider-thumb-transform: translateX(-50%); --slider-range-start: 0%; --slider-range-end: 0%;"
   >
     <div
@@ -23,7 +23,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
         data-part="control"
         data-scope="slider"
         dir="ltr"
-        id="slider:«r0»:control"
+        id="slider:_r_0_:control"
         style="user-select: none; position: relative;"
       >
         <div
@@ -32,7 +32,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
           data-part="track"
           data-scope="slider"
           dir="ltr"
-          id="slider:«r0»:track"
+          id="slider:_r_0_:track"
           style="position: relative;"
         >
           <div
@@ -52,9 +52,9 @@ exports[`RangeSlider > matches snapshot 1`] = `
               data-state="at-value"
               data-value="0"
               dir="ltr"
-              id="slider:«r0»:marker:0"
+              id="slider:_r_0_:marker:0"
               role="presentation"
-              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(0% - -16px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
+              style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(0% + 16px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
             >
               <div
                 class="ds:relative"
@@ -90,7 +90,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
               data-state="at-value"
               data-value="1"
               dir="ltr"
-              id="slider:«r0»:marker:1"
+              id="slider:_r_0_:marker:1"
               role="presentation"
               style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(50% - 0px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
             >
@@ -128,7 +128,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
               data-state="at-value"
               data-value="2"
               dir="ltr"
-              id="slider:«r0»:marker:2"
+              id="slider:_r_0_:marker:2"
               role="presentation"
               style="visibility: visible; position: absolute; pointer-events: none; inset-inline-start: calc(100% - 16px); translate: var(--translate-x) var(--translate-y); --translate-x: -50%; --translate-y: 0%;"
             >
@@ -166,14 +166,14 @@ exports[`RangeSlider > matches snapshot 1`] = `
             data-part="range"
             data-scope="slider"
             dir="ltr"
-            id="slider:«r0»:range"
+            id="slider:_r_0_:range"
             style="position: absolute; left: var(--slider-range-start); right: var(--slider-range-end);"
           />
         </div>
         <div
           aria-description="Minimun value description"
           aria-label="Min"
-          aria-labelledby="slider:«r0»:label"
+          aria-labelledby="slider:_r_0_:label"
           aria-orientation="horizontal"
           aria-valuemax="2"
           aria-valuemin="0"
@@ -187,15 +187,15 @@ exports[`RangeSlider > matches snapshot 1`] = `
           data-testid="slider-thumb-0"
           dir="ltr"
           draggable="false"
-          id="slider:«r0»:thumb:0"
+          id="slider:_r_0_:thumb:0"
           role="slider"
           style="visibility: visible; position: absolute; transform: var(--slider-thumb-transform); inset-inline-start: var(--slider-thumb-offset-0);"
           tabindex="0"
         >
           <input
             hidden=""
-            id="slider:«r0»:input:0"
-            name="range-slider-«r0»[]"
+            id="slider:_r_0_:input:0"
+            name="range-slider-_r_0_[]"
             type="text"
             value="0"
           />
@@ -203,7 +203,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
         <div
           aria-description="Maximum value description"
           aria-label="1"
-          aria-labelledby="slider:«r0»:label"
+          aria-labelledby="slider:_r_0_:label"
           aria-orientation="horizontal"
           aria-valuemax="2"
           aria-valuemin="0"
@@ -217,15 +217,15 @@ exports[`RangeSlider > matches snapshot 1`] = `
           data-testid="slider-thumb-1"
           dir="ltr"
           draggable="false"
-          id="slider:«r0»:thumb:1"
+          id="slider:_r_0_:thumb:1"
           role="slider"
           style="visibility: visible; position: absolute; transform: var(--slider-thumb-transform); inset-inline-start: var(--slider-thumb-offset-1);"
           tabindex="0"
         >
           <input
             hidden=""
-            id="slider:«r0»:input:1"
-            name="range-slider-«r0»[]"
+            id="slider:_r_0_:input:1"
+            name="range-slider-_r_0_[]"
             type="text"
             value="2"
           />

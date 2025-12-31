@@ -7,7 +7,7 @@ exports[`Datepicker > renders correctly 1`] = `
   data-scope="date-picker"
   data-state="closed"
   dir="ltr"
-  id="datepicker:«r1»"
+  id="datepicker:_r_1_"
 >
   <label
     class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
@@ -16,8 +16,8 @@ exports[`Datepicker > renders correctly 1`] = `
     data-scope="date-picker"
     data-state="closed"
     dir="ltr"
-    for="datepicker:«r1»:input:0"
-    id="datepicker:«r1»:label:0"
+    for="datepicker:_r_1_:input:0"
+    id="datepicker:_r_1_:label:0"
   >
     Pick a date dude!
   </label>
@@ -25,7 +25,7 @@ exports[`Datepicker > renders correctly 1`] = `
     data-part="control"
     data-scope="date-picker"
     dir="ltr"
-    id="datepicker:«r1»:control"
+    id="datepicker:_r_1_:control"
   >
     <div
       class="ds:flex ds:w-full"
@@ -40,13 +40,13 @@ exports[`Datepicker > renders correctly 1`] = `
         data-scope="date-picker"
         data-state="closed"
         dir="ltr"
-        id="datepicker:«r1»:input:0"
+        id="datepicker:_r_1_:input:0"
         placeholder="pp.kk.vvvv"
         spellcheck="false"
         value="1.5.2024"
       />
       <button
-        aria-controls="datepicker:«r1»:content"
+        aria-controls="datepicker:_r_1_:content"
         aria-haspopup="grid"
         aria-label="Open calendar"
         class="ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
@@ -54,7 +54,7 @@ exports[`Datepicker > renders correctly 1`] = `
         data-scope="date-picker"
         data-state="closed"
         dir="ltr"
-        id="datepicker:«r1»:trigger"
+        id="datepicker:_r_1_:trigger"
         type="button"
       >
         <svg

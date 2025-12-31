@@ -2,18 +2,18 @@
 
 exports[`Snapshot testing > Default 1`] = `
 <div
-  aria-labelledby="headlessui-label-«r1»"
+  aria-labelledby="headlessui-label-_r_1_"
   aria-required="false"
   class="ds:flex ds:flex-col ds:space-y-3"
   data-testid="rbg2"
-  id="headlessui-radiogroup-«r0»"
+  id="headlessui-radiogroup-_r_0_"
   role="radiogroup"
 >
   <div
     class="ds:mb-5 ds:text-heading-3 ds:font-poppins ds:text-primary-gray"
     data-headlessui-state=""
     data-testid="rbg2-label"
-    id="headlessui-label-«r1»"
+    id="headlessui-label-_r_1_"
   >
     A
   </div>
@@ -21,7 +21,7 @@ exports[`Snapshot testing > Default 1`] = `
     aria-checked="false"
     class="flex h-7"
     data-headlessui-state=""
-    id="headlessui-radio-«r2»"
+    id="headlessui-radio-_r_2_"
     role="radio"
     tabindex="0"
   >

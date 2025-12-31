@@ -1,3 +1,3 @@
 @import 'tailwindcss' prefix(ds);
-@source not "./components/**/*.stories.tsx";
+@source not './components/**/*.stories.tsx';
 @import './theme.css';

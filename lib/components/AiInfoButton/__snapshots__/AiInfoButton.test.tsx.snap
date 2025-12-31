@@ -2,7 +2,7 @@
 
 exports[`AiInfoButton > renders the button with tooltip 1`] = `
 <button
-  aria-describedby="«r0»"
+  aria-describedby="_r_0_"
   aria-expanded="true"
   aria-label="Info button"
   class="ds:cursor-pointer"
@@ -28,7 +28,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
         fy="462.916"
         gradientTransform="matrix(0 10 10 0 -4617.162 2486.548)"
         gradientUnits="userSpaceOnUse"
-        id="«r2»"
+        id="_r_2_"
         r="1"
       >
         <stop
@@ -44,7 +44,7 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
     <g>
       <path
         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 13.26-1.63 4.41-1.63-4.41-4.41-1.63L8.74 12l1.63-4.41L12 12l4.41 1.63L12 15.26Zm4.53-5.87L15.57 12l-.96-2.61L12 8.43l2.61-.96.96-2.61.96 2.61 2.61.96-2.61.96Z"
-        fill="url(#«r2»)"
+        fill="url(#_r_2_)"
       />
     </g>
   </svg>
@@ -70,7 +70,7 @@ exports[`AiInfoButton > renders the icon only 1`] = `
       fy="462.916"
       gradientTransform="matrix(0 10 10 0 -4617.162 2486.548)"
       gradientUnits="userSpaceOnUse"
-      id="«r5»"
+      id="_r_5_"
       r="1"
     >
       <stop
@@ -86,7 +86,7 @@ exports[`AiInfoButton > renders the icon only 1`] = `
   <g>
     <path
       d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 13.26-1.63 4.41-1.63-4.41-4.41-1.63L8.74 12l1.63-4.41L12 12l4.41 1.63L12 15.26Zm4.53-5.87L15.57 12l-.96-2.61L12 8.43l2.61-.96.96-2.61.96 2.61 2.61.96-2.61.96Z"
-      fill="url(#«r5»)"
+      fill="url(#_r_5_)"
     />
   </g>
 </svg>

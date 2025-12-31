@@ -6,7 +6,7 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
 >
   <label
     class="ds:hidden ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«r9»"
+    for="_r_9_"
   >
     Label
   </label>
@@ -24,7 +24,7 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
         data-headlessui-state=""
-        id="«r9»"
+        id="_r_9_"
         type="button"
       >
         <span
@@ -58,7 +58,7 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
 >
   <label
     class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«ri»"
+    for="_r_i_"
   >
     Label
   </label>
@@ -79,7 +79,7 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
         data-disabled=""
         data-headlessui-state="disabled"
         disabled=""
-        id="«ri»"
+        id="_r_i_"
         type="button"
       >
         <span
@@ -113,7 +113,7 @@ exports[`Select > Snapshot testing > should render with defaults 1`] = `
 >
   <label
     class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="«r0»"
+    for="_r_0_"
   >
     Label
   </label>
@@ -131,7 +131,7 @@ exports[`Select > Snapshot testing > should render with defaults 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
         data-headlessui-state=""
-        id="«r0»"
+        id="_r_0_"
         type="button"
       >
         <span
