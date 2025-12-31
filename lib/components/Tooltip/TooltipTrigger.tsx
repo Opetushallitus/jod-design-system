@@ -61,6 +61,7 @@ export const TooltipTrigger = React.forwardRef<
       'aria-label': ariaLabel,
     } as React.HTMLProps<HTMLElement> & { 'data-testid'?: string };
 
+    // eslint-disable-next-line react-hooks/refs
     return React.cloneElement(children, context.getReferenceProps(merged));
   }
 

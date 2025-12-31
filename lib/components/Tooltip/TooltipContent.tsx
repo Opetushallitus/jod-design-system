@@ -43,7 +43,9 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
         >
           {props.children}
           <FloatingArrow
+            // eslint-disable-next-line react-hooks/refs
             ref={tooltipContext.arrowRef}
+            // eslint-disable-next-line react-hooks/refs
             context={tooltipContext.context}
             className={arrowClassName ?? 'ds:fill-primary-gray'}
             width={ARROW_HEIGHT * 2}
