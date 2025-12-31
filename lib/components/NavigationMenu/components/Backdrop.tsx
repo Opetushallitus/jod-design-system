@@ -5,9 +5,10 @@ export interface BackdropProps {
   dialogRef: React.RefObject<HTMLDialogElement | null>;
   onClose: () => void;
   testId?: string;
+  ariaLabel?: string;
 }
 
-export const Backdrop = ({ children, dialogRef, onClose, testId }: BackdropProps) => {
+export const Backdrop = ({ children, dialogRef, onClose, testId, ariaLabel }: BackdropProps) => {
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Escape') {
       onClose();
@@ -28,6 +29,7 @@ export const Backdrop = ({ children, dialogRef, onClose, testId }: BackdropProps
       onKeyDown={handleKeyDown}
       onClick={handleClickOutside}
       data-testid={testId}
+      aria-label={ariaLabel}
     >
       {children}
     </dialog>

@@ -59,6 +59,10 @@ export interface NavigationMenuProps {
   externalLinkIconAriaLabel: string;
   /** Test id for querying in tests */
   testId?: string;
+  /** Aria label for the navigation menu */
+  ariaLabel?: string;
+  /** Aria label for the navigation element inside the menu */
+  navigationAriaLabel?: string;
 }
 export const NavigationMenu = ({
   onClose,
@@ -77,6 +81,8 @@ export const NavigationMenu = ({
   serviceVariant,
   externalLinkIconAriaLabel,
   testId,
+  ariaLabel,
+  navigationAriaLabel,
 }: NavigationMenuProps) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
 
@@ -96,10 +102,16 @@ export const NavigationMenu = ({
 
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>
-      <Backdrop dialogRef={dialogRef} onClose={onClose} testId={testId ? `${testId}-backdrop` : undefined}>
+      <Backdrop
+        dialogRef={dialogRef}
+        onClose={onClose}
+        testId={testId ? `${testId}-backdrop` : undefined}
+        ariaLabel={ariaLabel}
+      >
         <nav
           className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
           data-testid={testId ? `${testId}-root` : undefined}
+          aria-label={navigationAriaLabel}
         >
           <div
             className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow"
