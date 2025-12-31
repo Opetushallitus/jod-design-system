@@ -29,6 +29,8 @@ interface BaseTextareaProps {
   requiredText?: string;
   /** The error message to display below the input field */
   errorMessage?: string;
+  /** Aria-label for the textarea */
+  ariaLabel?: string;
 }
 
 interface HideLabelProps extends BaseTextareaProps {
@@ -68,6 +70,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
     testId,
     requiredText,
     errorMessage,
+    ariaLabel,
   }: TextareaProps,
   ref,
 ) {
@@ -102,6 +105,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
         aria-invalid={!!errorMessage}
         data-testid={testId}
+        aria-label={ariaLabel}
         className={tc([
           'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
           className,
