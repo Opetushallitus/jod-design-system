@@ -65,10 +65,19 @@ const Header = () => (
   </ArkDatePicker.ViewControl>
 );
 
+export interface DatePickerAriaRoleDescriptions {
+  datepicker: string;
+  calendarMonth: string;
+  calendarYear: string;
+  calendarDecade: string;
+}
+
 type ArkTranslationsInUse = Pick<
   Required<DatePickerRootProps>['translations'],
   'nextTrigger' | 'viewTrigger' | 'prevTrigger' | 'dayCell' | 'trigger'
->;
+> & {
+  roleDescriptions: DatePickerAriaRoleDescriptions;
+};
 
 type RefCallback<T> = (instance: T | null) => void;
 
@@ -211,14 +220,17 @@ export const Datepicker = ({
       <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
       <Portal>
         <ArkDatePicker.Positioner>
-          <ArkDatePicker.Content className="ds:z-50 ds:rounded ds:shadow-border ds:bg-white ds:p-4">
+          <ArkDatePicker.Content
+            className="ds:z-50 ds:rounded ds:shadow-border ds:bg-white ds:p-4"
+            aria-roledescription={translations.roleDescriptions?.datepicker}
+          >
             <ArkDatePicker.View view="day">
               <ArkDatePicker.Context>
                 {(datePicker) => (
                   <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'day'}>
                     <div>
                       <Header />
-                      <ArkDatePicker.Table>
+                      <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarMonth}>
                         <ArkDatePicker.TableHead>
                           <ArkDatePicker.TableRow>
                             {datePicker.weekDays.map((weekDay) => (
@@ -266,7 +278,7 @@ export const Datepicker = ({
                   <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'month'}>
                     <div>
                       <Header />
-                      <ArkDatePicker.Table>
+                      <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarYear}>
                         <ArkDatePicker.TableBody>
                           {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months) => (
                             <ArkDatePicker.TableRow key={months[0].label}>
@@ -294,7 +306,7 @@ export const Datepicker = ({
                   <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'year'}>
                     <div>
                       <Header />
-                      <ArkDatePicker.Table>
+                      <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarDecade}>
                         <ArkDatePicker.TableBody>
                           {datePicker.getYearsGrid({ columns: 4 }).map((years) => (
                             <ArkDatePicker.TableRow key={years[0].label}>
