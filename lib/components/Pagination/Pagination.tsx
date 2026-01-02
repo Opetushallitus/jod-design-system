@@ -88,6 +88,7 @@ export const Pagination = ({
                 key={page.value}
                 {...page}
                 className={getClassName({ isArrowButton: false, isActive: currentPage === page.value, serviceVariant })}
+                aria-label={translations?.itemLabel?.({ page: page.value, totalPages: totalItems })}
               >
                 {page.value}
               </ArkPagination.Item>

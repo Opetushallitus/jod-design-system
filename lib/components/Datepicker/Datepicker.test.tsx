@@ -1,9 +1,10 @@
 import { act, render, screen } from '@testing-library/react';
-import { DateView, DayTableCellState } from '@zag-js/date-picker';
+import { DayTableCellState } from '@zag-js/date-picker';
 import React from 'react';
 import { userEvent } from 'storybook/test';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Datepicker } from './Datepicker';
+import { getDatepickerTranslations } from './DatepickerTranslations';
 
 describe('Datepicker', () => {
   const label = 'Pick a date dude!';
@@ -15,31 +16,34 @@ describe('Datepicker', () => {
   afterEach(() => {
     onChange.mockClear();
   });
-  const viewTranslations = {
-    day: {
-      next: 'Switch to next month',
-      view: 'Switch to month view',
-      prev: 'Switch to previous month',
-    },
-    month: {
-      next: 'Switch to next year',
-      view: 'Switch to year view',
-      prev: 'Switch to previous year',
-    },
-    year: {
-      next: 'Switch to next decade',
-      view: 'Switch to day view',
-      prev: 'Switch to previous decade',
-    },
-  } as const;
 
-  const translations = {
-    nextTrigger: (view: DateView) => viewTranslations[view].next,
-    viewTrigger: (view: DateView) => viewTranslations[view].view,
-    prevTrigger: (view: DateView) => viewTranslations[view].prev,
-    dayCell: (state: DayTableCellState): string => `Choose ${state.formattedDate}`,
-    trigger: (open: boolean): string => (open ? 'Close calendar' : 'Open calendar'),
-  };
+  const translations = getDatepickerTranslations(
+    {
+      day: {
+        next: 'Switch to next month',
+        view: 'Switch to month view',
+        prev: 'Switch to previous month',
+      },
+      month: {
+        next: 'Switch to next year',
+        view: 'Switch to year view',
+        prev: 'Switch to previous year',
+      },
+      year: {
+        next: 'Switch to next decade',
+        view: 'Switch to day view',
+        prev: 'Switch to previous decade',
+      },
+    },
+    (state: DayTableCellState) => `Choose ${state.formattedDate}`,
+    (open: boolean) => (open ? 'Close calendar' : 'Open calendar'),
+    {
+      datepicker: 'Date picker',
+      calendarMonth: 'Calendar month view',
+      calendarYear: 'Calendar year view',
+      calendarDecade: 'Calendar decade view',
+    },
+  );
 
   it('renders correctly', () => {
     vi.useFakeTimers();

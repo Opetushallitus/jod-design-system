@@ -2,9 +2,10 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
 
-import { DateView, DayTableCellState } from '@zag-js/date-picker';
+import { DayTableCellState } from '@zag-js/date-picker';
 import { useState } from 'storybook/preview-api';
 import { Datepicker } from './Datepicker';
+import { getDatepickerTranslations } from './DatepickerTranslations';
 
 const meta = {
   title: 'Forms/Datepicker',
@@ -41,13 +42,17 @@ const viewTranslations = {
   },
 } as const;
 
-const translations = {
-  nextTrigger: (view: DateView) => viewTranslations[view].next,
-  viewTrigger: (view: DateView) => viewTranslations[view].view,
-  prevTrigger: (view: DateView) => viewTranslations[view].prev,
-  dayCell: (state: DayTableCellState): string => `Valitse ${state.formattedDate}`,
-  trigger: (open: boolean): string => (open ? 'Sulje kalenteri' : 'Avaa kalenteri'),
-};
+const translations = getDatepickerTranslations(
+  viewTranslations,
+  (state: DayTableCellState) => `Valitse ${state.formattedDate}`,
+  (open: boolean) => (open ? 'Sulje kalenteri' : 'Avaa kalenteri'),
+  {
+    datepicker: 'Päivämääränvalitsin',
+    calendarMonth: 'Kuukausinäkymä',
+    calendarYear: 'Vuosinäkymä',
+    calendarDecade: 'Vuosikymmennäkymä',
+  },
+);
 
 const args = {
   label: 'Valitse päivämäärä',
