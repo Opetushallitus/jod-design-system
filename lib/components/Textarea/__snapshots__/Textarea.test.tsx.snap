@@ -9,7 +9,7 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta5"
     id="_r_c_"
     placeholder="Enter text"
@@ -26,7 +26,7 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta4"
     id="_r_9_"
     placeholder="Enter text"
@@ -44,7 +44,7 @@ exports[`Textarea > displays help text when provided 1`] = `
     aria-describedby="_r_g_"
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta6"
     id="_r_f_"
     placeholder="Enter text"
@@ -70,7 +70,7 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta2"
     id="_r_3_"
     placeholder="Enter text"
@@ -87,7 +87,7 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta3"
     id="_r_6_"
     placeholder="Enter text"
@@ -104,7 +104,7 @@ exports[`Textarea > renders without crashing 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta1"
     id="_r_0_"
     placeholder="Enter text"
@@ -121,7 +121,7 @@ exports[`Textarea > sets the correct number of rows 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+    class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
     data-testid="ta7"
     id="_r_i_"
     placeholder="Enter text"
