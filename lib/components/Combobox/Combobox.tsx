@@ -95,7 +95,7 @@ export const Combobox = <
                 aria-required={!!requiredText}
                 aria-label={hideLabel ? label : undefined}
                 displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
-                className="ds:font-arial ds:w-full ds:rounded-l ds:border-y ds:border-l ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+                className="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y ds:border-l ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
                 data-testid={testId ? `${testId}-input` : undefined}
@@ -103,7 +103,7 @@ export const Combobox = <
               />
               <ComboboxButton
                 aria-label={label}
-                className="ds:select-none ds:rounded-r ds:border-y ds:border-r ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
+                className="ds:select-none ds:rounded-r-md ds:border-y ds:border-r ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
                 data-testid={testId ? `${testId}-button` : undefined}
               >
