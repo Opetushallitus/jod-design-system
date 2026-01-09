@@ -14,6 +14,7 @@ const GROUP_ORDER = [
   'primary-gray',
   'secondary-gray',
   'inactive-gray',
+  'border-form',
   'border-gray',
   'bg-gray',
   'bg-gray-2',
