@@ -103,7 +103,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           aria-invalid={!!errorMessage}
           data-testid={testId}
           className={tc([
-            'ds:block ds:w-full ds:rounded ds:border ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+            'ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
             className,
           ])}
         />

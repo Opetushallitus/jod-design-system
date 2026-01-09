@@ -76,7 +76,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxButton
                 id={inputId}
                 aria-label={label}
-                className="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-gray ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
+                className="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
                 disabled={disabled}
                 data-testid={testId ? `${testId}-button` : undefined}
                 aria-invalid={!!errorMessage}
