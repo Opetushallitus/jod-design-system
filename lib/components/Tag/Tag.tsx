@@ -17,7 +17,7 @@ interface PresentationTagProps extends BaseTagProps {
 
 interface ActionableTagProps extends BaseTagProps {
   variant?: 'selectable' | 'added';
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export type TagProps = PresentationTagProps | ActionableTagProps;
