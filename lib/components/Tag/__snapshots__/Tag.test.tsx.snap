@@ -4,11 +4,11 @@ exports[`Tag > matches the snapshot 1`] = `
 <div>
   <button
     aria-expanded="false"
-    class="ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-poppins ds:px-4 ds:py-2 ds:text-left ds:cursor-pointer ds:bg-primary-light-2"
+    class="ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-arial ds:leading-none ds:px-4 ds:py-2 ds:text-left ds:max-w-full ds:cursor-pointer ds:bg-bg-gray-2"
     type="button"
   >
     <span
-      class="ds:hyphens-auto ds:text-primary-gray ds:group-hover:underline"
+      class="ds:truncate ds:text-primary-gray ds:group-hover:underline"
     >
       Label here
     </span>

@@ -56,7 +56,7 @@ export const Presentation: Story = {
   },
 };
 
-export const Multiline: Story = {
+export const Ellipsis: Story = {
   decorators: [
     (Story) => (
       <div style={{ maxWidth: '150px' }}>
@@ -71,15 +71,15 @@ export const Multiline: Story = {
     },
   },
   args: {
-    label: 'this should not fit on one line',
-    sourceType: 'rajoitus',
+    label: 'this is a very long tag label that should be truncated with an ellipsis',
+    sourceType: 'koulutus',
     variant: 'presentation',
   },
 };
 
 export const Tooltip: Story = {
   args: {
-    label: 'This tag has a tooltip',
+    label: 'this tag has a tooltip',
     tooltip: 'This is the tooltip text',
     sourceType: 'kiinnostus',
     variant: 'presentation',
