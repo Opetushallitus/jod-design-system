@@ -1,0 +1,32 @@
+name: Backup
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0' # Weekly at 2:00 AM UTC
+jobs:
+  backup:
+    name: Backup
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Needed to interact with GitHub's OIDC Token endpoint
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Create tar archive
+        run: |
+          git clone --bare . backup-bare-repo
+          tar -czf backup-bare-repo.tar.gz backup-bare-repo
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.JOD_BACKUP_AWS_ACCOUNT_ID }}:role/${{ secrets.JOD_BACKUP_AWS_GITHUB_ROLE_NAME}}
+          aws-region: eu-west-1
+
+      - name: Upload backup to S3
+        run: |
+          aws s3 cp backup-bare-repo.tar.gz s3://${{ secrets.JOD_BACKUP_AWS_BUCKET }}/${{ github.event.repository.name }}-backup.tar.gz
