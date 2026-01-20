@@ -99,8 +99,8 @@ export const Accordion = ({
   }, [fetchData, fetchStatus, isOpen, setIsOpen]);
 
   return (
-    <div className={className}>
-      <div className="ds:group">
+    <div className={cx('ds:w-full', className)}>
+      <div className="ds:group ds:w-full">
         <button
           type="button"
           {...(triggerId ? { id: triggerId } : {})}
@@ -117,8 +117,10 @@ export const Accordion = ({
           )}
           data-testid={testId}
         >
-          <span className="ds:mr-5 ds:w-full ds:text-left ds:hyphens-auto ds:text-heading-3">{title}</span>
-          <span style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
+          <span className="ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap ds:text-left ds:text-heading-3">
+            {title}
+          </span>
+          <span className="ds:shrink-0" style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
             {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </span>
         </button>
