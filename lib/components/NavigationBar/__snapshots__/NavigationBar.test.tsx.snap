@@ -77,11 +77,6 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
             </span>
           </div>
         </div>
-        <div
-          class="ds:flex ds:items-center ds:bg-secondary-3 ds:rounded ds:px-3 ds:mx-2 ds:h-6 ds:text-[12px]"
-        >
-          Beta
-        </div>
       </div>
     </div>
     <div
