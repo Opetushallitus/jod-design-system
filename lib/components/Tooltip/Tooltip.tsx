@@ -9,6 +9,7 @@ export interface TooltipOptions {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   clickToToggle?: boolean;
+  delay?: { open: number; close: number };
 }
 
 export interface TooltipProps extends TooltipOptions {
