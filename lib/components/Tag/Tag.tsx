@@ -52,7 +52,7 @@ export const Tag = ({
   testId,
 }: TagProps) => {
   return (
-    <Tooltip clickToToggle={false}>
+    <Tooltip clickToToggle={false} delay={{ open: 500, close: 150 }}>
       <TooltipTrigger asChild>
         {variant === 'presentation' ? (
           <div

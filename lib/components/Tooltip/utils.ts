@@ -27,6 +27,7 @@ export function useTooltip({
   open: controlledOpen,
   onOpenChange: setControlledOpen,
   clickToToggle = true,
+  delay = { open: 0, close: 150 },
 }: TooltipOptions = {}) {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(initialOpen);
   const arrowRef = React.useRef(null);
@@ -60,7 +61,7 @@ export function useTooltip({
   const hover = useHover(context, {
     move: false,
     enabled: controlledOpen == null,
-    delay: { open: 0, close: 150 },
+    delay,
     handleClose: safePolygon({ buffer: 4 }),
   });
 
