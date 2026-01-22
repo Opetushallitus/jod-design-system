@@ -57,11 +57,12 @@ export const UserButton = ({
         {...triggerProps}
         className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-2 ds:md:gap-3"
         data-testid="user-button-trigger"
+        aria-label={username !== firstName ? firstName : undefined}
       >
         <JodUser className="ds:mx-auto" />
         <span
           className="ds:whitespace-nowrap ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px] ds:font-semibold"
-          aria-label={firstName}
+          aria-hidden={username !== firstName ? true : undefined}
         >
           {username}
         </span>
