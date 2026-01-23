@@ -165,7 +165,7 @@ export const Footer = ({
       data-testid={testId}
     >
       <div className={`ds:h-auto ${feedbackBgImageClassName} ds:py-8 ds:sm:max-w-[1440px] ds:mx-auto`}>
-        <div className="ds:max-w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6">
+        <div className="ds:max-w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6 ds:xl:px-0">
           <div className="ds:max-w-[716px]">
             <HeroCard
               size="sm"
@@ -179,7 +179,7 @@ export const Footer = ({
         </div>
       </div>
       <div className="ds:flex ds:justify-start ds:text-white ds:bg-primary-gray ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto">
-        <div className="ds:w-[1092px] ds:mx-auto ds:px-5">
+        <div className="ds:w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6 ds:xl:px-0">
           <div className="ds:flex ds:flex-col">
             <HeadingTag className="ds:text-heading-2-mobile ds:sm:text-heading-2 ds:mb-3">{moreInfoTitle}</HeadingTag>
             <p className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:mb-6">{moreInfoDescription}</p>
