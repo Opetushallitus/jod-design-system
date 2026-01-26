@@ -18,8 +18,8 @@ jobs:
 
       - name: Create tar archive
         run: |
-          git clone --bare . backup-bare-repo
-          tar -czf backup-bare-repo.tar.gz backup-bare-repo
+          git clone --bare . ${{ github.event.repository.name }}.git
+          tar -czf ${{ github.event.repository.name }}.git.tar.gz ${{ github.event.repository.name }}.git
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -29,4 +29,4 @@ jobs:
 
       - name: Upload backup to S3
         run: |
-          aws s3 cp backup-bare-repo.tar.gz s3://${{ secrets.JOD_BACKUP_AWS_BUCKET }}/${{ github.event.repository.name }}-backup.tar.gz
+          aws s3 cp ${{ github.event.repository.name }}.git.tar.gz s3://${{ secrets.JOD_BACKUP_AWS_BUCKET }}/${{ github.event.repository.name }}.git.tar.gz
