@@ -11,6 +11,20 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
   function TooltipContent(props, propRef) {
     const tooltipContext = useTooltipContext();
     const ref = useMergeRefs([tooltipContext.refs.setFloating, propRef]);
+    const [isReady, setIsReady] = React.useState(false);
+
+    // Use layout effect to ensure position is calculated before showing
+    React.useLayoutEffect(() => {
+      if (tooltipContext.open && tooltipContext.x != null && tooltipContext.y != null) {
+        // Small delay to ensure styles are applied
+        const timer = requestAnimationFrame(() => {
+          setIsReady(true);
+        });
+        return () => cancelAnimationFrame(timer);
+      } else {
+        setIsReady(false);
+      }
+    }, [tooltipContext.open, tooltipContext.x, tooltipContext.y]);
 
     if (!tooltipContext.open) {
       return null;
@@ -37,6 +51,8 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           ref={ref}
           style={{
             ...tooltipContext.floatingStyles,
+            // Hide completely until positioned
+            visibility: isReady ? 'visible' : 'hidden',
           }}
           data-testid={testId}
           {...tooltipContext.getFloatingProps(rest)}
