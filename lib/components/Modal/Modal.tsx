@@ -37,7 +37,7 @@ export const Modal = ({
   const { sm } = useMediaQueries();
   const id = React.useId();
   const panelRef = React.useRef<HTMLDivElement>(null);
-  const [mobileHeight, setMobileHeight] = React.useState<'45vh' | '90vh'>('45vh');
+  const [mobileHeight, setMobileHeight] = React.useState<'45dvh' | '90dvh'>('45dvh');
   const [isMeasuring, setIsMeasuring] = React.useState(false);
 
   // Handle mobile height measurement when modal opens
@@ -50,7 +50,7 @@ export const Modal = ({
           const naturalHeight = panelRef.current.scrollHeight;
           const smallHeightThreshold = window.innerHeight * 0.45;
 
-          const height = naturalHeight > smallHeightThreshold ? '90vh' : '45vh';
+          const height = naturalHeight > smallHeightThreshold ? '90dvh' : '45dvh';
           setMobileHeight(height);
           setIsMeasuring(false);
         }
@@ -61,7 +61,7 @@ export const Modal = ({
   // Reset state when switching to desktop
   React.useEffect(() => {
     if (sm) {
-      setMobileHeight('45vh');
+      setMobileHeight('45dvh');
       setIsMeasuring(false);
     }
   }, [sm]);
@@ -69,13 +69,13 @@ export const Modal = ({
   // Determine panel height classes based on mobile state
   const getPanelHeightClasses = () => {
     if (isMeasuring) {
-      return 'ds:max-h-[90vh] ds:opacity-0 ds:sm:opacity-100';
+      return 'ds:max-h-[90dvh] ds:opacity-0 ds:sm:opacity-100';
     }
-    if (mobileHeight === '45vh') {
-      return 'ds:h-[45vh] ds:opacity-100 ds:sm:h-auto';
+    if (mobileHeight === '45dvh') {
+      return 'ds:h-[45dvh] ds:opacity-100 ds:sm:h-auto';
     }
-    if (mobileHeight === '90vh') {
-      return 'ds:h-[90vh] ds:opacity-100 ds:sm:h-auto';
+    if (mobileHeight === '90dvh') {
+      return 'ds:h-[90dvh] ds:opacity-100 ds:sm:h-auto';
     }
     return '';
   };
@@ -115,13 +115,13 @@ export const Modal = ({
               'ds:flex-col',
               'ds:bg-bg-gray',
               'ds:overflow-hidden',
-              'ds:rounded-t',
+              'ds:rounded-t-[20px]',
               'ds:sm:rounded-lg',
               'ds:w-full',
-              'ds:max-w-[1092px]',
+              'ds:max-w-[890px]',
               'ds:transition-opacity',
               'ds:duration-0',
-              'ds:sm:max-h-[80vh]',
+              'ds:sm:max-h-[80dvh]',
               getPanelHeightClasses(),
               className,
             ])}
@@ -130,7 +130,7 @@ export const Modal = ({
             {/* Content wrapper - height is controlled here */}
             <div
               className={tc([
-                'ds:max-w-[1092px]',
+                'ds:max-w-[890px]',
                 'ds:flex-1',
                 'ds:min-h-0',
                 'ds:sm:my-8',
@@ -149,10 +149,10 @@ export const Modal = ({
                 {topSlot}
                 {progress && (
                   <div
-                    className="ds:flex-1 ds:justify-items-end"
+                    className="ds:flex ds:flex-1 ds:justify-items-end"
                     data-testid={testId ? `${testId}-progress` : undefined}
                   >
-                    {progress}
+                    <div className="ds:ml-auto">{progress}</div>
                   </div>
                 )}
               </div>
@@ -175,7 +175,7 @@ export const Modal = ({
                   data-testid={testId ? `${testId}-main` : undefined}
                 >
                   <div
-                    className="ds:overflow-y-auto ds:flex-1 ds:p-0 ds:px-3 sm:ds:p-3"
+                    className="ds:overflow-y-auto ds:flex-1 ds:p-0 ds:pl-4 ds:pr-3 sm:ds:p-3"
                     data-testid={testId ? `${testId}-scroll` : undefined}
                   >
                     {content}
