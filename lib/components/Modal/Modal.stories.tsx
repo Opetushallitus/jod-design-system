@@ -261,5 +261,6 @@ export const Progress: Story = {
     content: <LoremIpsum heading="Content" />,
     sidePanel: <LoremIpsum heading="Side panel" />,
     progress: <ProgressComponent />,
+    topSlot: <h2 className="ds:text-heading-2-mobile ds:sm:text-hero">Test title</h2>,
   },
 };

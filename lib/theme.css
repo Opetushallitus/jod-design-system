@@ -199,4 +199,6 @@
   --radius-full: 9999px;
 
   --shadow-border: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+  --container-modal-content: 530px;
 }
