@@ -55,7 +55,7 @@ describe('Combobox', () => {
       // Click the expand button and select English
       const user = userEvent.setup();
       await user.click(screen.getByRole('button'));
-      await user.selectOptions(screen.getByRole('listbox'), 'English');
+      await user.click(screen.getByRole('option', { name: 'English' }));
 
       // Assert that the value is English, click the expand button and check that English is selected
       expect(input.value).toBe('English');
@@ -77,7 +77,7 @@ describe('Combobox', () => {
 
       render(<Combobox label="Label" options={options} placeholder={placeholder} onChange={mockCallback} />);
       await user.click(screen.getByRole('button'));
-      await user.selectOptions(screen.getByRole('listbox'), 'English');
+      await user.click(screen.getByRole('option', { name: 'English' }));
       expect(mockCallback).toHaveBeenCalledTimes(1);
     });
   });

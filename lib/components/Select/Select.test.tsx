@@ -57,7 +57,7 @@ describe('Select', () => {
       // Click the expand button and select English
       const user = userEvent.setup();
       await user.click(select);
-      await user.selectOptions(screen.getByRole('listbox'), 'English');
+      await user.click(screen.getByRole('option', { name: 'English' }));
 
       // Assert that the value is English, click the expand button and check that English is selected
       expect(select.textContent).toBe('English');
@@ -73,7 +73,7 @@ describe('Select', () => {
 
       render(<Select label="Label" options={options} placeholder={placeholder} onChange={mockCallback} />);
       await user.click(screen.getByRole('button'));
-      await user.selectOptions(screen.getByRole('listbox'), 'English');
+      await user.click(screen.getByRole('option', { name: 'English' }));
       expect(mockCallback).toHaveBeenCalledTimes(1);
     });
   });

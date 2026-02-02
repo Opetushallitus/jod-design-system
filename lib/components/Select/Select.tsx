@@ -2,9 +2,11 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headless
 import React from 'react';
 import { JodCaretDown, JodCaretUp } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
+import { CheckedIcon } from '../internal/CheckedIcon/CheckedIcon';
 import { InputError } from '../internal/InputError/InputError';
 import { InputHelp } from '../internal/InputHelp/InputHelp';
 import { InputLabel } from '../internal/InputLabel/InputLabel';
+import { UncheckedIcon } from '../internal/UncheckedIcon.tsx/UncheckedIcon';
 
 export interface SelectOptionsData<T extends string = string> {
   value: T;
@@ -54,6 +56,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   const errorId = React.useId();
 
   const [value, setValue] = React.useState<U | undefined>(selected);
+  const [isUsingMouse, setIsUsingMouse] = React.useState(false);
 
   const onChange = (newValue: U) => {
     setValue(newValue);
@@ -76,10 +79,13 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxButton
                 id={inputId}
                 aria-label={label}
-                className="ds:select-none ds:rounded ds:border ds:w-full ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center"
+                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-secondary-1-dark"
                 disabled={disabled}
                 data-testid={testId ? `${testId}-button` : undefined}
                 aria-invalid={!!errorMessage}
+                onClick={() => setIsUsingMouse(true)}
+                onKeyDown={() => setIsUsingMouse(false)}
+                onMouseMove={() => setIsUsingMouse(true)}
               >
                 {selectedOption ? (
                   <span className="ds:font-arial">{selectedOption.label}</span>
@@ -92,14 +98,30 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
                 modal={false}
                 className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
                 data-testid={testId ? `${testId}-options` : undefined}
+                onKeyDown={() => setIsUsingMouse(false)}
+                onMouseMove={() => setIsUsingMouse(true)}
               >
                 {options.map((option) => (
                   <ListboxOption
                     key={option.value}
-                    className="ds:py-3 ds:text-heading-4 ds:ml-5 ds:text-primary-gray ds:cursor-pointer ds:data-focus:underline ds:data-focus:text-accent ds:hover:underline ds:hover:text-accent"
+                    className="ds:group ds:text-heading-4 ds:text-primary-gray ds:cursor-pointer"
                     value={option.value}
                   >
-                    {option.label}
+                    <div
+                      className={tc([
+                        'ds:flex ds:py-3 ds:gap-3 ds:px-3 ds:group-hover:rounded ds:group-hover:bg-secondary-5-light-3',
+                        isUsingMouse
+                          ? ''
+                          : 'ds:group-data-focus:outline-2 ds:group-data-focus:outline-black ds:group-data-focus:group-hover:outline-none ds:group-data-focus:group-hover:rounded',
+                      ])}
+                    >
+                      {selectedOption === option ? (
+                        <CheckedIcon disabled={disabled} />
+                      ) : (
+                        <UncheckedIcon disabled={disabled} />
+                      )}
+                      {option.label}
+                    </div>
                   </ListboxOption>
                 ))}
               </ListboxOptions>
