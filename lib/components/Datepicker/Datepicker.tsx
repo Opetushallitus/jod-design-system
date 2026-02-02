@@ -176,8 +176,8 @@ export const Datepicker = ({
   });
 
   return (
-    <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full" data-testid={testId}>
-      <ArkDatePicker.Label className="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray">
+    <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full ds:sm:w-input-short" data-testid={testId}>
+      <ArkDatePicker.Label className="ds:mb-3 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray">
         {labelText}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
@@ -189,7 +189,7 @@ export const Datepicker = ({
             required={!!requiredText}
             aria-required={!!requiredText}
             aria-describedby={help ? helpId : undefined}
-            className="ds:w-full ds:rounded-l-md ds:border-y ds:border-l ds:border-border-form ds:bg-white ds:p-5 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
+            className="ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:pl-5 ds:py-3 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
               // Handle clearing the input field to allow clearing the datepicker value
               if (e.target.value === '') {
@@ -202,7 +202,7 @@ export const Datepicker = ({
             data-testid={testId ? `${testId}-input` : undefined}
           />
           <ArkDatePicker.Trigger
-            className="ds:rounded-r-md ds:border-y ds:border-r ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
+            className="ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:p-3 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
             type="button"
             onKeyDown={handleEnter}
             onClick={() => {

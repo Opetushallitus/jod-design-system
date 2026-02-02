@@ -3,10 +3,10 @@
 exports[`InputField > renders help text correctly 1`] = `
 <div>
   <div
-    class="ds:w-full"
+    class="ds:w-full ds:sm:max-w-input-medium"
   >
     <label
-      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
       for="_r_6_"
     >
       Username
@@ -16,7 +16,7 @@ exports[`InputField > renders help text correctly 1`] = `
       aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input3"
       id="_r_6_"
       type="text"
@@ -36,10 +36,10 @@ exports[`InputField > renders help text correctly 1`] = `
 exports[`InputField > renders input correctly 1`] = `
 <div>
   <div
-    class="ds:w-full"
+    class="ds:w-full ds:sm:max-w-input-medium"
   >
     <label
-      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
       for="_r_3_"
     >
       Username
@@ -48,7 +48,7 @@ exports[`InputField > renders input correctly 1`] = `
       aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input2"
       id="_r_3_"
       placeholder="Enter your username"
@@ -62,10 +62,10 @@ exports[`InputField > renders input correctly 1`] = `
 exports[`InputField > renders label correctly 1`] = `
 <div>
   <div
-    class="ds:w-full"
+    class="ds:w-full ds:sm:max-w-input-medium"
   >
     <label
-      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
       for="_r_0_"
     >
       Username
@@ -74,7 +74,7 @@ exports[`InputField > renders label correctly 1`] = `
       aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input"
       id="_r_0_"
       type="text"
@@ -87,10 +87,10 @@ exports[`InputField > renders label correctly 1`] = `
 exports[`InputField > updates input value correctly 1`] = `
 <div>
   <div
-    class="ds:w-full"
+    class="ds:w-full ds:sm:max-w-input-medium"
   >
     <label
-      class="ds:inline-block ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
       for="_r_9_"
     >
       Username
@@ -99,7 +99,7 @@ exports[`InputField > updates input value correctly 1`] = `
       aria-invalid="false"
       aria-required="false"
       autocomplete="off"
-      class="ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
+      class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
       data-testid="input4"
       id="_r_9_"
       type="text"

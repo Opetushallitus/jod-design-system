@@ -70,7 +70,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   const selectedOption = options.find((option) => (option.value as U) === value);
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={testId}>
+    <div className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])} data-testid={testId}>
       <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={label} />
       <div className="ds:flex ds:flex-row ds:relative">
         <Listbox onChange={onChange} disabled={disabled} value={value}>
@@ -79,7 +79,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxButton
                 id={inputId}
                 aria-label={label}
-                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-secondary-1-dark"
+                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-secondary-1-dark"
                 disabled={disabled}
                 data-testid={testId ? `${testId}-button` : undefined}
                 aria-invalid={!!errorMessage}
