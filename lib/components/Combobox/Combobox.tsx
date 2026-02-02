@@ -113,7 +113,7 @@ export const Combobox = <
   const selectedOption = options.find((option) => (option.value as U) === value);
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative', className])} data-testid={testId}>
+    <div className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])} data-testid={testId}>
       <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={labelText} />
       <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
@@ -130,7 +130,7 @@ export const Combobox = <
                 aria-required={!!requiredText}
                 aria-label={hideLabel ? label : undefined}
                 displayValue={(value: U) => options.find((option) => option.value === value)?.label ?? ''}
-                className="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y ds:border-l ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
+                className="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
                 data-testid={testId ? `${testId}-input` : undefined}
@@ -141,7 +141,7 @@ export const Combobox = <
               />
               <ComboboxButton
                 aria-label={label}
-                className="ds:select-none ds:rounded-r-md ds:border-y ds:border-r ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:disabled:text-inactive-gray"
+                className="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
                 data-testid={testId ? `${testId}-button` : undefined}
                 onClick={() => setIsUsingMouse(true)}

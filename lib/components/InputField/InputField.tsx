@@ -27,6 +27,8 @@ interface BaseInputFieldProps {
   testId?: string;
   /** The error message to display below the input field */
   errorMessage?: string;
+  /** Width. Currently only up from sm */
+  widthVariant?: 'full' | 'constrained';
 }
 
 interface HideLabelProps extends BaseInputFieldProps {
@@ -65,6 +67,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     requiredText,
     testId,
     errorMessage,
+    widthVariant = 'constrained',
   }: InputFieldProps,
   ref,
 ) {
@@ -73,7 +76,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
   const errorId = React.useId();
 
   return (
-    <div className="ds:w-full">
+    <div className={`ds:w-full${widthVariant === 'constrained' && ' ds:sm:max-w-input-medium'}`}>
       <Field
         label={label}
         hideLabel={hideLabel}
@@ -103,7 +106,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           aria-invalid={!!errorMessage}
           data-testid={testId}
           className={tc([
-            'ds:block ds:w-full ds:rounded ds:border ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+            'ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
             className,
           ])}
         />

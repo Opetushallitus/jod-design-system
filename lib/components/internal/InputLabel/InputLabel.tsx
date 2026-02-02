@@ -15,7 +15,7 @@ export const InputLabel = ({ htmlFor, labelText, hideLabel = false }: InputLabel
       htmlFor={htmlFor}
       className={tc([
         hideLabel ? 'ds:hidden' : 'ds:inline-block',
-        'ds:mb-4 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
+        'ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
       ])}
     >
       {labelText}
