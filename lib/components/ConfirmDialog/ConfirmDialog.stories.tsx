@@ -89,7 +89,7 @@ export const Destructive: Story = {
 const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => {
   return (
     <button
-      className="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:bg-white ds:px-6 ds:text-button-md ds:text-primary-gray ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0"
+      className="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:bg-white ds:px-6 ds:text-button-md ds:text-primary-gray ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0"
       onClick={onClick}
     >
       <span className="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline">
@@ -106,7 +106,7 @@ const renderFooter = (args: Story['args']) => {
     <ConfirmDialog
       {...rest}
       footer={(hideDialog) => (
-        <div className="ds:flex ds:flex-row ds:justify-between ds:gap-5">
+        <div className="ds:flex ds:flex-shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:gap-3">
           <Button onClick={hideDialog} label="En" />
           <Button
             onClick={() => {
@@ -135,6 +135,6 @@ export const WithFooter: Story = {
     footer: () => <></>,
     title: 'Haluatko kokeilla uutta ominaisuutta?',
     description:
-      'Lorem ipsum dolor sit amet, no vis verear commodo. Vix quot dicta phaedrum ad. Has eu invenire concludaturque, simul accusata no ius.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sodales vestibulum ligula, sed venenatis diam tempus eget. Quisque fringilla velit nisl, et dictum ligula rutrum ut. Cras vel augue vehicula, laoreet enim in, malesuada odio. Phasellus malesuada placerat ex. Sed gravida neque in nibh ultrices, vitae iaculis sem pretium. Sed eu mattis lorem. Sed condimentum sit amet ante quis semper. Etiam placerat nunc at velit iaculis, id lobortis risus ultricies. Quisque convallis luctus velit, quis condimentum augue pellentesque ut. Fusce nulla velit, placerat et ultricies non, tincidunt a libero. Suspendisse efficitur nulla sit amet eros aliquam ultrices. Proin id semper tellus, at suscipit orci. Cras non maximus sem. Fusce vitae volutpat nulla. Nunc ultrices mi ut sem bibendum, ac vehicula nibh porttitor. Sed nec porttitor dolor. Donec imperdiet scelerisque sapien non imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis iaculis augue, iaculis commodo justo. Quisque interdum erat nec eros iaculis, non congue lectus viverra. Donec iaculis nunc leo. Morbi dapibus magna nibh, euismod elementum nisi facilisis at. Quisque auctor vehicula nulla porta auctor. Sed nec iaculis nulla, ac laoreet augue. Nunc in feugiat ex. Cras quis lorem vitae enim laoreet posuere. Donec a mauris ante. In vehicula sapien a volutpat tristique. Nulla facilisi. Phasellus sed fringilla dolor. Vivamus sit amet ipsum ac urna interdum hendrerit. Suspendisse potenti. Integer at suscipit neque. Cras elementum, quam a pellentesque iaculis, orci justo consectetur turpis, sed lacinia nunc mi non massa. Ut sed massa non enim euismod fringilla. Fusce fringilla erat augue, nec varius nisi viverra in. Nullam vel interdum tellus, a tristique justo. Ut tempus arcu nec augue condimentum, at facilisis enim gravida. Maecenas in bibendum justo. Proin id libero rutrum lacus consequat cursus eu sit amet leo. Donec euismod nibh eu rhoncus auctor. Mauris interdum neque in orci mollis eleifend. Maecenas a quam felis. Proin mattis rutrum dictum. Nam lacinia lectus eget efficitur accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum, leo in tempor lobortis, elit massa semper felis, in congue lorem arcu ac ante. Nunc aliquam suscipit ex ut commodo. Sed vitae accumsan odio, eu tempor nisi. Vestibulum fermentum pulvinar dolor, quis tempor libero. Quisque urna libero, sagittis non egestas ut, hendrerit id lectus. Nunc condimentum tortor nec tortor porttitor imperdiet. Donec vitae turpis mi. Duis enim turpis, vestibulum nec augue vel, elementum hendrerit metus. Sed eget sapien non sapien ullamcorper sagittis.',
   },
 };
