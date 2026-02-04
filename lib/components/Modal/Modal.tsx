@@ -37,7 +37,7 @@ export const Modal = ({
   const { sm } = useMediaQueries();
   const id = React.useId();
   const panelRef = React.useRef<HTMLDivElement>(null);
-  const [mobileHeight, setMobileHeight] = React.useState<'45dvh' | '90dvh'>('45dvh');
+  const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh'>('50dvh');
   const [isMeasuring, setIsMeasuring] = React.useState(false);
 
   // Handle mobile height measurement when modal opens
@@ -48,9 +48,9 @@ export const Modal = ({
       requestAnimationFrame(() => {
         if (panelRef.current) {
           const naturalHeight = panelRef.current.scrollHeight;
-          const smallHeightThreshold = window.innerHeight * 0.45;
+          const smallHeightThreshold = window.innerHeight * 0.5;
 
-          const height = naturalHeight > smallHeightThreshold ? '90dvh' : '45dvh';
+          const height = naturalHeight > smallHeightThreshold ? '90dvh' : '50dvh';
           setMobileHeight(height);
           setIsMeasuring(false);
         }
@@ -61,7 +61,7 @@ export const Modal = ({
   // Reset state when switching to desktop
   React.useEffect(() => {
     if (sm) {
-      setMobileHeight('45dvh');
+      setMobileHeight('50dvh');
       setIsMeasuring(false);
     }
   }, [sm]);
@@ -71,8 +71,8 @@ export const Modal = ({
     if (isMeasuring) {
       return 'ds:max-h-[90dvh] ds:opacity-0 ds:sm:opacity-100';
     }
-    if (mobileHeight === '45dvh') {
-      return 'ds:h-[45dvh] ds:opacity-100 ds:sm:h-auto';
+    if (mobileHeight === '50dvh') {
+      return 'ds:h-[50dvh] ds:opacity-100 ds:sm:h-auto';
     }
     if (mobileHeight === '90dvh') {
       return 'ds:h-[90dvh] ds:opacity-100 ds:sm:h-auto';
@@ -115,7 +115,7 @@ export const Modal = ({
               'ds:flex-col',
               'ds:bg-bg-gray',
               'ds:overflow-hidden',
-              'ds:rounded-t-[20px]',
+              'ds:rounded-t-xl',
               'ds:sm:rounded-lg',
               'ds:w-full',
               'ds:max-w-[890px]',
@@ -200,7 +200,7 @@ export const Modal = ({
             {/* Footer, button area */}
             {footer && (
               <div
-                className="ds:flex ds:flex-shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
+                className="ds:flex ds:shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
                 data-testid={testId ? `${testId}-footer` : undefined}
               >
                 {footer}

@@ -18,57 +18,69 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
     class="ds:fixed ds:inset-0 ds:bg-black/30"
   />
   <div
-    class="ds:fixed ds:inset-0 ds:flex ds:w-screen ds:py-[96px]"
+    class="ds:fixed ds:inset-0 ds:flex ds:w-screen ds:sm:py-[96px]"
   >
     <div
-      class="ds:flex ds:w-full ds:items-center ds:justify-center"
+      class="ds:flex ds:w-full ds:items-end ds:sm:items-center ds:justify-center ds:h-full"
     >
       <div
-        class="ds:overflow-hidden ds:rounded-lg ds:bg-bg-gray ds:min-h-[270px] ds:w-[630px] ds:flex ds:flex-col ds:justify-between"
+        class="ds:flex ds:flex-col ds:bg-bg-gray ds:overflow-hidden ds:rounded-t-xl ds:sm:rounded-lg ds:transition-opacity ds:duration-0 ds:min-h-[270px] ds:w-[630px] ds:sm:max-h-[80dvh] ds:h-[50dvh] ds:opacity-100 ds:sm:h-auto"
         data-headlessui-state="open"
         data-open=""
         id="ds-confirm-dialog-panel-_r_0_"
       >
         <div
-          class="ds:flex ds:flex-col ds:max-w-[640px] ds:pt-7 ds:sm:pb-9 ds:py-6 ds:sm:px-9 ds:px-5"
-        >
-          <h2
-            class="ds:mb-5 ds:sm:text-[32px] ds:text-[29px] ds:sm:leading-[40px] ds:leading-[26px] ds:font-semibold"
-            data-headlessui-state="open"
-            data-open=""
-            id="ds-confirm-dialog-title-_r_0_"
-          >
-            ConfirmDialog rendered
-          </h2>
-          <p
-            class="ds:text-body-sm ds:font-arial ds:min-h-[60px]"
-            data-headlessui-state="open"
-            data-open=""
-            id="headlessui-description-_r_9_"
-          >
-            Are you sure?
-          </p>
-        </div>
-        <div
-          class="ds:overflow-x-auto ds:overflow-y-hidden ds:bg-bg-gray-2"
+          class="ds:flex ds:flex-col ds:flex-1 ds:min-h-0 ds:max-w-[640px]"
         >
           <div
-            class="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-5 ds:sm:px-9 ds:justify-end"
+            class="ds:pt-6 ds:sm:pt-7 ds:pb-5 ds:px-5 ds:sm:px-9"
+          >
+            <h2
+              class="ds:sm:text-[32px] ds:text-[20px] ds:sm:leading-8 ds:leading-[26px] ds:font-semibold"
+              data-headlessui-state="open"
+              data-open=""
+              id="ds-confirm-dialog-title-_r_0_"
+            >
+              ConfirmDialog rendered
+            </h2>
+          </div>
+          <div
+            class="ds:overflow-y-auto ds:flex ds:flex-col ds:px-5 ds:sm:px-9 ds:pb-6 ds:sm:pb-9"
+          >
+            <p
+              class="ds:text-body-sm ds:font-arial ds:min-h-[60px]"
+              data-headlessui-state="open"
+              data-open=""
+              id="headlessui-description-_r_9_"
+            >
+              Are you sure?
+            </p>
+          </div>
+        </div>
+        <div
+          class="ds:shrink-0 ds:overflow-x-auto ds:overflow-y-hidden ds:bg-bg-gray-2"
+        >
+          <div
+            class="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-4 ds:sm-py-5 ds:sm:px-9 ds:justify-end"
           >
             <button
-              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
+              aria-label="Cancel"
+              class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:px-5 ds:min-h-7 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
+              type="button"
             >
               <span
-                class="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline"
+                class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline"
               >
                 Cancel
               </span>
             </button>
             <button
-              class="ds:cursor-pointer ds:group ds:flex ds:select-none ds:items-center ds:gap-4 ds:rounded-[30px] ds:px-6 ds:text-button-md ds:hover:text-accent ds:focus-visible:text-accent ds:focus-visible:outline-[3px] ds:focus-visible:outline-offset-[1.5px] ds:focus-visible:outline-accent ds:active:bg-accent ds:active:text-white ds:active:outline-0 ds:text-primary-gray ds:bg-white"
+              aria-label="Confirm"
+              class="ds:flex ds:cursor-pointer ds:items-center ds:gap-4 ds:select-none ds:group ds:text-button-sm ds:px-5 ds:min-h-7 ds:rounded-[30px] ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:bg-white ds:text-black ds:focus-visible:outline-secondary-1-dark ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark"
+              type="button"
             >
               <span
-                class="ds:py-[10px] ds:group-hover:underline ds:group-focus-visible:no-underline ds:group-active:no-underline"
+                class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline"
               >
                 Confirm
               </span>
