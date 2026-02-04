@@ -157,7 +157,7 @@ export const Modal = ({
                 )}
               </div>
               {/* Main content */}
-              <div className="ds:grid ds:grid-cols-1 ds:sm:grid-cols-3 ds:overflow-hidden">
+              <div className="ds:grid ds:grid-cols-1 ds:sm:grid-cols-3 ds:overflow-hidden ds:flex-1">
                 <div
                   className={tc([
                     'ds:col-span-1',
@@ -175,7 +175,7 @@ export const Modal = ({
                   data-testid={testId ? `${testId}-main` : undefined}
                 >
                   <div
-                    className="ds:overflow-y-auto ds:flex-1 ds:p-0 ds:pl-4 ds:pr-3 sm:ds:p-3"
+                    className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1 ds:p-0 ds:pl-4 ds:pr-3 sm:ds:p-3"
                     data-testid={testId ? `${testId}-scroll` : undefined}
                   >
                     {content}
