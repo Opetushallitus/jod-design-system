@@ -34,7 +34,7 @@
     "@floating-ui/react": "^0.27.16",
     "@headlessui/react": "^2.2.9",
     "cva": "^1.0.0-beta.4",
-    "focus-trap-react": "^11.0.4",
+    "focus-trap-react": "^11.0.6",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
