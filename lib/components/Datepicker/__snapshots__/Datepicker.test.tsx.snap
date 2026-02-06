@@ -2,7 +2,7 @@
 
 exports[`Datepicker > renders correctly 1`] = `
 <div
-  class="ds:w-full"
+  class="ds:w-full ds:sm:w-input-short"
   data-part="root"
   data-scope="date-picker"
   data-state="closed"
@@ -10,7 +10,7 @@ exports[`Datepicker > renders correctly 1`] = `
   id="datepicker:_r_1_"
 >
   <label
-    class="ds:mb-4 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    class="ds:mb-3 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
     data-index="0"
     data-part="label"
     data-scope="date-picker"
@@ -34,7 +34,7 @@ exports[`Datepicker > renders correctly 1`] = `
         aria-required="false"
         autocomplete="off"
         autocorrect="off"
-        class="ds:w-full ds:rounded-l-md ds:border-y ds:border-l ds:border-border-form ds:bg-white ds:p-5 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
+        class="ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:pl-5 ds:py-3 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
         data-index="0"
         data-part="input"
         data-scope="date-picker"
@@ -49,7 +49,7 @@ exports[`Datepicker > renders correctly 1`] = `
         aria-controls="datepicker:_r_1_:content"
         aria-haspopup="grid"
         aria-label="Open calendar"
-        class="ds:rounded-r-md ds:border-y ds:border-r ds:border-border-form ds:bg-white ds:p-5 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
+        class="ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:p-3 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
         data-part="trigger"
         data-scope="date-picker"
         data-state="closed"

@@ -144,7 +144,7 @@
   --text-form-label--line-height: 24px;
   --text-form-error: 14px;
   --text-form-error--font-weight: 400;
-  --text-form-error--line-height: 16px;
+  --text-form-error--line-height: auto;
   --text-help: 14px;
   --text-help--font-weight: 400;
   --text-help--line-height: 16px;
@@ -200,5 +200,8 @@
 
   --shadow-border: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
 
-  --container-modal-content: 530px;
+  --container-modal-content: 560px;
+  --container-input-short: 186px;
+  --container-input-medium: 384px;
+  --container-input-long: 560px;
 }

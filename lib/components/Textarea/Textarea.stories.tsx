@@ -34,13 +34,6 @@ const loremIpsum = 'Lorem ipsum dolor sit amet';
 
 export const Default: Story = {
   render,
-  decorators: [
-    (Story) => (
-      <div className="ds:max-w-[480px]">
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     design: {
       type: 'figma',
@@ -61,13 +54,6 @@ export const Default: Story = {
 
 export const ErrorMessage: Story = {
   render,
-  decorators: [
-    (Story) => (
-      <div className="ds:max-w-[480px]">
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     design: {
       type: 'figma',
