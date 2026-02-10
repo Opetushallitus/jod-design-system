@@ -33,6 +33,7 @@ export { JodInfoFilled } from './JodInfoFilled';
 export { JodInterests } from './JodInterests';
 export { JodItemHot } from './JodItemHot';
 export { JodLanguage } from './JodLanguage';
+export { JodLink } from './JodLink';
 export { JodLoading } from './JodLoading';
 export { JodMenu } from './JodMenu';
 export { JodMore } from './JodMore';
