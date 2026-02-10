@@ -1,4 +1,5 @@
 import React from 'react';
+import { cx } from '../../main';
 import { getTruthyValuesAsString, tidyClasses as tc } from '../../utils';
 import { Field } from '../internal/Field/Field';
 
@@ -76,7 +77,11 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
   const errorId = React.useId();
 
   return (
-    <div className={`ds:w-full${widthVariant === 'constrained' && ' ds:sm:max-w-input-medium'}`}>
+    <div
+      className={cx('ds:w-full', {
+        'ds:sm:max-w-input-medium': widthVariant === 'constrained',
+      })}
+    >
       <Field
         label={label}
         hideLabel={hideLabel}
