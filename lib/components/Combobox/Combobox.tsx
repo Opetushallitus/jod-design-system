@@ -123,7 +123,7 @@ export const Combobox = <
           value={value}
         >
           {({ open }) => (
-            <div className="ds:flex ds:flex-row ds:w-full">
+            <div className="ds:flex ds:flex-row ds:w-full ds:focus-within:outline-2 ds:focus-within:outline-secondary-1-dark ds:focus-within:rounded-md">
               <ComboboxInput
                 id={inputId}
                 required={!!requiredText}

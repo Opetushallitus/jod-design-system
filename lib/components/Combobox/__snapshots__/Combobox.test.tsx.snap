@@ -14,7 +14,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
     class="ds:flex ds:flex-row ds:relative"
   >
     <div
-      class="ds:flex ds:flex-row ds:w-full"
+      class="ds:flex ds:flex-row ds:w-full ds:focus-within:outline-2 ds:focus-within:outline-secondary-1-dark ds:focus-within:rounded-md"
       data-headlessui-state=""
     >
       <input
@@ -75,7 +75,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
     class="ds:flex ds:flex-row ds:relative"
   >
     <div
-      class="ds:flex ds:flex-row ds:w-full"
+      class="ds:flex ds:flex-row ds:w-full ds:focus-within:outline-2 ds:focus-within:outline-secondary-1-dark ds:focus-within:rounded-md"
       data-disabled=""
       data-headlessui-state="disabled"
     >
@@ -140,7 +140,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
     class="ds:flex ds:flex-row ds:relative"
   >
     <div
-      class="ds:flex ds:flex-row ds:w-full"
+      class="ds:flex ds:flex-row ds:w-full ds:focus-within:outline-2 ds:focus-within:outline-secondary-1-dark ds:focus-within:rounded-md"
       data-headlessui-state=""
     >
       <input
