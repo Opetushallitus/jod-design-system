@@ -1,14 +1,16 @@
 {
-  "name": "@jod/design-system",
+  "name": "@opetushallitus/jod-design-system",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": [
-    "dist",
-    "lib"
+    "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "engines": {
     "node": "^24.0.0"
   },
@@ -23,7 +25,7 @@
     "test:watch": "vitest --watch",
     "storybook": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build",
-    "prepare": "husky && npm run build"
+    "prepare": "husky"
   },
   "peerDependencies": {
     "react": "^19",
