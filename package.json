@@ -23,7 +23,7 @@
     "test:watch": "vitest --watch",
     "storybook": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build",
-    "prepare": "husky && npm run build"
+    "prepare": "husky"
   },
   "peerDependencies": {
     "react": "^19",

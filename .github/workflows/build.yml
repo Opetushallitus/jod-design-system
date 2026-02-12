@@ -1,4 +1,4 @@
-name: Build and Publish Storybook to GitHub Pages
+name: Build and Release and Publish
 
 on:
   workflow_dispatch:
@@ -57,6 +57,16 @@ jobs:
           retention-days: 30
 
       - name: Run build
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+      - name: Run build Storybook
         run: npm run storybook:build
 
       - name: Copy Poppins font files
@@ -73,6 +83,55 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+  release:
+    name: Release
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/krypton
+
+      - name: Generate release version
+        id: release-version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BASE_VERSION="rel-$(date -u +'%Y%m%d')"
+          COMMIT_SHA="${GITHUB_SHA}"
+
+          VERSION="${BASE_VERSION}-1"
+          i=2
+
+          while gh api repos/${{ github.repository }}/git/ref/tags/$VERSION >/dev/null 2>&1; do
+            VERSION="${BASE_VERSION}-$i"
+            i=$((i+1))
+          done
+
+          echo "Creating tag $VERSION for commit $COMMIT_SHA"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Create npm package tarball
+        run: npm pack
+
+      - name: Create Release with tarball
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create ${{ steps.release-version.outputs.version }} jod-design-system-*.tgz
+
   deploy:
     name: Deploy
     if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
@@ -80,6 +139,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
+      - release
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
