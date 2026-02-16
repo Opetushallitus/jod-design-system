@@ -37,47 +37,47 @@ export const Modal = ({
   const { sm } = useMediaQueries();
   const id = React.useId();
   const panelRef = React.useRef<HTMLDivElement>(null);
-  const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh'>('50dvh');
+  const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh' | null>(null);
   const [isMeasuring, setIsMeasuring] = React.useState(false);
 
   // Handle mobile height measurement when modal opens
-  React.useEffect(() => {
-    if (!sm) {
+  React.useLayoutEffect(() => {
+    if (!sm && open) {
+      // First render without height constraints to measure
       setIsMeasuring(true);
-
-      requestAnimationFrame(() => {
-        if (panelRef.current) {
-          const naturalHeight = panelRef.current.scrollHeight;
-          const smallHeightThreshold = window.innerHeight * 0.5;
-
-          const height = naturalHeight > smallHeightThreshold ? '90dvh' : '50dvh';
-          setMobileHeight(height);
-          setIsMeasuring(false);
-        }
-      });
+    } else if (sm) {
+      setMobileHeight(null);
+      setIsMeasuring(false);
     }
   }, [open, sm, content, footer]);
 
-  // Reset state when switching to desktop
-  React.useEffect(() => {
-    if (sm) {
-      setMobileHeight('50dvh');
+  // Measure after DOM has been updated with measurement classes
+  React.useLayoutEffect(() => {
+    if (isMeasuring && panelRef.current) {
+      const naturalHeight = panelRef.current.scrollHeight;
+      const smallHeightThreshold = window.innerHeight * 0.5;
+
+      const height = naturalHeight > smallHeightThreshold ? '90dvh' : '50dvh';
+      setMobileHeight(height);
       setIsMeasuring(false);
     }
-  }, [sm]);
+  }, [isMeasuring]);
 
-  // Determine panel height classes based on mobile state
-  const getPanelHeightClasses = () => {
+  // Get mobile height classes based on state
+  const getMobileHeightClasses = (): string => {
+    if (sm) {
+      return '';
+    }
     if (isMeasuring) {
-      return 'ds:max-h-[90dvh] ds:opacity-0 ds:sm:opacity-100';
+      return 'ds:h-auto ds:max-h-none ds:overflow-visible ds:invisible';
     }
     if (mobileHeight === '50dvh') {
-      return 'ds:h-[50dvh] ds:opacity-100 ds:sm:h-auto';
+      return 'ds:h-[50dvh] ds:overflow-hidden';
     }
     if (mobileHeight === '90dvh') {
-      return 'ds:h-[90dvh] ds:opacity-100 ds:sm:h-auto';
+      return 'ds:h-[90dvh] ds:overflow-hidden';
     }
-    return '';
+    return 'ds:overflow-hidden';
   };
 
   return (
@@ -114,15 +114,14 @@ export const Modal = ({
               'ds:flex',
               'ds:flex-col',
               'ds:bg-bg-gray',
-              'ds:overflow-hidden',
               'ds:rounded-t-xl',
               'ds:sm:rounded-lg',
               'ds:w-full',
               'ds:max-w-[890px]',
-              'ds:transition-opacity',
-              'ds:duration-0',
+              getMobileHeightClasses(),
+              'ds:sm:h-auto',
               'ds:sm:max-h-[80dvh]',
-              getPanelHeightClasses(),
+              'ds:sm:overflow-hidden',
               className,
             ])}
             data-testid={testId ? `${testId}-panel` : undefined}
