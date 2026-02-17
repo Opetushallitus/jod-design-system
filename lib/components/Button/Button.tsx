@@ -1,13 +1,38 @@
+import { cva as cvaBase } from 'cva';
 import React from 'react';
 import { cx } from '../../cva';
-import {
-  getAccentBgClassForService,
-  getFocusOutlineClassForService,
-  getPressedBgColorClassForService,
-  getTextColorClassForService,
-  ServiceVariant,
-  tidyClasses as tc,
-} from '../../utils';
+import { serviceColors, type ServiceVariant } from '../../utils';
+
+// Generate compound variants for service-specific styling
+const createServiceVariants = () =>
+  (Object.entries(serviceColors) as [ServiceVariant, (typeof serviceColors)[ServiceVariant]][]).flatMap(
+    ([service, colors]) => [
+      {
+        variant: 'accent' as const,
+        serviceVariant: service,
+        disabled: false,
+        class: `${colors.bg} ${colors.bgActive} ${colors.outline}`,
+      },
+      {
+        variant: 'white' as const,
+        serviceVariant: service,
+        disabled: false,
+        class: `${colors.textHover} ${colors.textActive} ${colors.textFocus} ${colors.outline}`,
+      },
+      {
+        variant: 'gray' as const,
+        serviceVariant: service,
+        disabled: false,
+        class: `${colors.textHover} ${colors.textActive} ${colors.textFocus} ${colors.outline}`,
+      },
+      {
+        variant: 'plain' as const,
+        serviceVariant: service,
+        disabled: false,
+        class: `${colors.text} ${colors.textHover} ${colors.textActive} ${colors.outline}`,
+      },
+    ],
+  );
 
 export interface ButtonProps {
   /** Form ID to associate the button with */
@@ -43,66 +68,92 @@ export interface ButtonProps {
   testId?: string;
 }
 
-const getVariantClassName = (
-  variant: ButtonProps['variant'],
-  serviceVariant: ServiceVariant,
-  disabled: ButtonProps['disabled'],
-) => {
-  const accentBg = getAccentBgClassForService(serviceVariant);
-  const pressedBg = getPressedBgColorClassForService(serviceVariant);
-  const textColor = getTextColorClassForService(serviceVariant);
-  const focusColor = getFocusOutlineClassForService(serviceVariant);
-  const hoverColor = cx({
-    'ds:hover:text-secondary-1-dark': serviceVariant === 'yksilo',
-    'ds:hover:text-secondary-2-dark': serviceVariant === 'ohjaaja',
-    'ds:hover:text-secondary-3-dark': serviceVariant === 'palveluportaali',
-    'ds:hover:text-secondary-4-dark': serviceVariant === 'tietopalvelu',
-  });
-  const activeTextColor = cx({
-    'ds:active:text-secondary-1-dark-2': serviceVariant === 'yksilo',
-    'ds:active:text-secondary-2-dark-2': serviceVariant === 'ohjaaja',
-    'ds:active:text-secondary-3-dark-2': serviceVariant === 'palveluportaali',
-    'ds:active:text-secondary-4-dark-2': serviceVariant === 'tietopalvelu',
-  });
-  const focusTextColor = cx({
-    'ds:focus-visible:text-secondary-1-dark': serviceVariant === 'yksilo',
-    'ds:focus-visible:text-secondary-2-dark': serviceVariant === 'ohjaaja',
-    'ds:focus-visible:text-secondary-3-dark': serviceVariant === 'palveluportaali',
-    'ds:focus-visible:text-secondary-4-dark': serviceVariant === 'tietopalvelu',
-  });
+const buttonVariants = cvaBase({
+  base: 'ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed',
+  variants: {
+    display: {
+      flex: 'ds:flex',
+      'inline-flex': 'ds:inline-flex',
+    },
+    size: {
+      sm: 'ds:text-button-sm',
+      lg: 'ds:text-button-md',
+    },
+    variant: {
+      accent: 'ds:text-white',
+      white: 'ds:bg-white ds:text-black',
+      gray: 'ds:bg-bg-gray ds:text-black',
+      plain: '',
+      'red-delete': 'ds:bg-alert ds:active:bg-alert-text-2 ds:focus-visible:outline-alert ds:text-white',
+      'white-delete':
+        'ds:bg-white ds:text-alert-text ds:active:text-alert-text-2 ds:focus-visible:text-alert-text-2 ds:focus-visible ds:outline-alert-text-2',
+    },
+    serviceVariant: {
+      yksilo: '',
+      ohjaaja: '',
+      palveluportaali: '',
+      tietopalvelu: '',
+    },
+    isPlain: {
+      true: 'ds:px-0',
+      false: 'ds:rounded-[30px]',
+    },
+    onlyIcon: {
+      true: 'ds:rounded-full ds:p-1! ds:justify-center ds:min-w-[56px]',
+      false: '',
+    },
+    leftIcon: {
+      true: '',
+      false: '',
+    },
+    rightIcon: {
+      true: '',
+      false: '',
+    },
+    disabled: {
+      true: '',
+      false: '',
+    },
+  },
+  compoundVariants: [
+    // Size + non-plain padding (not for onlyIcon)
+    { size: 'sm', isPlain: false, onlyIcon: false, class: 'ds:px-5 ds:min-h-7' },
+    { size: 'lg', isPlain: false, onlyIcon: false, class: 'ds:px-6 ds:min-h-9' },
 
-  return cx('ds:outline-offset-2 ds:disabled:cursor-not-allowed', {
-    // Accent
-    [`${accentBg} ${pressedBg} ${focusColor} ds:text-white`]: variant === 'accent' && !disabled,
+    // Only icon sizing
+    { onlyIcon: true, size: 'lg', class: 'ds:aspect-square' },
 
-    // White
-    [`ds:bg-white ds:text-black ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
-      variant === 'white' && !disabled,
+    // Left icon padding by size
+    { leftIcon: true, size: 'sm', class: 'ds:pl-4' },
+    { leftIcon: true, size: 'lg', class: 'ds:pl-[20px]' },
 
-    // Gray
-    [`ds:bg-bg-gray ds:text-black ${focusColor} ${hoverColor} ${activeTextColor} ${focusTextColor}`]:
-      variant === 'gray' && !disabled,
+    // Right icon padding by size (only for non-plain)
+    { rightIcon: true, size: 'sm', isPlain: false, class: 'ds:pr-4' },
+    { rightIcon: true, size: 'lg', isPlain: false, class: 'ds:pr-[20px]' },
 
-    // Plain
-    [`${textColor} ${hoverColor} ${focusColor} ${activeTextColor}`]: variant === 'plain' && !disabled,
-    [`ds:text-inactive-gray`]: variant === 'plain' && disabled,
+    // Service-specific colors (accent, white, gray, plain)
+    ...createServiceVariants(),
 
-    // Red Delete
-    'ds:bg-alert ds:active:bg-alert-text-2 ds:focus-visible:outline-alert ds:text-white':
-      variant === 'red-delete' && !disabled,
-
-    // White Delete
-    'ds:bg-white ds:text-alert-text ds:active:text-alert-text-2 ds:focus-visible:text-alert-text-2 ds:focus-visible ds:outline-alert-text-2':
-      variant === 'white-delete' && !disabled,
-
-    // Shared disabled styles
-    [`ds:bg-white ds:text-inactive-gray`]:
-      variant && ['red-delete', 'white', 'white-delete'].includes(variant) && disabled,
-    [`ds:bg-inactive-gray ds:text-secondary-5-light-3`]:
-      variant && ['accent', 'red-delete'].includes(variant) && disabled,
-    [`ds:bg-bg-gray ds:text-secondary-gray`]: variant === 'gray' && disabled,
-  });
-};
+    // Disabled styles
+    { variant: 'plain', disabled: true, class: 'ds:text-inactive-gray' },
+    { variant: 'white', disabled: true, class: 'ds:text-inactive-gray' },
+    { variant: 'white-delete', disabled: true, class: 'ds:text-inactive-gray' },
+    { variant: 'accent', disabled: true, class: 'ds:bg-inactive-gray ds:text-secondary-5-light-3' },
+    { variant: 'red-delete', disabled: true, class: 'ds:bg-inactive-gray ds:text-secondary-5-light-3' },
+    { variant: 'gray', disabled: true, class: 'ds:bg-bg-gray ds:text-secondary-gray' },
+  ],
+  defaultVariants: {
+    display: 'flex',
+    size: 'lg',
+    variant: 'white',
+    serviceVariant: 'yksilo',
+    isPlain: false,
+    onlyIcon: false,
+    leftIcon: false,
+    rightIcon: false,
+    disabled: false,
+  },
+});
 
 const getButtonClassName = ({
   size,
@@ -114,27 +165,17 @@ const getButtonClassName = ({
   onlyIcon,
   serviceVariant = 'yksilo',
 }: Partial<ButtonProps> & { leftIcon?: boolean; rightIcon?: boolean; onlyIcon?: boolean }) =>
-  tc([
-    linkComponent ? 'ds:inline-flex' : 'ds:flex',
-    'ds:cursor-pointer',
-    'ds:items-center',
-    'ds:gap-4',
-    'ds:select-none',
-    'ds:group',
-    cx({
-      'ds:pl-4': leftIcon,
-      'ds:pr-4': rightIcon && variant !== 'plain',
-      'ds:text-button-sm': size === 'sm',
-      'ds:px-5 ds:min-h-7': size === 'sm' && variant !== 'plain',
-      'ds:text-button-md': size === 'lg',
-      'ds:px-6 ds:min-h-9': size === 'lg' && variant !== 'plain',
-      'ds:rounded-full ds:p-1! ds:justify-center ds:min-w-[56px]': onlyIcon,
-      'ds:aspect-square': onlyIcon && size === 'lg',
-      'ds:rounded-[30px]': variant !== 'plain',
-      'ds:px-0': variant === 'plain',
-    }),
-    getVariantClassName(variant, serviceVariant, disabled),
-  ]);
+  buttonVariants({
+    display: linkComponent ? 'inline-flex' : 'flex',
+    size,
+    variant,
+    serviceVariant,
+    isPlain: variant === 'plain',
+    onlyIcon: onlyIcon ?? false,
+    leftIcon: leftIcon ?? false,
+    rightIcon: rightIcon ?? false,
+    disabled: disabled ?? false,
+  });
 
 /** Button component for user actions. */
 export const Button = ({
