@@ -3,6 +3,7 @@
 exports[`Checkbox > renders correctly 1`] = `
 <div
   class="ds:flex ds:items-center ds:text-left ds:relative ds:font-arial"
+  role="presentation"
 >
   <input
     aria-checked="false"
