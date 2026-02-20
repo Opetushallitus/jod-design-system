@@ -165,10 +165,10 @@ export const ConfirmDialog = ({
                       'ds:sm:pb-9',
                     ])}
                   >
-                    <Description as={descriptionTag} className="ds:text-body-sm ds:font-arial ds:min-h-[60px]">
+                    <Description as={descriptionTag} className="ds:text-body-sm ds:sm:text-body-md ds:font-arial">
                       {description}
                     </Description>
-                    {content && <div className="ds:mt-7">{content}</div>}
+                    {content && <div className="ds:mt-5">{content}</div>}
                   </div>
                 </div>
 

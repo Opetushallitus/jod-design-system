@@ -76,7 +76,11 @@ export const Checkbox = ({
   }, [isLabelValidElement, label, requiredText]);
 
   return (
-    <div className={cx('ds:flex ds:items-center ds:text-left ds:relative ds:font-arial', className)}>
+    <div
+      className={cx('ds:flex ds:items-center ds:text-left ds:relative ds:font-arial', className)}
+      role="presentation"
+      onClick={(e) => e.stopPropagation()}
+    >
       <input
         ref={inputRef}
         type="checkbox"

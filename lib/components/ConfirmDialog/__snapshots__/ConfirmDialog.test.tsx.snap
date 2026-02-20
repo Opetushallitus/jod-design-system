@@ -48,7 +48,7 @@ exports[`ConfirmDialog > renders dialog when showDialog is called 1`] = `
             class="ds:overflow-y-auto ds:flex ds:flex-col ds:px-5 ds:sm:px-9 ds:pb-6 ds:sm:pb-9"
           >
             <p
-              class="ds:text-body-sm ds:font-arial ds:min-h-[60px]"
+              class="ds:text-body-sm ds:sm:text-body-md ds:font-arial"
               data-headlessui-state="open"
               data-open=""
               id="headlessui-description-_r_9_"
