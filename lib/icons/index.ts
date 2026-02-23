@@ -21,6 +21,7 @@ export { JodCompass } from './JodCompass';
 export { JodDownload } from './JodDownload';
 export { JodEdit } from './JodEdit';
 export { JodError } from './JodError';
+export { JodErrorTriangle } from './JodErrorTriangle';
 export { JodFavorite } from './JodFavorite';
 export { JodFavoriteFilled } from './JodFavoriteFilled';
 export { JodFavs } from './JodFavs';

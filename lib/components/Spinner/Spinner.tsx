@@ -1,17 +1,29 @@
+import React from 'react';
 import { tidyClasses as tc } from '../../utils';
 
 export interface SpinnerProps {
   // Size in pixels
   size: number;
   // Color of the spinner
-  color: 'white' | 'accent';
+  color: 'white' | 'accent' | 'black';
   // Optional CSS class names for the SVG element
   className?: string;
   /** Test id for querying in tests */
   testId?: string;
 }
 export const Spinner = ({ size = 24, color = 'white', className, testId }: SpinnerProps) => {
-  const fillClass = color === 'white' ? 'ds:fill-white' : 'ds:fill-accent';
+  const fillClass = React.useMemo(() => {
+    switch (color) {
+      case 'white':
+        return 'ds:fill-white';
+      case 'accent':
+        return 'ds:fill-accent';
+      case 'black':
+        return 'ds:fill-black';
+      default:
+        return 'ds:fill-accent';
+    }
+  }, [color]);
 
   return (
     <svg
