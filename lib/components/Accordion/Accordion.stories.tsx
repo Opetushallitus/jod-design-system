@@ -139,3 +139,22 @@ export const CollapsedContent: Story = {
     collapsedContent: <div className="ds:text-md ds:text-primary-gray ds:mt-5">Collapsed content</div>,
   },
 };
+
+export const NoEllipsis: Story = {
+  decorators,
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Accordion with ellipsis disabled for long titles.',
+      },
+    },
+  },
+  args: {
+    title:
+      'This is a very long title that should not be truncated with ellipsis even if it exceeds the container width',
+    children: 'Content',
+    caretPosition: 'top',
+    ellipsis: false,
+  },
+};
