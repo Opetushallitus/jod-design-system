@@ -41,6 +41,8 @@ type AccordionProps = {
   className?: string;
   /** Content to show when accordion is collapsed */
   collapsedContent?: React.ReactNode;
+  /** Whether to show ellipsis for long titles */
+  ellipsis?: boolean;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -64,6 +66,7 @@ export const Accordion = ({
   setIsOpen: controlledSetIsOpen,
   collapsedContent,
   className = '',
+  ellipsis = true,
 }: AccordionProps) => {
   const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
   const isControlled = controlledIsOpen !== undefined;
@@ -117,7 +120,11 @@ export const Accordion = ({
           )}
           data-testid={testId}
         >
-          <span className="ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap ds:text-left ds:text-heading-3">
+          <span
+            className={cx('ds:text-left ds:text-heading-3 ds:hyphens-auto', {
+              'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
+            })}
+          >
             {title}
           </span>
           <span className="ds:shrink-0" style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
