@@ -33,7 +33,7 @@ export const AiInfoButton = ({
         <JodAiGradient className={cx('ds:text-secondary-gray', className)} aria-label={ariaLabel} size={size} />
       </TooltipTrigger>
       <TooltipContent
-        className="ds:z-11 ds:text-white ds:p-4 ds:rounded ds:bg-primary-gray ds:font-arial"
+        className="ds:z-51 ds:text-white ds:p-4 ds:rounded ds:bg-primary-gray ds:font-arial"
         arrowClassName="ds:fill-primary-gray"
         onClick={handleClick}
       >
