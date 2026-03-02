@@ -47,6 +47,7 @@ export { JodPagerStart } from './JodPagerStart';
 export { JodPathDuration } from './JodPathDuration';
 export { JodPathEntity } from './JodPathEntity';
 export { JodPrint } from './JodPrint';
+export { JodQuestionMark } from './JodQuestionMark';
 export { JodRemove } from './JodRemove';
 export { JodRoute } from './JodRoute';
 export { JodSearch } from './JodSearch';
