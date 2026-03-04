@@ -62,7 +62,8 @@ export const TitleComponent: Story = {
   args: {
     title: <div className="ds:text-heading-1 ds:font-arial ds:text-alert ds:italic ds:tracking-widest">Title</div>,
     ariaLabel: 'Title',
-    children: 'Content',
+    children:
+      'Ex duis minim eu qui. Labore labore quis mollit aliqua duis tempor nisi non fugiat ipsum est duis esse. Proident reprehenderit irure irure sunt do. Magna exercitation veniam mollit duis nisi ipsum do.',
   },
 };
 
@@ -154,6 +155,44 @@ export const NoEllipsis: Story = {
     title:
       'This is a very long title that should not be truncated with ellipsis even if it exceeds the container width',
     children: 'Content',
+    caretPosition: 'top',
+    ellipsis: false,
+  },
+};
+
+export const Nested: Story = {
+  render: (args) => {
+    return (
+      <Accordion {...args} initialState={false}>
+        <div className="ds:pl-5">
+          <p className="ds:p-5">Level 1</p>
+          <Accordion {...args} title="Nested Accordion title" initialState={false}>
+            <div className="ds:pl-5">
+              <p className="ds:p-5">Level 2</p>
+              <Accordion {...args} title="Another nested Accordion title" initialState={false}>
+                <div className="ds:pl-5">
+                  <p className="ds:p-5">Level 3</p>
+                </div>
+              </Accordion>
+            </div>
+          </Accordion>
+        </div>
+      </Accordion>
+    );
+  },
+  decorators,
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'Nested Accordion structure.',
+      },
+    },
+  },
+  args: {
+    title: 'Accordion title',
+    children: '',
+    underline: true,
     caretPosition: 'top',
     ellipsis: false,
   },
