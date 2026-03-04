@@ -1,3 +1,4 @@
+import { Transition } from '@headlessui/react';
 import React from 'react';
 import { cx } from '../../cva';
 import { JodCaretDown, JodCaretUp } from '../../icons';
@@ -43,6 +44,8 @@ type AccordionProps = {
   collapsedContent?: React.ReactNode;
   /** Whether to show ellipsis for long titles */
   ellipsis?: boolean;
+  /** Whether to animate the accordion */
+  animated?: boolean;
 } & TitleProps;
 
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
@@ -67,7 +70,9 @@ export const Accordion = ({
   collapsedContent,
   className = '',
   ellipsis = true,
+  animated = true,
 }: AccordionProps) => {
+  const contentRef = React.useRef<HTMLDivElement>(null);
   const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
   const isControlled = controlledIsOpen !== undefined;
   const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
@@ -101,6 +106,10 @@ export const Accordion = ({
     setIsOpen(!isOpen);
   }, [fetchData, fetchStatus, isOpen, setIsOpen]);
 
+  const captureHeight = () =>
+    contentRef.current && (contentRef.current.style.maxHeight = `${contentRef.current.scrollHeight}px`);
+  const clearHeight = () => contentRef.current && (contentRef.current.style.maxHeight = '');
+
   return (
     <div className={cx('ds:w-full', className)}>
       <div className="ds:group ds:w-full">
@@ -115,7 +124,6 @@ export const Accordion = ({
             'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group',
             {
               'ds:border-b ds:border-border-gray': underline,
-              'ds:mb-2': isOpen,
             },
           )}
           data-testid={testId}
@@ -132,8 +140,44 @@ export const Accordion = ({
           </span>
         </button>
       </div>
-      {isOpen && (!fetchData || fetchStatus === 'done') && children}
-      {!isOpen && collapsedContent}
+      {animated ? (
+        <>
+          <Transition
+            ref={contentRef}
+            as="div"
+            show={isOpen && (!fetchData || fetchStatus === 'done')}
+            enter="ds:transition-[max-height,opacity] ds:duration-300 ds:ease-in ds:overflow-hidden"
+            enterFrom="ds:max-h-0! ds:opacity-0"
+            enterTo="ds:max-h-full ds:opacity-100"
+            leave="ds:overflow-hidden ds:transition-[max-height,opacity] ds:ease-out ds:duration-300"
+            leaveFrom="ds:max-h-full ds:opacity-100"
+            leaveTo="ds:max-h-0! ds:opacity-0"
+            beforeEnter={captureHeight}
+            afterEnter={clearHeight}
+            beforeLeave={captureHeight}
+            afterLeave={clearHeight}
+          >
+            {children}
+          </Transition>
+          <Transition
+            show={!isOpen && !!collapsedContent}
+            as="div"
+            enter="ds:transition-opacity ds:duration-150 ds:ease-in ds:delay-300"
+            enterFrom="ds:opacity-0"
+            enterTo="ds:opacity-100"
+            leave="ds:transition-opacity ds:duration-100 ds:ease-out"
+            leaveFrom="ds:opacity-100"
+            leaveTo="ds:opacity-0"
+          >
+            {collapsedContent}
+          </Transition>
+        </>
+      ) : (
+        <>
+          {isOpen && (!fetchData || fetchStatus === 'done') && children}
+          {!isOpen && collapsedContent}
+        </>
+      )}
     </div>
   );
 };

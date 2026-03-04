@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Accordion } from './Accordion';
 
@@ -23,7 +23,7 @@ describe('Accordion', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('closes accordion when expand button is clicked', () => {
+  it('closes accordion when expand button is clicked', async () => {
     render(
       <Accordion title={title}>
         <div>Content to be gone</div>
@@ -34,7 +34,11 @@ describe('Accordion', () => {
     fireEvent.click(expandButton);
 
     const accordionContent = screen.queryByText('Content to be gone');
-    expect(accordionContent).not.toBeInTheDocument();
+
+    // Wait for the animation to finish and content to be removed from the DOM
+    await waitFor(() => {
+      expect(accordionContent).not.toBeInTheDocument();
+    });
   });
 
   it('calls fetchData only once when opening and shows spinner while loading', async () => {
@@ -61,7 +65,11 @@ describe('Accordion', () => {
 
     // Wait for fetchData to resolve and spinner to disappear
     await screen.findByText('Fetched content');
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+
+    // Wait for the animation to finish and content to be removed from the DOM
+    await waitFor(() => {
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    });
 
     // Close and reopen: fetchData should not be called again
     fireEvent.click(expandButton); // close
