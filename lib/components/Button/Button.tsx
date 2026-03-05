@@ -81,8 +81,8 @@ const buttonVariants = cvaBase({
     },
     variant: {
       accent: 'ds:text-white',
-      white: 'ds:bg-white ds:text-black',
-      gray: 'ds:bg-bg-gray ds:text-black',
+      white: 'ds:bg-white ds:text-primary-gray',
+      gray: 'ds:bg-bg-gray ds:text-primary-gray',
       plain: '',
       'red-delete': 'ds:bg-alert ds:active:bg-alert-text-2 ds:focus-visible:outline-alert ds:text-white',
       'white-delete':
