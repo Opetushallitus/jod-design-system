@@ -157,10 +157,8 @@ export const Modal = ({
                     'ds:max-w-[890px]',
                     'ds:flex-1',
                     'ds:min-h-0',
-                    'ds:sm:mt-8',
-                    'ds:mt-5',
-                    'ds:px-3',
-                    'ds:md:px-9',
+                    'ds:sm:mt-7',
+                    'ds:mt-6',
                     'ds:relative',
                     'ds:overflow-hidden',
                     'ds:flex',
@@ -169,7 +167,7 @@ export const Modal = ({
                   data-testid={testId ? `${testId}-content-wrapper` : undefined}
                 >
                   {/* Top */}
-                  <div className="ds:flex ds:flex-row ds:justify-between ds:px-3 ds:pb-3">
+                  <div className="ds:flex ds:flex-row ds:justify-between ds:px-5 ds:md:px-9 ds:pb-3">
                     {topSlot}
                     {progress && (
                       <div
@@ -190,16 +188,14 @@ export const Modal = ({
                         'ds:min-h-0',
                         'ds:overflow-hidden',
                         'ds:pr-0 sm:ds:pr-5',
-                        sidePanel || !fullWidthContent
-                          ? 'ds:sm:col-span-2'
-                          : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-0',
+                        sidePanel || !fullWidthContent ? 'ds:sm:col-span-2' : 'ds:sm:col-span-3',
                         'ds:sm:pr-0',
                         sidePanel && progress ? 'ds:sm:mt-8' : '',
                       ])}
                       data-testid={testId ? `${testId}-main` : undefined}
                     >
                       <div
-                        className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1 ds:p-0 ds:pl-4 ds:pr-3 sm:ds:p-3"
+                        className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1"
                         data-testid={testId ? `${testId}-scroll` : undefined}
                       >
                         {content}

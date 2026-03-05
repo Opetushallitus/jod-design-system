@@ -40,6 +40,8 @@ type AccordionProps = {
   testId?: string;
   /** Classnames for wrapper */
   className?: string;
+  /** Classnames for title */
+  titleClassName?: string;
   /** Content to show when accordion is collapsed */
   collapsedContent?: React.ReactNode;
   /** Whether to show ellipsis for long titles */
@@ -69,6 +71,7 @@ export const Accordion = ({
   setIsOpen: controlledSetIsOpen,
   collapsedContent,
   className = '',
+  titleClassName = '',
   ellipsis = true,
   animated = true,
 }: AccordionProps) => {
@@ -112,7 +115,7 @@ export const Accordion = ({
 
   return (
     <div className={cx('ds:w-full', className)}>
-      <div className="ds:group ds:w-full">
+      <div className={cx('ds:group ds:w-full', titleClassName)}>
         <button
           type="button"
           {...(triggerId ? { id: triggerId } : {})}
