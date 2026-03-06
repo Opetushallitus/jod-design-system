@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import userEvent from '@testing-library/user-event';
-import { RateAiContentCard } from './RateAiContentCard';
+import { RateContentCard } from './RateContentCard';
 
 const translations = {
   card: {
@@ -22,9 +22,9 @@ const translations = {
   },
 } as const;
 
-describe('RateAiContentCard', () => {
+describe('RateContentCard', () => {
   it('renders the provided texts and buttons', () => {
-    render(<RateAiContentCard translations={translations} onSubmit={vi.fn()} />);
+    render(<RateContentCard translations={translations} onSubmit={vi.fn()} />);
     expect(screen.getByRole('heading', { level: 2, name: translations.card.title })).toBeInTheDocument();
     expect(screen.getByText(translations.card.content)).toBeInTheDocument();
     expect(screen.getByLabelText(translations.card.aiLabel)).toBeInTheDocument();
@@ -35,7 +35,7 @@ describe('RateAiContentCard', () => {
   it('submits positive feedback when the like button is pressed', async () => {
     const onSubmit = vi.fn();
     const user = userEvent.setup();
-    render(<RateAiContentCard translations={translations} onSubmit={onSubmit} />);
+    render(<RateContentCard translations={translations} onSubmit={onSubmit} />);
     const likeButton = screen.getByRole('button', { name: translations.card.likeLabel });
     await user.click(likeButton);
     expect(likeButton).toBeDisabled();
@@ -45,7 +45,7 @@ describe('RateAiContentCard', () => {
   it('opens the modal and submits negative feedback with a message', async () => {
     const onSubmit = vi.fn();
     const user = userEvent.setup();
-    render(<RateAiContentCard translations={translations} onSubmit={onSubmit} />);
+    render(<RateContentCard translations={translations} onSubmit={onSubmit} />);
     const dislikeButton = screen.getByRole('button', { name: translations.card.dislikeLabel });
     await user.click(dislikeButton);
     expect(dislikeButton).toBeDisabled();
@@ -62,7 +62,7 @@ describe('RateAiContentCard', () => {
   it('cancels the modal and resets state without submitting feedback', async () => {
     const onSubmit = vi.fn();
     const user = userEvent.setup();
-    render(<RateAiContentCard translations={translations} onSubmit={onSubmit} />);
+    render(<RateContentCard translations={translations} onSubmit={onSubmit} />);
     const dislikeButton = screen.getByRole('button', { name: translations.card.dislikeLabel });
     await user.click(dislikeButton);
     await user.type(screen.getByPlaceholderText(translations.modal.placeholder), 'Unhelpful');
@@ -72,7 +72,7 @@ describe('RateAiContentCard', () => {
 
   it('exposes data-testids when testId is provided', async () => {
     const user = userEvent.setup();
-    render(<RateAiContentCard translations={translations} onSubmit={vi.fn()} testId="rate-ai-card" />);
+    render(<RateContentCard translations={translations} onSubmit={vi.fn()} testId="rate-ai-card" />);
 
     expect(screen.getByTestId('rate-ai-card')).toBeInTheDocument();
     const likeButton = screen.getByTestId('rate-ai-card-like-button');

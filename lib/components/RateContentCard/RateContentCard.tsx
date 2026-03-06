@@ -3,7 +3,7 @@ import { cx } from '../../cva';
 import { JodAi, JodThumbDown, JodThumbDownFilled, JodThumbUp, JodThumbUpFilled } from '../../icons';
 import { Button, ConfirmDialog, Spinner, Textarea } from '../../main';
 
-export interface RateAiContentCardProps {
+export interface RateContentCardProps {
   /** Object containing all the translations for the component */
   translations: {
     /** Translations for the card content */
@@ -11,7 +11,7 @@ export interface RateAiContentCardProps {
       /** Title text shown on the card */
       title: string;
       /** Aria label for the AI icon */
-      aiLabel: string;
+      aiLabel?: string;
       /** Content text shown on the card */
       content: string;
       /** Aria label for the like button */
@@ -39,11 +39,13 @@ export interface RateAiContentCardProps {
   onSubmit: ({ rating, message }: { rating: number; message?: string }) => Promise<void> | void;
   /** Size of the card */
   size?: 'md' | 'lg';
+  /** Additional class name for the card container */
+  className?: string;
   /** Test id for querying in tests */
   testId?: string;
 }
 
-export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId }: RateAiContentCardProps) => {
+export const RateContentCard = ({ translations, onSubmit, size = 'lg', className, testId }: RateContentCardProps) => {
   const [value, setValue] = React.useState('');
   const [isLikeSubmitting, setIsLikeSubmitting] = React.useState(false);
   const [isDislikeSubmitting, setIsDislikeSubmitting] = React.useState(false);
@@ -101,15 +103,21 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId 
 
   return (
     <div
-      className={cx('ds:flex ds:flex-col ds:gap-3 ds:bg-ai ds:text-white', {
-        'ds:rounded-md ds:px-5 ds:py-6': size === 'md',
-        'ds:rounded-lg ds:p-6': size === 'lg',
-      })}
+      className={cx(
+        `ds:flex ds:flex-col ds:gap-3 ds:bg-ai ds:text-white`,
+        {
+          'ds:rounded-md ds:px-5 ds:py-6': size === 'md',
+          'ds:rounded-lg ds:p-6': size === 'lg',
+        },
+        className,
+      )}
       data-testid={testId}
     >
       <div className="ds:flex ds:gap-3 ds:text-heading-2">
         <h2 className="ds:grow">{translations.card.title}</h2>
-        <JodAi aria-label={translations.card.aiLabel} size={32} className="ds:flex-none" />
+        {translations.card.aiLabel && (
+          <JodAi aria-label={translations.card.aiLabel} size={32} className="ds:flex-none" />
+        )}
       </div>
       <div className="ds:flex ds:flex-col ds:gap-6">
         <p className="ds:text-body-lg">{translations.card.content}</p>
@@ -131,7 +139,9 @@ export const RateAiContentCard = ({ translations, onSubmit, size = 'lg', testId 
             title={
               <div className="ds:flex ds:justify-between ds:gap-3">
                 {translations.modal.title}
-                <JodAi aria-label={translations.card.aiLabel} size={32} className="ds:flex-none" />
+                {translations.card.aiLabel && (
+                  <JodAi aria-label={translations.card.aiLabel} size={32} className="ds:flex-none" />
+                )}
               </div>
             }
             description={translations.modal.description}

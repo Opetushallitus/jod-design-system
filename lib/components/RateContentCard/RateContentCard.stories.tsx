@@ -1,13 +1,13 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import type { TitledMeta } from '../../utils';
-import { RateAiContentCard } from './RateAiContentCard';
+import { RateContentCard } from './RateContentCard';
 
 const meta = {
-  title: 'Cards/RateAiContentCard',
-  component: RateAiContentCard,
+  title: 'Cards/RateContentCard',
+  component: RateContentCard,
   tags: ['autodocs'],
-} satisfies TitledMeta<typeof RateAiContentCard>;
+} satisfies TitledMeta<typeof RateContentCard>;
 
 export default meta;
 
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 const render = (args: Story['args']) => {
   const { onSubmit, ...rest } = args;
-  return <RateAiContentCard {...rest} onSubmit={onSubmit} />;
+  return <RateContentCard {...rest} onSubmit={onSubmit} />;
 };
 
 export const Default: Story = {
