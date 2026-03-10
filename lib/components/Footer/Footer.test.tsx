@@ -35,6 +35,21 @@ const mockMoreInfoLinks = [
   },
 ];
 
+const mockSocialMedia = {
+  facebook: {
+    href: 'https://www.facebook.com/osaamispolku',
+    label: 'Osaamispolku Facebook',
+  },
+  linkedin: {
+    href: 'https://www.linkedin.com/company/osaamispolku',
+    label: 'Osaamispolku LinkedIn',
+  },
+  instagram: {
+    href: 'https://www.instagram.com/osaamispolku',
+    label: 'Osaamispolku Instagram',
+  },
+};
+
 const mockMoreInfoTitle = 'Haluatko tietää lisää Osaamispolusta?';
 const mockMoreInfoDescription =
   'Mietityttääkö tietosuoja tai tekoälyn hyödyntäminen palvelussa? Alta löydät kootusti yleistä tietoa palvelusta ja sen käytöstä.';
@@ -60,6 +75,7 @@ const FooterComponent = (
     feedbackTitle={mockFeedbackTitle}
     feedbackContent={mockFeedbackContent}
     feedbackButtonLabel={mockFeedbackButtonLabel}
+    socialMedia={mockSocialMedia}
     feedbackOnClick={vi.fn()}
     feedbackBgImageClassName={mockFeedbackBgImageClassName}
     externalLinkIconAriaLabel="Linkki johtaa palvelun ulkopuolelle"
@@ -99,6 +115,7 @@ it('emits data-testid when provided', () => {
       feedbackButtonLabel={mockFeedbackButtonLabel}
       feedbackOnClick={vi.fn()}
       feedbackBgImageClassName={mockFeedbackBgImageClassName}
+      socialMedia={mockSocialMedia}
       externalLinkIconAriaLabel="Linkki johtaa palvelun ulkopuolelle"
       testId="footer"
     />,
