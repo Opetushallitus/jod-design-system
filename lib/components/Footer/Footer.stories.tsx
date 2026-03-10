@@ -81,6 +81,20 @@ const args = {
   feedbackOnClick: fn(),
   feedbackBgImageClassName,
   externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
+  socialMedia: {
+    facebook: {
+      href: 'https://www.facebook.com/osaamispolku',
+      label: 'Osaamispolku Facebook',
+    },
+    linkedin: {
+      href: 'https://www.linkedin.com/company/osaamispolku',
+      label: 'Osaamispolku LinkedIn',
+    },
+    instagram: {
+      href: 'https://www.instagram.com/osaamispolku',
+      label: 'Osaamispolku Instagram',
+    },
+  },
 };
 
 export const Default: Story = {

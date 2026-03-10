@@ -218,7 +218,7 @@ exports[`Footer > renders 1`] = `
     >
       <div
         aria-hidden="true"
-        class="ds:flex ds:justify-start"
+        class="ds:flex ds:sm:justify-between ds:sm:items-center ds:justify-start ds:items-start ds:sm:flex-row ds:flex-col ds:sm:gap-4 ds:gap-8"
       >
         <svg
           height="37"
@@ -329,6 +329,46 @@ exports[`Footer > renders 1`] = `
             </g>
           </g>
         </svg>
+        <div
+          class="ds:flex ds:gap-4 ds:sm:mr-11 ds:not-sm:mb-3"
+        >
+          <a
+            href="https://www.facebook.com/osaamispolku"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Osaamispolku Facebook"
+              height="24"
+              src="assets/some-facebook.png"
+              width="24"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/osaamispolku"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Osaamispolku Instagram"
+              height="24"
+              src="assets/some-instagram.png"
+              width="24"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/osaamispolku"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Osaamispolku LinkedIn"
+              height="24"
+              src="assets/some-linkedin.png"
+              width="28"
+            />
+          </a>
+        </div>
       </div>
       <div
         class="ds:flex ds:flex-col ds:gap-5"
@@ -540,7 +580,7 @@ exports[`Footer > renders 1`] = `
         </div>
       </div>
       <div
-        class="ds:mt-9 ds:flex ds:justify-end ds:font-poppins ds:text-right"
+        class="ds:mt-7 ds:mb-11 ds:flex ds:sm:justify-end ds:font-poppins ds:sm:text-right"
       >
         © Osaamispolku 2025. Kaikki oikeudet pidätetään.
       </div>
@@ -767,7 +807,7 @@ exports[`Footer > renders copyright 1`] = `
     >
       <div
         aria-hidden="true"
-        class="ds:flex ds:justify-start"
+        class="ds:flex ds:sm:justify-between ds:sm:items-center ds:justify-start ds:items-start ds:sm:flex-row ds:flex-col ds:sm:gap-4 ds:gap-8"
       >
         <svg
           height="37"
@@ -878,6 +918,46 @@ exports[`Footer > renders copyright 1`] = `
             </g>
           </g>
         </svg>
+        <div
+          class="ds:flex ds:gap-4 ds:sm:mr-11 ds:not-sm:mb-3"
+        >
+          <a
+            href="https://www.facebook.com/osaamispolku"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Osaamispolku Facebook"
+              height="24"
+              src="assets/some-facebook.png"
+              width="24"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/osaamispolku"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Osaamispolku Instagram"
+              height="24"
+              src="assets/some-instagram.png"
+              width="24"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/osaamispolku"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Osaamispolku LinkedIn"
+              height="24"
+              src="assets/some-linkedin.png"
+              width="28"
+            />
+          </a>
+        </div>
       </div>
       <div
         class="ds:flex ds:flex-col ds:gap-5"
@@ -1089,7 +1169,7 @@ exports[`Footer > renders copyright 1`] = `
         </div>
       </div>
       <div
-        class="ds:mt-9 ds:flex ds:justify-end ds:font-poppins ds:text-right"
+        class="ds:mt-7 ds:mb-11 ds:flex ds:sm:justify-end ds:font-poppins ds:sm:text-right"
       >
         © Osaamispolku 2025. Kaikki oikeudet pidätetään.
       </div>

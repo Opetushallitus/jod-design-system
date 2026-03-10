@@ -16,6 +16,11 @@ import {
   LogoTemFiSv,
 } from './logos';
 
+interface LinkData {
+  href: string;
+  label: string;
+}
+
 export interface FooterProps {
   ref?: React.Ref<HTMLDivElement>;
   /** Language of the logos */
@@ -39,10 +44,7 @@ export interface FooterProps {
   /** More info */
   moreInfoTitle: string;
   moreInfoDescription: string;
-  moreInfoLinks: {
-    href: string;
-    label: string;
-  }[];
+  moreInfoLinks: LinkData[];
   moreInfoComponent?: React.ComponentType<{ children: React.ReactNode; className: string; to: string }>;
 
   /** Feedback */
@@ -57,6 +59,12 @@ export interface FooterProps {
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
   externalLinkIconAriaLabel: string;
+
+  socialMedia: {
+    facebook: LinkData;
+    linkedin: LinkData;
+    instagram: LinkData;
+  };
 }
 
 /**
@@ -85,6 +93,7 @@ export const Footer = ({
   ref,
   headingLevel = 'h2',
   externalLinkIconAriaLabel,
+  socialMedia,
 }: FooterProps) => {
   const HeadingTag = headingLevel;
   const defaultCooperationLogos = React.useMemo(
@@ -213,8 +222,22 @@ export const Footer = ({
       </div>
       <div className="ds:bg-white ds:text-primary-gray">
         <div className="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5">
-          <div className="ds:flex ds:justify-start" aria-hidden>
+          <div
+            className="ds:flex ds:sm:justify-between ds:sm:items-center ds:justify-start ds:items-start ds:sm:flex-row ds:flex-col ds:sm:gap-4 ds:gap-8"
+            aria-hidden
+          >
             <LogoRgb language={language} size={37} />
+            <div className="ds:flex ds:gap-4 ds:sm:mr-11 ds:not-sm:mb-3">
+              <a href={socialMedia.facebook.href} target="_blank" rel="noopener noreferrer">
+                <img src="assets/some-facebook.png" alt={socialMedia.facebook.label} width="24" height="24" />
+              </a>
+              <a href={socialMedia.instagram.href} target="_blank" rel="noopener noreferrer">
+                <img src="assets/some-instagram.png" alt={socialMedia.instagram.label} width="24" height="24" />
+              </a>
+              <a href={socialMedia.linkedin.href} target="_blank" rel="noopener noreferrer">
+                <img src="assets/some-linkedin.png" alt={socialMedia.linkedin.label} height="24" width="28" />
+              </a>
+            </div>
           </div>
 
           <div className="ds:flex ds:flex-col ds:gap-5">
@@ -229,7 +252,11 @@ export const Footer = ({
             <div aria-hidden>{fundingLogo}</div>
           </div>
 
-          {copyright && <div className="ds:mt-9 ds:flex ds:justify-end ds:font-poppins ds:text-right">{copyright}</div>}
+          {copyright && (
+            <div className="ds:mt-7 ds:mb-11 ds:flex ds:sm:justify-end ds:font-poppins ds:sm:text-right">
+              {copyright}
+            </div>
+          )}
         </div>
       </div>
     </footer>
