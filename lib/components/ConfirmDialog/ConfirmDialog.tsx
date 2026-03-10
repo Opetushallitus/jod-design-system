@@ -1,8 +1,9 @@
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
+import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { JSX } from 'react/jsx-runtime';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { tidyClasses as tc } from '../../utils';
+import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
 import { Button } from '../Button/Button';
 
 type Variant = 'normal' | 'destructive';
@@ -30,6 +31,12 @@ export type ConfirmDialogProps = {
   title: string | React.ReactNode;
   description: string | React.ReactNode;
   content?: React.ReactNode;
+  /** Animation mode for stacked dialogs. Defaults to 'single' for backward compatibility. */
+  animationMode?: AnimationMode;
+  /** Callback invoked when dialog is closed (both cancel and confirm actions) */
+  onClose?: () => void;
+  /** Whether this dialog should render a backdrop. Only the bottom-most dialog in a stack should render backdrop. Defaults to true for backward compatibility. */
+  shouldRenderBackdrop?: boolean;
 } & FooterProps & { testId?: string };
 
 /** Confirm dialogs are used to confirm an action before proceeding. They appear over the interface and block further interactions. */
@@ -44,6 +51,9 @@ export const ConfirmDialog = ({
   variant = 'normal',
   cancelText,
   testId,
+  animationMode = 'single',
+  onClose,
+  shouldRenderBackdrop = true,
 }: ConfirmDialogProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const id = React.useId();
@@ -101,6 +111,7 @@ export const ConfirmDialog = ({
 
   const hideDialog = () => {
     setIsOpen(false);
+    onClose?.();
   };
 
   const confirmHandler = () => {
@@ -110,90 +121,109 @@ export const ConfirmDialog = ({
 
   const descriptionTag = React.useMemo(() => (typeof description === 'string' ? undefined : 'div'), [description]);
 
+  // Calculate animations based on animation mode and device type
+  const { panelAnimations, backdropAnimations } = getModalAnimations(animationMode, !sm);
   return (
     <>
       {children(showDialog)}
-      {isOpen && (
-        <Dialog
-          arial-labelledby={`ds-confirm-dialog-title-${id}`}
-          id={`ds-confirm-dialog-${id}`}
-          open={isOpen}
-          onClose={() => {
-            /* unused on purpose to prevent close on ESC or clicking the dimmed area */
-          }}
-          className="ds:relative ds:z-50"
-          data-testid={testId}
-        >
-          <div className="ds:fixed ds:inset-0 ds:bg-black/30" aria-hidden data-testid={getTestId('backdrop')} />
-          <div className="ds:fixed ds:inset-0 ds:flex ds:w-screen ds:sm:py-[96px]">
-            <div className="ds:flex ds:w-full ds:items-end ds:sm:items-center ds:justify-center ds:h-full">
-              <DialogPanel
-                ref={panelRef}
-                id={`ds-confirm-dialog-panel-${id}`}
-                className={tc([
-                  'ds:flex',
-                  'ds:flex-col',
-                  'ds:bg-bg-gray',
-                  'ds:overflow-hidden',
-                  'ds:rounded-t-xl',
-                  'ds:sm:rounded-lg',
-                  'ds:transition-opacity',
-                  'ds:duration-0',
-                  'ds:min-h-[270px]',
-                  'ds:w-[630px]',
-                  'ds:sm:max-h-[80dvh]',
-                  getPanelHeightClasses(),
-                ])}
-                data-testid={getTestId('panel')}
-              >
-                <div className="ds:flex ds:flex-col ds:flex-1 ds:min-h-0 ds:max-w-[640px]">
-                  <div className={tc(['ds:pt-6', 'ds:sm:pt-7', 'ds:pb-5', contentPadding])}>
-                    <DialogTitle
-                      id={`ds-confirm-dialog-title-${id}`}
-                      className="ds:sm:text-[32px] ds:text-[20px] ds:sm:leading-8 ds:leading-[26px] ds:font-semibold"
+      <AnimatePresence>
+        {isOpen && (
+          <Dialog
+            arial-labelledby={`ds-confirm-dialog-title-${id}`}
+            id={`ds-confirm-dialog-${id}`}
+            open={isOpen}
+            onClose={() => {
+              /* unused on purpose to prevent close on ESC or clicking the dimmed area */
+            }}
+            className="ds:relative ds:z-50"
+            data-testid={testId}
+            static
+          >
+            {/* Backdrop - only render if backdropAnimations is not null AND shouldRenderBackdrop is true */}
+            {backdropAnimations && shouldRenderBackdrop && (
+              <motion.div
+                initial={backdropAnimations.initial}
+                animate={backdropAnimations.animate}
+                exit={backdropAnimations.exit}
+                className="ds:fixed ds:inset-0 ds:bg-black/30"
+                aria-hidden
+                data-testid={getTestId('backdrop')}
+              />
+            )}
+            <div className="ds:fixed ds:inset-0 ds:flex ds:w-screen ds:sm:py-[96px]">
+              <div className="ds:flex ds:w-full ds:items-end ds:sm:items-center ds:justify-center ds:h-full">
+                <DialogPanel
+                  ref={panelRef}
+                  id={`ds-confirm-dialog-panel-${id}`}
+                  as={motion.div}
+                  initial={panelAnimations.initial}
+                  animate={panelAnimations.animate}
+                  exit={panelAnimations.exit}
+                  className={tc([
+                    'ds:flex',
+                    'ds:flex-col',
+                    'ds:bg-bg-gray',
+                    'ds:overflow-hidden',
+                    'ds:rounded-t-xl',
+                    'ds:sm:rounded-lg',
+                    'ds:transition-opacity',
+                    'ds:duration-0',
+                    'ds:min-h-[270px]',
+                    'ds:w-[630px]',
+                    'ds:sm:max-h-[80dvh]',
+                    getPanelHeightClasses(),
+                  ])}
+                  data-testid={getTestId('panel')}
+                >
+                  <div className="ds:flex ds:flex-col ds:flex-1 ds:min-h-0 ds:max-w-[640px]">
+                    <div className={tc(['ds:pt-6', 'ds:sm:pt-7', 'ds:pb-5', contentPadding])}>
+                      <DialogTitle
+                        id={`ds-confirm-dialog-title-${id}`}
+                        className="ds:sm:text-[32px] ds:text-[20px] ds:sm:leading-8 ds:leading-[26px] ds:font-semibold"
+                      >
+                        {title}
+                      </DialogTitle>
+                    </div>
+                    <div
+                      className={tc([
+                        'ds:overflow-y-auto',
+                        'ds:flex',
+                        'ds:flex-col',
+                        contentPadding,
+                        'ds:pb-6',
+                        'ds:sm:pb-9',
+                      ])}
                     >
-                      {title}
-                    </DialogTitle>
+                      <Description as={descriptionTag} className="ds:text-body-sm ds:sm:text-body-md ds:font-arial">
+                        {description}
+                      </Description>
+                      {content && <div className="ds:mt-5">{content}</div>}
+                    </div>
                   </div>
-                  <div
-                    className={tc([
-                      'ds:overflow-y-auto',
-                      'ds:flex',
-                      'ds:flex-col',
-                      contentPadding,
-                      'ds:pb-6',
-                      'ds:sm:pb-9',
-                    ])}
-                  >
-                    <Description as={descriptionTag} className="ds:text-body-sm ds:sm:text-body-md ds:font-arial">
-                      {description}
-                    </Description>
-                    {content && <div className="ds:mt-5">{content}</div>}
-                  </div>
-                </div>
 
-                <div className="ds:shrink-0 ds:overflow-x-auto ds:overflow-y-hidden ds:bg-bg-gray-2">
-                  <div className="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-4 ds:sm-py-5 ds:sm:px-9 ds:justify-end">
-                    {footer ? (
-                      footer(hideDialog)
-                    ) : (
-                      <>
-                        <Button size={sm ? 'lg' : 'sm'} label={cancelText} onClick={hideDialog} />
-                        <Button
-                          size={sm ? 'lg' : 'sm'}
-                          label={confirmText}
-                          onClick={confirmHandler}
-                          variant={variant === 'destructive' ? 'red-delete' : 'white'}
-                        />
-                      </>
-                    )}
+                  <div className="ds:shrink-0 ds:overflow-x-auto ds:overflow-y-hidden ds:bg-bg-gray-2">
+                    <div className="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-4 ds:sm-py-5 ds:sm:px-9 ds:justify-end">
+                      {footer ? (
+                        footer(hideDialog)
+                      ) : (
+                        <>
+                          <Button size={sm ? 'lg' : 'sm'} label={cancelText} onClick={hideDialog} />
+                          <Button
+                            size={sm ? 'lg' : 'sm'}
+                            label={confirmText}
+                            onClick={confirmHandler}
+                            variant={variant === 'destructive' ? 'red-delete' : 'white'}
+                          />
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </DialogPanel>
+                </DialogPanel>
+              </div>
             </div>
-          </div>
-        </Dialog>
-      )}
+          </Dialog>
+        )}
+      </AnimatePresence>
     </>
   );
 };

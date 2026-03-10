@@ -1,7 +1,7 @@
 import './index.css';
 
 export { cva, cx } from './cva';
-export { clamp, tidyClasses } from './utils';
+export { clamp, tidyClasses, type AnimationMode, type ModalAnimations } from './utils';
 
 export { useMediaQueries } from './hooks/useMediaQueries';
 export { ServiceVariantProvider, useServiceVariant } from './hooks/useServiceVariant';
