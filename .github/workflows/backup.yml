@@ -11,7 +11,7 @@ jobs:
       id-token: write # Needed to interact with GitHub's OIDC Token endpoint
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -22,7 +22,7 @@ jobs:
           tar -czf ${{ github.event.repository.name }}.git.tar.gz ${{ github.event.repository.name }}.git
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::${{ secrets.JOD_BACKUP_AWS_ACCOUNT_ID }}:role/${{ secrets.JOD_BACKUP_AWS_GITHUB_ROLE_NAME}}
           aws-region: eu-west-1
