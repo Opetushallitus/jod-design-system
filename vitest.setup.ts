@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom/vitest';
+import React from 'react';
 
 import { vi } from 'vitest';
 
@@ -25,3 +26,12 @@ class ResizeObserverMock {
 vi.stubGlobal('ResizeObserver', ResizeObserverMock);
 
 Element.prototype.scrollTo = vi.fn();
+
+// Mock Framer Motion
+vi.mock('motion/react', () => ({
+  motion: {
+    div: ({ children, initial, animate, exit, transition, ...props }: Record<string, unknown>) =>
+      React.createElement('div', props as React.HTMLAttributes<HTMLDivElement>, children as React.ReactNode),
+  },
+  AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
+}));

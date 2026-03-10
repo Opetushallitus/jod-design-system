@@ -1,7 +1,8 @@
 import { Dialog, DialogPanel } from '@headlessui/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { tidyClasses as tc } from '../../utils';
+import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
 
 export interface ModalProps {
   /** Required name for the screenreader */
@@ -18,6 +19,10 @@ export interface ModalProps {
   /** Test id for querying in tests */
   testId?: string;
   className?: string;
+  /** Animation mode for stacked modals. Defaults to 'single' for backward compatibility. */
+  animationMode?: AnimationMode;
+  /** Whether this modal should render a backdrop. Only the bottom-most modal in a stack should render backdrop. Defaults to true for backward compatibility. */
+  shouldRenderBackdrop?: boolean;
 }
 
 /** Modals are containers appearing in front of the main content to provide critical information or an actionable piece of content. */
@@ -33,6 +38,8 @@ export const Modal = ({
   fullWidthContent = false,
   testId,
   className = '',
+  animationMode = 'single',
+  shouldRenderBackdrop = true,
 }: ModalProps) => {
   const { sm } = useMediaQueries();
   const id = React.useId();
@@ -80,134 +87,154 @@ export const Modal = ({
     return 'ds:overflow-hidden';
   };
 
+  // Calculate animations based on animation mode and device type
+  const { panelAnimations, backdropAnimations } = getModalAnimations(animationMode, !sm);
+
   return (
-    <Dialog
-      aria-label={name}
-      id={`ds-modal-${id}`}
-      open={open}
-      onClose={() => {
-        if (onClose) {
-          onClose();
-        }
-      }}
-      className="ds:relative ds:z-50"
-      data-testid={testId}
-    >
-      {/* Backdrop */}
-      <div
-        className="ds:fixed ds:inset-0 ds:bg-black/30"
-        aria-hidden
-        data-testid={testId ? `${testId}-backdrop` : undefined}
-      />
-      {/* Wrapper container paddings and margins */}
-      <div className="ds:fixed ds:inset-0 ds:pt-5 ds:sm:p-10" data-testid={testId ? `${testId}-container` : undefined}>
-        {/* Wrapper for container centering */}
-        <div
-          className="ds:flex ds:items-end ds:sm:items-center ds:justify-center ds:h-full"
-          data-testid={testId ? `${testId}-center` : undefined}
+    <AnimatePresence>
+      {open && (
+        <Dialog
+          aria-label={name}
+          id={`ds-modal-${id}`}
+          open={open}
+          onClose={() => {
+            if (onClose) {
+              onClose();
+            }
+          }}
+          className="ds:relative ds:z-50"
+          data-testid={testId}
+          static
         >
-          {/* Modal container */}
-          <DialogPanel
-            ref={panelRef}
-            id={`ds-modal-panel-${id}`}
-            className={tc([
-              'ds:flex',
-              'ds:flex-col',
-              'ds:bg-bg-gray',
-              'ds:rounded-t-xl',
-              'ds:sm:rounded-lg',
-              'ds:w-full',
-              'ds:max-w-[890px]',
-              getMobileHeightClasses(),
-              'ds:sm:h-auto',
-              'ds:sm:max-h-[80dvh]',
-              'ds:sm:overflow-hidden',
-              className,
-            ])}
-            data-testid={testId ? `${testId}-panel` : undefined}
+          {/* Backdrop - only render if backdropAnimations is not null AND shouldRenderBackdrop is true */}
+          {backdropAnimations && shouldRenderBackdrop && (
+            <motion.div
+              initial={backdropAnimations.initial}
+              animate={backdropAnimations.animate}
+              exit={backdropAnimations.exit}
+              className="ds:fixed ds:inset-0 ds:bg-black/30"
+              aria-hidden
+              data-testid={testId ? `${testId}-backdrop` : undefined}
+            />
+          )}
+          {/* Wrapper container paddings and margins */}
+          <div
+            className="ds:fixed ds:inset-0 ds:pt-5 ds:sm:p-10"
+            data-testid={testId ? `${testId}-container` : undefined}
           >
-            {/* Content wrapper - height is controlled here */}
+            {/* Wrapper for container centering */}
             <div
-              className={tc([
-                'ds:max-w-[890px]',
-                'ds:flex-1',
-                'ds:min-h-0',
-                'ds:sm:mt-8',
-                'ds:mt-5',
-                'ds:px-3',
-                'ds:md:px-9',
-                'ds:relative',
-                'ds:overflow-hidden',
-                'ds:flex',
-                'ds:flex-col',
-              ])}
-              data-testid={testId ? `${testId}-content-wrapper` : undefined}
+              className="ds:flex ds:items-end ds:sm:items-center ds:justify-center ds:h-full"
+              data-testid={testId ? `${testId}-center` : undefined}
             >
-              {/* Top */}
-              <div className="ds:flex ds:flex-row ds:justify-between ds:px-3 ds:pb-3">
-                {topSlot}
-                {progress && (
-                  <div
-                    className="ds:flex ds:flex-1 ds:justify-items-end"
-                    data-testid={testId ? `${testId}-progress` : undefined}
-                  >
-                    <div className="ds:ml-auto">{progress}</div>
-                  </div>
-                )}
-              </div>
-              {/* Main content */}
-              <div className="ds:grid ds:grid-cols-1 ds:sm:grid-cols-3 ds:overflow-hidden ds:flex-1">
+              {/* Modal container */}
+              <DialogPanel
+                ref={panelRef}
+                id={`ds-modal-panel-${id}`}
+                as={motion.div}
+                initial={panelAnimations.initial}
+                animate={panelAnimations.animate}
+                exit={panelAnimations.exit}
+                className={tc([
+                  'ds:flex',
+                  'ds:flex-col',
+                  'ds:bg-bg-gray',
+                  'ds:rounded-t-xl',
+                  'ds:sm:rounded-lg',
+                  'ds:w-full',
+                  'ds:max-w-[890px]',
+                  getMobileHeightClasses(),
+                  'ds:sm:h-auto',
+                  'ds:sm:max-h-[80dvh]',
+                  'ds:sm:overflow-hidden',
+                  className,
+                ])}
+                data-testid={testId ? `${testId}-panel` : undefined}
+              >
+                {/* Content wrapper - height is controlled here */}
                 <div
                   className={tc([
-                    'ds:col-span-1',
+                    'ds:max-w-[890px]',
+                    'ds:flex-1',
+                    'ds:min-h-0',
+                    'ds:sm:mt-8',
+                    'ds:mt-5',
+                    'ds:px-3',
+                    'ds:md:px-9',
+                    'ds:relative',
+                    'ds:overflow-hidden',
                     'ds:flex',
                     'ds:flex-col',
-                    'ds:min-h-0',
-                    'ds:overflow-hidden',
-                    'ds:pr-0 sm:ds:pr-5',
-                    sidePanel || !fullWidthContent
-                      ? 'ds:sm:col-span-2'
-                      : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-0',
-                    'ds:sm:pr-0',
-                    sidePanel && progress ? 'ds:sm:mt-8' : '',
                   ])}
-                  data-testid={testId ? `${testId}-main` : undefined}
+                  data-testid={testId ? `${testId}-content-wrapper` : undefined}
                 >
-                  <div
-                    className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1 ds:p-0 ds:pl-4 ds:pr-3 sm:ds:p-3"
-                    data-testid={testId ? `${testId}-scroll` : undefined}
-                  >
-                    {content}
+                  {/* Top */}
+                  <div className="ds:flex ds:flex-row ds:justify-between ds:px-3 ds:pb-3">
+                    {topSlot}
+                    {progress && (
+                      <div
+                        className="ds:flex ds:flex-1 ds:justify-items-end"
+                        data-testid={testId ? `${testId}-progress` : undefined}
+                      >
+                        <div className="ds:ml-auto">{progress}</div>
+                      </div>
+                    )}
+                  </div>
+                  {/* Main content */}
+                  <div className="ds:grid ds:grid-cols-1 ds:sm:grid-cols-3 ds:overflow-hidden ds:flex-1">
+                    <div
+                      className={tc([
+                        'ds:col-span-1',
+                        'ds:flex',
+                        'ds:flex-col',
+                        'ds:min-h-0',
+                        'ds:overflow-hidden',
+                        'ds:pr-0 sm:ds:pr-5',
+                        sidePanel || !fullWidthContent
+                          ? 'ds:sm:col-span-2'
+                          : 'ds:sm:col-span-3 ds:mr-0 ds:sm:mr-5 ds:md:mr-0',
+                        'ds:sm:pr-0',
+                        sidePanel && progress ? 'ds:sm:mt-8' : '',
+                      ])}
+                      data-testid={testId ? `${testId}-main` : undefined}
+                    >
+                      <div
+                        className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1 ds:p-0 ds:pl-4 ds:pr-3 sm:ds:p-3"
+                        data-testid={testId ? `${testId}-scroll` : undefined}
+                      >
+                        {content}
+                      </div>
+                    </div>
+                    {/* Side panel */}
+                    {sm && sidePanel && !fullWidthContent && (
+                      <div
+                        className={tc(['ds:col-span-1', 'ds:flex', 'ds:flex-col', 'ds:min-h-0', 'ds:overflow-hidden'])}
+                        data-testid={testId ? `${testId}-side` : undefined}
+                      >
+                        <div
+                          className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ds:flex-1 ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
+                          data-testid={testId ? `${testId}-side-scroll` : undefined}
+                        >
+                          {sidePanel}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-                {/* Side panel */}
-                {sm && sidePanel && !fullWidthContent && (
+                {/* Footer, button area */}
+                {footer && (
                   <div
-                    className={tc(['ds:col-span-1', 'ds:flex', 'ds:flex-col', 'ds:min-h-0', 'ds:overflow-hidden'])}
-                    data-testid={testId ? `${testId}-side` : undefined}
+                    className="ds:flex ds:shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
+                    data-testid={testId ? `${testId}-footer` : undefined}
                   >
-                    <div
-                      className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ds:flex-1 ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
-                      data-testid={testId ? `${testId}-side-scroll` : undefined}
-                    >
-                      {sidePanel}
-                    </div>
+                    {footer}
                   </div>
                 )}
-              </div>
+              </DialogPanel>
             </div>
-            {/* Footer, button area */}
-            {footer && (
-              <div
-                className="ds:flex ds:shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
-                data-testid={testId ? `${testId}-footer` : undefined}
-              >
-                {footer}
-              </div>
-            )}
-          </DialogPanel>
-        </div>
-      </div>
-    </Dialog>
+          </div>
+        </Dialog>
+      )}
+    </AnimatePresence>
   );
 };

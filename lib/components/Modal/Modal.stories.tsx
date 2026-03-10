@@ -199,7 +199,7 @@ export const DynamicContent: Story = {
                     className="ds:p-3"
                     type="number"
                     value={loremIpsumLength}
-                    onChange={(e) => setLoremIpsumLength(parseInt(e.target.value, 10))}
+                    onChange={(e) => setLoremIpsumLength(Number.parseInt(e.target.value, 10))}
                     min={0}
                     max={20}
                   />
@@ -262,5 +262,150 @@ export const Progress: Story = {
     sidePanel: <LoremIpsum heading="Side panel" />,
     progress: <ProgressComponent />,
     topSlot: <h2 className="ds:text-heading-2-mobile ds:sm:text-hero">Test title</h2>,
+  },
+};
+
+export const MultipleStackedModals: Story = {
+  render: () => {
+    // Yhtenäinen stackattu modal story, suomeksi
+    type ModalState = {
+      id: number;
+      isOpen: boolean;
+      mode: 'single' | 'stacked-background' | 'stacked-foreground';
+    };
+
+    const [modals, setModals] = useState<ModalState[]>([]);
+
+    const getAnimationMode = (
+      index: number,
+      openModals: ModalState[],
+    ): 'single' | 'stacked-background' | 'stacked-foreground' => {
+      if (openModals.length === 1) return 'single';
+      const isTop = index === openModals.length - 1;
+      return isTop ? 'stacked-foreground' : 'stacked-background';
+    };
+
+    const openNewModal = () => {
+      setModals((prev) => {
+        const newId = prev.length;
+        const openModals = prev.filter((m) => m.isOpen);
+        const updatedModals = prev.map((m) => (m.isOpen ? { ...m, mode: 'stacked-background' as const } : m));
+        return [
+          ...updatedModals,
+          {
+            id: newId,
+            isOpen: true,
+            mode: openModals.length === 0 ? 'single' : ('stacked-foreground' as const),
+          },
+        ];
+      });
+    };
+
+    const closeModal = (id: number) => {
+      setModals((prev) => {
+        const modalIndex = prev.findIndex((m) => m.id === id);
+        if (modalIndex === -1) return prev;
+        const updated = prev.map((m, idx) => {
+          if (idx === modalIndex) {
+            return { ...m, isOpen: false };
+          }
+          return m;
+        });
+        const stillOpen = updated.filter((m) => m.isOpen);
+        return updated.map((m) => {
+          if (!m.isOpen) return m;
+          const currentOpenIndex = stillOpen.findIndex((om) => om.id === m.id);
+          return {
+            ...m,
+            mode: getAnimationMode(currentOpenIndex, stillOpen),
+          };
+        });
+      });
+    };
+
+    const openModals = modals.filter((m) => m.isOpen);
+
+    return (
+      <>
+        <div className="ds:space-y-4">
+          <Button label={`Avaa uusi modal (${openModals.length} auki)`} onClick={openNewModal} />
+
+          {openModals.length > 0 && (
+            <div className="ds:text-sm ds:text-gray-600 ds:p-4 ds:bg-gray-100 ds:rounded">
+              <p className="ds:font-semibold ds:mb-2">Avoinna olevat modalit:</p>
+              <ul className="ds:list-disc ds:ml-6 ds:space-y-1">
+                {openModals.map((m, idx) => (
+                  <li key={m.id}>
+                    Modal {m.id + 1} - <code>{m.mode}</code>
+                    {idx === openModals.length - 1 && ' (päällimmäinen)'}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {modals.map((modal) => {
+          const isBottomModal = openModals.length > 0 && openModals[0].id === modal.id;
+          const isTopModal = openModals.findIndex((m) => m.id === modal.id) === openModals.length - 1;
+          return (
+            <Modal
+              key={modal.id}
+              name={`Modal ${modal.id + 1}`}
+              open={modal.isOpen}
+              onClose={() => closeModal(modal.id)}
+              animationMode={modal.mode}
+              shouldRenderBackdrop={isBottomModal}
+              content={
+                <div className="ds:space-y-4">
+                  <h2 className="ds:text-xl ds:font-bold">Modal {modal.id + 1}</h2>
+                  <p>
+                    <strong>Stack-positio:</strong> {openModals.findIndex((m) => m.id === modal.id) + 1}/
+                    {openModals.length}
+                  </p>
+                  <p>
+                    <strong>Animaatiomoodi:</strong> <code>{modal.mode}</code>
+                  </p>
+
+                  <div className="ds:border-t ds:pt-4 ds:mt-4">
+                    <p className="ds:mb-3">
+                      Voit avata uuden modalin tämän päälle tai sulkea tämän modalin. Kaikki taustamodalit ovat
+                      'stacked-background' modessa, ja päällimmäinen on 'stacked-foreground' modessa.
+                    </p>
+
+                    {isTopModal && (
+                      <Button
+                        label={`Avaa modal ${modals.length + 1}`}
+                        onClick={openNewModal}
+                        variant="white"
+                        size="sm"
+                      />
+                    )}
+                  </div>
+                </div>
+              }
+              footer={
+                <div className="ds:flex ds:gap-3 ds:justify-end">
+                  <Button label="Sulje modal" onClick={() => closeModal(modal.id)} variant="accent" size="sm" />
+                </div>
+              }
+            />
+          );
+        })}
+      </>
+    );
+  },
+  parameters: {
+    design: commonDesignParams,
+    docs: {
+      description: {
+        story:
+          'Demonstrates multiple stacked modal animations. You can open as many modals as you want. All background modals are in stacked-background mode (scaled down and faded), while the topmost modal is in stacked-foreground mode. When closing a modal, the one below transitions to restoring-background mode.',
+      },
+    },
+  },
+  argTypes: { ...commonArgTypes },
+  args: {
+    ...commonArgs,
   },
 };

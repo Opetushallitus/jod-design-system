@@ -1,4 +1,5 @@
 import type { Meta } from '@storybook/react-vite';
+import { TargetAndTransition } from 'motion';
 
 /**
  * Tidies up a string (or array of strings) of CSS class names by removing any extra whitespace and empty strings
@@ -93,3 +94,81 @@ export const getTruthyValuesAsString = (...ids: string[]) => {
   const filteredIds = ids.filter(Boolean);
   return filteredIds.length > 0 ? filteredIds.join(' ') : undefined;
 };
+
+export interface ModalAnimations {
+  initial: TargetAndTransition;
+  animate: TargetAndTransition;
+  exit: TargetAndTransition;
+}
+
+export type AnimationMode = 'single' | 'stacked-background' | 'stacked-foreground';
+
+/**
+ * Calculate modal animations based on animation mode and device type
+ * @param animationMode - The animation mode determining how the modal should animate
+ * @param isMobile - Whether the device is mobile (affects slide direction)
+ * @returns Panel and backdrop animations for the modal
+ */
+export function getModalAnimations(
+  animationMode: AnimationMode,
+  isMobile: boolean,
+): { panelAnimations: ModalAnimations; backdropAnimations: ModalAnimations | null } {
+  const slideDistance = isMobile ? '100vh' : '-100vh'; // Mobile: from bottom, Desktop: from top
+
+  switch (animationMode) {
+    case 'single':
+      // Single modal: slides in from top (desktop) or bottom (mobile)
+      return {
+        panelAnimations: {
+          initial: { y: slideDistance, transition: { duration: 0.3, ease: 'easeIn' } },
+          animate: { y: 0, transition: { duration: 0.3, ease: 'easeIn' } },
+          exit: { y: slideDistance, transition: { duration: 0.3, ease: 'easeOut' } },
+        },
+        backdropAnimations: {
+          initial: { opacity: 0, transition: { duration: 0.3, ease: 'easeIn' } },
+          animate: { opacity: 1, transition: { duration: 0.3, ease: 'easeIn' } },
+          exit: { opacity: 0, transition: { duration: 0.3, ease: 'easeOut' } },
+        },
+      };
+
+    case 'stacked-background':
+      // Background modal when foreground modal opens: scales down and fades out
+      // Uses easeOut to start quickly so it syncs with foreground modal's easeIn
+      // Exit: restore visibility first, then slide away
+      return {
+        panelAnimations: {
+          initial: { scale: 1, opacity: 1, transition: { duration: 0.3, ease: 'easeIn' } },
+          animate: { scale: 0.9, opacity: 0, transition: { duration: 0.3, ease: 'easeIn', delay: 0.05 } },
+          exit: {
+            scale: 1,
+            opacity: 1,
+            y: slideDistance,
+            transition: { duration: 0.3, ease: 'easeOut' },
+          },
+        },
+        backdropAnimations: {
+          // Backdrop stays visible at full opacity during stacking, fades out on exit
+          initial: { opacity: 1 },
+          animate: { opacity: 1 },
+          exit: { opacity: 0, transition: { duration: 0.3, ease: 'easeOut' } },
+        },
+      };
+
+    case 'stacked-foreground':
+      // Foreground modal: slides in like single modal but without backdrop
+      // When transitioning from stacked-background to stacked-foreground, Framer Motion
+      // automatically animates scale/opacity back to defaults (1, 1) creating the restore effect
+      return {
+        panelAnimations: {
+          initial: { y: slideDistance, transition: { duration: 0.3, ease: 'easeIn' } },
+          animate: { y: 0, transition: { duration: 0.3, ease: 'easeIn' } },
+          exit: { y: slideDistance, transition: { duration: 0.3, ease: 'easeOut' } },
+        },
+        backdropAnimations: null, // Uses background modal's backdrop
+      };
+
+    default:
+      // Fallback to single mode
+      return getModalAnimations('single', isMobile);
+  }
+}
