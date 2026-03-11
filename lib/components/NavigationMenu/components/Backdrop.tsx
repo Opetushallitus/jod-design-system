@@ -25,7 +25,7 @@ export const Backdrop = ({ children, dialogRef, onClose, testId, ariaLabel }: Ba
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <dialog
       ref={dialogRef}
-      className="ds:fixed ds:left-auto ds:right-0 ds:-z-1 ds:flex ds:backdrop:bg-black/20 ds:w-[370px] ds:max-w-full ds:max-h-screen ds:min-h-full ds:overflow-auto ds:overscroll-contain ds:hyphens-auto"
+      className="ds:fixed ds:left-auto ds:right-0 ds:-z-1 ds:flex ds:backdrop:bg-black/20 ds:w-[370px] ds:max-w-full ds:max-h-screen ds:min-h-full ds:overflow-hidden ds:hyphens-auto"
       onKeyDown={handleKeyDown}
       onClick={handleClickOutside}
       data-testid={testId}
