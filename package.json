@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.30.0",
-    "@floating-ui/react": "^0.27.16",
+    "@floating-ui/react": "^0.27.19",
     "@headlessui/react": "^2.2.9",
     "cva": "^1.0.0-beta.4",
     "focus-trap-react": "^12.0.0",
