@@ -36,7 +36,7 @@
     "cva": "^1.0.0-beta.4",
     "focus-trap-react": "^12.0.0",
     "motion": "^12.35.0",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@lavamoat/allow-scripts": "^3.4.3",
