@@ -35,6 +35,8 @@ const createServiceVariants = () =>
   );
 
 export interface ButtonProps {
+  /** ARIA popup type for accessibility (e.g., "dialog", "menu") */
+  ariaHaspopup?: React.ButtonHTMLAttributes<HTMLButtonElement>['aria-haspopup'];
   /** Form ID to associate the button with */
   form?: string;
   /** Text shown on the button */
@@ -192,6 +194,7 @@ export const Button = ({
   serviceVariant = 'yksilo',
   size = 'lg',
   variant = 'white',
+  ariaHaspopup,
 }: ButtonProps) => {
   const leftIcon = icon !== undefined && iconSide === 'left';
   const rightIcon = icon !== undefined && iconSide === 'right';
@@ -234,6 +237,7 @@ export const Button = ({
       onClick={onClick}
       className={classNameTrimmed}
       data-testid={testId}
+      aria-haspopup={ariaHaspopup}
     >
       {buttonContent}
     </button>
