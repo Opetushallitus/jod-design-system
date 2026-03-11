@@ -114,7 +114,7 @@ export const NavigationMenu = ({
           aria-label={navigationAriaLabel}
         >
           <div
-            className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:flex-grow"
+            className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow"
             data-testid={testId ? `${testId}-body` : undefined}
           >
             <div className="ds:flex ds:items-center ds:justify-end ds:my-6">
