@@ -340,7 +340,7 @@ exports[`Footer > renders 1`] = `
             <img
               alt="Osaamispolku Facebook"
               height="24"
-              src="assets/some-facebook.png"
+              src="/lib/components/Logo/some-facebook.png"
               width="24"
             />
           </a>
@@ -352,7 +352,7 @@ exports[`Footer > renders 1`] = `
             <img
               alt="Osaamispolku Instagram"
               height="24"
-              src="assets/some-instagram.png"
+              src="/lib/components/Logo/some-instagram.png"
               width="24"
             />
           </a>
@@ -364,7 +364,7 @@ exports[`Footer > renders 1`] = `
             <img
               alt="Osaamispolku LinkedIn"
               height="24"
-              src="assets/some-linkedin.png"
+              src="/lib/components/Logo/some-linkedin.png"
               width="28"
             />
           </a>
@@ -929,7 +929,7 @@ exports[`Footer > renders copyright 1`] = `
             <img
               alt="Osaamispolku Facebook"
               height="24"
-              src="assets/some-facebook.png"
+              src="/lib/components/Logo/some-facebook.png"
               width="24"
             />
           </a>
@@ -941,7 +941,7 @@ exports[`Footer > renders copyright 1`] = `
             <img
               alt="Osaamispolku Instagram"
               height="24"
-              src="assets/some-instagram.png"
+              src="/lib/components/Logo/some-instagram.png"
               width="24"
             />
           </a>
@@ -953,7 +953,7 @@ exports[`Footer > renders copyright 1`] = `
             <img
               alt="Osaamispolku LinkedIn"
               height="24"
-              src="assets/some-linkedin.png"
+              src="/lib/components/Logo/some-linkedin.png"
               width="28"
             />
           </a>
