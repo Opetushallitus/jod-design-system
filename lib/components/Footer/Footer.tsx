@@ -16,6 +16,10 @@ import {
   LogoTemFiSv,
 } from './logos';
 
+import facebookIcon from '../Logo/some-facebook.png';
+import instagramIcon from '../Logo/some-instagram.png';
+import linkedinIcon from '../Logo/some-linkedin.png';
+
 interface LinkData {
   href: string;
   label: string;
@@ -229,13 +233,13 @@ export const Footer = ({
             <LogoRgb language={language} size={37} />
             <div className="ds:flex ds:gap-4 ds:sm:mr-11 ds:not-sm:mb-3">
               <a href={socialMedia.facebook.href} target="_blank" rel="noopener noreferrer">
-                <img src="assets/some-facebook.png" alt={socialMedia.facebook.label} width="24" height="24" />
+                <img src={facebookIcon} alt={socialMedia.facebook.label} width="24" height="24" />
               </a>
               <a href={socialMedia.instagram.href} target="_blank" rel="noopener noreferrer">
-                <img src="assets/some-instagram.png" alt={socialMedia.instagram.label} width="24" height="24" />
+                <img src={instagramIcon} alt={socialMedia.instagram.label} width="24" height="24" />
               </a>
               <a href={socialMedia.linkedin.href} target="_blank" rel="noopener noreferrer">
-                <img src="assets/some-linkedin.png" alt={socialMedia.linkedin.label} height="24" width="28" />
+                <img src={linkedinIcon} alt={socialMedia.linkedin.label} height="24" width="28" />
               </a>
             </div>
           </div>
