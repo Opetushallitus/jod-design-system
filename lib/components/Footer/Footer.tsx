@@ -187,6 +187,7 @@ export const Footer = ({
               title={feedbackTitle}
               buttonLabel={feedbackButtonLabel}
               onClick={feedbackOnClick}
+              buttonOpensModal
             />
           </div>
         </div>

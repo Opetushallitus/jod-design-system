@@ -16,6 +16,7 @@ interface ActionButtonProps {
   buttonLabel?: string;
   buttonVariant?: React.ComponentProps<typeof Button>['variant'];
   onClick?: () => void;
+  buttonOpensModal?: boolean;
 }
 
 export type HeroCardProps = {
@@ -49,6 +50,7 @@ export const HeroCard = ({
   size = 'lg',
   buttonLabel,
   onClick,
+  buttonOpensModal,
   testId,
 }: HeroCardProps) => {
   const headingClassNames = cx('ds:text-pretty ds:mr-9', {
@@ -84,6 +86,7 @@ export const HeroCard = ({
           {...(onClick && { onClick })}
           variant={buttonVariant}
           label={buttonLabel}
+          ariaHaspopup={buttonOpensModal ? 'dialog' : undefined}
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
           icon={buttonIcon ?? <JodArrowRight size={24} />}
