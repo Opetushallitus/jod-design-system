@@ -46,7 +46,7 @@ export const Breadcrumb = ({
   return (
     <nav
       aria-label={ariaLabel}
-      className="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:col-span-3 ds:h-5 ds:print:hidden ds:content-center"
+      className="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:h-5 ds:print:hidden ds:content-center"
       data-testid={testId}
     >
       <ol className="ds:flex ds:flex-wrap ds:gap-y-2">

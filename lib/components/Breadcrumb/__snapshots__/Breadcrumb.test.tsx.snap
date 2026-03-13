@@ -3,7 +3,7 @@
 exports[`Breadcrumb > renders all breadcrumb items 1`] = `
 <nav
   aria-label="Breadcrumb"
-  class="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:col-span-3 ds:h-5 ds:print:hidden ds:content-center"
+  class="ds:text-primary-gray ds:font-poppins ds:text-card-label ds:h-5 ds:print:hidden ds:content-center"
 >
   <ol
     class="ds:flex ds:flex-wrap ds:gap-y-2"
