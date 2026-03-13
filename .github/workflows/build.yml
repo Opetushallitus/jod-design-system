@@ -19,11 +19,11 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::${{ secrets.JOD_UTIL_AWS_ACCOUNT_ID }}:role/${{ secrets.JOD_UTIL_AWS_GITHUB_ROLE_NAME}}
           aws-region: eu-west-1
@@ -31,7 +31,7 @@ jobs:
       - name: Copy third party assets from S3
         run: aws s3 sync --quiet s3://${{ secrets.JOD_UI_ASSETS }} ./assets
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/krypton
           cache: npm
@@ -49,7 +49,7 @@ jobs:
         run: npx vitest --coverage.enabled true
 
       - name: Upload Vitest report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         if: always()
         with:
           name: coverage
@@ -60,7 +60,7 @@ jobs:
         run: npm run build
 
       - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: dist
           path: dist/
@@ -73,14 +73,13 @@ jobs:
         run: cp assets/Poppins-* storybook-static/assets
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: storybook-static/
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v7
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   release:
@@ -92,15 +91,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Download dist artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: dist
           path: dist/
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/krypton
 
