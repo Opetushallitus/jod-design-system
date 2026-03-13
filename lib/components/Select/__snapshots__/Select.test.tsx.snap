@@ -4,12 +4,6 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
 >
-  <label
-    class="ds:hidden ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
-    for="_r_9_"
-  >
-    Label
-  </label>
   <div
     class="ds:flex ds:flex-row ds:relative"
   >

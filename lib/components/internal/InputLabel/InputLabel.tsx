@@ -1,5 +1,4 @@
 import { tidyClasses as tc } from '../../../utils';
-
 interface InputLabelProps {
   /** The id of the form element that this label is associated with */
   htmlFor: string;
