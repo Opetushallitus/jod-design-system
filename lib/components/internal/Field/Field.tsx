@@ -41,7 +41,7 @@ export const Field = ({
 
   return (
     <>
-      <InputLabel htmlFor={htmlFor} labelText={labelText} hideLabel={hideLabel} />
+      {!hideLabel && <InputLabel htmlFor={htmlFor} labelText={labelText} />}
       {children}
       <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
       <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
