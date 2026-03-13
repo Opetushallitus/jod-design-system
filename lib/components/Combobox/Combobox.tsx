@@ -22,7 +22,7 @@ export interface ComboboxOptionsData<T extends string = string> {
 interface ComboboxProps<T extends ComboboxOptionsData, U extends string = string> {
   /** Label for the component */
   label: string;
-  /** Hide label. Still available for screenreaders */
+  /** Hide label */
   hideLabel?: boolean;
   /** Options for component */
   options: T[];
@@ -114,7 +114,7 @@ export const Combobox = <
 
   return (
     <div className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])} data-testid={testId}>
-      <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={labelText} />
+      {!hideLabel && <InputLabel htmlFor={inputId} labelText={labelText} />}
       <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
           defaultValue={defaultValue ?? (options[0]?.value as U)}

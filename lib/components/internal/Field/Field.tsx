@@ -6,7 +6,7 @@ import { InputLabel } from '../InputLabel/InputLabel';
 interface FieldProps {
   /** The label text to display above the input field */
   label: string | undefined;
-  /** Hide label. Still available for screenreaders */
+  /** Hide label */
   hideLabel?: boolean;
   /** The id of the input element that this label is for */
   htmlFor: string;
@@ -41,7 +41,7 @@ export const Field = ({
 
   return (
     <>
-      <InputLabel htmlFor={htmlFor} labelText={labelText} hideLabel={hideLabel} />
+      {!hideLabel && <InputLabel htmlFor={htmlFor} labelText={labelText} />}
       {children}
       <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
       <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />

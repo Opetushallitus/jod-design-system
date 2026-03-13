@@ -16,7 +16,7 @@ export interface SelectOptionsData<T extends string = string> {
 interface SelectProps<T extends SelectOptionsData, U extends string = string> {
   /** Label for the component */
   label: string;
-  /** Hide label. Still available for screenreaders */
+  /** Hide label  */
   hideLabel?: boolean;
   /** Options for component */
   options: T[];
@@ -71,7 +71,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
 
   return (
     <div className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])} data-testid={testId}>
-      <InputLabel htmlFor={inputId} hideLabel={hideLabel} labelText={label} />
+      {!hideLabel && <InputLabel htmlFor={inputId} labelText={label} />}
       <div className="ds:flex ds:flex-row ds:relative">
         <Listbox onChange={onChange} disabled={disabled} value={value}>
           {({ open }) => (
