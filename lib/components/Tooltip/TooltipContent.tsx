@@ -6,6 +6,7 @@ import { ARROW_HEIGHT, useTooltipContext } from './utils';
 type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
   arrowClassName?: string;
   testId?: string;
+  portalRoot?: HTMLElement | null;
 };
 export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
   function TooltipContent(props, propRef) {
@@ -30,10 +31,10 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       return null;
     }
 
-    const { testId, arrowClassName, ...rest } = props;
+    const { testId, arrowClassName, portalRoot, ...rest } = props;
 
     return (
-      <FloatingPortal>
+      <FloatingPortal root={portalRoot ?? document.body}>
         <div
           aria-hidden="true"
           role="tooltip"
@@ -56,6 +57,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           }}
           data-testid={testId}
           {...tooltipContext.getFloatingProps(rest)}
+          onBlur={() => tooltipContext.setOpen(false)}
         >
           {props.children}
           <FloatingArrow
