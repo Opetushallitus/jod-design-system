@@ -6,3 +6,15 @@ updates:
       interval: 'daily'
     cooldown:
       default-days: 7
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - 'minor'
+          - 'patch'
+    commit-message:
+      prefix: 'OPHJOD-851'
