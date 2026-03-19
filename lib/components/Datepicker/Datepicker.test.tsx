@@ -6,6 +6,10 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Datepicker } from './Datepicker';
 import { getDatepickerTranslations } from './DatepickerTranslations';
 
+vi.mock('./DatePickerFocusTrap', () => ({
+  DatepickerFocusTrap: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+}));
+
 describe('Datepicker', () => {
   const label = 'Pick a date dude!';
   const placeholder = 'pp.kk.vvvv';
@@ -13,37 +17,38 @@ describe('Datepicker', () => {
   const formattedValue = '1.5.2024';
   const onChange = vi.fn();
 
+  const viewTranslations = {
+    day: {
+      next: 'Switch to next month',
+      view: 'Switch to month view',
+      prev: 'Switch to previous month',
+    },
+    month: {
+      next: 'Switch to next year',
+      view: 'Switch to year view',
+      prev: 'Switch to previous year',
+    },
+    year: {
+      next: 'Switch to next decade',
+      view: 'Switch to day view',
+      prev: 'Switch to previous decade',
+    },
+  };
+
+  const dayCell = (state: DayTableCellState) => `Choose ${state.formattedDate}`;
+  const trigger = (open: boolean) => (open ? 'Close calendar' : 'Open calendar');
+  const roleDescriptions = {
+    datepicker: 'Date picker',
+    calendarMonth: 'Calendar month view',
+    calendarYear: 'Calendar year view',
+    calendarDecade: 'Calendar decade view',
+  };
+
   afterEach(() => {
     onChange.mockClear();
   });
 
-  const translations = getDatepickerTranslations(
-    {
-      day: {
-        next: 'Switch to next month',
-        view: 'Switch to month view',
-        prev: 'Switch to previous month',
-      },
-      month: {
-        next: 'Switch to next year',
-        view: 'Switch to year view',
-        prev: 'Switch to previous year',
-      },
-      year: {
-        next: 'Switch to next decade',
-        view: 'Switch to day view',
-        prev: 'Switch to previous decade',
-      },
-    },
-    (state: DayTableCellState) => `Choose ${state.formattedDate}`,
-    (open: boolean) => (open ? 'Close calendar' : 'Open calendar'),
-    {
-      datepicker: 'Date picker',
-      calendarMonth: 'Calendar month view',
-      calendarYear: 'Calendar year view',
-      calendarDecade: 'Calendar decade view',
-    },
-  );
+  const translations = getDatepickerTranslations(viewTranslations, dayCell, trigger, roleDescriptions);
 
   it('renders correctly', () => {
     vi.useFakeTimers();
@@ -147,5 +152,50 @@ describe('Datepicker', () => {
     );
 
     expect(value.date).toBe('');
+  });
+
+  it('does not prefix selected day when selected prefix is not provided', async () => {
+    render(
+      <Datepicker
+        label={label}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        translations={translations}
+      />,
+    );
+
+    const user = userEvent.setup();
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Open calendar' }));
+    });
+
+    const selectedDayButton = document.querySelector('button[data-selected]');
+    expect(selectedDayButton).toBeInTheDocument();
+    expect(selectedDayButton).toHaveAccessibleName(/^Choose/);
+    expect(selectedDayButton).not.toHaveAccessibleName(/Selected\./);
+  });
+
+  it('allows custom selected day prefix via options object', async () => {
+    const prefixTranslations = getDatepickerTranslations(viewTranslations, dayCell, trigger, roleDescriptions, {
+      selectedDayPrefix: 'Selected.',
+    });
+
+    render(
+      <Datepicker
+        label={label}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        translations={prefixTranslations}
+      />,
+    );
+
+    const user = userEvent.setup();
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Open calendar' }));
+    });
+
+    expect(screen.getByRole('button', { name: /Selected\. Choose/ })).toBeInTheDocument();
   });
 });
