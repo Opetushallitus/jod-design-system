@@ -52,6 +52,7 @@ const translations = getDatepickerTranslations(
     calendarYear: 'Vuosinäkymä',
     calendarDecade: 'Vuosikymmennäkymä',
   },
+  { selectedDayPrefix: 'Valittuna.' },
 );
 
 const args = {
