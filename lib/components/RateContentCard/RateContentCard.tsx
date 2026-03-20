@@ -166,6 +166,7 @@ export const RateContentCard = ({ translations, onSubmit, size = 'lg', className
                   { 'ds:hover:bg-secondary-5-light-3 ds:cursor-pointer': !isDislikeSubmitting },
                 )}
                 aria-label={translations.card.dislikeLabel}
+                aria-haspopup="dialog"
                 disabled={isDislikeSubmitting}
                 onClick={() => {
                   setIsDislikeSubmitting(true);
