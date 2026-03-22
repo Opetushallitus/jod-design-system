@@ -26,9 +26,11 @@ describe('ConfirmDialog', () => {
       await user.click(screen.getByText('Show for rendering'));
     });
 
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('ConfirmDialog rendered')).toBeInTheDocument();
     expect(screen.getByText('Are you sure?')).toBeInTheDocument();
-    expect(screen.getByLabelText('ConfirmDialog rendered')).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Confirm' })).toBeInTheDocument();
   });
 
   it('calls onConfirm when confirm button is clicked', async () => {
