@@ -173,6 +173,8 @@ export const Datepicker = ({
     format: formatValue,
     min: minDate ? parseDate(minDate) : undefined,
     max: maxDate ? parseDate(maxDate) : undefined,
+    fixedWeeks: true,
+    outsideDaySelectable: true,
   });
 
   return (
