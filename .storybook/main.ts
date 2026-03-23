@@ -28,5 +28,23 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
+
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      return {
+        ...config,
+        plugins: (config.plugins ?? []).filter(
+          (plugin) =>
+            !(
+              plugin &&
+              typeof plugin === 'object' &&
+              'name' in plugin &&
+              plugin.name === 'builtin:esm-external-require'
+            ),
+        ),
+      };
+    }
+    return config;
+  },
 };
 export default config;
