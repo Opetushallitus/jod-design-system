@@ -20,7 +20,7 @@ const tableCellClasses = tc([
   'ds:justify-center',
   'ds:items-center',
   'ds:align-center',
-  'ds:text-body-sm',
+  'ds:text-body-md',
   'ds:m-3',
   'ds:font-arial',
   'ds:size-[28px]',
@@ -257,7 +257,7 @@ export const Datepicker = ({
                                     <button
                                       type="button"
                                       disabled={datePicker.isUnavailable(day)}
-                                      className="ds:cursor-pointer"
+                                      className="ds:cursor-pointer ds:leading-none ds:font-arial"
                                     >
                                       {day.day}
                                     </button>
