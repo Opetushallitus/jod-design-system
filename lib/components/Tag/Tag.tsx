@@ -5,6 +5,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '../../main';
 interface BaseTagProps {
   label: string;
   tooltip?: string;
+  screenReaderTooltip?: string;
   variant?: 'selectable' | 'added' | 'presentation';
   sourceType?: 'tyopaikka' | 'koulutus' | 'vapaa-ajan-toiminto' | 'kiinnostus' | 'jotain-muuta';
   testId?: string;
@@ -46,6 +47,7 @@ const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagPro
 export const Tag = ({
   label,
   tooltip,
+  screenReaderTooltip = tooltip,
   onClick,
   variant = 'selectable',
   sourceType = 'jotain-muuta',
@@ -53,12 +55,13 @@ export const Tag = ({
 }: TagProps) => {
   return (
     <Tooltip clickToToggle={false} delay={{ open: 500, close: 150 }}>
-      <TooltipTrigger asChild>
+      <TooltipTrigger asChild noAriaDescribedby>
         {variant === 'presentation' ? (
           <div
             className={containerClassNames(sourceType, variant)}
             data-testid={testId}
-            role={tooltip ? 'button' : undefined}
+            aria-describedby={undefined}
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
             tabIndex={tooltip ? 0 : undefined}
           >
             <span className="ds:truncate ds:text-primary-gray">{label}</span>
@@ -78,14 +81,17 @@ export const Tag = ({
         )}
       </TooltipTrigger>
       {tooltip && (
-        <TooltipContent>
-          <div className="ds:font-arial ds:text-white ds:leading-5 ds:text-card-label">
-            <p className="ds:mb-2 ds:capitalize" aria-hidden>
-              {label}
-            </p>
-            <p className="ds:font-normal">{tooltip}</p>
-          </div>
-        </TooltipContent>
+        <>
+          <TooltipContent>
+            <div className="ds:font-arial ds:text-white ds:leading-5 ds:text-card-label">
+              <p className="ds:mb-2 ds:capitalize" aria-hidden>
+                {label}
+              </p>
+              <p className="ds:font-normal">{tooltip}</p>
+            </div>
+          </TooltipContent>
+          <div className="ds:sr-only">{screenReaderTooltip}</div>
+        </>
       )}
     </Tooltip>
   );
