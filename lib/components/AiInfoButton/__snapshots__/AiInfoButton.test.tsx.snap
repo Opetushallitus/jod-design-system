@@ -4,7 +4,6 @@ exports[`AiInfoButton > renders the button with tooltip 1`] = `
 <button
   aria-controls="_r_1_"
   aria-describedby="_r_1_"
-  aria-expanded="true"
   aria-label="Info button"
   class="ds:cursor-pointer"
   data-testid="aiinfo"
