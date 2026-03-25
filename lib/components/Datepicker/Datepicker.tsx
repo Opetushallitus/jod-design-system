@@ -27,7 +27,8 @@ const tableCellClasses = tc([
   'ds:sm:size-7',
   'ds:hover:underline',
   'ds:focus:left-auto ds:capitalize',
-  'ds:data-selected:bg-secondary-1-75',
+  'ds:data-selected:bg-accent',
+  'ds:data-selected:text-white',
   'ds:data-selected:rounded-full',
 ]);
 
