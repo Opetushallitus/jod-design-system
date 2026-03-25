@@ -55,7 +55,7 @@ export const Tag = ({
 }: TagProps) => {
   return (
     <Tooltip clickToToggle={false} delay={{ open: 500, close: 150 }}>
-      <TooltipTrigger asChild noAriaDescribedby>
+      <TooltipTrigger asChild noAriaDescribedby noAriaExpanded>
         {variant === 'presentation' ? (
           <div
             className={containerClassNames(sourceType, variant)}

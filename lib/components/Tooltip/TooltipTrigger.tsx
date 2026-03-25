@@ -12,10 +12,21 @@ export const TooltipTrigger = React.forwardRef<
     open?: boolean;
     toggleOnClick?: boolean;
     noAriaDescribedby?: boolean;
+    noAriaExpanded?: boolean;
     onClick?: React.MouseEventHandler<HTMLElement>;
   }
+  // eslint-disable-next-line sonarjs/cognitive-complexity
 >(function TooltipTrigger(
-  { children, open, asChild = false, ariaLabel, toggleOnClick = false, noAriaDescribedby = false, ...props },
+  {
+    children,
+    open,
+    asChild = false,
+    ariaLabel,
+    toggleOnClick = false,
+    noAriaDescribedby = false,
+    noAriaExpanded = false,
+    ...props
+  },
   propRef,
 ) {
   const context = useTooltipContext();
@@ -69,6 +80,7 @@ export const TooltipTrigger = React.forwardRef<
       ref,
       onClick: finalOnClick,
       ...(testId ? { 'data-testid': testId } : {}),
+      'aria-expanded': noAriaExpanded ? undefined : context.open,
       'aria-label': ariaLabel,
       'aria-describedby': ariaDescribedby,
     } as React.HTMLProps<HTMLElement> & { 'data-testid'?: string };
@@ -85,6 +97,7 @@ export const TooltipTrigger = React.forwardRef<
       aria-describedby={ariaDescribedby}
       data-testid={testId}
       className="ds:cursor-pointer"
+      aria-expanded={noAriaExpanded ? undefined : context.open}
       type="button"
     >
       {children}
