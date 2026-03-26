@@ -55,7 +55,7 @@ export const UserButton = ({
     <div className="ds:relative" data-testid="user-button">
       <button
         {...triggerProps}
-        className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-2 ds:md:gap-3"
+        className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-2 ds:md:gap-3 ds:text-primary-gray"
         data-testid="user-button-trigger"
         aria-label={username !== firstName ? firstName : undefined}
       >

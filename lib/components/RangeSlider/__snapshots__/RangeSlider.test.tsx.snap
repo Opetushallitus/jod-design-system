@@ -77,7 +77,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
                   />
                 </svg>
                 <div
-                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap"
+                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-primary-gray ds:text-nowrap"
                 >
                   Min
                 </div>
@@ -115,7 +115,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
                   />
                 </svg>
                 <div
-                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap"
+                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-primary-gray ds:text-nowrap"
                 >
                   Mid
                 </div>
@@ -153,7 +153,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
                   />
                 </svg>
                 <div
-                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap"
+                  class="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-primary-gray ds:text-nowrap"
                 >
                   Max
                 </div>

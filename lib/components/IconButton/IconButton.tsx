@@ -75,6 +75,7 @@ export const IconButton = ({
         'ds:justify-center',
         'ds:select-none',
         'ds:size-8',
+        'ds:text-primary-gray',
       ])}
     >
       {icon}

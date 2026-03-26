@@ -9,7 +9,7 @@ export const MenuButton = ({ onClick, label }: MenuButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className="ds:flex ds:flex-col ds:md:flex-row ds:gap-2 ds:md:gap-3 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer"
+      className="ds:flex ds:flex-col ds:md:flex-row ds:gap-2 ds:md:gap-3 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:text-primary-gray"
       data-testid="open-nav-menu"
       aria-haspopup="dialog"
     >

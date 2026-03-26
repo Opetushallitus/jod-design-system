@@ -8,7 +8,7 @@ exports[`Snapshot > should render with defaults 1`] = `
   <button
     aria-expanded="false"
     aria-haspopup="true"
-    class="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
+    class="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3 ds:text-primary-gray"
     data-testid="language-button-trigger"
   >
     <svg
@@ -64,7 +64,7 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
   <button
     aria-expanded="true"
     aria-haspopup="true"
-    class="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
+    class="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3 ds:text-primary-gray"
     data-testid="language-button-trigger"
   >
     <svg

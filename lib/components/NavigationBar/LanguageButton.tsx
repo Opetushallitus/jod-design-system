@@ -42,7 +42,7 @@ export const LanguageButton = ({
     <div className="ds:relative" data-testid={testId}>
       <button
         {...triggerProps}
-        className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3"
+        className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-y-2 ds:gap-x-3 ds:text-primary-gray"
         data-testid={testId ? `${testId}-trigger` : undefined}
       >
         <JodLanguage className="mx-auto" />

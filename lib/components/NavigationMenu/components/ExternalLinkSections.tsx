@@ -42,7 +42,7 @@ const ExternalLinkItem = ({
           'ds:flex-1',
           'ds:space-between',
           'ds:rounded',
-          'ds:text-black',
+          'ds:text-primary-gray',
           'ds:active:text-white',
           'ds:hover:bg-bg-gray',
           getFocusOutlineClassForService(serviceVariant),

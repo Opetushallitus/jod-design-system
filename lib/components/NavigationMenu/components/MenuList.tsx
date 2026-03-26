@@ -97,10 +97,10 @@ const MenuListItem = ({
         'ds:before:-left-5',
         'ds:before:rounded-full',
         'ds:before:size-4',
-        'ds:text-black',
+        'ds:text-primary-gray',
         'ds:active:text-white',
         'ds:hover:bg-bg-gray',
-        'ds:hover:text-black',
+        'ds:hover:text-primary-gray',
         dotColor,
       ]);
     } else if (activeIndicator === 'bg') {
@@ -115,6 +115,7 @@ const MenuListItem = ({
     const linkItemClasses = tc([
       'ds:flex',
       'ds:items-center',
+      'ds:text-primary-gray',
       'ds:text-button-md',
       'ds:flex-1',
       'ds:p-3',
@@ -285,7 +286,9 @@ export const MenuList = ({
   return (
     menuSection && (
       <div data-testid={testId}>
-        {menuSection.title ? <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</h2> : null}
+        {menuSection.title ? (
+          <h2 className="ds:text-primary-gray ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</h2>
+        ) : null}
         <ul
           className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])}
           ref={menuRef}

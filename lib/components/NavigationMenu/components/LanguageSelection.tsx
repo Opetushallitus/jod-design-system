@@ -40,7 +40,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
                   'ds:items-center',
                   'ds:hover:bg-bg-gray',
                   'ds:rounded',
-                  'ds:text-black',
+                  'ds:text-primary-gray',
                   'ds:active:text-white',
                   'ds:py-3',
                   getPressedBgColorClassForService(serviceVariant),

@@ -21,14 +21,16 @@ const tableCellClasses = tc([
   'ds:items-center',
   'ds:align-center',
   'ds:text-body-md',
+  'ds:text-primary-gray',
   'ds:m-3',
   'ds:font-arial',
   'ds:size-[28px]',
   'ds:sm:size-7',
   'ds:hover:underline',
-  'ds:focus:left-auto ds:capitalize',
   'ds:data-selected:bg-accent',
   'ds:data-selected:text-white',
+  'ds:focus:left-auto',
+  'ds:capitalize',
   'ds:data-selected:rounded-full',
 ]);
 
@@ -57,7 +59,7 @@ const Header = () => (
     </ArkDatePicker.PrevTrigger>
 
     <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
-      <ArkDatePicker.RangeText className="ds:capitalize ds:font-bold ds:cursor-pointer ds:hover:underline" />
+      <ArkDatePicker.RangeText className="ds:capitalize ds:text-primary-gray ds:font-bold ds:cursor-pointer ds:hover:underline" />
     </ArkDatePicker.ViewTrigger>
 
     <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
@@ -239,7 +241,7 @@ export const Datepicker = ({
                             {datePicker.weekDays.map((weekDay) => (
                               <ArkDatePicker.TableHeader
                                 key={weekDay.long}
-                                className="ds:capitalize ds:size-[28px] ds:sm:size-7"
+                                className="ds:capitalize ds:size-[28px] ds:sm:size-7 ds:text-primary-gray"
                               >
                                 {weekDay.short}
                               </ArkDatePicker.TableHeader>
@@ -258,7 +260,7 @@ export const Datepicker = ({
                                     <button
                                       type="button"
                                       disabled={datePicker.isUnavailable(day)}
-                                      className="ds:cursor-pointer ds:leading-none ds:font-arial"
+                                      className="ds:cursor-pointer ds:leading-none ds:font-arial ds:data-outside-range:text-inactive-gray ds:text-primary-gray"
                                     >
                                       {day.day}
                                     </button>

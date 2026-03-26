@@ -54,7 +54,7 @@ const Thumb = ({ disabled, testId, index, value, description }: ThumbProps) => {
 const Marker = ({ label }: { label: string }) => (
   <div className="ds:relative">
     <JodCircle size={3} className="ds:text-inactive-gray" />
-    <div className="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-black ds:text-nowrap">
+    <div className="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-primary-gray ds:text-nowrap">
       {label}
     </div>
   </div>

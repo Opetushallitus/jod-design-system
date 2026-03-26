@@ -85,7 +85,10 @@ export const ContentCard = ({
   testId,
 }: ContentCardProps) => {
   return (
-    <div className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ${className}`} data-testid={testId}>
+    <div
+      className={`ds:relative ds:py-4 ds:flex ds:flex-col ds:gap-3 ds:text-primary-gray ${className}`}
+      data-testid={testId}
+    >
       <LinkOrDiv to={to} linkComponent={Link}>
         <div>
           <div className="ds:text-body-xs ds:text-secondary-gray ds:font-semibold">{path.join(' / ')}</div>

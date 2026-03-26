@@ -44,7 +44,10 @@ const StepComponent = ({
       </span>
       <div className="ds:flex ds:flex-col ds:ml-7 ds:mt-3 ds:gap-5 ds:w-full">
         {step.label && (
-          <span className="ds:text-heading-2" data-testid={testId ? `${testId}-label-${index + 1}` : undefined}>
+          <span
+            className="ds:text-primary-gray ds:text-heading-2"
+            data-testid={testId ? `${testId}-label-${index + 1}` : undefined}
+          >
             {step.label}
           </span>
         )}

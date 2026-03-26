@@ -114,7 +114,7 @@ export const Accordion = ({
   const clearHeight = () => contentRef.current && (contentRef.current.style.maxHeight = '');
 
   return (
-    <div className={cx('ds:w-full', className)}>
+    <div className={cx('ds:w-full ds:text-primary-gray', className)}>
       <div className={cx('ds:group ds:w-full', titleClassName)}>
         <button
           type="button"
