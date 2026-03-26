@@ -30,6 +30,8 @@ export type HeroCardProps = {
   content?: string;
   /** Background color of the card */
   backgroundColor?: string;
+  /** Text color of the card */
+  textColor?: string;
   /** Size of the card. Lg is default. */
   size?: 'lg' | 'sm';
   /** Test id for querying in tests */
@@ -46,7 +48,8 @@ export const HeroCard = ({
   titleLevel = 2,
   titleClassName,
   content,
-  backgroundColor = '#006DB3',
+  backgroundColor = 'var(--ds-color-accent)',
+  textColor = 'var(--ds-color-white)',
   size = 'lg',
   buttonLabel,
   onClick,
@@ -63,8 +66,8 @@ export const HeroCard = ({
 
   return (
     <div
-      className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
-      style={{ backgroundColor }}
+      className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+      style={{ backgroundColor, color: textColor }}
       data-testid={testId}
     >
       <TitleTag className={`${headingClassNames} ${titleClassName ? titleClassName : ''}`.trim()}>{title}</TitleTag>

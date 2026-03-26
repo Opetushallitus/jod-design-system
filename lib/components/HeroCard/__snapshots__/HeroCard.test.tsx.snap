@@ -2,9 +2,9 @@
 
 exports[`HeroCard > renders HeroCard with a button 1`] = `
 <div
-  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
+  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
   data-testid="hero"
-  style="background-color: rgba(68, 75, 172, 0.95);"
+  style="background-color: rgba(68, 75, 172, 0.95); color: var(--ds-color-white);"
 >
   <h2
     class="ds:text-pretty ds:mr-9 ds:text-hero-mobile ds:sm:text-hero"
@@ -47,9 +47,9 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
 
 exports[`HeroCard > renders HeroCard without a button 1`] = `
 <div
-  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
+  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
   data-testid="hero2"
-  style="background-color: rgba(68, 75, 172, 0.95);"
+  style="background-color: rgba(68, 75, 172, 0.95); color: var(--ds-color-white);"
 >
   <h2
     class="ds:text-pretty ds:mr-9 ds:text-hero-mobile ds:sm:text-hero"
