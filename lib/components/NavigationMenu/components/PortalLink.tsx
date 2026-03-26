@@ -33,7 +33,7 @@ export const PortalLink = ({
           'ds:group',
           'ds:rounded',
           'ds:active:text-white',
-          selected ? 'ds:text-white' : 'ds:text-black',
+          selected ? 'ds:text-white' : 'ds:text-primary-gray',
           selected ? getAccentBgClassForService(variant) : 'ds:hover:bg-bg-gray',
           getPressedBgColorClassForService(variant),
           getFocusOutlineClassForService(variant),

@@ -175,7 +175,7 @@ export const ConfirmDialog = ({
                   ])}
                   data-testid={getTestId('panel')}
                 >
-                  <div className="ds:flex ds:flex-col ds:flex-1 ds:min-h-0 ds:max-w-[640px]">
+                  <div className="ds:flex ds:flex-col ds:flex-1 ds:min-h-0 ds:max-w-[640px] ds:text-primary-gray">
                     <div className={tc(['ds:pt-6', 'ds:sm:pt-7', 'ds:pb-5', contentPadding])}>
                       <DialogTitle
                         id={`ds-confirm-dialog-title-${id}`}

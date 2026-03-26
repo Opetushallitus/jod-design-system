@@ -3,7 +3,7 @@
 exports[`Button > calls the onClick function when clicked 1`] = `
 <button
   aria-label="Click me"
-  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-black ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark"
+  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-primary-gray ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark"
   type="button"
 >
   <span
@@ -17,7 +17,7 @@ exports[`Button > calls the onClick function when clicked 1`] = `
 exports[`Button > renders the button as disabled 1`] = `
 <button
   aria-label="Click me"
-  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-black ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:text-inactive-gray"
+  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-primary-gray ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:text-inactive-gray"
   disabled=""
   type="button"
 >
@@ -32,7 +32,7 @@ exports[`Button > renders the button as disabled 1`] = `
 exports[`Button > renders the button with the correct label 1`] = `
 <button
   aria-label="Click me"
-  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-black ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark"
+  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-primary-gray ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark"
   type="button"
 >
   <span
@@ -46,7 +46,7 @@ exports[`Button > renders the button with the correct label 1`] = `
 exports[`Button > renders the button with the correct size 1`] = `
 <button
   aria-label="Click me"
-  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-sm ds:bg-white ds:text-black ds:rounded-[30px] ds:px-5 ds:min-h-7 ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark"
+  class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-sm ds:bg-white ds:text-primary-gray ds:rounded-[30px] ds:px-5 ds:min-h-7 ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark"
   type="button"
 >
   <span

@@ -3,7 +3,7 @@
 exports[`Snapshot > should render with defaults 1`] = `
 <button
   aria-haspopup="dialog"
-  class="ds:flex ds:flex-col ds:md:flex-row ds:gap-2 ds:md:gap-3 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer"
+  class="ds:flex ds:flex-col ds:md:flex-row ds:gap-2 ds:md:gap-3 ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:text-primary-gray"
   data-testid="open-nav-menu"
 >
   <svg

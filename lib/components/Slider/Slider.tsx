@@ -96,7 +96,7 @@ export const Slider = ({
 
   return (
     <div
-      className={cx('ds:flex ds:h-[40px] ds:min-w-full ds:sm:min-w-[414px]', {
+      className={cx('ds:flex ds:h-[40px] ds:min-w-full ds:sm:min-w-[414px] ds:text-primary-gray', {
         'ds:text-inactive-gray ds:cursor-not-allowed': disabled,
       })}
     >

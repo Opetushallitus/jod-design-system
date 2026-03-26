@@ -9,7 +9,7 @@ exports[`PageNavigation > renders with default props 1`] = `
     data-testid="pnav"
   >
     <h2
-      class="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex"
+      class="ds:text-primary-gray ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex"
     >
       Test Menu
     </h2>
