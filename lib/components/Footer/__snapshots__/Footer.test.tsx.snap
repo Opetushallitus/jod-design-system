@@ -14,8 +14,8 @@ exports[`Footer > renders 1`] = `
         class="ds:max-w-[716px]"
       >
         <div
-          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
-          style="background-color: rgb(51, 51, 51);"
+          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+          style="background-color: rgb(51, 51, 51); color: var(--ds-color-white);"
         >
           <h2
             class="ds:text-pretty ds:mr-9 ds:text-heading-2-mobile ds:sm:text-heading-2"
@@ -603,8 +603,8 @@ exports[`Footer > renders copyright 1`] = `
         class="ds:max-w-[716px]"
       >
         <div
-          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:text-white ds:hyphens-auto"
-          style="background-color: rgb(51, 51, 51);"
+          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+          style="background-color: rgb(51, 51, 51); color: var(--ds-color-white);"
         >
           <h2
             class="ds:text-pretty ds:mr-9 ds:text-heading-2-mobile ds:sm:text-heading-2"
