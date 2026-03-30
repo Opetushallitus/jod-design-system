@@ -2,13 +2,8 @@ import React from 'react';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodUser } from '../../icons';
-import { LinkComponent } from '../../main';
-import {
-  getAccentBgClassForService,
-  getPressedBgColorClassForService,
-  ServiceVariant,
-  tidyClasses as tc,
-} from '../../utils';
+import { cx, LinkComponent } from '../../main';
+import { getAccentBgClassForService, getPressedBgColorClassForService, ServiceVariant } from '../../utils';
 import { PopupList, PopupListItem } from '../PopupList/PopupList';
 import { PopupMenuWrapper } from './PopupMenuWrapper';
 
@@ -74,13 +69,10 @@ export const UserButton = ({
             {profileLinkComponent({
               onClick: closeUserMenu,
               'data-testid': 'user-menu-profile',
-              className: tc([
-                'ds:w-full',
-                'ds:rounded-sm',
-                'ds:hover:underline',
-                !isProfileActive ? 'ds:hover:bg-bg-gray' : '',
-                isProfileActive ? profileLinkActiveClasses : '',
-              ]),
+              className: cx(['ds:w-full', 'ds:rounded-sm', 'ds:hover:underline', 'ds:text-primary-gray'], {
+                'ds:hover:bg-bg-gray': !isProfileActive,
+                [profileLinkActiveClasses]: isProfileActive,
+              }),
               children: <PopupListItem>{profileLabel}</PopupListItem>,
             })}
             <button
@@ -89,7 +81,7 @@ export const UserButton = ({
                 closeUserMenu();
                 onLogout();
               }}
-              className="ds:cursor-pointer ds:w-full ds:hover:bg-bg-gray"
+              className="ds:cursor-pointer ds:w-full ds:hover:bg-bg-gray ds:text-primary-gray"
               data-testid="user-menu-logout"
             >
               <PopupListItem classNames="ds:w-full">{logoutLabel}</PopupListItem>
