@@ -16,6 +16,12 @@ export { Checkbox } from './components/Checkbox/Checkbox';
 export { Combobox, type ComboboxOptionsData } from './components/Combobox/Combobox';
 export { ConfirmDialog } from './components/ConfirmDialog/ConfirmDialog';
 export { ContentCard } from './components/ContentCard/ContentCard';
+export { useCookieConsent } from './components/CookieConsent/CookieConsentContext';
+export { CookieConsentGuard } from './components/CookieConsent/CookieConsentGuard';
+export {
+  CookieConsentProvider,
+  type CookieConsentProviderProps,
+} from './components/CookieConsent/CookieConsentProvider';
 export { Datepicker } from './components/Datepicker/Datepicker';
 export { DiscussionCard } from './components/DiscussionCard/DiscussionCard';
 export { EmptyState } from './components/EmptyState/EmptyState';

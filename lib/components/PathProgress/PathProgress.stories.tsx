@@ -25,8 +25,8 @@ export const Default: Story = {
       },
     },
     backgrounds: {
-      default: 'grey-bg',
-      values: [{ name: 'grey-bg', value: '#f0f2f5' }],
+      default: 'gray-bg',
+      values: [{ name: 'gray-bg', value: '#f0f2f5' }],
     },
   },
   args: {
