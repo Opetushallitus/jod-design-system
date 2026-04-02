@@ -95,6 +95,8 @@ const args = {
       label: 'Osaamispolku Instagram',
     },
   },
+  cookieSettingsLabel: 'Evästeasetukset',
+  onCookieSettingsClick: fn(),
 };
 
 export const Default: Story = {

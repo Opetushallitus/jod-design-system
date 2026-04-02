@@ -64,6 +64,11 @@ export interface FooterProps {
 
   externalLinkIconAriaLabel: string;
 
+  /** Cookie settings link label. When provided, a button is rendered in the more-info section that opens the cookie consent modal. */
+  cookieSettingsLabel?: string;
+  /** Callback fired when the cookie settings link is clicked. */
+  onCookieSettingsClick?: () => void;
+
   socialMedia: {
     facebook: LinkData;
     linkedin: LinkData;
@@ -78,6 +83,8 @@ export const Footer = ({
   language,
   okmLabel,
   temLabel,
+  cookieSettingsLabel,
+  onCookieSettingsClick,
   ophLabel,
   kehaLabel,
   cooperationTitle,
@@ -221,6 +228,17 @@ export const Footer = ({
                   )}
                 </li>
               ))}
+              {cookieSettingsLabel && onCookieSettingsClick && (
+                <li>
+                  <button
+                    type="button"
+                    onClick={onCookieSettingsClick}
+                    className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline ds:text-white ds:cursor-pointer ds:focus-visible:outline-2 ds:focus-visible:outline-offset-2 ds:focus-visible:outline-white ds:rounded-sm"
+                  >
+                    <span>{cookieSettingsLabel}</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
