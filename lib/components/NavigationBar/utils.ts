@@ -10,7 +10,7 @@ export const useCollapseOnScroll = () => {
     const onScroll = () => {
       const current = window.scrollY;
       if (current !== lastScrollY.current) {
-        setIsCollapsed(current > lastScrollY.current);
+        setIsCollapsed(current > 0 && current > lastScrollY.current);
         lastScrollY.current = current;
       }
     };
