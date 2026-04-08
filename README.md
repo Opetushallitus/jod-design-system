@@ -18,6 +18,17 @@ npm install
 npm exec allow-scripts run
 ```
 
+### Node, npm, and install policy
+
+The project targets **Node.js 24** (see `.nvmrc`, currently `lts/krypton`) and **npm 11.10 or newer**, as declared in `package.json` under `engines` and `devEngines`. The repository `.npmrc` sets `engine-strict=true`, so `npm install` will **fail** if your Node or npm version does not satisfy those constraints.
+
+Other notable `.npmrc` settings:
+
+- **`ignore-scripts=true`** - package lifecycle scripts are not run during install. Allowed scripts are executed explicitly with `npm exec allow-scripts run` in the install step below.
+- **`min-release-age="7"`** - npm will not install registry packages that were published less than seven days ago, which reduces exposure to freshly published compromised releases.
+
+Dependencies in `package.json` use **exact versions** (no semver ranges) so installs are reproducible and match the lockfile.
+
 ## Download third-party UI assets
 
 Third-party assets such as images, fonts, and icons are stored in S3 bucket. Guide to download assets is available in the infrastructure repository.
