@@ -64,7 +64,7 @@ export const Tag = ({
             // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
             tabIndex={tooltip ? 0 : undefined}
           >
-            <span className="ds:truncate ds:text-primary-gray">{label}</span>
+            <span className="ds:truncate ds:text-primary-gray ds:leading-5">{label}</span>
           </div>
         ) : (
           <button
@@ -73,8 +73,8 @@ export const Tag = ({
             onClick={onClick}
             data-testid={testId}
           >
-            <span className="ds:truncate ds:text-primary-gray ds:group-hover:underline">{label}</span>
-            <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray" aria-hidden>
+            <span className="ds:truncate ds:text-primary-gray ds:group-hover:underline ds:leading-5">{label}</span>
+            <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray ds:leading-5" aria-hidden>
               {variant === 'selectable' ? <JodAdd size={16} /> : <JodClose size={16} />}
             </span>
           </button>

@@ -7,13 +7,13 @@ exports[`Tag > matches the snapshot 1`] = `
     type="button"
   >
     <span
-      class="ds:truncate ds:text-primary-gray ds:group-hover:underline"
+      class="ds:truncate ds:text-primary-gray ds:group-hover:underline ds:leading-5"
     >
       Label here
     </span>
     <span
       aria-hidden="true"
-      class="ds:pl-3 ds:text-button-md ds:text-primary-gray"
+      class="ds:pl-3 ds:text-button-md ds:text-primary-gray ds:leading-5"
     >
       <svg
         fill="currentColor"
