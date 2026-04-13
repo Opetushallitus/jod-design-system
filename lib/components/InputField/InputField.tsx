@@ -4,6 +4,8 @@ import { getTruthyValuesAsString, tidyClasses as tc } from '../../utils';
 import { Field } from '../internal/Field/Field';
 
 interface BaseInputFieldProps {
+  /** The id of the input field */
+  id?: string;
   /** The name of the input field */
   name?: string;
   /** The value of the input field */
@@ -54,6 +56,7 @@ export type InputFieldProps = ShowLabelProps | HideLabelProps;
 /** Input fields are text boxes that allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements. */
 export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(function InputField(
   {
+    id,
     name,
     value,
     onBlur,
@@ -72,9 +75,10 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
   }: InputFieldProps,
   ref,
 ) {
-  const inputId = React.useId();
+  const generatedInputId = React.useId();
   const helpId = React.useId();
   const errorId = React.useId();
+  const inputId = id ?? generatedInputId;
 
   return (
     <div
