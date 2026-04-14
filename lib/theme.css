@@ -148,9 +148,9 @@
   --text-help: 14px;
   --text-help--font-weight: 400;
   --text-help--line-height: 16px;
-  --text-button-lg: 26px;
-  --text-button-lg--font-weight: 700;
-  --text-button-lg--line-height: 110%;
+  --text-button-lg: 24px;
+  --text-button-lg--font-weight: 600;
+  --text-button-lg--line-height: 34px;
   --text-button-md: 16px;
   --text-button-md--font-weight: 600;
   --text-button-md--line-height: 24px;
@@ -159,7 +159,7 @@
   --text-button-sm--line-height: 18px;
   --text-attrib-title: 12px;
   --text-attrib-title--font-weight: 400;
-  --text-attrib-title--line-height: 110%;
+  --text-attrib-title--line-height: 16px;
   --text-attrib-value: 12px;
   --text-attrib-value--font-weight: 700;
   --text-attrib-value--line-height: 110%;
@@ -172,6 +172,12 @@
   --text-card-label-lg: 16px;
   --text-card-label-lg--font-weight: 700;
   --text-card-label-lg--line-height: 110%;
+  --text-card-heading: 24px;
+  --text-card-heading--font-weight: 600;
+  --text-card-heading--line-height: 30px;
+  --text-card-heading-mobile: 20px;
+  --text-card-heading-mobile--font-weight: 600;
+  --text-card-heading-mobile--line-height: 28px;
 
   --spacing-*: initial;
   --spacing-0: 0px;
