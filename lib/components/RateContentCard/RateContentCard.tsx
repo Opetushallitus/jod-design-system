@@ -113,14 +113,14 @@ export const RateContentCard = ({ translations, onSubmit, size = 'lg', className
       )}
       data-testid={testId}
     >
-      <div className="ds:flex ds:gap-3 ds:text-heading-2">
-        <h2 className="ds:grow">{translations.card.title}</h2>
+      <div className="ds:flex ds:gap-3">
+        <h2 className="ds:grow ds:text-heading-2-mobile ds:sm:text-heading-2">{translations.card.title}</h2>
         {translations.card.aiLabel && (
           <JodAi aria-label={translations.card.aiLabel} size={32} className="ds:flex-none" />
         )}
       </div>
       <div className="ds:flex ds:flex-col ds:gap-6">
-        <p className="ds:text-body-lg">{translations.card.content}</p>
+        <p className="ds:text-body-lg-mobile ds:sm:text-body-lg">{translations.card.content}</p>
         <div className="ds:flex ds:flex-row ds:items-center ds:justify-between ds:w-[128px] ds:h-9 ds:rounded-[30px] ds:mt-auto">
           <button
             className={cx(
