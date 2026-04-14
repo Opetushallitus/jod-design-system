@@ -69,7 +69,7 @@ export const Default: Story = {
       guard: {
         title: 'Välitämme yksityisyydestäsi',
         description:
-          'Tämän toiselta sivustolta olevan sisällön näyttäminen on estetty kunnes hyväksyt kolmansien osapuolien asettamat evästeet. Lue evästekäytäntömme.',
+          'Tämän toiselta sivustolta olevan sisällön näyttäminen on estetty kunnes hyväksyt kolmansien osapuolien asettamat evästeet.',
         buttonLabel: 'Avaa luvat ja suostumukset',
       },
     },
