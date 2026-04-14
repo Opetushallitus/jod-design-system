@@ -26,14 +26,6 @@ export const AiInfoButton = ({
   const handleClick: React.MouseEventHandler<HTMLElement> = (event) => {
     event.stopPropagation();
   };
-  const portalRootRef = React.useRef<HTMLDivElement | null>(null);
-  const [portalRoot, setPortalRoot] = React.useState<HTMLDivElement | null>(null);
-
-  React.useEffect(() => {
-    if (portalRootRef.current) {
-      setPortalRoot(portalRootRef.current);
-    }
-  }, []);
   const triggerId = React.useId();
   const contentId = React.useId();
   const triggerRef = React.useRef<HTMLButtonElement>(null);
@@ -55,7 +47,6 @@ export const AiInfoButton = ({
         <JodAiGradient className={cx('ds:text-secondary-gray', className)} aria-label={ariaLabel} size={size} />
       </TooltipTrigger>
 
-      <div ref={portalRootRef} />
       <TooltipContent
         id={contentId}
         aria-hidden="false"
@@ -68,7 +59,6 @@ export const AiInfoButton = ({
             triggerRef.current?.focus();
           }
         }}
-        portalRoot={portalRoot}
       >
         {tooltipContent}
       </TooltipContent>
