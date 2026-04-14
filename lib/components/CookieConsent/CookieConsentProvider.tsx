@@ -16,6 +16,8 @@ const shouldReloadAfterConsentChange = (previousConsent: CookieConsent | null, n
 
 export interface CookieConsentProviderProps {
   children: React.ReactNode;
+  /** Whether to automatically open the consent modal if no consent has been given yet. */
+  automaticallyOpen?: boolean;
   /** Service variant for button colors */
   serviceVariant: ServiceVariant;
   /** Translations for the modal and guard components */
@@ -44,7 +46,12 @@ export interface CookieConsentProviderProps {
 }
 
 /** CookieConsentProvider manages the state of cookie consent and provides it to the rest of the app via context. It also renders the CookieConsentModal, which is shown when the user needs to give or change their consent. */
-export const CookieConsentProvider = ({ children, serviceVariant, translations }: CookieConsentProviderProps) => {
+export const CookieConsentProvider = ({
+  children,
+  automaticallyOpen = true,
+  serviceVariant,
+  translations,
+}: CookieConsentProviderProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [consent, setConsent] = React.useState<CookieConsent | null>(null);
 
@@ -52,10 +59,10 @@ export const CookieConsentProvider = ({ children, serviceVariant, translations }
     const data = readCookieConsent();
     if (data) {
       setConsent(data.consent);
-    } else {
+    } else if (automaticallyOpen) {
       setIsOpen(true);
     }
-  }, []);
+  }, [automaticallyOpen]);
 
   const open = React.useCallback(() => {
     setIsOpen(true);
