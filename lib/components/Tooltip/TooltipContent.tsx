@@ -1,12 +1,18 @@
-import { FloatingArrow, FloatingPortal, useMergeRefs } from '@floating-ui/react';
+import {
+  FloatingArrow,
+  FloatingFocusManager,
+  type FloatingFocusManagerProps,
+  FloatingPortal,
+  useMergeRefs,
+} from '@floating-ui/react';
 import React from 'react';
-import { tidyClasses } from '../../utils';
+import { cx } from '../../cva';
 import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
 type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
-  arrowClassName?: string;
   testId?: string;
-  portalRoot?: HTMLElement | null;
+  initialFocus?: FloatingFocusManagerProps['initialFocus'];
+  closeOnFocusOut?: FloatingFocusManagerProps['closeOnFocusOut'];
 };
 export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
   function TooltipContent(props, propRef) {
@@ -31,46 +37,58 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       return null;
     }
 
-    const { testId, arrowClassName, portalRoot, ...rest } = props;
+    const {
+      testId,
+      closeOnFocusOut = true, // Close tooltip when focus moves outside
+      initialFocus = -1, // Don't focus any element inside the tooltip by default
+      ...rest
+    } = props;
 
     return (
-      <FloatingPortal root={portalRoot ?? document.body}>
-        <div
-          aria-hidden="true"
-          role="tooltip"
-          className={tidyClasses([
-            'ds:max-w-[280px]',
-            'ds:sm:max-w-[320px]',
-            'ds:rounded',
-            'ds:p-4',
-            'ds:bg-primary-gray',
-            'ds:text-body-xs',
-            'ds:font-arial',
-            'ds:text-white',
-            'ds:z-50',
-          ])}
-          ref={ref}
-          style={{
-            ...tooltipContext.floatingStyles,
-            // Hide completely until positioned
-            visibility: isReady ? 'visible' : 'hidden',
-          }}
-          data-testid={testId}
-          {...tooltipContext.getFloatingProps(rest)}
-          onBlur={() => tooltipContext.setOpen(false)}
+      <FloatingPortal>
+        <FloatingFocusManager
+          // eslint-disable-next-line react-hooks/refs
+          context={tooltipContext.context}
+          modal={false}
+          initialFocus={initialFocus}
+          closeOnFocusOut={closeOnFocusOut}
         >
-          {props.children}
-          <FloatingArrow
-            // eslint-disable-next-line react-hooks/refs
-            ref={tooltipContext.arrowRef}
-            // eslint-disable-next-line react-hooks/refs
-            context={tooltipContext.context}
-            className={arrowClassName ?? 'ds:fill-primary-gray'}
-            width={ARROW_HEIGHT * 2}
-            height={ARROW_HEIGHT}
-            data-testid={testId ? `${testId}-arrow` : undefined}
-          />
-        </div>
+          <div
+            aria-hidden="true"
+            role="tooltip"
+            className={cx([
+              'ds:max-w-[280px]',
+              'ds:sm:max-w-[320px]',
+              'ds:rounded',
+              'ds:p-4',
+              'ds:bg-primary-gray',
+              'ds:text-body-xs',
+              'ds:font-arial',
+              'ds:text-white',
+              'ds:z-50',
+            ])}
+            ref={ref}
+            style={{
+              ...tooltipContext.floatingStyles,
+              // Hide completely until positioned
+              visibility: isReady ? 'visible' : 'hidden',
+            }}
+            data-testid={testId}
+            {...tooltipContext.getFloatingProps(rest)}
+          >
+            {props.children}
+            <FloatingArrow
+              // eslint-disable-next-line react-hooks/refs
+              ref={tooltipContext.arrowRef}
+              // eslint-disable-next-line react-hooks/refs
+              context={tooltipContext.context}
+              className="ds:fill-primary-gray"
+              width={ARROW_HEIGHT * 2}
+              height={ARROW_HEIGHT}
+              data-testid={testId ? `${testId}-arrow` : undefined}
+            />
+          </div>
+        </FloatingFocusManager>
       </FloatingPortal>
     );
   },
