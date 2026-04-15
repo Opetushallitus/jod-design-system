@@ -16,9 +16,9 @@ export const cookieConsentTranslations: CookieConsentContextValue['translations'
     cookiesCategoriesThirdParty: 'Third-party content',
     statisticsDescription:
       'We track the number of visitors to the service using Matomo. This does not require separate consent.',
-    readMoreLabel: 'Read more',
+    readMoreLabel: 'Read more here.',
     readMoreHref: '/en/privacy-notice-and-cookies',
-    hereLabel: 'here',
+    externalLinkIconAriaLabel: 'External link',
     currentSelectionLabel: 'Current selection',
     acceptAllLabel: 'Accept all',
     declineOptionalLabel: 'Decline optional',
@@ -36,6 +36,7 @@ export const createCookieConsentContextValue = ({
   open = vi.fn(),
   save = vi.fn(),
   serviceVariant = 'yksilo',
+  languageButtonComponent = <button>Language</button>,
   translations = cookieConsentTranslations,
 }: Partial<CookieConsentContextValue> & { consent?: CookieConsent | null } = {}): CookieConsentContextValue => ({
   consent,
@@ -43,5 +44,6 @@ export const createCookieConsentContextValue = ({
   open,
   save,
   serviceVariant,
+  languageButtonComponent,
   translations,
 });
