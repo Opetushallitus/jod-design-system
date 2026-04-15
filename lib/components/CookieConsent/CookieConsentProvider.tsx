@@ -19,7 +19,9 @@ export interface CookieConsentProviderProps {
   /** Whether to automatically open the consent modal if no consent has been given yet. */
   automaticallyOpen?: boolean;
   /** Service variant for button colors */
-  serviceVariant: ServiceVariant;
+  serviceVariant?: ServiceVariant;
+  /** For rendering a language selection button in the modal */
+  languageButtonComponent: React.ReactNode;
   /** Translations for the modal and guard components */
   translations: {
     modal: {
@@ -32,7 +34,7 @@ export interface CookieConsentProviderProps {
       statisticsDescription: string;
       readMoreLabel: string;
       readMoreHref: string;
-      hereLabel: string;
+      externalLinkIconAriaLabel: string;
       currentSelectionLabel: string;
       acceptAllLabel: string;
       declineOptionalLabel: string;
@@ -49,7 +51,8 @@ export interface CookieConsentProviderProps {
 export const CookieConsentProvider = ({
   children,
   automaticallyOpen = true,
-  serviceVariant,
+  serviceVariant = 'yksilo',
+  languageButtonComponent,
   translations,
 }: CookieConsentProviderProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -89,8 +92,8 @@ export const CookieConsentProvider = ({
   );
 
   const providerValue = React.useMemo(
-    () => ({ consent, isOpen, open, save, serviceVariant, translations }),
-    [consent, isOpen, open, save, serviceVariant, translations],
+    () => ({ consent, isOpen, open, save, serviceVariant, languageButtonComponent, translations }),
+    [consent, isOpen, open, save, serviceVariant, languageButtonComponent, translations],
   );
 
   return (

@@ -1,3 +1,4 @@
+import { JodOpenInNew } from '../../icons';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import { useCookieConsent } from './CookieConsentContext';
@@ -8,6 +9,7 @@ export const CookieConsentModal = () => {
     isOpen,
     save,
     serviceVariant,
+    languageButtonComponent,
     translations: {
       modal: {
         name,
@@ -19,7 +21,7 @@ export const CookieConsentModal = () => {
         statisticsDescription,
         readMoreLabel,
         readMoreHref,
-        hereLabel,
+        externalLinkIconAriaLabel,
         currentSelectionLabel,
         acceptAllLabel,
         declineOptionalLabel,
@@ -44,33 +46,39 @@ export const CookieConsentModal = () => {
       name={name}
       open={isOpen}
       fullWidthContent
-      topSlot={<h2 className="ds:text-heading-2-mobile ds:sm:text-hero">{title}</h2>}
+      topSlot={
+        <div className="ds:flex ds:justify-between ds:gap-5 ds:flex-1">
+          <h2 className="ds:text-heading-2-mobile ds:sm:text-heading-1 ds:text-primary-gray">{title}</h2>
+          {languageButtonComponent}
+        </div>
+      }
       content={
         <div className="ds:px-5 ds:md:px-9 ds:pb-7">
-          <div className="ds:flex ds:flex-col ds:gap-5">
-            <p>{description}</p>
-            <div>
+          <div className="ds:flex ds:flex-col ds:gap-6 ds:sm:gap-5">
+            <p className="ds:text-body-lg-mobile ds:sm:text-body-lg ds:mt-3 ds:sm:mt-5">{description}</p>
+            <div className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md">
               <p>{cookieCategoriesLabel}:</p>
               <ul className="ds:list-disc ds:list-inside ds:pl-5">
                 <li>{cookiesCategoriesNecessary}</li>
                 <li>{cookiesCategoriesThirdParty}</li>
               </ul>
             </div>
-            <p>{statisticsDescription}</p>
-            <p>
-              {readMoreLabel}{' '}
-              <a
-                href={readMoreHref}
-                className="ds:text-accent ds:hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {hereLabel}
-              </a>
-              {'.'}
-            </p>
-            {consent && (
+            <div className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md">
+              <p>{statisticsDescription}</p>
               <p>
+                <a
+                  href={readMoreHref}
+                  className="ds:flex ds:flex-row ds:gap-2 ds:text-accent ds:hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {readMoreLabel}
+                  <JodOpenInNew size={24} ariaLabel={externalLinkIconAriaLabel} />
+                </a>
+              </p>
+            </div>
+            {consent && (
+              <p className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md">
                 {currentSelectionLabel}:{' '}
                 <strong>{consent.thirdPartyContent ? acceptAllLabel : declineOptionalLabel}</strong>
               </p>

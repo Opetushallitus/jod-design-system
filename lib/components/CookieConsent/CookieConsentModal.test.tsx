@@ -50,7 +50,7 @@ describe('CookieConsentModal', () => {
     expect(screen.getByText('Necessary cookies')).toBeInTheDocument();
     expect(screen.getByText('Third-party content')).toBeInTheDocument();
 
-    const link = screen.getByRole('link', { name: 'here' });
+    const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', '/en/privacy-notice-and-cookies');
     expect(link).toHaveAttribute('target', '_blank');
   });
