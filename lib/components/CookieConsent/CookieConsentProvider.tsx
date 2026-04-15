@@ -17,7 +17,9 @@ const shouldReloadAfterConsentChange = (previousConsent: CookieConsent | null, n
 export interface CookieConsentProviderProps {
   children: React.ReactNode;
   /** Service variant for button colors */
-  serviceVariant: ServiceVariant;
+  serviceVariant?: ServiceVariant;
+  /** For rendering a language selection button in the modal */
+  languageButtonComponent: React.ReactNode;
   /** Translations for the modal and guard components */
   translations: {
     modal: {
@@ -30,7 +32,6 @@ export interface CookieConsentProviderProps {
       statisticsDescription: string;
       readMoreLabel: string;
       readMoreHref: string;
-      hereLabel: string;
       currentSelectionLabel: string;
       acceptAllLabel: string;
       declineOptionalLabel: string;
@@ -44,7 +45,12 @@ export interface CookieConsentProviderProps {
 }
 
 /** CookieConsentProvider manages the state of cookie consent and provides it to the rest of the app via context. It also renders the CookieConsentModal, which is shown when the user needs to give or change their consent. */
-export const CookieConsentProvider = ({ children, serviceVariant, translations }: CookieConsentProviderProps) => {
+export const CookieConsentProvider = ({
+  children,
+  serviceVariant = 'yksilo',
+  languageButtonComponent,
+  translations,
+}: CookieConsentProviderProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [consent, setConsent] = React.useState<CookieConsent | null>(null);
 
@@ -82,8 +88,8 @@ export const CookieConsentProvider = ({ children, serviceVariant, translations }
   );
 
   const providerValue = React.useMemo(
-    () => ({ consent, isOpen, open, save, serviceVariant, translations }),
-    [consent, isOpen, open, save, serviceVariant, translations],
+    () => ({ consent, isOpen, open, save, serviceVariant, languageButtonComponent, translations }),
+    [consent, isOpen, open, save, serviceVariant, languageButtonComponent, translations],
   );
 
   return (

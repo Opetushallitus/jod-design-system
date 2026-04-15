@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import type { TitledMeta } from '../../utils';
 
-import { Button } from '../../main';
+import { Button, LanguageButton } from '../../main';
 import { useCookieConsent } from './CookieConsentContext';
 import { CookieConsentGuard } from './CookieConsentGuard';
 import { CookieConsentProvider } from './CookieConsentProvider';
@@ -41,6 +41,9 @@ export const Default: Story = {
     children: {
       control: false,
     },
+    languageButtonComponent: {
+      control: false,
+    },
   },
   args: {
     children: (
@@ -49,6 +52,24 @@ export const Default: Story = {
       </CookieConsentGuard>
     ),
     serviceVariant: 'yksilo',
+    languageButtonComponent: (
+      <LanguageButton
+        serviceVariant="yksilo"
+        supportedLanguageCodes={['fi', 'sv', 'en']}
+        language="fi"
+        translations={{
+          fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
+          sv: { change: 'Andra språk.', label: 'På svenska' },
+          en: { change: 'Change language.', label: 'In English' },
+        }}
+        generateLocalizedPath={(code: string) => `/${code}`}
+        linkComponent={({ children, className, ...rest }) => (
+          <a href="/#" className={className} {...rest}>
+            {children}
+          </a>
+        )}
+      />
+    ),
     translations: {
       modal: {
         name: 'Evästeasetukset',
@@ -59,9 +80,8 @@ export const Default: Story = {
         cookiesCategoriesNecessary: 'Välttämättömät evästeet',
         cookiesCategoriesThirdParty: 'Kolmannen osapuolen sisältö',
         statisticsDescription: 'Seuraamme palvelun kävijämääriä Matomon avulla. Tähän ei kysytä erikseen suostumusta.',
-        readMoreLabel: 'Lue lisää evästeistämme ja tietosuojakäytännöistämme',
+        readMoreLabel: 'Lue lisää evästeistämme ja tietosuojakäytännöistämme.',
         readMoreHref: '/fi/tietosuojaseloste-ja-evasteet',
-        hereLabel: 'täältä',
         currentSelectionLabel: 'Nykyinen valintasi',
         acceptAllLabel: 'Hyväksy kaikki',
         declineOptionalLabel: 'Hyväksy vain välttämättömät',

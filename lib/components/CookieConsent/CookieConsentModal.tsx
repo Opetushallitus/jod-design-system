@@ -8,6 +8,7 @@ export const CookieConsentModal = () => {
     isOpen,
     save,
     serviceVariant,
+    languageButtonComponent,
     translations: {
       modal: {
         name,
@@ -19,7 +20,6 @@ export const CookieConsentModal = () => {
         statisticsDescription,
         readMoreLabel,
         readMoreHref,
-        hereLabel,
         currentSelectionLabel,
         acceptAllLabel,
         declineOptionalLabel,
@@ -44,7 +44,12 @@ export const CookieConsentModal = () => {
       name={name}
       open={isOpen}
       fullWidthContent
-      topSlot={<h2 className="ds:text-heading-2-mobile ds:sm:text-hero">{title}</h2>}
+      topSlot={
+        <div className="ds:flex ds:justify-between ds:items-center ds:gap-5 ds:flex-1">
+          <h2 className="ds:text-heading-2-mobile ds:sm:text-hero">{title}</h2>
+          {languageButtonComponent}
+        </div>
+      }
       content={
         <div className="ds:px-5 ds:md:px-9 ds:pb-7">
           <div className="ds:flex ds:flex-col ds:gap-5">
@@ -58,16 +63,14 @@ export const CookieConsentModal = () => {
             </div>
             <p>{statisticsDescription}</p>
             <p>
-              {readMoreLabel}{' '}
               <a
                 href={readMoreHref}
                 className="ds:text-accent ds:hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {hereLabel}
+                {readMoreLabel}
               </a>
-              {'.'}
             </p>
             {consent && (
               <p>

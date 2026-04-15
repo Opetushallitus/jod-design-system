@@ -27,6 +27,8 @@ const mockedWriteCookieConsent = vi.mocked(writeCookieConsent);
 let originalLocation: Location;
 let reloadMock: ReturnType<typeof vi.fn>;
 
+const languageButtonComponent = <button>Language</button>;
+
 const translations = {
   modal: {
     name: 'Cookie settings',
@@ -36,9 +38,8 @@ const translations = {
     cookiesCategoriesNecessary: 'Necessary cookies',
     cookiesCategoriesThirdParty: 'Third-party content',
     statisticsDescription: 'Statistics cookies are used to collect information about how visitors use our website.',
-    readMoreLabel: 'Read more',
+    readMoreLabel: 'Read more here.',
     readMoreHref: '/en/privacy-notice-and-cookies',
-    hereLabel: 'here',
     currentSelectionLabel: 'Current selection',
     acceptAllLabel: 'Accept all',
     declineOptionalLabel: 'Decline optional',
@@ -93,7 +94,11 @@ describe('CookieConsentProvider', () => {
     });
 
     render(
-      <CookieConsentProvider serviceVariant="yksilo" translations={translations}>
+      <CookieConsentProvider
+        serviceVariant="yksilo"
+        languageButtonComponent={languageButtonComponent}
+        translations={translations}
+      >
         <TestConsumer />
       </CookieConsentProvider>,
     );
@@ -107,7 +112,11 @@ describe('CookieConsentProvider', () => {
     mockedReadCookieConsent.mockReturnValue(null);
 
     render(
-      <CookieConsentProvider serviceVariant="yksilo" translations={translations}>
+      <CookieConsentProvider
+        serviceVariant="yksilo"
+        languageButtonComponent={<button>Language</button>}
+        translations={translations}
+      >
         <TestConsumer />
       </CookieConsentProvider>,
     );
@@ -121,7 +130,11 @@ describe('CookieConsentProvider', () => {
     const user = userEvent.setup();
 
     render(
-      <CookieConsentProvider serviceVariant="yksilo" translations={translations}>
+      <CookieConsentProvider
+        serviceVariant="yksilo"
+        languageButtonComponent={languageButtonComponent}
+        translations={translations}
+      >
         <TestConsumer />
       </CookieConsentProvider>,
     );
@@ -152,7 +165,11 @@ describe('CookieConsentProvider', () => {
     const user = userEvent.setup();
 
     render(
-      <CookieConsentProvider serviceVariant="yksilo" translations={translations}>
+      <CookieConsentProvider
+        serviceVariant="yksilo"
+        languageButtonComponent={languageButtonComponent}
+        translations={translations}
+      >
         <TestConsumer nextConsent={{ thirdPartyContent: false }} />
       </CookieConsentProvider>,
     );

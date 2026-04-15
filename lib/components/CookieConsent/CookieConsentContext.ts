@@ -9,6 +9,7 @@ export const CookieConsentContext = React.createContext<{
   open: () => void;
   save: (consent: CookieConsent) => void;
   serviceVariant: ServiceVariant;
+  languageButtonComponent: React.ReactNode;
   translations: CookieConsentProviderProps['translations'];
 } | null>(null);
 
