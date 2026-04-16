@@ -2,6 +2,7 @@ import { Transition } from '@headlessui/react';
 import React from 'react';
 import { cx } from '../../cva';
 import { JodCaretDown, JodCaretUp } from '../../icons';
+import { useMediaQueries } from '../../main';
 import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
@@ -80,6 +81,8 @@ export const Accordion = ({
   const isControlled = controlledIsOpen !== undefined;
   const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
   const setIsOpen = isControlled && controlledSetIsOpen ? controlledSetIsOpen : setInternalIsOpen;
+  const { reduceMotion } = useMediaQueries();
+  const shouldAnimate = reduceMotion ? false : animated;
 
   // Reset the state when the children change
   React.useEffect(() => {
@@ -143,7 +146,7 @@ export const Accordion = ({
           </span>
         </button>
       </div>
-      {animated ? (
+      {shouldAnimate ? (
         <>
           <Transition
             ref={contentRef}

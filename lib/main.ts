@@ -1,4 +1,11 @@
+import { MotionGlobalConfig } from 'motion';
 import './index.css';
+
+// Disable animations in modals for users who prefer reduced motion
+const reduceMotionPreference = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceMotionPreference) {
+  MotionGlobalConfig.skipAnimations = true;
+}
 
 export { cva, cx } from './cva';
 export { clamp, tidyClasses, type AnimationMode, type ModalAnimations } from './utils';
@@ -62,8 +69,8 @@ export {
   MenuButton,
   NavigationBar,
   NoteStackProvider,
-  UserButton,
   useNoteStack,
+  UserButton,
   type PermanentNoteStackElement,
   type TemporaryNoteStackElement,
 } from './components/NavigationBar';
