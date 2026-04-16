@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 import { Spinner } from './Spinner';
 
@@ -13,5 +14,10 @@ describe('Spinner Component', () => {
   it('matches snapshot', () => {
     const { container } = render(<Spinner size={24} color="white" />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<Spinner size={24} color="white" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

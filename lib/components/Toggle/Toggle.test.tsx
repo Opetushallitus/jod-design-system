@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { Toggle } from './Toggle';
 
@@ -54,5 +55,12 @@ describe('Toggle', () => {
   it('emits data-testid when testId is provided', () => {
     render(<Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle id" serviceVariant="yksilo" testId="tgl" />);
     expect(screen.getByTestId('tgl')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle" serviceVariant="yksilo" />,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

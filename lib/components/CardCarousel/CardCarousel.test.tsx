@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 import { CardCarousel, CardCarouselProps } from './CardCarousel';
 
@@ -79,4 +80,9 @@ describe('CardCarousel', () => {
     expect(container.querySelector('[data-testid="cc-list"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="cc-controls"]')).toBeInTheDocument();
   });
+});
+
+it('has no a11y violations', async () => {
+  const { container } = renderComponent();
+  expect(await axe(container)).toHaveNoViolations();
 });

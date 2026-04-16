@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { axe } from 'jest-axe';
 import { Checkbox } from './Checkbox';
 
 const label = 'My Checkbox';
@@ -86,4 +87,9 @@ describe('Checkbox', () => {
     expect(indeterminateIcon).toHaveClass('ds:fill-accent');
     expect(indeterminateIcon).toBeVisible();
   });
+});
+
+it('has no a11y violations', async () => {
+  const { container } = render(<Checkbox name="Checkbox" value="value" checked ariaLabel="Accept terms" />);
+  expect(await axe(container)).toHaveNoViolations();
 });

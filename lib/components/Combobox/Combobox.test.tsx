@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { Combobox } from './Combobox';
 
@@ -95,5 +96,10 @@ describe('Combobox', () => {
       render(<Combobox label="Non-visible label" options={[]} hideLabel={true} placeholder={placeholder} />);
       expect(screen.getByRole('combobox', { name: 'Non-visible label' })).not.toBeNull();
     });
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<Combobox label="Label" options={options} placeholder={placeholder} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

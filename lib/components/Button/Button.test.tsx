@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Button } from './Button';
@@ -58,4 +59,9 @@ describe('Button', () => {
     render(<Button label="Click me" onClick={vi.fn()} testId="btn" />);
     expect(screen.getByTestId('btn')).toBeInTheDocument();
   });
+});
+
+it('has no a11y violations', async () => {
+  const { container } = render(<Button label="Accessibility" />);
+  expect(await axe(container)).toHaveNoViolations();
 });

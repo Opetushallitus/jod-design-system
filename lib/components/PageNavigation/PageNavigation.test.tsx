@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 import { ServiceVariantProvider } from '../../main';
 import { PageNavigation, PageNavigationProps } from './PageNavigation';
@@ -41,5 +42,10 @@ describe('PageNavigation', () => {
     render(<WrappedPageNavigation hideAccentBorder={false} />);
     const ul = screen.getByRole('list');
     expect(ul.className).toMatch(/border-l-8/);
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<WrappedPageNavigation />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

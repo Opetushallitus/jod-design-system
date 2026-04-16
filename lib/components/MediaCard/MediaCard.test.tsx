@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { MediaCard } from './MediaCard';
 
@@ -103,5 +104,20 @@ describe('MediaCard', () => {
     expect(screen.getByTestId('md-label')).toBeInTheDocument();
     expect(screen.getByTestId('md-description')).toBeInTheDocument();
     expect(screen.getByTestId('md-tags')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <MediaCard
+        variant="vertical"
+        imageSrc="vertical.jpg"
+        imageAlt="Image for the vertical"
+        label="Vertical"
+        description="Vertical description"
+        tags={mockTags}
+        testId="m"
+      />,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

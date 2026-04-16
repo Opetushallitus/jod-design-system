@@ -104,7 +104,6 @@ export const CardCarousel = ({
     <>
       <ul
         ref={containerRef}
-        role="group"
         aria-roledescription="carousel"
         className={`ds:flex ds:flex-row ds:overflow-hidden ${className}`.trim()}
         style={{ gap }}
