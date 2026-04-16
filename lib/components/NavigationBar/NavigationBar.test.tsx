@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 import { NavigationBar, NavigationBarLinkProps } from './NavigationBar';
 import { NoteStackProvider } from './NoteStackProvider';
@@ -68,5 +69,23 @@ describe('NavigationBar', () => {
     const content = screen.getByText(contentText);
     expect(content).toBeInTheDocument();
     expect(content).toBeVisible();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <NoteStackProvider>
+        <NavigationBar
+          renderLink={({ children }) => <div>{children}</div>}
+          logo={{ to: '/', language: 'fi', srText: 'jod' }}
+          serviceBarVariant="yksilo"
+          serviceBarTitle="Osaamispolkuni"
+          translations={{
+            showAllNotesLabel: 'Näytä kaikki',
+            ariaLabelCloseNote: 'Sulje ilmoitus',
+          }}
+        />
+      </NoteStackProvider>,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

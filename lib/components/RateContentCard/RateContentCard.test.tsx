@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { RateContentCard } from './RateContentCard';
 
 const translations = {
@@ -88,5 +89,10 @@ describe('RateContentCard', () => {
     expect(screen.getByTestId('rate-ai-card-send-button')).toBeInTheDocument();
 
     await user.click(screen.getByTestId('rate-ai-card-cancel-button'));
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<RateContentCard translations={translations} onSubmit={vi.fn()} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

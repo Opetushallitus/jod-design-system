@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { IconButton, IconButtonProps } from './IconButton';
 
@@ -49,5 +50,10 @@ describe('IconButton', () => {
     expect(queryByRole('button')).not.toBeInTheDocument();
     const span = container.querySelector('span');
     expect(span).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<IconButton {...baseProps} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

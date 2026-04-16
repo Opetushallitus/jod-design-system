@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { LanguageButton } from './LanguageButton';
@@ -41,6 +42,11 @@ describe('LanguageButton', () => {
   it('should display current language label', () => {
     const { getByText } = render(<LanguageButton {...baseProps} language="sv" />);
     expect(getByText('Svenska')).not.toBeNull();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<LanguageButton {...baseProps} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });
 

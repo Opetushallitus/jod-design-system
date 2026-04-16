@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { Breadcrumb } from './Breadcrumb';
 
@@ -78,4 +79,9 @@ describe('Breadcrumb', () => {
     render(<Breadcrumb items={items} linkComponent={LinkComponent} ariaLabel="Breadcrumb" serviceVariant="yksilo" />);
     expect(screen.queryByText('Työpaikkani')).not.toBeInTheDocument();
   });
+});
+
+it('has no a11y violations', async () => {
+  const { container } = render(<Breadcrumb items={items} linkComponent={LinkComponent} serviceVariant="yksilo" />);
+  expect(await axe(container)).toHaveNoViolations();
 });

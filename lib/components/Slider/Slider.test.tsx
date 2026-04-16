@@ -1,5 +1,6 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import React from 'react';
 import { afterEach, describe, expect, it, Mock, vi } from 'vitest';
 import { Slider } from './Slider';
@@ -102,5 +103,10 @@ describe('Slider', () => {
     expect(screen.getByTestId('s-tooltip')).toBeInTheDocument();
     expect(screen.getByTestId('s-tooltip-arrow')).toBeInTheDocument();
     expect(screen.getByTestId('s-thumb')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<Slider label="Osaamiset" value={25} onValueChange={vi.fn()} rightLabel="right" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

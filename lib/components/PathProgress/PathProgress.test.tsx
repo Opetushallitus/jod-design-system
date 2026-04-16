@@ -1,23 +1,23 @@
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 import { PathProgress, type PathProgressStep } from './PathProgress';
 
 describe('PathProgress data-testid', () => {
+  const steps: PathProgressStep[] = [
+    {
+      circleComponent: <span>1</span>,
+      label: 'Step one',
+      content: <div>Content 1</div>,
+      isCompleted: true,
+    },
+    {
+      circleComponent: <span>2</span>,
+      labelComponent: <span>Custom label</span>,
+      content: <div>Content 2</div>,
+    },
+  ];
   it('renders root and step-related data-testids', () => {
-    const steps: PathProgressStep[] = [
-      {
-        circleComponent: <span>1</span>,
-        label: 'Step one',
-        content: <div>Content 1</div>,
-        isCompleted: true,
-      },
-      {
-        circleComponent: <span>2</span>,
-        labelComponent: <span>Custom label</span>,
-        content: <div>Content 2</div>,
-      },
-    ];
-
     render(<PathProgress steps={steps} testId="path" />);
 
     expect(screen.getByTestId('path')).toBeInTheDocument();
@@ -31,5 +31,10 @@ describe('PathProgress data-testid', () => {
     expect(screen.getByTestId('path-circle-2')).toBeInTheDocument();
     expect(screen.getByTestId('path-labelComponent-2')).toBeInTheDocument();
     expect(screen.getByTestId('path-content-2')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<PathProgress steps={steps} testId="path" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -4,7 +4,6 @@ exports[`CardCarousel > renders the carousel items 1`] = `
 <ul
   aria-roledescription="carousel"
   class="ds:flex ds:flex-row ds:overflow-hidden"
-  role="group"
   style="gap: 16px;"
 >
   <li

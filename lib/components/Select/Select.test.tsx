@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { Select } from './Select';
 
@@ -91,5 +92,10 @@ describe('Select', () => {
       render(<Select label="Non-visible label" options={[]} hideLabel={true} placeholder={placeholder} />);
       expect(screen.getByRole('button', { name: 'Non-visible label' })).not.toBeNull();
     });
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<Select label="Non-visible label" options={[]} hideLabel placeholder={placeholder} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { describe, expect, it, test, vi } from 'vitest';
 
+import { axe } from 'jest-axe';
 import { RadioButton } from './RadioButton';
 import { RadioButtonGroup } from './RadioButtonGroup';
 
@@ -35,5 +36,14 @@ describe('RadioButton', () => {
       </Wrapper>,
     );
     expect(screen.getByText('A')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <Wrapper>
+        <RadioButton label="A" value="a" />
+      </Wrapper>,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

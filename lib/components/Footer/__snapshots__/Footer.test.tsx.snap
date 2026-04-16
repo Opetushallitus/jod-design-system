@@ -19,7 +19,40 @@ exports[`Footer > renders 1`] = `
         >
           <h2
             class="ds:text-pretty ds:mr-9 ds:text-heading-2-mobile ds:sm:text-heading-2"
-          />
+          >
+            Title
+          </h2>
+          <p
+            class="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg"
+          >
+            Content
+          </p>
+          <button
+            aria-haspopup="dialog"
+            aria-label="Feedback"
+            class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-primary-gray ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:pr-[20px] ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+            type="button"
+          >
+            <span
+              class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline"
+            >
+              Feedback
+            </span>
+            <svg
+              fill="currentColor"
+              height="24"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.175 13.2964H4V11.2964H16.175L10.575 5.69639L12 4.29639L20 12.2964L12 20.2964L10.575 18.8964L16.175 13.2964Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -582,7 +615,7 @@ exports[`Footer > renders 1`] = `
       <div
         class="ds:mt-7 ds:mb-11 ds:flex ds:sm:justify-end ds:font-poppins ds:sm:text-right"
       >
-        © Osaamispolku 2025. Kaikki oikeudet pidätetään.
+        © Osaamispolku 2026. Kaikki oikeudet pidätetään.
       </div>
     </div>
   </div>
@@ -608,7 +641,40 @@ exports[`Footer > renders copyright 1`] = `
         >
           <h2
             class="ds:text-pretty ds:mr-9 ds:text-heading-2-mobile ds:sm:text-heading-2"
-          />
+          >
+            Title
+          </h2>
+          <p
+            class="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg"
+          >
+            Content
+          </p>
+          <button
+            aria-haspopup="dialog"
+            aria-label="Feedback"
+            class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:bg-white ds:text-primary-gray ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:pr-[20px] ds:hover:text-secondary-1-dark ds:active:text-secondary-1-dark-2 ds:focus-visible:text-secondary-1-dark ds:focus-visible:outline-secondary-1-dark ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+            type="button"
+          >
+            <span
+              class="ds:text-center ds:group-hover:underline ds:group-active:underline ds:group-focus-visible:underline"
+            >
+              Feedback
+            </span>
+            <svg
+              fill="currentColor"
+              height="24"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16.175 13.2964H4V11.2964H16.175L10.575 5.69639L12 4.29639L20 12.2964L12 20.2964L10.575 18.8964L16.175 13.2964Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1171,7 +1237,7 @@ exports[`Footer > renders copyright 1`] = `
       <div
         class="ds:mt-7 ds:mb-11 ds:flex ds:sm:justify-end ds:font-poppins ds:sm:text-right"
       >
-        © Osaamispolku 2025. Kaikki oikeudet pidätetään.
+        © Osaamispolku 2026. Kaikki oikeudet pidätetään.
       </div>
     </div>
   </div>
