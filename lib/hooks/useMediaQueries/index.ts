@@ -28,5 +28,6 @@ export const useMediaQueries = () => {
     md: useMediaQuery(`(min-width: ${md})`),
     lg: useMediaQuery(`(min-width: ${lg})`),
     xl: useMediaQuery(`(min-width: ${xl})`),
+    reduceMotion: useMediaQuery('(prefers-reduced-motion: reduce)'),
   };
 };
