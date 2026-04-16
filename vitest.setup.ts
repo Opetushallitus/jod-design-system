@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom/vitest';
 import React from 'react';
 
-import { vi } from 'vitest';
+import { toHaveNoViolations } from 'jest-axe';
+import { expect, vi } from 'vitest';
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -35,3 +36,5 @@ vi.mock('motion/react', () => ({
   },
   AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }));
+
+expect.extend(toHaveNoViolations);

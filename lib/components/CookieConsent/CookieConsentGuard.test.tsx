@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
+import { axe } from 'jest-axe';
 import { useCookieConsent } from './CookieConsentContext';
 import { CookieConsentGuard } from './CookieConsentGuard';
 import { createCookieConsentContextValue } from './CookieConsentTestUtils';
@@ -68,5 +69,14 @@ describe('CookieConsentGuard', () => {
     );
 
     expect(container).toBeEmptyDOMElement();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <CookieConsentGuard categories={['thirdPartyContent']} fallback>
+        <div>Protected content</div>
+      </CookieConsentGuard>,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

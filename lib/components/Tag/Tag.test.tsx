@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 import { Tag } from './Tag';
 
@@ -45,5 +46,10 @@ describe('Tag', () => {
     const { container } = render(<Tag label="default" onClick={vi.fn()} />);
     const tagElement = container.firstChild;
     expect(tagElement).toHaveClass('ds:cursor-pointer');
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<Tag label="Label here" onClick={vi.fn()} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

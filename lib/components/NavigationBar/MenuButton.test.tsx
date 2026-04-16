@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { fn } from 'storybook/test';
 import { describe, expect, it, vi } from 'vitest';
 import { MenuButton } from './MenuButton';
@@ -21,7 +22,13 @@ describe('MenuButton', () => {
     const btn = screen.getByTestId('open-nav-menu');
     expect(btn).toHaveAttribute('aria-haspopup', 'dialog');
   });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<MenuButton label="Valikko" onClick={fn()} />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
+
 describe('Snapshot', () => {
   it('should render with defaults', () => {
     const { container } = render(<MenuButton label="Valikko" onClick={fn()} />);

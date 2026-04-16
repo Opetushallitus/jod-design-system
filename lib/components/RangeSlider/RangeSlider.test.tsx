@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { RangeSlider, RangeSliderValue } from './RangeSlider';
 
@@ -117,5 +118,19 @@ describe('RangeSlider', () => {
     );
     expect(getByTestId('slider-thumb-0')).toBeInTheDocument();
     expect(getByTestId('slider-thumb-1')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <RangeSlider
+        markers={markers}
+        value={[0, 100]}
+        onValueChange={onValueChange}
+        testId="slider"
+        minValueDescription={minDescription}
+        maxValueDescription={maxDescription}
+      />,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -3,6 +3,7 @@ import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, test, vi } from 'vitest';
 import { RadioButtonGroup } from './RadioButtonGroup';
 
+import { axe } from 'jest-axe';
 import { RadioButton } from './RadioButton';
 
 describe('Snapshot testing', () => {
@@ -66,5 +67,14 @@ describe('RadioButtonGroup', () => {
     const parentClassList = screen.getByText('Label that is now hidden').classList;
     expect(parentClassList).toContain('ds:hidden');
     expect(screen.getByTestId('rbg6')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(
+      <RadioButtonGroup label="A" value="a" onChange={vi.fn()} testId="rbg2">
+        <RadioButton value="option1" label="Option 1" />
+      </RadioButtonGroup>,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

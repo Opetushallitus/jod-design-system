@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { axe } from 'jest-axe';
 import { Note } from './Note';
 
 describe('Note component', () => {
@@ -81,5 +82,10 @@ describe('Note component', () => {
     closeButton.click();
     expect(onCloseClick).toHaveBeenCalled();
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<Note title="Title" description="Description" variant="success" ariaClose="Close" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

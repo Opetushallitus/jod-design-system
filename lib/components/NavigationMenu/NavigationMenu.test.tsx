@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { axe } from 'jest-axe';
 import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
 import type { LinkComponent } from './types';
 
@@ -57,5 +58,10 @@ describe('NavigationMenu', () => {
     expect(screen.getByTestId('navmenu-body')).toBeInTheDocument();
     // Menu list container
     expect(screen.getByTestId('navmenu-menulist')).toBeInTheDocument();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<NavigationMenu {...menuProps} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

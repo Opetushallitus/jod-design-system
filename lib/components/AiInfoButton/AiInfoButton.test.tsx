@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 import { AiInfoButton } from './AiInfoButton';
 
@@ -26,4 +27,9 @@ describe('AiInfoButton', () => {
     expect(svg).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
+});
+
+it('has no a11y violations', async () => {
+  const { container } = render(<AiInfoButton />);
+  expect(await axe(container)).toHaveNoViolations();
 });

@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { axe } from 'jest-axe';
 import { InputField } from './InputField';
 
 describe('InputField', () => {
@@ -52,5 +53,10 @@ describe('InputField', () => {
     fireEvent.change(inputElement, { target: { value: 'new value' } });
     expect(onChange).toHaveBeenCalled();
     expect(container).toMatchSnapshot();
+  });
+
+  it('has no a11y violations', async () => {
+    const { container } = render(<InputField onChange={vi.fn()} label={label} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

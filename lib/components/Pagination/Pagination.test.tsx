@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Pagination, PaginationProps } from './Pagination';
 
@@ -111,5 +112,18 @@ describe('Pagination', () => {
     const pageElement = await screen.findByRole('button', { name: 'last page, page 20' });
     pageElement.click();
     await waitFor(() => expect(mockOnPageChange).toHaveBeenCalledWith({ page: 20, pageSize: 5 }));
+  });
+
+  it('has no a11y violations', async () => {
+    const props: PaginationProps = {
+      totalItems: 100,
+      pageSize: 25,
+      siblingCount: 4,
+      currentPage: 1,
+      translations: mockTranslations,
+      onPageChange: mockOnPageChange,
+    };
+    const { container } = renderPagination(props);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });
