@@ -25,6 +25,7 @@ export interface LanguageButtonProps {
   supportedLanguageCodes: LangCode[];
   generateLocalizedPath: (lng: string) => string;
   linkComponent: LanguageMenuLinkComponent;
+  responsive?: boolean;
   translations: LanguageTranslations;
   testId?: string;
 }

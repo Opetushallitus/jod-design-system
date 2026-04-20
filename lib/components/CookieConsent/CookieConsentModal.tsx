@@ -47,13 +47,13 @@ export const CookieConsentModal = () => {
       open={isOpen}
       fullWidthContent
       topSlot={
-        <div className="ds:flex ds:justify-between ds:gap-5 ds:flex-1">
+        <div className="ds:flex ds:flex-col-reverse ds:sm:flex-row ds:justify-between ds:gap-6 ds:md:gap-5 ds:flex-1">
           <h2 className="ds:text-heading-2-mobile ds:sm:text-heading-1 ds:text-primary-gray">{title}</h2>
-          {languageButtonComponent}
+          <div className="ds:self-end">{languageButtonComponent}</div>
         </div>
       }
       content={
-        <div className="ds:px-5 ds:md:px-9 ds:pb-7">
+        <div className="ds:px-5 ds:md:px-9 ds:pb-7 ds:text-primary-gray">
           <div className="ds:flex ds:flex-col ds:gap-6 ds:sm:gap-5">
             <p className="ds:text-body-lg-mobile ds:sm:text-body-lg ds:mt-3 ds:sm:mt-5">{description}</p>
             <div className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md">
@@ -68,12 +68,14 @@ export const CookieConsentModal = () => {
               <p>
                 <a
                   href={readMoreHref}
-                  className="ds:flex ds:flex-row ds:gap-2 ds:text-accent ds:hover:underline"
+                  className="ds:text-accent ds:hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {readMoreLabel}
-                  <JodOpenInNew size={24} ariaLabel={externalLinkIconAriaLabel} />
+                  <div className="ds:inline ds:*:align-top ds:ml-2">
+                    <JodOpenInNew size={24} ariaLabel={externalLinkIconAriaLabel} className="ds:inline" />
+                  </div>
                 </a>
               </p>
             </div>

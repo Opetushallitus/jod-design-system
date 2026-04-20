@@ -57,6 +57,7 @@ export const Default: Story = {
         serviceVariant="yksilo"
         supportedLanguageCodes={['fi', 'sv', 'en']}
         language="fi"
+        responsive={false}
         translations={{
           fi: { change: 'Vaihda kieli.', label: 'Suomeksi' },
           sv: { change: 'Andra språk.', label: 'På svenska' },
