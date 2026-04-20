@@ -49,7 +49,7 @@ export const CookieConsentModal = () => {
       topSlot={
         <div className="ds:flex ds:flex-col-reverse ds:sm:flex-row ds:justify-between ds:gap-6 ds:md:gap-5 ds:flex-1">
           <h2 className="ds:text-heading-2-mobile ds:sm:text-heading-1 ds:text-primary-gray">{title}</h2>
-          <div className="ds:self-end">{languageButtonComponent}</div>
+          <div className="ds:md:self-auto ds:self-end">{languageButtonComponent}</div>
         </div>
       }
       content={
