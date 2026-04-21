@@ -24,8 +24,6 @@ const tableCellClasses = tc([
   'ds:text-primary-gray',
   'ds:m-3',
   'ds:font-arial',
-  'ds:size-[28px]',
-  'ds:sm:size-7',
   'ds:hover:underline',
   'ds:data-selected:bg-accent',
   'ds:data-selected:text-white',
@@ -35,13 +33,13 @@ const tableCellClasses = tc([
 ]);
 
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
-  cx(tableCellClasses, {
+  cx(tableCellClasses, 'ds:size-[28px]', 'ds:sm:size-7', {
     'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': datePicker.isUnavailable(day),
     'ds:text-inactive-gray': datePicker.focusedValue.month !== day.month,
   });
 
 const getYearCellClasses = (year: { label: string; value: number }) =>
-  cx(tableCellClasses, {
+  cx(tableCellClasses, 'ds:size-[68px]', {
     'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': isInvalidYear(year.value),
   });
 
@@ -289,7 +287,10 @@ export const Datepicker = ({
                             <ArkDatePicker.TableRow key={months[0].label}>
                               {months.map((month) => (
                                 <ArkDatePicker.TableCell key={`_${month.label}`} value={month.value}>
-                                  <ArkDatePicker.TableCellTrigger className={tableCellClasses}>
+                                  <ArkDatePicker.TableCellTrigger
+                                    className={cx(tableCellClasses, 'ds:size-[68px]')}
+                                    asChild
+                                  >
                                     <button type="button" className="ds:cursor-pointer">
                                       {month.label}
                                     </button>
