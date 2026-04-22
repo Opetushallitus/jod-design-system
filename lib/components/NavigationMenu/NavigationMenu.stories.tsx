@@ -76,6 +76,22 @@ export const Default: Story = {
   },
 };
 
+export const OnPortalPage: Story = {
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story: 'NavigationMenu component for displaying a list of links.',
+      },
+    },
+  },
+  render: DefaultRender,
+  args: {
+    ...baseProps,
+    portalExternal: false,
+  },
+};
+
 export const WithoutMenuSection: Story = {
   parameters: {
     ...parameters,
