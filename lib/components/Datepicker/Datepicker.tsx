@@ -33,13 +33,13 @@ const tableCellClasses = tc([
 ]);
 
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
-  cx(tableCellClasses, 'ds:size-[28px]', 'ds:sm:size-7', {
+  cx(tableCellClasses, 'ds:size-[28px]', {
     'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': datePicker.isUnavailable(day),
     'ds:text-inactive-gray': datePicker.focusedValue.month !== day.month,
   });
 
 const getYearCellClasses = (year: { label: string; value: number }) =>
-  cx(tableCellClasses, 'ds:size-[68px]', {
+  cx(tableCellClasses, 'ds:size-[61px]', {
     'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': isInvalidYear(year.value),
   });
 
@@ -239,7 +239,7 @@ export const Datepicker = ({
                             {datePicker.weekDays.map((weekDay) => (
                               <ArkDatePicker.TableHeader
                                 key={weekDay.long}
-                                className="ds:capitalize ds:size-[28px] ds:sm:size-7 ds:text-primary-gray"
+                                className="ds:capitalize ds:size-[28px] ds:text-primary-gray"
                               >
                                 {weekDay.short}
                               </ArkDatePicker.TableHeader>
@@ -284,11 +284,11 @@ export const Datepicker = ({
                       <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarYear}>
                         <ArkDatePicker.TableBody>
                           {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months) => (
-                            <ArkDatePicker.TableRow key={months[0].label}>
+                            <ArkDatePicker.TableRow key={months[0].label} className="ds:h-[calc(292px/3)]">
                               {months.map((month) => (
                                 <ArkDatePicker.TableCell key={`_${month.label}`} value={month.value}>
                                   <ArkDatePicker.TableCellTrigger
-                                    className={cx(tableCellClasses, 'ds:size-[68px]')}
+                                    className={cx(tableCellClasses, 'ds:size-[61px]')}
                                     asChild
                                   >
                                     <button type="button" className="ds:cursor-pointer">
@@ -315,7 +315,7 @@ export const Datepicker = ({
                       <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarDecade}>
                         <ArkDatePicker.TableBody>
                           {datePicker.getYearsGrid({ columns: 4 }).map((years) => (
-                            <ArkDatePicker.TableRow key={years[0].label}>
+                            <ArkDatePicker.TableRow key={years[0].label} className="ds:h-[calc(292px/3)]">
                               {years.map((year) => (
                                 <ArkDatePicker.TableCell key={`_${year.label}`} value={year.value}>
                                   <ArkDatePicker.TableCellTrigger className={getYearCellClasses(year)} asChild>
