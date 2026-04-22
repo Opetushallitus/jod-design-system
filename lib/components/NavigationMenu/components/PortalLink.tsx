@@ -1,3 +1,4 @@
+import { JodOpenInNew } from '../../../icons';
 import { tidyClasses, useServiceVariant } from '../../../main';
 import {
   getAccentBgClassForService,
@@ -10,11 +11,13 @@ export const PortalLink = ({
   label,
   icon,
   selected = false,
+  externalLinkIconAriaLabel,
   component: Component,
 }: {
   label: string;
   icon?: React.ReactNode;
   selected?: boolean;
+  externalLinkIconAriaLabel?: string;
   component: React.ComponentType<LinkComponent>;
 }) => {
   const variant = useServiceVariant();
@@ -23,12 +26,11 @@ export const PortalLink = ({
     <div className="ds:border-l-8 ds:border-secondary-gray">
       <Component
         className={tidyClasses([
+          'ds:ml-3',
           'ds:flex',
           'ds:flex-1',
           'ds:gap-3',
-          'ds:p-3',
-          'ds:ml-3',
-          'ds:mr-9',
+          'ds:py-3',
           'ds:cursor-pointer',
           'ds:group',
           'ds:rounded',
@@ -40,7 +42,10 @@ export const PortalLink = ({
         ])}
       >
         {icon}
-        <span className="ds:text-button-md ds:group-hover:underline">{label}</span>
+        <div className="ds:flex ds:flex-row ds:w-full ds:gap-3 ds:pr-3 ds:justify-between ds:pl-3">
+          <span className="ds:text-button-md ds:group-hover:underline">{label}</span>
+          {externalLinkIconAriaLabel && <JodOpenInNew size={24} ariaLabel={externalLinkIconAriaLabel} />}
+        </div>
       </Component>
     </div>
   );
