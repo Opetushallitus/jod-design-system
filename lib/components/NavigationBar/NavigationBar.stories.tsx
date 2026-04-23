@@ -43,8 +43,8 @@ type Story = StoryObj<typeof meta>;
 
 const menuProps: NavigationMenuProps = {
   portalLinkLabel: 'Osaamispolkuportaali',
-  portalLinkComponent: ({ children, className }: LinkComponent) => (
-    <a href="/#" className={className}>
+  portalLinkComponent: ({ children, className, target, rel }: LinkComponent) => (
+    <a href="/#" className={className} target={target} rel={rel}>
       {children}
     </a>
   ),

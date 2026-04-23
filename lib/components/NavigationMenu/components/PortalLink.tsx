@@ -25,6 +25,7 @@ export const PortalLink = ({
   return (
     <div className="ds:border-l-8 ds:border-secondary-gray">
       <Component
+        {...(externalLinkIconAriaLabel ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className={tidyClasses([
           'ds:ml-3',
           'ds:flex',
