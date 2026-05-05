@@ -57,15 +57,9 @@ export const Tag = ({
     <Tooltip clickToToggle={false} delay={{ open: 500, close: 150 }}>
       <TooltipTrigger asChild noAriaDescribedby noAriaExpanded>
         {variant === 'presentation' ? (
-          <div
-            className={containerClassNames(sourceType, variant)}
-            data-testid={testId}
-            aria-describedby={undefined}
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-            tabIndex={tooltip ? 0 : undefined}
-          >
+          <button type="button" className={containerClassNames(sourceType, variant)} data-testid={testId}>
             <span className="ds:truncate ds:text-primary-gray ds:leading-5">{label}</span>
-          </div>
+          </button>
         ) : (
           <button
             type="button"
