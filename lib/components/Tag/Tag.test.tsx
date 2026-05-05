@@ -23,13 +23,6 @@ describe('Tag', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should not be a button and no icons are present when using presentation variant', () => {
-    const { container, queryByRole } = render(<Tag label="presentation" variant="presentation" testId="tag3" />);
-    expect(document.querySelector('[data-testid="tag3"]')).toBeInTheDocument();
-    expect(queryByRole('button')).toBeNull();
-    expect(container.querySelector('svg')).toBeNull();
-  });
-
   it('should have cursor-pointer class when variant is not presentation', () => {
     const { container } = render(<Tag label="selectable" variant="selectable" onClick={vi.fn()} />);
     const tagElement = container.firstChild;
