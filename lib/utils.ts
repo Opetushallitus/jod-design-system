@@ -39,6 +39,7 @@ export const serviceColors = {
   yksilo: {
     bg: 'ds:bg-secondary-1-dark',
     bgActive: 'ds:active:bg-secondary-1-dark-2',
+    bgGroupActive: 'ds:group-active:bg-secondary-1-dark-2',
     border: 'ds:border-secondary-1-dark',
     text: 'ds:text-secondary-1-dark',
     textHover: 'ds:hover:text-secondary-1-dark',
@@ -49,6 +50,7 @@ export const serviceColors = {
   ohjaaja: {
     bg: 'ds:bg-secondary-2-dark',
     bgActive: 'ds:active:bg-secondary-2-dark-2',
+    bgGroupActive: 'ds:group-active:bg-secondary-2-dark-2',
     border: 'ds:border-secondary-2-dark',
     text: 'ds:text-secondary-2-dark',
     textHover: 'ds:hover:text-secondary-2-dark',
@@ -59,6 +61,7 @@ export const serviceColors = {
   palveluportaali: {
     bg: 'ds:bg-secondary-gray',
     bgActive: 'ds:active:bg-primary-gray',
+    bgGroupActive: 'ds:group-active:bg-primary-gray',
     border: 'ds:border-secondary-gray',
     text: 'ds:text-secondary-gray',
     textHover: 'ds:hover:text-secondary-3-dark',
@@ -69,6 +72,7 @@ export const serviceColors = {
   tietopalvelu: {
     bg: 'ds:bg-secondary-4-dark',
     bgActive: 'ds:active:bg-secondary-4-dark-2',
+    bgGroupActive: 'ds:group-active:bg-secondary-4-dark-2',
     border: 'ds:border-secondary-4-dark',
     text: 'ds:text-secondary-4-dark',
     textHover: 'ds:hover:text-secondary-4-dark',
@@ -85,6 +89,8 @@ export const getAccentBgClassForService = (variant: ServiceVariant) => serviceCo
 export const getAccentBorderClassForService = (variant: ServiceVariant) => serviceColors[variant].border;
 
 export const getPressedBgColorClassForService = (variant: ServiceVariant) => serviceColors[variant].bgActive;
+
+export const getGroupActiveBgColorClassForService = (variant: ServiceVariant) => serviceColors[variant].bgGroupActive;
 
 export const getTextColorClassForService = (variant: ServiceVariant) => serviceColors[variant].text;
 

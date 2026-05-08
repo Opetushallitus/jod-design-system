@@ -117,10 +117,10 @@ export const NavigationMenu = ({
           aria-label={navigationAriaLabel}
         >
           <div
-            className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow"
+            className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow ds:pb-11"
             data-testid={testId ? `${testId}-body` : undefined}
           >
-            <div className="ds:flex ds:items-center ds:justify-end ds:my-6">
+            <div className="ds:flex ds:items-center ds:justify-end ds:my-6 ds:sticky ds:top-0 ds:bg-white ds:z-10">
               <CloseMenuButton onClick={onClose} ariaCloseMenu={ariaCloseMenu} />
             </div>
             {portalLinkLabel && PortalLinkComponent ? (

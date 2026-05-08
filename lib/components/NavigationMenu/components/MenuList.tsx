@@ -143,16 +143,6 @@ const MenuListItem = ({
       'ds:active:text-white',
       getPressedBgColorClassForService(serviceVariant),
       getFocusOutlineClassForService(serviceVariant),
-      // Gray bar to the left of the submenu toggle button
-      'ds:relative',
-      'ds:before:content-[""]',
-      'ds:before:absolute',
-      'ds:before:-left-2',
-      'ds:before:top-[12.5%]',
-      'ds:before:h-3/4',
-      'ds:before:w-1',
-      'ds:before:bg-bg-gray-2',
-      'ds:before:pointer-events-none',
     ]);
 
     if (LinkComponent) {
