@@ -97,7 +97,7 @@ const LinkOrDiv = ({
   return Link && to ? (
     <Link
       to={to}
-      className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ${className}`}
+      className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ds:focus-visible:outline-offset-[-6px] ${className}`}
     >
       {children}
     </Link>
@@ -111,7 +111,7 @@ const LinkOrDiv = ({
 const FavoriteButton = ({ isFavorite, favoriteLabel, onFavoriteClick }: FavoriteButtonProps) => {
   return (
     <button
-      className="ds:cursor-pointer ds:absolute ds:top-0 ds:right-0 ds:p-[12px] ds:bg-white ds:rounded-bl ds:z-1"
+      className="ds:cursor-pointer ds:absolute ds:top-0 ds:right-0 ds:p-4 ds:bg-white ds:rounded-bl ds:z-2"
       aria-label={favoriteLabel}
       onClick={onFavoriteClick}
     >
@@ -210,7 +210,7 @@ const MediaCardVertical = ({
               {label}
             </p>
           </div>
-          <div className="ds:flex-grow ds:content-center">
+          <div className="ds:grow ds:content-center">
             <p
               className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
               data-testid={testId ? `${testId}-description` : undefined}
@@ -288,7 +288,7 @@ const MediaCardHorizontal = ({
           className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:flex-nowrap"
           ref={textContainerRef}
         >
-          <div className="ds:gap-3 ds:flex ds:flex-col ds:flex-grow">
+          <div className="ds:gap-3 ds:flex ds:flex-col ds:grow">
             <div>
               <p
                 className="ds:pr-6 ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-4 ds:sm:line-clamp-2"
@@ -297,7 +297,7 @@ const MediaCardHorizontal = ({
                 {label}
               </p>
             </div>
-            <div className="ds:flex-grow ds:content-center">
+            <div className="ds:grow ds:content-center">
               <p
                 className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2"
                 data-testid={testId ? `${testId}-description` : undefined}

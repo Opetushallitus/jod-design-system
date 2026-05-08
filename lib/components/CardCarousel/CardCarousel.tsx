@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 
 import { JodPagerNext, JodPagerPrev } from '../../icons';
@@ -33,12 +34,14 @@ export const CardCarousel = ({
   className = '',
   testId,
 }: CardCarouselProps) => {
-  const containerRef = React.createRef<HTMLUListElement>();
+  const containerRef = React.useRef<HTMLUListElement>(null);
+  const cardRefs = React.useRef<(HTMLLIElement | null)[]>([]);
   const [itemsPerPage, setItemsPerPage] = React.useState(1);
   const [pageNr, setPageNr] = React.useState(0);
   const [pageCount, setPageCount] = React.useState(0);
-  const [isFirstPage, setIsFirstPage] = React.useState(false);
+  const [isFirstPage, setIsFirstPage] = React.useState(true);
   const [isLastPage, setIsLastPage] = React.useState(false);
+  const [activeCardIndex, setActiveCardIndex] = React.useState(0);
   const getPageCount = React.useCallback(() => Math.ceil(items.length / itemsPerPage), [itemsPerPage, items.length]);
 
   React.useEffect(() => {
@@ -46,7 +49,81 @@ export const CardCarousel = ({
     if (current) {
       current.scrollTo({ left: pageNr * itemsPerPage * (itemWidth + gap), behavior: 'smooth' });
     }
-  }, [itemsPerPage, containerRef, itemWidth, pageNr, gap]);
+  }, [itemsPerPage, itemWidth, pageNr, gap]);
+
+  // Manage tabIndex of focusable elements inside cards so only the active card's content is tabbable
+  React.useEffect(() => {
+    const selector =
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]';
+    cardRefs.current.forEach((card, index) => {
+      if (!card) {
+        return;
+      }
+      const focusableElements = card.querySelectorAll<HTMLElement>(selector);
+      const isActive = index === activeCardIndex;
+      focusableElements.forEach((el) => {
+        el.tabIndex = isActive ? 0 : -1;
+      });
+    });
+  }, [activeCardIndex, items.length]);
+
+  const navigateToCard = (index: number) => {
+    const newIndex = Math.max(0, Math.min(index, items.length - 1));
+    // Update tabIndex immediately on DOM for responsive focus
+    cardRefs.current[activeCardIndex]?.setAttribute('tabindex', '-1');
+    cardRefs.current[newIndex]?.setAttribute('tabindex', '0');
+    cardRefs.current[newIndex]?.focus();
+    setActiveCardIndex(newIndex);
+    const newPage = Math.floor(newIndex / itemsPerPage);
+    setPageNr(newPage);
+  };
+
+  const handleCardListKeyDown = (e: React.KeyboardEvent) => {
+    const activeCard = cardRefs.current[activeCardIndex];
+    const isOnCard = e.target == activeCard;
+    const isInsideCard = activeCard?.contains(e.target as Node);
+
+    // Arrow keys navigate between cards regardless of where focus is within the card
+    if (isOnCard || isInsideCard) {
+      switch (e.key) {
+        case 'ArrowRight':
+          e.preventDefault();
+          if (activeCardIndex < items.length - 1) {
+            navigateToCard(activeCardIndex + 1);
+          }
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          if (activeCardIndex > 0) {
+            navigateToCard(activeCardIndex - 1);
+          }
+          break;
+        case 'Home':
+          e.preventDefault();
+          navigateToCard(0);
+          break;
+        case 'End':
+          e.preventDefault();
+          navigateToCard(items.length - 1);
+          break;
+      }
+    }
+
+    // Enter activates the card's main link only when focus is on the card itself
+    if (isOnCard && e.key === 'Enter') {
+      e.preventDefault();
+      const mainLink = activeCard?.querySelector<HTMLElement>('a[href]');
+      if (mainLink) {
+        mainLink.click();
+      }
+    }
+
+    // Escape from inside card content returns focus to the card
+    if (e.key === 'Escape' && !isOnCard && isInsideCard) {
+      e.preventDefault();
+      activeCard?.focus();
+    }
+  };
 
   const goToNextPage = () => {
     if (!isLastPage) {
@@ -99,7 +176,7 @@ export const CardCarousel = ({
         resizeObserver.unobserve(current);
       }
     };
-  }, [itemsPerPage, getPageCount, itemWidth, items.length, pageNr, containerRef, gap]);
+  }, [itemsPerPage, getPageCount, itemWidth, items.length, pageNr, gap]);
 
   return (
     <>
@@ -109,30 +186,22 @@ export const CardCarousel = ({
         className={`ds:flex ds:flex-row ds:overflow-hidden ${className}`.trim()}
         style={{ gap }}
         data-testid={testId ? `${testId}-list` : undefined}
+        onKeyDown={handleCardListKeyDown}
       >
-        {items.map((item, index) => {
-          // Change the page according to focused item during tab navigation
-          const onFocus = () => {
-            const pageWhereFocusedItemIs = Math.floor(index / itemsPerPage);
-            const focusedItemIsOutsideCurrentPage = pageWhereFocusedItemIs !== pageNr;
-
-            if (focusedItemIsOutsideCurrentPage) {
-              setPageNr(pageWhereFocusedItemIs);
-            }
-          };
-
-          return (
-            <li
-              key={item.id}
-              aria-roledescription="slide"
-              onFocus={onFocus}
-              className="ds:flex"
-              style={{ width: itemWidth }}
-            >
-              {item.component}
-            </li>
-          );
-        })}
+        {items.map((item, index) => (
+          <li
+            key={item.id}
+            ref={(el) => {
+              cardRefs.current[index] = el;
+            }}
+            aria-roledescription="slide"
+            tabIndex={index === activeCardIndex ? 0 : -1}
+            className={`ds:flex ds:rounded ds:outline-offset-2 ${index === activeCardIndex ? 'ds:ring-2 ds:ring-accent ds:ring-inset' : ''}`}
+            style={{ width: itemWidth }}
+          >
+            {item.component}
+          </li>
+        ))}
       </ul>
       <div
         className="ds:flex ds:flex-row ds:gap-2 ds:justify-between ds:items-center ds:p-3"
