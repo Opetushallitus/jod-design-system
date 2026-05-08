@@ -9,10 +9,10 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
     class="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
   >
     <div
-      class="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow"
+      class="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow ds:pb-11"
     >
       <div
-        class="ds:flex ds:items-center ds:justify-end ds:my-6"
+        class="ds:flex ds:items-center ds:justify-end ds:my-6 ds:sticky ds:top-0 ds:bg-white ds:z-10"
       >
         <div
           class="ds:flex ds:justify-end"
