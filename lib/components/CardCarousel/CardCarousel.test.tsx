@@ -81,6 +81,146 @@ describe('CardCarousel', () => {
     expect(container.querySelector('[data-testid="cc-list"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="cc-controls"]')).toBeInTheDocument();
   });
+
+  describe('keyboard navigation', () => {
+    const renderWithLinks = () =>
+      renderComponent({
+        items: [
+          {
+            id: '1',
+            component: (
+              <div>
+                <a href="/card-1">Card 1</a>
+                <a href="/tag-1a">Tag 1A</a>
+              </div>
+            ),
+          },
+          {
+            id: '2',
+            component: (
+              <div>
+                <a href="/card-2">Card 2</a>
+                <a href="/tag-2a">Tag 2A</a>
+              </div>
+            ),
+          },
+          {
+            id: '3',
+            component: (
+              <div>
+                <a href="/card-3">Card 3</a>
+              </div>
+            ),
+          },
+        ],
+      });
+
+    it('first card has tabIndex 0 and others have tabIndex -1', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      expect(items[0]).toHaveAttribute('tabindex', '0');
+      expect(items[1]).toHaveAttribute('tabindex', '-1');
+      expect(items[2]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('ArrowRight moves focus to the next card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      firstCard.focus();
+
+      fireEvent.keyDown(firstCard, { key: 'ArrowRight' });
+      expect(items[1]).toHaveAttribute('tabindex', '0');
+      expect(items[0]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('ArrowLeft moves focus to the previous card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      firstCard.focus();
+
+      // Move right first, then left
+      fireEvent.keyDown(firstCard, { key: 'ArrowRight' });
+      fireEvent.keyDown(items[1], { key: 'ArrowLeft' });
+      expect(items[0]).toHaveAttribute('tabindex', '0');
+    });
+
+    it('ArrowLeft does nothing on the first card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      firstCard.focus();
+
+      fireEvent.keyDown(firstCard, { key: 'ArrowLeft' });
+      expect(items[0]).toHaveAttribute('tabindex', '0');
+    });
+
+    it('ArrowRight does nothing on the last card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      firstCard.focus();
+
+      fireEvent.keyDown(firstCard, { key: 'ArrowRight' });
+      fireEvent.keyDown(items[1], { key: 'ArrowRight' });
+      fireEvent.keyDown(items[2], { key: 'ArrowRight' });
+      // Still on last card
+      expect(items[2]).toHaveAttribute('tabindex', '0');
+    });
+
+    it('Home moves focus to the first card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      firstCard.focus();
+
+      fireEvent.keyDown(firstCard, { key: 'ArrowRight' });
+      fireEvent.keyDown(items[1], { key: 'ArrowRight' });
+      fireEvent.keyDown(items[2], { key: 'Home' });
+      expect(items[0]).toHaveAttribute('tabindex', '0');
+    });
+
+    it('End moves focus to the last card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      firstCard.focus();
+
+      fireEvent.keyDown(firstCard, { key: 'End' });
+      expect(items[2]).toHaveAttribute('tabindex', '0');
+    });
+
+    it('non-active cards have their focusable children set to tabIndex -1', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+
+      // Active card (first) children should be focusable
+      const activeLinks = items[0].querySelectorAll('a');
+      activeLinks.forEach((link) => {
+        expect(link.tabIndex).toBe(0);
+      });
+
+      // Non-active card children should not be focusable
+      const inactiveLinks = items[1].querySelectorAll('a');
+      inactiveLinks.forEach((link) => {
+        expect(link.tabIndex).toBe(-1);
+      });
+    });
+
+    it('Escape from inside card content returns focus to the card', () => {
+      const { container } = renderWithLinks();
+      const items = container.querySelectorAll('li[aria-roledescription="slide"]');
+      const firstCard = items[0] as HTMLElement;
+      const innerLink = items[0].querySelector('a') as HTMLElement;
+
+      firstCard.focus();
+      innerLink.focus();
+
+      fireEvent.keyDown(innerLink, { key: 'Escape' });
+      expect(document.activeElement).toBe(firstCard);
+    });
+  });
 });
 
 it('has no a11y violations', async () => {

@@ -30,7 +30,7 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
         </p>
       </div>
       <div
-        class="ds:flex-grow ds:content-center"
+        class="ds:grow ds:content-center"
       >
         <p
           class="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
