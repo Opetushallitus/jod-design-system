@@ -1,8 +1,8 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import type { TitledMeta } from '../../utils';
 
 import { JodOpenInNew } from '../../icons';
+import type { TitledMeta } from '../../utils';
 import { Button } from '../Button/Button';
 import { Note } from './Note';
 

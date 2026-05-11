@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodUser } from '../../icons';

@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
-import type { TitledMeta } from '../../utils';
 
 import { Button, LanguageButton } from '../../main';
+import type { TitledMeta } from '../../utils';
 import { useCookieConsent } from './CookieConsentContext';
 import { CookieConsentGuard } from './CookieConsentGuard';
 import { CookieConsentProvider } from './CookieConsentProvider';

@@ -1,7 +1,11 @@
 import React from 'react';
+
 import { JodArrowRight, JodOpenInNew } from '../../icons';
 import { HeroCard } from '../../main';
 import { LogoRgb } from '../Logo/LogoRgb';
+import facebookIcon from '../Logo/some-facebook.png';
+import instagramIcon from '../Logo/some-instagram.png';
+import linkedinIcon from '../Logo/some-linkedin.png';
 import {
   LogoEuEn,
   LogoEuFi,
@@ -15,10 +19,6 @@ import {
   LogoTemEn,
   LogoTemFiSv,
 } from './logos';
-
-import facebookIcon from '../Logo/some-facebook.png';
-import instagramIcon from '../Logo/some-instagram.png';
-import linkedinIcon from '../Logo/some-linkedin.png';
 
 interface LinkData {
   href: string;

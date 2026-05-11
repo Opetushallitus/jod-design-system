@@ -1,5 +1,6 @@
 import type { Placement } from '@floating-ui/react';
 import React from 'react';
+
 import { JodAiGradient } from '../../icons';
 import { cx } from '../../main';
 import { Tooltip } from '../Tooltip/Tooltip';

@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react-vite';
+
 import type { TitledMeta } from '../../utils';
 import { SkipLink } from './SkipLink';
 

@@ -1,8 +1,9 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import type { ReactNode } from 'react';
 import { describe, expect, it, test, vi } from 'vitest';
 
-import { axe } from 'jest-axe';
 import { RadioButton } from './RadioButton';
 import { RadioButtonGroup } from './RadioButtonGroup';
 

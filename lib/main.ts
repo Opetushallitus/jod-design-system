@@ -1,4 +1,5 @@
 import { MotionGlobalConfig } from 'motion';
+
 import './index.css';
 
 // Disable animations in modals for users who prefer reduced motion

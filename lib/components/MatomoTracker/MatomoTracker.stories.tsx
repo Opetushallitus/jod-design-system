@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
-import type { TitledMeta } from '../../utils';
 
+import type { TitledMeta } from '../../utils';
 import { MatomoTracker } from './MatomoTracker';
 
 const meta = {

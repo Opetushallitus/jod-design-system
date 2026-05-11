@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
-import type { TitledMeta } from '../../utils';
 
 import { JodLoading } from '../../icons';
+import type { TitledMeta } from '../../utils';
 import { Toast } from './Toast';
 
 const meta = {

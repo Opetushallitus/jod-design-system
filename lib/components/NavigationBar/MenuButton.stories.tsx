@@ -1,9 +1,9 @@
 import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { TitledMeta } from '../../utils';
-
 import { fn } from 'storybook/test';
+
 import { ServiceVariantProvider } from '../../hooks/useServiceVariant';
+import type { TitledMeta } from '../../utils';
 import { LinkComponent, NavigationMenu, NavigationMenuProps } from '../NavigationMenu';
 import { externalLinkSections, languageSelectionItems, menuSection } from '../NavigationMenu/commonStoriesData';
 import { MenuButton, MenuButtonProps } from './MenuButton';

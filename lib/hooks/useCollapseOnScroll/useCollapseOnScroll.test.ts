@@ -1,5 +1,7 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { useCollapseOnScroll } from '.';
 
 describe('useCollapseOnScroll', () => {
@@ -21,7 +23,6 @@ describe('useCollapseOnScroll', () => {
     vi.spyOn(globalThis, 'requestAnimationFrame').mockImplementation((cb) => {
       return globalThis.setTimeout(() => cb(performance.now()), 17) as unknown as number;
     });
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     vi.spyOn(globalThis, 'cancelAnimationFrame').mockImplementation(() => {});
   });
 

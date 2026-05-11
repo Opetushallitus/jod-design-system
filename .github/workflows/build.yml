@@ -44,11 +44,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts && npm exec allow-scripts run
 
-      - name: Run ESLint
-        run: npx eslint . --report-unused-disable-directives --max-warnings 0
+      - name: Run Oxlint
+        run: npx oxlint
 
-      - name: Run Prettier
-        run: npx prettier . --check
+      - name: Run Oxfmt
+        run: npx oxfmt --no-error-on-unmatched-pattern --check
 
       - name: Run Vitest unit tests
         run: npx vitest --coverage.enabled true

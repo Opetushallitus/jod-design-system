@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NoteStackContext, PermanentNoteStackElement, TemporaryNoteStackElement } from './NoteStackContext';
 import { useCollapseOnScroll } from './utils';
 

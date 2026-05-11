@@ -8,7 +8,6 @@ exports[`NavigationBar > renders no navigation items and no user 1`] = `
   <nav
     class="ds:flex ds:items-center ds:justify-between ds:gap-5 ds:mx-auto ds:h-11 ds:px-5 ds:py-3 ds:font-semibold ds:xl:container"
     data-testid="nav-nav"
-    role="navigation"
   >
     <div>
       <div

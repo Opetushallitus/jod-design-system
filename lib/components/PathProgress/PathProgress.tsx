@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { tidyClasses as tc } from '../../utils';
 
 type StepLabel =
@@ -69,13 +70,7 @@ export const PathProgress = ({ steps, testId }: PathProgressProps) => {
   return (
     <div className="ds:inline-flex ds:flex-col ds:h-full ds:place-content-between ds:relative" data-testid={testId}>
       {steps.map((step, index) => (
-        <StepComponent
-          key={index} // eslint-disable-line react/no-array-index-key
-          step={step}
-          isLast={index == steps.length - 1}
-          testId={testId}
-          index={index}
-        />
+        <StepComponent key={index} step={step} isLast={index == steps.length - 1} testId={testId} index={index} />
       ))}
     </div>
   );

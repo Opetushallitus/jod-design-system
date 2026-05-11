@@ -1,8 +1,9 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
-import { axe } from 'jest-axe';
 import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
 import type { LinkComponent } from './types';
 

@@ -2,6 +2,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { action } from 'storybook/actions';
 import { fn } from 'storybook/test';
+
 import type { TitledMeta } from '../../utils';
 import { RangeSlider } from './RangeSlider';
 

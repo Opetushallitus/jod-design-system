@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
-import type { TitledMeta } from '../../utils';
-
 import { fn } from 'storybook/test';
+
+import type { TitledMeta } from '../../utils';
 import { Tag } from './Tag';
 
 const meta = {

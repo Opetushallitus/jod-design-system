@@ -1,7 +1,7 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom/vitest';
-import React from 'react';
-
 import { toHaveNoViolations } from 'jest-axe';
+import React from 'react';
 import { expect, vi } from 'vitest';
 
 Object.defineProperty(window, 'matchMedia', {

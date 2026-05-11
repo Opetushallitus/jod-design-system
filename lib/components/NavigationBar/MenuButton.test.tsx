@@ -1,7 +1,9 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { fireEvent, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { fn } from 'storybook/test';
 import { describe, expect, it, vi } from 'vitest';
+
 import { MenuButton } from './MenuButton';
 
 describe('MenuButton', () => {

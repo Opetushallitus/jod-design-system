@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { describe, expect, test } from 'vitest';
+
 import { ContentCard } from './ContentCard';
 
 describe('ContentCard', () => {

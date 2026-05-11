@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
+
 import { AiInfoButton } from './AiInfoButton';
 
 describe('AiInfoButton', () => {

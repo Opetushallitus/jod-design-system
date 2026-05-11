@@ -1,7 +1,9 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { render } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { RangeSlider, RangeSliderValue } from './RangeSlider';
 
 const markers: RangeSliderValue[] = [

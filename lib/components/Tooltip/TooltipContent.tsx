@@ -6,6 +6,7 @@ import {
   useMergeRefs,
 } from '@floating-ui/react';
 import React from 'react';
+
 import { cx } from '../../cva';
 import { ARROW_HEIGHT, useTooltipContext } from './utils';
 
@@ -47,7 +48,6 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
     return (
       <FloatingPortal>
         <FloatingFocusManager
-          // eslint-disable-next-line react-hooks/refs
           context={tooltipContext.context}
           modal={false}
           initialFocus={initialFocus}
@@ -58,7 +58,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
             role="tooltip"
             className={cx([
               'ds:max-w-[280px]',
-              'ds:sm:max-w-[320px]',
+              'ds:sm:max-w-xs',
               'ds:rounded',
               'ds:p-4',
               'ds:bg-primary-gray',
@@ -78,9 +78,7 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
           >
             {props.children}
             <FloatingArrow
-              // eslint-disable-next-line react-hooks/refs
               ref={tooltipContext.arrowRef}
-              // eslint-disable-next-line react-hooks/refs
               context={tooltipContext.context}
               className="ds:fill-primary-gray"
               width={ARROW_HEIGHT * 2}

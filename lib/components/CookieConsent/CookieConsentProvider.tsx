@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ServiceVariant } from '../../utils';
 import { CookieConsentContext } from './CookieConsentContext';
 import { CookieConsentModal } from './CookieConsentModal';

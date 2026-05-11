@@ -1,3 +1,4 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import React from 'react';
 import { vi } from 'vitest';
 

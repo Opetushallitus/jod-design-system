@@ -1,8 +1,8 @@
 import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { TitledMeta } from '../../utils';
 
 import { JodInfo } from '../../icons';
+import type { TitledMeta } from '../../utils';
 import { Button } from '../Button/Button';
 import { Tooltip, TooltipProps } from './Tooltip';
 import { TooltipContent } from './TooltipContent';

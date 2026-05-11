@@ -1,5 +1,6 @@
 import { Transition } from '@headlessui/react';
 import React from 'react';
+
 import { cx } from '../../cva';
 import { JodCaretDown, JodCaretUp } from '../../icons';
 import { useMediaQueries } from '../../main';

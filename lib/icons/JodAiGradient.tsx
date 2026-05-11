@@ -1,4 +1,5 @@
 import React from 'react';
+
 import IconWrapper from './SvgWrapper';
 import { IconProps } from './utils';
 

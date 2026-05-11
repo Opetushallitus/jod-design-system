@@ -39,9 +39,9 @@ export const Toast = ({ text, icon, variant = 'success', testId }: ToastProps) =
       className={tidyClasses([
         cx({
           'ds:text-secondary-gray': variant === 'neutral',
-          'ds:border-success ': variant === 'success',
-          'ds:border-warning ': variant === 'warning',
-          'ds:border-alert ': variant === 'error',
+          'ds:border-success': variant === 'success',
+          'ds:border-warning': variant === 'warning',
+          'ds:border-alert': variant === 'error',
         }),
         variant === 'neutral' ? 'ds:bg-bg-gray' : 'ds:bg-white ds:border-2',
         'ds:min-w-[240px]',

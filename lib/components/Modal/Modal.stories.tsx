@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
+
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodArrowLeft, JodCheckmark } from '../../icons';
 import type { TitledMeta } from '../../utils';
@@ -36,7 +37,6 @@ const LoremIpsum = ({ heading, length = 10 }: { heading: string; length?: number
       <p className="ds:font-bold">{heading}</p>
       <div className="ds:flex ds:flex-col ds:gap-4">
         {Array.from({ length }).map((_, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <p key={index}>{loremIpsumText}</p>
         ))}
       </div>

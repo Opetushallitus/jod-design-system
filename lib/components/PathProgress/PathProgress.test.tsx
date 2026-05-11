@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
+
 import { PathProgress, type PathProgressStep } from './PathProgress';
 
 describe('PathProgress data-testid', () => {

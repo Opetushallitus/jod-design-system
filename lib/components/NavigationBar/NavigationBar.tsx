@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { cx, Note } from '../../main';
 import { getAccentBgClassForService, getAccentBorderClassForService, type ServiceVariant } from '../../utils';
@@ -100,7 +101,7 @@ export const NavigationBar = ({
         return [() => ({ ...first(), isCollapsed }), ...rest];
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // oxlint-disable-next-line eslint-plugin-react-hooks/exhaustive-deps
   }, [isCollapsed]);
 
   const isAnyTemporaryNoteCollapsed = React.useMemo(() => {
@@ -114,7 +115,6 @@ export const NavigationBar = ({
         data-testid={testId}
       >
         <nav
-          role="navigation"
           className="ds:flex ds:items-center ds:justify-between ds:gap-5 ds:mx-auto ds:h-11 ds:px-5 ds:py-3 ds:font-semibold ds:xl:container"
           data-testid={testId ? `${testId}-nav` : undefined}
         >

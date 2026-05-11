@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { fn } from 'storybook/test';
+
 import { ServiceVariantProvider } from '../../hooks/useServiceVariant/ServiceVariantProvider';
 import { Button } from '../Button/Button';
 import { externalLinkSections, languageSelectionItems, menuSection } from './commonStoriesData';

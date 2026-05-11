@@ -2,6 +2,7 @@ import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { JSX } from 'react/jsx-runtime';
+
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
 import { Button } from '../Button/Button';

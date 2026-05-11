@@ -1,8 +1,8 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useEffect, useRef, useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
-import type { TitledMeta } from '../../utils';
 
+import type { TitledMeta } from '../../utils';
 import { ConfirmDialog } from './ConfirmDialog';
 
 const meta = {
@@ -101,7 +101,6 @@ const Button = ({ label, onClick }: { label: string; onClick?: () => void }) => 
 };
 
 const renderFooter = (args: Story['args']) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { onConfirm, confirmText, variant, cancelText, ...rest } = args;
   return (
     <ConfirmDialog

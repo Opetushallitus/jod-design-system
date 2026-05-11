@@ -1,3 +1,4 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
@@ -52,7 +53,6 @@ const translations = {
   },
 };
 
-// eslint-disable-next-line react/prop-types
 const TestConsumer = ({ nextConsent = { thirdPartyContent: false } }) => {
   const { consent, isOpen, save } = useCookieConsent();
 
@@ -68,10 +68,12 @@ const TestConsumer = ({ nextConsent = { thirdPartyContent: false } }) => {
 describe('CookieConsentProvider', () => {
   beforeEach(() => {
     originalLocation = globalThis.location;
+    // oxlint-disable-next-line vitest/require-mock-type-parameters
     reloadMock = vi.fn();
     const mutableGlobalThis = globalThis as unknown as { location?: Location };
     delete mutableGlobalThis.location;
     mutableGlobalThis.location = {
+      // oxlint-disable-next-line typescript/no-misused-spread
       ...originalLocation,
       reload: reloadMock as unknown as Location['reload'],
     };

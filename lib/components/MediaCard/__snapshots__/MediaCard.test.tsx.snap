@@ -6,7 +6,7 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
   data-testid="md"
 >
   <div
-    class="ds:flex ds:flex-col ds:grow "
+    class="ds:flex ds:flex-col ds:grow"
     data-testid="md-link"
   >
     <div

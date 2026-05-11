@@ -10,15 +10,7 @@ export interface ToggleProps {
   type?: 'button' | 'submit' | 'reset';
   testId?: string;
 }
-export const Toggle = ({
-  onChange,
-  checked,
-  disabled,
-  ariaLabel,
-  serviceVariant = 'yksilo',
-  type,
-  testId,
-}: ToggleProps) => {
+export const Toggle = ({ onChange, checked, disabled, ariaLabel, serviceVariant, type, testId }: ToggleProps) => {
   return (
     <button
       type={type}
