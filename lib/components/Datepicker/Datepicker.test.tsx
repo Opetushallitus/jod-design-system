@@ -1,9 +1,11 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { act, render, screen } from '@testing-library/react';
 import { DayTableCellState } from '@zag-js/date-picker';
 import { axe } from 'jest-axe';
 import React from 'react';
 import { userEvent } from 'storybook/test';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+
 import { Datepicker } from './Datepicker';
 import { getDatepickerTranslations } from './DatepickerTranslations';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useTooltip } from './utils';
 
 // Separate file for TooltipContext to avoid ESLint "Fast refresh" error

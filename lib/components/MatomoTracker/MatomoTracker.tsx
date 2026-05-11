@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { loadMatomo } from './loadMatomo';
 
 declare global {

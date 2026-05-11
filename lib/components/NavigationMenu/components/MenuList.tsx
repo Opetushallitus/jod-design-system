@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { cx } from '../../../cva';
 import { useServiceVariant } from '../../../hooks/useServiceVariant/useServiceVariant';
 import { JodCaretDown, JodCaretUp } from '../../../icons';
@@ -50,7 +51,6 @@ const MenuListItem = ({
 
   const hasSelectedDescendant = React.useCallback(
     (items?: MenuItem[]): boolean =>
-      // eslint-disable-next-line react-hooks/immutability
       Array.isArray(items) && items.some((item) => item.selected || hasSelectedDescendant(item.childItems)),
     [],
   );
@@ -110,7 +110,6 @@ const MenuListItem = ({
     }
   }, [activeIndicator, serviceVariant]);
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
   const listItemContent = React.useMemo(() => {
     const linkItemClasses = tc([
       'ds:flex',

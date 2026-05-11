@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
-import type { TitledMeta } from '../../utils';
 
+import type { TitledMeta } from '../../utils';
 import { HeroCard } from './HeroCard';
 
 const meta = {

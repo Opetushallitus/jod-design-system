@@ -1,7 +1,7 @@
 import { Slider as ArkSlider, SliderValueChangeDetails as ArkValueChangeDetails } from '@ark-ui/react';
-
 import { cx } from 'cva';
 import React from 'react';
+
 import { JodCircle } from '../../icons';
 
 export interface RangeSliderValue {
@@ -95,13 +95,12 @@ export const RangeSlider = ({
 
   return (
     <div
-      className={cx('ds:flex ds:h-[40px] ds:min-w-full ds:sm:min-w-[414px]', {
+      className={cx('ds:flex ds:h-8 ds:min-w-full ds:sm:min-w-[414px]', {
         'ds:text-inactive-gray ds:cursor-not-allowed': disabled,
       })}
     >
       <ArkSlider.Root
         thumbSize={{ width: 32, height: 32 }}
-        // eslint-disable-next-line jsx-a11y/aria-proptypes
         aria-label={[getThumbValue(0).label, getThumbValue(1).label]}
         min={markers[0]?.value ?? 0}
         max={markers[markers.length - 1]?.value ?? 100}

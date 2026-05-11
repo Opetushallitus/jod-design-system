@@ -1,6 +1,7 @@
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
+
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
 

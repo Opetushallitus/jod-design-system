@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { ServiceVariantProvider } from '../../hooks/useServiceVariant/ServiceVariantProvider';
 import type { LinkComponent, MenuListProps, MenuSection } from '../NavigationMenu';
 import { PageNavigation } from './PageNavigation';
@@ -34,7 +35,8 @@ const parameters = {
   },
 };
 
-const DummyLink = (props: LinkComponent) => <a href="/#" {...props} />;
+// oxlint-disable-next-line jsx_a11y/anchor-has-content jsx_a11y/anchor-is-valid
+const DummyLink = (props: LinkComponent) => <a href="#" {...props} />;
 
 const labels = ['Omat sivuni', 'Asetukseni', 'Suosikkini', 'Päämääräni', 'Osaamiseni', 'Kiinnostukseni'];
 const osaamiseniLabels = ['Työpaikkani', 'Koulutukseni', 'Vapaa-ajan toimintoni', 'Muut osaaminen'];

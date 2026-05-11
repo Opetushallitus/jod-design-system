@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { expect, test } from 'vitest';
+
 import { ProgressIndicatorCard } from './ProgressIndicatorCard';
 
 test('renders ProgressIndicatorCard', () => {

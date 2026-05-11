@@ -6,6 +6,7 @@ import {
   Combobox as HeadlessCombobox,
 } from '@headlessui/react';
 import React from 'react';
+
 import { JodCaretDown, JodCaretUp } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
 import { CheckedIcon } from '../internal/CheckedIcon/CheckedIcon';

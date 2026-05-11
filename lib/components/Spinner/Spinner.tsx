@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { tidyClasses as tc } from '../../utils';
 
 export interface SpinnerProps {
@@ -11,7 +12,7 @@ export interface SpinnerProps {
   /** Test id for querying in tests */
   testId?: string;
 }
-export const Spinner = ({ size = 24, color = 'white', className, testId }: SpinnerProps) => {
+export const Spinner = ({ size, color, className, testId }: SpinnerProps) => {
   const fillClass = React.useMemo(() => {
     switch (color) {
       case 'white':

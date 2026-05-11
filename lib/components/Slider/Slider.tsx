@@ -19,6 +19,7 @@ import {
 } from '@floating-ui/react';
 import { cx } from 'cva';
 import React from 'react';
+
 import { JodCircle } from '../../icons';
 
 const ARROW_HEIGHT = 12;
@@ -62,7 +63,6 @@ export const Slider = ({
       offset(ARROW_HEIGHT + GAP),
       flip(),
       shift(),
-      // eslint-disable-next-line react-hooks/refs
       arrow({
         element: arrowRef,
       }),
@@ -157,7 +157,7 @@ export const Slider = ({
             />
           </ArkSlider.Control>
         </div>
-        <div className="ds:flex ds:justify-between ">
+        <div className="ds:flex ds:justify-between">
           {!hideLabels && (
             <ArkSlider.Label
               className="ds:flex ds:items-center ds:text-menu"
@@ -178,7 +178,6 @@ export const Slider = ({
       </ArkSlider.Root>
       {focused && (
         <div
-          // eslint-disable-next-line react-hooks/refs
           ref={refs.setFloating}
           className="ds:max-w-[292px] ds:rounded-md ds:bg-black ds:px-6 ds:py-3 ds:text-button-md ds:text-white ds:sm:text-body-md ds:font-arial"
           style={floatingStyles}

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { clamp, tidyClasses } from './utils';
 
 describe('utils', () => {

@@ -1,7 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
+
 import { MediaCard } from './MediaCard';
+vi.mock('../../hooks/useMediaQueries', () => ({
+  // oxlint-disable-next-line vitest/require-mock-type-parameters
+  useMediaQueries: vi.fn().mockReturnValue({ sm: true, md: false, lg: false, xl: false }),
+}));
 
 const mockTags = [
   { label: 'tag1', to: '#' },
@@ -36,9 +41,6 @@ describe('MediaCard', () => {
   });
 
   it('renders the MediaCard component with horizontal variant', () => {
-    vi.mock('../../hooks/useMediaQueries', () => ({
-      useMediaQueries: vi.fn().mockReturnValue({ sm: true, md: false, lg: false, xl: false }),
-    }));
     render(
       <MediaCard
         variant="horizontal"

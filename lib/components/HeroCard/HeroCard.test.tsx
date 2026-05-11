@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 import { createEvent, fireEvent, render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
-import { axe } from 'jest-axe';
 import { HeroCard } from './HeroCard';
 
 describe('HeroCard', () => {

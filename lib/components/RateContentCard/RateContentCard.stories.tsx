@@ -1,5 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
+
 import type { TitledMeta } from '../../utils';
 import { RateContentCard } from './RateContentCard';
 

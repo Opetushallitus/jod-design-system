@@ -14,6 +14,7 @@ import {
   useRole,
 } from '@floating-ui/react';
 import React from 'react';
+
 import { TooltipOptions } from './Tooltip';
 import { TooltipContext } from './TooltipContext';
 
@@ -48,7 +49,6 @@ export function useTooltip({
         padding: 5,
       }),
       shift({ padding: 5 }),
-      // eslint-disable-next-line react-hooks/refs
       arrow({
         element: arrowRef,
         padding: BORDER_RADIUS_OFFSET,

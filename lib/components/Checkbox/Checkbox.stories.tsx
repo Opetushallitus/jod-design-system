@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { useArgs, useState } from 'storybook/preview-api';
+
 import type { TitledMeta } from '../../utils';
 import { Checkbox, CheckboxProps } from './Checkbox';
 

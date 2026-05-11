@@ -1,4 +1,5 @@
 import { Pagination as ArkPagination, PaginationRootProps } from '@ark-ui/react';
+
 import { cx } from '../../cva';
 import { JodMore, JodPagerNext, JodPagerPrev } from '../../icons';
 import { getAccentBgClassForService, ServiceVariant } from '../../utils';
@@ -95,7 +96,6 @@ export const Pagination = ({
             ) : (
               <ArkPagination.Ellipsis
                 // The page object for ellipsis does not contain a value, so index must be used as a key.
-                // eslint-disable-next-line react/no-array-index-key
                 key={`ellipsis_${index}`}
                 index={index}
                 className={getClassName({ isEllipsis: true })}

@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react-vite';
+
 import { JodOpenInNew } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { AiInfoButton } from './AiInfoButton';
@@ -69,6 +70,7 @@ export const WithComponent: Story = {
         <p className="ds:font-bold ds:mb-2">{'Tekoälyn avulla generoitu sisältö'}</p>
         <p>
           {'Olemme käyttäneet tämän sisällön luomisessa hyödyksi kielimallia. Lisää tietoa voit lukea'}{' '}
+          {/* oxlint-disable-next-line jsx_a11y/anchor-is-valid */}
           <a href="#" className="ds:underline">
             {'Tekoälyä ja Osaamispolku -sivulta'}
             <JodOpenInNew className="ds:inline-block" ariaLabel="Linkki johtaa palvelun ulkopuolelle" />

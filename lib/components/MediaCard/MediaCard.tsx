@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodFavorite, JodFavoriteFilled } from '../../icons';
 import { LazyImage } from '../LazyImage/LazyImage';
@@ -189,7 +190,7 @@ const MediaCardVertical = ({
       <LinkOrDiv
         to={to}
         linkComponent={Link}
-        className="ds:flex ds:flex-col ds:grow "
+        className="ds:flex ds:flex-col ds:grow"
         testId={testId ? `${testId}-link` : undefined}
       >
         {imageSrc ? (

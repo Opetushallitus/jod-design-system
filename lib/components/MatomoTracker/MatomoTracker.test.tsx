@@ -1,9 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// oxlint-disable vitest/require-mock-type-parameters
+// oxlint-disable typescript/no-misused-spread
 import { render } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { MatomoTracker } from './MatomoTracker';
+
 import { loadMatomo } from './loadMatomo';
+import { MatomoTracker } from './MatomoTracker';
 
 vi.mock('./loadMatomo', () => ({
   loadMatomo: vi.fn(),

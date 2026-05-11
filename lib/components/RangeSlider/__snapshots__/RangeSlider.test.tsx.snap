@@ -2,7 +2,7 @@
 
 exports[`RangeSlider > matches snapshot 1`] = `
 <div
-  class="ds:flex ds:h-[40px] ds:min-w-full ds:sm:min-w-[414px]"
+  class="ds:flex ds:h-8 ds:min-w-full ds:sm:min-w-[414px]"
 >
   <div
     class="ds:flex ds:flex-col ds:w-full ds:gap-3"

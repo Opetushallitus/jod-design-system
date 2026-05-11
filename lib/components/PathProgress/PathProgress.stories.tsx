@@ -1,4 +1,5 @@
 import type { StoryObj } from '@storybook/react-vite';
+
 import { JodFlag } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { PathProgress } from './PathProgress';

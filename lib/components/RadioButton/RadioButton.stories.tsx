@@ -1,8 +1,8 @@
 import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { fn } from 'storybook/test';
-import type { TitledMeta } from '../../utils';
 
+import type { TitledMeta } from '../../utils';
 import { RadioButton } from './RadioButton';
 import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 

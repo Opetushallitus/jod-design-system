@@ -1,6 +1,8 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { render, screen, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Modal } from './Modal';
 
 describe('Modal', () => {

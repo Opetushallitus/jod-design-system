@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
+
 import { NavigationBar, NavigationBarLinkProps } from './NavigationBar';
 import { NoteStackProvider } from './NoteStackProvider';
 

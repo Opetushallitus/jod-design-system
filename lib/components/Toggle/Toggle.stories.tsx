@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { fn } from 'storybook/test';
+
 import type { TitledMeta } from '../../utils';
 import { Toggle } from './Toggle';
 

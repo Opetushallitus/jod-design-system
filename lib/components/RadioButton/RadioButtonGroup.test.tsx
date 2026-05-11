@@ -1,10 +1,11 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it, test, vi } from 'vitest';
-import { RadioButtonGroup } from './RadioButtonGroup';
-
 import { axe } from 'jest-axe';
+import { describe, expect, it, test, vi } from 'vitest';
+
 import { RadioButton } from './RadioButton';
+import { RadioButtonGroup } from './RadioButtonGroup';
 
 describe('Snapshot testing', () => {
   test('Default', () => {

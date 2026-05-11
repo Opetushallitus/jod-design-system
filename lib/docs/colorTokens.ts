@@ -40,7 +40,6 @@ interface GroupEntry {
 
 const VARIANT_PRIORITY = new Map(VARIANT_ORDER.map((v, i) => [v, i]));
 
-// eslint-disable-next-line sonarjs/slow-regex
 const COLOR_VAR_REGEX = /--color-([a-z0-9-]+):\s*([^;]+);/gi;
 
 function parseToken(name: string): { base: string; variant: string } {

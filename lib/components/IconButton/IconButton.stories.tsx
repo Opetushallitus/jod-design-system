@@ -1,5 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
+
 import { JodEdit } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { IconButton, type IconButtonProps } from './IconButton';

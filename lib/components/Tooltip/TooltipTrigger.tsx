@@ -1,5 +1,6 @@
 import { useMergeRefs } from '@floating-ui/react';
 import React from 'react';
+
 import { useTooltipContext } from './utils';
 
 export const TooltipTrigger = React.forwardRef<
@@ -15,7 +16,6 @@ export const TooltipTrigger = React.forwardRef<
     noAriaExpanded?: boolean;
     onClick?: React.MouseEventHandler<HTMLElement>;
   }
-  // eslint-disable-next-line sonarjs/cognitive-complexity
 >(function TooltipTrigger(
   {
     children,
@@ -85,7 +85,6 @@ export const TooltipTrigger = React.forwardRef<
       'aria-describedby': ariaDescribedby,
     } as React.HTMLProps<HTMLElement> & { 'data-testid'?: string };
 
-    // eslint-disable-next-line react-hooks/refs
     return React.cloneElement(children, context.getReferenceProps(merged));
   }
 

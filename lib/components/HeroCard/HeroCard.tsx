@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+
 import { cx } from '../../cva';
 import { JodArrowRight } from '../../icons';
 import { Button } from '../Button/Button';
@@ -77,7 +78,6 @@ export const HeroCard = ({
         <Button
           {...(to &&
             LinkComponent && {
-              // eslint-disable-next-line react/no-unstable-nested-components
               linkComponent: ({ children, className }: { children: React.ReactNode; className: string }) => (
                 <div>
                   <LinkComponent className={`${className} ds:group ds:outline-hidden`} to={to}>

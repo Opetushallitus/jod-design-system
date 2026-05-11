@@ -2,6 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import React from 'react';
 import { describe, expect, it } from 'vitest';
+
 import { LanguageButton } from './LanguageButton';
 import { LanguageButtonProps } from './types';
 

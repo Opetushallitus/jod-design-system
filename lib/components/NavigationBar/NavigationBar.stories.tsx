@@ -2,6 +2,7 @@ import type { ArgTypes, ReactRenderer, StoryObj } from '@storybook/react-vite';
 import { PartialStoryFn } from 'storybook/internal/types';
 import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
+
 import {
   LinkComponent,
   MenuButton,
@@ -96,6 +97,7 @@ const decorators = [
     </NoteStackProvider>
   ),
 ];
+// oxlint-disable-next-line jsx_a11y/anchor-is-valid
 const renderLink: NavigationBarProps['renderLink'] = ({ children }) => <a href="#">{children}</a>;
 const logo: NavigationBarProps['logo'] = {
   to: '/',
@@ -141,7 +143,9 @@ export const Default: Story = {
                 profileLabel="Osaamisprofiilini"
                 logoutLabel="Kirjaudu ulos"
                 onLogout={() => console.log('logout')}
+                // oxlint-disable-next-line jsx_a11y/anchor-has-content
                 profileLinkComponent={(props) => <a {...props} href="/#" />}
+                // oxlint-disable-next-line jsx_a11y/anchor-has-content
                 loginLinkComponent={(props) => <a {...props} href="/#" />}
               />
             }

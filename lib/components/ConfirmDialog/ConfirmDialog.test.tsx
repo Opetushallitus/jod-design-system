@@ -1,7 +1,9 @@
+// oxlint-disable vitest/require-mock-type-parameters
 import { act, render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { userEvent } from 'storybook/test';
 import { describe, expect, it, vi } from 'vitest';
+
 import { ConfirmDialog } from './ConfirmDialog';
 
 describe('ConfirmDialog', () => {

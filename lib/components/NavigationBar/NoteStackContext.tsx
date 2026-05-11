@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NoteProps } from '../Note/Note';
 
 export type PermanentNoteStackElement = Pick<NoteProps, 'title' | 'description' | 'variant' | 'readMoreComponent'> & {
