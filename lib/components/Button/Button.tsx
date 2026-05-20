@@ -83,13 +83,13 @@ const buttonVariants = cvaBase({
       lg: 'ds:text-button-md',
     },
     variant: {
-      accent: 'ds:text-white',
-      white: 'ds:bg-white ds:text-primary-gray',
-      gray: 'ds:bg-bg-gray ds:text-primary-gray',
+      accent: '',
+      white: '',
+      gray: '',
       plain: '',
-      'red-delete': 'ds:bg-alert ds:active:bg-alert-text-2 ds:focus-visible:outline-alert ds:text-white',
+      'red-delete': 'ds:active:bg-alert-text-2 ds:focus-visible:outline-alert',
       'white-delete':
-        'ds:bg-white ds:text-alert-text ds:active:text-alert-text-2 ds:focus-visible:text-alert-text-2 ds:focus-visible ds:outline-alert-text-2',
+        'ds:active:text-alert-text-2 ds:focus-visible:text-alert-text-2 ds:focus-visible ds:outline-alert-text-2',
     },
     serviceVariant: {
       yksilo: '',
@@ -137,7 +137,14 @@ const buttonVariants = cvaBase({
     // Service-specific colors (accent, white, gray, plain)
     ...createServiceVariants(),
 
-    // Disabled styles
+    // Colors (enabled)
+    { variant: 'accent', disabled: false, class: 'ds:text-white' },
+    { variant: 'white', disabled: false, class: 'ds:bg-white ds:text-primary-gray' },
+    { variant: 'gray', disabled: false, class: 'ds:bg-bg-gray ds:text-primary-gray' },
+    { variant: 'red-delete', disabled: false, class: 'ds:bg-alert ds:text-white' },
+    { variant: 'white-delete', disabled: false, class: 'ds:bg-white ds:text-alert-text' },
+
+    // Colors (disabled)
     { variant: 'plain', disabled: true, class: 'ds:text-inactive-gray' },
     { variant: 'white', disabled: true, class: 'ds:text-inactive-gray' },
     { variant: 'white-delete', disabled: true, class: 'ds:text-inactive-gray' },
