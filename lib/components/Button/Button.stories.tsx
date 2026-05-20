@@ -1,7 +1,8 @@
+import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs/blocks';
 import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { JodArrowLeft, JodEdit, JodUser } from '../../icons';
+import { JodArrowLeft, JodArrowRight, JodEdit, JodUser } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { Button } from './Button';
 
@@ -11,6 +12,16 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <Stories includePrimary={false} />
+        </>
+      ),
       description: {
         component: 'Button component for user actions.',
       },
@@ -69,6 +80,11 @@ export const AllVariants: Story = {
         cmp: <Button {...args} variant="gray" size="sm" />,
         cmpDisabled: <Button {...args} variant="gray" size="sm" disabled />,
       },
+      {
+        label: 'Gray with left icon',
+        cmp: <Button {...args} variant="gray" size="sm" icon={<JodUser />} iconSide="left" />,
+        cmpDisabled: <Button {...args} variant="gray" size="sm" icon={<JodUser />} iconSide="left" disabled />,
+      },
     ];
 
     const lgButtons = [
@@ -101,6 +117,11 @@ export const AllVariants: Story = {
         label: 'Gray',
         cmp: <Button {...args} variant="gray" size="lg" />,
         cmpDisabled: <Button {...args} variant="gray" size="lg" disabled />,
+      },
+      {
+        label: 'Gray with left icon',
+        cmp: <Button {...args} variant="gray" size="lg" icon={<JodUser />} iconSide="left" />,
+        cmpDisabled: <Button {...args} variant="gray" size="lg" icon={<JodUser />} iconSide="left" disabled />,
       },
     ];
 
@@ -241,6 +262,25 @@ export const Small: Story = {
   },
 };
 
+export const SmallWithRightIcon: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'This is a small button component with an right icon.',
+      },
+    },
+  },
+  args: {
+    label: 'Seuraava',
+    onClick: fn(),
+    size: 'sm',
+    variant: 'white',
+    iconSide: 'right',
+    icon: <JodArrowRight size={20} />,
+  },
+};
+
 export const LargeWithLeftIcon: Story = {
   parameters: {
     design,
@@ -256,6 +296,24 @@ export const LargeWithLeftIcon: Story = {
     variant: 'white',
     iconSide: 'left',
     icon: <JodArrowLeft size={24} />,
+  },
+};
+
+export const LargeWithRightIcon: Story = {
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'This is a large button component with an right icon.',
+      },
+    },
+  },
+  args: {
+    label: 'Seuraava',
+    onClick: fn(),
+    variant: 'white',
+    iconSide: 'right',
+    icon: <JodArrowRight size={24} />,
   },
 };
 
