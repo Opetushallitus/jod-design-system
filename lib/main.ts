@@ -33,6 +33,7 @@ export {
 export { Datepicker } from './components/Datepicker/Datepicker';
 export { EmptyState } from './components/EmptyState/EmptyState';
 export { Footer } from './components/Footer/Footer';
+export { IconHeading } from './components/IconHeading/IconHeading';
 export {
   LogoEuEn,
   LogoEuFi,
@@ -100,6 +101,7 @@ export { RadioButtonGroup } from './components/RadioButton/RadioButtonGroup';
 export { RangeSlider, type RangeSliderProps, type RangeSliderValue } from './components/RangeSlider/RangeSlider';
 export { RateContentCard } from './components/RateContentCard/RateContentCard';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
+export { ScrollHeading } from './components/ScrollHeading/ScrollHeading';
 export { Select } from './components/Select/Select';
 export { SkipLink } from './components/SkipLink/SkipLink';
 export { Slider } from './components/Slider/Slider';
