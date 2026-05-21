@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ScrollHeading > renders with appendix 1`] = `
+<div
+  class="ds:flex ds:gap-3 ds:text-heading-2"
+>
+  <h2
+    class="ds:text-pretty ds:hyphens-auto"
+    id="Kesto"
+    style="scroll-margin-top: 132px;"
+  >
+    Kesto — Uusi
+  </h2>
+</div>
+`;
+
+exports[`ScrollHeading > renders with correct id 1`] = `
+<div
+  class="ds:flex ds:gap-3 ds:text-heading-2"
+>
+  <h2
+    class="ds:text-pretty ds:hyphens-auto"
+    id="id-123"
+    style="scroll-margin-top: 132px;"
+  >
+    Kesto
+  </h2>
+</div>
+`;
+
+exports[`ScrollHeading > renders with correct title 1`] = `
+<div
+  class="ds:flex ds:gap-3 ds:text-heading-1"
+>
+  <h1
+    class="ds:text-pretty ds:hyphens-auto"
+    id="Katuporaaja"
+    style="scroll-margin-top: 132px;"
+  >
+    Katuporaaja
+  </h1>
+</div>
+`;
