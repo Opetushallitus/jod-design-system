@@ -75,6 +75,7 @@ export {
   type PermanentNoteStackElement,
   type TemporaryNoteStackElement,
 } from './components/NavigationBar';
+export { MainLayout } from './components/MainLayout/MainLayout';
 export {
   ExternalLinkSections,
   LanguageSelection,
