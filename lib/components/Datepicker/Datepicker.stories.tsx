@@ -44,7 +44,7 @@ const viewTranslations = {
 
 const translations = getDatepickerTranslations(
   viewTranslations,
-  (state: DayTableCellState) => `Valitse ${state.formattedDate}`,
+  (state: DayTableCellState) => `Valitse ${state.valueText}`,
   (open: boolean) => (open ? 'Sulje kalenteri' : 'Avaa kalenteri'),
   {
     datepicker: 'Päivämääränvalitsin',

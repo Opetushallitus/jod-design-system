@@ -38,7 +38,7 @@ describe('Datepicker', () => {
     },
   };
 
-  const dayCell = (state: DayTableCellState) => `Choose ${state.formattedDate}`;
+  const dayCell = (state: DayTableCellState) => `Choose ${state.valueText}`;
   const trigger = (open: boolean) => (open ? 'Close calendar' : 'Open calendar');
   const roleDescriptions = {
     datepicker: 'Date picker',

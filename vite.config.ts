@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    dts({ include: ['lib'], exclude: ['lib/**/*.stories.{ts,tsx}'], rollupTypes: true }),
+    dts({ include: ['lib'], exclude: ['lib/**/*.stories.{ts,tsx}'], bundleTypes: true }),
     esmExternalRequirePlugin({
       external: ['react', 'react/jsx-runtime'],
     }),

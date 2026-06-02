@@ -24,7 +24,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
         data-scope="slider"
         dir="ltr"
         id="slider:_r_0_:control"
-        style="user-select: none; position: relative;"
+        style="touch-action: none; user-select: none; -webkit-user-select: none; position: relative;"
       >
         <div
           class="ds:flex ds:h-[10px] ds:grow ds:bg-white ds:rounded-sm"
@@ -43,7 +43,7 @@ exports[`RangeSlider > matches snapshot 1`] = `
             data-scope="slider"
             dir="ltr"
             role="presentation"
-            style="user-select: none; pointer-events: none; position: relative;"
+            style="user-select: none; -webkit-user-select: none; pointer-events: none; position: relative;"
           >
             <span
               data-orientation="horizontal"
