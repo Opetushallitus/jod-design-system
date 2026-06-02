@@ -194,9 +194,9 @@ export const Datepicker = ({
             aria-required={!!requiredText}
             aria-describedby={help ? helpId : undefined}
             className="ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:pl-5 ds:py-3 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
-            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+            onInput={(e) => {
               // Handle clearing the input field to allow clearing the datepicker value
-              if (e.target.value === '') {
+              if ((e.target as HTMLInputElement).value === '') {
                 onChange({
                   target: { name, value: '' },
                 } as React.ChangeEvent<HTMLInputElement>);
