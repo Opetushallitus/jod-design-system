@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
 
-import { JodCompass } from '../../icons';
+import { JodCompass, JodInfo } from '../../icons';
 import type { TitledMeta } from '../../utils';
 import { IconHeading } from './IconHeading';
 
@@ -27,5 +27,19 @@ export const Default: Story = {
   args: {
     title: 'Etsi mahdollisuuksia',
     icon: <JodCompass />,
+  },
+};
+
+export const LongText: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Long text',
+      },
+    },
+  },
+  args: {
+    title: 'Tietosuojaseloste ja evästeet',
+    icon: <JodInfo />,
   },
 };
