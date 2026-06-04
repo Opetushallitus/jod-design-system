@@ -20,7 +20,7 @@ export const IconHeading = ({
       {icon && (
         <span
           aria-hidden="true"
-          className={`ds:flex ds:size-9 ds:items-center ds:justify-center ds:rounded-full ds:text-white aspect-square ${bgClassName} ds:print:hidden`}
+          className={`ds:flex ds:size-9 ds:items-center ds:justify-center ds:aspect-square ds:rounded-full ds:text-white ${bgClassName} ds:print:hidden`}
         >
           {icon}
         </span>
