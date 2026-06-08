@@ -15,6 +15,7 @@ export { useMediaQueries } from './hooks/useMediaQueries';
 export { ServiceVariantProvider, useServiceVariant } from './hooks/useServiceVariant';
 
 export { Accordion } from './components/Accordion/Accordion';
+export { ActionButton } from './components/ActionButton/ActionButton';
 export { AiInfoButton } from './components/AiInfoButton/AiInfoButton';
 export { Breadcrumb, type BreadcrumbItem } from './components/Breadcrumb/Breadcrumb';
 export { Button } from './components/Button/Button';
