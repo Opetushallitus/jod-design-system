@@ -58,7 +58,7 @@ export const IconButton = ({
         // BG color
         cx({
           'ds:bg-white': variant === 'white',
-          'ds:bg-secondary-5-light-3': variant === 'gray',
+          'ds:bg-primary-5-light-3': variant === 'gray',
           [`${serviceBgClasses} ds:text-white`]: !indicative && selected && !disabled,
           'ds:bg-secondary-gray ds:text-white': indicative && selected,
           'ds:bg-bg-gray-2': indicative && !selected,

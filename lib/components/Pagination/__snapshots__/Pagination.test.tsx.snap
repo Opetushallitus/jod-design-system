@@ -39,7 +39,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   <button
     aria-current="page"
     aria-label="page 1"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-secondary-1-dark ds:text-white ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-primary-1-dark ds:text-white ds:font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"
@@ -199,7 +199,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
   <button
     aria-current="page"
     aria-label="page 1"
-    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-secondary-1-dark ds:text-white ds:font-bold"
+    class="ds:sm:min-w-[37px] ds:min-h-7 ds:min-w-7 ds:sm:min-h-[37px] ds:p-2 ds:rounded-full ds:flex ds:justify-center ds:items-center ds:cursor-pointer ds:bg-primary-1-dark ds:text-white ds:font-bold"
     data-index="1"
     data-part="item"
     data-scope="pagination"

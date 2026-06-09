@@ -124,7 +124,7 @@ export const Combobox = <
           value={value}
         >
           {({ open }) => (
-            <div className="ds:flex ds:flex-row ds:w-full ds:focus-within:outline-2 ds:focus-within:outline-secondary-1-dark ds:focus-within:rounded-md">
+            <div className="ds:flex ds:flex-row ds:w-full ds:focus-within:outline-2 ds:focus-within:outline-primary-1-dark ds:focus-within:rounded-md">
               <ComboboxInput
                 id={inputId}
                 required={!!requiredText}
@@ -165,7 +165,7 @@ export const Combobox = <
                   >
                     <div
                       className={tc([
-                        'ds:flex ds:py-3 ds:gap-3 ds:px-3 ds:group-hover:rounded ds:group-hover:bg-secondary-5-light-3',
+                        'ds:flex ds:py-3 ds:gap-3 ds:px-3 ds:group-hover:rounded ds:group-hover:bg-primary-5-light-3',
                         isUsingMouse
                           ? ''
                           : 'ds:group-data-focus:outline-2 ds:group-data-focus:outline-black ds:group-data-focus:group-hover:outline-none ds:group-data-focus:group-hover:rounded',

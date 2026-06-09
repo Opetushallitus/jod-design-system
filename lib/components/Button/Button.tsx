@@ -87,9 +87,8 @@ const buttonVariants = cvaBase({
       white: '',
       gray: '',
       plain: '',
-      'red-delete': 'ds:active:bg-alert-text-2 ds:focus-visible:outline-alert',
-      'white-delete':
-        'ds:active:text-alert-text-2 ds:focus-visible:text-alert-text-2 ds:focus-visible ds:outline-alert-text-2',
+      'red-delete': 'ds:active:bg-alert-2 ds:focus-visible:outline-alert-1',
+      'white-delete': 'ds:active:text-alert-2 ds:focus-visible:text-alert-2 ds:focus-visible ds:outline-alert-2',
     },
     serviceVariant: {
       yksilo: '',
@@ -141,15 +140,15 @@ const buttonVariants = cvaBase({
     { variant: 'accent', disabled: false, class: 'ds:text-white' },
     { variant: 'white', disabled: false, class: 'ds:bg-white ds:text-primary-gray' },
     { variant: 'gray', disabled: false, class: 'ds:bg-bg-gray ds:text-primary-gray' },
-    { variant: 'red-delete', disabled: false, class: 'ds:bg-alert ds:text-white' },
-    { variant: 'white-delete', disabled: false, class: 'ds:bg-white ds:text-alert-text' },
+    { variant: 'red-delete', disabled: false, class: 'ds:bg-alert-1 ds:text-white' },
+    { variant: 'white-delete', disabled: false, class: 'ds:bg-white ds:text-alert-1' },
 
     // Colors (disabled)
     { variant: 'plain', disabled: true, class: 'ds:text-inactive-gray' },
     { variant: 'white', disabled: true, class: 'ds:text-inactive-gray' },
     { variant: 'white-delete', disabled: true, class: 'ds:text-inactive-gray' },
-    { variant: 'accent', disabled: true, class: 'ds:bg-inactive-gray ds:text-secondary-5-light-3' },
-    { variant: 'red-delete', disabled: true, class: 'ds:bg-inactive-gray ds:text-secondary-5-light-3' },
+    { variant: 'accent', disabled: true, class: 'ds:bg-inactive-gray ds:text-primary-5-light-3' },
+    { variant: 'red-delete', disabled: true, class: 'ds:bg-inactive-gray ds:text-primary-5-light-3' },
     { variant: 'gray', disabled: true, class: 'ds:bg-bg-gray ds:text-secondary-gray' },
   ],
   defaultVariants: {

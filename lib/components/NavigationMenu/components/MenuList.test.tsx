@@ -82,7 +82,7 @@ describe('MenuListItem', () => {
     );
     const link = screen.getByRole('link');
     expect(link.querySelector('span')).toHaveClass('ds:text-white');
-    expect(link.querySelector('span')).toHaveClass('ds:bg-secondary-1-dark');
+    expect(link.querySelector('span')).toHaveClass('ds:bg-primary-1-dark');
   });
 
   it('applies selected classes for activeIndicator "dot"', () => {
@@ -96,7 +96,7 @@ describe('MenuListItem', () => {
       />,
     );
     const link = screen.getByRole('link');
-    expect(link.querySelector('span')?.className).toMatch(/ds:before:bg-secondary-1-dark/);
+    expect(link.querySelector('span')?.className).toMatch(/ds:before:bg-primary-1-dark/);
   });
 
   it('opens submenu automatically if a child item is selected and collapsed is true', async () => {

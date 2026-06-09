@@ -43,7 +43,7 @@ describe('Note component', () => {
     );
     const noteElement = screen.getByRole('alert');
     expect(noteElement).toBeInTheDocument();
-    expect(noteElement).toHaveClass('ds:bg-alert');
+    expect(noteElement).toHaveClass('ds:bg-alert-1');
     expect(container.firstChild).toMatchSnapshot();
   });
 

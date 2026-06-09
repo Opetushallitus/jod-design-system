@@ -135,7 +135,7 @@ export const AllVariants: Story = {
             <td className="ds:text-heading-4 ds:text-center ds:p-3">Disabled</td>
           </tr>
           {lgButtons.map((button) => (
-            <tr key={button.label} className="ds:border-b ds:border-b-secondary-5">
+            <tr key={button.label} className="ds:border-b ds:border-b-border-gray">
               <td className="ds:p-3 ds:text-body-2">{button.label}</td>
               <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmp}</td>
               <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-7' : ''}`}>{button.cmpDisabled}</td>
@@ -148,7 +148,7 @@ export const AllVariants: Story = {
             <td className="ds:text-heading-4 ds:text-center ds:p-3 ds:pt-8">Disabled</td>
           </tr>
           {smButtons.map((button) => (
-            <tr key={button.label} className="ds:border-b ds:border-b-secondary-5">
+            <tr key={button.label} className="ds:border-b ds:border-b-border-gray">
               <td className="ds:p-3 ds:text-body-2">{button.label}</td>
               <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-6' : ''}`}>{button.cmp}</td>
               <td className={`ds:p-3 ${button.label.includes('Plain') ? 'ds:pl-6' : ''}`}>{button.cmpDisabled}</td>

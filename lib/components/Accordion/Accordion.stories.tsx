@@ -61,7 +61,7 @@ export const TitleComponent: Story = {
     },
   },
   args: {
-    title: <div className="ds:text-heading-1 ds:font-arial ds:text-alert ds:italic ds:tracking-widest">Title</div>,
+    title: <div className="ds:text-heading-1 ds:font-arial ds:text-alert-1 ds:italic ds:tracking-widest">Title</div>,
     ariaLabel: 'Title',
     children:
       'Ex duis minim eu qui. Labore labore quis mollit aliqua duis tempor nisi non fugiat ipsum est duis esse. Proident reprehenderit irure irure sunt do. Magna exercitation veniam mollit duis nisi ipsum do.',

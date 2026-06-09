@@ -86,10 +86,10 @@ const MenuListItem = ({
   const getSelectedClasses = React.useCallback(() => {
     if (activeIndicator === 'dot') {
       const dotColor = cx({
-        'ds:before:bg-secondary-1-dark': serviceVariant === 'yksilo',
-        'ds:before:bg-secondary-2-dark': serviceVariant === 'ohjaaja',
-        'ds:before:bg-secondary-3-dark': serviceVariant === 'palveluportaali',
-        'ds:before:bg-secondary-4-dark': serviceVariant === 'tietopalvelu',
+        'ds:before:bg-primary-1-dark': serviceVariant === 'yksilo',
+        'ds:before:bg-primary-2-dark': serviceVariant === 'ohjaaja',
+        'ds:before:bg-primary-3-dark': serviceVariant === 'palveluportaali',
+        'ds:before:bg-primary-4-dark': serviceVariant === 'tietopalvelu',
       });
       return tc([
         'ds:before:content-[""]',
@@ -266,10 +266,10 @@ export const MenuList = ({
   const borderClassname = hideAccentBorder
     ? ''
     : cx('ds:border-l-8', {
-        'ds:border-secondary-1-dark': variant === 'yksilo',
-        'ds:border-secondary-2-dark': variant === 'ohjaaja',
+        'ds:border-primary-1-dark': variant === 'yksilo',
+        'ds:border-primary-2-dark': variant === 'ohjaaja',
         'ds:border-secondary-gray': variant === 'palveluportaali',
-        'ds:border-secondary-4-dark': variant === 'tietopalvelu',
+        'ds:border-primary-4-dark': variant === 'tietopalvelu',
       });
 
   return (

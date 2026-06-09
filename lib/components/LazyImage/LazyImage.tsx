@@ -28,7 +28,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, ...props }) => {
   }, [src]);
 
   return (
-    <div className={`ds:flex ds:bg-secondary-5 ${props.className}`.trim()} data-testid={props.testId}>
+    <div className={`ds:flex ds:bg-border-gray ${props.className}`.trim()} data-testid={props.testId}>
       <img
         src={loaded ? src : undefined}
         alt={alt}

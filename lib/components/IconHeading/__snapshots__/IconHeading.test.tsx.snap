@@ -6,7 +6,7 @@ exports[`IconHeading > renders the component with correct title 1`] = `
 >
   <span
     aria-hidden="true"
-    class="ds:flex ds:size-9 ds:items-center ds:justify-center ds:aspect-square ds:rounded-full ds:text-white ds:bg-secondary-1-dark ds:print:hidden"
+    class="ds:flex ds:size-9 ds:items-center ds:justify-center ds:aspect-square ds:rounded-full ds:text-white ds:bg-primary-1-dark ds:print:hidden"
   >
     <svg
       fill="currentColor"
@@ -24,7 +24,7 @@ exports[`IconHeading > renders the component with correct title 1`] = `
     </svg>
   </span>
   <h1
-    class="ds:text-hero-mobile ds:text-pretty ds:wrap-break-word ds:hyphens-auto ds:focus:outline-0 ds:sm:text-hero ds:text-secondary-1-dark"
+    class="ds:text-hero-mobile ds:text-pretty ds:wrap-break-word ds:hyphens-auto ds:focus:outline-0 ds:sm:text-hero ds:text-primary-1-dark"
   >
     Etsi mahdollisuuksia
   </h1>

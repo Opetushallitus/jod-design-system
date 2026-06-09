@@ -3,12 +3,12 @@
 exports[`IconButton > matches snapshot 1`] = `
 <button
   aria-label="Test button"
-  class="ds:cursor-pointer ds:focus-visible:outline-secondary-1-dark ds:outline-offset-2 ds:rounded-full ds:flex ds:content-center"
+  class="ds:cursor-pointer ds:focus-visible:outline-primary-1-dark ds:outline-offset-2 ds:rounded-full ds:flex ds:content-center"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="ds:hover:bg-bg-gray-2 ds:active:bg-secondary-1-dark-2 ds:active:text-white ds:flex ds:rounded-full ds:items-center ds:justify-center ds:select-none ds:size-8 ds:text-primary-gray"
+    class="ds:hover:bg-bg-gray-2 ds:active:bg-primary-1-dark-2 ds:active:text-white ds:flex ds:rounded-full ds:items-center ds:justify-center ds:select-none ds:size-8 ds:text-primary-gray"
   >
     <svg
       data-testid="icon-svg"

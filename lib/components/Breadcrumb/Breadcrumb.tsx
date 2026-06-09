@@ -30,10 +30,10 @@ export const Breadcrumb = ({
   testId,
 }: BreadcrumbProps) => {
   const textColorClass = cx({
-    'ds:text-secondary-1-dark': serviceVariant === 'yksilo',
-    'ds:text-secondary-2-dark': serviceVariant === 'ohjaaja',
-    'ds:text-secondary-3-dark': serviceVariant === 'palveluportaali',
-    'ds:text-secondary-4-dark': serviceVariant === 'tietopalvelu',
+    'ds:text-primary-1-dark': serviceVariant === 'yksilo',
+    'ds:text-primary-2-dark': serviceVariant === 'ohjaaja',
+    'ds:text-primary-3-dark': serviceVariant === 'palveluportaali',
+    'ds:text-primary-4-dark': serviceVariant === 'tietopalvelu',
   });
   const { md } = useMediaQueries();
 
@@ -57,7 +57,7 @@ export const Breadcrumb = ({
           return (
             <li key={item.id ?? item.to ?? item.label} className="ds:flex ds:items-center">
               {idx > 0 && (
-                <span aria-hidden="true" className="ds:mx-2 ds:text-secondary-5">
+                <span aria-hidden="true" className="ds:mx-2 ds:text-border-gray">
                   {'/'}
                 </span>
               )}

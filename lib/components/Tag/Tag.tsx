@@ -30,17 +30,17 @@ const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagPro
     {
       'ds:cursor-pointer': variant !== 'presentation',
 
-      'ds:bg-tag-tyopaikka': sourceType === 'tyopaikka' && variant !== 'selectable',
-      'ds:bg-tag-koulutus': sourceType === 'koulutus' && variant !== 'selectable',
-      'ds:bg-tag-vapaa-ajan-toiminto': sourceType === 'vapaa-ajan-toiminto' && variant !== 'selectable',
-      'ds:bg-primary-light-2': sourceType === 'jotain-muuta' && variant !== 'selectable',
-      'ds:bg-tag-kiinnostus': sourceType === 'kiinnostus' && variant !== 'selectable',
+      'ds:bg-primary-4-light-1': sourceType === 'tyopaikka' && variant !== 'selectable',
+      'ds:bg-primary-2-light-1': sourceType === 'koulutus' && variant !== 'selectable',
+      'ds:bg-primary-1-light-1': sourceType === 'vapaa-ajan-toiminto' && variant !== 'selectable',
+      'ds:bg-primary-5-light-2': sourceType === 'jotain-muuta' && variant !== 'selectable',
+      'ds:bg-primary-3-light-1': sourceType === 'kiinnostus' && variant !== 'selectable',
 
-      'ds:bg-secondary-4-light-2': sourceType === 'tyopaikka' && variant === 'selectable',
-      'ds:bg-secondary-2-light-2': sourceType === 'koulutus' && variant === 'selectable',
-      'ds:bg-secondary-1-light-2': sourceType === 'vapaa-ajan-toiminto' && variant === 'selectable',
+      'ds:bg-primary-4-light-2': sourceType === 'tyopaikka' && variant === 'selectable',
+      'ds:bg-primary-2-light-2': sourceType === 'koulutus' && variant === 'selectable',
+      'ds:bg-primary-1-light-2': sourceType === 'vapaa-ajan-toiminto' && variant === 'selectable',
       'ds:bg-bg-gray-2': sourceType === 'jotain-muuta' && variant === 'selectable',
-      'ds:bg-secondary-3-light-2': sourceType === 'kiinnostus' && variant === 'selectable',
+      'ds:bg-primary-3-light-2': sourceType === 'kiinnostus' && variant === 'selectable',
     },
   );
 

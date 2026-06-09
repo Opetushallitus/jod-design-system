@@ -48,7 +48,7 @@ export const Normal: Story = {
 };
 
 const Content = () => (
-  <div className="ds:flex ds:items-center ds:rounded-[10px] ds:border-[5px] ds:border-secondary-1 ds:px-[108px] ds:py-[22px] ds:text-center ds:text-secondary-1">
+  <div className="ds:flex ds:items-center ds:rounded-[10px] ds:border-[5px] ds:border-primary-1 ds:px-[108px] ds:py-[22px] ds:text-center ds:text-primary-1">
     Raahaa kuva tähän tai klikkaa aluetta valitaksesi kuva tietokoneeltasi.
   </div>
 );

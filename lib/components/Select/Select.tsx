@@ -80,7 +80,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxButton
                 id={inputId}
                 aria-label={label}
-                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-secondary-1-dark"
+                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
                 disabled={disabled}
                 data-testid={testId ? `${testId}-button` : undefined}
                 aria-invalid={!!errorMessage}
@@ -110,7 +110,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
                   >
                     <div
                       className={tc([
-                        'ds:flex ds:py-3 ds:gap-3 ds:px-3 ds:group-hover:rounded ds:group-hover:bg-secondary-5-light-3',
+                        'ds:flex ds:py-3 ds:gap-3 ds:px-3 ds:group-hover:rounded ds:group-hover:bg-primary-5-light-3',
                         isUsingMouse
                           ? ''
                           : 'ds:group-data-focus:outline-2 ds:group-data-focus:outline-black ds:group-data-focus:group-hover:outline-none ds:group-data-focus:group-hover:rounded',

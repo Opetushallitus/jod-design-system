@@ -7,8 +7,8 @@ export const getBgClassForNoteVariant = (variant: Exclude<NoteProps['variant'], 
   cx({
     'ds:bg-success ds:text-primary-gray': variant === 'success',
     'ds:bg-warning ds:text-primary-gray': variant === 'warning',
-    'ds:bg-alert ds:text-white': variant === 'error',
-    'ds:bg-secondary-3 ds:text-primary-gray': variant === 'feedback',
+    'ds:bg-alert-1 ds:text-white': variant === 'error',
+    'ds:bg-primary-3 ds:text-primary-gray': variant === 'feedback',
   });
 
 export const useHideOnCollapse = (isCollapsed: boolean) => {

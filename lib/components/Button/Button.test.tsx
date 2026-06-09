@@ -38,7 +38,7 @@ describe('Button', () => {
       <Button label="Click me" onClick={vi.fn()} variant="accent" serviceVariant="yksilo" />,
     );
     const button = screen.getByRole('button', { name: 'Click me' });
-    expect(button).toHaveClass('ds:bg-secondary-1-dark');
+    expect(button).toHaveClass('ds:bg-primary-1-dark');
     expect(container.firstChild).toMatchSnapshot();
   });
 
