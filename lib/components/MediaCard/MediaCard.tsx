@@ -144,7 +144,7 @@ export const MediaCard = ({
         <FavoriteButton isFavorite={isFavorite} favoriteLabel={favoriteLabel} onFavoriteClick={onFavoriteClick} />
       )}
       <ul
-        className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-secondary-5 ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5 ds:*:px-2 ds:-mx-2"
+        className="ds:text-attrib-value ds:flex ds:flex-row ds:divide-x ds:divide-border-gray ds:flex-wrap ds:text-accent ds:pt-3 ds:px-5 ds:*:px-2 ds:-mx-2"
         data-testid={testId ? `${testId}-tags` : undefined}
       >
         {tags.filter(Boolean).map((tag) => (
@@ -197,7 +197,7 @@ const MediaCardVertical = ({
           <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
         ) : (
           <span
-            className={`ds:w-full ds:h-full ds:bg-secondary-5 ${variantImageClassNames}`}
+            className={`ds:w-full ds:h-full ds:bg-border-gray ${variantImageClassNames}`}
             data-testid={testId ? `${testId}-image-placeholder` : undefined}
           ></span>
         )}
@@ -279,7 +279,7 @@ const MediaCardHorizontal = ({
             )
           ) : (
             <div
-              className={`ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-secondary-5`}
+              className={`ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-primary-5`}
               data-testid={testId ? `${testId}-image-placeholder` : undefined}
             ></div>
           )}

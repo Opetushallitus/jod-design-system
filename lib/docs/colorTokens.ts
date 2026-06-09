@@ -4,11 +4,6 @@ export const DARK = ['dark', 'dark-2'];
 
 const GROUP_ORDER = [
   'accent',
-  'secondary-1',
-  'secondary-2',
-  'secondary-3',
-  'secondary-4',
-  'secondary-5',
   'white',
   'black',
   'primary-gray',
@@ -18,12 +13,17 @@ const GROUP_ORDER = [
   'border-gray',
   'bg-gray',
   'bg-gray-2',
+  'alert-1',
+  'alert-2',
   'warning',
-  'alert',
-  'alert-text',
   'success',
+  'primary-1',
+  'primary-2',
+  'primary-3',
+  'secondary-3',
+  'primary-4',
+  'primary-5',
   'todo',
-  'tag',
 ];
 
 const VARIANT_ORDER = ['', '75', '50', '25', 'light-1', 'light-2', 'light-3', 'dark', 'dark-2', '2'];
@@ -40,10 +40,24 @@ interface GroupEntry {
 
 const VARIANT_PRIORITY = new Map(VARIANT_ORDER.map((v, i) => [v, i]));
 
-const COLOR_VAR_REGEX = /--color-([a-z0-9-]+):\s*([^;]+);/gi;
+const ANY_VAR_REGEX = /--([a-z0-9-]+):([^;]+);/gi;
+const VAR_REF_REGEX = /var\(\s*--([a-z0-9-]+)\s*(?:,[^()]*(?:\([^()]*\)[^()]*)*)?\)/gi;
+
+function resolveValue(value: string, all: Record<string, string>, seen: Set<string> = new Set()): string {
+  return value.replace(new RegExp(VAR_REF_REGEX), (match, ref: string) => {
+    if (seen.has(ref)) {
+      return match;
+    }
+    // Design-system aliases (--ds-color-x) may not be defined in the theme source; they mirror the local --color-x tokens.
+    const target = all[ref] ?? (ref.startsWith('ds-') ? all[ref.slice('ds-'.length)] : undefined);
+    if (target !== undefined) {
+      return resolveValue(target, all, new Set(seen).add(ref));
+    }
+    return match;
+  });
+}
 
 function parseToken(name: string): { base: string; variant: string } {
-  if (name.startsWith('tag-')) return { base: 'tag', variant: name.slice(4) };
   const patterns = [/^(.*)-(light-\d+)$/, /^(.*)-(dark(?:-2)?)$/, /^(.*)-(25|50|75)$/, /^(.*-text)-(2)$/];
   for (const r of patterns) {
     const m = new RegExp(r).exec(name);
@@ -55,10 +69,17 @@ function parseToken(name: string): { base: string; variant: string } {
 }
 
 export function extractRawColorTokens(themeSource: string): Record<string, string> {
+  const all: Record<string, string> = {};
+  const colorNames: string[] = [];
+  for (const m of themeSource.matchAll(ANY_VAR_REGEX)) {
+    all[m[1]] = m[2].trim();
+    if (m[1].startsWith('color-')) {
+      colorNames.push(m[1].slice('color-'.length));
+    }
+  }
   const out: Record<string, string> = {};
-  let m: RegExpExecArray | null;
-  while ((m = COLOR_VAR_REGEX.exec(themeSource))) {
-    out[m[1]] = m[2].trim();
+  for (const name of colorNames) {
+    out[name] = resolveValue(all[`color-${name}`], all);
   }
   return out;
 }

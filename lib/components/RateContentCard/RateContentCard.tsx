@@ -126,7 +126,7 @@ export const RateContentCard = ({ translations, onSubmit, size = 'lg', className
           <button
             className={cx(
               'ds:flex ds:flex-1 ds:h-full ds:w-full ds:items-center ds:justify-center ds:rounded-l-full ds:pl-6 ds:pr-5 ds:bg-white',
-              { 'ds:hover:bg-secondary-5-light-3 ds:cursor-pointer': !isLikeSubmitting },
+              { 'ds:hover:bg-primary-5-light-3 ds:cursor-pointer': !isLikeSubmitting },
             )}
             aria-label={translations.card.likeLabel}
             onClick={() => void like()}
@@ -164,7 +164,7 @@ export const RateContentCard = ({ translations, onSubmit, size = 'lg', className
               <button
                 className={cx(
                   'ds:flex ds:flex-1 ds:h-full ds:items-center ds:justify-center ds:rounded-r-full ds:pl-5 ds:pr-6 ds:bg-white',
-                  { 'ds:hover:bg-secondary-5-light-3 ds:cursor-pointer': !isDislikeSubmitting },
+                  { 'ds:hover:bg-primary-5-light-3 ds:cursor-pointer': !isDislikeSubmitting },
                 )}
                 aria-label={translations.card.dislikeLabel}
                 aria-haspopup="dialog"

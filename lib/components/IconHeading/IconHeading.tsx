@@ -12,8 +12,8 @@ export const IconHeading = ({
   icon,
   title,
   testId,
-  bgClassName = 'ds:bg-secondary-1-dark',
-  textClassName = 'ds:text-secondary-1-dark',
+  bgClassName = 'ds:bg-primary-1-dark',
+  textClassName = 'ds:text-primary-1-dark',
 }: IconHeadingProps) => {
   return (
     <div className="ds:mb-6 ds:flex ds:items-start ds:gap-x-4 ds:sm:mb-6">

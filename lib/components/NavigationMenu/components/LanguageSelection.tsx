@@ -50,7 +50,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
                       selected === item.value && getAccentBgClassForService(serviceVariant),
                       'ds:size-4',
                       'ds:rounded-full',
-                      selected !== item.value && 'ds:group-hover:bg-secondary-5-light-3',
+                      selected !== item.value && 'ds:group-hover:bg-primary-5-light-3',
                       getGroupActiveBgColorClassForService(serviceVariant),
                     ])}
                   />
@@ -60,7 +60,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
                     'ds:ml-2',
                     'ds:rounded',
                     'ds:text-primary-gray',
-                    selected !== item.value && 'ds:group-hover:bg-secondary-5-light-3',
+                    selected !== item.value && 'ds:group-hover:bg-primary-5-light-3',
                     'ds:group-hover:underline',
                     'ds:py-3',
                     'ds:px-3',

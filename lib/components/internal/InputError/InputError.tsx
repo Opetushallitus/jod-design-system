@@ -11,7 +11,7 @@ export const InputError = ({ errorMessage, id, testId }: InputErrorProps) => {
   return errorMessage !== undefined ? (
     <div
       id={id}
-      className="ds:mt-2 ds:block ds:text-form-error ds:text-alert-text-2 ds:font-arial"
+      className="ds:mt-2 ds:block ds:text-form-error ds:text-alert-2 ds:font-arial"
       role="alert"
       data-testid={testId}
     >

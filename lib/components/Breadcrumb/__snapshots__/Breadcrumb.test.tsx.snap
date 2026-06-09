@@ -26,7 +26,7 @@ exports[`Breadcrumb > renders all breadcrumb items 1`] = `
     >
       <span
         aria-hidden="true"
-        class="ds:mx-2 ds:text-secondary-5"
+        class="ds:mx-2 ds:text-border-gray"
       >
         /
       </span>
@@ -45,13 +45,13 @@ exports[`Breadcrumb > renders all breadcrumb items 1`] = `
     >
       <span
         aria-hidden="true"
-        class="ds:mx-2 ds:text-secondary-5"
+        class="ds:mx-2 ds:text-border-gray"
       >
         /
       </span>
       <span
         aria-current="page"
-        class="ds:text-secondary-1-dark"
+        class="ds:text-primary-1-dark"
       >
         Työpaikkani
       </span>

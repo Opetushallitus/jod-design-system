@@ -21,9 +21,9 @@ export const Toast = ({ text, icon, variant = 'success', testId }: ToastProps) =
       case 'success':
         return <JodCheckmark className="ds:text-success" />;
       case 'warning':
-        return <JodWarning className="ds:text-secondary-3" />;
+        return <JodWarning className="ds:text-primary-3" />;
       case 'error':
-        return <JodError className="ds:text-alert-text" />;
+        return <JodError className="ds:text-alert-1" />;
       case 'neutral':
         return <JodInfo className="ds:text-secondary-gray" />;
       default:
@@ -41,7 +41,7 @@ export const Toast = ({ text, icon, variant = 'success', testId }: ToastProps) =
           'ds:text-secondary-gray': variant === 'neutral',
           'ds:border-success': variant === 'success',
           'ds:border-warning': variant === 'warning',
-          'ds:border-alert': variant === 'error',
+          'ds:border-alert-1': variant === 'error',
         }),
         variant === 'neutral' ? 'ds:bg-bg-gray' : 'ds:bg-white ds:border-2',
         'ds:min-w-[240px]',

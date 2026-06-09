@@ -22,10 +22,10 @@ export const Toggle = ({ onChange, checked, disabled, ariaLabel, serviceVariant,
       className={cx('ds:transition-all ds:duration-200 ds:w-[52px] ds:h-[32px] ds:relative ds:rounded-2xl ds:flex', {
         'ds:cursor-pointer': !disabled,
         'ds:bg-inactive-gray': !checked || disabled,
-        'ds:bg-secondary-1-dark': checked && !disabled && serviceVariant === 'yksilo',
-        'ds:bg-secondary-2-dark': checked && !disabled && serviceVariant === 'ohjaaja',
-        'ds:bg-secondary-3-dark': checked && !disabled && serviceVariant === 'palveluportaali',
-        'ds:bg-secondary-4-dark': checked && !disabled && serviceVariant === 'tietopalvelu',
+        'ds:bg-primary-1-dark': checked && !disabled && serviceVariant === 'yksilo',
+        'ds:bg-primary-2-dark': checked && !disabled && serviceVariant === 'ohjaaja',
+        'ds:bg-primary-3-dark': checked && !disabled && serviceVariant === 'palveluportaali',
+        'ds:bg-primary-4-dark': checked && !disabled && serviceVariant === 'tietopalvelu',
       })}
     >
       <span
