@@ -8,7 +8,7 @@ interface BaseTagProps {
   tooltip?: string;
   screenReaderTooltip?: string;
   variant?: 'selectable' | 'added' | 'presentation';
-  sourceType?: 'tyopaikka' | 'koulutus' | 'vapaa-ajan-toiminto' | 'kiinnostus' | 'jotain-muuta';
+  sourceType?: 'tyopaikka' | 'koulutus' | 'vapaa-ajan-teema' | 'kiinnostus' | 'jotain-muuta';
   testId?: string;
 }
 
@@ -32,13 +32,13 @@ const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagPro
 
       'ds:bg-primary-4-light-1': sourceType === 'tyopaikka' && variant !== 'selectable',
       'ds:bg-primary-2-light-1': sourceType === 'koulutus' && variant !== 'selectable',
-      'ds:bg-primary-1-light-1': sourceType === 'vapaa-ajan-toiminto' && variant !== 'selectable',
+      'ds:bg-primary-1-light-1': sourceType === 'vapaa-ajan-teema' && variant !== 'selectable',
       'ds:bg-primary-5-light-2': sourceType === 'jotain-muuta' && variant !== 'selectable',
       'ds:bg-primary-3-light-1': sourceType === 'kiinnostus' && variant !== 'selectable',
 
       'ds:bg-primary-4-light-2': sourceType === 'tyopaikka' && variant === 'selectable',
       'ds:bg-primary-2-light-2': sourceType === 'koulutus' && variant === 'selectable',
-      'ds:bg-primary-1-light-2': sourceType === 'vapaa-ajan-toiminto' && variant === 'selectable',
+      'ds:bg-primary-1-light-2': sourceType === 'vapaa-ajan-teema' && variant === 'selectable',
       'ds:bg-bg-gray-2': sourceType === 'jotain-muuta' && variant === 'selectable',
       'ds:bg-primary-3-light-2': sourceType === 'kiinnostus' && variant === 'selectable',
     },
