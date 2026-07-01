@@ -60,6 +60,7 @@ export const Tag = ({
         {variant === 'presentation' ? (
           <button type="button" className={containerClassNames(sourceType, variant)} data-testid={testId}>
             <span className="ds:truncate ds:text-primary-gray ds:leading-5">{label}</span>
+            {screenReaderTooltip && <span className="ds:sr-only">{screenReaderTooltip}</span>}
           </button>
         ) : (
           <button
@@ -72,21 +73,19 @@ export const Tag = ({
             <span className="ds:pl-3 ds:text-button-md ds:text-primary-gray ds:leading-5" aria-hidden>
               {variant === 'selectable' ? <JodAdd size={16} /> : <JodClose size={16} />}
             </span>
+            {screenReaderTooltip && <span className="ds:sr-only">{screenReaderTooltip}</span>}
           </button>
         )}
       </TooltipTrigger>
       {tooltip && (
-        <>
-          <TooltipContent>
-            <div className="ds:font-arial ds:text-white ds:leading-5 ds:text-card-label">
-              <p className="ds:mb-2 ds:capitalize" aria-hidden>
-                {label}
-              </p>
-              <p className="ds:font-normal">{tooltip}</p>
-            </div>
-          </TooltipContent>
-          <div className="ds:sr-only">{screenReaderTooltip}</div>
-        </>
+        <TooltipContent>
+          <div className="ds:font-arial ds:text-white ds:leading-5 ds:text-card-label">
+            <p className="ds:mb-2 ds:capitalize" aria-hidden>
+              {label}
+            </p>
+            <p className="ds:font-normal">{tooltip}</p>
+          </div>
+        </TooltipContent>
       )}
     </Tooltip>
   );
