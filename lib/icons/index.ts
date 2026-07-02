@@ -7,6 +7,7 @@ export { JodArticle } from './JodArticle';
 export { JodBlock } from './JodBlock';
 export { JodBuild } from './JodBuild';
 export { JodCalendar } from './JodCalendar';
+export { JodCog } from './JodCog';
 export { JodCaretDown } from './JodCaretDown';
 export { JodCaretUp } from './JodCaretUp';
 export { JodCertificate } from './JodCertificate';
