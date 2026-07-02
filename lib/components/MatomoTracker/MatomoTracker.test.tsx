@@ -44,4 +44,32 @@ describe('MatomoTracker', () => {
     render(<MatomoTracker trackerUrl={trackerUrl} siteId={siteId} pathname="/foo" />);
     expect(window._paq).toBeUndefined();
   });
+
+  it('tracks page view with URL without query parameters', () => {
+    (window as any).location = {
+      ...window.location,
+      href: 'https://example.com/test?foo=bar&baz=qux',
+      origin: 'https://example.com',
+      pathname: '/test',
+    };
+    const paq: unknown[] = [];
+    (window as any)._paq = paq;
+    render(<MatomoTracker trackerUrl={trackerUrl} siteId={siteId} pathname="/test" />);
+    expect(paq).toContainEqual(['setCustomUrl', 'https://example.com/test']);
+    expect(paq).not.toContainEqual(['setCustomUrl', 'https://example.com/test?foo=bar&baz=qux']);
+  });
+
+  it('does not include query parameters in setCustomUrl even when present', () => {
+    (window as any).location = {
+      ...window.location,
+      href: 'https://example.com/page?token=secret',
+      origin: 'https://example.com',
+      pathname: '/page',
+    };
+    const paq: unknown[] = [];
+    (window as any)._paq = paq;
+    render(<MatomoTracker trackerUrl={trackerUrl} siteId={siteId} pathname="/page" />);
+    const setCustomUrlCall = (paq as unknown[][]).find(([cmd]) => cmd === 'setCustomUrl');
+    expect(setCustomUrlCall?.[1]).toBe('https://example.com/page');
+  });
 });

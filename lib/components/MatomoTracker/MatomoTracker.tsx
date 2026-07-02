@@ -23,7 +23,7 @@ export const MatomoTracker = ({ trackerUrl, siteId, pathname }: TrackerProps) =>
 
   React.useEffect(() => {
     if (window._paq && pathname !== oldPathname) {
-      window._paq.push(['setCustomUrl', window.location.href]);
+      window._paq.push(['setCustomUrl', `${window.location.origin}${window.location.pathname}`]);
       window._paq.push(['setDocumentTitle', document.title]);
       window._paq.push(['trackPageView']);
       oldPathname = pathname;
