@@ -2,7 +2,7 @@ import { cx } from '../../cva';
 
 type ActionButtonProps = {
   label: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   className?: string;
   onClick: () => void;
   testId?: string;
