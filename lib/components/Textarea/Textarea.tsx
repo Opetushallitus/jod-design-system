@@ -105,7 +105,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         autoComplete="off"
         aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
         aria-invalid={!!errorMessage}
-        data-testid={testId}
+        data-testid={testId ? `${testId}-textarea` : 'textarea'}
         aria-label={ariaLabel}
         className={tc([
           'ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]',

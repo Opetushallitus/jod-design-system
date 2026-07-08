@@ -4,13 +4,14 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
 <div>
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="ta5-label"
     for="_r_c_"
   />
   <textarea
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta5"
+    data-testid="ta5-textarea"
     id="_r_c_"
     placeholder="Enter text"
   />
@@ -21,13 +22,14 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
 <div>
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="ta4-label"
     for="_r_9_"
   />
   <textarea
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta4"
+    data-testid="ta4-textarea"
     id="_r_9_"
     placeholder="Enter text"
   />
@@ -38,6 +40,7 @@ exports[`Textarea > displays help text when provided 1`] = `
 <div>
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="ta6-label"
     for="_r_f_"
   />
   <textarea
@@ -45,7 +48,7 @@ exports[`Textarea > displays help text when provided 1`] = `
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta6"
+    data-testid="ta6-textarea"
     id="_r_f_"
     placeholder="Enter text"
   />
@@ -63,6 +66,7 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
 <div>
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="ta2-label"
     for="_r_3_"
   >
     Test Label
@@ -71,7 +75,7 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta2"
+    data-testid="ta2-textarea"
     id="_r_3_"
     placeholder="Enter text"
   />
@@ -84,7 +88,7 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta3"
+    data-testid="ta3-textarea"
     id="_r_6_"
     placeholder="Enter text"
   />
@@ -95,13 +99,14 @@ exports[`Textarea > renders without crashing 1`] = `
 <div>
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="ta1-label"
     for="_r_0_"
   />
   <textarea
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta1"
+    data-testid="ta1-textarea"
     id="_r_0_"
     placeholder="Enter text"
   />
@@ -112,13 +117,14 @@ exports[`Textarea > sets the correct number of rows 1`] = `
 <div>
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="ta7-label"
     for="_r_i_"
   />
   <textarea
     aria-invalid="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
-    data-testid="ta7"
+    data-testid="ta7-textarea"
     id="_r_i_"
     placeholder="Enter text"
     rows="5"

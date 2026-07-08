@@ -15,15 +15,18 @@ exports[`Footer > renders 1`] = `
       >
         <div
           class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+          data-testid="root"
           style="background-color: rgb(51, 51, 51); color: var(--ds-color-white);"
         >
           <h2
             class="ds:text-pretty ds:mr-9 ds:text-heading-2-mobile ds:sm:text-heading-2"
+            data-testid="title"
           >
             Title
           </h2>
           <p
             class="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg"
+            data-testid="content"
           >
             Content
           </p>
@@ -31,6 +34,7 @@ exports[`Footer > renders 1`] = `
             aria-haspopup="dialog"
             aria-label="Feedback"
             class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:pr-[20px] ds:hover:text-primary-1-dark ds:active:text-primary-1-dark-2 ds:focus-visible:text-primary-1-dark ds:focus-visible:outline-primary-1-dark ds:bg-white ds:text-primary-gray ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+            data-testid="button"
             type="button"
           >
             <span
@@ -637,15 +641,18 @@ exports[`Footer > renders copyright 1`] = `
       >
         <div
           class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+          data-testid="root"
           style="background-color: rgb(51, 51, 51); color: var(--ds-color-white);"
         >
           <h2
             class="ds:text-pretty ds:mr-9 ds:text-heading-2-mobile ds:sm:text-heading-2"
+            data-testid="title"
           >
             Title
           </h2>
           <p
             class="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg"
+            data-testid="content"
           >
             Content
           </p>
@@ -653,6 +660,7 @@ exports[`Footer > renders copyright 1`] = `
             aria-haspopup="dialog"
             aria-label="Feedback"
             class="ds:cursor-pointer ds:items-center ds:gap-2 ds:select-none ds:group ds:outline-offset-2 ds:disabled:cursor-not-allowed ds:flex ds:text-button-md ds:rounded-[30px] ds:px-6 ds:min-h-9 ds:pr-[20px] ds:hover:text-primary-1-dark ds:active:text-primary-1-dark-2 ds:focus-visible:text-primary-1-dark ds:focus-visible:outline-primary-1-dark ds:bg-white ds:text-primary-gray ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
+            data-testid="button"
             type="button"
           >
             <span

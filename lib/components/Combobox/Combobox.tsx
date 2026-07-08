@@ -90,6 +90,7 @@ export const Combobox = <
   const helpId = React.useId();
   const errorId = React.useId();
   const labelText = requiredText ? `${label} (${requiredText})` : label;
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   const [query, setQuery] = React.useState('');
   const [value, setValue] = React.useState<U | undefined>(selected);
@@ -114,8 +115,11 @@ export const Combobox = <
   const selectedOption = options.find((option) => (option.value as U) === value);
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])} data-testid={testId}>
-      {!hideLabel && <InputLabel htmlFor={inputId} labelText={labelText} />}
+    <div
+      className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])}
+      data-testid={getTestId('field')}
+    >
+      {!hideLabel && <InputLabel htmlFor={inputId} labelText={labelText} testId={getTestId('label')} />}
       <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
           defaultValue={defaultValue ?? (options[0]?.value as U)}
@@ -134,7 +138,7 @@ export const Combobox = <
                 className="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={`(${placeholder})`}
-                data-testid={testId ? `${testId}-input` : undefined}
+                data-testid={getTestId('input')}
                 aria-invalid={!!errorMessage}
                 onClick={() => setIsUsingMouse(true)}
                 onKeyDown={(e) => e.key.startsWith('Arrow') && setIsUsingMouse(false)}
@@ -144,7 +148,7 @@ export const Combobox = <
                 aria-label={label}
                 className="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
                 disabled={disabled}
-                data-testid={testId ? `${testId}-button` : undefined}
+                data-testid={getTestId('button')}
                 onClick={() => setIsUsingMouse(true)}
                 onKeyDown={() => setIsUsingMouse(false)}
                 onMouseMove={() => setIsUsingMouse(true)}
@@ -153,7 +157,7 @@ export const Combobox = <
               </ComboboxButton>
               <ComboboxOptions
                 className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
-                data-testid={testId ? `${testId}-options` : undefined}
+                data-testid={getTestId('options')}
                 onKeyDown={() => setIsUsingMouse(false)}
                 onMouseMove={() => setIsUsingMouse(true)}
               >
@@ -162,6 +166,7 @@ export const Combobox = <
                     key={option.value}
                     className="ds:group ds:text-heading-4 ds:text-primary-gray ds:cursor-pointer"
                     value={option.value}
+                    data-testid={getTestId(`option-${option.value}`)}
                   >
                     <div
                       className={tc([
@@ -185,8 +190,8 @@ export const Combobox = <
           )}
         </HeadlessCombobox>
       </div>
-      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
-      <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
+      <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
     </div>
   );
 };

@@ -80,12 +80,14 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
   const helpId = React.useId();
   const errorId = React.useId();
   const inputId = id ?? generatedInputId;
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   return (
     <div
       className={cx('ds:w-full', {
         'ds:sm:max-w-input-medium': widthVariant === 'constrained',
       })}
+      data-testid={getTestId('field')}
     >
       <Field
         label={label}
@@ -114,7 +116,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           autoComplete="off"
           aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
           aria-invalid={!!errorMessage}
-          data-testid={testId}
+          data-testid={getTestId('input')}
           className={tc([
             'ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
             className,

@@ -39,13 +39,13 @@ export const Field = ({
   children,
 }: FieldProps) => {
   const labelText = requiredText ? `${label} (${requiredText})` : label;
-
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
   return (
     <>
-      {!hideLabel && <InputLabel htmlFor={htmlFor} labelText={labelText} />}
+      {!hideLabel && <InputLabel htmlFor={htmlFor} labelText={labelText} testId={getTestId('label')} />}
       {children}
-      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
-      <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
+      <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
     </>
   );
 };

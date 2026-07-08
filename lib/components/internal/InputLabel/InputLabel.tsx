@@ -6,9 +6,11 @@ interface InputLabelProps {
   labelText?: string;
   /** Hide label */
   hideLabel?: boolean;
+  /** Test id for querying in tests */
+  testId?: string;
 }
 
-export const InputLabel = ({ htmlFor, labelText, hideLabel = false }: InputLabelProps) => {
+export const InputLabel = ({ htmlFor, labelText, hideLabel = false, testId }: InputLabelProps) => {
   return (
     <label
       htmlFor={htmlFor}
@@ -16,6 +18,7 @@ export const InputLabel = ({ htmlFor, labelText, hideLabel = false }: InputLabel
         hideLabel ? 'ds:hidden' : 'ds:inline-block',
         'ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray',
       ])}
+      data-testid={testId}
     >
       {labelText}
     </label>

@@ -83,7 +83,8 @@ describe('Datepicker', () => {
       />,
     );
     expect(screen.getByText(label)).toBeInTheDocument();
-    expect(screen.getByTestId('dp')).toBeInTheDocument();
+    expect(screen.getByTestId('dp-field')).toBeInTheDocument();
+    expect(screen.getByTestId('dp-label')).toBeInTheDocument();
     expect(screen.getByTestId('dp-input')).toBeInTheDocument();
     expect(screen.getByTestId('dp-trigger')).toBeInTheDocument();
   });

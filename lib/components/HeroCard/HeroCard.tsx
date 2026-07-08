@@ -62,6 +62,7 @@ export const HeroCard = ({
     'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm' && titleClassName === undefined,
   });
   const shouldRenderButton = buttonLabel && ((to && LinkComponent) || onClick);
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   const TitleTag = `h${titleLevel}` as keyof JSX.IntrinsicElements;
 
@@ -69,10 +70,19 @@ export const HeroCard = ({
     <div
       className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
       style={{ backgroundColor, color: textColor }}
-      data-testid={testId}
+      data-testid={getTestId('root')}
     >
-      <TitleTag className={`${headingClassNames} ${titleClassName ? titleClassName : ''}`.trim()}>{title}</TitleTag>
-      {content && <p className="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg">{content}</p>}
+      <TitleTag
+        className={`${headingClassNames} ${titleClassName ? titleClassName : ''}`.trim()}
+        data-testid={getTestId('title')}
+      >
+        {title}
+      </TitleTag>
+      {content && (
+        <p className="ds:text-pretty ds:text-body-lg-mobile ds:sm:text-body-lg" data-testid={getTestId('content')}>
+          {content}
+        </p>
+      )}
 
       {shouldRenderButton && (
         <Button
@@ -80,7 +90,11 @@ export const HeroCard = ({
             LinkComponent && {
               linkComponent: ({ children, className }: { children: React.ReactNode; className: string }) => (
                 <div>
-                  <LinkComponent className={`${className} ds:group ds:outline-hidden`} to={to}>
+                  <LinkComponent
+                    className={`${className} ds:group ds:outline-hidden`}
+                    to={to}
+                    testId={getTestId('link')}
+                  >
                     {children}
                   </LinkComponent>
                 </div>
@@ -93,7 +107,7 @@ export const HeroCard = ({
           iconSide="right"
           className="ds:mt-4 ds:w-fit ds:group-focus:underline ds:group-focus:text-accent"
           icon={buttonIcon ?? <JodArrowRight size={24} />}
-          testId={testId ? `${testId}-button` : undefined}
+          testId={getTestId('button')}
         />
       )}
     </div>

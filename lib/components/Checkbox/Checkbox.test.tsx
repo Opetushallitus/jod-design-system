@@ -33,7 +33,9 @@ describe('Checkbox', () => {
         testId="cb"
       />,
     );
-    expect(screen.getByTestId('cb')).toBeInTheDocument();
+    expect(screen.getByTestId('cb-field')).toBeInTheDocument();
+    expect(screen.getByTestId('cb-label')).toBeInTheDocument();
+    expect(screen.getByTestId('cb-input')).toBeInTheDocument();
     const checkbox = screen.getByLabelText(label);
     fireEvent.click(checkbox);
     expect(handleChange).toHaveBeenCalledTimes(1);

@@ -12,7 +12,15 @@ import { MenuSeparator } from './components/MenuSeparator';
 import { PortalLink } from './components/PortalLink';
 import type { LinkComponent } from './types';
 
-const CloseMenuButton = ({ onClick, ariaCloseMenu }: { onClick: () => void; ariaCloseMenu: string }) => {
+const CloseMenuButton = ({
+  onClick,
+  ariaCloseMenu,
+  testId,
+}: {
+  onClick: () => void;
+  ariaCloseMenu: string;
+  testId?: string;
+}) => {
   const serviceVariant = useServiceVariant();
   return (
     <div className="ds:flex ds:justify-end">
@@ -20,6 +28,7 @@ const CloseMenuButton = ({ onClick, ariaCloseMenu }: { onClick: () => void; aria
         className={`ds:cursor-pointer ds:focus:outline-accent ds:p-3 ${getFocusOutlineClassForService(serviceVariant)}`}
         onClick={onClick}
         aria-label={ariaCloseMenu}
+        data-testid={testId}
       >
         <JodClose size={24} />
       </button>
@@ -89,6 +98,7 @@ export const NavigationMenu = ({
   navigationAriaLabel,
 }: NavigationMenuProps) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   React.useEffect(() => {
     const dialog = dialogRef.current;
@@ -106,23 +116,22 @@ export const NavigationMenu = ({
 
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>
-      <Backdrop
-        dialogRef={dialogRef}
-        onClose={onClose}
-        testId={testId ? `${testId}-backdrop` : undefined}
-        ariaLabel={ariaLabel}
-      >
+      <Backdrop dialogRef={dialogRef} onClose={onClose} testId={getTestId('backdrop')} ariaLabel={ariaLabel}>
         <nav
           className="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
-          data-testid={testId ? `${testId}-root` : undefined}
+          data-testid={getTestId('root')}
           aria-label={navigationAriaLabel}
         >
           <div
             className="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow ds:pb-11"
-            data-testid={testId ? `${testId}-body` : undefined}
+            data-testid={getTestId('body')}
           >
             <div className="ds:flex ds:items-center ds:justify-end ds:my-6 ds:sticky ds:top-0 ds:bg-white ds:z-10">
-              <CloseMenuButton onClick={onClose} ariaCloseMenu={ariaCloseMenu} />
+              <CloseMenuButton
+                onClick={onClose}
+                ariaCloseMenu={ariaCloseMenu}
+                testId={getTestId('close-menu-button')}
+              />
             </div>
             {portalLinkLabel && PortalLinkComponent ? (
               <>
@@ -131,6 +140,7 @@ export const NavigationMenu = ({
                   icon={portalIcon}
                   component={PortalLinkComponent}
                   externalLinkIconAriaLabel={portalExternal ? externalLinkIconAriaLabel : undefined}
+                  testId={getTestId('portal-link')}
                 />
                 {menuSection && <MenuSeparator />}
               </>
@@ -139,7 +149,7 @@ export const NavigationMenu = ({
               menuSection={menuSection}
               openSubMenuLabel={openSubMenuLabel}
               hideAccentBorder={false}
-              testId={testId ? `${testId}-menulist` : undefined}
+              testId={getTestId('menu-list')}
             />
             {externalLinkSections && externalLinkSections.length > 0 && (
               <ExternalLinkSections

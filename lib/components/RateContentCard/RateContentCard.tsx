@@ -155,7 +155,7 @@ export const RateContentCard = ({ translations, onSubmit, size = 'lg', className
                 }}
                 placeholder={translations.modal.placeholder}
                 maxLength={5000}
-                testId={testId ? `${testId}-feedback-textarea` : undefined}
+                testId={testId ? `${testId}-feedback` : undefined}
               />
             }
             testId={testId ? `${testId}-dialog` : undefined}

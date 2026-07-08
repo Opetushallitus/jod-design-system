@@ -118,8 +118,8 @@ describe('RangeSlider', () => {
         maxValueDescription={maxDescription}
       />,
     );
-    expect(getByTestId('slider-thumb-0')).toBeInTheDocument();
-    expect(getByTestId('slider-thumb-1')).toBeInTheDocument();
+    expect(getByTestId('slider-thumb-min')).toBeInTheDocument();
+    expect(getByTestId('slider-thumb-max')).toBeInTheDocument();
   });
 
   it('has no a11y violations', async () => {

@@ -58,7 +58,7 @@ describe('NavigationMenu', () => {
     expect(screen.getByTestId('navmenu-root')).toBeInTheDocument();
     expect(screen.getByTestId('navmenu-body')).toBeInTheDocument();
     // Menu list container
-    expect(screen.getByTestId('navmenu-menulist')).toBeInTheDocument();
+    expect(screen.getByTestId('navmenu-menu-list')).toBeInTheDocument();
   });
 
   it('has no a11y violations', async () => {

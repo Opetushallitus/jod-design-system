@@ -131,6 +131,7 @@ export const Datepicker = ({
   const helpId = React.useId();
   const timeZone = 'Europe/Helsinki';
   const labelText = requiredText ? `${label} (${requiredText})` : label;
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   const arkTranslations: DatePickerRootProps['translations'] = {
     ...translations,
@@ -180,8 +181,15 @@ export const Datepicker = ({
   });
 
   return (
-    <ArkDatePicker.RootProvider value={datePicker} className="ds:w-full ds:sm:w-input-short" data-testid={testId}>
-      <ArkDatePicker.Label className="ds:mb-3 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray">
+    <ArkDatePicker.RootProvider
+      value={datePicker}
+      className="ds:w-full ds:sm:w-input-short"
+      data-testid={getTestId('field')}
+    >
+      <ArkDatePicker.Label
+        className="ds:mb-3 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+        data-testid={getTestId('label')}
+      >
         {labelText}
       </ArkDatePicker.Label>
       <ArkDatePicker.Control>
@@ -203,7 +211,7 @@ export const Datepicker = ({
               }
             }}
             onBlur={onBlur}
-            data-testid={testId ? `${testId}-input` : undefined}
+            data-testid={getTestId('input')}
           />
           <ArkDatePicker.Trigger
             className="ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:p-3 ds:text-primary-gray ds:cursor-pointer ds:focus:outline-accent ds:focus:outline-2"
@@ -215,13 +223,13 @@ export const Datepicker = ({
                 datePicker.setValue([verifyCalendarDate(value[0])]);
               }
             }}
-            data-testid={testId ? `${testId}-trigger` : undefined}
+            data-testid={getTestId('trigger')}
           >
             <JodCalendar />
           </ArkDatePicker.Trigger>
         </div>
       </ArkDatePicker.Control>
-      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
+      <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
       <Portal>
         <ArkDatePicker.Positioner>
           <ArkDatePicker.Content

@@ -13,7 +13,9 @@ describe('InputField', () => {
     const value = 'john';
     const onChange = vi.fn();
     const { container } = render(<InputField value={value} onChange={onChange} label={label} testId="input" />);
-    expect(screen.getByTestId('input')).toBeInTheDocument();
+    expect(screen.getByTestId('input-field')).toBeInTheDocument();
+    expect(screen.getByTestId('input-label')).toBeInTheDocument();
+    expect(screen.getByTestId('input-input')).toBeInTheDocument();
     const labelElement = screen.getByText(label);
     expect(labelElement).toBeInTheDocument();
     expect(container).toMatchSnapshot();
@@ -26,7 +28,9 @@ describe('InputField', () => {
     const { container } = render(
       <InputField value={value} onChange={onChange} label={label} placeholder={placeholder} testId="input2" />,
     );
-    expect(screen.getByTestId('input2')).toBeInTheDocument();
+    expect(screen.getByTestId('input2-field')).toBeInTheDocument();
+    expect(screen.getByTestId('input2-label')).toBeInTheDocument();
+    expect(screen.getByTestId('input2-input')).toBeInTheDocument();
     const inputElement = screen.getByPlaceholderText(placeholder);
     expect(inputElement).toBeInTheDocument();
     expect(container).toMatchSnapshot();
@@ -39,7 +43,10 @@ describe('InputField', () => {
     const { container } = render(
       <InputField value={value} onChange={onChange} label={label} help={helpText} testId="input3" />,
     );
-    expect(screen.getByTestId('input3')).toBeInTheDocument();
+    expect(screen.getByTestId('input3-field')).toBeInTheDocument();
+    expect(screen.getByTestId('input3-label')).toBeInTheDocument();
+    expect(screen.getByTestId('input3-input')).toBeInTheDocument();
+    expect(screen.getByTestId('input3-help')).toBeInTheDocument();
     const helpElement = screen.getByText(helpText);
     expect(helpElement).toBeInTheDocument();
     expect(container).toMatchSnapshot();
@@ -49,7 +56,9 @@ describe('InputField', () => {
     const onChange = vi.fn();
     const value = 'test value';
     const { container } = render(<InputField value={value} onChange={onChange} label={label} testId="input4" />);
-    expect(screen.getByTestId('input4')).toBeInTheDocument();
+    expect(screen.getByTestId('input4-field')).toBeInTheDocument();
+    expect(screen.getByTestId('input4-label')).toBeInTheDocument();
+    expect(screen.getByTestId('input4-input')).toBeInTheDocument();
     const inputElement = screen.getByRole('textbox');
     fireEvent.change(inputElement, { target: { value: 'new value' } });
     expect(onChange).toHaveBeenCalled();

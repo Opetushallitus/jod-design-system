@@ -13,17 +13,19 @@ export const PortalLink = ({
   selected = false,
   externalLinkIconAriaLabel,
   component: Component,
+  testId,
 }: {
   label: string;
   icon?: React.ReactNode;
   selected?: boolean;
   externalLinkIconAriaLabel?: string;
   component: React.ComponentType<LinkComponent>;
+  testId?: string;
 }) => {
   const variant = useServiceVariant();
 
   return (
-    <div className="ds:border-l-8 ds:border-secondary-gray">
+    <div className="ds:border-l-8 ds:border-secondary-gray" data-testid={testId}>
       <Component
         {...(externalLinkIconAriaLabel ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className={tidyClasses([
