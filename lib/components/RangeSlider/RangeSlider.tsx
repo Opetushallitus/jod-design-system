@@ -40,7 +40,7 @@ const Thumb = ({ disabled, testId, index, value, description }: ThumbProps) => {
         'ds:bg-accent': !disabled,
         'ds:bg-inactive-gray': disabled,
       })}
-      data-testid={testId ? `${testId}-thumb-${index}` : undefined}
+      data-testid={testId}
       aria-valuenow={value.value}
       aria-valuetext={value.label}
       aria-label={value.label}
@@ -138,14 +138,14 @@ export const RangeSlider = ({
             <Thumb
               index={0}
               disabled={disabled}
-              testId={testId}
+              testId={testId ? `${testId}-thumb-min` : undefined}
               value={getThumbValue(0)}
               description={minValueDescription}
             />
             <Thumb
               index={1}
               disabled={disabled}
-              testId={testId}
+              testId={testId ? `${testId}-thumb-max` : undefined}
               value={getThumbValue(1)}
               description={maxValueDescription}
             />

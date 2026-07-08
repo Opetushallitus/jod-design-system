@@ -11,10 +11,10 @@ describe('Textarea', () => {
   it('renders without crashing', () => {
     const onChange = vi.fn();
     const { container } = render(<Textarea onChange={onChange} placeholder={placeholder} testId="ta1" />);
-    expect(screen.getByTestId('ta1')).toBeInTheDocument();
+    expect(screen.getByTestId('ta1-textarea')).toBeInTheDocument();
     const textarea = screen.getByPlaceholderText(placeholder);
     expect(textarea).toBeInTheDocument();
-    expect(screen.getByTestId('ta1')).toBeInTheDocument();
+    expect(screen.getByTestId('ta1-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -23,10 +23,10 @@ describe('Textarea', () => {
     const { container } = render(
       <Textarea onChange={onChange} label="Test Label" placeholder="Enter text" testId="ta2" />,
     );
-    expect(screen.getByTestId('ta2')).toBeInTheDocument();
+    expect(screen.getByTestId('ta2-textarea')).toBeInTheDocument();
     const label = screen.getByText('Test Label');
     expect(label).toBeInTheDocument();
-    expect(screen.getByTestId('ta2')).toBeInTheDocument();
+    expect(screen.getByTestId('ta2-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -35,21 +35,21 @@ describe('Textarea', () => {
     const { container } = render(
       <Textarea onChange={onChange} hideLabel={true} placeholder="Enter text" testId="ta3" />,
     );
-    expect(screen.getByTestId('ta3')).toBeInTheDocument();
+    expect(screen.getByTestId('ta3-textarea')).toBeInTheDocument();
     const label = screen.queryByText('Test Label');
     expect(label).not.toBeInTheDocument();
-    expect(screen.getByTestId('ta3')).toBeInTheDocument();
+    expect(screen.getByTestId('ta3-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
   it('calls onChange when the value changes', () => {
     const onChange = vi.fn();
     const { container } = render(<Textarea onChange={onChange} placeholder="Enter text" testId="ta4" />);
-    expect(screen.getByTestId('ta4')).toBeInTheDocument();
+    expect(screen.getByTestId('ta4-textarea')).toBeInTheDocument();
     const textarea = screen.getByPlaceholderText(placeholder);
     fireEvent.change(textarea, { target: { value: 'New value' } });
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(screen.getByTestId('ta4')).toBeInTheDocument();
+    expect(screen.getByTestId('ta4-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -59,11 +59,11 @@ describe('Textarea', () => {
     const { container } = render(
       <Textarea onChange={onChange} onBlur={onBlur} placeholder="Enter text" testId="ta5" />,
     );
-    expect(screen.getByTestId('ta5')).toBeInTheDocument();
+    expect(screen.getByTestId('ta5-textarea')).toBeInTheDocument();
     const textarea = screen.getByPlaceholderText(placeholder);
     fireEvent.blur(textarea);
     expect(onBlur).toHaveBeenCalledTimes(1);
-    expect(screen.getByTestId('ta5')).toBeInTheDocument();
+    expect(screen.getByTestId('ta5-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -72,20 +72,20 @@ describe('Textarea', () => {
     const { container } = render(
       <Textarea onChange={onChange} help="Help text" placeholder="Enter text" testId="ta6" />,
     );
-    expect(screen.getByTestId('ta6')).toBeInTheDocument();
+    expect(screen.getByTestId('ta6-textarea')).toBeInTheDocument();
     const helpText = screen.getByText('Help text');
     expect(helpText).toBeInTheDocument();
-    expect(screen.getByTestId('ta6')).toBeInTheDocument();
+    expect(screen.getByTestId('ta6-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
   it('sets the correct number of rows', () => {
     const onChange = vi.fn();
     const { container } = render(<Textarea onChange={onChange} rows={5} placeholder="Enter text" testId="ta7" />);
-    expect(screen.getByTestId('ta7')).toBeInTheDocument();
+    expect(screen.getByTestId('ta7-textarea')).toBeInTheDocument();
     const textarea = screen.getByPlaceholderText(placeholder);
     expect(textarea).toHaveAttribute('rows', '5');
-    expect(screen.getByTestId('ta7')).toBeInTheDocument();
+    expect(screen.getByTestId('ta7-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 

@@ -48,7 +48,9 @@ export const CookieConsentModal = () => {
       fullWidthContent
       topSlot={
         <div className="ds:flex ds:flex-col-reverse ds:sm:flex-row ds:justify-between ds:gap-6 ds:md:gap-5 ds:flex-1">
-          <h2 className="ds:text-heading-2-mobile ds:sm:text-heading-1 ds:text-primary-gray">{title}</h2>
+          <h2 className="ds:text-heading-2-mobile ds:sm:text-heading-1 ds:text-primary-gray" data-testid="title">
+            {title}
+          </h2>
           <div className="ds:md:self-auto ds:self-end">{languageButtonComponent}</div>
         </div>
       }
@@ -73,9 +75,9 @@ export const CookieConsentModal = () => {
                   rel="noopener noreferrer"
                 >
                   {readMoreLabel}
-                  <div className="ds:inline ds:*:align-top ds:ml-2">
+                  <span className="ds:inline ds:*:align-top ds:ml-2">
                     <JodOpenInNew size={24} ariaLabel={externalLinkIconAriaLabel} className="ds:inline" />
-                  </div>
+                  </span>
                 </a>
               </p>
             </div>
@@ -88,15 +90,23 @@ export const CookieConsentModal = () => {
           </div>
         </div>
       }
+      testId="cookie-consent-modal"
       footer={
-        <div className="ds:flex ds:flex-row ds:gap-5 ds:flex-1 ds:justify-end">
+        <div className="ds:flex ds:flex-row ds:gap-5 ds:flex-1 ds:justify-end" data-testid="footer">
           <Button
             label={declineOptionalLabel}
             onClick={handleDeclineOptional}
             variant="white"
             serviceVariant={serviceVariant}
+            testId="decline-optional"
           />
-          <Button label={acceptAllLabel} onClick={handleAcceptAll} variant="white" serviceVariant={serviceVariant} />
+          <Button
+            label={acceptAllLabel}
+            onClick={handleAcceptAll}
+            variant="white"
+            serviceVariant={serviceVariant}
+            testId="accept-all"
+          />
         </div>
       }
     />

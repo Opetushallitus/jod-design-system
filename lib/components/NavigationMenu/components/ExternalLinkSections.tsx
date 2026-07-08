@@ -10,6 +10,7 @@ export interface LinkItem {
   url: string;
   description?: string;
   accentColor?: string;
+  testId?: string;
 }
 
 export interface ExternalLinkSection {
@@ -20,17 +21,21 @@ export interface ExternalLinkSection {
 const ExternalLinkItem = ({
   item,
   externalLinkIconAriaLabel,
+  testId,
 }: {
   item: LinkItem;
   externalLinkIconAriaLabel: string;
+  testId?: string;
 }) => {
   const serviceVariant = useServiceVariant();
-
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
+  console.log(testId);
   return (
     <li
       key={item.label}
       className={`${item.accentColor ? 'ds:border-l-8' : 'ds:pl-3'} ds:text-button-md ds:flex`}
       style={{ borderColor: item.accentColor }}
+      data-testid={getTestId('item')}
     >
       <a
         href={item.url}
@@ -49,6 +54,7 @@ const ExternalLinkItem = ({
           getFocusOutlineClassForService(serviceVariant),
           getPressedBgColorClassForService(serviceVariant),
         ])}
+        data-testid={getTestId('link')}
       >
         <div className="ds:flex ds:flex-col ds:flex-1 ds:gap-3 ds:py-3 ds:group">
           <div className="ds:flex ds:flex-row ds:gap-3 ds:pr-3">
@@ -70,16 +76,23 @@ export const ExternalLinkSections = ({
   externalLinkIconAriaLabel: string;
 }) => {
   return (
-    <div>
+    <div data-testid="external-links-section">
       {sections.map((section) => (
         <React.Fragment key={section.title}>
           {/* Only show section title if there are link items */}
           <div>
             <MenuSeparator />
-            <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{section.title}</h2>
-            <ul className="ds:gap-3 ds:flex ds:flex-col">
+            <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex" data-testid="external-links-section-title">
+              {section.title}
+            </h2>
+            <ul className="ds:gap-3 ds:flex ds:flex-col" data-testid="external-links-section-list">
               {section.linkItems.map((item) => (
-                <ExternalLinkItem key={item.label} item={item} externalLinkIconAriaLabel={externalLinkIconAriaLabel} />
+                <ExternalLinkItem
+                  key={item.label}
+                  item={item}
+                  externalLinkIconAriaLabel={externalLinkIconAriaLabel}
+                  testId={item.testId}
+                />
               ))}
             </ul>
           </div>

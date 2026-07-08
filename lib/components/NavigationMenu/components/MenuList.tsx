@@ -48,7 +48,7 @@ const MenuListItem = ({
   const [shouldFocusFirstChild, setShouldFocusFirstChild] = React.useState(false);
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
-
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
   const hasSelectedDescendant = React.useCallback(
     (items?: MenuItem[]): boolean =>
       Array.isArray(items) && items.some((item) => item.selected || hasSelectedDescendant(item.childItems)),
@@ -151,7 +151,7 @@ const MenuListItem = ({
           <LinkComponent
             className={tc(['ds:relative ds:flex-1 ds:flex ds:mr-2', getFocusOutlineClassForService(serviceVariant)])}
             aria-current={selected}
-            data-testid={testId ? `${testId}-link` : undefined}
+            data-testid={getTestId('link')}
           >
             <span className={linkItemClasses}>
               {icon}
@@ -165,7 +165,7 @@ const MenuListItem = ({
               aria-expanded={nestedMenuOpen}
               className={submenuToggleButtonClasses}
               onClick={handleNestedMenuOpen}
-              data-testid={testId ? `${testId}-toggle` : undefined}
+              data-testid={getTestId('toggle')}
             >
               {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
             </button>
@@ -181,7 +181,7 @@ const MenuListItem = ({
           aria-expanded={nestedMenuOpen}
           className={tc([linkItemClasses, 'ds:justify-between'])}
           onClick={handleNestedMenuOpen}
-          data-testid={testId ? `${testId}-toggle` : undefined}
+          data-testid={getTestId('toggle')}
         >
           {label}
           <span>{nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}</span>
@@ -206,7 +206,7 @@ const MenuListItem = ({
   ]);
 
   return (
-    <li data-list-id={label} data-testid={testId ? `${testId}-item` : undefined}>
+    <li data-list-id={label} data-testid={getTestId('item')}>
       <div className={tc(['ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3', className])}>
         {listItemContent}
       </div>
@@ -219,7 +219,7 @@ const MenuListItem = ({
           openSubMenuLabel={openSubMenuLabel}
           menuRef={submenuRef}
           isNested
-          data-testid={testId ? `${testId}-submenu` : undefined}
+          testId={getTestId('submenu')}
         />
       )}
     </li>
@@ -272,16 +272,20 @@ export const MenuList = ({
         'ds:border-primary-4-dark': variant === 'tietopalvelu',
       });
 
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
+
   return (
     menuSection && (
       <div data-testid={testId}>
         {menuSection.title ? (
-          <h2 className="ds:text-primary-gray ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{menuSection.title}</h2>
+          <h2 className="ds:text-primary-gray ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex" data-testid={getTestId('title')}>
+            {menuSection.title}
+          </h2>
         ) : null}
         <ul
           className={tc(['ds:gap-2', 'ds:flex', 'ds:flex-col', isNested ? 'ds:ml-6' : borderClassname])}
           ref={menuRef}
-          data-testid={testId ? `${testId}-list` : undefined}
+          data-testid={getTestId('list')}
         >
           {menuSection.linkItems.map((item) => (
             <MenuListItem
@@ -295,7 +299,7 @@ export const MenuList = ({
               openSubMenuLabel={openSubMenuLabel}
               className={itemClassname}
               collapsed={collapsed}
-              testId={testId ? `${testId}-item-${item.label.replace(/\s+/g, '-').toLowerCase()}` : undefined}
+              testId={getTestId(`item-${item.label.replace(/\s+/g, '-').toLowerCase()}`)}
             />
           ))}
         </ul>

@@ -41,7 +41,13 @@ describe('Pagination', () => {
     };
 
     const { container } = renderPagination(props);
-    expect(screen.getByTestId('pagination')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-root')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-prev-trigger')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-next-trigger')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-item-1')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-item-2')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-item-3')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-item-4')).toBeInTheDocument();
 
     const pageElements = screen.getAllByRole('button', { name: /\d+/ });
     expect(pageElements.length).toBe(4);

@@ -27,11 +27,18 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
 
   return (
     <>
-      <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex">{title}</h2>
+      <h2 className="ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex" data-testid="language-selection-title">
+        {title}
+      </h2>
       <div className="ds:flex">
-        <ul className="ds:flex ds:flex-1 ds:flex-col ds:gap-2">
+        <ul className="ds:flex ds:flex-1 ds:flex-col ds:gap-2" data-testid="language-selection-list">
           {items.map((item: LanguageSelectionItem) => (
-            <li key={item.label} className="ds:flex ds:min-h-8 ds:items-center" lang={item.value}>
+            <li
+              key={item.label}
+              className="ds:flex ds:min-h-8 ds:items-center"
+              lang={item.value}
+              data-testid={`language-selection-item-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
+            >
               <item.linkComponent
                 className={cx([
                   'ds:flex',
@@ -43,6 +50,7 @@ export const LanguageSelection = ({ items, selected, title }: NavigationMenuLang
                   getFocusOutlineClassForService(serviceVariant),
                 ])}
                 aria-current={selected === item.value}
+                data-testid={`language-selection-item-link-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
               >
                 <span className="ds:size-4 ds:flex ds:justify-center ds:items-center ds:ml-2" aria-hidden>
                   <span

@@ -59,6 +59,8 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   const [value, setValue] = React.useState<U | undefined>(selected);
   const [isUsingMouse, setIsUsingMouse] = React.useState(false);
 
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
+
   const onChange = (newValue: U) => {
     setValue(newValue);
     propOnChange?.(newValue);
@@ -71,10 +73,13 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   const selectedOption = options.find((option) => (option.value as U) === value);
 
   return (
-    <div className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])} data-testid={testId}>
-      {!hideLabel && <InputLabel htmlFor={inputId} labelText={label} />}
+    <div
+      className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])}
+      data-testid={getTestId('field')}
+    >
+      {!hideLabel && <InputLabel htmlFor={inputId} labelText={label} testId={getTestId('label')} />}
       <div className="ds:flex ds:flex-row ds:relative">
-        <Listbox onChange={onChange} disabled={disabled} value={value}>
+        <Listbox onChange={onChange} disabled={disabled} value={value} data-testid={getTestId('listbox')}>
           {({ open }) => (
             <div className="ds:flex ds:flex-row ds:w-full">
               <ListboxButton
@@ -82,7 +87,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
                 aria-label={label}
                 className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
                 disabled={disabled}
-                data-testid={testId ? `${testId}-button` : undefined}
+                data-testid={getTestId('button')}
                 aria-invalid={!!errorMessage}
                 onClick={() => setIsUsingMouse(true)}
                 onKeyDown={() => setIsUsingMouse(false)}
@@ -98,7 +103,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxOptions
                 modal={false}
                 className="ds:bg-white ds:mt-3 ds:absolute ds:w-full ds:top-full ds:p-5 ds:m-0 ds:shadow-border ds:rounded-md ds:z-50 ds:empty:invisible"
-                data-testid={testId ? `${testId}-options` : undefined}
+                data-testid={getTestId('options')}
                 onKeyDown={() => setIsUsingMouse(false)}
                 onMouseMove={() => setIsUsingMouse(true)}
               >
@@ -107,6 +112,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
                     key={option.value}
                     className="ds:group ds:text-heading-4 ds:text-primary-gray ds:cursor-pointer"
                     value={option.value}
+                    data-testid={getTestId(`option-${option.value}`)}
                   >
                     <div
                       className={tc([
@@ -130,8 +136,8 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
           )}
         </Listbox>
       </div>
-      <InputHelp id={helpId} helpText={help} testId={testId ? `${testId}-help` : undefined} />
-      <InputError id={errorId} errorMessage={errorMessage} testId={testId ? `${testId}-error` : undefined} />
+      <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
     </div>
   );
 };

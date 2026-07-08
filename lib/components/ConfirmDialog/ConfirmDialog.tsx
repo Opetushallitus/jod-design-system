@@ -63,7 +63,7 @@ export const ConfirmDialog = ({
   const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh'>('50dvh');
   const [isMeasuring, setIsMeasuring] = React.useState(false);
 
-  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : undefined);
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
   const contentPadding = 'ds:px-5 ds:sm:px-9';
 
   // Handle mobile height measurement when modal opens
@@ -181,6 +181,7 @@ export const ConfirmDialog = ({
                       <DialogTitle
                         id={`ds-confirm-dialog-title-${id}`}
                         className="ds:sm:text-[32px] ds:text-[20px] ds:sm:leading-8 ds:leading-[26px] ds:font-semibold"
+                        data-testid={getTestId('title')}
                       >
                         {title}
                       </DialogTitle>
@@ -194,6 +195,7 @@ export const ConfirmDialog = ({
                         'ds:pb-6',
                         'ds:sm:pb-9',
                       ])}
+                      data-testid={getTestId('content')}
                     >
                       <Description as={descriptionTag} className="ds:text-body-sm ds:sm:text-body-md ds:font-arial">
                         {description}
@@ -203,17 +205,26 @@ export const ConfirmDialog = ({
                   </div>
 
                   <div className="ds:shrink-0 ds:overflow-x-auto ds:overflow-y-hidden ds:bg-bg-gray-2">
-                    <div className="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-4 ds:sm-py-5 ds:sm:px-9 ds:justify-end">
+                    <div
+                      className="ds:flex ds:flex-row ds:gap-5 ds:px-6 ds:py-4 ds:sm-py-5 ds:sm:px-9 ds:justify-end"
+                      data-testid={getTestId('footer')}
+                    >
                       {footer ? (
                         footer(hideDialog)
                       ) : (
                         <>
-                          <Button size={sm ? 'lg' : 'sm'} label={cancelText} onClick={hideDialog} />
+                          <Button
+                            size={sm ? 'lg' : 'sm'}
+                            label={cancelText}
+                            onClick={hideDialog}
+                            testId={getTestId('cancel-button')}
+                          />
                           <Button
                             size={sm ? 'lg' : 'sm'}
                             label={confirmText}
                             onClick={confirmHandler}
                             variant={variant === 'destructive' ? 'red-delete' : 'white'}
+                            testId={getTestId('confirm-button')}
                           />
                         </>
                       )}

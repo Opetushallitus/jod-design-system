@@ -4,9 +4,11 @@ exports[`InputField > renders help text correctly 1`] = `
 <div>
   <div
     class="ds:w-full ds:sm:max-w-input-medium"
+    data-testid="input3-field"
   >
     <label
       class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      data-testid="input3-label"
       for="_r_6_"
     >
       Username
@@ -17,7 +19,7 @@ exports[`InputField > renders help text correctly 1`] = `
       aria-required="false"
       autocomplete="off"
       class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-      data-testid="input3"
+      data-testid="input3-input"
       id="_r_6_"
       type="text"
       value="john"
@@ -37,9 +39,11 @@ exports[`InputField > renders input correctly 1`] = `
 <div>
   <div
     class="ds:w-full ds:sm:max-w-input-medium"
+    data-testid="input2-field"
   >
     <label
       class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      data-testid="input2-label"
       for="_r_3_"
     >
       Username
@@ -49,7 +53,7 @@ exports[`InputField > renders input correctly 1`] = `
       aria-required="false"
       autocomplete="off"
       class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-      data-testid="input2"
+      data-testid="input2-input"
       id="_r_3_"
       placeholder="Enter your username"
       type="text"
@@ -63,9 +67,11 @@ exports[`InputField > renders label correctly 1`] = `
 <div>
   <div
     class="ds:w-full ds:sm:max-w-input-medium"
+    data-testid="input-field"
   >
     <label
       class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      data-testid="input-label"
       for="_r_0_"
     >
       Username
@@ -75,7 +81,7 @@ exports[`InputField > renders label correctly 1`] = `
       aria-required="false"
       autocomplete="off"
       class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-      data-testid="input"
+      data-testid="input-input"
       id="_r_0_"
       type="text"
       value="john"
@@ -88,9 +94,11 @@ exports[`InputField > updates input value correctly 1`] = `
 <div>
   <div
     class="ds:w-full ds:sm:max-w-input-medium"
+    data-testid="input4-field"
   >
     <label
       class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+      data-testid="input4-label"
       for="_r_9_"
     >
       Username
@@ -100,7 +108,7 @@ exports[`InputField > updates input value correctly 1`] = `
       aria-required="false"
       autocomplete="off"
       class="ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md"
-      data-testid="input4"
+      data-testid="input4-input"
       id="_r_9_"
       type="text"
       value="test value"

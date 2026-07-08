@@ -116,7 +116,10 @@ describe('Accordion', () => {
         <div>Child</div>
       </Accordion>,
     );
-    expect(screen.getByTestId('acc')).toBeInTheDocument();
+    expect(screen.getByTestId('acc-wrapper')).toBeInTheDocument();
+    expect(screen.getByTestId('acc-trigger')).toBeInTheDocument();
+    expect(screen.getByTestId('acc-title')).toBeInTheDocument();
+    expect(screen.getByTestId('acc-content')).toBeInTheDocument();
   });
 });
 

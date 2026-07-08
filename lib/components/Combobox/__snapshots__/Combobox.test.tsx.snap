@@ -3,6 +3,7 @@
 exports[`Combobox > Snapshot testing > should not show label 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-testid="field"
 >
   <div
     class="ds:flex ds:flex-row ds:relative"
@@ -19,6 +20,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
+        data-testid="input"
         id="_r_a_"
         placeholder="(placeholder text)"
         role="combobox"
@@ -31,6 +33,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
+        data-testid="button"
         id="headlessui-combobox-button-_r_g_"
         tabindex="-1"
         type="button"
@@ -58,9 +61,11 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
 exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-testid="field"
 >
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="label"
     for="_r_k_"
   >
     Label
@@ -81,6 +86,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         class="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-disabled=""
         data-headlessui-state="disabled"
+        data-testid="input"
         disabled=""
         id="_r_k_"
         placeholder="(placeholder text)"
@@ -95,6 +101,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         class="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-disabled=""
         data-headlessui-state="disabled"
+        data-testid="button"
         disabled=""
         id="headlessui-combobox-button-_r_q_"
         tabindex="-1"
@@ -123,9 +130,11 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
 exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-testid="field"
 >
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="label"
     for="_r_0_"
   >
     Label
@@ -144,6 +153,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
         aria-required="false"
         class="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-inactive-gray ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
+        data-testid="input"
         id="_r_0_"
         placeholder="(placeholder text)"
         role="combobox"
@@ -156,6 +166,7 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
+        data-testid="button"
         id="headlessui-combobox-button-_r_6_"
         tabindex="-1"
         type="button"

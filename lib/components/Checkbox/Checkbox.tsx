@@ -47,6 +47,7 @@ export const Checkbox = ({
   const id = React.useId();
   const inputRef = React.useRef<HTMLInputElement>(null);
   const isLabelValidElement = React.isValidElement(label);
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   React.useEffect(() => {
     // Apply indeterminate property to input element (as it can't be set via HTML attributes)
@@ -81,6 +82,7 @@ export const Checkbox = ({
       className={cx('ds:flex ds:items-center ds:text-left ds:relative ds:font-arial', className)}
       role="presentation"
       onClick={(e) => e.stopPropagation()}
+      data-testid={getTestId('field')}
     >
       <input
         ref={inputRef}
@@ -95,7 +97,7 @@ export const Checkbox = ({
         onChange={onChange}
         aria-label={label ? undefined : ariaLabel}
         aria-checked={indeterminate ? 'mixed' : checked}
-        data-testid={testId}
+        data-testid={getTestId('input')}
         className={cx(
           'ds:peer ds:size-5 ds:min-h-5 ds:min-w-5 ds:appearance-none ds:rounded-none ds:bg-white ds:border-2 ds:border-accent',
           {
@@ -135,6 +137,7 @@ export const Checkbox = ({
         <label
           htmlFor={id}
           className={`ds:flex ds:flex-row ds:items-center ds:text-form-label ds:text-primary-gray ds:peer-hover:text-accent ds:peer-hover:underline ds:peer-disabled:text-inactive-gray ds:peer-disabled:no-underline ${!isLabelValidElement ? 'ds:pl-4' : ''}`.trim()}
+          data-testid={getTestId('label')}
         >
           {labelContent}
         </label>

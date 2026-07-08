@@ -6,20 +6,21 @@ exports[`PageNavigation > renders with default props 1`] = `
   data-testid="pnav"
 >
   <div
-    data-testid="pnav"
+    data-testid="pnav-menu"
   >
     <h2
       class="ds:text-primary-gray ds:text-body-sm ds:mb-5 ds:mt-2 ds:flex"
+      data-testid="pnav-menu-title"
     >
       Test Menu
     </h2>
     <ul
       class="ds:gap-2 ds:flex ds:flex-col"
-      data-testid="pnav-list"
+      data-testid="pnav-menu-list"
     >
       <li
         data-list-id="Home"
-        data-testid="pnav-item-home-item"
+        data-testid="pnav-menu-item-home-item"
       >
         <div
           class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3"
@@ -33,7 +34,7 @@ exports[`PageNavigation > renders with default props 1`] = `
       </li>
       <li
         data-list-id="About"
-        data-testid="pnav-item-about-item"
+        data-testid="pnav-menu-item-about-item"
       >
         <div
           class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3"
@@ -47,7 +48,7 @@ exports[`PageNavigation > renders with default props 1`] = `
       </li>
       <li
         data-list-id="Contact"
-        data-testid="pnav-item-contact-item"
+        data-testid="pnav-menu-item-contact-item"
       >
         <div
           class="ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3"

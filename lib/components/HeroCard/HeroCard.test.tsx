@@ -33,7 +33,10 @@ describe('HeroCard', () => {
     const linkElement = screen.getByRole('link');
     expect(linkElement).toBeInTheDocument();
 
-    expect(screen.getByTestId('hero')).toBeInTheDocument();
+    expect(screen.getByTestId('hero-root')).toBeInTheDocument();
+    expect(screen.getByTestId('hero-title')).toBeInTheDocument();
+    expect(screen.getByTestId('hero-content')).toBeInTheDocument();
+    expect(screen.getByTestId('hero-link')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -44,7 +47,9 @@ describe('HeroCard', () => {
 
     expect(screen.getByText(title)).toBeInTheDocument();
     expect(screen.queryByText(buttonLabel)).toBeNull();
-    expect(screen.getByTestId('hero2')).toBeInTheDocument();
+    expect(screen.getByTestId('hero2-root')).toBeInTheDocument();
+    expect(screen.getByTestId('hero2-title')).toBeInTheDocument();
+    expect(screen.getByTestId('hero2-content')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 

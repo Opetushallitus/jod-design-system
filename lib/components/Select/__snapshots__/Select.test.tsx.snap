@@ -3,6 +3,7 @@
 exports[`Select > Snapshot testing > should not show label 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-testid="field"
 >
   <div
     class="ds:flex ds:flex-row ds:relative"
@@ -10,6 +11,7 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
     <div
       class="ds:flex ds:flex-row ds:w-full"
       data-headlessui-state=""
+      data-testid="listbox"
     >
       <button
         aria-expanded="false"
@@ -18,6 +20,7 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
         data-headlessui-state=""
+        data-testid="button"
         id="_r_9_"
         type="button"
       >
@@ -49,9 +52,11 @@ exports[`Select > Snapshot testing > should not show label 1`] = `
 exports[`Select > Snapshot testing > should render as disabled 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-testid="field"
 >
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="label"
     for="_r_i_"
   >
     Label
@@ -63,6 +68,7 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
       class="ds:flex ds:flex-row ds:w-full"
       data-disabled=""
       data-headlessui-state="disabled"
+      data-testid="listbox"
     >
       <button
         aria-expanded="false"
@@ -72,6 +78,7 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
         class="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
         data-disabled=""
         data-headlessui-state="disabled"
+        data-testid="button"
         disabled=""
         id="_r_i_"
         type="button"
@@ -104,9 +111,11 @@ exports[`Select > Snapshot testing > should render as disabled 1`] = `
 exports[`Select > Snapshot testing > should render with defaults 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-testid="field"
 >
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
+    data-testid="label"
     for="_r_0_"
   >
     Label
@@ -117,6 +126,7 @@ exports[`Select > Snapshot testing > should render with defaults 1`] = `
     <div
       class="ds:flex ds:flex-row ds:w-full"
       data-headlessui-state=""
+      data-testid="listbox"
     >
       <button
         aria-expanded="false"
@@ -125,6 +135,7 @@ exports[`Select > Snapshot testing > should render with defaults 1`] = `
         aria-label="Label"
         class="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
         data-headlessui-state=""
+        data-testid="button"
         id="_r_0_"
         type="button"
       >

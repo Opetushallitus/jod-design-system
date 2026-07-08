@@ -84,6 +84,7 @@ export const Accordion = ({
   const setIsOpen = isControlled && controlledSetIsOpen ? controlledSetIsOpen : setInternalIsOpen;
   const { reduceMotion } = useMediaQueries();
   const shouldAnimate = reduceMotion ? false : animated;
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   // Reset the state when the children change
   React.useEffect(() => {
@@ -118,7 +119,7 @@ export const Accordion = ({
   const clearHeight = () => contentRef.current && (contentRef.current.style.maxHeight = '');
 
   return (
-    <div className={cx('ds:w-full ds:text-primary-gray', className)}>
+    <div className={cx('ds:w-full ds:text-primary-gray', className)} data-testid={getTestId('wrapper')}>
       <div className={cx('ds:group ds:w-full', titleClassName)}>
         <button
           type="button"
@@ -133,12 +134,13 @@ export const Accordion = ({
               'ds:border-b ds:border-border-gray': underline,
             },
           )}
-          data-testid={testId}
+          data-testid={getTestId('trigger')}
         >
           <span
             className={cx('ds:text-left ds:text-heading-3 ds:hyphens-auto', {
               'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
             })}
+            data-testid={getTestId('title')}
           >
             {title}
           </span>
@@ -163,6 +165,7 @@ export const Accordion = ({
             afterEnter={clearHeight}
             beforeLeave={captureHeight}
             afterLeave={clearHeight}
+            data-testid={getTestId('content')}
           >
             {children}
           </Transition>
@@ -175,14 +178,15 @@ export const Accordion = ({
             leave="ds:transition-opacity ds:duration-100 ds:ease-out"
             leaveFrom="ds:opacity-100"
             leaveTo="ds:opacity-0"
+            data-testid={getTestId('collapsed-content')}
           >
             {collapsedContent}
           </Transition>
         </>
       ) : (
         <>
-          {isOpen && (!fetchData || fetchStatus === 'done') && children}
-          {!isOpen && collapsedContent}
+          {isOpen && (!fetchData || fetchStatus === 'done') && <div data-testid={getTestId('content')}>{children}</div>}
+          {!isOpen && collapsedContent && <div data-testid={getTestId('collapsed-content')}>{collapsedContent}</div>}
         </>
       )}
     </div>

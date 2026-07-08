@@ -89,7 +89,10 @@ describe('Combobox', () => {
     it('should render with label', () => {
       render(<Combobox label="Label" options={[]} placeholder={placeholder} testId="cb" />);
       expect(screen.getAllByText('Label')).not.toBeNull();
-      expect(screen.getByTestId('cb')).toBeInTheDocument();
+      expect(screen.getByTestId('cb-field')).toBeInTheDocument();
+      expect(screen.getByTestId('cb-label')).toBeInTheDocument();
+      expect(screen.getByTestId('cb-input')).toBeInTheDocument();
+      expect(screen.getByTestId('cb-button')).toBeInTheDocument();
     });
   });
 

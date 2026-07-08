@@ -22,13 +22,14 @@ export const PageNavigation = (props: PageNavigationProps) => {
           <div className="ds:mt-4 ds:ml-4">
             <MenuList
               {...props}
+              testId={`${testId}-menu`}
               hideAccentBorder={hideAccentBorder}
               menuSection={menuSection ? { ...menuSection, title: undefined } : undefined}
             />
           </div>
         </Accordion>
       ) : (
-        <MenuList {...props} hideAccentBorder={hideAccentBorder} />
+        <MenuList {...props} testId={`${testId}-menu`} hideAccentBorder={hideAccentBorder} />
       )}
     </div>
   );

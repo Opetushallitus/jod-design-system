@@ -65,6 +65,8 @@ export const Pagination = ({
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === lastPage;
 
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
+
   return (
     <ArkPagination.Root
       count={totalItems}
@@ -76,9 +78,13 @@ export const Pagination = ({
       type={type}
       aria-label={ariaLabel}
       className="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
-      data-testid={testId}
+      data-testid={getTestId('root')}
     >
-      <ArkPagination.PrevTrigger className={getClassName({ disabled: isFirstPage })} disabled={isFirstPage}>
+      <ArkPagination.PrevTrigger
+        className={getClassName({ disabled: isFirstPage })}
+        disabled={isFirstPage}
+        data-testid={getTestId('prev-trigger')}
+      >
         <JodPagerPrev size={24} />
       </ArkPagination.PrevTrigger>
       <ArkPagination.Context>
@@ -90,6 +96,7 @@ export const Pagination = ({
                 {...page}
                 className={getClassName({ isArrowButton: false, isActive: currentPage === page.value, serviceVariant })}
                 aria-label={translations?.itemLabel?.({ page: page.value, totalPages: totalItems })}
+                data-testid={getTestId(`item-${page.value}`)}
               >
                 {page.value}
               </ArkPagination.Item>
@@ -99,6 +106,7 @@ export const Pagination = ({
                 key={`ellipsis_${index}`}
                 index={index}
                 className={getClassName({ isEllipsis: true })}
+                data-testid={getTestId('ellipsis')}
               >
                 <JodMore size={24} className="ds:rotate-90" />
               </ArkPagination.Ellipsis>
@@ -106,7 +114,11 @@ export const Pagination = ({
           )
         }
       </ArkPagination.Context>
-      <ArkPagination.NextTrigger className={getClassName({ disabled: isLastPage })} disabled={isLastPage}>
+      <ArkPagination.NextTrigger
+        className={getClassName({ disabled: isLastPage })}
+        disabled={isLastPage}
+        data-testid={getTestId('next-trigger')}
+      >
         <JodPagerNext size={24} />
       </ArkPagination.NextTrigger>
     </ArkPagination.Root>

@@ -3,13 +3,16 @@
 exports[`NavigationMenu > renders navigation menu with default state 1`] = `
 <dialog
   class="ds:fixed ds:left-auto ds:right-0 ds:-z-1 ds:flex ds:backdrop:bg-black/20 ds:w-[370px] ds:max-w-full ds:max-h-screen ds:min-h-full ds:overflow-hidden ds:hyphens-auto"
+  data-testid="backdrop"
   open=""
 >
   <nav
     class="ds:bg-white ds:flex ds:flex-col ds:z-100 ds:flex-1"
+    data-testid="root"
   >
     <div
       class="ds:px-3 ds:flex ds:flex-col ds:overflow-y-auto ds:overscroll-contain ds:grow ds:pb-11"
+      data-testid="body"
     >
       <div
         class="ds:flex ds:items-center ds:justify-end ds:my-6 ds:sticky ds:top-0 ds:bg-white ds:z-10"
@@ -20,6 +23,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
           <button
             aria-label="Sulje valikko"
             class="ds:cursor-pointer ds:focus:outline-accent ds:p-3 ds:focus-visible:outline-primary-1-dark"
+            data-testid="close-menu-button"
           >
             <svg
               fill="currentColor"
@@ -40,6 +44,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
       </div>
       <div
         class="ds:border-l-8 ds:border-secondary-gray"
+        data-testid="portal-link"
       >
         <a
           class="ds:ml-3 ds:flex ds:flex-1 ds:gap-3 ds:py-3 ds:cursor-pointer ds:group ds:rounded ds:active:text-white ds:text-primary-gray ds:hover:bg-bg-gray ds:active:bg-primary-1-dark-2 ds:focus-visible:outline-primary-1-dark"
@@ -79,9 +84,12 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
       <hr
         class="ds:my-3 ds:h-1 ds:bg-bg-gray-2 ds:border-0"
       />
-      <div>
+      <div
+        data-testid="menu-list"
+      >
         <ul
           class="ds:gap-2 ds:flex ds:flex-col ds:border-l-8 ds:border-primary-1-dark"
+          data-testid="menu-list-list"
         />
       </div>
     </div>

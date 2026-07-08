@@ -47,6 +47,7 @@ export const Modal = ({
   const panelRef = React.useRef<HTMLDivElement>(null);
   const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh' | null>(null);
   const [isMeasuring, setIsMeasuring] = React.useState(false);
+  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
   // Handle mobile height measurement when modal opens
   React.useLayoutEffect(() => {
@@ -115,18 +116,15 @@ export const Modal = ({
               exit={backdropAnimations.exit}
               className="ds:fixed ds:inset-0 ds:bg-black/30"
               aria-hidden
-              data-testid={testId ? `${testId}-backdrop` : undefined}
+              data-testid={getTestId('backdrop')}
             />
           )}
           {/* Wrapper container paddings and margins */}
-          <div
-            className="ds:fixed ds:inset-0 ds:pt-5 ds:sm:p-10"
-            data-testid={testId ? `${testId}-container` : undefined}
-          >
+          <div className="ds:fixed ds:inset-0 ds:pt-5 ds:sm:p-10" data-testid={getTestId('container')}>
             {/* Wrapper for container centering */}
             <div
               className="ds:flex ds:items-end ds:sm:items-center ds:justify-center ds:h-full"
-              data-testid={testId ? `${testId}-center` : undefined}
+              data-testid={getTestId('center')}
             >
               {/* Modal container */}
               <DialogPanel
@@ -150,7 +148,7 @@ export const Modal = ({
                   'ds:sm:overflow-hidden',
                   className,
                 ])}
-                data-testid={testId ? `${testId}-panel` : undefined}
+                data-testid={getTestId('panel')}
               >
                 {/* Content wrapper - height is controlled here */}
                 <div
@@ -165,16 +163,13 @@ export const Modal = ({
                     'ds:flex',
                     'ds:flex-col',
                   ])}
-                  data-testid={testId ? `${testId}-content-wrapper` : undefined}
+                  data-testid={getTestId('content-wrapper')}
                 >
                   {/* Top */}
                   <div className="ds:flex ds:flex-row ds:justify-between ds:px-5 ds:md:px-9 ds:pb-3">
                     {topSlot}
                     {progress && (
-                      <div
-                        className="ds:flex ds:flex-1 ds:justify-items-end"
-                        data-testid={testId ? `${testId}-progress` : undefined}
-                      >
+                      <div className="ds:flex ds:flex-1 ds:justify-items-end" data-testid={getTestId('progress')}>
                         <div className="ds:ml-auto">{progress}</div>
                       </div>
                     )}
@@ -193,11 +188,11 @@ export const Modal = ({
                         'ds:sm:pr-0',
                         sidePanel && progress ? 'ds:sm:mt-8' : '',
                       ])}
-                      data-testid={testId ? `${testId}-main` : undefined}
+                      data-testid={getTestId('main')}
                     >
                       <div
                         className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1"
-                        data-testid={testId ? `${testId}-scroll` : undefined}
+                        data-testid={getTestId('scroll')}
                       >
                         {content}
                       </div>
@@ -206,11 +201,11 @@ export const Modal = ({
                     {sm && sidePanel && !fullWidthContent && (
                       <div
                         className={tc(['ds:col-span-1', 'ds:flex', 'ds:flex-col', 'ds:min-h-0', 'ds:overflow-hidden'])}
-                        data-testid={testId ? `${testId}-side` : undefined}
+                        data-testid={getTestId('side')}
                       >
                         <div
                           className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ds:flex-1 ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
-                          data-testid={testId ? `${testId}-side-scroll` : undefined}
+                          data-testid={getTestId('side-scroll')}
                         >
                           {sidePanel}
                         </div>
@@ -222,7 +217,7 @@ export const Modal = ({
                 {footer && (
                   <div
                     className="ds:flex ds:shrink-0 ds:bg-bg-gray-2 ds:overflow-x-auto ds:overflow-y-hidden ds:justify-between ds:py-4 ds:sm:py-5 ds:px-4 ds:sm:px-9 ds:z-50"
-                    data-testid={testId ? `${testId}-footer` : undefined}
+                    data-testid={getTestId('footer')}
                   >
                     {footer}
                   </div>
