@@ -17,7 +17,7 @@ export const DatepickerFocusTrap = ({ children, active }: { children: React.Reac
                 | undefined;
 
               if (el || tries > 10) {
-                resolve();
+                resolve(undefined);
               } else {
                 setTimeout(check, 10);
                 tries += 1;
