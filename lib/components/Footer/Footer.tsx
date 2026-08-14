@@ -23,6 +23,7 @@ import {
 interface LinkData {
   href: string;
   label: string;
+  testId?: string;
 }
 
 export interface FooterProps {
@@ -195,6 +196,7 @@ export const Footer = ({
               buttonLabel={feedbackButtonLabel}
               onClick={feedbackOnClick}
               buttonOpensModal
+              testId="feedback-hero-card"
             />
           </div>
         </div>
@@ -202,15 +204,20 @@ export const Footer = ({
       <div className="ds:flex ds:justify-start ds:text-white ds:bg-primary-gray ds:py-6 ds:sm:max-w-[1440px] ds:mx-auto">
         <div className="ds:w-[1092px] ds:mx-auto ds:px-5 ds:sm:px-6 ds:xl:px-0">
           <div className="ds:flex ds:flex-col">
-            <HeadingTag className="ds:text-heading-2-mobile ds:sm:text-heading-2 ds:mb-3">{moreInfoTitle}</HeadingTag>
-            <p className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:mb-6">{moreInfoDescription}</p>
+            <HeadingTag className="ds:text-heading-2-mobile ds:sm:text-heading-2 ds:mb-3" data-testid="more-info-title">
+              {moreInfoTitle}
+            </HeadingTag>
+            <p className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:mb-6" data-testid="more-info-description">
+              {moreInfoDescription}
+            </p>
             <ul className="ds:flex ds:flex-col ds:gap-3 ds:justify-start ds:items-start">
               {moreInfoLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} data-testid={link.testId}>
                   {MoreInfoLinkComponent ? (
                     <MoreInfoLinkComponent
                       to={link.href}
                       className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
+                      data-testid={`${link.testId}-link`}
                     >
                       <span>{link.label}</span>
                       <JodArrowRight />
@@ -221,6 +228,7 @@ export const Footer = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline"
+                      data-testid={`${link.testId}-link`}
                     >
                       <span>{link.label}</span>
                       <JodOpenInNew ariaLabel={externalLinkIconAriaLabel} />
@@ -234,6 +242,7 @@ export const Footer = ({
                     type="button"
                     onClick={onCookieSettingsClick}
                     className="ds:flex ds:justify-center ds:gap-4 ds:text-button-md-mobile ds:sm:text-button-md ds:hover:underline ds:text-white ds:cursor-pointer ds:focus-visible:outline-2 ds:focus-visible:outline-offset-2 ds:focus-visible:outline-white ds:rounded-sm"
+                    data-testid="cookie-settings-button"
                   >
                     <span>{cookieSettingsLabel}</span>
                   </button>

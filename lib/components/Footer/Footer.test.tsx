@@ -18,22 +18,27 @@ const footerProps = {
     {
       href: '/fi/tietoa-palvelusta',
       label: 'Tietoa palvelusta',
+      testId: 'more-info-link-tietoa-palvelusta',
     },
     {
       href: '/fi/tietosuojaseloste-ja-evasteet',
       label: 'Tietosuojaselosteet ja evästeet',
+      testId: 'more-info-link-tietosuojaseloste-ja-evasteet',
     },
     {
       href: '/fi/datalahteet',
       label: 'Datalähteet',
+      testId: 'more-info-link-datalahteet',
     },
     {
       href: '/fi/tietoa-tekoalyn-kaytosta',
       label: 'Tietoa tekoälyn käytöstä',
+      testId: 'more-info-link-tietoa-tekoalyn-kaytosta',
     },
     {
       href: '/fi/tietoa-saavutettavuudesta',
       label: 'Saavutettavuusseloste',
+      testId: 'more-info-link-tietoa-saavutettavuudesta',
     },
   ],
   moreInfoTitle: 'Haluatko tietää lisää Osaamispolusta?',

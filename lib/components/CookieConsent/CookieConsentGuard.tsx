@@ -36,11 +36,18 @@ export const CookieConsentGuard = ({ children, categories, fallback, fallbackCla
           'ds:flex ds:flex-col ds:gap-4 ds:bg-accent ds:rounded-lg ds:p-6 ds:text-white',
           fallbackClassName,
         )}
+        data-testid="cookie-consent-guard-fallback"
       >
         <h2 className="ds:text-heading-2-mobile ds:sm:text-heading-2">{title}</h2>
         <p className="ds:text-body-lg-mobile ds:sm:text-body-lg">{description}</p>
         <div className="ds:flex ds:justify-end ds:mt-4">
-          <Button serviceVariant={serviceVariant} variant="white" label={buttonLabel} onClick={() => open()} />
+          <Button
+            serviceVariant={serviceVariant}
+            variant="white"
+            label={buttonLabel}
+            onClick={() => open()}
+            testId="cookie-consent-guard-fallback-button"
+          />
         </div>
       </div>
     );
