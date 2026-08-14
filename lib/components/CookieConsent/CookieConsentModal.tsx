@@ -57,7 +57,9 @@ export const CookieConsentModal = () => {
       content={
         <div className="ds:px-5 ds:md:px-9 ds:pb-7 ds:text-primary-gray">
           <div className="ds:flex ds:flex-col ds:gap-6 ds:sm:gap-5">
-            <p className="ds:text-body-lg-mobile ds:sm:text-body-lg ds:mt-3 ds:sm:mt-5">{description}</p>
+            <p className="ds:text-body-lg-mobile ds:sm:text-body-lg ds:mt-3 ds:sm:mt-5" data-testid="description">
+              {description}
+            </p>
             <div className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md">
               <p>{cookieCategoriesLabel}:</p>
               <ul className="ds:list-disc ds:list-inside ds:pl-5">
@@ -73,6 +75,7 @@ export const CookieConsentModal = () => {
                   className="ds:text-accent ds:hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-testid="read-more-link"
                 >
                   {readMoreLabel}
                   <span className="ds:inline ds:*:align-top ds:ml-2">
@@ -82,7 +85,7 @@ export const CookieConsentModal = () => {
               </p>
             </div>
             {consent && (
-              <p className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md">
+              <p className="ds:font-arial ds:text-body-md-mobile ds:sm:text-body-md" data-testid="current-selection">
                 {currentSelectionLabel}:{' '}
                 <strong>{consent.thirdPartyContent ? acceptAllLabel : declineOptionalLabel}</strong>
               </p>

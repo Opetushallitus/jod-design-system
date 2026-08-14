@@ -98,6 +98,7 @@ const LinkOrDiv = ({
     <Link
       to={to}
       className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ds:focus-visible:outline-offset-[-6px] ${className}`}
+      data-testid={testId}
     >
       {children}
     </Link>
@@ -114,6 +115,7 @@ const FavoriteButton = ({ isFavorite, favoriteLabel, onFavoriteClick }: Favorite
       className="ds:cursor-pointer ds:absolute ds:top-0 ds:right-0 ds:p-4 ds:bg-white ds:rounded-bl ds:z-2"
       aria-label={favoriteLabel}
       onClick={onFavoriteClick}
+      data-testid={isFavorite ? 'favorite-button-active' : 'favorite-button-inactive'}
     >
       {isFavorite ? (
         <JodFavoriteFilled size={24} aria-hidden className="ds:text-accent" />
