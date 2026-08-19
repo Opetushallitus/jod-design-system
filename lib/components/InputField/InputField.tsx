@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { cx } from '../../main';
-import { getTruthyValuesAsString, tidyClasses as tc } from '../../utils';
+import { getTruthyValuesAsString } from '../../utils';
 import { Field } from '../internal/Field/Field';
 
 interface BaseInputFieldProps {
@@ -117,10 +117,11 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
           aria-invalid={!!errorMessage}
           data-testid={getTestId('input')}
-          className={tc([
-            'ds:block ds:w-full ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+          className={cx(
+            'ds:block ds:w-full ds:rounded ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+            'ds:border-2 ds:border-secondary-gray ds:focus:border-primary-1-dark-2 ds:focus:outline-none ds:focus:ring-2 ds:focus:ring-primary-1-dark ds:focus:ring-offset-0',
             className,
-          ])}
+          )}
         />
       </Field>
     </div>
