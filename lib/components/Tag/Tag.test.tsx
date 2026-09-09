@@ -43,6 +43,36 @@ describe('Tag', () => {
     expect(tagElement).toHaveClass('ds:cursor-pointer');
   });
 
+  it.each([
+    ['tyopaikka', 'added', 'ds:ring-primary-4-light-1', 'ds:bg-primary-4-light-1'],
+    ['koulutus', 'added', 'ds:ring-primary-2-light-1', 'ds:bg-primary-2-light-1'],
+    ['vapaa-ajan-teema', 'added', 'ds:ring-primary-1-light-1', 'ds:bg-primary-1-light-1'],
+    ['jotain-muuta', 'added', 'ds:ring-primary-5-light-2', 'ds:bg-primary-5-light-2'],
+    ['kiinnostus', 'added', 'ds:ring-primary-3-light-1', 'ds:bg-primary-3-light-1'],
+    ['tyopaikka', 'selectable', 'ds:ring-primary-4-light-2', 'ds:bg-primary-4-light-2'],
+    ['koulutus', 'selectable', 'ds:ring-primary-2-light-2', 'ds:bg-primary-2-light-2'],
+    ['vapaa-ajan-teema', 'selectable', 'ds:ring-primary-1-light-2', 'ds:bg-primary-1-light-2'],
+    ['jotain-muuta', 'selectable', 'ds:ring-bg-gray-2', 'ds:bg-bg-gray-2'],
+    ['kiinnostus', 'selectable', 'ds:ring-primary-3-light-2', 'ds:bg-primary-3-light-2'],
+  ] as const)(
+    'renders a hollow %s %s tag with the corresponding ring color',
+    (sourceType, variant, ringClass, backgroundClass) => {
+      const { getByRole } = render(
+        <Tag label="hollow" sourceType={sourceType} variant={variant} hollow onClick={vi.fn()} />,
+      );
+
+      expect(getByRole('button')).toHaveClass(
+        'ds:bg-white',
+        'ds:ring-2',
+        'ds:ring-inset',
+        'ds:px-4',
+        'ds:py-2',
+        ringClass,
+      );
+      expect(getByRole('button')).not.toHaveClass(backgroundClass);
+    },
+  );
+
   it('has no a11y violations', async () => {
     const { container } = render(<Tag label="Label here" onClick={vi.fn()} />);
     expect(await axe(container)).toHaveNoViolations();

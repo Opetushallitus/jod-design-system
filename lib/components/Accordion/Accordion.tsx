@@ -136,14 +136,25 @@ export const Accordion = ({
           )}
           data-testid={getTestId('trigger')}
         >
-          <span
-            className={cx('ds:text-left ds:text-heading-3 ds:hyphens-auto', {
-              'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
-            })}
-            data-testid={getTestId('title')}
-          >
-            {title}
-          </span>
+          {typeof title === 'string' ? (
+            <span
+              className={cx('ds:block ds:min-w-0 ds:flex-1 ds:text-left ds:text-heading-3 ds:hyphens-auto', {
+                'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
+              })}
+              data-testid={getTestId('title')}
+            >
+              {title}
+            </span>
+          ) : (
+            <div
+              className={cx('ds:min-w-0 ds:flex-1 ds:text-left ds:text-heading-3 ds:hyphens-auto', {
+                'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
+              })}
+              data-testid={getTestId('title')}
+            >
+              {title}
+            </div>
+          )}
           <span className="ds:shrink-0" style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
             {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
           </span>

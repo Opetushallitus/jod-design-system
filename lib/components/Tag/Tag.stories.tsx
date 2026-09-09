@@ -107,3 +107,23 @@ export const SelectableWithTooltipNoClickToggle: Story = {
     variant: 'selectable',
   },
 };
+
+export const Hollow: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/6M2LrpSCcB0thlFDaQAI2J/cx_jod_client?node-id=2217-6028',
+    },
+    docs: {
+      description: {
+        story: 'To be used in the data import tables when selecting which AI recognized competences to pick.',
+      },
+    },
+  },
+  args: {
+    label: 'hollow',
+    onClick: fn(),
+    hollow: true,
+    sourceType: 'tyopaikka',
+  },
+};
