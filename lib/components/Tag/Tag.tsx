@@ -8,6 +8,7 @@ interface BaseTagProps {
   tooltip?: string;
   screenReaderTooltip?: string;
   variant?: 'selectable' | 'added' | 'presentation';
+  hollow?: boolean;
   sourceType?: 'tyopaikka' | 'koulutus' | 'vapaa-ajan-teema' | 'kiinnostus' | 'jotain-muuta';
   testId?: string;
 }
@@ -24,23 +25,41 @@ interface ActionableTagProps extends BaseTagProps {
 
 export type TagProps = PresentationTagProps | ActionableTagProps;
 
-const containerClassNames = (sourceType: TagProps['sourceType'], variant: TagProps['variant']) =>
+const containerClassNames = (
+  sourceType: TagProps['sourceType'],
+  variant: TagProps['variant'],
+  hollow: TagProps['hollow'],
+) =>
   cx(
-    'ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-arial ds:leading-none ds:px-4 ds:py-2 ds:text-left ds:max-w-full',
+    'ds:group ds:inline-flex ds:select-none ds:items-center ds:rounded-xl ds:text-body-sm ds:font-arial ds:leading-none ds:text-left ds:max-w-full',
     {
       'ds:cursor-pointer': variant !== 'presentation',
+      'ds:px-4 ds:py-2': !hollow,
+      'ds:border-2 ds:bg-white ds:px-[10px] ds:py-[2px]': hollow,
 
-      'ds:bg-primary-4-light-1': sourceType === 'tyopaikka' && variant !== 'selectable',
-      'ds:bg-primary-2-light-1': sourceType === 'koulutus' && variant !== 'selectable',
-      'ds:bg-primary-1-light-1': sourceType === 'vapaa-ajan-teema' && variant !== 'selectable',
-      'ds:bg-primary-5-light-2': sourceType === 'jotain-muuta' && variant !== 'selectable',
-      'ds:bg-primary-3-light-1': sourceType === 'kiinnostus' && variant !== 'selectable',
+      'ds:bg-primary-4-light-1': !hollow && sourceType === 'tyopaikka' && variant !== 'selectable',
+      'ds:bg-primary-2-light-1': !hollow && sourceType === 'koulutus' && variant !== 'selectable',
+      'ds:bg-primary-1-light-1': !hollow && sourceType === 'vapaa-ajan-teema' && variant !== 'selectable',
+      'ds:bg-primary-5-light-2': !hollow && sourceType === 'jotain-muuta' && variant !== 'selectable',
+      'ds:bg-primary-3-light-1': !hollow && sourceType === 'kiinnostus' && variant !== 'selectable',
 
-      'ds:bg-primary-4-light-2': sourceType === 'tyopaikka' && variant === 'selectable',
-      'ds:bg-primary-2-light-2': sourceType === 'koulutus' && variant === 'selectable',
-      'ds:bg-primary-1-light-2': sourceType === 'vapaa-ajan-teema' && variant === 'selectable',
-      'ds:bg-bg-gray-2': sourceType === 'jotain-muuta' && variant === 'selectable',
-      'ds:bg-primary-3-light-2': sourceType === 'kiinnostus' && variant === 'selectable',
+      'ds:bg-primary-4-light-2': !hollow && sourceType === 'tyopaikka' && variant === 'selectable',
+      'ds:bg-primary-2-light-2': !hollow && sourceType === 'koulutus' && variant === 'selectable',
+      'ds:bg-primary-1-light-2': !hollow && sourceType === 'vapaa-ajan-teema' && variant === 'selectable',
+      'ds:bg-bg-gray-2': !hollow && sourceType === 'jotain-muuta' && variant === 'selectable',
+      'ds:bg-primary-3-light-2': !hollow && sourceType === 'kiinnostus' && variant === 'selectable',
+
+      'ds:border-primary-4-light-1': hollow && sourceType === 'tyopaikka' && variant !== 'selectable',
+      'ds:border-primary-2-light-1': hollow && sourceType === 'koulutus' && variant !== 'selectable',
+      'ds:border-primary-1-light-1': hollow && sourceType === 'vapaa-ajan-teema' && variant !== 'selectable',
+      'ds:border-primary-5-light-2': hollow && sourceType === 'jotain-muuta' && variant !== 'selectable',
+      'ds:border-primary-3-light-1': hollow && sourceType === 'kiinnostus' && variant !== 'selectable',
+
+      'ds:border-primary-4-light-2': hollow && sourceType === 'tyopaikka' && variant === 'selectable',
+      'ds:border-primary-2-light-2': hollow && sourceType === 'koulutus' && variant === 'selectable',
+      'ds:border-primary-1-light-2': hollow && sourceType === 'vapaa-ajan-teema' && variant === 'selectable',
+      'ds:border-bg-gray-2': hollow && sourceType === 'jotain-muuta' && variant === 'selectable',
+      'ds:border-primary-3-light-2': hollow && sourceType === 'kiinnostus' && variant === 'selectable',
     },
   );
 
@@ -52,20 +71,21 @@ export const Tag = ({
   onClick,
   variant = 'selectable',
   sourceType = 'jotain-muuta',
+  hollow = false,
   testId,
 }: TagProps) => {
   return (
     <Tooltip clickToToggle={false} delay={{ open: 500, close: 150 }}>
       <TooltipTrigger asChild noAriaDescribedby noAriaExpanded>
         {variant === 'presentation' ? (
-          <button type="button" className={containerClassNames(sourceType, variant)} data-testid={testId}>
+          <button type="button" className={containerClassNames(sourceType, variant, hollow)} data-testid={testId}>
             <span className="ds:truncate ds:text-primary-gray ds:leading-5">{label}</span>
             {screenReaderTooltip && <span className="ds:sr-only">{screenReaderTooltip}</span>}
           </button>
         ) : (
           <button
             type="button"
-            className={containerClassNames(sourceType, variant)}
+            className={containerClassNames(sourceType, variant, hollow)}
             onClick={onClick}
             data-testid={testId}
           >
