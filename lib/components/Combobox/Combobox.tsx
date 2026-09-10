@@ -7,13 +7,11 @@ import {
 } from '@headlessui/react';
 import React from 'react';
 
-import { JodCaretDown, JodCaretUp } from '../../icons';
+import { JodCaretDown, JodCaretUp, JodCheckmark } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
-import { CheckedIcon } from '../internal/CheckedIcon/CheckedIcon';
 import { InputError } from '../internal/InputError/InputError';
 import { InputHelp } from '../internal/InputHelp/InputHelp';
 import { InputLabel } from '../internal/InputLabel/InputLabel';
-import { UncheckedIcon } from '../internal/UncheckedIcon.tsx/UncheckedIcon';
 
 export interface ComboboxOptionsData<T extends string = string> {
   value: T;
@@ -176,11 +174,11 @@ export const Combobox = <
                           : 'ds:group-data-focus:outline-2 ds:group-data-focus:outline-black ds:group-data-focus:group-hover:outline-none ds:group-data-focus:group-hover:rounded',
                       ])}
                     >
-                      {selectedOption === option ? (
-                        <CheckedIcon disabled={disabled} />
-                      ) : (
-                        <UncheckedIcon disabled={disabled} />
-                      )}
+                      <div className="ds:size-6">
+                        {selectedOption === option && (
+                          <JodCheckmark className={`${disabled ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'}`} />
+                        )}
+                      </div>
                       {highlightMatch(option.label, query)}
                     </div>
                   </ComboboxOption>
