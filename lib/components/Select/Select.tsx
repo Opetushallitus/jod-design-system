@@ -1,13 +1,11 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import React from 'react';
 
-import { JodCaretDown, JodCaretUp } from '../../icons';
+import { JodCaretDown, JodCaretUp, JodCheckmark } from '../../icons';
 import { tidyClasses as tc } from '../../utils';
-import { CheckedIcon } from '../internal/CheckedIcon/CheckedIcon';
 import { InputError } from '../internal/InputError/InputError';
 import { InputHelp } from '../internal/InputHelp/InputHelp';
 import { InputLabel } from '../internal/InputLabel/InputLabel';
-import { UncheckedIcon } from '../internal/UncheckedIcon.tsx/UncheckedIcon';
 
 export interface SelectOptionsData<T extends string = string> {
   value: T;
@@ -122,11 +120,11 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
                           : 'ds:group-data-focus:outline-2 ds:group-data-focus:outline-black ds:group-data-focus:group-hover:outline-none ds:group-data-focus:group-hover:rounded',
                       ])}
                     >
-                      {selectedOption === option ? (
-                        <CheckedIcon disabled={disabled} />
-                      ) : (
-                        <UncheckedIcon disabled={disabled} />
-                      )}
+                      <div className="ds:size-6">
+                        {selectedOption === option && (
+                          <JodCheckmark className={`${disabled ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'}`} />
+                        )}
+                      </div>
                       {option.label}
                     </div>
                   </ListboxOption>
