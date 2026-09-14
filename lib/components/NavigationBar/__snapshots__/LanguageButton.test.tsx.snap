@@ -119,70 +119,78 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
       <div
         class="ds:inline-flex ds:flex-col ds:items-start ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px] ds:gap-2"
       >
-        <div
-          aria-current="true"
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
+        <li
+          class="ds:flex ds:w-full ds:min-h-8 ds:items-center"
+          data-testid="language-button-menu-item-fi"
           lang="fi"
         >
-          <div
-            class="ds:w-5 ds:px-2"
-          >
-            <svg
-              class="ds:text-primary-1-dark"
-              fill="currentColor"
-              height="12"
-              role="presentation"
-              stroke="currentColor"
-              stroke-width="0"
-              viewBox="0 0 12 12"
-              width="12"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="6"
-                cy="6"
-                fill="currentColor"
-                r="6"
-              />
-            </svg>
-          </div>
           <a
             data-testid="link"
             href="#"
           >
-            Suomeksi
+            <span
+              aria-hidden="true"
+              class="ds:ml-2 ds:flex ds:size-4 ds:items-center ds:justify-center"
+            >
+              <span
+                class="ds:size-4 ds:rounded-full ds:bg-primary-1-dark ds:group-active:bg-primary-1-dark-2"
+              />
+            </span>
+            <span
+              class="ds:ml-2 ds:grow ds:px-3 ds:py-3 ds:group-hover:underline"
+            >
+              Suomeksi
+            </span>
           </a>
-        </div>
-        <div
-          aria-current="false"
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
+        </li>
+        <li
+          class="ds:flex ds:w-full ds:min-h-8 ds:items-center"
+          data-testid="language-button-menu-item-en"
           lang="en"
         >
-          <div
-            class="ds:w-5 ds:px-2"
-          />
           <a
             data-testid="link"
             href="#"
           >
-            In English
+            <span
+              aria-hidden="true"
+              class="ds:ml-2 ds:flex ds:size-4 ds:items-center ds:justify-center"
+            >
+              <span
+                class="ds:size-4 ds:rounded-full ds:group-hover:bg-primary-5-light-2 ds:group-active:bg-primary-1-dark-2"
+              />
+            </span>
+            <span
+              class="ds:ml-2 ds:grow ds:px-3 ds:py-3 ds:group-hover:underline"
+            >
+              In English
+            </span>
           </a>
-        </div>
-        <div
-          aria-current="false"
-          class="ds:flex ds:flex-row ds:justify-center ds:items-center ds:gap-2 ds:w-full ds:hover:bg-bg-gray ds:rounded"
+        </li>
+        <li
+          class="ds:flex ds:w-full ds:min-h-8 ds:items-center"
+          data-testid="language-button-menu-item-sv"
           lang="sv"
         >
-          <div
-            class="ds:w-5 ds:px-2"
-          />
           <a
             data-testid="link"
             href="#"
           >
-            På svenska
+            <span
+              aria-hidden="true"
+              class="ds:ml-2 ds:flex ds:size-4 ds:items-center ds:justify-center"
+            >
+              <span
+                class="ds:size-4 ds:rounded-full ds:group-hover:bg-primary-5-light-2 ds:group-active:bg-primary-1-dark-2"
+              />
+            </span>
+            <span
+              class="ds:ml-2 ds:grow ds:px-3 ds:py-3 ds:group-hover:underline"
+            >
+              På svenska
+            </span>
           </a>
-        </div>
+        </li>
       </div>
     </div>
   </div>
