@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { JodPrint } from '../../icons';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { ActionButton } from './ActionButton';
 
 const meta = {

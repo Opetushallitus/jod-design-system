@@ -1,9 +1,13 @@
 import { Dialog, DialogPanel } from '@headlessui/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { applyReducedMotionPreference } from '../../motion';
 import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
+
+// Must run before Motion's first animation, which starts during mount.
+applyReducedMotionPreference();
 
 export interface ModalProps {
   /** Required name for the screenreader */

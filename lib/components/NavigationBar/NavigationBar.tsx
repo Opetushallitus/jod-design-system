@@ -1,7 +1,8 @@
 import React from 'react';
 
+import { Note } from '../../components/Note';
+import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
-import { cx, Note } from '../../main';
 import { getAccentBgClassForService, getAccentBorderClassForService, type ServiceVariant } from '../../utils';
 import { LogoIconRgb } from '../Logo/LogoIcon';
 import { LogoRgb } from '../Logo/LogoRgb';

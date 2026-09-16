@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react';
 
-import { TitledMeta } from '../../utils';
+import { TitledMeta } from '../../storybook';
 import { Chatbot } from './Chatbot';
 
 const meta = {

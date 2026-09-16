@@ -4,7 +4,7 @@ import { fn } from 'storybook/test';
 
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodArrowLeft, JodCheckmark } from '../../icons';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { Button } from '../Button/Button';
 import { WizardProgress } from '../WizardProgress/WizardProgress';
 import { Modal, ModalProps } from './Modal';

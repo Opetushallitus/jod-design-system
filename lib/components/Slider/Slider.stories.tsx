@@ -4,7 +4,7 @@ import { action } from 'storybook/actions';
 import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { Slider } from './Slider';
 
 const meta = {

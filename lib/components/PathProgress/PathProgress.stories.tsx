@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 
 import { JodFlag } from '../../icons';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { PathProgress } from './PathProgress';
 
 const meta = {

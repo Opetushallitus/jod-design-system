@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 
 import { JodOpenInNew } from '../../icons';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { AiInfoButton } from './AiInfoButton';
 
 const meta = {

@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react-vite';
 
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { WizardProgress } from './WizardProgress';
 
 const meta = {

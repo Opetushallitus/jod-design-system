@@ -1,7 +1,9 @@
 import { cx } from 'cva';
 
+import { Tooltip } from '../../components/Tooltip/Tooltip';
+import { TooltipContent } from '../../components/Tooltip/TooltipContent';
+import { TooltipTrigger } from '../../components/Tooltip/TooltipTrigger';
 import { JodAdd, JodClose } from '../../icons';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../../main';
 
 interface BaseTagProps {
   label: string;
