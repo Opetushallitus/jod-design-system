@@ -1,8 +1,8 @@
 import type { Placement } from '@floating-ui/react';
 import React from 'react';
 
+import { cx } from '../../cva';
 import { JodAiGradient } from '../../icons';
-import { cx } from '../../main';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { TooltipContent } from '../Tooltip/TooltipContent';
 import { TooltipTrigger } from '../Tooltip/TooltipTrigger';

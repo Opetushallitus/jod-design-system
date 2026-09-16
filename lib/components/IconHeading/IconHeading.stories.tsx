@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 
 import { JodCompass, JodInfo } from '../../icons';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { IconHeading } from './IconHeading';
 
 const meta = {

@@ -1,5 +1,4 @@
-import type { Meta } from '@storybook/react-vite';
-import { TargetAndTransition } from 'motion';
+import type { TargetAndTransition } from 'motion/react';
 
 /**
  * Tidies up a string (or array of strings) of CSS class names by removing any extra whitespace and empty strings
@@ -18,20 +17,6 @@ export const tidyClasses = (classNames: string | string[]): string =>
  */
 export const clamp = (value: number, min: number, max: number): number => Math.min(Math.max(value, min), max);
 
-export type StoryBookCategory =
-  | 'Buttons'
-  | 'Cards'
-  | 'Content'
-  | 'Forms'
-  | 'Images'
-  | 'Misc'
-  | 'Navigation'
-  | 'Popups'
-  | 'Lists';
-export type ValidTitle = `${StoryBookCategory}/${string}`;
-export type TitledMeta<T> = Meta<T> & {
-  title: ValidTitle;
-};
 export type ServiceVariant = 'yksilo' | 'ohjaaja' | 'tietopalvelu' | 'palveluportaali';
 
 // Service variant color tokens - single source of truth for service-specific colors

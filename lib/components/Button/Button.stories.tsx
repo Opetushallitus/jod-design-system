@@ -3,7 +3,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { JodArrowLeft, JodArrowRight, JodEdit, JodUser } from '../../icons';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { Button } from './Button';
 
 const meta = {

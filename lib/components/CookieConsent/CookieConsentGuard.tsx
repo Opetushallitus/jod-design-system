@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { Button } from '../../components/Button/Button';
 import { cx } from '../../cva';
-import { Button } from '../../main';
 import { useCookieConsent } from './CookieConsentContext';
 import { type CookieOptionalCategory } from './cookieConsentUtils';
 

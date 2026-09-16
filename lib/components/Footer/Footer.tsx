@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { HeroCard } from '../../components/HeroCard/HeroCard';
 import { JodArrowRight, JodOpenInNew } from '../../icons';
-import { HeroCard } from '../../main';
 import { LogoRgb } from '../Logo/LogoRgb';
 import facebookIcon from '../Logo/some-facebook.png';
 import instagramIcon from '../Logo/some-instagram.png';

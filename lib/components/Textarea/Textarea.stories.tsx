@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { Textarea } from './Textarea';
 
 const meta = {

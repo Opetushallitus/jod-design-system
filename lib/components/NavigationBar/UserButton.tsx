@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { LinkComponent } from '../../components/NavigationMenu';
+import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodUser } from '../../icons';
-import { cx, LinkComponent } from '../../main';
 import { getAccentBgClassForService, getPressedBgColorClassForService, ServiceVariant } from '../../utils';
 import { PopupList, PopupListItem } from '../PopupList/PopupList';
 import { PopupMenuWrapper } from './PopupMenuWrapper';

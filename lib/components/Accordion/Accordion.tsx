@@ -2,8 +2,8 @@ import { Transition } from '@headlessui/react';
 import React from 'react';
 
 import { cx } from '../../cva';
+import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodCaretDown, JodCaretUp } from '../../icons';
-import { useMediaQueries } from '../../main';
 import { Spinner } from '../Spinner/Spinner';
 
 type TitleProps =
