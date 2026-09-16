@@ -1,8 +1,8 @@
 import type { StoryObj } from '@storybook/react-vite';
 
+import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { ServiceVariantProvider } from '../../hooks/useServiceVariant';
-import { useMediaQueries } from '../../main';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { LinkComponent, MenuSection } from '../NavigationMenu';
 import { PageNavigation } from '../PageNavigation/PageNavigation';
 import { MainLayout } from './MainLayout';

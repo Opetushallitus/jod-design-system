@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { cx } from '../../cva';
-import { useMediaQueries } from '../../main';
+import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { type ServiceVariant } from '../../utils';
 
 export interface BreadcrumbItem {

@@ -11,7 +11,7 @@ import {
   ServiceVariantProvider,
   UserButton,
 } from '../../main';
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { externalLinkSections, languageSelectionItems, menuSection } from '../NavigationMenu/commonStoriesData';
 import { LanguageButton } from './LanguageButton';
 import { NavigationBar, NavigationBarProps } from './NavigationBar';

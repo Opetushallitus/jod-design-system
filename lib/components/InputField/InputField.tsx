@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cx } from '../../main';
+import { cx } from '../../cva';
 import { getTruthyValuesAsString } from '../../utils';
 import { Field } from '../internal/Field/Field';
 

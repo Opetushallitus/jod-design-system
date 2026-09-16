@@ -5,22 +5,27 @@
   "license": "EUPL-1.2",
   "files": [
     "dist",
-    "lib"
+    "lib/theme.css"
   ],
   "type": "module",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/main.js",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/main.js",
-      "require": "./dist/main.js"
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js"
     },
     "./icons": {
-      "import": "./lib/icons/index.js",
-      "require": "./lib/icons/index.js"
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.js"
     },
     "./dist/main.css": "./dist/main.css",
-    "./lib/theme.css": "./lib/theme.css"
+    "./lib/theme.css": "./lib/theme.css",
+    "./package.json": "./package.json"
   },
   "scripts": {
     "dev": "vite build -w",
@@ -38,6 +43,8 @@
     "@ark-ui/react": "5.37.2",
     "@floating-ui/react": "0.27.20",
     "@headlessui/react": "2.2.10",
+    "@internationalized/date": "3.12.2",
+    "@zag-js/date-picker": "1.41.2",
     "cva": "1.0.0-beta.8",
     "focus-trap-react": "12.0.3",
     "motion": "12.42.2",
@@ -46,7 +53,6 @@
   "devDependencies": {
     "@lavamoat/allow-scripts": "5.1.0",
     "@lavamoat/preinstall-always-fail": "3.0.0",
-    "@microsoft/api-extractor": "7.58.12",
     "@storybook/addon-a11y": "10.5.4",
     "@storybook/addon-docs": "10.5.4",
     "@storybook/addon-links": "10.5.4",
@@ -108,7 +114,7 @@
   "lavamoat": {
     "allowScripts": {
       "@lavamoat/preinstall-always-fail": false,
-      "vite>esbuild#0.27.1": false
+      "vite>esbuild#0.28.2": false
     }
   }
 }

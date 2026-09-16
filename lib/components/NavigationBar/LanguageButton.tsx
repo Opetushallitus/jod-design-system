@@ -1,9 +1,9 @@
 import React, { JSX } from 'react';
 
+import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { usePopupMenu } from '../../hooks/usePopupMenu';
 import { JodCaretDown, JodCaretUp, JodLanguage } from '../../icons';
-import { cx } from '../../main';
 import { LanguageMenu } from './LanguageMenu';
 import { PopupMenuWrapper } from './PopupMenuWrapper';
 import { LangCode, LanguageButtonProps, LanguageTranslations } from './types';

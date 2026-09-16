@@ -4,8 +4,12 @@ import React from 'react';
 import { JSX } from 'react/jsx-runtime';
 
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { applyReducedMotionPreference } from '../../motion';
 import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
 import { Button } from '../Button/Button';
+
+// Must run before Motion's first animation, which starts during mount.
+applyReducedMotionPreference();
 
 type Variant = 'normal' | 'destructive';
 

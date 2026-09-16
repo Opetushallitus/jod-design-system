@@ -3,7 +3,7 @@ import { DayTableCellState } from '@zag-js/date-picker';
 import { useState } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 
-import type { TitledMeta } from '../../utils';
+import type { TitledMeta } from '../../storybook';
 import { Datepicker } from './Datepicker';
 import { getDatepickerTranslations } from './DatepickerTranslations';
 

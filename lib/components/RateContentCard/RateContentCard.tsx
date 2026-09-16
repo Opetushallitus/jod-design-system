@@ -1,8 +1,11 @@
 import React from 'react';
 
+import { Button } from '../../components/Button/Button';
+import { ConfirmDialog } from '../../components/ConfirmDialog/ConfirmDialog';
+import { Spinner } from '../../components/Spinner/Spinner';
+import { Textarea } from '../../components/Textarea/Textarea';
 import { cx } from '../../cva';
 import { JodAi, JodThumbDown, JodThumbDownFilled, JodThumbUp, JodThumbUpFilled } from '../../icons';
-import { Button, ConfirmDialog, Spinner, Textarea } from '../../main';
 
 export interface RateContentCardProps {
   /** Object containing all the translations for the component */
