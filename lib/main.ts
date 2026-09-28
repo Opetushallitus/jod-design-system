@@ -88,6 +88,7 @@ export { Note } from './components/Note';
 export { PageNavigation, type PageNavigationProps } from './components/PageNavigation/PageNavigation';
 export { Pagination, type PageChangeDetails } from './components/Pagination/Pagination';
 export { PathProgress, type PathProgressStep } from './components/PathProgress/PathProgress';
+export { Picture, pictureToImageSet, type PictureData, type PictureProps } from './components/Picture/Picture';
 export { PopupList, PopupListItem } from './components/PopupList/PopupList';
 export { ProgressIndicatorCard } from './components/ProgressIndicatorCard/ProgressIndicatorCard';
 export { RadioButton } from './components/RadioButton/RadioButton';
