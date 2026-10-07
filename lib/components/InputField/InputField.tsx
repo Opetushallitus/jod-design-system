@@ -33,6 +33,10 @@ interface BaseInputFieldProps {
   errorMessage?: string;
   /** Width. Currently only up from sm */
   widthVariant?: 'full' | 'constrained';
+  /** The type of the input field */
+  type?: 'text' | 'email' | 'tel' | 'url';
+  /** Autocomplete hint for the browser, e.g. "email". Helps users identify the input purpose */
+  autoComplete?: React.InputHTMLAttributes<HTMLInputElement>['autoComplete'];
 }
 
 interface HideLabelProps extends BaseInputFieldProps {
@@ -73,6 +77,8 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
     testId,
     errorMessage,
     widthVariant = 'constrained',
+    type = 'text',
+    autoComplete = 'off',
   }: InputFieldProps,
   ref,
 ) {
@@ -106,14 +112,14 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           ref={ref}
           id={inputId}
           name={name}
-          type="text"
+          type={type}
           value={value}
           onBlur={onBlur}
           onChange={onChange}
           onKeyDown={onKeyDown}
           maxLength={maxLength}
           placeholder={placeholder}
-          autoComplete="off"
+          autoComplete={autoComplete}
           aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
           aria-invalid={!!errorMessage}
           data-testid={getTestId('input')}
