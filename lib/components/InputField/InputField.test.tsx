@@ -65,6 +65,20 @@ describe('InputField', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('uses text type and disables autocomplete by default', () => {
+    render(<InputField onChange={vi.fn()} label={label} testId="input5" />);
+    const inputElement = screen.getByTestId('input5-input');
+    expect(inputElement).toHaveAttribute('type', 'text');
+    expect(inputElement).toHaveAttribute('autocomplete', 'off');
+  });
+
+  it('sets type and autocomplete attributes', () => {
+    render(<InputField onChange={vi.fn()} label={label} type="email" autoComplete="email" testId="input6" />);
+    const inputElement = screen.getByTestId('input6-input');
+    expect(inputElement).toHaveAttribute('type', 'email');
+    expect(inputElement).toHaveAttribute('autocomplete', 'email');
+  });
+
   it('has no a11y violations', async () => {
     const { container } = render(<InputField onChange={vi.fn()} label={label} />);
     expect(await axe(container)).toHaveNoViolations();

@@ -171,3 +171,33 @@ export const ErrorMessage: Story = {
     errorMessage: 'Error message',
   },
 };
+
+export const Email: Story = {
+  render,
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    design: {
+      type: 'figma',
+      url,
+    },
+    docs: {
+      description: {
+        story:
+          'This is a input field component for an email address. Use `type="email"` and `autoComplete="email"` so that the input purpose can be identified.',
+      },
+    },
+  },
+  args: {
+    value: '',
+    onChange: fn(),
+    label: 'Email',
+    type: 'email',
+    autoComplete: 'email',
+  },
+};
