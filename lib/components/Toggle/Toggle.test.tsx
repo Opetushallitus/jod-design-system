@@ -10,26 +10,26 @@ describe('Toggle', () => {
     const { container } = render(
       <Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle something" serviceVariant="yksilo" />,
     );
-    const button = screen.getByRole('button', { name: /toggle something/i });
+    const button = screen.getByRole('switch', { name: /toggle something/i });
     expect(button).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('shows correct aria-pressed state', () => {
+  it('shows correct aria-checked state', () => {
     const { rerender } = render(
       <Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle" serviceVariant="yksilo" />,
     );
-    const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-pressed', 'false');
+    const button = screen.getByRole('switch');
+    expect(button).toHaveAttribute('aria-checked', 'false');
 
     rerender(<Toggle checked={true} onChange={vi.fn()} ariaLabel="Toggle" serviceVariant="yksilo" />);
-    expect(button).toHaveAttribute('aria-pressed', 'true');
+    expect(button).toHaveAttribute('aria-checked', 'true');
   });
 
   it('calls onChange with toggled value when clicked', () => {
     const handleChange = vi.fn();
     render(<Toggle checked={false} onChange={handleChange} ariaLabel="Toggle" serviceVariant="yksilo" />);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('switch');
     fireEvent.click(button);
     expect(handleChange).toHaveBeenCalledWith(true);
   });
@@ -37,20 +37,20 @@ describe('Toggle', () => {
   it('does not call onChange when disabled', () => {
     const handleChange = vi.fn();
     render(<Toggle checked={false} onChange={handleChange} disabled ariaLabel="Toggle" serviceVariant="yksilo" />);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('switch');
     fireEvent.click(button);
     expect(handleChange).not.toHaveBeenCalled();
   });
 
   it('is disabled when the disabled prop is true', () => {
     render(<Toggle checked={false} onChange={vi.fn()} disabled ariaLabel="Toggle" serviceVariant="yksilo" />);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('switch');
     expect(button).toBeDisabled();
   });
 
   it('has the correct aria-label', () => {
     render(<Toggle checked={false} onChange={vi.fn()} ariaLabel="Custom label" serviceVariant="yksilo" />);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('switch');
     expect(button).toHaveAttribute('aria-label', 'Custom label');
   });
 

@@ -2,11 +2,13 @@
 
 exports[`Toggle > renders as a button 1`] = `
 <button
+  aria-checked="false"
   aria-label="Toggle something"
-  aria-pressed="false"
-  class="ds:transition-all ds:duration-200 ds:w-[52px] ds:h-[32px] ds:relative ds:rounded-2xl ds:flex ds:cursor-pointer ds:bg-inactive-gray"
+  class="ds:transition-all ds:duration-200 ds:w-[52px] ds:h-7 ds:relative ds:rounded-2xl ds:flex ds:cursor-pointer ds:bg-inactive-gray"
+  role="switch"
 >
   <span
+    aria-hidden="true"
     class="ds:size-6 ds:bg-white ds:rounded-full ds:m-2 ds:transition-all ds:duration-200 ds:transform ds:translate-x-0"
   />
 </button>
