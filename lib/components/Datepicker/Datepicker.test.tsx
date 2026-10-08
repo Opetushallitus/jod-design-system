@@ -203,6 +203,31 @@ describe('Datepicker', () => {
     expect(screen.getByRole('button', { name: /Selected\. Choose/ })).toBeInTheDocument();
   });
 
+  it('is not marked invalid without an error message', () => {
+    render(<Datepicker label={label} value={value} onChange={onChange} translations={translations} testId="dp" />);
+    expect(screen.getByTestId('dp-input')).not.toHaveAttribute('aria-invalid', 'true');
+    expect(screen.queryByTestId('dp-error')).not.toBeInTheDocument();
+  });
+
+  it('renders the error message and marks the input invalid', () => {
+    render(
+      <Datepicker
+        label={label}
+        value={value}
+        onChange={onChange}
+        translations={translations}
+        testId="dp"
+        help="Help text"
+        errorMessage="Invalid date"
+      />,
+    );
+    const input = screen.getByTestId('dp-input');
+    const error = screen.getByTestId('dp-error');
+    expect(error).toHaveTextContent('Invalid date');
+    expect(input).toHaveAttribute('aria-invalid', 'true');
+    expect(input.getAttribute('aria-describedby')?.split(' ')).toEqual([screen.getByTestId('dp-help').id, error.id]);
+  });
+
   it('has no a11y violations', async () => {
     const { container } = render(
       <Datepicker
