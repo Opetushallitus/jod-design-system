@@ -114,3 +114,18 @@ export const WithMinAndMaxDate: Story = {
     maxDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days from now
   },
 };
+
+export const WithError: Story = {
+  decorators: [
+    (Story) => (
+      <div className="ds:max-w-[415px]">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters,
+  args: {
+    ...args,
+    errorMessage: 'Error message',
+  },
+};

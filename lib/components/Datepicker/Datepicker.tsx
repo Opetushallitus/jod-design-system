@@ -11,7 +11,8 @@ import React from 'react';
 
 import { cx } from '../../cva';
 import { JodArrowLeft, JodArrowRight, JodCalendar } from '../../icons';
-import { tidyClasses as tc } from '../../utils';
+import { getTruthyValuesAsString, tidyClasses as tc } from '../../utils';
+import { InputError } from '../internal/InputError/InputError';
 import { InputHelp } from '../internal/InputHelp/InputHelp';
 import { DatepickerFocusTrap } from './DatePickerFocusTrap';
 import { isInvalidYear, parseInputValue, verifyCalendarDate } from './utils';
@@ -110,6 +111,8 @@ export interface DatepickerProps {
   minDate?: Date;
   /** Maximum selectable date */
   maxDate?: Date;
+  /** The error message to display below the input field */
+  errorMessage?: string;
 }
 
 /** Datepicker component for selecting a date. */
@@ -127,8 +130,10 @@ export const Datepicker = ({
   requiredText,
   minDate,
   maxDate,
+  errorMessage,
 }: DatepickerProps) => {
   const helpId = React.useId();
+  const errorId = React.useId();
   const timeZone = 'Europe/Helsinki';
   const labelText = requiredText ? `${label} (${requiredText})` : label;
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
@@ -178,6 +183,7 @@ export const Datepicker = ({
     max: maxDate ? parseDate(maxDate) : undefined,
     fixedWeeks: true,
     outsideDaySelectable: true,
+    invalid: !!errorMessage,
   });
 
   return (
@@ -200,7 +206,7 @@ export const Datepicker = ({
             placeholder={placeholder}
             required={!!requiredText}
             aria-required={!!requiredText}
-            aria-describedby={help ? helpId : undefined}
+            aria-describedby={getTruthyValuesAsString(help ? helpId : '', errorMessage ? errorId : '')}
             className="ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-border-form ds:bg-white ds:pl-5 ds:py-3 ds:font-arial ds:text-primary-gray ds:placeholder:text-inactive-gray ds:placeholder:text-body-md ds:focus:outline-2 ds:focus:outline-accent ds:focus:mr-1"
             onInput={(e) => {
               // Handle clearing the input field to allow clearing the datepicker value
@@ -230,6 +236,7 @@ export const Datepicker = ({
         </div>
       </ArkDatePicker.Control>
       <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
+      <InputError id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
       <Portal>
         <ArkDatePicker.Positioner>
           <ArkDatePicker.Content

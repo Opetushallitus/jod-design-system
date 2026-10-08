@@ -8,7 +8,7 @@ exports[`Datepicker > renders correctly 1`] = `
   data-state="closed"
   data-testid="field"
   dir="ltr"
-  id="datepicker:_r_1_"
+  id="datepicker:_r_2_"
 >
   <label
     class="ds:mb-3 ds:inline-block ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
@@ -18,8 +18,8 @@ exports[`Datepicker > renders correctly 1`] = `
     data-state="closed"
     data-testid="label"
     dir="ltr"
-    for="datepicker:_r_1_:input:0"
-    id="datepicker:_r_1_:label:0"
+    for="datepicker:_r_2_:input:0"
+    id="datepicker:_r_2_:label:0"
   >
     Pick a date dude!
   </label>
@@ -27,7 +27,7 @@ exports[`Datepicker > renders correctly 1`] = `
     data-part="control"
     data-scope="date-picker"
     dir="ltr"
-    id="datepicker:_r_1_:control"
+    id="datepicker:_r_2_:control"
   >
     <div
       class="ds:flex ds:w-full"
@@ -43,13 +43,13 @@ exports[`Datepicker > renders correctly 1`] = `
         data-state="closed"
         data-testid="input"
         dir="ltr"
-        id="datepicker:_r_1_:input:0"
+        id="datepicker:_r_2_:input:0"
         placeholder="pp.kk.vvvv"
         spellcheck="false"
         value="1.5.2024"
       />
       <button
-        aria-controls="datepicker:_r_1_:content"
+        aria-controls="datepicker:_r_2_:content"
         aria-expanded="false"
         aria-haspopup="grid"
         aria-label="Open calendar"
@@ -59,7 +59,7 @@ exports[`Datepicker > renders correctly 1`] = `
         data-state="closed"
         data-testid="trigger"
         dir="ltr"
-        id="datepicker:_r_1_:trigger"
+        id="datepicker:_r_2_:trigger"
         type="button"
       >
         <svg
