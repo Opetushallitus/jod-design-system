@@ -95,6 +95,7 @@ const args = {
       label: 'Osaamispolku Instagram',
     },
   },
+  socialMediaLabel: 'Osaamispolku sosiaalisessa mediassa',
   cookieSettingsLabel: 'Evästeasetukset',
   onCookieSettingsClick: fn(),
 };
