@@ -122,6 +122,37 @@ describe('RangeSlider', () => {
     expect(getByTestId('slider-thumb-max')).toBeInTheDocument();
   });
 
+  it('names thumbs by their purpose and announces the selected values', async () => {
+    const user = userEvent.setup();
+    const { getByRole, rerender } = render(
+      <RangeSlider
+        markers={[...markers.slice(0, 2), { label: 'Max', value: 2, ariaValueText: 'Maximum value' }]}
+        value={[0, 2]}
+        onValueChange={onValueChange}
+        minValueDescription={minDescription}
+        maxValueDescription={maxDescription}
+      />,
+    );
+    const minThumb = getByRole('slider', { name: minDescription });
+    const maxThumb = getByRole('slider', { name: maxDescription });
+    expect(minThumb).toHaveAttribute('aria-valuetext', 'Min');
+    expect(maxThumb).toHaveAttribute('aria-valuetext', 'Maximum value');
+
+    await user.click(maxThumb);
+    await user.keyboard('{ArrowLeft}');
+    expect(onValueChange).toHaveBeenCalledWith([0, 1]);
+    rerender(
+      <RangeSlider
+        markers={markers}
+        value={[0, 1]}
+        onValueChange={onValueChange}
+        minValueDescription={minDescription}
+        maxValueDescription={maxDescription}
+      />,
+    );
+    expect(getByRole('slider', { name: maxDescription })).toHaveAttribute('aria-valuetext', 'Mid');
+  });
+
   it('has no a11y violations', async () => {
     const { container } = render(
       <RangeSlider
