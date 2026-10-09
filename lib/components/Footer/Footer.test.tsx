@@ -62,6 +62,7 @@ const footerProps = {
       label: 'Osaamispolku Instagram',
     },
   },
+  socialMediaLabel: 'Osaamispolku sosiaalisessa mediassa',
   feedbackOnClick: vi.fn(),
   feedbackBgImageClassName: '',
   externalLinkIconAriaLabel: 'Linkki johtaa palvelun ulkopuolelle',
@@ -85,6 +86,21 @@ describe('Footer', () => {
   it('emits data-testid when provided', () => {
     render(<Footer {...footerProps} testId="footer" />);
     expect(screen.getByTestId('footer')).toBeInTheDocument();
+  });
+
+  it('renders accessible social media links', () => {
+    render(FooterComponent);
+    const list = screen.getByRole('list', { name: 'Osaamispolku sosiaalisessa mediassa' });
+    expect(list).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Osaamispolku Facebook, Linkki johtaa palvelun ulkopuolelle' }),
+    ).toHaveAttribute('href', 'https://www.facebook.com/osaamispolku');
+    expect(
+      screen.getByRole('link', { name: 'Osaamispolku Instagram, Linkki johtaa palvelun ulkopuolelle' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Osaamispolku LinkedIn, Linkki johtaa palvelun ulkopuolelle' }),
+    ).toBeInTheDocument();
   });
 
   it('has no a11y violations', async () => {
