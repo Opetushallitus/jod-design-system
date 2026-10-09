@@ -34,12 +34,12 @@ const baseProps = {
   minValueDescription: 'Minimum duration',
   maxValueDescription: 'Maximum duration',
   markers: [
-    { value: 0, label: '1 pvä' },
-    { value: 1, label: '1 vko' },
-    { value: 2, label: '1 kk' },
-    { value: 3, label: '1 v' },
-    { value: 4, label: '3 v' },
-    { value: 5, label: '6+ v' },
+    { value: 0, label: '1 pvä', ariaValueText: '1 päivä' },
+    { value: 1, label: '1 vko', ariaValueText: '1 viikko' },
+    { value: 2, label: '1 kk', ariaValueText: '1 kuukausi' },
+    { value: 3, label: '1 v', ariaValueText: '1 vuosi' },
+    { value: 4, label: '3 v', ariaValueText: '3 vuotta' },
+    { value: 5, label: '6+ v', ariaValueText: '6 vuotta tai pidempi' },
   ],
   onValueChange: fn(),
 };

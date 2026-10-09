@@ -17,6 +17,11 @@ const ControlledSlider = ({ mockOnChange, defaultValue, ...rest }: { mockOnChang
   return <Slider value={value} label="Target" onValueChange={mockOnChange} rightLabel="moi" {...rest} />;
 };
 
+// Thumb is visibility: hidden in jsdom until measured, so accessible name is resolved via aria-labelledby manually
+const getThumb = () => screen.getByRole('slider', { hidden: true });
+const getThumbName = (thumb: HTMLElement) =>
+  document.getElementById(thumb.getAttribute('aria-labelledby') ?? '')?.textContent;
+
 describe('Slider', () => {
   it('should call onValueChange when value changes', async () => {
     const onValueChangeMock = await waitFor(() => vi.fn());
@@ -30,8 +35,7 @@ describe('Slider', () => {
 
     await waitFor(() => sliderThumb.focus());
     expect(sliderThumb).toHaveFocus();
-    const tooltip = await screen.findByRole('tooltip');
-    expect(tooltip).toHaveTextContent('100 - 0 %');
+    expect(await screen.findByText('100 - 0 %')).toBeInTheDocument();
 
     const press = async (key: 'left' | 'right') => await user.keyboard(key === 'left' ? '{ArrowLeft}' : '{ArrowRight}');
     const ariaValue = 'aria-valuenow';
@@ -80,8 +84,7 @@ describe('Slider', () => {
     const [sliderThumb] = screen.getAllByRole('slider', { hidden: true });
     await waitFor(() => sliderThumb.focus());
 
-    const tooltip = screen.getByRole('tooltip');
-    expect(tooltip).toHaveTextContent('75 - 25 %');
+    expect(screen.getByText('75 - 25 %')).toBeInTheDocument();
   });
 
   it('should render the label and rightLabel correctly', async () => {
@@ -105,6 +108,39 @@ describe('Slider', () => {
     expect(screen.getByTestId('s-tooltip')).toBeInTheDocument();
     expect(screen.getByTestId('s-tooltip-arrow')).toBeInTheDocument();
     expect(screen.getByTestId('s-thumb')).toBeInTheDocument();
+  });
+
+  it('labels the thumb and announces both values', () => {
+    render(<Slider label="Osaamiset" rightLabel="Kiinnostukset" value={25} onValueChange={vi.fn()} />);
+
+    const thumb = getThumb();
+    expect(getThumbName(thumb)).toBe('Osaamiset - Kiinnostukset');
+    expect(thumb).toHaveAttribute('aria-valuetext', 'Osaamiset 75 %, Kiinnostukset 25 %');
+  });
+
+  it('uses custom ariaLabel and getAriaValueText', () => {
+    render(
+      <Slider
+        label="Osaamiset"
+        rightLabel="Kiinnostukset"
+        ariaLabel="Painotus"
+        getAriaValueText={(v) => `kiinnostukset ${v}`}
+        value={75}
+        onValueChange={vi.fn()}
+      />,
+    );
+
+    const thumb = getThumb();
+    expect(getThumbName(thumb)).toBe('Painotus');
+    expect(thumb).toHaveAttribute('aria-valuetext', 'kiinnostukset 75');
+  });
+
+  it('announces only the value without rightLabel', () => {
+    render(<Slider label="Osaamiset" value={50} onValueChange={vi.fn()} />);
+
+    const thumb = getThumb();
+    expect(getThumbName(thumb)).toBe('Osaamiset');
+    expect(thumb).toHaveAttribute('aria-valuetext', '50 %');
   });
 
   it('has no a11y violations', async () => {
