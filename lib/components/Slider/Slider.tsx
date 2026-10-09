@@ -15,7 +15,6 @@ import {
   useFocus,
   useHover,
   useInteractions,
-  useRole,
 } from '@floating-ui/react';
 import { cx } from 'cva';
 import React from 'react';
@@ -38,6 +37,10 @@ export interface SliderProps {
   value: number;
   /** Disabled state */
   disabled?: boolean;
+  /** Accessible name for the slider, describing what is being adjusted. Defaults to the label(s). */
+  ariaLabel?: string;
+  /** Returns the text announced by screen readers for the given value. Defaults to the label(s) with percentages. */
+  getAriaValueText?: (value: number) => string;
   /** Data-testid attribute */
   testId?: string;
 }
@@ -52,6 +55,8 @@ export const Slider = ({
   rightLabel,
   disabled,
   hideLabels = false,
+  ariaLabel,
+  getAriaValueText,
   testId,
 }: SliderProps) => {
   const inputId = React.useId();
@@ -73,11 +78,7 @@ export const Slider = ({
   const hover = useHover(context, { move: false });
   const focus = useFocus(context);
   const dismiss = useDismiss(context);
-  const role = useRole(context, {
-    role: 'tooltip',
-  });
-
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss]);
 
   const onValueChangeHandler = (details: ArkValueChangeDetails) => {
     onValueChange(details.value[0]);
@@ -85,6 +86,18 @@ export const Slider = ({
 
   const onFocusChangeHandler = (details: ArkFocusChangeDetails) => {
     setFocused(details.focusedIndex === 0);
+  };
+
+  const accessibleName = ariaLabel ?? (rightLabel ? `${label} - ${rightLabel}` : label);
+
+  const getValueText = ({ value }: { value: number }) => {
+    if (getAriaValueText) {
+      return getAriaValueText(value);
+    }
+    if (rightLabel) {
+      return `${label} ${100 - value} %, ${rightLabel} ${value} %`;
+    }
+    return `${value} %`;
   };
 
   const getTooltipValue = () => {
@@ -109,7 +122,7 @@ export const Slider = ({
         value={[value]}
         step={25}
         disabled={disabled}
-        aria-label={rightLabel ? [label, rightLabel] : [label]}
+        getAriaValueText={getValueText}
         data-testid={testId}
       >
         <div className="ds:content-center ds:w-full">
@@ -147,7 +160,6 @@ export const Slider = ({
             <ArkSlider.Thumb
               ref={refs.setReference}
               {...getReferenceProps()}
-              aria-label={rightLabel ? `${label} - ${rightLabel}` : label}
               index={0}
               className={cx('ds:absolute ds:-top-4 ds:flex ds:size-7 ds:justify-center ds:rounded-full ds:z-20', {
                 'ds:bg-accent': !disabled,
@@ -157,22 +169,21 @@ export const Slider = ({
             />
           </ArkSlider.Control>
         </div>
-        <div className="ds:flex ds:justify-between">
+        {/* Thumb is labelled by this element. Visible labels are conveyed through the value text. */}
+        <ArkSlider.Label className="ds:sr-only">{accessibleName}</ArkSlider.Label>
+        <div className="ds:flex ds:justify-between" aria-hidden>
           {!hideLabels && (
-            <ArkSlider.Label
-              className="ds:flex ds:items-center ds:text-menu"
-              data-testid={testId ? `${testId}-label` : undefined}
-            >
+            <div className="ds:flex ds:items-center ds:text-menu" data-testid={testId ? `${testId}-label` : undefined}>
               {label}
-            </ArkSlider.Label>
+            </div>
           )}
           {!hideLabels && rightLabel && (
-            <ArkSlider.Label
+            <div
               className="ds:flex ds:items-center ds:text-menu"
               data-testid={testId ? `${testId}-rightLabel` : undefined}
             >
               {rightLabel}
-            </ArkSlider.Label>
+            </div>
           )}
         </div>
       </ArkSlider.Root>
@@ -182,6 +193,8 @@ export const Slider = ({
           className="ds:max-w-[292px] ds:rounded-md ds:bg-black ds:px-6 ds:py-3 ds:text-button-md ds:text-white ds:sm:text-body-md ds:font-arial"
           style={floatingStyles}
           {...getFloatingProps()}
+          // Visual only, screen readers get the value from aria-valuetext
+          aria-hidden
           data-testid={testId ? `${testId}-tooltip` : undefined}
         >
           {getTooltipValue()}
