@@ -63,6 +63,7 @@ export const Default: Story = {
   args: {
     label: 'Osaamiset',
     onValueChange: fn(),
+    getAriaValueText: (val) => `Osaamiset ${val}%`,
     value: 50,
   },
 };
@@ -83,6 +84,8 @@ export const WithRightLabel: Story = {
     label: 'Osaamiset',
     rightLabel: 'Kiinnostukset',
     onValueChange: fn(),
+    ariaLabel: 'Osaamisten ja kiinnostusten painotus',
+    getAriaValueText: (val) => `Osaamiset ${100 - val} %, kiinnostukset ${val} %`,
     value: 50,
   },
 };

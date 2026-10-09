@@ -7,6 +7,8 @@ import { JodCircle } from '../../icons';
 export interface RangeSliderValue {
   label: string;
   value: number;
+  /** Text announced by screen readers when this value is selected. Defaults to label. */
+  ariaValueText?: string;
 }
 
 export interface RangeSliderProps {
@@ -20,19 +22,17 @@ export interface RangeSliderProps {
   disabled?: boolean;
   /** Data-testid attribute */
   testId?: string;
-  /** Aria description for minimum slider value */
+  /** Accessible name for the minimum value thumb, e.g. "Minimum duration" */
   minValueDescription: string;
-  /** Aria description for maximum slider value */
+  /** Accessible name for the maximum value thumb, e.g. "Maximum duration" */
   maxValueDescription: string;
 }
 
 type ThumbProps = Pick<RangeSliderProps, 'disabled' | 'testId'> & {
   index: number;
-  value: RangeSliderValue;
-  description: string;
 };
 
-const Thumb = ({ disabled, testId, index, value, description }: ThumbProps) => {
+const Thumb = ({ disabled, testId, index }: ThumbProps) => {
   return (
     <ArkSlider.Thumb
       index={index}
@@ -41,10 +41,6 @@ const Thumb = ({ disabled, testId, index, value, description }: ThumbProps) => {
         'ds:bg-inactive-gray': disabled,
       })}
       data-testid={testId}
-      aria-valuenow={value.value}
-      aria-valuetext={value.label}
-      aria-label={value.label}
-      aria-description={description}
     >
       <ArkSlider.HiddenInput />
     </ArkSlider.Thumb>
@@ -54,7 +50,11 @@ const Thumb = ({ disabled, testId, index, value, description }: ThumbProps) => {
 const Marker = ({ label }: { label: string }) => (
   <div className="ds:relative">
     <JodCircle size={3} className="ds:text-inactive-gray" />
-    <div className="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-primary-gray ds:text-nowrap">
+    <div
+      className="ds:absolute ds:top-6 ds:left-1/2 ds:-translate-x-1/2 ds:text-menu ds:text-primary-gray ds:text-nowrap"
+      // Selected values are announced through aria-valuetext
+      aria-hidden
+    >
       {label}
     </div>
   </div>
@@ -73,24 +73,13 @@ export const RangeSlider = ({
 }: RangeSliderProps) => {
   const inputId = React.useId();
 
-  // Internal value is only used to figure out which label to show for the thumbs for a11y
-  const [internalValue, setInternalValue] = React.useState(value);
-
   const onValueChangeHandler = (details: ArkValueChangeDetails) => {
     onValueChange(details.value as [number, number]);
-    setInternalValue(details.value as [number, number]);
   };
 
-  const getThumbValue = (index: number): RangeSliderValue => {
-    const fallbackValue = { label: index.toString(), value: index };
-
-    if (value) {
-      return markers.find((marker) => marker.value === value[index]) ?? fallbackValue;
-    } else if (internalValue) {
-      return markers.find((marker) => marker.value === internalValue[index]) ?? fallbackValue;
-    } else {
-      return fallbackValue;
-    }
+  const getAriaValueText = ({ value }: { value: number }) => {
+    const marker = markers.find((m) => m.value === value);
+    return marker ? (marker.ariaValueText ?? marker.label) : value.toString();
   };
 
   return (
@@ -101,7 +90,8 @@ export const RangeSlider = ({
     >
       <ArkSlider.Root
         thumbSize={{ width: 32, height: 32 }}
-        aria-label={[getThumbValue(0).label, getThumbValue(1).label]}
+        aria-label={[minValueDescription, maxValueDescription]}
+        getAriaValueText={getAriaValueText}
         min={markers[0]?.value ?? 0}
         max={markers[markers.length - 1]?.value ?? 100}
         id={inputId}
@@ -135,20 +125,8 @@ export const RangeSlider = ({
                 })}
               />
             </ArkSlider.Track>
-            <Thumb
-              index={0}
-              disabled={disabled}
-              testId={testId ? `${testId}-thumb-min` : undefined}
-              value={getThumbValue(0)}
-              description={minValueDescription}
-            />
-            <Thumb
-              index={1}
-              disabled={disabled}
-              testId={testId ? `${testId}-thumb-max` : undefined}
-              value={getThumbValue(1)}
-              description={maxValueDescription}
-            />
+            <Thumb index={0} disabled={disabled} testId={testId ? `${testId}-thumb-min` : undefined} />
+            <Thumb index={1} disabled={disabled} testId={testId ? `${testId}-thumb-max` : undefined} />
           </ArkSlider.Control>
         </div>
       </ArkSlider.Root>
