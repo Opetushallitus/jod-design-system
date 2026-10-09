@@ -75,6 +75,8 @@ export interface FooterProps {
     linkedin: LinkData;
     instagram: LinkData;
   };
+  /** Accessible label for the social media link list */
+  socialMediaLabel?: string;
 }
 
 /**
@@ -106,6 +108,7 @@ export const Footer = ({
   headingLevel = 'h2',
   externalLinkIconAriaLabel,
   socialMedia,
+  socialMediaLabel,
 }: FooterProps) => {
   const HeadingTag = headingLevel;
   const defaultCooperationLogos = React.useMemo(
@@ -178,6 +181,12 @@ export const Footer = ({
         );
     }
   }, [language]);
+
+  const socialMediaLinks = [
+    { link: socialMedia.facebook, icon: facebookIcon, width: '24' },
+    { link: socialMedia.instagram, icon: instagramIcon, width: '24' },
+    { link: socialMedia.linkedin, icon: linkedinIcon, width: '28' },
+  ];
 
   return (
     <footer
@@ -254,22 +263,25 @@ export const Footer = ({
       </div>
       <div className="ds:bg-white ds:text-primary-gray">
         <div className="ds:pt-9 ds:mx-auto ds:flex ds:flex-col ds:gap-7 ds:sm:max-w-[1090px] ds:px-5">
-          <div
-            className="ds:flex ds:sm:justify-between ds:sm:items-center ds:justify-start ds:items-start ds:sm:flex-row ds:flex-col ds:sm:gap-4 ds:gap-8"
-            aria-hidden
-          >
-            <LogoRgb language={language} size={37} />
-            <div className="ds:flex ds:gap-4 ds:sm:mr-11 ds:not-sm:mb-3">
-              <a href={socialMedia.facebook.href} target="_blank" rel="noopener noreferrer">
-                <img src={facebookIcon} alt={socialMedia.facebook.label} width="24" height="24" />
-              </a>
-              <a href={socialMedia.instagram.href} target="_blank" rel="noopener noreferrer">
-                <img src={instagramIcon} alt={socialMedia.instagram.label} width="24" height="24" />
-              </a>
-              <a href={socialMedia.linkedin.href} target="_blank" rel="noopener noreferrer">
-                <img src={linkedinIcon} alt={socialMedia.linkedin.label} height="24" width="28" />
-              </a>
+          <div className="ds:flex ds:sm:justify-between ds:sm:items-center ds:justify-start ds:items-start ds:sm:flex-row ds:flex-col ds:sm:gap-4 ds:gap-8">
+            <div aria-hidden>
+              <LogoRgb language={language} size={37} />
             </div>
+            <ul className="ds:flex ds:gap-4 ds:sm:mr-11 ds:not-sm:mb-3" aria-label={socialMediaLabel}>
+              {socialMediaLinks.map(({ link, icon, width }) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${link.label}, ${externalLinkIconAriaLabel}`}
+                    data-testid={link.testId}
+                  >
+                    <img src={icon} alt="" width={width} height="24" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="ds:flex ds:flex-col ds:gap-5">
