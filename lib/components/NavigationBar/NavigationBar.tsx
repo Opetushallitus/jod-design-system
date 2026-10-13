@@ -8,6 +8,7 @@ import { LogoIconRgb } from '../Logo/LogoIcon';
 import { LogoRgb } from '../Logo/LogoRgb';
 import { getBgClassForNoteVariant } from '../Note/utils';
 import { useNoteStack } from './useNoteStack';
+import { useScrollPaddingForHeader } from './utils';
 
 const MAX_Z_INDEX = 9;
 
@@ -105,6 +106,10 @@ export const NavigationBar = ({
     // oxlint-disable-next-line eslint-plugin-react-hooks/exhaustive-deps
   }, [isCollapsed]);
 
+  const headerRef = React.useRef<HTMLDivElement>(null);
+  const notesRef = React.useRef<HTMLDivElement>(null);
+  useScrollPaddingForHeader(headerRef, notesRef);
+
   const isAnyTemporaryNoteCollapsed = React.useMemo(() => {
     return temporaryNotes.some((n) => n().isCollapsed);
   }, [temporaryNotes]);
@@ -112,6 +117,7 @@ export const NavigationBar = ({
   return (
     <>
       <div
+        ref={headerRef}
         className={`ds:min-w-min ds:bg-white ds:font-poppins ds:text-menu ds:relative ds:z-10 ds:shadow-border ds:border-b-4 ${getAccentBorderClassForService(serviceBarVariant)}`}
         data-testid={testId}
       >
@@ -154,6 +160,7 @@ export const NavigationBar = ({
         data-testid={testId ? `${testId}-service-bar-and-notes-wrapper` : undefined}
       >
         <div
+          ref={notesRef}
           className={cx(
             'ds:absolute ds:w-full ds:transition-[top] ds-duration-300',
             isCollapsed ? 'ds:-top-[36px]' : 'ds:top-0',
