@@ -1,7 +1,6 @@
 import { JSX } from 'react';
 
 import { cx } from '../../cva';
-import { useNoteStack } from '../NavigationBar';
 
 interface ScrollHeadingProps {
   title: string;
@@ -14,18 +13,13 @@ interface ScrollHeadingProps {
 export const ScrollHeading = ({ title, id, heading, className, appendix }: ScrollHeadingProps) => {
   const HeadingTag = heading as keyof JSX.IntrinsicElements;
   const appendixText = appendix ? ` — ${appendix}` : '';
-  const { permanentNotesHeight } = useNoteStack();
-  // NavigationBar + closed service bar (border) + permanent notes + main padding
-  const scrollMarginTop = `${64 + 4 + permanentNotesHeight + 64}px`;
 
   return (
     <div className={cx('ds:flex ds:gap-3', className)}>
       <HeadingTag
         id={id ?? title}
-        className="ds:text-pretty ds:hyphens-auto"
-        style={{
-          scrollMarginTop,
-        }}
+        // Sticky header height is reserved with scroll-padding-top by NavigationBar, this adds the main padding
+        className="ds:text-pretty ds:hyphens-auto ds:scroll-mt-4"
       >
         {`${title}${appendixText}`}
       </HeadingTag>
