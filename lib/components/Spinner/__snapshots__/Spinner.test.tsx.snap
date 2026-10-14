@@ -3,7 +3,7 @@
 exports[`Spinner Component > matches snapshot 1`] = `
 <svg
   aria-hidden="true"
-  class="ds:animate-spin"
+  class="ds:animate-spin ds:motion-reduce:animate-[spin_3s_linear_infinite]"
   fill="none"
   height="24"
   viewBox="0 0 24 24"

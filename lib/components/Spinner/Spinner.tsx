@@ -40,7 +40,7 @@ export const Spinner = ({ size, color, label, className, testId }: SpinnerProps)
       fill="none"
       {...(label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': true })}
       data-testid={testId}
-      className={tc(['ds:animate-spin', className ?? ''])}
+      className={tc(['ds:animate-spin ds:motion-reduce:animate-[spin_3s_linear_infinite]', className ?? ''])}
     >
       <path
         className={fillClass}

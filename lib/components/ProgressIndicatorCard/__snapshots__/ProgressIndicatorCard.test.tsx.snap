@@ -8,7 +8,7 @@ exports[`renders ProgressIndicatorCard 1`] = `
 >
   <svg
     aria-hidden="true"
-    class="ds:animate-spin ds:absolute"
+    class="ds:animate-spin ds:motion-reduce:animate-[spin_3s_linear_infinite] ds:absolute"
     fill="none"
     height="64"
     viewBox="0 0 24 24"

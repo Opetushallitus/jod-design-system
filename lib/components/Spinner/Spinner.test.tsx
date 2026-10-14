@@ -29,6 +29,11 @@ describe('Spinner Component', () => {
     expect(screen.getByTestId('spinner')).not.toHaveAttribute('aria-hidden');
   });
 
+  it('spins slower when the user prefers reduced motion', () => {
+    render(<Spinner size={24} color="white" testId="spinner" />);
+    expect(screen.getByTestId('spinner')).toHaveClass('ds:motion-reduce:animate-[spin_3s_linear_infinite]');
+  });
+
   it('has no a11y violations', async () => {
     const { container } = render(<Spinner size={24} color="white" />);
     expect(await axe(container)).toHaveNoViolations();
