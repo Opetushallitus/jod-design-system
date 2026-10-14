@@ -2,11 +2,10 @@
 
 exports[`Spinner Component > matches snapshot 1`] = `
 <svg
-  aria-busy="true"
-  class="ds:animate-spin"
+  aria-hidden="true"
+  class="ds:animate-spin ds:motion-reduce:animate-[spin_3s_linear_infinite]"
   fill="none"
   height="24"
-  role="alert"
   viewBox="0 0 24 24"
   width="24"
   xmlns="http://www.w3.org/2000/svg"

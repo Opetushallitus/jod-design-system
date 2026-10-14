@@ -91,7 +91,8 @@ export const WithAsync: Story = {
     ...parameters,
     docs: {
       description: {
-        story: 'Accordion component that shows a loading spinner while fetching data asynchronously.',
+        story:
+          'Accordion component that shows a loading spinner while fetching data asynchronously. `loadingText` is announced to screen readers while loading.',
       },
     },
   },
@@ -101,6 +102,7 @@ export const WithAsync: Story = {
     underline: true,
     initialState: false,
     fetchData: async () => new Promise((resolve) => setTimeout(resolve, 5000)),
+    loadingText: 'Ladataan',
   },
 };
 

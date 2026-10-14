@@ -17,8 +17,30 @@ describe('Spinner Component', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('is decorative and hidden from assistive technology', () => {
+    render(<Spinner size={24} color="white" testId="spinner" />);
+    const spinner = screen.getByTestId('spinner');
+    expect(spinner).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('has an accessible name when label is given', () => {
+    render(<Spinner size={24} color="white" label="Ladataan" testId="spinner" />);
+    expect(screen.getByRole('img', { name: 'Ladataan' })).toBeInTheDocument();
+    expect(screen.getByTestId('spinner')).not.toHaveAttribute('aria-hidden');
+  });
+
+  it('spins slower when the user prefers reduced motion', () => {
+    render(<Spinner size={24} color="white" testId="spinner" />);
+    expect(screen.getByTestId('spinner')).toHaveClass('ds:motion-reduce:animate-[spin_3s_linear_infinite]');
+  });
+
   it('has no a11y violations', async () => {
     const { container } = render(<Spinner size={24} color="white" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('has no a11y violations with label', async () => {
+    const { container } = render(<Spinner size={24} color="white" label="Ladataan" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
