@@ -38,6 +38,8 @@ type AccordionProps = {
   setIsOpen?: (isOpen: boolean) => void;
   /** Async function to fetch data when the accordion is opened. A loading spinner will be shown while fetching. */
   fetchData?: () => Promise<void>;
+  /** Text announced to screen readers while fetchData is loading, e.g. "Loading". Used only with fetchData. */
+  loadingText?: string;
   /** Test id for querying in tests */
   testId?: string;
   /** Classnames for wrapper */
@@ -68,6 +70,7 @@ export const Accordion = ({
   initialState = true,
   triggerId,
   fetchData,
+  loadingText,
   testId,
   isOpen: controlledIsOpen,
   setIsOpen: controlledSetIsOpen,
@@ -164,6 +167,13 @@ export const Accordion = ({
           </span>
         </button>
       </div>
+      {/* Persistent live region outside the button: screen readers only announce changes to regions that already exist */}
+      {fetchData && (
+        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- <output> is not reliably exposed as a live region
+        <span role="status" className="ds:sr-only" data-testid={getTestId('status')}>
+          {fetchStatus === 'loading' ? loadingText : ''}
+        </span>
+      )}
       {shouldAnimate ? (
         <>
           <Transition

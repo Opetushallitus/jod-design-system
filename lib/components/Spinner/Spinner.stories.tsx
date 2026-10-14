@@ -50,7 +50,7 @@ export const WithLabel: Story = {
       description: {
         story:
           'Spinner with an accessible label. Without `label`, the spinner is decorative and hidden from assistive technology. ' +
-          'The spinner does not announce loading by itself: the component that owns the loading state should provide a persistent `role="status"` region and set `aria-busy` on the loading area.',
+          'The spinner does not announce loading by itself: the component that owns the loading state should provide a persistent `role="status"` region that exists before loading starts.',
       },
     },
   },

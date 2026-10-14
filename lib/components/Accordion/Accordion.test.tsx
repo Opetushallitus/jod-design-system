@@ -110,6 +110,41 @@ describe('Accordion', () => {
     expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
   });
 
+  it('announces loading in a persistent status region', async () => {
+    let resolveFetch: () => void;
+    const fetchData = vi.fn(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveFetch = resolve;
+        }),
+    );
+    render(
+      <Accordion title="Async" fetchData={fetchData} loadingText="Ladataan" initialState={false}>
+        <div>Async content</div>
+      </Accordion>,
+    );
+
+    // Status region exists before loading starts, so screen readers pick up the change
+    const status = screen.getByRole('status');
+    expect(status).toBeEmptyDOMElement();
+
+    // Status region is outside the button
+    const expandButton = screen.getByRole('button');
+    expect(expandButton).not.toContainElement(status);
+
+    fireEvent.click(expandButton);
+    expect(status).toHaveTextContent('Ladataan');
+
+    resolveFetch!();
+    await screen.findByText('Async content');
+    expect(status).toBeEmptyDOMElement();
+  });
+
+  it('does not render a status region without fetchData', () => {
+    render(<Accordion title={title}>Content</Accordion>);
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+  });
+
   it('emits data-testid on the toggle button when testId is provided', () => {
     render(
       <Accordion title="ID Title" testId="acc">
