@@ -3,16 +3,21 @@ import React from 'react';
 import { tidyClasses as tc } from '../../utils';
 
 export interface SpinnerProps {
-  // Size in pixels
+  /** Size in pixels */
   size: number;
-  // Color of the spinner
+  /** Color of the spinner */
   color: 'white' | 'accent' | 'black';
-  // Optional CSS class names for the SVG element
+  /**
+   * Accessible label, e.g. "Loading". When omitted, the spinner is decorative and hidden from assistive technology.
+   * The spinner does not announce itself; the component that owns the loading state is responsible for announcing it.
+   */
+  label?: string;
+  /** Optional CSS class names for the SVG element */
   className?: string;
   /** Test id for querying in tests */
   testId?: string;
 }
-export const Spinner = ({ size, color, className, testId }: SpinnerProps) => {
+export const Spinner = ({ size, color, label, className, testId }: SpinnerProps) => {
   const fillClass = React.useMemo(() => {
     switch (color) {
       case 'white':
@@ -33,7 +38,7 @@ export const Spinner = ({ size, color, className, testId }: SpinnerProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      aria-hidden="true"
+      {...(label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': true })}
       data-testid={testId}
       className={tc(['ds:animate-spin', className ?? ''])}
     >

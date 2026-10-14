@@ -23,8 +23,19 @@ describe('Spinner Component', () => {
     expect(spinner).toHaveAttribute('aria-hidden', 'true');
   });
 
+  it('has an accessible name when label is given', () => {
+    render(<Spinner size={24} color="white" label="Ladataan" testId="spinner" />);
+    expect(screen.getByRole('img', { name: 'Ladataan' })).toBeInTheDocument();
+    expect(screen.getByTestId('spinner')).not.toHaveAttribute('aria-hidden');
+  });
+
   it('has no a11y violations', async () => {
     const { container } = render(<Spinner size={24} color="white" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('has no a11y violations with label', async () => {
+    const { container } = render(<Spinner size={24} color="white" label="Ladataan" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });

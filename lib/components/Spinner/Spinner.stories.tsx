@@ -41,3 +41,22 @@ export const Default: Story = {
     color: 'accent',
   },
 };
+
+export const WithLabel: Story = {
+  decorators: Default.decorators,
+  parameters: {
+    ...Default.parameters,
+    docs: {
+      description: {
+        story:
+          'Spinner with an accessible label. Without `label`, the spinner is decorative and hidden from assistive technology. ' +
+          'The spinner does not announce loading by itself: the component that owns the loading state should provide a persistent `role="status"` region and set `aria-busy` on the loading area.',
+      },
+    },
+  },
+  args: {
+    size: 64,
+    color: 'accent',
+    label: 'Ladataan',
+  },
+};
