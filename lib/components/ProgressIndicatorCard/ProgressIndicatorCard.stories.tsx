@@ -28,7 +28,8 @@ export const Default: Story = {
     },
     docs: {
       description: {
-        story: 'Showing the progress indicator card',
+        story:
+          'Showing the progress indicator card. `label` is read by screen readers. The card is rendered only while loading, so its status may not be announced on every screen reader; for a reliable announcement, the page should also have a persistent `role="status"` region.',
       },
     },
     layout: 'fullscreen',
@@ -36,5 +37,7 @@ export const Default: Story = {
       defaultViewport: 'desktop',
     },
   },
-  args: {},
+  args: {
+    label: 'Ladataan tuloksia',
+  },
 };
