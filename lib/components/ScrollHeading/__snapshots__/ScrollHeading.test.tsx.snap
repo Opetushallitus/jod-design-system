@@ -5,9 +5,8 @@ exports[`ScrollHeading > renders with appendix 1`] = `
   class="ds:flex ds:gap-3 ds:text-heading-2"
 >
   <h2
-    class="ds:text-pretty ds:hyphens-auto"
+    class="ds:text-pretty ds:hyphens-auto ds:scroll-mt-4"
     id="Kesto"
-    style="scroll-margin-top: 132px;"
   >
     Kesto — Uusi
   </h2>
@@ -19,9 +18,8 @@ exports[`ScrollHeading > renders with correct id 1`] = `
   class="ds:flex ds:gap-3 ds:text-heading-2"
 >
   <h2
-    class="ds:text-pretty ds:hyphens-auto"
+    class="ds:text-pretty ds:hyphens-auto ds:scroll-mt-4"
     id="id-123"
-    style="scroll-margin-top: 132px;"
   >
     Kesto
   </h2>
@@ -33,9 +31,8 @@ exports[`ScrollHeading > renders with correct title 1`] = `
   class="ds:flex ds:gap-3 ds:text-heading-1"
 >
   <h1
-    class="ds:text-pretty ds:hyphens-auto"
+    class="ds:text-pretty ds:hyphens-auto ds:scroll-mt-4"
     id="Katuporaaja"
-    style="scroll-margin-top: 132px;"
   >
     Katuporaaja
   </h1>
