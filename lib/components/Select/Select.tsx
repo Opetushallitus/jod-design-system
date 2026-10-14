@@ -83,7 +83,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
               <ListboxButton
                 id={inputId}
                 aria-label={label}
-                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
+                className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
                 disabled={disabled}
                 data-testid={getTestId('button')}
                 aria-invalid={!!errorMessage}

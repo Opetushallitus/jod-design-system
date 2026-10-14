@@ -10,7 +10,7 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta5-textarea"
     id="_r_c_"
     placeholder="Enter text"
@@ -28,7 +28,7 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta4-textarea"
     id="_r_9_"
     placeholder="Enter text"
@@ -47,7 +47,7 @@ exports[`Textarea > displays help text when provided 1`] = `
     aria-describedby="_r_g_"
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta6-textarea"
     id="_r_f_"
     placeholder="Enter text"
@@ -74,7 +74,7 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta2-textarea"
     id="_r_3_"
     placeholder="Enter text"
@@ -87,7 +87,7 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta3-textarea"
     id="_r_6_"
     placeholder="Enter text"
@@ -105,7 +105,7 @@ exports[`Textarea > renders without crashing 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta1-textarea"
     id="_r_0_"
     placeholder="Enter text"
@@ -123,7 +123,7 @@ exports[`Textarea > sets the correct number of rows 1`] = `
   <textarea
     aria-invalid="false"
     autocomplete="off"
-    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-border-form ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
+    class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta7-textarea"
     id="_r_i_"
     placeholder="Enter text"
