@@ -61,7 +61,7 @@ describe('Accordion', () => {
     fireEvent.click(expandButton);
 
     expect(fetchData).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole('alert')).toBeInTheDocument(); // Spinner
+    expect(screen.getByTestId('spinner')).toBeInTheDocument();
 
     // Content should not be visible while loading
     expect(screen.queryByText('Fetched content')).not.toBeInTheDocument();
@@ -71,7 +71,7 @@ describe('Accordion', () => {
 
     // Wait for the animation to finish and content to be removed from the DOM
     await waitFor(() => {
-      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
     });
 
     // Close and reopen: fetchData should not be called again
@@ -100,14 +100,14 @@ describe('Accordion', () => {
     fireEvent.click(expandButton); // open
 
     // Spinner should be visible, content should not
-    expect(screen.getByRole('alert')).toBeInTheDocument();
+    expect(screen.getByTestId('spinner')).toBeInTheDocument();
     expect(screen.queryByText('Async content')).not.toBeInTheDocument();
 
     // Resolve fetchData
     resolveFetch!();
     // Wait for content to appear
     await screen.findByText('Async content');
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
   });
 
   it('emits data-testid on the toggle button when testId is provided', () => {

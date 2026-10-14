@@ -156,7 +156,11 @@ export const Accordion = ({
             </div>
           )}
           <span className="ds:shrink-0" style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
-            {fetchStatus === 'loading' ? <Spinner size={24} color="accent" /> : <Caret isOpen={isOpen} />}
+            {fetchStatus === 'loading' ? (
+              <Spinner size={24} color="accent" testId={getTestId('spinner')} />
+            ) : (
+              <Caret isOpen={isOpen} />
+            )}
           </span>
         </button>
       </div>

@@ -6,11 +6,10 @@ exports[`renders ProgressIndicatorCard 1`] = `
   data-testid="pic"
 >
   <svg
-    aria-busy="true"
+    aria-hidden="true"
     class="ds:animate-spin ds:absolute"
     fill="none"
     height="64"
-    role="alert"
     viewBox="0 0 24 24"
     width="64"
     xmlns="http://www.w3.org/2000/svg"

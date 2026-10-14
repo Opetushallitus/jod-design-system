@@ -33,8 +33,7 @@ export const Spinner = ({ size, color, className, testId }: SpinnerProps) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      role="alert"
-      aria-busy="true"
+      aria-hidden="true"
       data-testid={testId}
       className={tc(['ds:animate-spin', className ?? ''])}
     >
