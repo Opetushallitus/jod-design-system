@@ -97,7 +97,9 @@ export { RangeSlider, type RangeSliderProps, type RangeSliderValue } from './com
 export { RateContentCard } from './components/RateContentCard/RateContentCard';
 export { ResultsCard } from './components/ResultsCard/ResultsCard';
 export { ScrollHeading } from './components/ScrollHeading/ScrollHeading';
+export { SearchBar, type SearchBarProps } from './components/SearchBar/SearchBar';
 export { Select } from './components/Select/Select';
+export { ServiceBarSearch, type ServiceBarSearchProps } from './components/ServiceBarSearch/ServiceBarSearch';
 export { SkipLink } from './components/SkipLink/SkipLink';
 export { Slider } from './components/Slider/Slider';
 export { Spinner } from './components/Spinner/Spinner';
