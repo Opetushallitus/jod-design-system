@@ -24,7 +24,8 @@ const options = [
   { label: 'English', value: 'en' },
 ];
 
-const label = 'Choose language';
+const label = 'Language';
+const placeholder = 'Choose language';
 
 const decorators: Story['decorators'] = [
   (Story) => {
@@ -48,7 +49,7 @@ export const Default: Story = {
   },
   args: {
     label,
-    placeholder: label,
+    placeholder,
     options,
   },
 };
@@ -66,7 +67,7 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     label,
-    placeholder: label,
+    placeholder,
     options,
   },
 };
@@ -83,7 +84,7 @@ export const WithPreselectedValue: Story = {
   },
   args: {
     label,
-    placeholder: label,
+    placeholder,
     selected: 'en',
     options,
   },

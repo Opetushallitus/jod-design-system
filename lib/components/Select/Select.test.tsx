@@ -57,12 +57,11 @@ describe('Select', () => {
     it('should still allow user to another', async () => {
       render(<Select label="Label" options={options} placeholder={placeholder} selected="fi" />);
       const select: HTMLButtonElement = screen.getByRole('button');
-      // Click the expand button and select English
+
       const user = userEvent.setup();
       await user.click(select);
       await user.click(screen.getByRole('option', { name: 'English' }));
 
-      // Assert that the value is English, click the expand button and check that English is selected
       expect(select.textContent).toBe('English');
       await user.click(select);
       expect(screen.getByRole('option', { name: 'English' }).ariaSelected).toBe('true');
@@ -89,17 +88,86 @@ describe('Select', () => {
       expect(screen.getByTestId('cb-label')).toBeInTheDocument();
       expect(screen.getByTestId('cb-button')).toBeInTheDocument();
     });
+
+    it('should associate the label with the button', () => {
+      render(<Select label="Label" options={[]} placeholder={placeholder} testId="cb" />);
+      expect(screen.getByTestId('cb-label')).toHaveAttribute('for', screen.getByTestId('cb-button').id);
+    });
   });
 
+  // jsdom's name computation drops the button's own content from aria-labelledby when a <label for> points at
+  // the button, unlike browsers, so these tests check the aria-labelledby wiring instead of the computed name.
   describe('hideLabel', () => {
-    it('should add aria-label when label is hidden', () => {
-      render(<Select label="Non-visible label" options={[]} hideLabel={true} placeholder={placeholder} />);
-      expect(screen.getByRole('button', { name: 'Non-visible label' })).not.toBeNull();
+    it('should label the button with the hidden label', () => {
+      render(<Select label="Non-visible label" options={[]} hideLabel={true} placeholder={placeholder} testId="cb" />);
+      const label = screen.getByTestId('cb-label');
+      const select = screen.getByRole('button');
+      expect(label).toHaveTextContent('Non-visible label');
+      expect(select).toHaveAttribute('aria-labelledby', `${label.id} ${select.id}`);
+    });
+  });
+
+  describe('accessible name', () => {
+    it('should be labelled by the label and the placeholder', () => {
+      render(<Select label="Label" options={options} placeholder={placeholder} testId="cb" />);
+      const select = screen.getByRole('button');
+      expect(select).toHaveAttribute('aria-labelledby', `${screen.getByTestId('cb-label').id} ${select.id}`);
+      expect(select).toHaveTextContent(placeholder);
+    });
+
+    it('should be labelled by the label and the selected value', async () => {
+      render(<Select label="Label" options={options} placeholder={placeholder} selected="fi" testId="cb" />);
+      const select = screen.getByRole('button');
+      expect(select).toHaveAttribute('aria-labelledby', `${screen.getByTestId('cb-label').id} ${select.id}`);
+      expect(select).toHaveTextContent('Suomi');
+
+      const user = userEvent.setup();
+      await user.click(select);
+      await user.click(screen.getByRole('option', { name: 'English' }));
+      expect(select).toHaveTextContent('English');
+    });
+  });
+
+  describe('accessible description', () => {
+    it('should not have a description without help or error', () => {
+      render(<Select label="Label" options={options} placeholder={placeholder} />);
+      expect(screen.getByRole('button')).not.toHaveAttribute('aria-describedby');
+    });
+
+    it('should be described by the help text', () => {
+      render(<Select label="Label" options={options} placeholder={placeholder} help="Help text" />);
+      expect(screen.getByRole('button')).toHaveAccessibleDescription('Help text');
+    });
+
+    it('should be described by the error message', () => {
+      render(<Select label="Label" options={options} placeholder={placeholder} errorMessage="Error text" />);
+      expect(screen.getByRole('button')).toHaveAccessibleDescription('Error text');
+    });
+
+    it('should be described by both the help text and the error message', () => {
+      render(
+        <Select label="Label" options={options} placeholder={placeholder} help="Help text" errorMessage="Error text" />,
+      );
+      expect(screen.getByRole('button')).toHaveAccessibleDescription('Help text Error text');
     });
   });
 
   it('has no a11y violations', async () => {
     const { container } = render(<Select label="Non-visible label" options={[]} hideLabel placeholder={placeholder} />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('has no a11y violations with a visible label, help text and error message', async () => {
+    const { container } = render(
+      <Select
+        label="Label"
+        options={options}
+        placeholder={placeholder}
+        selected="sv"
+        help="Help text"
+        errorMessage="Error text"
+      />,
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 });

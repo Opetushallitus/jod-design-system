@@ -1,5 +1,7 @@
 import { tidyClasses as tc } from '../../../utils';
 interface InputLabelProps {
+  /** The id for the label element */
+  id?: string;
   /** The id of the form element that this label is associated with */
   htmlFor: string;
   /** The text to display inside the label */
@@ -10,9 +12,10 @@ interface InputLabelProps {
   testId?: string;
 }
 
-export const InputLabel = ({ htmlFor, labelText, hideLabel = false, testId }: InputLabelProps) => {
+export const InputLabel = ({ id, htmlFor, labelText, hideLabel = false, testId }: InputLabelProps) => {
   return (
     <label
+      id={id}
       htmlFor={htmlFor}
       className={tc([
         hideLabel ? 'ds:hidden' : 'ds:inline-block',
