@@ -29,7 +29,6 @@ const ExternalLinkItem = ({
 }) => {
   const serviceVariant = useServiceVariant();
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
-  console.log(testId);
   return (
     <li
       key={item.label}

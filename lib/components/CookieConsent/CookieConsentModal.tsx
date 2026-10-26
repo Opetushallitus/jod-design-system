@@ -72,7 +72,7 @@ export const CookieConsentModal = () => {
               <p>
                 <a
                   href={readMoreHref}
-                  className="ds:text-accent ds:hover:underline"
+                  className="ds:text-accent ds:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid="read-more-link"
