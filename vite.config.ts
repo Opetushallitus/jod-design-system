@@ -62,8 +62,8 @@ export default defineConfig({
       // `icons` is a second entry so the barrel survives tree-shaking and the
       // `./icons` subpath export has a real file to point at.
       entry: {
-        main: resolve(__dirname, 'lib/main.ts'),
-        'icons/index': resolve(__dirname, 'lib/icons/index.ts'),
+        main: resolve(import.meta.dirname, 'lib/main.ts'),
+        'icons/index': resolve(import.meta.dirname, 'lib/icons/index.ts'),
       },
       formats: ['es'],
     },
@@ -71,7 +71,7 @@ export default defineConfig({
       external,
       output: {
         preserveModules: true,
-        preserveModulesRoot: resolve(__dirname, 'lib'),
+        preserveModulesRoot: resolve(import.meta.dirname, 'lib'),
         // Required: Vite's lib-mode default entryFileNames is a function that would
         // name every preserved module main.js.
         entryFileNames: '[name].js',
