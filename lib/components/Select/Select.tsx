@@ -1,4 +1,4 @@
-import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
+import { Description, Field, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import React from 'react';
 
 import { JodCaretDown, JodCaretUp, JodCheckmark } from '../../icons';
@@ -51,6 +51,7 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
   errorMessage,
 }: SelectProps<T, U>) => {
   const inputId = React.useId();
+  const labelId = React.useId();
   const helpId = React.useId();
   const errorId = React.useId();
 
@@ -70,19 +71,28 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
 
   const selectedOption = options.find((option) => (option.value as U) === value);
 
+  // Headless UI overrides aria-labelledby and aria-describedby passed directly to ListboxButton, so the ids are
+  // registered through Label and Description instead. The button gets aria-labelledby="<label> <button>", so the
+  // selected value is announced together with the label.
   return (
-    <div
+    <Field
       className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])}
       data-testid={getTestId('field')}
     >
-      {!hideLabel && <InputLabel htmlFor={inputId} labelText={label} testId={getTestId('label')} />}
+      <Label
+        as={InputLabel}
+        id={labelId}
+        htmlFor={inputId}
+        labelText={label}
+        hideLabel={hideLabel}
+        testId={getTestId('label')}
+      />
       <div className="ds:flex ds:flex-row ds:relative">
         <Listbox onChange={onChange} disabled={disabled} value={value} data-testid={getTestId('listbox')}>
           {({ open }) => (
             <div className="ds:flex ds:flex-row ds:w-full">
               <ListboxButton
                 id={inputId}
-                aria-label={label}
                 className="ds:select-none ds:rounded ds:border-2 ds:w-full ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray ds:flex ds:justify-between ds:items-center ds:focus:outline-primary-1-dark"
                 disabled={disabled}
                 data-testid={getTestId('button')}
@@ -134,8 +144,10 @@ export const Select = <U extends string = string, T extends SelectOptionsData<st
           )}
         </Listbox>
       </div>
-      <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
-      <InputError id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
-    </div>
+      {help !== undefined && <Description as={InputHelp} id={helpId} helpText={help} testId={getTestId('help')} />}
+      {errorMessage !== undefined && (
+        <Description as={InputError} id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
+      )}
+    </Field>
   );
 };
