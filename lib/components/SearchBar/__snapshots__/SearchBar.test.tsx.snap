@@ -10,12 +10,12 @@ exports[`SearchBar > matches snapshot 1`] = `
     novalidate=""
   >
     <div
-      class="ds:flex ds:h-[42px] ds:w-full ds:items-center ds:gap-3 ds:rounded-md ds:border-2 ds:border-secondary-gray ds:bg-white ds:p-2 ds:text-primary-gray"
+      class="ds:flex ds:h-[42px] ds:w-full ds:items-center ds:gap-3 ds:rounded-md ds:border-2 ds:border-secondary-gray ds:bg-white ds:p-2 ds:text-primary-gray ds:has-[input:focus-visible]:border-primary-1-dark"
     >
       <input
         aria-invalid="false"
         aria-label="Search"
-        class="ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:rounded-l-[6px] ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:placeholder:text-inactive-gray ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-primary-1-dark"
+        class="ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:outline-hidden ds:placeholder:text-inactive-gray"
         data-testid="searchbar-input"
         maxlength="400"
         name="search"
@@ -25,7 +25,7 @@ exports[`SearchBar > matches snapshot 1`] = `
       />
       <button
         aria-label="Clear"
-        class="ds:flex ds:size-[30px] ds:shrink-0 ds:cursor-pointer ds:items-center ds:justify-center ds:rounded-sm ds:bg-bg-gray-2 ds:focus-visible:outline-offset-1 ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-primary-1-dark"
+        class="ds:flex ds:size-[30px] ds:shrink-0 ds:cursor-pointer ds:items-center ds:justify-center ds:rounded-sm ds:bg-bg-gray-2 ds:focus-visible:outline-offset-1 ds:disabled:cursor-not-allowed ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-primary-1-dark"
         data-testid="searchbar-clear-button"
         type="button"
       >

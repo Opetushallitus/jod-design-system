@@ -31,6 +31,7 @@ export const serviceColors = {
     textActive: 'ds:active:text-primary-1-dark-2',
     textFocus: 'ds:focus-visible:text-primary-1-dark',
     outline: 'ds:focus-visible:outline-primary-1-dark',
+    borderHasFocusedInput: 'ds:has-[input:focus-visible]:border-primary-1-dark',
   },
   ohjaaja: {
     bg: 'ds:bg-primary-2-dark',
@@ -42,6 +43,7 @@ export const serviceColors = {
     textActive: 'ds:active:text-primary-2-dark-2',
     textFocus: 'ds:focus-visible:text-primary-2-dark',
     outline: 'ds:focus-visible:outline-primary-2-dark',
+    borderHasFocusedInput: 'ds:has-[input:focus-visible]:border-primary-2-dark',
   },
   palveluportaali: {
     bg: 'ds:bg-secondary-gray',
@@ -53,6 +55,7 @@ export const serviceColors = {
     textActive: 'ds:active:text-primary-3-dark-2',
     textFocus: 'ds:focus-visible:text-primary-3-dark',
     outline: 'ds:focus-visible:outline-secondary-gray',
+    borderHasFocusedInput: 'ds:has-[input:focus-visible]:border-secondary-gray',
   },
   tietopalvelu: {
     bg: 'ds:bg-primary-4-dark',
@@ -64,6 +67,7 @@ export const serviceColors = {
     textActive: 'ds:active:text-primary-4-dark-2',
     textFocus: 'ds:focus-visible:text-primary-4-dark',
     outline: 'ds:focus-visible:outline-primary-4-dark',
+    borderHasFocusedInput: 'ds:has-[input:focus-visible]:border-primary-4-dark',
   },
 } as const;
 
@@ -80,6 +84,9 @@ export const getGroupActiveBgColorClassForService = (variant: ServiceVariant) =>
 export const getTextColorClassForService = (variant: ServiceVariant) => serviceColors[variant].text;
 
 export const getFocusOutlineClassForService = (variant: ServiceVariant) => serviceColors[variant].outline;
+
+export const getFocusedInputBorderClassForService = (variant: ServiceVariant) =>
+  serviceColors[variant].borderHasFocusedInput;
 
 export const getTruthyValuesAsString = (...ids: string[]) => {
   const filteredIds = ids.filter(Boolean);

@@ -4,6 +4,7 @@ import { cx } from '../../cva';
 import { JodClose, JodSearch } from '../../icons';
 import {
   getAccentBgClassForService,
+  getFocusedInputBorderClassForService,
   getFocusOutlineClassForService,
   getPressedBgColorClassForService,
   type ServiceVariant,
@@ -66,6 +67,8 @@ export const SearchBar = ({
     getFocusOutlineClassForService(serviceVariant),
   ]);
 
+  const isEmpty = value.length === 0;
+
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit(value);
@@ -74,14 +77,18 @@ export const SearchBar = ({
   return (
     <div className={cx('ds:flex ds:flex-col', className)} data-testid={testId}>
       <form id={id} onSubmit={handleSubmit} noValidate data-testid={getTestId('form')}>
-        <div className="ds:flex ds:h-[42px] ds:w-full ds:items-center ds:gap-3 ds:rounded-md ds:border-2 ds:border-secondary-gray ds:bg-white ds:p-2 ds:text-primary-gray">
+        <div
+          className={tc([
+            'ds:flex ds:h-[42px] ds:w-full ds:items-center ds:gap-3 ds:rounded-md ds:border-2 ds:border-secondary-gray ds:bg-white ds:p-2 ds:text-primary-gray',
+            getFocusedInputBorderClassForService(serviceVariant),
+          ])}
+        >
           <input
             type="text"
             name={name}
             aria-label={ariaLabel ?? placeholder}
             className={tc([
-              'ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:rounded-l-[6px] ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:placeholder:text-inactive-gray',
-              focusOutline,
+              'ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:outline-hidden ds:placeholder:text-inactive-gray',
             ])}
             placeholder={placeholder}
             maxLength={maxLength}
@@ -95,13 +102,14 @@ export const SearchBar = ({
             type="button"
             aria-label={clearLabel}
             className={tc([
-              'ds:flex ds:size-[30px] ds:shrink-0 ds:cursor-pointer ds:items-center ds:justify-center ds:rounded-sm ds:bg-bg-gray-2 ds:focus-visible:outline-offset-1',
+              'ds:flex ds:size-[30px] ds:shrink-0 ds:cursor-pointer ds:items-center ds:justify-center ds:rounded-sm ds:bg-bg-gray-2 ds:focus-visible:outline-offset-1 ds:disabled:cursor-not-allowed',
               focusOutline,
             ])}
             onClick={() => onChange('')}
+            disabled={isEmpty}
             data-testid={getTestId('clear-button')}
           >
-            <JodClose className="ds:text-primary-gray" />
+            <JodClose className={isEmpty ? 'ds:text-inactive-gray' : 'ds:text-primary-gray'} />
           </button>
           <button
             type="submit"
