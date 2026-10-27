@@ -35,6 +35,13 @@ describe('SearchBar', () => {
     expect(onChange).toHaveBeenCalledWith('');
   });
 
+  it('disables the clear button when the value is empty', () => {
+    const { rerender } = render(<SearchBar {...baseProps} value="" />);
+    expect(screen.getByRole('button', { name: 'Clear' })).toBeDisabled();
+    rerender(<SearchBar {...baseProps} value="a" />);
+    expect(screen.getByRole('button', { name: 'Clear' })).toBeEnabled();
+  });
+
   it('calls onSubmit with the current value when submitted', () => {
     const onSubmit = vi.fn();
     render(<SearchBar {...baseProps} onSubmit={onSubmit} />);
