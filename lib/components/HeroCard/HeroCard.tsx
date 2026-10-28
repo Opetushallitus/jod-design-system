@@ -58,8 +58,8 @@ export const HeroCard = ({
   testId,
 }: HeroCardProps) => {
   const headingClassNames = cx('ds:text-pretty ds:mr-9', {
-    'ds:text-hero-mobile ds:sm:text-hero': size === 'lg' && titleClassName === undefined,
-    'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm' && titleClassName === undefined,
+    'ds:text-hero-mobile ds:sm:text-hero': size === 'lg',
+    'ds:text-heading-2-mobile ds:sm:text-heading-2': size === 'sm',
   });
   const shouldRenderButton = buttonLabel && ((to && LinkComponent) || onClick);
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
