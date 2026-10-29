@@ -88,7 +88,7 @@ export const SearchBar = ({
             name={name}
             aria-label={ariaLabel ?? placeholder}
             className={tc([
-              'ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:outline-hidden ds:placeholder:text-inactive-gray',
+              'ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:outline-hidden ds:placeholder:text-placeholder-text',
             ])}
             placeholder={placeholder}
             maxLength={maxLength}

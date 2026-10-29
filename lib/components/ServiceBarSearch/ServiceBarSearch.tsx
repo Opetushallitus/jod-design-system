@@ -94,7 +94,7 @@ export const ServiceBarSearch = ({
               autoComplete="off"
               aria-label={ariaLabel}
               className={tc([
-                'ds:h-7 ds:w-[250px] ds:border-2 ds:border-white ds:bg-white ds:px-4 ds:py-4 ds:font-arial ds:text-body-md ds:text-primary-gray ds:placeholder:text-inactive-gray',
+                'ds:h-7 ds:w-[250px] ds:border-2 ds:border-white ds:bg-white ds:px-4 ds:py-4 ds:font-arial ds:text-body-md ds:text-primary-gray ds:placeholder:text-placeholder-text',
                 focusOutline,
               ])}
               data-testid={getTestId('input')}

@@ -9,6 +9,7 @@ const GROUP_ORDER = [
   'primary-gray',
   'secondary-gray',
   'inactive-gray',
+  'placeholder-text',
   'border-form',
   'border-gray',
   'bg-gray',
