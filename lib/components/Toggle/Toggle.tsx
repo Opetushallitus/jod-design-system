@@ -22,7 +22,7 @@ export const Toggle = ({
   ariaDescribedBy,
   ariaLabelledBy,
   serviceVariant,
-  type,
+  type = 'button',
   testId,
 }: ToggleProps) => {
   return (
@@ -37,20 +37,31 @@ export const Toggle = ({
       aria-describedby={ariaDescribedBy}
       aria-checked={checked}
       data-testid={testId}
-      className={cx('ds:transition-all ds:duration-200 ds:w-[52px] ds:h-7 ds:relative ds:rounded-2xl ds:flex', {
-        'ds:cursor-pointer': !disabled,
-        'ds:bg-inactive-gray': !checked || disabled,
-        'ds:bg-primary-1-dark': checked && !disabled && serviceVariant === 'yksilo',
-        'ds:bg-primary-2-dark': checked && !disabled && serviceVariant === 'ohjaaja',
-        'ds:bg-primary-3-dark': checked && !disabled && serviceVariant === 'palveluportaali',
-        'ds:bg-primary-4-dark': checked && !disabled && serviceVariant === 'tietopalvelu',
-      })}
+      className={cx(
+        'ds:transition-[background-color] ds:duration-200 ds:w-[52px] ds:h-7 ds:relative ds:rounded-2xl ds:flex ds:border-2 ds:border-transparent ds:forced-colors:focus-visible:outline-2 ds:forced-colors:focus-visible:outline-solid ds:forced-colors:focus-visible:outline-offset-2',
+        {
+          'ds:cursor-pointer': !disabled,
+          'ds:bg-inactive-gray': !checked || disabled,
+          'ds:bg-primary-1-dark': checked && !disabled && serviceVariant === 'yksilo',
+          'ds:bg-primary-2-dark': checked && !disabled && serviceVariant === 'ohjaaja',
+          'ds:bg-primary-3-dark': checked && !disabled && serviceVariant === 'palveluportaali',
+          'ds:bg-primary-4-dark': checked && !disabled && serviceVariant === 'tietopalvelu',
+          'ds:forced-colors:border-[ButtonText]': !checked && !disabled,
+          'ds:forced-colors:border-[Highlight] ds:forced-colors:bg-[Highlight]': checked && !disabled,
+          'ds:forced-colors:border-[GrayText]': disabled,
+        },
+      )}
     >
       <span
         aria-hidden
         className={cx(
-          'ds:size-6 ds:bg-white ds:rounded-full ds:m-2 ds:transition-all ds:duration-200 ds:transform ds:translate-x-0',
-          { 'ds:translate-x-[20px]': checked },
+          'ds:size-6 ds:bg-white ds:rounded-full ds:m-1 ds:transition-all ds:duration-200 ds:transform ds:translate-x-0',
+          {
+            'ds:translate-x-[20px]': checked,
+            'ds:forced-colors:bg-[ButtonText]': !checked && !disabled,
+            'ds:forced-colors:bg-[HighlightText]': checked && !disabled,
+            'ds:forced-colors:bg-[GrayText]': disabled,
+          },
         )}
       />
     </button>
