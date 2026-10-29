@@ -15,7 +15,7 @@ exports[`ServiceBarSearch > matches snapshot 1`] = `
       <input
         aria-label="Search"
         autocomplete="off"
-        class="ds:h-7 ds:w-[250px] ds:border-2 ds:border-white ds:bg-white ds:px-4 ds:py-4 ds:font-arial ds:text-body-md ds:text-primary-gray ds:placeholder:text-inactive-gray ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-0 ds:focus-visible:outline-black"
+        class="ds:h-7 ds:w-[250px] ds:border-2 ds:border-white ds:bg-white ds:px-4 ds:py-4 ds:font-arial ds:text-body-md ds:text-primary-gray ds:placeholder:text-placeholder-text ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-0 ds:focus-visible:outline-black"
         data-testid="searchbar-input"
         maxlength="400"
         placeholder="Search the service"

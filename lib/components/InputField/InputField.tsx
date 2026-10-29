@@ -124,7 +124,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(fu
           aria-invalid={!!errorMessage}
           data-testid={getTestId('input')}
           className={cx(
-            'ds:block ds:w-full ds:rounded ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:placeholder:text-secondary-gray ds:font-arial ds:text-body-md',
+            'ds:block ds:w-full ds:rounded ds:bg-white ds:py-3 ds:px-5 ds:text-primary-gray ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md',
             'ds:border-2 ds:border-secondary-gray ds:focus:border-primary-1-dark-2 ds:focus:outline-none ds:focus:ring-2 ds:focus:ring-primary-1-dark ds:focus:ring-offset-0',
             className,
           )}

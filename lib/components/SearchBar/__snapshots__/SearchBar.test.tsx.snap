@@ -15,7 +15,7 @@ exports[`SearchBar > matches snapshot 1`] = `
       <input
         aria-invalid="false"
         aria-label="Search"
-        class="ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:outline-hidden ds:placeholder:text-inactive-gray"
+        class="ds:-ml-2 ds:h-[38px] ds:min-w-0 ds:grow ds:bg-transparent ds:pl-[14px] ds:font-arial ds:text-body-md ds:outline-hidden ds:placeholder:text-placeholder-text"
         data-testid="searchbar-input"
         maxlength="400"
         name="search"
