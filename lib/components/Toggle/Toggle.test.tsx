@@ -54,6 +54,37 @@ describe('Toggle', () => {
     expect(button).toHaveAttribute('aria-label', 'Custom label');
   });
 
+  it('does not submit a surrounding form by default', () => {
+    const handleSubmit = vi.fn((e: { preventDefault: () => void }) => e.preventDefault());
+    render(
+      <form onSubmit={handleSubmit}>
+        <Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle" serviceVariant="yksilo" />
+      </form>,
+    );
+    const button = screen.getByRole('switch');
+    expect(button).toHaveAttribute('type', 'button');
+    fireEvent.click(button);
+    expect(handleSubmit).not.toHaveBeenCalled();
+  });
+
+  it('uses system colours for the track border and knob in forced-colors mode', () => {
+    const { rerender } = render(
+      <Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle" serviceVariant="yksilo" />,
+    );
+    const button = screen.getByRole('switch');
+    const knob = button.firstElementChild;
+    expect(button).toHaveClass('ds:border-2', 'ds:forced-colors:border-[ButtonText]');
+    expect(knob).toHaveClass('ds:forced-colors:bg-[ButtonText]');
+
+    rerender(<Toggle checked onChange={vi.fn()} ariaLabel="Toggle" serviceVariant="yksilo" />);
+    expect(button).toHaveClass('ds:forced-colors:border-[Highlight]', 'ds:forced-colors:bg-[Highlight]');
+    expect(knob).toHaveClass('ds:forced-colors:bg-[HighlightText]');
+
+    rerender(<Toggle checked={false} onChange={vi.fn()} disabled ariaLabel="Toggle" serviceVariant="yksilo" />);
+    expect(button).toHaveClass('ds:forced-colors:border-[GrayText]');
+    expect(knob).toHaveClass('ds:forced-colors:bg-[GrayText]');
+  });
+
   it('emits data-testid when testId is provided', () => {
     render(<Toggle checked={false} onChange={vi.fn()} ariaLabel="Toggle id" serviceVariant="yksilo" testId="tgl" />);
     expect(screen.getByTestId('tgl')).toBeInTheDocument();
