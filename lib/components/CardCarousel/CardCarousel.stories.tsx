@@ -4,6 +4,8 @@ import type { TitledMeta } from '../../storybook';
 import { MediaCard } from '../MediaCard/MediaCard';
 import { CardCarousel } from './CardCarousel';
 
+import './CardCarousel.stories.css';
+
 const meta = {
   title: 'Cards/CardCarousel',
   component: CardCarousel,
@@ -25,14 +27,16 @@ const Link = ({ children, to, className }: { children: React.ReactNode; to?: str
   </a>
 );
 
+const decorators: Story['decorators'] = [
+  (Story) => (
+    <div className="ds:max-w-[1140px] ds:px-5">
+      <Story />
+    </div>
+  ),
+];
+
 export const Default: Story = {
-  decorators: [
-    (Story) => (
-      <div className="ds:max-w-[1140px] ds:px-5">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators,
   parameters: {
     design,
     docs: {
@@ -61,23 +65,17 @@ export const Default: Story = {
       ),
     })),
     itemWidth: 260,
+    className: 'card-carousel-story',
     translations: {
       nextTrigger: 'Next page',
       prevTrigger: 'Previous page',
       indicator: (idx: number) => `Go to page ${idx + 1}`,
     },
-    className: 'ds:p-7 ds:-m-7',
   },
 };
 
 export const DifferentCardHeight: Story = {
-  decorators: [
-    (Story) => (
-      <div className="ds:max-w-[1140px] ds:px-5">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators,
   parameters: {
     design,
     docs: {
@@ -145,11 +143,11 @@ export const DifferentCardHeight: Story = {
       },
     ],
     itemWidth: 260,
+    className: 'card-carousel-story',
     translations: {
       nextTrigger: 'Next page',
       prevTrigger: 'Previous page',
       indicator: (idx: number) => `Go to page ${idx + 1}`,
     },
-    className: 'ds:p-7 ds:-m-7',
   },
 };
