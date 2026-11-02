@@ -8,7 +8,7 @@ exports[`CardCarousel > renders the carousel items 1`] = `
 >
   <li
     aria-roledescription="slide"
-    class="ds:flex ds:rounded ds:outline-offset-2 ds:ring-2 ds:ring-accent ds:ring-inset"
+    class="ds:flex ds:shrink-0 ds:rounded ds:outline-offset-2 ds:ring-2 ds:ring-accent ds:ring-inset"
     style="width: 200px;"
     tabindex="0"
   >
@@ -18,7 +18,7 @@ exports[`CardCarousel > renders the carousel items 1`] = `
   </li>
   <li
     aria-roledescription="slide"
-    class="ds:flex ds:rounded ds:outline-offset-2 "
+    class="ds:flex ds:shrink-0 ds:rounded ds:outline-offset-2"
     style="width: 200px;"
     tabindex="-1"
   >
@@ -28,7 +28,7 @@ exports[`CardCarousel > renders the carousel items 1`] = `
   </li>
   <li
     aria-roledescription="slide"
-    class="ds:flex ds:rounded ds:outline-offset-2 "
+    class="ds:flex ds:shrink-0 ds:rounded ds:outline-offset-2"
     style="width: 200px;"
     tabindex="-1"
   >
