@@ -4,13 +4,29 @@ exports[`Toggle > renders as a button 1`] = `
 <button
   aria-checked="false"
   aria-label="Toggle something"
-  class="ds:transition-[background-color] ds:duration-200 ds:w-[52px] ds:h-7 ds:relative ds:rounded-2xl ds:flex ds:border-2 ds:border-transparent ds:forced-colors:focus-visible:outline-2 ds:forced-colors:focus-visible:outline-solid ds:forced-colors:focus-visible:outline-offset-2 ds:cursor-pointer ds:bg-inactive-gray ds:forced-colors:border-[ButtonText]"
+  class="ds:group ds:relative ds:flex ds:w-[52px] ds:h-7 ds:rounded-2xl ds:border-2 ds:transition-[background-color,border-color] ds:duration-200 ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-2 ds:focus-visible:outline-primary-1-dark ds:cursor-pointer ds:bg-white ds:border-primary-5-light-1 ds:not-forced-colors:hover:border-secondary-gray ds:forced-colors:border-[ButtonText]"
   role="switch"
   type="button"
 >
   <span
     aria-hidden="true"
-    class="ds:size-6 ds:bg-white ds:rounded-full ds:m-1 ds:transition-all ds:duration-200 ds:transform ds:translate-x-0 ds:forced-colors:bg-[ButtonText]"
-  />
+    class="ds:flex ds:items-center ds:justify-center ds:size-6 ds:m-1 ds:rounded-full ds:transition-all ds:duration-200 ds:transform ds:translate-x-0 ds:bg-primary-5-light-1 ds:not-forced-colors:group-hover:bg-secondary-gray ds:forced-colors:bg-[ButtonText]"
+  >
+    <svg
+      class="ds:text-white"
+      fill="currentColor"
+      height="16"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.4 19.2964L5 17.8964L10.6 12.2964L5 6.69639L6.4 5.29639L12 10.8964L17.6 5.29639L19 6.69639L13.4 12.2964L19 17.8964L17.6 19.2964L12 13.6964L6.4 19.2964Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
 </button>
 `;
