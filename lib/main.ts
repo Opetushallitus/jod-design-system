@@ -12,7 +12,6 @@ export { AiInfoButton } from './components/AiInfoButton/AiInfoButton';
 export { Breadcrumb, type BreadcrumbItem } from './components/Breadcrumb/Breadcrumb';
 export { Button } from './components/Button/Button';
 export { CardCarousel, type CardCarouselItem } from './components/CardCarousel/CardCarousel';
-export { Carousel, type CarouselHandle, type CarouselItem, type CarouselProps } from './components/Carousel/Carousel';
 export { Chatbot } from './components/Chatbot/Chatbot';
 export { Checkbox } from './components/Checkbox/Checkbox';
 export { Combobox, type ComboboxOptionsData } from './components/Combobox/Combobox';

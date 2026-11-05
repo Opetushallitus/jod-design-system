@@ -4,14 +4,18 @@ import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodFavorite, JodFavoriteFilled } from '../../icons';
 import { LazyImage } from '../LazyImage/LazyImage';
 
+type CardLinkComponent = React.ComponentType<{
+  to: string;
+  className?: string;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  children: React.ReactNode;
+}>;
+
 type LinkComponent =
   | {
       to: string;
-      linkComponent: React.ComponentType<{
-        to: string;
-        className?: string;
-        children: React.ReactNode;
-      }>;
+      linkComponent: CardLinkComponent;
     }
   | {
       to?: never;
@@ -51,19 +55,7 @@ type MediaCardImplProps = {
   children: React.ReactNode;
 } & LinkComponent;
 
-const Tag = ({
-  label,
-  to,
-  linkComponent: Link,
-}: {
-  label: string;
-  to: string;
-  linkComponent?: React.ComponentType<{
-    to: string;
-    className?: string;
-    children: React.ReactNode;
-  }>;
-}) => {
+const Tag = ({ label, to, linkComponent: Link }: { label: string; to: string; linkComponent?: CardLinkComponent }) => {
   return (
     <li className="ds:pb-2">
       {Link ? (
@@ -81,23 +73,27 @@ const LinkOrDiv = ({
   to,
   linkComponent: Link,
   className,
+  labelId,
+  descriptionId,
   children,
   testId,
 }: {
   to?: string;
-  linkComponent?: React.ComponentType<{
-    to: string;
-    className?: string;
-    children: React.ReactNode;
-  }>;
+  linkComponent?: CardLinkComponent;
   className?: string;
+  /** Id of the element that names the link. Without it the whole content of the link is its name. */
+  labelId?: string;
+  /** Id of the element that describes the link */
+  descriptionId?: string;
   children: React.ReactNode;
   testId?: string;
 }) => {
   return Link && to ? (
     <Link
       to={to}
-      className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ds:focus-visible:outline-offset-[-6px] ${className}`}
+      className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ds:before:rounded ds:focus-visible:outline-none ds:focus-visible:before:outline-2 ds:focus-visible:before:outline-solid ds:focus-visible:before:outline-accent ds:focus-visible:before:outline-offset-[-2px] ${className}`}
+      aria-labelledby={labelId}
+      aria-describedby={descriptionId}
       data-testid={testId}
     >
       {children}
@@ -172,72 +168,11 @@ export const MediaCard = ({
   );
 };
 
-const MediaCardVertical = ({
-  imageSrc,
-  imageAlt,
-  label,
-  description,
-  linkComponent: Link,
-  to,
-  children,
-  testId,
-}: MediaCardImplProps & { testId?: string }) => {
-  const variantImageClassNames = 'ds:object-cover ds:h-[147px] ds:min-h-[147px]';
-
-  return (
-    <div
-      className="ds:relative ds:flex ds:flex-col ds:w-[261px] ds:min-h-[380px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:pb-5"
-      data-testid={testId}
-    >
-      <LinkOrDiv
-        to={to}
-        linkComponent={Link}
-        className="ds:flex ds:flex-col ds:grow"
-        testId={testId ? `${testId}-link` : undefined}
-      >
-        {imageSrc ? (
-          <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
-        ) : (
-          <span
-            className={`ds:w-full ds:h-full ds:bg-border-gray ${variantImageClassNames}`}
-            data-testid={testId ? `${testId}-image-placeholder` : undefined}
-          ></span>
-        )}
-        <div className="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap ds:gap-3">
-          <div>
-            <p
-              className="ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-3"
-              data-testid={testId ? `${testId}-label` : undefined}
-            >
-              {label}
-            </p>
-          </div>
-          <div className="ds:grow ds:content-center">
-            <p
-              className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
-              data-testid={testId ? `${testId}-description` : undefined}
-            >
-              {description}
-            </p>
-          </div>
-        </div>
-      </LinkOrDiv>
-      {children}
-    </div>
-  );
-};
-
-const MediaCardHorizontal = ({
-  imageSrc,
-  imageAlt,
-  label,
-  description,
-  linkComponent: Link,
-  to,
-  children,
-  testId,
-}: MediaCardImplProps & { testId?: string }) => {
-  const { sm } = useMediaQueries();
+/**
+ * The link of a card covers the whole card, including the area of the children (tags), so that the focus indicator of
+ * the assistive technologies surrounds the whole card. The text of the link is kept above the children with padding.
+ */
+const useChildrenPadding = () => {
   const textContainerRef = React.useRef<HTMLDivElement>(null);
   const childrenContainerRef = React.useRef<HTMLDivElement>(null);
 
@@ -259,57 +194,170 @@ const MediaCardHorizontal = ({
     };
   }, []);
 
+  return { textContainerRef, childrenContainerRef };
+};
+
+type CardLinkProps = {
+  image: React.ReactNode;
+  label: string;
+  description: string;
+  linkClassName: string;
+  textContainerClassName: string;
+  /** Class name of the element that wraps the texts inside the text container. The texts are not wrapped without it. */
+  textsClassName?: string;
+  labelClassName: string;
+  descriptionClassName: string;
+  textContainerRef: React.Ref<HTMLDivElement>;
+  testId?: string;
+} & LinkComponent;
+
+/** The link of the card with the image and the texts. The label names the link and the description describes it. */
+const CardLink = ({
+  to,
+  linkComponent,
+  image,
+  label,
+  description,
+  linkClassName,
+  textContainerClassName,
+  textsClassName,
+  labelClassName,
+  descriptionClassName,
+  textContainerRef,
+  testId,
+}: CardLinkProps) => {
+  const labelId = React.useId();
+  const descriptionId = React.useId();
+  const texts = (
+    <>
+      <div>
+        <p id={labelId} className={labelClassName} data-testid={testId ? `${testId}-label` : undefined}>
+          {label}
+        </p>
+      </div>
+      <div className="ds:grow ds:content-center">
+        <p
+          id={descriptionId}
+          className={descriptionClassName}
+          data-testid={testId ? `${testId}-description` : undefined}
+        >
+          {description}
+        </p>
+      </div>
+    </>
+  );
+
+  return (
+    <LinkOrDiv
+      to={to}
+      linkComponent={linkComponent}
+      className={linkClassName}
+      labelId={labelId}
+      descriptionId={descriptionId}
+      testId={testId ? `${testId}-link` : undefined}
+    >
+      {image}
+      <div className={textContainerClassName} ref={textContainerRef}>
+        {textsClassName ? <div className={textsClassName}>{texts}</div> : texts}
+      </div>
+    </LinkOrDiv>
+  );
+};
+
+const MediaCardVertical = ({
+  imageSrc,
+  imageAlt,
+  label,
+  description,
+  linkComponent,
+  to,
+  children,
+  testId,
+}: MediaCardImplProps & { testId?: string }) => {
+  const variantImageClassNames = 'ds:object-cover ds:h-[147px] ds:min-h-[147px]';
+  const { textContainerRef, childrenContainerRef } = useChildrenPadding();
+
+  return (
+    <div
+      className="ds:relative ds:grid ds:grid-cols-1 ds:grid-rows-[1fr_auto] ds:w-[261px] ds:min-h-[380px] ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white"
+      data-testid={testId}
+    >
+      <CardLink
+        {...({ to, linkComponent } as LinkComponent)}
+        image={
+          imageSrc ? (
+            <LazyImage className={`${variantImageClassNames}`} src={imageSrc} alt={imageAlt} />
+          ) : (
+            <span
+              className={`ds:w-full ds:h-full ds:bg-border-gray ${variantImageClassNames}`}
+              data-testid={testId ? `${testId}-image-placeholder` : undefined}
+            ></span>
+          )
+        }
+        label={label}
+        description={description}
+        linkClassName="ds:flex ds:flex-col ds:col-start-1 ds:row-start-1 ds:row-end-3"
+        textContainerClassName="ds:px-5 ds:pt-4 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:h-full ds:flex-nowrap ds:gap-3"
+        labelClassName="ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-3"
+        descriptionClassName="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:hyphens-auto"
+        textContainerRef={textContainerRef}
+        testId={testId}
+      />
+      <div className="ds:col-start-1 ds:row-start-2 ds:pb-5" ref={childrenContainerRef}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const MediaCardHorizontal = ({
+  imageSrc,
+  imageAlt,
+  label,
+  description,
+  linkComponent,
+  to,
+  children,
+  testId,
+}: MediaCardImplProps & { testId?: string }) => {
+  const { sm } = useMediaQueries();
+  const { textContainerRef, childrenContainerRef } = useChildrenPadding();
+
   return (
     <div
       className="ds:relative ds:sm:min-h-[143px] ds:w-full ds:overflow-clip ds:rounded ds:shadow-border ds:bg-white ds:grid ds:grid-cols-1 ds:grid-rows-[1fr_auto] ds:sm:grid-cols-[255px_1fr]"
       data-testid={testId}
     >
-      <LinkOrDiv
-        to={to}
-        linkComponent={Link}
-        className="ds:flex ds:flex-row ds:col-start-1 ds:col-end-2 ds:sm:col-end-3 ds:row-start-1 ds:row-end-3"
-        testId={testId ? `${testId}-link` : undefined}
-      >
-        <div className="ds:shrink-0">
-          {imageSrc ? (
-            sm && (
-              <LazyImage
-                className="ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
-                src={imageSrc}
-                alt={imageAlt}
-              />
-            )
-          ) : (
-            <div
-              className={`ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-primary-5`}
-              data-testid={testId ? `${testId}-image-placeholder` : undefined}
-            ></div>
-          )}
-        </div>
-        <div
-          className="ds:px-5 ds:pt-4 ds:pb-5 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:flex-nowrap"
-          ref={textContainerRef}
-        >
-          <div className="ds:gap-3 ds:flex ds:flex-col ds:grow">
-            <div>
-              <p
-                className="ds:pr-6 ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-4 ds:sm:line-clamp-2"
-                data-testid={testId ? `${testId}-label` : undefined}
-              >
-                {label}
-              </p>
-            </div>
-            <div className="ds:grow ds:content-center">
-              <p
-                className="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2"
-                data-testid={testId ? `${testId}-description` : undefined}
-              >
-                {description}
-              </p>
-            </div>
+      <CardLink
+        {...({ to, linkComponent } as LinkComponent)}
+        image={
+          <div className="ds:shrink-0">
+            {imageSrc ? (
+              sm && (
+                <LazyImage
+                  className="ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:sm:h-0 ds:object-cover"
+                  src={imageSrc}
+                  alt={imageAlt}
+                />
+              )
+            ) : (
+              <div
+                className={`ds:sm:w-[255px] ds:sm:min-w-full ds:sm:min-h-full ds:bg-primary-5`}
+                data-testid={testId ? `${testId}-image-placeholder` : undefined}
+              ></div>
+            )}
           </div>
-        </div>
-      </LinkOrDiv>
+        }
+        label={label}
+        description={description}
+        linkClassName="ds:flex ds:flex-row ds:col-start-1 ds:col-end-2 ds:sm:col-end-3 ds:row-start-1 ds:row-end-3"
+        textContainerClassName="ds:px-5 ds:pt-4 ds:pb-5 ds:text-primary-gray ds:flex ds:flex-col ds:justify-between ds:flex-nowrap"
+        textsClassName="ds:gap-3 ds:flex ds:flex-col ds:grow"
+        labelClassName="ds:pr-6 ds:text-heading-4-mobile ds:sm:text-heading-4 ds:line-clamp-4 ds:sm:line-clamp-2"
+        descriptionClassName="ds:text-body-sm-mobile ds:sm:text-body-sm ds:line-clamp-3 ds:sm:line-clamp-2"
+        textContainerRef={textContainerRef}
+        testId={testId}
+      />
       <div
         className="ds:pb-5 ds:col-start-1 ds:sm:col-start-2 ds:md-col-start-1 ds:row-start-2"
         data-testid={testId ? `${testId}-footer` : undefined}
