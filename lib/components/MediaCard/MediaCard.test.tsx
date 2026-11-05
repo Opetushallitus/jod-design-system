@@ -89,6 +89,27 @@ describe('MediaCard', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it.each(['vertical', 'horizontal'] as const)('names the link of the %s variant with the label only', (variant) => {
+    render(
+      <MediaCard
+        variant={variant}
+        imageSrc="default.jpg"
+        imageAlt=""
+        label="Default"
+        description="Default description"
+        tags={[]}
+        to="/target"
+        linkComponent={({ to, children, ...props }) => (
+          <a href={to} {...props}>
+            {children}
+          </a>
+        )}
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: 'Default' })).toHaveAttribute('href', '/target');
+  });
+
   it('emits data-testid attributes when testId is provided (vertical)', () => {
     render(
       <MediaCard

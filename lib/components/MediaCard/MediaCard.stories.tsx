@@ -16,8 +16,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 const imageSrc = 'https://images.unsplash.com/photo-1523464862212-d6631d073194?q=80&w=260';
 
-const Link = ({ children, to, className }: { children: React.ReactNode; to?: string; className?: string }) => (
-  <a href={to} className={className}>
+const Link = ({
+  children,
+  to,
+  className,
+  'aria-labelledby': ariaLabelledby,
+  'aria-describedby': ariaDescribedby,
+}: {
+  children: React.ReactNode;
+  to?: string;
+  className?: string;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+}) => (
+  <a href={to} className={className} aria-labelledby={ariaLabelledby} aria-describedby={ariaDescribedby}>
     {children}
   </a>
 );
