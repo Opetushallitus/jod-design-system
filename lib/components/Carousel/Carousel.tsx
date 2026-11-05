@@ -159,7 +159,7 @@ export const Carousel = ({
         })}
       </ul>
       <div
-        className="ds:flex ds:flex-row ds:gap-4 ds:justify-between ds:items-center ds:pt-5"
+        className="ds:flex ds:flex-row ds:gap-4 ds:justify-between ds:items-center ds:pt-5 ds:px-4"
         data-testid={testId ? `${testId}-controls` : undefined}
       >
         <div className="ds:flex ds:flex-row ds:flex-wrap ds:gap-2 ds:items-center">
@@ -178,7 +178,7 @@ export const Carousel = ({
           ))}
         </div>
 
-        <div className="ds:flex ds:flex-row ds:gap-3">
+        <div className="ds:flex ds:flex-row ds:gap-6">
           <button
             type="button"
             onClick={goToPreviousPage}

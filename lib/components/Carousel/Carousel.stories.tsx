@@ -3,6 +3,8 @@ import type { StoryObj } from '@storybook/react-vite';
 import type { TitledMeta } from '../../storybook';
 import { Carousel } from './Carousel';
 
+import './Carousel.stories.css';
+
 const meta = {
   title: 'Content/Carousel',
   component: Carousel,
@@ -56,6 +58,7 @@ export const Default: Story = {
   args: {
     items: createItems(10),
     itemWidth: 260,
+    className: 'carousel-story',
     translations,
   },
 };
@@ -73,6 +76,7 @@ export const Stretch: Story = {
   args: {
     items: createItems(10),
     itemWidth: 340,
+    className: 'carousel-story',
     stretch: true,
     translations,
   },
@@ -91,6 +95,7 @@ export const SinglePage: Story = {
   args: {
     items: createItems(2),
     itemWidth: 340,
+    className: 'carousel-story',
     stretch: true,
     translations,
   },
