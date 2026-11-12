@@ -2,7 +2,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Select } from './Select';
@@ -150,24 +149,5 @@ describe('Select', () => {
       );
       expect(screen.getByRole('button')).toHaveAccessibleDescription('Help text Error text');
     });
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<Select label="Non-visible label" options={[]} hideLabel placeholder={placeholder} />);
-    expect(await axe(container)).toHaveNoViolations();
-  });
-
-  it('has no a11y violations with a visible label, help text and error message', async () => {
-    const { container } = render(
-      <Select
-        label="Label"
-        options={options}
-        placeholder={placeholder}
-        selected="sv"
-        help="Help text"
-        errorMessage="Error text"
-      />,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

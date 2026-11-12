@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import type { ReactNode } from 'react';
 import { describe, expect, it, test, vi } from 'vitest';
 
@@ -37,14 +36,5 @@ describe('RadioButton', () => {
       </Wrapper>,
     );
     expect(screen.getByText('A')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <Wrapper>
-        <RadioButton label="A" value="a" />
-      </Wrapper>,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { act, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { userEvent } from 'storybook/test';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -117,24 +116,5 @@ describe('ConfirmDialog', () => {
     expect(screen.getByTestId('cd')).toBeInTheDocument();
     expect(screen.getByTestId('cd-backdrop')).toBeInTheDocument();
     expect(screen.getByTestId('cd-panel')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <ConfirmDialog
-        title="ConfirmDialog rendered"
-        description="Are you sure?"
-        onConfirm={vi.fn()}
-        confirmText="Confirm"
-        cancelText="Cancel"
-      >
-        {(showDialog) => (
-          <button onClick={showDialog} className="ds:cursor-pointer">
-            Show for rendering
-          </button>
-        )}
-      </ConfirmDialog>,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { Toast } from './Toast';
@@ -21,10 +20,5 @@ describe('Toast', () => {
     expect(toastElement).toHaveTextContent('This is a toast message');
     expect(screen.getByTestId('toast2')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<Toast text="This is a toast message" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

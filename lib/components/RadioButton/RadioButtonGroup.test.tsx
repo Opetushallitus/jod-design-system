@@ -1,7 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { axe } from 'jest-axe';
 import { describe, expect, it, test, vi } from 'vitest';
 
 import { RadioButton } from './RadioButton';
@@ -68,14 +67,5 @@ describe('RadioButtonGroup', () => {
     const parentClassList = screen.getByText('Label that is now hidden').classList;
     expect(parentClassList).toContain('ds:hidden');
     expect(screen.getByTestId('rbg6')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <RadioButtonGroup label="A" value="a" onChange={vi.fn()} testId="rbg2">
-        <RadioButton value="option1" label="Option 1" />
-      </RadioButtonGroup>,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

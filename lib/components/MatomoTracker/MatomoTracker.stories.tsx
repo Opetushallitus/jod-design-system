@@ -6,7 +6,8 @@ import { MatomoTracker } from './MatomoTracker';
 const meta = {
   title: 'Misc/MatomoTracker',
   component: MatomoTracker,
-  tags: ['autodocs'],
+  // !test: Renders nothing and loads the Matomo tracker from an external host, so automated tests (e2e/a11y.spec.ts) skip it.
+  tags: ['autodocs', '!test'],
 } satisfies TitledMeta<typeof MatomoTracker>;
 
 export default meta;

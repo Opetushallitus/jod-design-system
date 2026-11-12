@@ -2,7 +2,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { useCookieConsent } from './CookieConsentContext';
@@ -70,14 +69,5 @@ describe('CookieConsentGuard', () => {
     );
 
     expect(container).toBeEmptyDOMElement();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <CookieConsentGuard categories={['thirdPartyContent']} fallback>
-        <div>Protected content</div>
-      </CookieConsentGuard>,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

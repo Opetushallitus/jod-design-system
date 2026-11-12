@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ServiceBarSearch, type ServiceBarSearchProps } from './ServiceBarSearch';
@@ -73,11 +72,5 @@ describe('ServiceBarSearch', () => {
     });
     expect(input).toHaveValue('');
     expect(onExpandedChange).toHaveBeenCalledWith(false);
-  });
-
-  it('has no a11y violations', async () => {
-    vi.useRealTimers();
-    const { container } = render(<ServiceBarSearch {...baseProps} />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });
