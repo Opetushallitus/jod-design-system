@@ -71,5 +71,5 @@ export const Ohjaaja: Story = {
     },
   },
   decorators: [serviceBarDecorator('ohjaaja')],
-  args: baseProps,
+  args: { ...baseProps, serviceVariant: 'ohjaaja' },
 };

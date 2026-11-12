@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodSearch } from '../../icons';
-import { tidyClasses as tc } from '../../utils';
+import { getFocusOutlineClassForService, type ServiceVariant, tidyClasses as tc } from '../../utils';
 import { Spinner } from '../Spinner/Spinner';
 
 export interface ServiceBarSearchProps {
@@ -20,6 +20,8 @@ export interface ServiceBarSearchProps {
   searchLabel: string;
   /** The maximum number of characters that can be entered into the input field */
   maxLength?: number;
+  /** Service variant for coloring the focus outline */
+  serviceVariant?: ServiceVariant;
   /** Test id for querying in tests */
   testId?: string;
 }
@@ -35,6 +37,7 @@ export const ServiceBarSearch = ({
   ariaLabel,
   searchLabel,
   maxLength = 400,
+  serviceVariant = 'yksilo',
   testId,
 }: ServiceBarSearchProps) => {
   const [value, setValue] = React.useState('');
@@ -65,8 +68,10 @@ export const ServiceBarSearch = ({
     }, SEARCH_RESET_DELAY_MS);
   };
 
-  const focusOutline =
-    'ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-0 ds:focus-visible:outline-black';
+  const focusOutline = tc([
+    'ds:focus-visible:outline-3 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-[-5px]',
+    getFocusOutlineClassForService(serviceVariant),
+  ]);
   const buttonClassName = tc([
     'ds:flex ds:h-7 ds:cursor-pointer ds:items-center ds:gap-3 ds:bg-white ds:px-4 ds:text-button-md ds:text-secondary-gray ds:select-none',
     focusOutline,
