@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { SearchBar, type SearchBarProps } from './SearchBar';
@@ -68,10 +67,5 @@ describe('SearchBar', () => {
   it('applies service variant color to the search button', () => {
     render(<SearchBar {...baseProps} serviceVariant="ohjaaja" />);
     expect(screen.getByTestId('searchbar-submit-button')).toHaveClass('ds:bg-primary-2-dark');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<SearchBar {...baseProps} errorMessage="Too short" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

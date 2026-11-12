@@ -1,7 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { act, render, screen } from '@testing-library/react';
 import { DayTableCellState } from '@zag-js/date-picker';
-import { axe } from 'jest-axe';
 import React from 'react';
 import { userEvent } from 'storybook/test';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -226,18 +225,5 @@ describe('Datepicker', () => {
     expect(error).toHaveTextContent('Invalid date');
     expect(input).toHaveAttribute('aria-invalid', 'true');
     expect(input.getAttribute('aria-describedby')?.split(' ')).toEqual([screen.getByTestId('dp-help').id, error.id]);
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <Datepicker
-        label={label}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        translations={translations}
-      />,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

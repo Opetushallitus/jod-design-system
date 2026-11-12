@@ -89,3 +89,41 @@ export const WithPreselectedValue: Story = {
     options,
   },
 };
+
+export const HiddenLabel: Story = {
+  decorators,
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'Select with a visually hidden label. The label is still read by screen readers.',
+      },
+    },
+  },
+  args: {
+    label,
+    hideLabel: true,
+    placeholder,
+    options,
+  },
+};
+
+export const WithHelpAndError: Story = {
+  decorators,
+  parameters: {
+    design,
+    docs: {
+      description: {
+        story: 'Select with help text and an error message. Both describe the select for screen readers.',
+      },
+    },
+  },
+  args: {
+    label,
+    placeholder,
+    options,
+    selected: 'sv',
+    help: 'Help text',
+    errorMessage: 'Error text',
+  },
+};

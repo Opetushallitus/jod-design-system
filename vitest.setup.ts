@@ -1,8 +1,7 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom/vitest';
-import { toHaveNoViolations } from 'jest-axe';
 import React from 'react';
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -36,5 +35,3 @@ vi.mock('motion/react', () => ({
   },
   AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
 }));
-
-expect.extend(toHaveNoViolations);

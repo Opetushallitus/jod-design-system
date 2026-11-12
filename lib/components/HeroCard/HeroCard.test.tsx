@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 import { createEvent, fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { HeroCard } from './HeroCard';
@@ -96,12 +95,5 @@ describe('HeroCard', () => {
     const clickEvent = createEvent.click(linkElement);
     fireEvent(linkElement, clickEvent);
     expect(clickEvent.defaultPrevented).toBe(false);
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <HeroCard title={title} content={content} backgroundColor={backgroundColor} testId="hero2" />,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

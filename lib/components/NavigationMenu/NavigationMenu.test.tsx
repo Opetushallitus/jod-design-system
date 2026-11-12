@@ -1,7 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { NavigationMenu, NavigationMenuProps } from './NavigationMenu';
@@ -59,10 +58,5 @@ describe('NavigationMenu', () => {
     expect(screen.getByTestId('navmenu-body')).toBeInTheDocument();
     // Menu list container
     expect(screen.getByTestId('navmenu-menu-list')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<NavigationMenu {...menuProps} />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,4 +1,3 @@
-/// <reference types="vitest/config" />
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -6,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import { configDefaults } from 'vitest/config';
 
 const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as {
   dependencies?: Record<string, string>;
@@ -53,6 +53,16 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    // Playwright e2e specs run with `npm run test:e2e`, not Vitest.
+    exclude: [...configDefaults.exclude, 'e2e/**'],
+    // Guidepup's Virtual Screen Reader (0.33.0) computes the name of a live region target
+    // that has already been removed from the DOM, e.g. when a Headless UI listbox closes,
+    // and throws in its mutation observer. Ignore only that error.
+    onUnhandledError: (error) =>
+      !(
+        error.message === 'root.getElementById is not a function' &&
+        error.stack?.includes('@guidepup/virtual-screen-reader')
+      ),
   },
   build: {
     sourcemap: true,
