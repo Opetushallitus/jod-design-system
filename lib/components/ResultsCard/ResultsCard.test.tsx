@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { ResultsCard } from './ResultsCard';
@@ -20,10 +19,5 @@ describe('ResultsCard', () => {
     expect(screen.getByTestId('res')).toBeInTheDocument();
     expect(screen.getByTestId('res-label')).toBeInTheDocument();
     expect(screen.getByTestId('res-value')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<ResultsCard value={text} label={label} />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

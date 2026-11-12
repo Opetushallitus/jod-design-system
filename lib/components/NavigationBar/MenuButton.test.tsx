@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { fn } from 'storybook/test';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -23,11 +22,6 @@ describe('MenuButton', () => {
     render(<MenuButton label="Menu" onClick={fn()} />);
     const btn = screen.getByTestId('open-nav-menu');
     expect(btn).toHaveAttribute('aria-haspopup', 'dialog');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<MenuButton label="Valikko" onClick={fn()} />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });
 

@@ -12,7 +12,8 @@ const meta = {
       defaultViewport: 'desktop',
     },
   },
-  tags: ['autodocs'],
+  // !test: Renders nothing and loads the chatbot from an external host, so automated tests (e2e/a11y.spec.ts) skip it.
+  tags: ['autodocs', '!test'],
 } satisfies TitledMeta<typeof Chatbot>;
 
 export default meta;

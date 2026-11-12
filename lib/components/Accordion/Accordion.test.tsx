@@ -1,7 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Accordion } from './Accordion';
@@ -156,9 +155,4 @@ describe('Accordion', () => {
     expect(screen.getByTestId('acc-title')).toBeInTheDocument();
     expect(screen.getByTestId('acc-content')).toBeInTheDocument();
   });
-});
-
-it('has no a11y violations', async () => {
-  const { container } = render(<Accordion title="The Title">Content</Accordion>);
-  expect(await axe(container)).toHaveNoViolations();
 });

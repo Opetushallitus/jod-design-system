@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, test } from 'vitest';
 
 import { ContentCard } from './ContentCard';
@@ -50,10 +49,5 @@ describe('ContentCard', () => {
     expect(tags).toHaveLength(2);
     expect(tags[0]).toHaveTextContent('Tag1');
     expect(tags[1]).toHaveTextContent('Tag2');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<ContentCard {...mockProps} />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

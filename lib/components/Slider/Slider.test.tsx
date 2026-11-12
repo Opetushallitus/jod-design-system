@@ -1,7 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { act, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { axe } from 'jest-axe';
 import React from 'react';
 import { afterEach, describe, expect, it, Mock, vi } from 'vitest';
 
@@ -141,10 +140,5 @@ describe('Slider', () => {
     const thumb = getThumb();
     expect(getThumbName(thumb)).toBe('Osaamiset');
     expect(thumb).toHaveAttribute('aria-valuetext', '50 %');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<Slider label="Osaamiset" value={25} onValueChange={vi.fn()} rightLabel="right" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

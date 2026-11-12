@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { render, screen, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Modal } from './Modal';
@@ -40,12 +39,5 @@ describe('Modal', () => {
     expect(screen.getByTestId('modal-main')).toBeInTheDocument();
     expect(screen.getByTestId('modal-scroll')).toBeInTheDocument();
     expect(screen.getByTestId('modal-footer')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <Modal name="Modal name" open={true} onClose={vi.fn()} content={<div>Content</div>} footer={<div>Footer</div>} />,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

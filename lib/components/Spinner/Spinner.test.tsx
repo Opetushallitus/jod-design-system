@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { Spinner } from './Spinner';
@@ -32,15 +31,5 @@ describe('Spinner Component', () => {
   it('spins slower when the user prefers reduced motion', () => {
     render(<Spinner size={24} color="white" testId="spinner" />);
     expect(screen.getByTestId('spinner')).toHaveClass('ds:motion-reduce:animate-[spin_3s_linear_infinite]');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<Spinner size={24} color="white" />);
-    expect(await axe(container)).toHaveNoViolations();
-  });
-
-  it('has no a11y violations with label', async () => {
-    const { container } = render(<Spinner size={24} color="white" label="Ladataan" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });
