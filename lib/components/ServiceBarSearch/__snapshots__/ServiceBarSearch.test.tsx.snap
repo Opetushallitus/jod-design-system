@@ -15,7 +15,7 @@ exports[`ServiceBarSearch > matches snapshot 1`] = `
       <input
         aria-label="Search"
         autocomplete="off"
-        class="ds:h-7 ds:w-[250px] ds:border-2 ds:border-white ds:bg-white ds:px-4 ds:py-4 ds:font-arial ds:text-body-md ds:text-primary-gray ds:placeholder:text-placeholder-text ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-0 ds:focus-visible:outline-black"
+        class="ds:h-7 ds:w-[250px] ds:border-2 ds:border-white ds:bg-white ds:px-4 ds:py-4 ds:font-arial ds:text-body-md ds:text-primary-gray ds:placeholder:text-placeholder-text ds:focus-visible:outline-3 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-[-5px] ds:focus-visible:outline-primary-1-dark"
         data-testid="searchbar-input"
         maxlength="400"
         placeholder="Search the service"
@@ -25,7 +25,7 @@ exports[`ServiceBarSearch > matches snapshot 1`] = `
       />
     </div>
     <button
-      class="ds:flex ds:h-7 ds:cursor-pointer ds:items-center ds:gap-3 ds:bg-white ds:px-4 ds:text-button-md ds:text-secondary-gray ds:select-none ds:focus-visible:outline-2 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-0 ds:focus-visible:outline-black"
+      class="ds:flex ds:h-7 ds:cursor-pointer ds:items-center ds:gap-3 ds:bg-white ds:px-4 ds:text-button-md ds:text-secondary-gray ds:select-none ds:focus-visible:outline-3 ds:focus-visible:outline-solid ds:focus-visible:outline-offset-[-5px] ds:focus-visible:outline-primary-1-dark"
       data-testid="searchbar-submit"
       type="submit"
     >
