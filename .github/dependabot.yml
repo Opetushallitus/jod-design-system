@@ -18,3 +18,15 @@ updates:
           - 'patch'
     commit-message:
       prefix: 'OPHJOD-851'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: 'OPHJOD-851'
