@@ -24,11 +24,13 @@ const StepComponent = ({
   isLast,
   testId,
   index,
+  completedText,
 }: {
   step: PathProgressStep;
   isLast: boolean;
   testId?: string;
   index: number;
+  completedText?: string;
 }) => {
   const baseClasses = tc(['ds:flex ds:flex-row ds:relative ds:h-full ds:w-full', isLast ? '' : 'ds:pb-9']);
   const lineClasses = tc(['ds:absolute ds:top-1 ds:transform ds:left-[18px] ds:w-2 ds:h-full']);
@@ -38,11 +40,13 @@ const StepComponent = ({
   ]);
 
   return (
-    <div className={baseClasses} data-testid={testId ? `${testId}-step-${index + 1}` : undefined}>
+    <li className={baseClasses} data-testid={testId ? `${testId}-step-${index + 1}` : undefined}>
       {!isLast && <span className={lineClasses} />}
       <span className={circleClasses} data-testid={testId ? `${testId}-circle-${index + 1}` : undefined}>
         {step.circleComponent}
       </span>
+      {/* The completed state is shown only with colors, so it is given as text to screen readers */}
+      {step.isCompleted && completedText && <span className="ds:sr-only">{completedText}</span>}
       <div className="ds:flex ds:flex-col ds:ml-7 ds:mt-3 ds:gap-5 ds:w-full">
         {step.label && (
           <span
@@ -57,21 +61,33 @@ const StepComponent = ({
         )}
         {step.content && <div data-testid={testId ? `${testId}-content-${index + 1}` : undefined}>{step.content}</div>}
       </div>
-    </div>
+    </li>
   );
 };
 
 export interface PathProgressProps {
   steps: PathProgressStep[];
+  /**
+   * Text read by screen readers for the completed steps, e.g. "Completed". The completed state is otherwise shown only
+   * with colors, so it should be given in the language of the page.
+   */
+  completedText?: string;
   testId?: string;
 }
 
-export const PathProgress = ({ steps, testId }: PathProgressProps) => {
+export const PathProgress = ({ steps, completedText, testId }: PathProgressProps) => {
   return (
-    <div className="ds:inline-flex ds:flex-col ds:h-full ds:place-content-between ds:relative" data-testid={testId}>
+    <ol className="ds:inline-flex ds:flex-col ds:h-full ds:place-content-between ds:relative" data-testid={testId}>
       {steps.map((step, index) => (
-        <StepComponent key={index} step={step} isLast={index == steps.length - 1} testId={testId} index={index} />
+        <StepComponent
+          key={index}
+          step={step}
+          isLast={index == steps.length - 1}
+          testId={testId}
+          index={index}
+          completedText={completedText}
+        />
       ))}
-    </div>
+    </ol>
   );
 };

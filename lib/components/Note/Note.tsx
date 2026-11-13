@@ -5,6 +5,12 @@ import { useMediaQueries } from '../../hooks/useMediaQueries';
 import { JodClose } from '../../icons';
 import { getBgClassForNoteVariant, useHideOnCollapse } from './utils';
 
+/**
+ * The read more component takes the text color of the note, so that it has enough contrast on every variant. A link
+ * colored with the accent color, for example, would not be readable on the success background.
+ */
+const readMoreClassName = 'ds:**:text-inherit!';
+
 export interface NoteProps {
   /** Title shown on the note */
   title?: string;
@@ -69,11 +75,11 @@ export const Note = ({
         <div className="ds:flex ds:flex-col ds:sm:flex-row ds:flex-wrap ds:sm:items-center ds:sm:gap-x-6 ds:sm:w-fit ds:w-full">
           <div className="ds:text-heading-4 ds:text-pretty">{title}</div>
           <div className="ds:text-body-md ds:font-arial ds:text-pretty">{description}</div>
-          {readMoreComponent && !sm && <span className="ds:mt-3">{readMoreComponent}</span>}
+          {readMoreComponent && !sm && <span className={cx('ds:mt-3', readMoreClassName)}>{readMoreComponent}</span>}
         </div>
 
         <div className="ds:flex ds:sm:items-center ds:gap-6 ds:not-sm:self-start">
-          {sm && readMoreComponent}
+          {sm && readMoreComponent && <span className={cx('ds:flex', readMoreClassName)}>{readMoreComponent}</span>}
           {onCloseClick && !permanent && (
             <button
               className="ds:flex ds:cursor-pointer"

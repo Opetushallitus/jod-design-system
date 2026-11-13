@@ -63,7 +63,9 @@ exports[`Datepicker > renders correctly 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"

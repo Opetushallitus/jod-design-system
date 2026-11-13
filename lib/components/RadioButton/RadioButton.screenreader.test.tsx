@@ -1,7 +1,7 @@
 import { virtual } from '@guidepup/virtual-screen-reader';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { RadioButton } from './RadioButton';
 import { RadioButtonGroup } from './RadioButtonGroup';
@@ -50,11 +50,11 @@ describe('RadioButton screen reader', () => {
     const { container } = render(<Group />);
     await virtual.start({ container });
 
-    // Walk to the last radio; each radio also reads its icon and label text.
-    for (let i = 0; i < 10; i++) {
+    // Walk to the last radio; each radio also reads its label text.
+    await vi.waitFor(async () => {
       await virtual.next();
-    }
-    expect(await virtual.lastSpokenPhrase()).toBe('radio, English, not checked, disabled, position 3, set size 3');
+      expect(await virtual.lastSpokenPhrase()).toBe('radio, English, not checked, disabled, position 3, set size 3');
+    });
   });
 
   it('announces the newly checked radio after moving with arrow keys', async () => {
@@ -69,10 +69,7 @@ describe('RadioButton screen reader', () => {
     expect(await virtual.lastSpokenPhrase()).toBe('radio, Svenska, checked, position 2, set size 3');
   });
 
-  // Known issue: the decorative radio icons (CheckedIcon, UncheckedIcon) are <svg>
-  // elements without aria-hidden, so each one is read as "graphics-document" inside the
-  // radio. Remove `.fails` when fixed.
-  it.fails('does not read the decorative radio icons', async () => {
+  it('does not read the decorative radio icons', async () => {
     const { container } = render(<Group />);
     await virtual.start({ container });
 

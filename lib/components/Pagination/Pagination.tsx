@@ -77,7 +77,7 @@ export const Pagination = ({
       onPageChange={onPageChange}
       type={type}
       aria-label={ariaLabel}
-      className="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
+      className="ds:inline-flex ds:flex-wrap ds:list-none ds:items-center ds:justify-center ds:gap-3"
       data-testid={getTestId('root')}
     >
       <ArkPagination.PrevTrigger
@@ -95,7 +95,7 @@ export const Pagination = ({
                 key={page.value}
                 {...page}
                 className={getClassName({ isArrowButton: false, isActive: currentPage === page.value, serviceVariant })}
-                aria-label={translations?.itemLabel?.({ page: page.value, totalPages: totalItems })}
+                aria-label={translations?.itemLabel?.({ page: page.value, totalPages: pagination.totalPages })}
                 data-testid={getTestId(`item-${page.value}`)}
               >
                 {page.value}

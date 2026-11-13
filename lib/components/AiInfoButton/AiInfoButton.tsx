@@ -10,6 +10,7 @@ import { TooltipTrigger } from '../Tooltip/TooltipTrigger';
 interface AiInfoButtonProps {
   size?: number;
   tooltipContent?: React.ReactNode;
+  /** Accessible name of the icon, or of the button when tooltipContent is given. Required for the button to have a name. */
   ariaLabel?: string;
   testId?: string;
   placement?: Placement;
@@ -45,7 +46,8 @@ export const AiInfoButton = ({
         testId={testId}
         onClick={handleClick}
       >
-        <JodAiGradient className={cx('ds:text-secondary-gray', className)} aria-label={ariaLabel} size={size} />
+        {/* The button is named by ariaLabel, so the icon inside it is decorative */}
+        <JodAiGradient className={cx('ds:text-secondary-gray', className)} size={size} />
       </TooltipTrigger>
 
       <TooltipContent

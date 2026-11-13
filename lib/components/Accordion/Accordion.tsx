@@ -54,8 +54,12 @@ type AccordionProps = {
   animated?: boolean;
 } & TitleProps;
 
+/**
+ * The hover color is the darker accent, as the accent has too little contrast (4.38:1) on the gray-2 background that
+ * accordions are often placed on.
+ */
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
-  <span className="ds:text-primary-gray ds:group-hover:text-accent!" aria-hidden>
+  <span className="ds:text-primary-gray ds:group-hover:text-primary-1-dark-2!" aria-hidden>
     {isOpen ? <JodCaretUp /> : <JodCaretDown />}
   </span>
 );
@@ -132,7 +136,7 @@ export const Accordion = ({
           aria-label={typeof title === 'string' ? title : ariaLabel}
           onClick={() => void toggleOpen()}
           className={cx(
-            'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group',
+            'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-primary-1-dark-2! ds:group',
             {
               'ds:border-b ds:border-border-gray': underline,
             },

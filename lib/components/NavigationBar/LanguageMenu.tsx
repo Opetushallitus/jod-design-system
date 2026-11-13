@@ -1,5 +1,5 @@
 import { LanguageSelectionItem } from '../internal/LanguageSelectionItem/LanguageSelectionItem';
-import { PopupList } from '../PopupList/PopupList';
+import { PopupList, type PopupListItemsComponent } from '../PopupList/PopupList';
 import { langLabels, LanguageMenuProps } from './types';
 
 const ListItems = ({
@@ -24,6 +24,9 @@ const ListItems = ({
     />
   ));
 };
+
+// LanguageSelectionItem renders an <li> itself, so PopupList must not wrap the items in another one.
+(ListItems as PopupListItemsComponent).rendersPopupListItems = true;
 
 export const LanguageMenu = ({
   serviceVariant,

@@ -13,8 +13,10 @@ exports[`Toggle > renders as a button 1`] = `
     class="ds:flex ds:items-center ds:justify-center ds:size-6 ds:m-1 ds:rounded-full ds:transition-all ds:duration-200 ds:transform ds:translate-x-0 ds:bg-primary-5-light-1 ds:not-forced-colors:group-hover:bg-secondary-gray ds:forced-colors:bg-[ButtonText]"
   >
     <svg
+      aria-hidden="true"
       class="ds:text-white"
       fill="currentColor"
+      focusable="false"
       height="16"
       stroke="currentColor"
       stroke-width="0"

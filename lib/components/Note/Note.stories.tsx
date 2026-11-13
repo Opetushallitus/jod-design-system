@@ -37,7 +37,7 @@ const decorators: Story['decorators'] = [
   ),
 ];
 
-const readMoreComponent = <Button variant="plain" label="Lue lisää" className="ds:text-primary-gray!" />;
+const readMoreComponent = <Button variant="plain" label="Lue lisää" />;
 
 export const ConfirmationNote: Story = {
   decorators,

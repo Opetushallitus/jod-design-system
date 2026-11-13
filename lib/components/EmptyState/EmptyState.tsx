@@ -11,7 +11,7 @@ export const EmptyState = ({ text, testId }: EmptyStateProps) => {
     <div
       className={tidyClasses([
         'ds:bg-bg-gray-2',
-        'ds:text-secondary-gray',
+        'ds:text-primary-gray',
         'ds:text-body-sm',
         'ds:font-arial',
         'ds:inline-flex',

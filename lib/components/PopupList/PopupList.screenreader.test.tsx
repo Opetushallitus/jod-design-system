@@ -30,15 +30,12 @@ describe('PopupList screen reader', () => {
     const { container } = render(<Demo />);
     await virtual.start({ container });
 
-    await virtual.next();
-    expect(await virtual.spokenPhraseLog()).toEqual(['link, Omat sivut', 'button, Kirjaudu ulos']);
+    for (let i = 0; i < 8; i++) await virtual.next();
+    const items = (await virtual.spokenPhraseLog()).filter((phrase) => /^(link|button),/.test(phrase));
+    expect(items).toEqual(['link, Omat sivut', 'button, Kirjaudu ulos']);
   });
 
-  // Known issue: the options are plain <div>s, so the popup is not exposed as a list and
-  // the user does not hear how many options there are or where they are in it. Only the
-  // bare items are read: ["link, Omat sivut", "button, Kirjaudu ulos"]. PopupList and
-  // PopupListItem should render a list (e.g. <ul>/<li>). Remove `.fails` when fixed.
-  it.fails('is read as a list with the number of options', async () => {
+  it('is read as a list with the number of options', async () => {
     const { container } = render(<Demo />);
     await virtual.start({ container });
 

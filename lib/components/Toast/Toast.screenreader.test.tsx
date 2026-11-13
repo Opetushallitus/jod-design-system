@@ -23,15 +23,11 @@ describe('Toast screen reader', () => {
     await virtual.start({ container });
 
     expect(await virtual.lastSpokenPhrase()).toBe('alert');
-    await virtual.next(); // decorative icon, see the known issue below
     await virtual.next();
     expect(await virtual.lastSpokenPhrase()).toBe('Saved');
   });
 
-  // Known issue: the decorative icon is an <svg> without aria-hidden, so it is read as
-  // "graphics-document" before the text. Icons do not set aria-hidden by default.
-  // Remove `.fails` when fixed.
-  it.fails('does not read the decorative icon', async () => {
+  it('does not read the decorative icon', async () => {
     const { container } = render(<Toast text="Saved" />);
     await virtual.start({ container });
 

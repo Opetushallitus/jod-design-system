@@ -17,8 +17,10 @@ exports[`WizardProgress > renders correctly 1`] = `
       Step: 1, Completed.
     </span>
     <svg
+      aria-hidden="true"
       class="ds:text-secondary-gray"
       fill="currentColor"
+      focusable="false"
       height="24"
       role="presentation"
       stroke="currentColor"
@@ -44,8 +46,10 @@ exports[`WizardProgress > renders correctly 1`] = `
       Step: 2, Completed.
     </span>
     <svg
+      aria-hidden="true"
       class="ds:text-secondary-gray"
       fill="currentColor"
+      focusable="false"
       height="24"
       role="presentation"
       stroke="currentColor"

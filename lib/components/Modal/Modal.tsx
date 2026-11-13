@@ -9,6 +9,51 @@ import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../..
 // Must run before Motion's first animation, which starts during mount.
 applyReducedMotionPreference();
 
+/**
+ * Whether the element scrolls. A scrolling area must be reachable with the keyboard, so that keyboard users can scroll
+ * it even when it holds no focusable element. Returns a callback ref for the scrolling element.
+ */
+const useOverflows = () => {
+  const [element, setElement] = React.useState<HTMLElement | null>(null);
+  const [overflows, setOverflows] = React.useState(false);
+
+  React.useEffect(() => {
+    // ResizeObserver is missing in some test environments (e.g. plain jsdom); the area then just stays unfocusable.
+    if (!element || typeof ResizeObserver === 'undefined') {
+      return;
+    }
+    const update = () => setOverflows(element.scrollHeight > element.clientHeight);
+
+    // The size of the area changes with the modal, and the height of its content with the content. ResizeObserver
+    // also reports each element once when it starts observing it, which gives the initial value.
+    const resizeObserver = new ResizeObserver(update);
+    const observeChildren = () => {
+      resizeObserver.disconnect();
+      resizeObserver.observe(element);
+      for (const child of element.children) {
+        resizeObserver.observe(child);
+      }
+    };
+    observeChildren();
+    const mutationObserver = new MutationObserver(() => {
+      observeChildren();
+      update();
+    });
+    mutationObserver.observe(element, { childList: true });
+
+    return () => {
+      resizeObserver.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, [element]);
+
+  return [setElement, overflows] as const;
+};
+
+/** Props that make a scrolling area focusable, so that it can be scrolled with the keyboard, and name it. */
+const scrollAreaProps = (overflows: boolean, label?: string) =>
+  overflows ? { tabIndex: 0, ...(label ? { role: 'region', 'aria-label': label } : {}) } : {};
+
 export interface ModalProps {
   /** Required name for the screenreader */
   name: string;
@@ -20,6 +65,11 @@ export interface ModalProps {
   topSlot?: React.ReactNode;
   /** Slot is not used on mobile. */
   sidePanel?: React.ReactNode;
+  /**
+   * Accessible name of the side panel. When the side panel scrolls, it is focusable so that keyboard users can scroll
+   * it, and it is then a region with this name. The scrolling content area is named after the modal.
+   */
+  sidePanelAriaLabel?: string;
   fullWidthContent?: boolean;
   /** Test id for querying in tests */
   testId?: string;
@@ -39,6 +89,7 @@ export const Modal = ({
   progress,
   topSlot,
   sidePanel,
+  sidePanelAriaLabel,
   footer,
   fullWidthContent = false,
   testId,
@@ -52,6 +103,8 @@ export const Modal = ({
   const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh' | null>(null);
   const [isMeasuring, setIsMeasuring] = React.useState(false);
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
+  const [contentScrollRef, contentOverflows] = useOverflows();
+  const [sideScrollRef, sideOverflows] = useOverflows();
 
   // Handle mobile height measurement when modal opens
   React.useLayoutEffect(() => {
@@ -195,8 +248,10 @@ export const Modal = ({
                       data-testid={getTestId('main')}
                     >
                       <div
+                        ref={contentScrollRef}
                         className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1"
                         data-testid={getTestId('scroll')}
+                        {...scrollAreaProps(contentOverflows, name)}
                       >
                         {content}
                       </div>
@@ -208,8 +263,10 @@ export const Modal = ({
                         data-testid={getTestId('side')}
                       >
                         <div
+                          ref={sideScrollRef}
                           className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ds:flex-1 ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
                           data-testid={getTestId('side-scroll')}
+                          {...scrollAreaProps(sideOverflows, sidePanelAriaLabel)}
                         >
                           {sidePanel}
                         </div>

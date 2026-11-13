@@ -48,7 +48,8 @@ const FocusOrHoverStoryRender = (props: TooltipProps) => {
     <div className="ds:flex">
       <span className="ds:text-form-label">Important label</span>
       <Tooltip {...props}>
-        <TooltipTrigger toggleOnClick>
+        {/* An icon-only trigger needs an accessible name. */}
+        <TooltipTrigger toggleOnClick ariaLabel="Important label: more information">
           <JodInfo />
         </TooltipTrigger>
         <TooltipContent>This is a very informative Tooltip for an important label</TooltipContent>

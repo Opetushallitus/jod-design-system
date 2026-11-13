@@ -22,7 +22,7 @@ describe('Textarea screen reader', () => {
     await virtual.next();
     // Guidepup does not include a textarea's value in the textbox phrase like it does for
     // an input. It reads the value as the textarea's child text instead.
-    expect(await virtual.lastSpokenPhrase()).toBe('textbox, Kuvaus, not invalid');
+    expect(await virtual.lastSpokenPhrase()).toBe('textbox, Kuvaus, not invalid, not required');
     await virtual.next();
     expect(await virtual.lastSpokenPhrase()).toBe('Teksti');
   });
@@ -31,7 +31,7 @@ describe('Textarea screen reader', () => {
     const { container } = render(<Textarea hideLabel placeholder="Kuvaus" onChange={noop} />);
     await virtual.start({ container });
 
-    expect(await virtual.lastSpokenPhrase()).toBe('textbox, not invalid, placeholder Kuvaus');
+    expect(await virtual.lastSpokenPhrase()).toBe('textbox, not invalid, placeholder Kuvaus, not required');
   });
 
   it('reads the help and error texts as the field description with invalid state', async () => {
@@ -39,7 +39,7 @@ describe('Textarea screen reader', () => {
     await virtual.start({ container });
 
     await virtual.next();
-    expect(await virtual.lastSpokenPhrase()).toBe('textbox, Kuvaus, Ohje Virhe, invalid');
+    expect(await virtual.lastSpokenPhrase()).toBe('textbox, Kuvaus, Ohje Virhe, invalid, not required');
 
     // The help text and the error alert follow the field in reading order.
     await virtual.next();
@@ -50,10 +50,7 @@ describe('Textarea screen reader', () => {
     expect(await virtual.lastSpokenPhrase()).toBe('Virhe');
   });
 
-  // Known issue: requiredText only adds "(pakollinen)" to the label. Unlike InputField,
-  // the textarea does not set required or aria-required, so the required state is not
-  // announced. Remove `.fails` when fixed.
-  it.fails('announces the required state', async () => {
+  it('announces the required state', async () => {
     const { container } = render(<Textarea label="Kuvaus" requiredText="pakollinen" onChange={noop} />);
     await virtual.start({ container });
 

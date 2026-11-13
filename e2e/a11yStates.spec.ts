@@ -49,9 +49,6 @@ const STATES: State[] = [
       await page.getByRole('button', { name: 'Avaa kalenteri' }).click();
       await expect(page.getByRole('grid')).toBeVisible();
     },
-    // Days of the adjacent months have too low contrast, and the month/year view button's
-    // accessible name does not contain its visible text.
-    known: ['color-contrast', 'label-content-name-mismatch'],
   },
   {
     name: 'Modal open',
@@ -60,9 +57,6 @@ const STATES: State[] = [
       await page.getByRole('button', { name: 'Open Modal example' }).click();
       await expectDialogOpen(page);
     },
-    // The scrolling content area (and side panel) cannot be reached with the keyboard
-    // when it holds no focusable element, so keyboard users cannot scroll it.
-    known: ['scrollable-region-focusable'],
   },
   {
     name: 'ConfirmDialog open',
@@ -87,9 +81,6 @@ const STATES: State[] = [
       await page.keyboard.press('Tab');
       await expect(page.locator('#storybook-root button[aria-expanded="true"]')).toBeFocused();
     },
-    // Same as the story's known violations: icon-only trigger without a name, and
-    // Floating UI's focus guards (aria-hidden, focusable).
-    known: ['button-name', 'aria-hidden-focus'],
   },
   {
     name: 'NavigationMenu open',

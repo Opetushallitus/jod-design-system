@@ -104,13 +104,8 @@ test.describe('Accordion', () => {
     }
 
     test('gray-closed-by-default title has sufficient contrast on hover', async ({ page, makeAxeBuilder }) => {
-      // Known issue: the hover color (accent #006db3) on the gray-2 background (#e4e6ec)
-      // has a contrast of 4.38:1, below the WCAG AA minimum of 4.5:1. Marked as an expected
-      // failure so CI stays green; once the color is fixed this test starts passing, which
-      // Playwright reports as a failure. Remove test.fail() then.
-      test.fail();
       // Tailwind v4 applies hover styles only under @media (hover: hover), so touch devices
-      // never show the hover color and the issue does not exist there.
+      // never show the hover color.
       test.skip(test.info().project.name === 'mobile', 'Hover styles do not apply on touch devices');
 
       await gotoStory(page, `${STORY}--gray-closed-by-default`);
