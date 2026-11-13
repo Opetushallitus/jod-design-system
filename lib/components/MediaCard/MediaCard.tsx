@@ -57,9 +57,10 @@ type MediaCardImplProps = {
 
 const Tag = ({ label, to, linkComponent: Link }: { label: string; to: string; linkComponent?: CardLinkComponent }) => {
   return (
-    <li className="ds:pb-2">
+    <li className="ds:pb-1">
       {Link ? (
-        <Link to={to} className="ds:relative ds:z-1">
+        // At least 24px high, so that the tag link meets the minimum target size (WCAG 2.5.8)
+        <Link to={to} className="ds:relative ds:z-1 ds:inline-flex ds:items-center ds:min-h-6">
           {label}
         </Link>
       ) : (
@@ -73,18 +74,18 @@ const LinkOrDiv = ({
   to,
   linkComponent: Link,
   className,
-  labelId,
-  descriptionId,
+  labelledBy,
   children,
   testId,
 }: {
   to?: string;
   linkComponent?: CardLinkComponent;
   className?: string;
-  /** Id of the element that names the link. Without it the whole content of the link is its name. */
-  labelId?: string;
-  /** Id of the element that describes the link */
-  descriptionId?: string;
+  /**
+   * Ids of the elements that name the link. Without them the whole content of the link is its name.
+   * The name must contain all the visible text of the link (WCAG 2.5.3 Label in Name).
+   */
+  labelledBy?: string;
   children: React.ReactNode;
   testId?: string;
 }) => {
@@ -92,8 +93,7 @@ const LinkOrDiv = ({
     <Link
       to={to}
       className={`ds:z-1 ds:before:content-[''] ds:before:absolute ds:before:w-full ds:before:h-full ds:before:rounded ds:focus-visible:outline-none ds:focus-visible:before:outline-2 ds:focus-visible:before:outline-solid ds:focus-visible:before:outline-accent ds:focus-visible:before:outline-offset-[-2px] ${className}`}
-      aria-labelledby={labelId}
-      aria-describedby={descriptionId}
+      aria-labelledby={labelledBy}
       data-testid={testId}
     >
       {children}
@@ -211,7 +211,10 @@ type CardLinkProps = {
   testId?: string;
 } & LinkComponent;
 
-/** The link of the card with the image and the texts. The label names the link and the description describes it. */
+/**
+ * The link of the card with the image and the texts. The label and the description, which are the visible text of the
+ * link, name it together, so that the name matches what is seen (WCAG 2.5.3 Label in Name). The image is left out.
+ */
 const CardLink = ({
   to,
   linkComponent,
@@ -235,6 +238,8 @@ const CardLink = ({
           {label}
         </p>
       </div>
+      {/* Separates the words of the label and the description in the text content of the link. It is not rendered in
+          the flex container. */}{' '}
       <div className="ds:grow ds:content-center">
         <p
           id={descriptionId}
@@ -252,8 +257,7 @@ const CardLink = ({
       to={to}
       linkComponent={linkComponent}
       className={linkClassName}
-      labelId={labelId}
-      descriptionId={descriptionId}
+      labelledBy={`${labelId} ${descriptionId}`}
       testId={testId ? `${testId}-link` : undefined}
     >
       {image}

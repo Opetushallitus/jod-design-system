@@ -3,7 +3,7 @@
 exports[`Pagination > renders the pagination component with correct number of pages with ellipsis 1`] = `
 <nav
   aria-label="pagination"
-  class="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
+  class="ds:inline-flex ds:flex-wrap ds:list-none ds:items-center ds:justify-center ds:gap-3"
   data-part="root"
   data-scope="pagination"
   data-testid="pagination-root"
@@ -23,7 +23,9 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <svg
+      aria-hidden="true"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"
@@ -113,8 +115,10 @@ exports[`Pagination > renders the pagination component with correct number of pa
     id="pagination:_r_1_:ellipsis:5"
   >
     <svg
+      aria-hidden="true"
       class="ds:rotate-90"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"
@@ -152,7 +156,9 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <svg
+      aria-hidden="true"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"
@@ -172,7 +178,7 @@ exports[`Pagination > renders the pagination component with correct number of pa
 exports[`Pagination > renders the pagination component with correct number of pages without ellipsis 1`] = `
 <nav
   aria-label="pagination"
-  class="ds:inline-flex ds:list-none ds:items-center ds:justify-center ds:gap-3"
+  class="ds:inline-flex ds:flex-wrap ds:list-none ds:items-center ds:justify-center ds:gap-3"
   data-part="root"
   data-scope="pagination"
   data-testid="pagination-root"
@@ -192,7 +198,9 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <svg
+      aria-hidden="true"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"
@@ -271,7 +279,9 @@ exports[`Pagination > renders the pagination component with correct number of pa
     type="button"
   >
     <svg
+      aria-hidden="true"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"

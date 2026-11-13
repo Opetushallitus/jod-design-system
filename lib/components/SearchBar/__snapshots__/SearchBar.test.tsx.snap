@@ -30,8 +30,10 @@ exports[`SearchBar > matches snapshot 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="ds:text-primary-gray"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"
@@ -51,8 +53,10 @@ exports[`SearchBar > matches snapshot 1`] = `
         type="submit"
       >
         <svg
+          aria-hidden="true"
           class="ds:text-white"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"

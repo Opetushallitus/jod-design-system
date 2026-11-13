@@ -2,11 +2,11 @@
 
 exports[`PopupList > renders the PopupList component correctly 1`] = `
 <div>
-  <div
-    class="ds:inline-flex ds:flex-col ds:items-start ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px]"
+  <ul
+    class="ds:inline-flex ds:flex-col ds:items-start ds:list-none ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px]"
     data-testid="plist"
   >
-    <div
+    <li
       class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
       data-testid="plist-item-1"
     >
@@ -15,8 +15,8 @@ exports[`PopupList > renders the PopupList component correctly 1`] = `
       >
         Item 1
       </a>
-    </div>
-    <div
+    </li>
+    <li
       class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
     >
       <a
@@ -24,8 +24,8 @@ exports[`PopupList > renders the PopupList component correctly 1`] = `
       >
         Item 2
       </a>
-    </div>
-    <div
+    </li>
+    <li
       class="ds:flex ds:items-center ds:gap-3 ds:py-3 ds:text-heading-4 ds:hover:underline ds:focus:left-auto ds:focus:underline ds:w-full ds:px-5 ds:rounded"
     >
       <a
@@ -33,7 +33,7 @@ exports[`PopupList > renders the PopupList component correctly 1`] = `
       >
         Item 3
       </a>
-    </div>
-  </div>
+    </li>
+  </ul>
 </div>
 `;

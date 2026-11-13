@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { LazyImage } from './LazyImage';
@@ -22,10 +21,5 @@ describe('LazyImage', () => {
     render(<LazyImage src="test.jpg" alt="test image" testId="lazyimg3" />);
     const imgElement = screen.getByAltText('test image');
     expect(imgElement).toHaveStyle('opacity: 0');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<LazyImage src="test.jpg" alt="test image" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

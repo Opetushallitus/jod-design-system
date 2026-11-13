@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { Tooltip } from './Tooltip';
@@ -33,17 +32,5 @@ describe('Tooltip', () => {
     expect(screen.getByTestId('tt2')).toBeInTheDocument();
     expect(screen.getByTestId('tc2')).toBeInTheDocument();
     expect(screen.getByTestId('tc2-arrow')).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <Tooltip open>
-        <TooltipTrigger>Trigger</TooltipTrigger>
-        <TooltipContent>Tip</TooltipContent>
-      </Tooltip>,
-    );
-    // Disable aria-command-name rule for floating-ui's focus guard spans which have
-    // role="button" without an accessible name. Known floating-ui library issue.
-    expect(await axe(container, { rules: { 'aria-command-name': { enabled: false } } })).toHaveNoViolations();
   });
 });

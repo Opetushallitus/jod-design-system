@@ -48,6 +48,8 @@ const MenuListItem = ({
   const [shouldFocusFirstChild, setShouldFocusFirstChild] = React.useState(false);
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
+  const labelId = React.useId();
+  const submenuHintId = React.useId();
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
   const hasSelectedDescendant = React.useCallback(
     (items?: MenuItem[]): boolean =>
@@ -155,19 +157,27 @@ const MenuListItem = ({
           >
             <span className={linkItemClasses}>
               {icon}
-              {label}
+              <span id={labelId}>{label}</span>
             </span>
           </LinkComponent>
           {childItems && childItems.length > 0 && (
             <button
               type="button"
-              aria-label={openSubMenuLabel}
+              // Name the icon-only toggle by its action and the item it belongs to, e.g.
+              // "Avaa alivalikko Kartoita", so the toggles of different items are distinguishable.
+              aria-label={openSubMenuLabel ? undefined : label}
+              aria-labelledby={openSubMenuLabel ? `${submenuHintId} ${labelId}` : undefined}
               aria-expanded={nestedMenuOpen}
               className={submenuToggleButtonClasses}
               onClick={handleNestedMenuOpen}
               data-testid={getTestId('toggle')}
             >
               {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
+              {openSubMenuLabel && (
+                <span id={submenuHintId} hidden>
+                  {openSubMenuLabel}
+                </span>
+              )}
             </button>
           )}
         </>
@@ -175,16 +185,23 @@ const MenuListItem = ({
     } else if (!LinkComponent && childItems) {
       // The whole menu item is a button that opens a nested menu
       return (
+        // The accessible name starts with the visible label (WCAG 2.5.3 Label in Name),
+        // followed by the hint, e.g. "Ryhmä Avaa alivalikko".
         <button
           type="button"
-          aria-label={openSubMenuLabel}
+          aria-labelledby={openSubMenuLabel ? `${labelId} ${submenuHintId}` : undefined}
           aria-expanded={nestedMenuOpen}
           className={tc([linkItemClasses, 'ds:justify-between'])}
           onClick={handleNestedMenuOpen}
           data-testid={getTestId('toggle')}
         >
-          {label}
+          <span id={labelId}>{label}</span>
           <span>{nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}</span>
+          {openSubMenuLabel && (
+            <span id={submenuHintId} hidden>
+              {openSubMenuLabel}
+            </span>
+          )}
         </button>
       );
     } else {
@@ -198,10 +215,12 @@ const MenuListItem = ({
     handleNestedMenuOpen,
     icon,
     label,
+    labelId,
     nestedMenuOpen,
     openSubMenuLabel,
     selected,
     serviceVariant,
+    submenuHintId,
     testId,
   ]);
 

@@ -14,6 +14,14 @@ type TooltipContentProps = React.HTMLProps<HTMLDivElement> & {
   testId?: string;
   initialFocus?: FloatingFocusManagerProps['initialFocus'];
   closeOnFocusOut?: FloatingFocusManagerProps['closeOnFocusOut'];
+  /**
+   * Keeps the portaled tooltip in the tab order right after the trigger, so that focusable
+   * content inside it can be reached with Tab. This needs Floating UI's focus guards: focusable
+   * `aria-hidden` elements that axe reports as `aria-hidden-focus`. A tooltip has no focusable
+   * content by default, so the guards are only rendered when `initialFocus` moves focus into
+   * the tooltip, unless this is set explicitly.
+   */
+  preserveTabOrder?: boolean;
 };
 export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
   function TooltipContent(props, propRef) {
@@ -42,16 +50,18 @@ export const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentPro
       testId,
       closeOnFocusOut = true, // Close tooltip when focus moves outside
       initialFocus = -1, // Don't focus any element inside the tooltip by default
+      preserveTabOrder = initialFocus !== -1,
       ...rest
     } = props;
 
     return (
-      <FloatingPortal>
+      <FloatingPortal preserveTabOrder={preserveTabOrder}>
         <FloatingFocusManager
           context={tooltipContext.context}
           modal={false}
           initialFocus={initialFocus}
           closeOnFocusOut={closeOnFocusOut}
+          guards={preserveTabOrder}
         >
           <div
             aria-hidden="true"

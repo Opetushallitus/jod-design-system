@@ -1,7 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Footer } from './Footer';
@@ -101,10 +100,5 @@ describe('Footer', () => {
     expect(
       screen.getByRole('link', { name: 'Osaamispolku LinkedIn, Linkki johtaa palvelun ulkopuolelle' }),
     ).toBeInTheDocument();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(FooterComponent);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

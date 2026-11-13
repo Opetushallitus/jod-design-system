@@ -1,5 +1,4 @@
 import { act, fireEvent, render } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { CardCarousel, CardCarouselProps } from './CardCarousel';
@@ -415,9 +414,4 @@ describe('CardCarousel', () => {
       expect(first).toHaveAttribute('tabindex', '-1');
     });
   });
-});
-
-it('has no a11y violations', async () => {
-  const { container } = renderComponent();
-  expect(await axe(container)).toHaveNoViolations();
 });

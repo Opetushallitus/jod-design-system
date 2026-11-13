@@ -12,8 +12,10 @@ exports[`Snapshot > should render with defaults 1`] = `
     data-testid="language-button-trigger"
   >
     <svg
+      aria-hidden="true"
       class="mx-auto"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"
@@ -68,8 +70,10 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
     data-testid="language-button-trigger"
   >
     <svg
+      aria-hidden="true"
       class="mx-auto"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"
@@ -116,8 +120,8 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
     <div
       data-testid="language-button-menu-popup"
     >
-      <div
-        class="ds:inline-flex ds:flex-col ds:items-start ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px] ds:gap-2"
+      <ul
+        class="ds:inline-flex ds:flex-col ds:items-start ds:list-none ds:rounded-lg ds:bg-white ds:py-6 ds:px-4 ds:shadow-border ds:w-[229px] ds:gap-2"
       >
         <li
           class="ds:flex ds:w-full ds:min-h-8 ds:items-center"
@@ -191,7 +195,7 @@ exports[`Snapshot > should render with menu open (after click) 1`] = `
             </span>
           </a>
         </li>
-      </div>
+      </ul>
     </div>
   </div>
 </div>

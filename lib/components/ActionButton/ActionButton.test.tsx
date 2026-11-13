@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { JodPrint, JodShare } from '../../icons';
@@ -36,12 +35,5 @@ describe('ActionButton', () => {
       />,
     );
     expect(screen.getByRole('button')).toHaveClass('added-classname');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(
-      <ActionButton label="Print" icon={<JodPrint className="ds:text-accent" />} onClick={onClick} />,
-    );
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

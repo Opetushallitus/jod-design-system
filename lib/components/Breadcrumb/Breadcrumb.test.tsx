@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Breadcrumb } from './Breadcrumb';
@@ -70,7 +69,7 @@ describe('Breadcrumb', () => {
     expect(screen.getByTestId('crumbs')).toBeInTheDocument();
   });
 
-  it('does not render last item at all on small screens', () => {
+  it('hides the last item visually but keeps it for screen readers on small screens', () => {
     mockUseMediaQueries.mockReturnValueOnce({
       sm: true,
       md: false,
@@ -79,11 +78,8 @@ describe('Breadcrumb', () => {
     });
 
     render(<Breadcrumb items={items} linkComponent={LinkComponent} ariaLabel="Breadcrumb" serviceVariant="yksilo" />);
-    expect(screen.queryByText('Työpaikkani')).not.toBeInTheDocument();
+    const current = screen.getByText('Työpaikkani');
+    expect(current).toHaveClass('ds:sr-only');
+    expect(current).toHaveAttribute('aria-current', 'page');
   });
-});
-
-it('has no a11y violations', async () => {
-  const { container } = render(<Breadcrumb items={items} linkComponent={LinkComponent} serviceVariant="yksilo" />);
-  expect(await axe(container)).toHaveNoViolations();
 });

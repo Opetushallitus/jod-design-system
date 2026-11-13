@@ -68,7 +68,8 @@ export const HeroCard = ({
 
   return (
     <div
-      className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+      // Long words may break anywhere so that the card fits a narrow screen (WCAG 1.4.10 Reflow)
+      className="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto ds:wrap-anywhere"
       style={{ backgroundColor, color: textColor }}
       data-testid={getTestId('root')}
     >

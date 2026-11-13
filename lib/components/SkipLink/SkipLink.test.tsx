@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { SkipLink } from './SkipLink';
@@ -17,10 +16,5 @@ describe('SkipLink', () => {
     const { container } = render(<SkipLink label={label} hash={'#'} testId="skip2" />);
     expect(document.querySelector('[data-testid="skip2"]')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<SkipLink label="label" hash={'#'} />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

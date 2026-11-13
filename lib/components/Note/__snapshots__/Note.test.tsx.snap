@@ -36,7 +36,9 @@ exports[`Note component > renders with close button 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"
@@ -146,7 +148,7 @@ exports[`Note component > renders with read more component 1`] = `
         Test Description
       </div>
       <span
-        class="ds:mt-3"
+        class="ds:mt-3 ds:**:text-inherit!"
       >
         Read more
       </span>

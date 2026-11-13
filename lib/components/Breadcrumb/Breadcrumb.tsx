@@ -37,13 +37,6 @@ export const Breadcrumb = ({
   });
   const { md } = useMediaQueries();
 
-  const shouldRenderText = React.useCallback(
-    (item: BreadcrumbItem, isLast: boolean) => {
-      return (md && isLast) || (!item.to && !isLast);
-    },
-    [md],
-  );
-
   return (
     <nav
       aria-label={ariaLabel}
@@ -66,8 +59,12 @@ export const Breadcrumb = ({
                   <LinkComponent to={item.to}>{item.label}</LinkComponent>
                 </span>
               ) : (
-                shouldRenderText(item, isLast) && (
-                  <span className={textColorClass} aria-current={isLast ? 'page' : undefined}>
+                (isLast || !item.to) && (
+                  // On small screens the current page is hidden visually but kept for screen readers.
+                  <span
+                    className={md || !isLast ? textColorClass : 'ds:sr-only'}
+                    aria-current={isLast ? 'page' : undefined}
+                  >
                     {item.label}
                   </span>
                 )

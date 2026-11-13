@@ -3,7 +3,10 @@ import {
   ComboboxInput,
   ComboboxOption,
   ComboboxOptions,
+  Description,
+  Field,
   Combobox as HeadlessCombobox,
+  Label,
 } from '@headlessui/react';
 import React from 'react';
 
@@ -112,12 +115,14 @@ export const Combobox = <
 
   const selectedOption = options.find((option) => (option.value as U) === value);
 
+  // Headless UI overrides aria-describedby passed directly to ComboboxInput, so the help and error texts are
+  // registered through Field and Description instead (same as Select).
   return (
-    <div
+    <Field
       className={tc(['ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium', className])}
       data-testid={getTestId('field')}
     >
-      {!hideLabel && <InputLabel htmlFor={inputId} labelText={labelText} testId={getTestId('label')} />}
+      {!hideLabel && <Label as={InputLabel} htmlFor={inputId} labelText={labelText} testId={getTestId('label')} />}
       <div className="ds:flex ds:flex-row ds:relative">
         <HeadlessCombobox
           defaultValue={defaultValue ?? (options[0]?.value as U)}
@@ -188,8 +193,10 @@ export const Combobox = <
           )}
         </HeadlessCombobox>
       </div>
-      <InputHelp id={helpId} helpText={help} testId={getTestId('help')} />
-      <InputError id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
-    </div>
+      {help !== undefined && <Description as={InputHelp} id={helpId} helpText={help} testId={getTestId('help')} />}
+      {errorMessage !== undefined && (
+        <Description as={InputError} id={errorId} errorMessage={errorMessage} testId={getTestId('error')} />
+      )}
+    </Field>
   );
 };

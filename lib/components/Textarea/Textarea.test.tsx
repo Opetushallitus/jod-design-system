@@ -1,6 +1,5 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Textarea } from './Textarea';
@@ -87,10 +86,5 @@ describe('Textarea', () => {
     expect(textarea).toHaveAttribute('rows', '5');
     expect(screen.getByTestId('ta7-textarea')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<Textarea onChange={vi.fn()} rows={2} placeholder="Enter text" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 });

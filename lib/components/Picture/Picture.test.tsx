@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
 import { describe, expect, it } from 'vitest';
 
 import { type PictureData, Picture, pictureToImageSet } from './Picture';
@@ -44,11 +43,6 @@ describe('Picture', () => {
     expect(img).toHaveAttribute('loading', 'eager');
     expect(img).toHaveAttribute('fetchpriority', 'high');
     expect(img).toHaveClass('w-full');
-  });
-
-  it('has no a11y violations', async () => {
-    const { container } = render(<Picture picture={picture} alt="test image" />);
-    expect(await axe(container)).toHaveNoViolations();
   });
 
   describe('pictureToImageSet', () => {

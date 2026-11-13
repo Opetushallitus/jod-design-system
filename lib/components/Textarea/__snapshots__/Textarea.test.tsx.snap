@@ -9,6 +9,7 @@ exports[`Textarea > calls onBlur when the textarea loses focus 1`] = `
   />
   <textarea
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta5-textarea"
@@ -27,6 +28,7 @@ exports[`Textarea > calls onChange when the value changes 1`] = `
   />
   <textarea
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta4-textarea"
@@ -46,6 +48,7 @@ exports[`Textarea > displays help text when provided 1`] = `
   <textarea
     aria-describedby="_r_g_"
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta6-textarea"
@@ -73,6 +76,7 @@ exports[`Textarea > displays the label when hideLabel is false 1`] = `
   </label>
   <textarea
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta2-textarea"
@@ -86,6 +90,7 @@ exports[`Textarea > hides the label when hideLabel is true 1`] = `
 <div>
   <textarea
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta3-textarea"
@@ -104,6 +109,7 @@ exports[`Textarea > renders without crashing 1`] = `
   />
   <textarea
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta1-textarea"
@@ -122,6 +128,7 @@ exports[`Textarea > sets the correct number of rows 1`] = `
   />
   <textarea
     aria-invalid="false"
+    aria-required="false"
     autocomplete="off"
     class="ds:block ds:w-full ds:sm:max-w-input-long ds:rounded ds:border-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:focus:outline-2 ds:focus:outline-accent ds:placeholder:text-placeholder-text ds:font-arial ds:text-body-md ds:min-h-[88px]"
     data-testid="ta7-textarea"
