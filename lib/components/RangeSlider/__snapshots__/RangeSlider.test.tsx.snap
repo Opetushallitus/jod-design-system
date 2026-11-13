@@ -60,8 +60,10 @@ exports[`RangeSlider > matches snapshot 1`] = `
                 class="ds:relative"
               >
                 <svg
+                  aria-hidden="true"
                   class="ds:text-inactive-gray"
                   fill="currentColor"
+                  focusable="false"
                   height="3"
                   stroke="currentColor"
                   stroke-width="0"
@@ -99,8 +101,10 @@ exports[`RangeSlider > matches snapshot 1`] = `
                 class="ds:relative"
               >
                 <svg
+                  aria-hidden="true"
                   class="ds:text-inactive-gray"
                   fill="currentColor"
+                  focusable="false"
                   height="3"
                   stroke="currentColor"
                   stroke-width="0"
@@ -138,8 +142,10 @@ exports[`RangeSlider > matches snapshot 1`] = `
                 class="ds:relative"
               >
                 <svg
+                  aria-hidden="true"
                   class="ds:text-inactive-gray"
                   fill="currentColor"
+                  focusable="false"
                   height="3"
                   stroke="currentColor"
                   stroke-width="0"

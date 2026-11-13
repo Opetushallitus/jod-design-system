@@ -104,8 +104,15 @@ describe('Select screen reader', () => {
 
   // Known issue: the invalid state is not announced. The error sets aria-invalid on the
   // ListboxButton, but the button role does not support aria-invalid, so it is ignored.
-  // The error text is still read as the description. A role that supports aria-invalid
-  // (e.g. combobox) is needed. Remove `.fails` when fixed.
+  // The error text is still read as the field description, so the error itself is not lost.
+  // There is no sound low-risk fix with Headless UI Listbox (2.2.x):
+  // - role="combobox" (which supports aria-invalid) on the button is not a valid pattern
+  //   here: Headless UI moves DOM focus from the button into the listbox when it opens,
+  //   while the ARIA combobox pattern requires focus to stay on the combobox and use
+  //   aria-activedescendant. It would also change the role that consumers query by.
+  // - The listbox role supports aria-invalid, but the listbox is only rendered while open.
+  // A real fix needs a combobox-style component (e.g. Headless UI Combobox) or a native
+  // <select>. Remove `.fails` when fixed.
   it.fails('announces the invalid state', async () => {
     render(<Select label="Kieli" options={options} placeholder="Valitse" errorMessage="Virhe" />);
     await virtual.start({ container: document.body });

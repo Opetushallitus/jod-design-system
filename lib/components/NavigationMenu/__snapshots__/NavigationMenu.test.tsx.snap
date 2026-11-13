@@ -26,7 +26,9 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
             data-testid="close-menu-button"
           >
             <svg
+              aria-hidden="true"
               fill="currentColor"
+              focusable="false"
               height="24"
               stroke="currentColor"
               stroke-width="0"
@@ -66,6 +68,7 @@ exports[`NavigationMenu > renders navigation menu with default state 1`] = `
             <svg
               aria-hidden="true"
               fill="currentColor"
+              focusable="false"
               height="24"
               stroke="currentColor"
               stroke-width="0"

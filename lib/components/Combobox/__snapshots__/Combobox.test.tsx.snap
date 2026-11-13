@@ -3,6 +3,7 @@
 exports[`Combobox > Snapshot testing > should not show label 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-headlessui-state=""
   data-testid="field"
 >
   <div
@@ -21,7 +22,7 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         class="ds:font-arial ds:w-full ds:rounded-l-md ds:border-y-2 ds:border-l-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:outline-hidden ds:placeholder:text-placeholder-text ds:disabled:text-inactive-gray ds:disabled:pointer-events-none"
         data-headlessui-state=""
         data-testid="input"
-        id="_r_a_"
+        id="_r_c_"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -34,12 +35,14 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
         class="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
         data-testid="button"
-        id="headlessui-combobox-button-_r_g_"
+        id="headlessui-combobox-button-_r_j_"
         tabindex="-1"
         type="button"
       >
         <svg
+          aria-hidden="true"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"
@@ -55,18 +58,24 @@ exports[`Combobox > Snapshot testing > should not show label 1`] = `
       </button>
     </div>
   </div>
+  <span
+    hidden=""
+    style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"
+  />
 </div>
 `;
 
 exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-headlessui-state=""
   data-testid="field"
 >
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
     data-testid="label"
-    for="_r_k_"
+    for="_r_n_"
+    id="headlessui-label-_r_r_"
   >
     Label
   </label>
@@ -88,7 +97,7 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         data-headlessui-state="disabled"
         data-testid="input"
         disabled=""
-        id="_r_k_"
+        id="_r_n_"
         placeholder="(placeholder text)"
         role="combobox"
         type="text"
@@ -103,12 +112,14 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
         data-headlessui-state="disabled"
         data-testid="button"
         disabled=""
-        id="headlessui-combobox-button-_r_q_"
+        id="headlessui-combobox-button-_r_v_"
         tabindex="-1"
         type="button"
       >
         <svg
+          aria-hidden="true"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"
@@ -124,18 +135,24 @@ exports[`Combobox > Snapshot testing > should render as disabled 1`] = `
       </button>
     </div>
   </div>
+  <span
+    hidden=""
+    style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"
+  />
 </div>
 `;
 
 exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
 <div
   class="ds:flex ds:flex-col ds:relative ds:sm:max-w-input-medium"
+  data-headlessui-state=""
   data-testid="field"
 >
   <label
     class="ds:inline-block ds:mb-3 ds:align-top ds:text-form-label ds:font-arial ds:text-primary-gray"
     data-testid="label"
     for="_r_0_"
+    id="headlessui-label-_r_4_"
   >
     Label
   </label>
@@ -167,12 +184,14 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
         class="ds:select-none ds:rounded-r-md ds:border-y-2 ds:border-r-2 ds:border-secondary-gray ds:bg-white ds:px-5 ds:py-3 ds:text-primary-gray ds:disabled:text-inactive-gray"
         data-headlessui-state=""
         data-testid="button"
-        id="headlessui-combobox-button-_r_6_"
+        id="headlessui-combobox-button-_r_8_"
         tabindex="-1"
         type="button"
       >
         <svg
+          aria-hidden="true"
           fill="currentColor"
+          focusable="false"
           height="24"
           stroke="currentColor"
           stroke-width="0"
@@ -188,5 +207,9 @@ exports[`Combobox > Snapshot testing > should render with defaults 1`] = `
       </button>
     </div>
   </div>
+  <span
+    hidden=""
+    style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"
+  />
 </div>
 `;

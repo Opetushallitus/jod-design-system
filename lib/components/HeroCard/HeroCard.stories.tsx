@@ -106,7 +106,7 @@ export const SmallWithActionButton: Story = {
     buttonLabel: 'Ohjaajan osioon',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-    backgroundColor: '#00A8B3',
+    backgroundColor: 'var(--ds-color-primary-2-dark)',
   },
   decorators: [
     (Story) => (

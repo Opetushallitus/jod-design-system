@@ -106,6 +106,27 @@ export const WithAsync: Story = {
   },
 };
 
+export const WithAsyncError: Story = {
+  decorators,
+  parameters: {
+    ...parameters,
+    docs: {
+      description: {
+        story:
+          'When `fetchData` fails, the accordion stays closed and `errorText` is shown and announced to screen readers. The next click fetches again.',
+      },
+    },
+  },
+  args: {
+    title: 'Title',
+    children: 'Content',
+    underline: true,
+    fetchData: async () => new Promise((_, reject) => setTimeout(() => reject(new Error('Failed')), 500)),
+    loadingText: 'Ladataan',
+    errorText: 'Sisällön lataaminen epäonnistui. Yritä uudelleen.',
+  },
+};
+
 export const GrayClosedByDefault: Story = {
   decorators,
   parameters: {

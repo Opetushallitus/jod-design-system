@@ -102,17 +102,29 @@ export const NavigationMenu = ({
 
   React.useEffect(() => {
     const dialog = dialogRef.current;
-    if (!dialog) {
+    if (!open || !dialog) {
       return;
     }
 
-    if (open) {
+    // Remember the element that opened the menu, so that focus can be returned to it.
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    if (!dialog.open) {
       dialog.showModal();
-    } else {
-      dialog.close();
-      onClose();
     }
-  }, [dialogRef, open, onClose]);
+
+    return () => {
+      // The dialog is unmounted when the menu is closed. Close it properly and return focus
+      // to the opener, unless focus has already been moved somewhere else.
+      if (dialog.open) {
+        dialog.close();
+      }
+      const active = document.activeElement;
+      const focusLost = !active || active === document.body || dialog.contains(active);
+      if (focusLost && opener?.isConnected) {
+        opener.focus();
+      }
+    };
+  }, [open]);
 
   return open ? (
     <ServiceVariantProvider value={serviceVariant}>

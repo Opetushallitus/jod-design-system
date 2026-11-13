@@ -31,8 +31,10 @@ exports[`Toast > renders the toast component with text 1`] = `
     class="ds:shrink-0"
   >
     <svg
+      aria-hidden="true"
       class="ds:text-success"
       fill="currentColor"
+      focusable="false"
       height="24"
       stroke="currentColor"
       stroke-width="0"

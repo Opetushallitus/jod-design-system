@@ -6,6 +6,7 @@ import {
   Portal,
   useDatePicker,
   UseDatePickerContext,
+  useDatePickerContext,
 } from '@ark-ui/react';
 import React from 'react';
 
@@ -37,7 +38,7 @@ const tableCellClasses = tc([
 const getDayCellClasses = (datePicker: UseDatePickerContext, day: UseDatePickerContext['focusedValue']) =>
   cx(tableCellClasses, 'ds:size-[28px]', {
     'ds:disabled:text-inactive-gray ds:disabled:cursor-not-allowed': datePicker.isUnavailable(day),
-    'ds:text-inactive-gray': datePicker.focusedValue.month !== day.month,
+    'ds:text-placeholder-text': datePicker.focusedValue.month !== day.month,
   });
 
 const getYearCellClasses = (year: { label: string; value: number }) =>
@@ -52,21 +53,48 @@ const handleEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
   }
 };
 
-const Header = () => (
-  <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
-    <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
-      <JodArrowLeft />
-    </ArkDatePicker.PrevTrigger>
+type DatepickerView = UseDatePickerContext['view'];
 
-    <ArkDatePicker.ViewTrigger onKeyDown={handleEnter}>
-      <ArkDatePicker.RangeText className="ds:capitalize ds:text-primary-gray ds:font-bold ds:cursor-pointer ds:hover:underline" />
-    </ArkDatePicker.ViewTrigger>
+// Same as Ark-UI's next view with the default minView ('day') and maxView ('year'), which are in use.
+const nextViews: Record<DatepickerView, DatepickerView | undefined> = {
+  day: 'month',
+  month: 'year',
+  year: undefined,
+};
 
-    <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
-      <JodArrowRight />
-    </ArkDatePicker.NextTrigger>
-  </ArkDatePicker.ViewControl>
-);
+interface HeaderProps {
+  /** The calendar view that this header belongs to */
+  view: DatepickerView;
+  /** Ark-UI viewTrigger translation, describes the view that the view trigger switches to */
+  viewTriggerLabel?: ArkTranslationsInUse['viewTrigger'];
+}
+
+const Header = ({ view, viewTriggerLabel }: HeaderProps) => {
+  const datePicker = useDatePickerContext();
+  // Same text as ArkDatePicker.RangeText renders.
+  const { start, end } = datePicker.visibleRangeText;
+  const rangeText = [...new Set([start, end])].filter(Boolean).join(' - ');
+  // The accessible name must contain the visible text (WCAG 2.5.3 Label in Name), so the visible
+  // range text comes first and the view switch hint from the translations follows it.
+  const viewTriggerAriaLabel =
+    [rangeText, viewTriggerLabel?.(view, nextViews[view])].filter(Boolean).join(', ') || undefined;
+
+  return (
+    <ArkDatePicker.ViewControl className="ds:mb-4 ds:flex ds:justify-between">
+      <ArkDatePicker.PrevTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
+        <JodArrowLeft />
+      </ArkDatePicker.PrevTrigger>
+
+      <ArkDatePicker.ViewTrigger onKeyDown={handleEnter} aria-label={viewTriggerAriaLabel}>
+        <ArkDatePicker.RangeText className="ds:capitalize ds:text-primary-gray ds:font-bold ds:cursor-pointer ds:hover:underline" />
+      </ArkDatePicker.ViewTrigger>
+
+      <ArkDatePicker.NextTrigger className="ds:text-accent ds:px-3 ds:cursor-pointer" onKeyDown={handleEnter}>
+        <JodArrowRight />
+      </ArkDatePicker.NextTrigger>
+    </ArkDatePicker.ViewControl>
+  );
+};
 
 export interface DatePickerAriaRoleDescriptions {
   datepicker: string;
@@ -248,7 +276,7 @@ export const Datepicker = ({
                 {(datePicker) => (
                   <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'day'}>
                     <div>
-                      <Header />
+                      <Header view="day" viewTriggerLabel={translations.viewTrigger} />
                       <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarMonth}>
                         <ArkDatePicker.TableHead>
                           <ArkDatePicker.TableRow>
@@ -274,7 +302,7 @@ export const Datepicker = ({
                                     <button
                                       type="button"
                                       disabled={datePicker.isUnavailable(day)}
-                                      className="ds:cursor-pointer ds:leading-none ds:font-arial ds:data-outside-range:text-inactive-gray ds:text-primary-gray"
+                                      className="ds:cursor-pointer ds:leading-none ds:font-arial ds:data-outside-range:text-placeholder-text ds:text-primary-gray"
                                     >
                                       {day.day}
                                     </button>
@@ -296,7 +324,7 @@ export const Datepicker = ({
                 {(datePicker) => (
                   <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'month'}>
                     <div>
-                      <Header />
+                      <Header view="month" viewTriggerLabel={translations.viewTrigger} />
                       <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarYear}>
                         <ArkDatePicker.TableBody>
                           {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months) => (
@@ -327,7 +355,7 @@ export const Datepicker = ({
                 {(datePicker) => (
                   <DatepickerFocusTrap active={datePicker.open && datePicker.view === 'year'}>
                     <div>
-                      <Header />
+                      <Header view="year" viewTriggerLabel={translations.viewTrigger} />
                       <ArkDatePicker.Table aria-roledescription={translations.roleDescriptions?.calendarDecade}>
                         <ArkDatePicker.TableBody>
                           {datePicker.getYearsGrid({ columns: 4 }).map((years) => (

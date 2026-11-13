@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { cx } from '../../../cva';
+import { useOnChange } from '../../../hooks/useOnChange';
 import { useServiceVariant } from '../../../hooks/useServiceVariant/useServiceVariant';
 import { JodCaretDown, JodCaretUp } from '../../../icons';
 import {
@@ -32,6 +33,17 @@ export interface MenuSection {
   linkItems: MenuItem[];
 }
 
+const hasSelectedDescendant = (items?: MenuItem[]): boolean =>
+  Array.isArray(items) && items.some((item) => item.selected || hasSelectedDescendant(item.childItems));
+
+/** Visually hidden hint that is part of a submenu toggle's accessible name. */
+const SubmenuHint = ({ id, label }: { id: string; label?: string }) =>
+  label ? (
+    <span id={id} hidden>
+      {label}
+    </span>
+  ) : null;
+
 const MenuListItem = ({
   activeIndicator = 'bg',
   childItems,
@@ -44,25 +56,23 @@ const MenuListItem = ({
   selected,
   testId,
 }: MenuListItemProps & { testId?: string }) => {
-  const [nestedMenuOpen, setNestedMenuOpen] = React.useState(false);
+  const hasChildItems = Array.isArray(childItems) && childItems.length > 0;
+  // The submenu is opened, but never closed, when its item or a descendant is selected or the menu is not collapsed.
+  // A function, so that the descendants are only searched on the first render and when the items change.
+  const shouldOpen = () => !collapsed || (!!selected && hasChildItems) || hasSelectedDescendant(childItems);
+  const [nestedMenuOpen, setNestedMenuOpen] = React.useState(shouldOpen);
   const [shouldFocusFirstChild, setShouldFocusFirstChild] = React.useState(false);
   const serviceVariant = useServiceVariant();
   const submenuRef = React.useRef<HTMLUListElement>(null);
-  const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
-  const hasSelectedDescendant = React.useCallback(
-    (items?: MenuItem[]): boolean =>
-      Array.isArray(items) && items.some((item) => item.selected || hasSelectedDescendant(item.childItems)),
-    [],
-  );
+  const labelId = React.useId();
+  const submenuHintId = React.useId();
+  const getTestId = React.useCallback((suffix: string) => (testId ? `${testId}-${suffix}` : suffix), [testId]);
 
-  React.useEffect(() => {
-    const isChildItemSelected = hasSelectedDescendant(childItems);
-    const shouldOpenForSelectedParent = Boolean(selected && Array.isArray(childItems) && childItems.length > 0);
-
-    if (isChildItemSelected || shouldOpenForSelectedParent || !collapsed) {
+  useOnChange([childItems, collapsed, selected], () => {
+    if (shouldOpen()) {
       setNestedMenuOpen(true);
     }
-  }, [childItems, collapsed, hasSelectedDescendant, selected]);
+  });
 
   React.useEffect(() => {
     if (shouldFocusFirstChild && nestedMenuOpen && submenuRef.current) {
@@ -78,10 +88,10 @@ const MenuListItem = ({
     const isOpening = !nestedMenuOpen;
     setNestedMenuOpen(isOpening);
 
-    if (isOpening && childItems && childItems.length > 0) {
+    if (isOpening && hasChildItems) {
       setShouldFocusFirstChild(true);
     }
-  }, [nestedMenuOpen, childItems]);
+  }, [nestedMenuOpen, hasChildItems]);
 
   const getSelectedClasses = React.useCallback(() => {
     if (activeIndicator === 'dot') {
@@ -155,54 +165,64 @@ const MenuListItem = ({
           >
             <span className={linkItemClasses}>
               {icon}
-              {label}
+              <span id={labelId}>{label}</span>
             </span>
           </LinkComponent>
-          {childItems && childItems.length > 0 && (
+          {hasChildItems && (
             <button
               type="button"
-              aria-label={openSubMenuLabel}
+              // Name the icon-only toggle by its action and the item it belongs to, e.g.
+              // "Avaa alivalikko Kartoita", so the toggles of different items are distinguishable.
+              aria-label={openSubMenuLabel ? undefined : label}
+              aria-labelledby={openSubMenuLabel ? `${submenuHintId} ${labelId}` : undefined}
               aria-expanded={nestedMenuOpen}
               className={submenuToggleButtonClasses}
               onClick={handleNestedMenuOpen}
               data-testid={getTestId('toggle')}
             >
               {nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}
+              <SubmenuHint id={submenuHintId} label={openSubMenuLabel} />
             </button>
           )}
         </>
       );
-    } else if (!LinkComponent && childItems) {
+    }
+    if (childItems) {
       // The whole menu item is a button that opens a nested menu
       return (
+        // The accessible name starts with the visible label (WCAG 2.5.3 Label in Name),
+        // followed by the hint, e.g. "Ryhmä Avaa alivalikko".
         <button
           type="button"
-          aria-label={openSubMenuLabel}
+          aria-labelledby={openSubMenuLabel ? `${labelId} ${submenuHintId}` : undefined}
           aria-expanded={nestedMenuOpen}
           className={tc([linkItemClasses, 'ds:justify-between'])}
           onClick={handleNestedMenuOpen}
           data-testid={getTestId('toggle')}
         >
-          {label}
+          <span id={labelId}>{label}</span>
           <span>{nestedMenuOpen ? <JodCaretUp /> : <JodCaretDown />}</span>
+          <SubmenuHint id={submenuHintId} label={openSubMenuLabel} />
         </button>
       );
-    } else {
-      // Plain section title
-      return <span className="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3">{label}</span>;
     }
+    // Plain section title
+    return <span className="ds:flex ds:items-center ds:text-[14px] ds:leading-[20px] ds:flex-1 ds:p-3">{label}</span>;
   }, [
     LinkComponent,
     childItems,
+    hasChildItems,
     getSelectedClasses,
     handleNestedMenuOpen,
     icon,
     label,
+    labelId,
     nestedMenuOpen,
     openSubMenuLabel,
     selected,
     serviceVariant,
-    testId,
+    submenuHintId,
+    getTestId,
   ]);
 
   return (
@@ -210,9 +230,9 @@ const MenuListItem = ({
       <div className={tc(['ds:flex ds:flex-row ds:space-between ds:min-h-8 ds:gap-2 ds:ml-3', className])}>
         {listItemContent}
       </div>
-      {nestedMenuOpen && childItems && childItems.length > 0 && (
+      {nestedMenuOpen && hasChildItems && (
         <MenuList
-          menuSection={{ linkItems: childItems }}
+          menuSection={{ linkItems: childItems ?? [] }}
           activeIndicator={activeIndicator}
           serviceVariant={serviceVariant}
           collapsed={collapsed}
@@ -237,7 +257,10 @@ export interface MenuListProps {
   isNested?: boolean;
   /** Whether to hide the accent colored border */
   hideAccentBorder?: boolean;
-  /** Open submenu label for accessibility */
+  /**
+   * Hint read with the button that opens an item's submenu, e.g. "Avaa alivalikko". Give it whenever items have child
+   * items: without it, the icon-only toggle next to a link is named only by the item label, the same as the link.
+   */
   openSubMenuLabel?: string;
   /** Classname for each menu item */
   itemClassname?: string;

@@ -14,7 +14,7 @@ exports[`Footer > renders 1`] = `
         class="ds:max-w-[716px]"
       >
         <div
-          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto ds:wrap-anywhere"
           data-testid="feedback-hero-card-root"
           style="background-color: rgb(51, 51, 51); color: var(--ds-color-white);"
         >
@@ -43,7 +43,9 @@ exports[`Footer > renders 1`] = `
               Feedback
             </span>
             <svg
+              aria-hidden="true"
               fill="currentColor"
+              focusable="false"
               height="24"
               stroke="currentColor"
               stroke-width="0"
@@ -106,6 +108,7 @@ exports[`Footer > renders 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -141,6 +144,7 @@ exports[`Footer > renders 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -176,6 +180,7 @@ exports[`Footer > renders 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -211,6 +216,7 @@ exports[`Footer > renders 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -246,6 +252,7 @@ exports[`Footer > renders 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -670,7 +677,7 @@ exports[`Footer > renders copyright 1`] = `
         class="ds:max-w-[716px]"
       >
         <div
-          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+          class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto ds:wrap-anywhere"
           data-testid="feedback-hero-card-root"
           style="background-color: rgb(51, 51, 51); color: var(--ds-color-white);"
         >
@@ -699,7 +706,9 @@ exports[`Footer > renders copyright 1`] = `
               Feedback
             </span>
             <svg
+              aria-hidden="true"
               fill="currentColor"
+              focusable="false"
               height="24"
               stroke="currentColor"
               stroke-width="0"
@@ -762,6 +771,7 @@ exports[`Footer > renders copyright 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -797,6 +807,7 @@ exports[`Footer > renders copyright 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -832,6 +843,7 @@ exports[`Footer > renders copyright 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -867,6 +879,7 @@ exports[`Footer > renders copyright 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"
@@ -902,6 +915,7 @@ exports[`Footer > renders copyright 1`] = `
               <svg
                 aria-hidden="true"
                 fill="currentColor"
+                focusable="false"
                 height="24"
                 stroke="currentColor"
                 stroke-width="0"

@@ -3,6 +3,7 @@ import React from 'react';
 
 import { cx } from '../../cva';
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { useOnChange } from '../../hooks/useOnChange';
 import { JodCaretDown, JodCaretUp } from '../../icons';
 import { Spinner } from '../Spinner/Spinner';
 
@@ -40,6 +41,8 @@ type AccordionProps = {
   fetchData?: () => Promise<void>;
   /** Text announced to screen readers while fetchData is loading, e.g. "Loading". Used only with fetchData. */
   loadingText?: string;
+  /** Text shown and announced to screen readers when fetchData fails, e.g. "Loading failed". Used only with fetchData. */
+  errorText?: string;
   /** Test id for querying in tests */
   testId?: string;
   /** Classnames for wrapper */
@@ -54,11 +57,98 @@ type AccordionProps = {
   animated?: boolean;
 } & TitleProps;
 
+/**
+ * The hover color is the darker accent, as the accent has too little contrast (4.38:1) on the gray-2 background that
+ * accordions are often placed on.
+ */
 const Caret = ({ isOpen }: { isOpen: boolean }) => (
-  <span className="ds:text-primary-gray ds:group-hover:text-accent!" aria-hidden>
+  <span className="ds:text-primary-gray ds:group-hover:text-primary-1-dark-2!" aria-hidden>
     {isOpen ? <JodCaretUp /> : <JodCaretDown />}
   </span>
 );
+
+const AccordionTitle = ({ title, ellipsis, testId }: { title: React.ReactNode; ellipsis: boolean; testId: string }) =>
+  typeof title === 'string' ? (
+    <span
+      className={cx('ds:block ds:min-w-0 ds:flex-1 ds:text-left ds:text-heading-3 ds:hyphens-auto', {
+        'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
+      })}
+      data-testid={testId}
+    >
+      {title}
+    </span>
+  ) : (
+    <div
+      className={cx('ds:min-w-0 ds:flex-1 ds:text-left ds:text-heading-3 ds:hyphens-auto', {
+        'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
+      })}
+      data-testid={testId}
+    >
+      {title}
+    </div>
+  );
+
+type FetchStatusValue = 'idle' | 'loading' | 'done' | 'error';
+
+/**
+ * Live region for the fetch status. The loading text is only announced, while the error is also shown, as nothing else
+ * tells that the accordion did not open.
+ */
+const FetchStatus = ({
+  status,
+  loadingText,
+  errorText,
+  testId,
+}: {
+  status: FetchStatusValue;
+  loadingText?: string;
+  errorText?: string;
+  testId: string;
+}) => {
+  const texts: Partial<Record<FetchStatusValue, string>> = { loading: loadingText, error: errorText };
+  const text = texts[status];
+  return (
+    <span // NOSONAR (same reason as above)
+      // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- <output> is not reliably exposed as a live region
+      role="status"
+      className={
+        status === 'error' && text ? 'ds:mt-2 ds:block ds:font-arial ds:text-form-error ds:text-alert-2' : 'ds:sr-only'
+      }
+      data-testid={testId}
+    >
+      {text}
+    </span>
+  );
+};
+
+/**
+ * Toggles the accordion. With fetchData, the content is fetched before the accordion first opens. If fetching fails,
+ * the accordion stays closed, so that it is not announced as expanded without content, and the next click retries.
+ */
+const useToggle = (isOpen: boolean, setIsOpen: (isOpen: boolean) => void, fetchData?: () => Promise<void>) => {
+  const [fetchStatus, setFetchStatus] = React.useState<FetchStatusValue>('idle');
+
+  const toggleOpen = React.useCallback(async () => {
+    if (fetchStatus === 'loading') {
+      return;
+    }
+
+    if (fetchData && fetchStatus !== 'done' && !isOpen) {
+      try {
+        setFetchStatus('loading');
+        await fetchData();
+        setFetchStatus('done');
+      } catch {
+        setFetchStatus('error');
+        return;
+      }
+    }
+
+    setIsOpen(!isOpen);
+  }, [fetchData, fetchStatus, isOpen, setIsOpen]);
+
+  return { fetchStatus, toggleOpen };
+};
 
 export const Accordion = ({
   title,
@@ -71,6 +161,7 @@ export const Accordion = ({
   triggerId,
   fetchData,
   loadingText,
+  errorText,
   testId,
   isOpen: controlledIsOpen,
   setIsOpen: controlledSetIsOpen,
@@ -81,7 +172,8 @@ export const Accordion = ({
   animated = true,
 }: AccordionProps) => {
   const contentRef = React.useRef<HTMLDivElement>(null);
-  const [internalIsOpen, setInternalIsOpen] = React.useState(initialState);
+  // With fetchData, an open accordion would be announced as expanded while it shows nothing until the first click.
+  const [internalIsOpen, setInternalIsOpen] = React.useState(initialState && !fetchData);
   const isControlled = controlledIsOpen !== undefined;
   const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
   const setIsOpen = isControlled && controlledSetIsOpen ? controlledSetIsOpen : setInternalIsOpen;
@@ -89,33 +181,17 @@ export const Accordion = ({
   const shouldAnimate = reduceMotion ? false : animated;
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
 
-  // Reset the state when the children change
-  React.useEffect(() => {
-    // If fetchData is provided, the accordion will not open on the first try
+  // Reset the state when the children change. With fetchData the accordion stays as it is, as it opens only once the
+  // content has been fetched.
+  useOnChange([children, fetchData, initialState, isControlled], () => {
     if (!isControlled && !fetchData) {
       setInternalIsOpen(initialState);
     }
-  }, [children, fetchData, initialState, isControlled]);
+  });
 
-  const [fetchStatus, setFetchStatus] = React.useState<'idle' | 'loading' | 'done'>('idle');
+  const { fetchStatus, toggleOpen } = useToggle(isOpen, setIsOpen, fetchData);
 
-  const toggleOpen = React.useCallback(async () => {
-    if (fetchStatus === 'loading') {
-      return;
-    }
-
-    if (fetchData && fetchStatus === 'idle' && !isOpen) {
-      try {
-        setFetchStatus('loading');
-        await fetchData();
-        setFetchStatus('done');
-      } catch {
-        setFetchStatus('idle');
-      }
-    }
-
-    setIsOpen(!isOpen);
-  }, [fetchData, fetchStatus, isOpen, setIsOpen]);
+  const showContent = isOpen && (!fetchData || fetchStatus === 'done');
 
   const captureHeight = () =>
     contentRef.current && (contentRef.current.style.maxHeight = `${contentRef.current.scrollHeight}px`);
@@ -132,32 +208,14 @@ export const Accordion = ({
           aria-label={typeof title === 'string' ? title : ariaLabel}
           onClick={() => void toggleOpen()}
           className={cx(
-            'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-accent! ds:group',
+            'ds:cursor-pointer ds:flex ds:w-full ds:items-center ds:justify-between ds:gap-x-4 ds:group-hover:text-primary-1-dark-2! ds:group',
             {
               'ds:border-b ds:border-border-gray': underline,
             },
           )}
           data-testid={getTestId('trigger')}
         >
-          {typeof title === 'string' ? (
-            <span
-              className={cx('ds:block ds:min-w-0 ds:flex-1 ds:text-left ds:text-heading-3 ds:hyphens-auto', {
-                'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
-              })}
-              data-testid={getTestId('title')}
-            >
-              {title}
-            </span>
-          ) : (
-            <div
-              className={cx('ds:min-w-0 ds:flex-1 ds:text-left ds:text-heading-3 ds:hyphens-auto', {
-                'ds:overflow-hidden ds:text-ellipsis ds:whitespace-nowrap': ellipsis,
-              })}
-              data-testid={getTestId('title')}
-            >
-              {title}
-            </div>
-          )}
+          <AccordionTitle title={title} ellipsis={ellipsis} testId={getTestId('title')} />
           <span className="ds:shrink-0" style={{ alignSelf: caretPosition === 'top' ? 'flex-start' : 'center' }}>
             {fetchStatus === 'loading' ? (
               <Spinner size={24} color="accent" testId={getTestId('spinner')} />
@@ -169,17 +227,19 @@ export const Accordion = ({
       </div>
       {/* Persistent live region outside the button: screen readers only announce changes to regions that already exist */}
       {fetchData && (
-        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- <output> is not reliably exposed as a live region
-        <span role="status" className="ds:sr-only" data-testid={getTestId('status')}>
-          {fetchStatus === 'loading' ? loadingText : ''}
-        </span>
+        <FetchStatus
+          status={fetchStatus}
+          loadingText={loadingText}
+          errorText={errorText}
+          testId={getTestId('status')}
+        />
       )}
       {shouldAnimate ? (
         <>
           <Transition
             ref={contentRef}
             as="div"
-            show={isOpen && (!fetchData || fetchStatus === 'done')}
+            show={showContent}
             enter="ds:transition-[max-height,opacity] ds:duration-300 ds:ease-in ds:overflow-hidden"
             enterFrom="ds:max-h-0! ds:opacity-0"
             enterTo="ds:max-h-full ds:opacity-100"
@@ -210,7 +270,7 @@ export const Accordion = ({
         </>
       ) : (
         <>
-          {isOpen && (!fetchData || fetchStatus === 'done') && <div data-testid={getTestId('content')}>{children}</div>}
+          {showContent && <div data-testid={getTestId('content')}>{children}</div>}
           {!isOpen && collapsedContent && <div data-testid={getTestId('collapsed-content')}>{collapsedContent}</div>}
         </>
       )}

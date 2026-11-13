@@ -15,7 +15,7 @@ const ROOT = join(import.meta.dirname, '..');
 export const storyFiles = readdirSync(join(ROOT, 'lib'), { recursive: true, encoding: 'utf8' })
   .filter((file) => /\.stories\.tsx?$/.test(file))
   .map((file) => `./${relative(ROOT, join(ROOT, 'lib', file))}`)
-  .sort();
+  .sort((a, b) => a.localeCompare(b));
 
 let index: Record<string, IndexEntry> | undefined;
 

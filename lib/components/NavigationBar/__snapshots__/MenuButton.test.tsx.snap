@@ -7,8 +7,10 @@ exports[`Snapshot > should render with defaults 1`] = `
   data-testid="open-nav-menu"
 >
   <svg
+    aria-hidden="true"
     class="ds:mx-auto"
     fill="currentColor"
+    focusable="false"
     height="24"
     stroke="currentColor"
     stroke-width="0"

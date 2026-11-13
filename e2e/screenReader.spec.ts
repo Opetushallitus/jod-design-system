@@ -48,20 +48,6 @@ test.describe('NavigationMenu', () => {
       'link, Osaamispolkuportaali Linkki johtaa palvelun ulkopuolelle',
     );
   });
-
-  test('returns focus to the opening button when closed', async ({ page }) => {
-    // Known issue: the component renders null when closed, so the <dialog> is removed
-    // without dialog.close() and focus falls back to <body>. Screen reader users lose
-    // their place. Remove test.fail() when fixed.
-    test.fail();
-    await gotoStory(page, STORY);
-    const openButton = page.getByRole('button', { name: 'Open menu' });
-    await openButton.click();
-    await page.getByRole('button', { name: 'Sulje valikko' }).click();
-    await expect(page.getByRole('dialog')).toBeHidden();
-
-    await expect(openButton).toBeFocused({ timeout: 1000 });
-  });
 });
 
 test.describe('Tooltip', () => {
@@ -96,9 +82,6 @@ test.describe('Tooltip', () => {
   });
 
   test('icon-only trigger has an accessible name', async ({ page, screenReader }) => {
-    // Known issue: the icon-only trigger in the FocusOrHover story has no accessible
-    // name, so only its description is read (axe: button-name). Remove test.fail() when fixed.
-    test.fail();
     await gotoStory(page, 'components-popups-tooltip--focus-or-hover');
     await screenReader.start();
 

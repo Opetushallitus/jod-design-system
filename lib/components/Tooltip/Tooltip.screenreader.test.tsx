@@ -92,15 +92,14 @@ describe('Tooltip screen reader', () => {
     expect(screen.getByRole('button', { name: 'Trigger' })).toHaveFocus();
   });
 
-  // Known issue: an icon-only trigger (the "focus or hover" story) has no accessible name,
-  // so it is read as just "button, not expanded". axe reports the same as `button-name`.
-  // TooltipTrigger does not require ariaLabel and the icon has no title. Remove `.fails` when fixed.
-  it.fails('names an icon-only trigger', async () => {
+  // An icon-only trigger (the "focus or hover" story) is named with `ariaLabel`. The icon
+  // itself is aria-hidden, so without it the trigger would be read as just "button, not expanded".
+  it('names an icon-only trigger', async () => {
     render(
       <div>
         <span>Important label</span>
         <Tooltip>
-          <TooltipTrigger toggleOnClick>
+          <TooltipTrigger toggleOnClick ariaLabel="Important label: more information">
             <JodInfo />
           </TooltipTrigger>
           <TooltipContent>Info</TooltipContent>
@@ -111,7 +110,6 @@ describe('Tooltip screen reader', () => {
 
     await virtual.next();
     await virtual.next();
-    // Expected: "button, <name>, not expanded". Actual: "button, not expanded".
-    expect(await virtual.lastSpokenPhrase()).toMatch(/^button, [^,]+, not expanded$/);
+    expect(await virtual.lastSpokenPhrase()).toBe('button, Important label: more information, not expanded');
   });
 });

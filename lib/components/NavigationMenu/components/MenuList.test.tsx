@@ -161,6 +161,31 @@ describe('MenuListItem', () => {
     expect(screen.getByText('Child')).toBeInTheDocument();
   });
 
+  it('opens the submenu when a child item becomes selected after mount', () => {
+    const section = (selected: boolean) => ({
+      linkItems: [{ label: 'Parent', childItems: [{ label: 'Child', selected, linkComponent: DummyLink }] }],
+    });
+    const { rerender } = render(<MenuList menuSection={section(false)} openSubMenuLabel="Open submenu" collapsed />);
+    expect(screen.getByLabelText('Open submenu')).toHaveAttribute('aria-expanded', 'false');
+
+    rerender(<MenuList menuSection={section(true)} openSubMenuLabel="Open submenu" collapsed />);
+    expect(screen.getByLabelText('Open submenu')).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByText('Child')).toBeInTheDocument();
+  });
+
+  it('keeps a submenu closed by the user closed when re-rendered with the same items', () => {
+    const section = {
+      linkItems: [{ label: 'Parent', childItems: [{ label: 'Child', linkComponent: DummyLink }] }],
+    };
+    const { rerender } = render(<MenuList menuSection={section} openSubMenuLabel="Open submenu" collapsed={false} />);
+    fireEvent.click(screen.getByLabelText('Open submenu'));
+    expect(screen.getByLabelText('Open submenu')).toHaveAttribute('aria-expanded', 'false');
+
+    rerender(<MenuList menuSection={section} openSubMenuLabel="Open submenu" collapsed={false} />);
+    expect(screen.getByLabelText('Open submenu')).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.queryByText('Child')).not.toBeInTheDocument();
+  });
+
   it('applies custom className to menu item', () => {
     render(
       <MenuList

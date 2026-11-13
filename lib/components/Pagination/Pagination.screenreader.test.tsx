@@ -91,10 +91,7 @@ describe('Pagination screen reader', () => {
     expect(await virtual.spokenPhraseLog()).not.toContain('button, Previous page, disabled');
   });
 
-  // Known issue: Pagination passes `totalItems` to `itemLabel` as `totalPages`, so a
-  // label like "Page 1 of {totalPages}" is read as "Page 1 of 50" instead of
-  // "Page 1 of 5". Remove `.fails` when fixed.
-  it.fails('passes the number of pages to the item label', async () => {
+  it('passes the number of pages to the item label', async () => {
     const { container } = render(
       <Demo labels={{ ...translations, itemLabel: ({ page, totalPages }) => `Page ${page} of ${totalPages}` }} />,
     );

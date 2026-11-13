@@ -106,7 +106,7 @@ describe('MediaCard', () => {
       />,
     );
 
-    expect(screen.getByRole('link', { name: 'Default' })).toHaveAttribute('href', '/target');
+    expect(screen.getByRole('link', { name: 'Default Default description' })).toHaveAttribute('href', '/target');
   });
 
   it('emits data-testid attributes when testId is provided (vertical)', () => {

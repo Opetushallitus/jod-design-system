@@ -3,11 +3,65 @@ import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 
 import { useMediaQueries } from '../../hooks/useMediaQueries';
+import { useOnChange } from '../../hooks/useOnChange';
 import { applyReducedMotionPreference } from '../../motion';
 import { type AnimationMode, getModalAnimations, tidyClasses as tc } from '../../utils';
 
 // Must run before Motion's first animation, which starts during mount.
 applyReducedMotionPreference();
+
+/**
+ * Whether the element scrolls. A scrolling area must be reachable with the keyboard, so that keyboard users can scroll
+ * it even when it holds no focusable element. Returns a callback ref for the scrolling element.
+ */
+const useOverflows = () => {
+  const [element, setElement] = React.useState<HTMLElement | null>(null);
+  const [overflows, setOverflows] = React.useState(false);
+
+  React.useEffect(() => {
+    // ResizeObserver is missing in some test environments (e.g. plain jsdom); the area then just stays unfocusable.
+    if (!element || typeof ResizeObserver === 'undefined') {
+      return;
+    }
+    // A focused area stays focusable even if it stops overflowing (e.g. the window grows), as removing tabIndex would
+    // drop focus to the body. It is updated again when focus leaves it.
+    const update = () =>
+      setOverflows(element.scrollHeight > element.clientHeight || document.activeElement === element);
+
+    // The size of the area changes with the modal, and the height of its content with the content. ResizeObserver
+    // also reports each element once when it starts observing it, which gives the initial value.
+    const resizeObserver = new ResizeObserver(update);
+    const observeChildren = () => {
+      resizeObserver.disconnect();
+      resizeObserver.observe(element);
+      for (const child of element.children) {
+        resizeObserver.observe(child);
+      }
+    };
+    observeChildren();
+    const mutationObserver = new MutationObserver(() => {
+      observeChildren();
+      update();
+    });
+    mutationObserver.observe(element, { childList: true });
+    element.addEventListener('blur', update);
+
+    return () => {
+      resizeObserver.disconnect();
+      mutationObserver.disconnect();
+      element.removeEventListener('blur', update);
+    };
+  }, [element]);
+
+  return [setElement, overflows] as const;
+};
+
+/**
+ * Props that make a scrolling area focusable, so that it can be scrolled with the keyboard. With a label, it is also a
+ * region with that name.
+ */
+const scrollAreaProps = (overflows: boolean, label?: string) =>
+  overflows ? { tabIndex: 0, ...(label ? { role: 'region', 'aria-label': label } : {}) } : {};
 
 export interface ModalProps {
   /** Required name for the screenreader */
@@ -20,6 +74,11 @@ export interface ModalProps {
   topSlot?: React.ReactNode;
   /** Slot is not used on mobile. */
   sidePanel?: React.ReactNode;
+  /**
+   * Accessible name of the side panel. When the side panel scrolls, it is focusable so that keyboard users can scroll
+   * it, and it is then a region with this name.
+   */
+  sidePanelAriaLabel?: string;
   fullWidthContent?: boolean;
   /** Test id for querying in tests */
   testId?: string;
@@ -39,6 +98,7 @@ export const Modal = ({
   progress,
   topSlot,
   sidePanel,
+  sidePanelAriaLabel,
   footer,
   fullWidthContent = false,
   testId,
@@ -48,21 +108,30 @@ export const Modal = ({
 }: ModalProps) => {
   const { sm } = useMediaQueries();
   const id = React.useId();
-  const panelRef = React.useRef<HTMLDivElement>(null);
+  const panelRef = React.useRef<HTMLElement | null>(null);
+  // Dialog mounts the panel through a portal a render after opening, so measuring must wait for it to mount
+  const [panelMounted, setPanelMounted] = React.useState(false);
+  const setPanel = React.useCallback((element: HTMLElement | null) => {
+    panelRef.current = element;
+    setPanelMounted(!!element);
+  }, []);
   const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh' | null>(null);
-  const [isMeasuring, setIsMeasuring] = React.useState(false);
+  // On mobile, the modal is first rendered without height constraints to measure its natural height
+  const [isMeasuring, setIsMeasuring] = React.useState(!sm && open);
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
+  const [contentScrollRef, contentOverflows] = useOverflows();
+  const [sideScrollRef, sideOverflows] = useOverflows();
 
-  // Handle mobile height measurement when modal opens
-  React.useLayoutEffect(() => {
+  // Measure again when the modal opens or its content changes. Set while rendering, so that the measuring render
+  // replaces the current one instead of following it.
+  useOnChange([open, sm, content, footer], () => {
     if (!sm && open) {
-      // First render without height constraints to measure
       setIsMeasuring(true);
     } else if (sm) {
       setMobileHeight(null);
       setIsMeasuring(false);
     }
-  }, [open, sm, content, footer]);
+  });
 
   // Measure after DOM has been updated with measurement classes
   React.useLayoutEffect(() => {
@@ -74,7 +143,7 @@ export const Modal = ({
       setMobileHeight(height);
       setIsMeasuring(false);
     }
-  }, [isMeasuring]);
+  }, [isMeasuring, panelMounted]);
 
   // Get mobile height classes based on state
   const getMobileHeightClasses = (): string => {
@@ -132,7 +201,7 @@ export const Modal = ({
             >
               {/* Modal container */}
               <DialogPanel
-                ref={panelRef}
+                ref={setPanel}
                 id={`ds-modal-panel-${id}`}
                 as={motion.div}
                 initial={panelAnimations.initial}
@@ -195,8 +264,11 @@ export const Modal = ({
                       data-testid={getTestId('main')}
                     >
                       <div
+                        ref={contentScrollRef}
                         className="ds:overflow-y-auto ds:flex ds:flex-col ds:flex-1"
                         data-testid={getTestId('scroll')}
+                        // Focusable, but not a named region: it would repeat the name of the dialog around it.
+                        {...scrollAreaProps(contentOverflows)}
                       >
                         {content}
                       </div>
@@ -208,8 +280,10 @@ export const Modal = ({
                         data-testid={getTestId('side')}
                       >
                         <div
+                          ref={sideScrollRef}
                           className={`ds:mr-5 ds:sm:mr-0 ds:overflow-y-auto ds:flex-1 ${progress ? 'ds:sm:mt-8 ds:mt-6' : ''}`}
                           data-testid={getTestId('side-scroll')}
+                          {...scrollAreaProps(sideOverflows, sidePanelAriaLabel)}
                         >
                           {sidePanel}
                         </div>
