@@ -58,7 +58,7 @@ E2E tests live in `e2e/` and run with [Playwright](https://playwright.dev/) agai
 Install the browser once:
 
 ```shell
-npx playwright install chromium
+npm run test:e2e:install
 ```
 
 Run the tests. Playwright starts the Storybook dev server, or reuses one already running on port 6006:
@@ -80,9 +80,8 @@ E2E_STATIC=1 npm run test:e2e
 Accessibility is checked with [@axe-core/playwright](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/playwright) against WCAG 2.2 A/AA rules, in a real browser, so layout- and style-dependent rules such as color contrast are checked too.
 
 - `e2e/a11y.spec.ts` scans **every story** automatically, so a new story is covered without writing a test. To check a state that needs props, add a story for it. Stories that render nothing or load third-party scripts can opt out with the `!test` tag.
-- `e2e/knownA11yViolations.ts` lists violations that exist but are not fixed yet. They do not fail the build, but the test fails once a listed violation is gone, so fixed entries get removed. Fix new violations instead of adding them there.
 - `e2e/a11yStates.spec.ts` scans states reached through interaction (open listboxes, calendar, dialogs, menus, tooltips) on the whole page, since popups render in portals. Add a state there when a component gains a new popup or dialog.
-- `e2e/reflow.spec.ts` checks every story at 320px width for horizontal scrolling (WCAG 1.4.10 Reflow). Known overflows are listed in `e2e/knownReflowIssues.ts`, with the same rules as the known axe violations.
+- `e2e/reflow.spec.ts` checks every story at 320px width for horizontal scrolling (WCAG 1.4.10 Reflow). Stories exempt from the criterion (content that genuinely needs two-dimensional layout) are listed in `e2e/knownReflowIssues.ts`. The test fails once a listed story reflows, so fixed entries get removed. Fix new overflow instead of adding it there.
 - For other interaction states (e.g. an opened accordion), scan in a component spec with the `makeAxeBuilder` fixture from `e2e/fixtures.ts`:
 
 ```ts

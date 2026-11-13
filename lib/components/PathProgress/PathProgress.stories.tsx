@@ -31,6 +31,7 @@ export const Default: Story = {
     },
   },
   args: {
+    completedText: 'Completed',
     steps: [
       {
         circleComponent: 1,

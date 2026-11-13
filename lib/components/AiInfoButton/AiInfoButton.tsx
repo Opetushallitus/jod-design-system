@@ -10,6 +10,7 @@ import { TooltipTrigger } from '../Tooltip/TooltipTrigger';
 interface AiInfoButtonProps {
   size?: number;
   tooltipContent?: React.ReactNode;
+  /** Accessible name of the icon, or of the button when tooltipContent is given. Required for the button to have a name. */
   ariaLabel?: string;
   testId?: string;
   placement?: Placement;
@@ -45,12 +46,17 @@ export const AiInfoButton = ({
         testId={testId}
         onClick={handleClick}
       >
-        <JodAiGradient className={cx('ds:text-secondary-gray', className)} aria-label={ariaLabel} size={size} />
+        {/* The button is named by ariaLabel, so the icon inside it is decorative */}
+        <JodAiGradient className={cx('ds:text-secondary-gray', className)} size={size} />
       </TooltipTrigger>
 
       <TooltipContent
         id={contentId}
         aria-hidden="false"
+        // The content may hold links, which must be reachable with Tab from the button
+        preserveTabOrder
+        // The content may hold links, which a tooltip role cannot, so it is a region named by the button instead
+        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- TooltipContent always renders a div
         role="region"
         aria-labelledby={triggerId}
         className="ds:z-51 ds:text-white ds:p-4 ds:rounded ds:bg-primary-gray ds:font-arial ds:text-left"

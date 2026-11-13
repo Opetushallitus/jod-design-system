@@ -1,7 +1,6 @@
 import type { Result } from 'axe-core';
 
 import { expect, test } from './fixtures';
-import { KNOWN_VIOLATIONS } from './knownA11yViolations';
 import { settle, storiesOf, storyFiles } from './stories';
 import { gotoStory } from './storybook';
 
@@ -12,8 +11,7 @@ import { gotoStory } from './storybook';
  * report reads per component. Each story is a step with a soft assertion, so all of a
  * component's violations are reported at once instead of stopping at the first.
  *
- * Stories tagged `!test` are skipped, as in Storybook's own test tooling. Known
- * violations are listed in knownA11yViolations.ts.
+ * Stories tagged `!test` are skipped, as in Storybook's own test tooling.
  */
 
 const formatViolations = (violations: Result[]) =>
@@ -28,15 +26,8 @@ for (const storyFile of storyFiles) {
       await test.step(story.name, async () => {
         await gotoStory(page, story.id);
         await settle(page);
-        const known = KNOWN_VIOLATIONS[story.id] ?? [];
         const { violations } = await makeAxeBuilder().analyze();
-
-        const unexpected = violations.filter((v) => !known.includes(v.id));
-        expect.soft(formatViolations(unexpected), `axe violations in ${story.id}`).toEqual([]);
-
-        // A known violation that no longer occurs has been fixed: drop it from the list.
-        const fixed = known.filter((rule) => !violations.some((v) => v.id === rule));
-        expect.soft(fixed, `fixed violations to remove from KNOWN_VIOLATIONS['${story.id}']`).toEqual([]);
+        expect.soft(formatViolations(violations), `axe violations in ${story.id}`).toEqual([]);
       });
     }
   });

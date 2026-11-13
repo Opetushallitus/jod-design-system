@@ -69,7 +69,7 @@ describe('Breadcrumb', () => {
     expect(screen.getByTestId('crumbs')).toBeInTheDocument();
   });
 
-  it('does not render last item at all on small screens', () => {
+  it('hides the last item visually but keeps it for screen readers on small screens', () => {
     mockUseMediaQueries.mockReturnValueOnce({
       sm: true,
       md: false,
@@ -78,6 +78,8 @@ describe('Breadcrumb', () => {
     });
 
     render(<Breadcrumb items={items} linkComponent={LinkComponent} ariaLabel="Breadcrumb" serviceVariant="yksilo" />);
-    expect(screen.queryByText('Työpaikkani')).not.toBeInTheDocument();
+    const current = screen.getByText('Työpaikkani');
+    expect(current).toHaveClass('ds:sr-only');
+    expect(current).toHaveAttribute('aria-current', 'page');
   });
 });

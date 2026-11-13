@@ -2,6 +2,7 @@ export const UncheckedIcon = ({ disabled }: { disabled: boolean }) => {
   const color = disabled ? 'ds:fill-inactive-gray' : 'ds:fill-accent';
   return (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"

@@ -31,6 +31,7 @@ exports[`Snapshot testing > Default 1`] = `
       class="ds:flex-start ds:flex ds:space-x-4 ds:text-form-label"
     >
       <svg
+        aria-hidden="true"
         class="ds:self-center"
         fill="none"
         height="16"

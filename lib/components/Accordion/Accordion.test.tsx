@@ -155,4 +155,86 @@ describe('Accordion', () => {
     expect(screen.getByTestId('acc-title')).toBeInTheDocument();
     expect(screen.getByTestId('acc-content')).toBeInTheDocument();
   });
+
+  it('resets to the initial state when the children change', async () => {
+    const { rerender } = render(
+      <Accordion title={title} animated={false}>
+        <div>First content</div>
+      </Accordion>,
+    );
+    fireEvent.click(screen.getByRole('button', { name: title }));
+    await waitFor(() => expect(screen.queryByText('First content')).not.toBeInTheDocument());
+
+    rerender(
+      <Accordion title={title} animated={false}>
+        <div>Second content</div>
+      </Accordion>,
+    );
+    expect(screen.getByRole('button', { name: title })).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByText('Second content')).toBeInTheDocument();
+  });
+
+  it('keeps the toggled state when re-rendered with the same children', async () => {
+    const children = <div>Same content</div>;
+    const { rerender } = render(
+      <Accordion title={title} animated={false}>
+        {children}
+      </Accordion>,
+    );
+    fireEvent.click(screen.getByRole('button', { name: title }));
+    await waitFor(() => expect(screen.queryByText('Same content')).not.toBeInTheDocument());
+
+    rerender(
+      <Accordion title={title} animated={false}>
+        {children}
+      </Accordion>,
+    );
+    expect(screen.getByRole('button', { name: title })).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  it('stays closed when fetchData fails and retries on the next click', async () => {
+    const fetchData = vi.fn<() => Promise<void>>().mockRejectedValueOnce(new Error('failed')).mockResolvedValue();
+    render(
+      <Accordion
+        title={title}
+        fetchData={fetchData}
+        loadingText="Loading"
+        errorText="Loading failed"
+        initialState={false}
+        animated={false}
+      >
+        <div>Fetched content</div>
+      </Accordion>,
+    );
+    const button = screen.getByRole('button', { name: title });
+
+    fireEvent.click(button);
+    await waitFor(() => expect(fetchData).toHaveBeenCalledTimes(1));
+    // The error is shown and announced in the status region.
+    await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent('Loading failed'));
+    expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.click(button);
+    await waitFor(() => expect(screen.getByText('Fetched content')).toBeInTheDocument());
+    expect(fetchData).toHaveBeenCalledTimes(2);
+    expect(button).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByRole('status')).toBeEmptyDOMElement();
+  });
+
+  it('starts closed with fetchData even when initialState is true, and fetches on the first click', async () => {
+    const fetchData = vi.fn<() => Promise<void>>().mockResolvedValue();
+    render(
+      <Accordion title={title} fetchData={fetchData} animated={false}>
+        <div>Fetched content</div>
+      </Accordion>,
+    );
+    const button = screen.getByRole('button', { name: title });
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.click(button);
+    await waitFor(() => expect(screen.getByText('Fetched content')).toBeInTheDocument());
+    expect(fetchData).toHaveBeenCalledTimes(1);
+    expect(button).toHaveAttribute('aria-expanded', 'true');
+  });
 });

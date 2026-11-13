@@ -56,15 +56,11 @@ describe('Combobox screen reader', () => {
 
     await virtual.next();
     expect(await virtual.lastSpokenPhrase()).toBe(
-      'combobox, Kieli (pakollinen), Suomi, has popup listbox, not expanded, autocomplete in list, invalid, required',
+      'combobox, Kieli (pakollinen), Suomi, Virhe, has popup listbox, not expanded, autocomplete in list, invalid, required',
     );
   });
 
-  // Known issue: the help and error texts are not linked to the input with
-  // aria-describedby, so they are not read with the field. Headless UI drops
-  // aria-describedby passed to ComboboxInput; Select solves this with Field and
-  // Description. Remove `.fails` when fixed.
-  it.fails('reads the help and error texts as the field description', async () => {
+  it('reads the help and error texts as the field description', async () => {
     const { container } = render(
       <Combobox label="Kieli" options={options} placeholder="Valitse" help="Ohje" errorMessage="Virhe" />,
     );

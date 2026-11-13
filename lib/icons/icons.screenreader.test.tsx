@@ -16,13 +16,10 @@ import { JodAdd } from './JodAdd';
  * Screen reader tests with Guidepup's Virtual Screen Reader. See
  * components/Accordion/Accordion.screenreader.test.tsx.
  *
- * The icon components (SvgWrapper.tsx) render an <svg> without aria-hidden, so a
- * decorative icon is read as "graphics-document" unless the component hides it. These
- * tests check what components that use icons decoratively leak. Toast is covered in
+ * The icon components (SvgWrapper.tsx) are hidden from assistive technology unless given
+ * a name, so a decorative icon must not be read (e.g. as "graphics-document"). These
+ * tests check components that use icons decoratively. Toast is covered in
  * Toast.screenreader.test.tsx.
- *
- * Note: an icon inside a <button> is not read, because the children of a button are
- * presentational in ARIA. Icons inside links and plain elements are read.
  */
 describe('Decorative icons screen reader', () => {
   afterEach(async () => {
@@ -44,13 +41,10 @@ describe('Decorative icons screen reader', () => {
 
   it('Button with an icon does not read the icon', async () => {
     const log = await readAll(<Button label="Add" icon={<JodAdd />} iconSide="left" onClick={() => {}} />);
-    expect(log).toEqual(['button, Add', 'Add', 'end of button, Add']);
+    expect(log).toEqual(['button, Add']);
   });
 
-  // Known issue: Button rendered as a link (linkComponent) reads its icon as
-  // "graphics-document", because unlike a button a link does not make its children
-  // presentational and the icon has no aria-hidden. Remove `.fails` when fixed.
-  it.fails('Button rendered as a link does not read the icon', async () => {
+  it('Button rendered as a link does not read the icon', async () => {
     const LinkComponent = ({
       children,
       className,
@@ -88,21 +82,16 @@ describe('Decorative icons screen reader', () => {
 
   it('ActionButton does not read the icon', async () => {
     const log = await readAll(<ActionButton label="Add" icon={<JodAdd />} onClick={() => {}} />);
-    expect(log).toEqual(['button, Add', 'Add', 'end of button, Add']);
+    expect(log).toEqual(['button, Add']);
   });
 
-  // Known issue: EmptyState reads its decorative info icon as "graphics-document" before
-  // the text, because the icon has no aria-hidden. Remove `.fails` when fixed.
-  it.fails('EmptyState does not read the icon', async () => {
+  it('EmptyState does not read the icon', async () => {
     const log = await readAll(<EmptyState text="No results" />);
     expect(log).toContain('No results');
     expect(log).not.toContain('graphics-document');
   });
 
-  // Known issue: Pagination's ellipsis is a <div> whose only content is the "more" icon,
-  // so it is read as "graphics-document" between the page buttons. Remove `.fails` when
-  // fixed.
-  it.fails('Pagination does not read the ellipsis icon', async () => {
+  it('Pagination does not read the ellipsis icon', async () => {
     const log = await readAll(
       <Pagination
         totalItems={100}

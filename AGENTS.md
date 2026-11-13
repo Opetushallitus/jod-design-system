@@ -26,7 +26,8 @@ Before finishing a change, run lint, the format check (`npx oxfmt --check`), uni
 
 A new component is not done until it has all of the following:
 
-- Unit tests in `<Name>.test.tsx` covering rendering, every interaction and state, and a `jest-axe` check. This is the minimum; a component without unit tests must not be added.
+- Unit tests in `<Name>.test.tsx` covering rendering, every interaction and state. This is the minimum; a component without unit tests must not be added.
+- An axe check in a real browser. `e2e/a11y.spec.ts` scans every story automatically, so cover each variant and state with a story. Add states reached through interaction (open popups, dialogs, menus) to `e2e/a11yStates.spec.ts`.
 - Conformance to WCAG 2.2 level AA, verified against the checklist in [Accessibility](#accessibility).
 - Stories in `<Name>.stories.tsx` covering its variants and states.
 - An export from `lib/main.ts`.

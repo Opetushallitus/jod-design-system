@@ -101,4 +101,30 @@ describe('Combobox', () => {
       expect(screen.getByRole('combobox', { name: 'Non-visible label' })).not.toBeNull();
     });
   });
+
+  describe('selected', () => {
+    it('follows the selected prop when it changes', () => {
+      const { rerender } = render(<Combobox label="Label" options={options} placeholder={placeholder} selected="sv" />);
+      expect(screen.getByRole<HTMLInputElement>('combobox').value).toBe('Svenska');
+
+      rerender(<Combobox label="Label" options={options} placeholder={placeholder} selected="en" />);
+      expect(screen.getByRole<HTMLInputElement>('combobox').value).toBe('English');
+    });
+
+    it('keeps the selection of the user when re-rendered with the same selected prop', async () => {
+      const user = userEvent.setup();
+      const { rerender } = render(<Combobox label="Label" options={options} placeholder={placeholder} selected="sv" />);
+      await user.click(screen.getByRole('button', { name: 'Label' }));
+      await user.click(screen.getByRole('option', { name: 'English' }));
+      expect(screen.getByRole<HTMLInputElement>('combobox').value).toBe('English');
+
+      rerender(<Combobox label="Label" options={options} placeholder={placeholder} selected="sv" />);
+      expect(screen.getByRole<HTMLInputElement>('combobox').value).toBe('English');
+    });
+  });
+
+  it('is not described by empty help or error texts', () => {
+    render(<Combobox label="Label" options={options} placeholder={placeholder} help="" errorMessage="" />);
+    expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-describedby');
+  });
 });

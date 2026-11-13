@@ -30,6 +30,7 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
           Default
         </p>
       </div>
+       
       <div
         class="ds:grow ds:content-center"
       >
@@ -51,12 +52,12 @@ exports[`MediaCard > renders the MediaCard component with default vertical varia
       data-testid="md-tags"
     >
       <li
-        class="ds:pb-2"
+        class="ds:pb-1"
       >
         tag1
       </li>
       <li
-        class="ds:pb-2"
+        class="ds:pb-1"
       >
         tag2
       </li>

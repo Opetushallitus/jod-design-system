@@ -44,7 +44,8 @@ export const UserButton = ({
 
   const carets = md ? <>{userMenuOpen ? <JodCaretUp size={20} /> : <JodCaretDown size={20} />}</> : null;
 
-  const username = firstName && firstName.length > 10 ? `${firstName.slice(0, 10)}…` : firstName;
+  const isTruncated = Boolean(firstName && firstName.length > 10);
+  const username = isTruncated ? `${firstName?.slice(0, 10)}…` : firstName;
 
   const profileLinkActiveClasses = `ds:text-white ${getPressedBgColorClassForService(serviceVariant)} ${getAccentBgClassForService(serviceVariant)}`;
 
@@ -54,15 +55,17 @@ export const UserButton = ({
         {...triggerProps}
         className="ds:flex ds:flex-col ds:md:flex-row ds:justify-center ds:items-center ds:select-none ds:cursor-pointer ds:gap-2 ds:md:gap-3 ds:text-primary-gray"
         data-testid="user-button-trigger"
-        aria-label={username !== firstName ? firstName : undefined}
       >
         <JodUser className="ds:mx-auto" />
         <span
           className="ds:whitespace-nowrap ds:md:text-[14px] ds:sm:text-[12px] ds:text-[10px] ds:font-semibold"
-          aria-hidden={username !== firstName ? true : undefined}
+          aria-hidden={isTruncated ? true : undefined}
         >
           {username}
         </span>
+        {/* A truncated name is shown visually, but the full name is read, so the accessible
+            name begins with the visible text (WCAG 2.5.3 Label in Name). */}
+        {isTruncated && <span className="ds:sr-only">{firstName}</span>}
         {carets}
       </button>
       {userMenuOpen && (

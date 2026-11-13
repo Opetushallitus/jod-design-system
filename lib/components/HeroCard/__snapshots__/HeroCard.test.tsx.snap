@@ -2,7 +2,7 @@
 
 exports[`HeroCard > renders HeroCard with a button 1`] = `
 <div
-  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto ds:wrap-anywhere"
   data-testid="hero-root"
   style="background-color: rgba(68, 75, 172, 0.95); color: var(--ds-color-white);"
 >
@@ -30,7 +30,9 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
         Test Button Label
       </span>
       <svg
+        aria-hidden="true"
         fill="currentColor"
+        focusable="false"
         height="24"
         stroke="currentColor"
         stroke-width="0"
@@ -50,7 +52,7 @@ exports[`HeroCard > renders HeroCard with a button 1`] = `
 
 exports[`HeroCard > renders HeroCard without a button 1`] = `
 <div
-  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto"
+  class="ds:flex ds:flex-col ds:gap-4 ds:rounded-lg ds:p-6 ds:justify-between ds:hyphens-auto ds:wrap-anywhere"
   data-testid="hero2-root"
   style="background-color: rgba(68, 75, 172, 0.95); color: var(--ds-color-white);"
 >

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import type { Page } from '@playwright/test';
 
-import { expect, test, WCAG_TAGS } from './fixtures';
+import { expect, FOCUS_GUARDS, test, WCAG_TAGS } from './fixtures';
 import { settle } from './stories';
 import { gotoStory } from './storybook';
 
@@ -17,8 +17,6 @@ type State = {
   name: string;
   story: string;
   open: (page: Page) => Promise<void>;
-  /** Known axe rule violations in this state, until fixed. */
-  known?: string[];
 };
 
 // Headless UI's dialog element itself has no size (its panel is fixed-positioned
@@ -49,9 +47,6 @@ const STATES: State[] = [
       await page.getByRole('button', { name: 'Avaa kalenteri' }).click();
       await expect(page.getByRole('grid')).toBeVisible();
     },
-    // Days of the adjacent months have too low contrast, and the month/year view button's
-    // accessible name does not contain its visible text.
-    known: ['color-contrast', 'label-content-name-mismatch'],
   },
   {
     name: 'Modal open',
@@ -60,9 +55,6 @@ const STATES: State[] = [
       await page.getByRole('button', { name: 'Open Modal example' }).click();
       await expectDialogOpen(page);
     },
-    // The scrolling content area (and side panel) cannot be reached with the keyboard
-    // when it holds no focusable element, so keyboard users cannot scroll it.
-    known: ['scrollable-region-focusable'],
   },
   {
     name: 'ConfirmDialog open',
@@ -87,9 +79,15 @@ const STATES: State[] = [
       await page.keyboard.press('Tab');
       await expect(page.locator('#storybook-root button[aria-expanded="true"]')).toBeFocused();
     },
-    // Same as the story's known violations: icon-only trigger without a name, and
-    // Floating UI's focus guards (aria-hidden, focusable).
-    known: ['button-name', 'aria-hidden-focus'],
+  },
+  {
+    name: 'AiInfoButton tooltip open',
+    story: 'components-buttons-aiinfobutton--with-component',
+    open: async (page) => {
+      await page.getByRole('button', { name: 'Tekoälyn avulla generoitu sisältö' }).click();
+      // The tooltip holds a link, so it is a region named by the button instead of a tooltip
+      await expect(page.getByRole('region', { name: 'Tekoälyn avulla generoitu sisältö' })).toBeVisible();
+    },
   },
   {
     name: 'NavigationMenu open',
@@ -107,24 +105,12 @@ for (const state of STATES) {
     await settle(page);
     await state.open(page);
 
-    const known = state.known ?? [];
-    const { violations } = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+    const { violations } = await new AxeBuilder({ page }).exclude(FOCUS_GUARDS).withTags(WCAG_TAGS).analyze();
 
-    const unexpected = violations.filter((v) => !known.includes(v.id));
-    expect
-      .soft(
-        unexpected.map(
-          (v) => `${v.id} (${v.impact}): ${v.help}\n  ${v.nodes.map((n) => n.target.join(' ')).join('\n  ')}`,
-        ),
-      )
-      .toEqual([]);
-
-    // A known violation that no longer occurs has been fixed: drop it from `known`.
-    expect
-      .soft(
-        known.filter((rule) => !violations.some((v) => v.id === rule)),
-        'fixed violations',
-      )
-      .toEqual([]);
+    expect(
+      violations.map(
+        (v) => `${v.id} (${v.impact}): ${v.help}\n  ${v.nodes.map((n) => n.target.join(' ')).join('\n  ')}`,
+      ),
+    ).toEqual([]);
   });
 }

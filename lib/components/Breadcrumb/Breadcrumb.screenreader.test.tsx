@@ -51,11 +51,8 @@ describe('Breadcrumb screen reader', () => {
     ]);
   });
 
-  // Known issue: on small screens the current (last) page is not rendered at all, so the
-  // reader announces an empty third list item and the user never hears the current
-  // page. It could be kept for screen readers (e.g. sr-only) instead of being removed.
-  // Remove `.fails` when fixed.
-  it.fails('announces the current page on small screens', async () => {
+  // On small screens the current page is hidden visually but kept for screen readers.
+  it('announces the current page on small screens', async () => {
     setDesktop(false);
     const { container } = renderBreadcrumb();
     await virtual.start({ container });
