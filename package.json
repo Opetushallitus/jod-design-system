@@ -56,8 +56,8 @@
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
     "@guidepup/virtual-screen-reader": "0.33.0",
-    "@lavamoat/allow-scripts": "5.1.0",
-    "@lavamoat/preinstall-always-fail": "3.0.1",
+    "@lavamoat/allow-scripts": "5.1.1",
+    "@lavamoat/preinstall-always-fail": "3.0.2",
     "@playwright/test": "1.64.1",
     "@storybook/addon-a11y": "10.6.7",
     "@storybook/addon-docs": "10.6.7",
@@ -68,7 +68,7 @@
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.9",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@typescript/native": "npm:typescript@7.0.2",
@@ -107,12 +107,12 @@
     },
     "runtime": {
       "name": "node",
-      "version": "^24.0.0",
+      "version": "^26.0.0",
       "onFail": "error"
     }
   },
   "engines": {
-    "node": "^24.0.0",
+    "node": "^26.0.0",
     "npm": ">=11.10.0"
   },
   "lavamoat": {

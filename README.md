@@ -20,7 +20,7 @@ npm exec allow-scripts run
 
 ### Node, npm, and install policy
 
-The project targets **Node.js 24** (see `.nvmrc`, currently `lts/krypton`) and **npm 11.10 or newer**, as declared in `package.json` under `engines` and `devEngines`. The repository `.npmrc` sets `engine-strict=true`, so `npm install` will **fail** if your Node or npm version does not satisfy those constraints.
+The project targets **Node.js 26** (see `.nvmrc`, currently `lts/lithium`) and **npm 11.10 or newer**, as declared in `package.json` under `engines` and `devEngines`. The repository `.npmrc` sets `engine-strict=true`, so `npm install` will **fail** if your Node or npm version does not satisfy those constraints.
 
 Other notable `.npmrc` settings:
 
