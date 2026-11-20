@@ -1,5 +1,6 @@
 // oxlint-disable vitest/require-mock-type-parameters
 import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Modal } from './Modal';
@@ -39,5 +40,29 @@ describe('Modal', () => {
     expect(screen.getByTestId('modal-main')).toBeInTheDocument();
     expect(screen.getByTestId('modal-scroll')).toBeInTheDocument();
     expect(screen.getByTestId('modal-footer')).toBeInTheDocument();
+  });
+
+  it('becomes visible on mobile when its content changes while the height is measured', async () => {
+    const Content = ({ onLayout }: { onLayout: () => void }) => {
+      React.useLayoutEffect(onLayout);
+      return <div>Modal Content</div>;
+    };
+    const Parent = () => {
+      const [, setLayouts] = React.useState(0);
+      return (
+        <Modal
+          name="Modal name"
+          open={true}
+          onClose={vi.fn()}
+          content={<Content onLayout={() => setLayouts((count) => Math.min(count + 1, 3))} />}
+          testId="modal"
+        />
+      );
+    };
+
+    render(<Parent />);
+
+    await waitFor(() => expect(screen.getByTestId('modal-panel')).toHaveClass('ds:h-[50dvh]'));
+    expect(screen.getByTestId('modal-panel')).not.toHaveClass('ds:invisible');
   });
 });
