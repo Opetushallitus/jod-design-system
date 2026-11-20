@@ -118,6 +118,7 @@ export const Modal = ({
   const [mobileHeight, setMobileHeight] = React.useState<'50dvh' | '90dvh' | null>(null);
   // On mobile, the modal is first rendered without height constraints to measure its natural height
   const [isMeasuring, setIsMeasuring] = React.useState(!sm && open);
+  const [measureRequest, setMeasureRequest] = React.useState(0);
   const getTestId = (suffix: string) => (testId ? `${testId}-${suffix}` : suffix);
   const [contentScrollRef, contentOverflows] = useOverflows();
   const [sideScrollRef, sideOverflows] = useOverflows();
@@ -127,6 +128,7 @@ export const Modal = ({
   useOnChange([open, sm, content, footer], () => {
     if (!sm && open) {
       setIsMeasuring(true);
+      setMeasureRequest((count) => count + 1);
     } else if (sm) {
       setMobileHeight(null);
       setIsMeasuring(false);
@@ -143,7 +145,7 @@ export const Modal = ({
       setMobileHeight(height);
       setIsMeasuring(false);
     }
-  }, [isMeasuring, panelMounted]);
+  }, [isMeasuring, panelMounted, measureRequest]);
 
   // Get mobile height classes based on state
   const getMobileHeightClasses = (): string => {
